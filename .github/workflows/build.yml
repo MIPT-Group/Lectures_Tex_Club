@@ -1,0 +1,62 @@
+name: Build and deploy LaTeX
+
+on: push
+
+jobs:
+        build:
+                runs-on: ubuntu-latest
+                steps:
+                        - uses: actions/checkout@v2
+
+                        - name: PrepareBuild
+                          run: |
+                                  pwd
+                                  mkdir raw_build
+                                  BRANCH_NAME=${GITHUB_REF#refs/heads/}
+                                  echo ::set-env name=BRANCH_NAME::$(echo ${BRANCH_NAME})
+                                  BRANCH_ARGUMENTS=(${BRANCH_NAME//\// })
+
+                                  TYPE=${BRANCH_ARGUMENTS[0]}
+                                  SEMESTER=${BRANCH_ARGUMENTS[1]}
+                                  SUBJECT_NAME=${BRANCH_ARGUMENTS[2]}
+                                  CONSPECT_NAME=${BRANCH_ARGUMENTS[3]}
+
+                                  if [[ ${TYPE} == "l" ]]; then
+                                        TYPE="Lecture"
+                                  else
+                                        TYPE="Seminar"
+                                  fi
+
+                                  SEMESTER="${SEMESTER}_Semester"
+
+                                  echo ::set-env name=TYPE::$(echo ${TYPE})
+                                  echo ::set-env name=SEMESTER::$(echo ${SEMESTER})
+                                  echo ::set-env name=SUBJECT_NAME::$(echo ${SUBJECT_NAME})
+                                  echo ::set-env name=CONSPECT_NAME::$(echo ${CONSPECT_NAME})
+
+                          id: extract_branch
+                        - name: Build
+                          uses: xu-cheng/latex-action@v2
+                          env:
+                                  CONSPECT_NAME: ${{ env.CONSPECT_NAME }}
+                          with:
+                                  root_file: main.tex
+                                  working_directory: Notes/${{ env.TYPE }}/${{ env.SEMESTER }}/${{ env.SUBJECT_NAME }}
+                                  args: -output-dir=../../../../raw_build -jobname=${{ env.CONSPECT_NAME }}
+                                  compiler: pdflatex
+                                  post_compile: "pdflatex -output-dir=$GITHUB_WORKSPACE/raw_build -jobname=$CONSPECT_NAME main.tex"
+
+                        - name: Prepare
+                          run: |
+                                  mkdir -p build/Notes/${{ env.TYPE }}/${{ env.SEMESTER }}/${{ env.SUBJECT_NAME }}
+                                  mv raw_build/${{ env.CONSPECT_NAME}}.pdf build/Notes/${{ env.TYPE }}/${{ env.SEMESTER }}/${{ env.SUBJECT_NAME }} 
+
+                        - name: Upload
+                          uses: satackey/action-google-drive@v1
+                          with:
+                                  skicka-tokencache-json: ${{ secrets.SKICKA_TOKENCACHE_JSON }}
+                                  upload-from: ./build
+                                  upload-to: /lectures
+                                  google-client-id: ${{ secrets.GOOGLE_CLIENT_ID }}
+                                  google-client-secret: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+
