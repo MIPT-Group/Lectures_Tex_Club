@@ -1,6 +1,6 @@
 \documentclass[a4paper,12pt]{article}
 
-\input{etc/preamble}
+\input{etc/preamble.tex}
 
 \newcommand{\CourseName}{Краткое Название} %  Используется в преамбуле для создания названия предмета в верхнем контитуле   
 \newcommand{\CourseDate}{Осень 2020}           %  Используется в преамбуле для создания даты в нижнем контитуле
@@ -8,13 +8,15 @@
 %\includeonly{lectures/lect05,lectures/lect06}  % Чтобы скомпилировать только часть лекций
 
 \begin{document}
-    \input{etc/title_page}
+    \input{etc/title_page.tex}
     \newpage
     \hypertarget{intro}{}
     \tableofcontents
-    
-    \include{lectures/lect01}
-    \include{lectures/lect02}
-    
+
+    \newpage
+    \input{lectures/lect01.tex}
+    \newpage
+    \input{lectures/lect02.tex}
+
     \input{etc/additional}
 \end{document}
