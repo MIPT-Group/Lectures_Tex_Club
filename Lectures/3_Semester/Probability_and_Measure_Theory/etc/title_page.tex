@@ -1,11 +1,14 @@
+%%% Если будут вопросы по преамбуле, не стесняйтесь спрашивать
+
 %%% Всю шаблонную информацию можно менять тут
-\newcommand{\FullCourseNameFirstPart}{\so{НАЗВАНИЕ~ПРЕДМЕТА}}
-\newcommand{\FullCourseNameSecondPart}{\so{ПРОДОЛЖЕНИЕ~НАЗВАНИЯ}}
+\newcommand{\FullCourseNameFirstPart}{\so{ОСНОВЫ~ВЕРОЯТНОСТИ}}
+\newcommand{\FullCourseNameSecondPart}{\so{и~ТЕОРИЯ~МЕРЫ}}
+\newcommand{\SchoolName}{ФПМИ}
+\newcommand{\TrackName}{КТ}
 \newcommand{\SemesterNumber}{III}
-\newcommand{\LecturerInitials}{Фамилия Имя Отчество}
-\newcommand{\AutherInitials}{Фамилия Имя}
-\newcommand{\VKLink}{https://vk.com/}
-\newcommand{\OverleafLink}{https://www.overleaf.com/}
+\newcommand{\LecturerInitials}{Эрлих Иван Генрихович}
+\newcommand{\AutherInitials}{Фреик Александр}
+\newcommand{\VKLink}{https://vk.com/akira33333}
 \newcommand{\GithubLink}{https://github.com}
 
 \begin{titlepage}
@@ -18,27 +21,30 @@
 	
 	\textbf{Московский Физико-Технический Институт \\ КЛУБ ТЕХА ЛЕКЦИЙ}
 	\vspace{20ex}
-	\vspace{13ex}
 	
+	\rule{\linewidth}{0.5mm}
 	{\textbf{\FullCourseNameFirstPart}}
 	\\
 	{\textbf{\FullCourseNameSecondPart}}
+	\rule{\linewidth}{0.5mm}
 	
-	\SemesterNumber\ СЕМЕСТР  
-	\vspace{1ex}
-	
+	\SemesterNumber\ СЕМЕСТР
+	\\
+	Физтех Школа: \textit{\SchoolName}
+	\\
+	Направление: \textit{\TrackName}
+	\\
 	Лектор: \textit{\LecturerInitials}
+	\vspace{1ex}
 	
 	\begin{figure}[!ht]
 		\centering
-		\includegraphics[width=0.4\textwidth]{logo_LTC.png}
+		\includegraphics[width=0.6\textwidth]{logo_LTC}
 		\label{fig:my_label}
 	\end{figure}
 \begin{flushright}
 	\noindent
 	Автор: \href{\VKLink}{\textit{\AutherInitials}}
-	\\
-	\href{\OverleafLink}{\textit{Проект на overleaf}}
 	\\
 	\href{\GithubLink}{\textit{Проект на github}} % Опционально, если хотите учавствовать в рейтинге
 \end{flushright}
