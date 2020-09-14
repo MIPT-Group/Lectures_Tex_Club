@@ -46,15 +46,15 @@ jobs:
                                   CONSPECT_NAME: ${{ env.CONSPECT_NAME }}
                           with:
                                   root_file: main.tex
-                                  working_directory: Notes/${{ env.TYPE }}/${{ env.SEMESTER }}/${{ env.SUBJECT_NAME }}
+                                  working_directory: ${{ env.TYPE }}/${{ env.SEMESTER }}/${{ env.SUBJECT_NAME }}
                                   args: -output-dir=../../../../raw_build -jobname=${{ env.CONSPECT_NAME }}
                                   compiler: pdflatex
                                   post_compile: "pdflatex -output-dir=$GITHUB_WORKSPACE/raw_build -jobname=$CONSPECT_NAME main.tex"
 
                         - name: Prepare
                           run: |
-                                  mkdir -p build/Notes/${{ env.TYPE }}/${{ env.SEMESTER }}/${{ env.SUBJECT_NAME }}
-                                  mv raw_build/${{ env.CONSPECT_NAME}}.pdf build/Notes/${{ env.TYPE }}/${{ env.SEMESTER }}/${{ env.SUBJECT_NAME }} 
+                                  mkdir -p build/${{ env.TYPE }}/${{ env.SEMESTER }}/${{ env.SUBJECT_NAME }}
+                                  mv raw_build/${{ env.CONSPECT_NAME}}.pdf build/${{ env.TYPE }}/${{ env.SEMESTER }}/${{ env.SUBJECT_NAME }} 
 
                         - name: Upload
                           uses: satackey/action-google-drive@v1
