@@ -41,7 +41,7 @@
      $ git pull -r origin master
    ```
 
-   и дальше делаете push. 
+   и дальше делаете push.  
    ```$ git push origin branch_name```
    
    После этого, как все будет готово и конспект проверен –– можете сделать pul request в master (например, на сайте GitHub)    
