@@ -1,0 +1,20 @@
+\documentclass[a4paper,12pt]{article}
+
+\input{preamble_and_reference/preamble}
+
+\newcommand{\CourseName}{Краткое Название} %  Используется в преамбуле для создания названия предмета в верхнем контитуле   
+\newcommand{\CourseDate}{Осень 2020}           %  Используется в преамбуле для создания даты в нижнем контитуле и в title_page
+
+%\includeonly{lectures/lect05,lectures/lect06}  % Чтобы скомпилировать только часть лекций
+
+\begin{document}
+    \input{preamble_and_reference/title_page}
+    \newpage
+    \hypertarget{intro}{}
+    \tableofcontents
+    
+    \include{lectures_src/lecture00}
+    \include{lectures_src/lecture01}
+    
+    \input{preamble_and_reference/additional_info}
+\end{document}

@@ -1,0 +1,52 @@
+%%% Если будут вопросы по преамбуле, не стесняйтесь спрашивать
+
+%%% Всю шаблонную информацию можно менять тут
+\newcommand{\FullCourseNameFirstPart}{\so{НАЗВАНИЕ~ПРЕДМЕТА}}
+\newcommand{\FullCourseNameSecondPart}{\so{ПРОДОЛЖЕНИЕ~НАЗВАНИЯ}}
+\newcommand{\SemesterNumber}{III}
+\newcommand{\LecturerInitials}{Иванова Светлана Владимировна}
+\newcommand{\AutherInitials}{Герасимов Федор}
+\newcommand{\VKLink}{https://vk.com/gefedya}
+\newcommand{\OverleafLink}{https://www.overleaf.com/}    %!!!!! вписать
+\newcommand{\GithubLink}{https://github.com/gefedya/LaTeX_lectures}
+
+\begin{titlepage}
+	\clearpage\thispagestyle{empty}
+	\centering
+	
+	\textit{Федеральное государственное автономное учреждение \\
+		высшего профессионального образования}
+	\vspace{0.5ex}
+	
+	\textbf{Московский Физико-Технический Институт \\ КЛУБ ТЕХА ЛЕКЦИЙ}
+	\vspace{20ex}
+	\vspace{13ex}
+	
+	{\textbf{\FullCourseNameFirstPart}}
+	\\
+	{\textbf{\FullCourseNameSecondPart}}
+	
+	\SemesterNumber\ СЕМЕСТР  
+	\vspace{1ex}
+	
+	Лектор: \textit{\LecturerInitials}
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.4\textwidth]{logo_LTC.png}
+		\label{fig:Phystech_logo}
+	\end{figure}
+\begin{flushright}
+	\noindent
+	Автор: \href{\VKLink}{\textit{\AutherInitials}}
+	\\
+	\href{\OverleafLink}{\textit{Проект на overleaf}}
+	\\
+	\href{\GithubLink}{\textit{Проект на github}} % Опционально, если хотите учавствовать в рейтинге
+\end{flushright}
+	
+	\vfill
+	\CourseDate\ года
+	\pagebreak
+	
+\end{titlepage}
