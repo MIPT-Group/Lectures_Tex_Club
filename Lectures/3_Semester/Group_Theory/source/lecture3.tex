@@ -1,0 +1,86 @@
+\begin{theorem}[Первая теорема об изоморфизме]
+	Пусть $G$ "--- группа, $K \normal G$, $H \le G$. Тогда $HK = KH \le G$, $K \cap H \normal H$ и $HK / K \cong H / (K \cap H)$.
+\end{theorem}
+
+\begin{proof}
+	Первая утверждение теоремы уже было доказано, поэтому докажем оставшиеся два. Для этого рассмотрим канонический эпиморфизм $\pi: G \hm\to G / K$ и $\forall g \in G$ обозначим $\overline{g} := \pi(g)$.
+	
+	Пусть $\phi := \pi|_H : H \to G/ K$. Тогда $\ke\phi = \ke\pi \cap H = K \cap H$, откуда $K \cap H \normal H$. $\im\phi = \{\overline{h}: h \in H\} = \{hK: h \hm\in H\} = HK / K$, поскольку $HK / K \hm= \{hkK: h \in H, k \hm\in K\} = \{hK: h \in H\}$. По основной теореме о гомоморфизме, $HK / K \cong H / (K \cap H)$.
+\end{proof}
+
+\begin{theorem}[Вторая теорема об изоморфизме, или теорема о соответствии]
+	Пусть $G$ "--- группа, $K \normal G$. Тогда каждой подгруппе $H$ такой, что $K \le H \le G$, соответствует подгруппа $\overline{H} = H / K \hm\le G / K = \overline{G}$, причем соответствие $H \mapsto \overline{H}$ "--- биекция между подгруппами вида $K \le H \le G$ и подгруппами $\overline{H} \le \overline{G}$. Более того, если $K \le H \le G$, то $H \normal G \Leftrightarrow \overline{H} \normal \overline{G}$, и в этом случае $G / H \cong \overline{G} / \overline{H}$.
+\end{theorem}
+
+\begin{proof}~
+	\begin{enumerate}
+		\item Рассмотрим канонический эпиморфизм $\pi: G \hm\to G / K = \overline{G}$. Тогда $\forall K \le H \le G: \pi(H) =\overline{H} = H / K \le G / K$. С другой стороны, $\forall L \le \overline{G}: \pi^{-1}(L) = \bigcup\limits_{gK \in L}gK \le G$. Проверим, что $\pi$ осуществляет требуемую биекцию. Действительно, $\pi^{-1}\circ\pi = \id$, поскольку $\forall K \le H \le G: \pi^{-1}(\pi(H)) = H$ ($H$ "--- объединение нескольких левых смежных классов по $K$), и $\pi\circ\pi^{-1} = \id$, поскольку $\forall L \le \overline{G}: \pi(\pi^{-1}(L)) = L$.
+		
+		\item Если $H \normal G$, то $\forall g \in G: gH = Hg$, поэтому, применяя эпиморфизм $\pi$, получаем, что $\forall \overline{g} \in \overline{G}: \overline{g}\overline{H} = \overline{H}\overline{g}$, то есть $\overline{H} \normal \overline{G}$. Пусть теперь, наоборот, $\overline{H} \normal \overline{G}$. Рассмотрим канонический эпиморфизм $\pi': \overline{G} \to \overline{G} / \overline{H}$. Тогда $\phi := \pi'\circ\pi: G \hm\to \overline{G} \hm\to \overline{G} / \overline{H}$ "--- тоже эпиморфизм, причем $\ke\phi = \pi^{-1}(\pi'^{-1}(\overline{H})) \hm= \pi^{-1}(\overline{H}) = H$. Значит, $H \normal G$, и, по основной теореме о гомоморфизме, $\overline{G} / \overline{H} \cong G / H$.
+	\end{enumerate}
+\end{proof}
+
+\begin{exercise}
+	Укажите в явном виде изоморфизм $G / H \hm\to \overline{G} / \overline{H}$ из предыдущей теоремы.
+\end{exercise}
+
+\begin{proposition}
+	Пусть $G$ "--- конечная группа, $H, K \le G$. Тогда $|HK| = \frac{|H||K|}{|H\cap K|}$.
+\end{proposition}
+
+\begin{proof}
+	Рассмотрим отображение $\delta: H\times K \to K$ такое, что $\forall h \hm\in H: \forall k \in K: \delta(h, k) = hk$. Тогда $\delta(h_1, k_1) = \delta(h_2, k_2) \hm\Leftrightarrow h_1k_1 = h_2k_2 \hm\Leftrightarrow h_2^{-1}h_1 = k_2k_1^{-1} = x \in H \cap K$, то есть $h_1 = h_2x$, $k_1 = x^{-1}k_2$. Значит, $|HK||H \cap K| = |H \times K| = |H||K|$.
+\end{proof}
+
+\begin{example} Рассмотрим несколько примеров применения теорем об изоморфизме:
+	\begin{enumerate}
+		\item Множество $V_4 = \{e, (12)(34), (13)(24), (14)(23)\} \subset S_4$ "--- это подгруппа в $S_4$ (\textit{четверная группа Клейна}), причем $V_4 \normal S_4$. Рассмотрим $S_3 \le S_4$, $S_3 \cap V_4 = \{e\}$. По первой теореме об изоморфизме, $S_3V_4 / V_4 \cong S_3 / \{S_3 \cap V_4\} = S_3$. Поскольку $|S_3V_4| = 24$, то $S_3V_4 = S_4$ и $S_4 / V_4 \cong S_3$.
+		\item Рассмотрим $\Z_n = \Z / n\Z$. По второй теореме об изоморфизме, $\forall \overline{H} \le Z_n: \overline{H} \mapsto H$, $n\Z \le H \le \Z$. Поскольку $\forall H \le \Z: H = k\Z$, это возможно только тогда, когда $k\mid n$. Значит, все подгруппы в $\Z_n$ "--- это $\overline{k\Z} \hm= k\Z_n$, $k\mid n$. Более того, $\Z_n / k\Z_n \cong \Z / k\Z = \Z_k$.
+	\end{enumerate}
+\end{example}
+
+\subsection{Действие группы на множестве}
+
+\begin{definition}
+	Пусть $G$ "--- группа, $\Omega$ "--- множество. Будем говорить, что определено \textit{действие группы $G$ на множестве $\Omega$}, если для каждого $g \in G$ и $\omega \in \Omega$ определен элемент $g\omega = g(\omega) \in \Omega$, причем выполнены следующие свойства:
+	\begin{enumerate}
+		\item $\forall g_1, g_2 \in G: \forall \omega \in \Omega: (g_1g_2)\omega = g_1(g_2\omega)$
+		\item $\forall \omega \in \Omega: e\omega = \omega$
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}
+	Пусть $G$ "--- группа, $\Omega$ "--- множество. Определим группу $S(\Omega) := \{\sigma: \Omega \to \Omega: \sigma\text{ "--- биекция}\}$. Тогда \textit{действие группы $G$ на множестве $\Omega$} "--- это гомоморфизм $\phi: G \to S(\Omega)$.
+\end{definition}
+
+\begin{proposition}
+	Данные выше определения действия группы $G$ на множестве $\Omega$ эквивалентны.
+\end{proposition}
+
+\begin{proof}~
+	\begin{itemize}
+		\item ($1 \Rightarrow 2$) $\forall g \in G$ рассмотрим $I_g: \Omega \to \Omega$, $\forall \omega \in \Omega: I_g(\omega) = g\omega$. Тогда $I_{g_1g_2}(\omega) \hm= (g_1g_2)(\omega) = g_1(g_2\omega) = I_{g_1}\circ I_{g_2}$. Проверим, что $I_g$ "--- это биекция. Действительно, $I_e = \id$, тогда $\forall g \in G: I_g\circ I_{g^{-1}} = I_{g^{-1}}\circ I_g = \id$. Значит, $\phi(g) = I_g$ "--- гомоморфизм групп $G$ и $S(\Omega)$.
+		\item($2 \Rightarrow 1$) Для каждого $g \in G$ определим $g\omega := \phi(g)(\omega)$. Тогда $(g_1g_2)\omega = \phi(g_1g_2)(\omega) \hm= \phi(g_1)(\phi(g_2)(\omega)) = g_1(g_2\omega)$ и $e\omega \hm= \phi(e)(\omega) = \id(\omega) = \omega$.
+	\end{itemize}
+\end{proof}
+
+\begin{definition}
+	Пусть $G$ "--- группа, $\Omega$ "--- множество. \textit{Ядро} действия $G$ на $\Omega$ "--- это ядро соответствующего гомоморфизма $\phi: G \hm\to S(\Omega)$, то есть $\{g \in G: \forall \omega \in \Omega: g\omega = \omega\}$.
+\end{definition}
+
+\begin{note}
+	Ядро действия группы $G$ "--- это нормальная подгруппа в $G$, поскольку это ядро гомоморфизма.
+\end{note}
+
+\begin{definition}
+	Пусть $G$ "--- группа, $\Omega$ "--- множество. Действие $G$ на $\Omega$ называется \textit{точным}, или \textit{эффективным}, если его ядро тривиально, то есть равно $\{e\}$. Действие $G$ на $\Omega$ называется \textit{свободным}, если $\forall g \in G, g\ne e: \forall \omega \in \Omega: g\omega \ne \omega$.
+\end{definition}
+
+\begin{example}
+	Рассмотрим несколько примеров действий групп на соответствующих множествах:
+	\begin{enumerate}
+		\item $S_n$ действует на $X_n := \{1, \dotsc, n\}$ с гомоморфизмом $\id$, а если $\forall \sigma \in S_n$ и $\forall x, y \in X_n$ положить $\sigma(x, y) := (\sigma(x), \sigma(y))$, то результатом будет действие $S_n$ на $X_n^2$
+		\item $GL_n(F)$ действует на $F^n$, $\forall A \in GL_n(F): \forall v \in F^n: A(v) \hm= Av$, и, аналогично, $GL_n(F)$ действует на любом линейном пространстве $V$ над полем $F$ таком, что $\dim{V} = n$, а также на множестве всех подпространств $V$
+		\item \textit{Группа диэдра} $D_n = \{\phi \in \mathcal{O}_2: \phi(\mathcal{P}_n) = \mathcal{P}_n\} \le \mathcal{O}_2$, где $\mathcal{P}_n$ "--- правильный $n$-угольник в $V_2$, действует на плоскости $V_2$ и на множестве вершин или ребер $\mathcal{P}_n$ (в последних двух случаях имеет место гомоморфизм $\mathcal{D}_n \to S_n$)
+	\end{enumerate}
+\end{example}
