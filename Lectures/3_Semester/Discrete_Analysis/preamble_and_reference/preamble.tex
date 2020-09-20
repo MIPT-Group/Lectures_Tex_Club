@@ -59,25 +59,29 @@
 \usepackage{amssymb}
 \usepackage{mathtools}
 
+%%% нумерация
+\usepackage{enumerate}
+
 %%%%%% theorems
 \usepackage{amsthm}  % for theoremstyle
 
 \theoremstyle{plain} % Это стиль по умолчанию, его можно не переопределять.
-\newtheorem{theorem}{Теорема}[section]
+\newtheorem{theorem}{Теорема}[subsection]
 \newtheorem{prop}[theorem]{Утверждение}
-\newtheorem{lemma}{Лемма}[section]
-\newtheorem{sug}{Предположение}[section]
+\newtheorem{lemma}{Лемма}[subsection]
+\newtheorem{sug}{Предположение}[subsection]
 
 \theoremstyle{definition} % "Определение"
 \newtheorem{Def}{Определение}
 \newtheorem{corollary}{Следствие}[theorem]
-\newtheorem{problem}{Задача}[section]
+\newtheorem{problem}{Задача}[subsection]
 
 \theoremstyle{remark} % "Примечание"
 \newtheorem*{nonum}{Решение}
 \newtheorem*{defenition}{Def}
 \newtheorem*{example}{Пример}
 \newtheorem*{note}{Замечание}
+\newtheorem*{brainer}{Упражнение}
 
 
 %%% Работа с картинками
@@ -119,3 +123,8 @@
 \newcommand{\brackets}[1]{\left({#1}\right)}   % автоматический размер скобочек
 
 % Здесь можно добавить ваши индивидуальные сокращения  
+\newcommand{\RomanNum}[1]
+{\MakeUppercase{\romannumeral #1}}
+
+%\usepackage{tikz}
+%\usetikzlibrary{automata,positioning,arrows}
