@@ -1,0 +1,168 @@
+\section{\href{https://youtu.be/r2DT_f552TA}{Вторая лекция}}
+
+\subsection{Метрические и топологические пространства}
+
+\begin{definition}[Метрическое пространство]
+  Пространство $(X, \rho)$ называется \emph{метрическим пространством}, если оно обладает свойствами $\forall x,y,z \in X$:
+  \begin{enumerate}
+    \item $\rho(x, y)\geqslant 0$ $\Leftrightarrow$ $x = y$,
+    \item $\rho(x, y) = \rho(y, x)$,
+    \item $\rho(x, y) \leqslant \rho(x, z) + \rho(z, y)$.
+  \end{enumerate}
+\end{definition} 
+
+
+
+\begin{definition}[Топологическое пространство]
+  Пара $(X, \tau)$, где $\tau \subset 2^X$, называется \emph{топологическим пространством}, если топология $\tau$ удовлетворяет следующим условиям:
+  \begin{enumerate}
+    \item $X, \varnothing \in \tau$,
+    \item $\bigcup\limits_{\alpha \in A} G_\alpha \in \tau$, если $\forall \alpha G_\alpha \in \tau$,
+    \item $\bigcap\limits_{k=1}^{n} G_k \in \tau$, если все  $G_k \in \tau$.
+  \end{enumerate}
+\end{definition}
+
+\begin{center}
+  \begin{tabular}{|c|c|c|}
+    \hline
+      & & \\
+      \textbf{Метрическое пространство} & \textbf{Топологическое пространство} & \textbf{Пояснение} \\
+      & & \\
+    \hline
+      Подпространство & + & $Y \subset X$ \\
+    \hline
+      Ограниченное множество & - & $\sup\limits_{x,y\in M} \rho(x,y) < \infty$ \\
+    \hline
+      Расстояние между множествами & - & $\rho(A, B) = \inf\limits_{a\in A, b\in B} \rho(a, b)$ \\
+    \hline
+      Шары & - & Открытый: $B(x, r) = \{y \mid \rho(y,x) < r \}$,\\
+           &   & Замкнутый: $\overline{B}(x,r) = \{y \mid \rho(y,x)\leqslant r \}$\\
+    \hline
+      Точка прикосновения & + & $\rho(x,M) = 0$, либо $\forall r $ $ B(x,r) \cap M \neq \varnothing$\\
+    \hline
+      Предельная точка & + & $\forall B(x) \exists m \in M :$ $ m \in B(x)$ и $ m \neq x$\\
+    \hline
+      Замыкание множества $\overline{M}$ & + & присоединение к множеству всех его\\
+                          &    &  точек прикосновения\\
+    \hline
+      Замкнутое множество & + & $\overline{M} = M$ \\
+    \hline
+      Внутренняя точка & + & $\exists B(x) \subset M$\\
+    \hline
+      Открытое ядро $\operatorname{int} M$ & + & внутренность множества\\
+    \hline
+      Открытое множество & + & $\operatorname{int}M = M$\\
+    \hline
+      $A$ плотно в $B$ & + & $B \subset \overline{A}$\\
+    \hline
+      $A$ всюду плотно & + & \\
+      (во всем $X$) & & $\overline{A} = X$\\
+    \hline
+      $A$ нигде не плотно & + & не плотно ни в одном шаре, т.е.\\
+      & & $\overline{A}$ не содержит ни одного шара\\
+    \hline
+      Сходящаяся последовательность & <<+>> & $x_n \xrightarrow[]{} x $ $ \Leftrightarrow  $ $ \rho(x_n, x) \xrightarrow[]{} 0$\\
+    \hline
+      Сепарабельность & + & $\exists$ счётное всюду плотное подмножество \\
+    \hline
+  \end{tabular}
+\end{center}
+
+
+
+
+
+\begin{exercise}
+  В метрическом пространстве, точка $x$~--- точка прикосновения множества $M$ $ \Leftrightarrow $ существует последовательность $m_k \in M$, что $m_k \xrightarrow[k \to \infty]{} x$. 
+\end{exercise}
+
+\begin{exercise}
+  Пространство $C_{[a,b]}$ с метрикой $\rho(f,g) = \operatorname{max}\limits_{x} |f(x) - g(x)|$ является сепарабельным.
+\end{exercise}
+
+
+\begin{theorem}
+  Пусть $(X, \rho)$~--- МП. Множество $F \subset X$ является замкнутым $\Leftrightarrow$ дополнение  $CF := X \setminus F$ является открытым.
+\end{theorem}
+\begin{proof} \href{https://youtu.be/r2DT_f552TA?t=2621}{$\square$}
+  
+  \begin{enumerate}
+    \item[$\boxed{\Rightarrow}$] 
+    Пусть $G = CF$, необходимо показать, что для любой точки $x \in G$, существует  шар $B(x)$, целиком лежащий в $G$. Так как $F$~--- замкнутое множество (то есть содержащее все свои точки прокосновения), то $x\in G$~--- не точка прикосновения $F$. Следовательно существует шар $B(x) \cap F \neq \varnothing$, но тогда $B(x) \in G$.
+
+    \item[$\boxed{\Leftarrow}$] Доказательство в обратную сторону остается в качестве упражения.
+  \end{enumerate}
+\end{proof}
+
+
+\begin{theorem}
+  Пусть $X$~--- МП, $\{G_\alpha\}$~--- семействоо открытых множеств, $\{ F_\alpha\}$~--- семейство замкнутых множеств, тогда
+  \begin{enumerate}
+    \item $\bigcup\limits_{\alpha} G_\alpha$ и $\bigcap\limits_{\alpha} F_\alpha$~--- открыты,
+    \item $\bigcap\limits_{k=1}^n G_k$ и $\bigcup\limits_{k=1}^n F_k$~--- замкнуты.
+  \end{enumerate}
+\end{theorem}
+\begin{proof}  \href{https://youtu.be/r2DT_f552TA?t=2798}{$\square$}
+  
+  \begin{enumerate}
+    \item[$\boxed{1}$] $\forall x \in \bigcup\limits_{\alpha} G_\alpha$ существует $\alpha_0$, т.ч. $x \in G_{\alpha_0}$, 
+    тогда, так как $G_{\alpha_0}$~--- открыто, то $\exists B(x) \subset G_{\alpha_0} \subset \bigcup\limits_{\alpha} G_\alpha$,  следовательно $\bigcup\limits_{\alpha} G_\alpha$~--- открыто.
+
+    \emph{Формулы де Моргана}:
+    \begin{equation}
+      \begin{cases}
+        C \bigcup B_\alpha = \bigcap C B_\alpha,\\
+        C \bigcap B_\alpha = \bigcup C B_\alpha
+      \end{cases}
+    \end{equation}
+    Обозначим $C F_\alpha = G_\alpha$, тогда $\bigcap F_\alpha = \bigcap C G_\alpha = \overbrace{C \underbrace{\bigcup G_\alpha}_{\text{открытое}}}^{\text{замкнутое}}$.
+
+    \item[$\boxed{2}$] В качестве упражнения.
+  \end{enumerate}
+\end{proof}
+
+
+
+
+
+
+
+
+
+\begin{theorem}
+  Пусть $X$~--- МП.
+  \begin{enumerate}
+    \item Шар $B(x,r)$~--- открытое  множество.
+    \item Открытое ядро множества $\operatorname{int}M$~--- открытое множество.
+    \item Замыкание множества $\overline{M}$~--- замкнутое множество.
+    \item Замкнутый шар $\overline{B}(x,r)$~--- замкнутое множество.
+  \end{enumerate}
+\end{theorem}
+\begin{proof} \href{https://youtu.be/r2DT_f552TA?t=3450}{$\square$}
+  
+  \begin{enumerate}
+    \item[$\boxed{1}$] Возьмем произвольную точку $y \in B(x,r)$, из определения шара следует, что $\exists \varepsilon > 0 : $ $ \rho(y,x) = r - \varepsilon$. Необходимо показать, что существует такой шар $B(y, r_1)$, что $\forall z \in B(y, r_1)$ $ \rho(z,x)<r$. А это следует из неравенства треугольника:
+    \[\rho(z,x) \leqslant \underbrace{\rho(z,y)}_{<r_1 = \varepsilon/2} + \underbrace{\rho(y,x)}_{< r - \varepsilon} = r - \frac{\varepsilon}{2} < r.  \]
+
+    \item[$\boxed{2}$] Замечание~---  если $M_1 \subset M_2$, то $\operatorname{int}M_1 \subset \operatorname{int}M_2$. Пусть $x \in \operatorname{int} M$, тогда $\exists B(x) \subset M$. Из замечания следует, что $\underbrace{\operatorname{int} B(x)}_{=B(x)} \subset \operatorname{int} M$, следовательно $B(x) \subset \operatorname{int}M$.
+    \item[$\boxed{3}$] В качестве упражнения.
+    \item[$\boxed{4}$] В качестве упражнения.  
+  \end{enumerate}
+\end{proof}
+\begin{remark}
+  $\operatorname{int}M$~--- наибольшее открытое  множество,  содержащееся в $M$, т.е. $\operatorname{int}M = \bigcup\limits_{G\subset M} G$; Замыкание $\overline{M}$~--- наименьшее замкнутое  множество, содержащее $M$, т.е. $\overline{M} = \bigcap\limits_{M \subset F} F$.
+\end{remark}
+\begin{exercise}
+  Придумать пример МП $X$ и шара $B(x)$, что $\overline{B(x)} \neq \overline{B}(x)$.  
+\end{exercise}
+
+
+
+\vspace{1cm}
+\begin{definition}[Подпространство в ТП]
+  Пусть $(X,\tau_X)$~--- ТП и $Y \subset X$, тогда $(Y, \tau_Y)$~--- подпространство $(X, \tau_X)$, если $\tau_Y = \{G \cap Y \mid G \in \tau_X \}$.
+\end{definition}
+
+\begin{definition}[Точка прикосновения в ТП]
+  Точка $x$ в ТП $(X, \tau)$ называется точкой прикосновения множества $M$, если пересечение любой её открытой окрестности с $M$ непусто.
+\end{definition}

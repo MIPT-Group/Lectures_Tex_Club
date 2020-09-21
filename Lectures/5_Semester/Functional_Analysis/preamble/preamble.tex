@@ -1,0 +1,120 @@
+%%%%%%%%%%%%%%%%  DEFAULT  %%%%%%%%%%%%%%%%%%%
+
+% \usepackage[l2tabu,orthodox]{nag}
+\usepackage[left=2cm,right=2cm,
+    top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+\usepackage{indentfirst}
+
+\usepackage{ccaption}
+\captiondelim{. }
+
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools} 
+\usepackage{listings}
+\usepackage{xcolor, color}
+\usepackage{hyperref}
+\usepackage{wrapfig}
+
+\usepackage{graphicx}
+\graphicspath{{pictures/}}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+
+\usepackage{tikz}  
+\usetikzlibrary{graphs}
+
+
+
+
+%%%%%%%%%%   FONTS & LANGUAGES   %%%%%%%%%%
+\usepackage{fontspec}
+\setmainfont[Ligatures=TeX]{STIX}
+\newfontfamily{\cyrillicfont}[Ligatures=TeX]{STIX}
+\setmonofont{Fira Mono}
+\newfontfamily{\cyrillicfonttt}{Fira Mono}
+\usepackage{polyglossia}
+\setdefaultlanguage{russian}
+\setotherlanguage{english}
+
+\usepackage{sectsty}
+\sectionfont{\fontsize{14}{10}\selectfont}
+\subsectionfont{\fontsize{13}{10}\selectfont}
+\subsubsectionfont{\fontsize{10}{10}\selectfont}
+
+
+
+
+
+
+
+%%%%%%%%%%   FROM DS MIPT      %%%%%%%%%%%%
+\theoremstyle{plain}
+
+\newtheorem{theorem}{Теорема}[section]
+\newtheorem{lemma}{Лемма}[section]
+\newtheorem{proposition}{Утверждение}[section]
+\newtheorem{corollary}{Следствие}[theorem]
+\newtheorem*{remark}{Замечание}
+\newtheorem*{exercise}{Упражнение}
+
+
+\theoremstyle{definition}
+
+\newtheorem{definition}{Определение}[section]
+\newtheorem{notation}{Обозначение}[section]
+\newtheorem{example}{Пример}[section]
+\renewcommand\qedsymbol{$\blacksquare$} % Знак окончания доказательства
+
+
+
+
+
+
+%%%%%%%%%%%%%%   COLORS & LINKS   %%%%%%%%%%%%%%
+\definecolor{my_urlcolor}{HTML}{31797C}
+\definecolor{my_linkcolor}{HTML}{31387C}
+
+
+\hypersetup{
+       colorlinks=true, %set true if you want colored links
+       linktoc=all,     %set to all if you want both sections and subsections linked
+       linkcolor=my_linkcolor,  %choose some color if you want links to stand out
+       urlcolor=my_urlcolor
+}
+
+
+
+
+
+
+%%%%%%%%%   FANCY PAGE   %%%%%%%%%%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyfoot{}
+% \fancyfoot[R]{\href{https://github.com/}{Github}}
+\fancyhead[R]{\textbf{Лекции по ФА}}
+\fancyhead[L]{Страница \thepage}
+
+\renewcommand{\headrulewidth}{0.01pt} 
+\renewcommand{\footrulewidth}{0.01pt}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%% NEW COMMANDS  %%%%%%%%%%%%%%%%
+\newcommand{\notimplies}{\;\not\!\!\!\implies}
+\newcommand{\cov}{\operatorname{cov}}
+\newcommand{\uplim}{\operatorname{\overline{\lim}}}
+% \newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+% \def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+\newcommand{\independent}{\perp \!\!\! \perp}
