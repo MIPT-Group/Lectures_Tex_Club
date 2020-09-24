@@ -1,0 +1,13 @@
+\setcounter{section}{9}
+\section{Глава 10. Кратные интегралы}
+\subsection{Определение кратного интеграла}
+\begin{Def}
+Пусть $f$ -- ограниченая функция, заданная на измеримом по Лебегу (Жордану) множестве $E \subset \R^n$ конечной меры. $\textbf{Разбиением}$ множества $E$ называется $E=\bigsqcup\limits_{k=1}^N E_k$, где $E_k$ - измеримые по Лебегу (Жордану). \newline В качестве $\Delta x_k$ будем брать меру множеств $E_k$. $M_k=\sup\limits_{x\in E_k} f(x), m_k=\inf\limits_{x\in E_k}f(x)$ \newline
+Суммы Дарбу Лебега (Жордана): верхняя $\mathcal{U}(P, f)=\sum\limits_{k=1}^N M_k \cdot \mu_{(J)}(E_k)$, нижняя $\mathcal{L}(P, f)=\sum\limits_{k=1}^N m_k \cdot \mu_{(J)}(E_k)$.
+\newline Верхний интеграл Лебега или Римана (L)(R)$\ \overline{I}_E(f)=\inf\limits_P \mathcal{U}(P, f)$,\newline Нижний интеграл Лебега или Римана (L)(R)$\ \underline{I}_E(f)=\sup\limits_P \mathcal{L}(P, f)$
+\end{Def}
+\begin{Def}
+Если (R)$\ \overline{I}_E(f)=$ (R)$\ \underline{I}_E(f)$, то $f$ называется интегрируемой по Риману на $E$, $\int\limits_E f(x)dx=$ (R)$\ \overline{I}_E(f)$ \newline
+Если (L)$\ \overline{I}_E(f)=$ (L)$\ \underline{I}_E(f)$, то $f$ называется интегрируемой по Лебегу на $E$, $\int\limits_E f(x)d\mu (x)=$ (L)$\ \overline{I}_E(f)$
+\end{Def}
+\textbf{Утв.} Функция $f$ интегрируема по Риману на $[a,b]$(в смысле старого определения) $\Leftrightarrow$ $f$ интегрируема по Риману на $E=[a,b] \subset \R^1$.
