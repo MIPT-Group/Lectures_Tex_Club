@@ -1,0 +1,16 @@
+\section{Лекция 3 (от 14.09)}
+\begin{center}
+    \textbf{Теорема об обратной функции}
+\end{center}
+\theorem
+Пусть $f: G \mapsto H \subseteq \CC$, $g: H \mapsto \CC$ регулярны.
+Тогда $\xi(z) = g(f(z)): G \mapsto \CC$ также регулярна, причем $\xi'(z) =
+g'(f(z))f'(z) \forall z \in G$.
+\pr
+$$z_0 \in G, \ w_0 = f(z_0) \in H$$
+$$\Delta f = f(z_0)\Delta z + o(\Delta z)$$
+$$\Delta g = g'(w_0) \Delta w + 0(\Delta w)$$
+Пусть $\Delta w = \Delta f$
+$$\frac{\Delta \xi}{\Delta z} = g'(w_0) \frac{\Delta f}{\Delta z} +
+\frac{o(\Delta f)}{\Delta f} \cdot \frac{\Delta f}{\Delta z} \rightarrow
+g'(w_0)f'(z_0) + 0$$
