@@ -100,3 +100,102 @@ G$~--- замкнутая жорданова ломаная; $f:G \mapsto \CC$ �
   \int_{\left| z \right| = 1} \frac{dz}{z} = 2 \pi i \neq 0
 \end{align*}
 но $\dst \frac{1}{z}$ регулярна в $\CC \setminus \{0\}$.
+\Def
+\textbf{Областью с кусочно гладкой границей $\Gamma$} называется область,
+граница которой $\Gamma = \dst \bigcup_{k=1}^K\Gamma_k$, $\Gamma_k$~--- гладкая
+кривая конечной пложительной длины и одного из классов:
+\begin{itemize}
+    \item \textbf{правильная компонента}~--- $\forall z \in \Gamma_k, \forall
+    B_r(z_0): \ B_r(z_0)\cap \overline{G} \neq \varnothing, \ B_r(z_0) \cap
+    \overline{\CC\setminus G} \neq \varnothing$
+    \item \textbf{разрез}~--- $\forall z \in \Gamma_k$ (за исключением концов)
+    $\exists \varepsilon > 0: \ B_{\varepsilon}(z) \setminus \Gamma \subseteq G$
+\end{itemize}
+\Def
+Пусть $G$~--- область с кусочно гладкой границей $\Gamma$; говорят, что на
+$\Gamma$ задана \textbf{положительная ориентация}, если:
+\begin{itemize}
+    \item для любой правильной компоненты $\Gamma_k$ направление обхода таково,
+    что $G$ остается слева;
+    \item любой разрез $\Gamma_k$ обходится дважды в противоположных
+    направлениях.
+\end{itemize}
+
+Говорят, что \textbf{$f$ непрерывна на $G$ с кусочно гладкой границей $\Gamma$},
+если
+\begin{itemize}
+    \item если $\Gamma_k$~--- правильная компонента, то $\forall \Gamma_k, \ z_0
+    \in \Gamma_k \ \dst \lim_{z \overset{G}{\to} z_0}f(z) = f(z_0)$
+    \item если $\Gamma_k$~--- разрез, то $\forall \Gamma_k, \ z_0 \in \Gamma_k,
+    \ z_0 \to z_0^+, z_0^-$ ($2$ края разреза, может быть больше краев)
+    $f(z_0^+) = \dst \lim_{z \overset{B_+}{\to} z_0}, f(z_0^-) = \dst \lim_{z
+      \overset{B_-}{\to}z_0}$ ($B_+$, $B_-$~--- части, на которые разделена
+    разрезами область, может быть больше частей.)
+\end{itemize}
+\theorem
+Пусть $G$~--- ограниченная односвязная область с положительно ориентированной
+кусочно гладкой границей $\Gamma$. Пусть $f: G \mapsto \CC$ регулярна в $G$,
+непрерывна на $\overline{G}$. \hypertarget{(4)}{Тогда}
+\begin{align}
+  \int_{\Gamma}f(z)dz = 0
+\end{align}
+\Def
+Ограниченная область $G$ называется \textbf{звездной}, если
+\begin{itemize}
+    \item $\Gamma = \left\{z \mid z = z_0 + z_1(t), \ t \in [\alpha, \beta], \
+        z_1(\alpha) = z_1(\beta) \right\}$; $z_0$ называется \textbf{центром},
+    $z_1(t)$ непрерывно дифференцируема;
+    \item $\forall \lambda \in [0;1) \Gamma_{\lambda} = \left\{ z \mid z = z_0 +
+    \lambda z_1(t), t \in [\alpha, \beta], z_1(\alpha) = z_1(\beta), \lambda \in
+    [0;1)\right\} \subseteq G$
+\end{itemize}
+Докажем теорему $2$ для звездной области и конечного объединения звездных
+областей.
+\pr
+Пусть $G$~--- звездная, тогда можем принять $z_0=0$: пусть $G$ такова, что $z_0
+\neq 0$, тогда примем $\tilde{z} = z-z_0$, $\tilde{G} = G-z_0$, $\tilde{\Gamma}
+= \Gamma - z_0$. Тогда
+\begin{align*}
+  \int_{\Gamma}f(z)dz = \int_{\tilde{\Gamma}}f(\tilde{z}+z_0)d\tilde{z} = \int_{\tilde{\Gamma}}\tilde{f}(\tilde{z})d\tilde{z}
+\end{align*}
+Рассмотрим звездную $G$, такую, что $z_0 = 0$, $\Gamma_{\lambda} = \{z \mid z =
+\lambda z_1(t), t\in[\alpha, \beta], z_1(\alpha) = z_1(\beta)\}$,
+$\Gamma_{\lambda}\subseteq G$
+По теореме Коши 
+\begin{align*}
+  \forall \lambda \in (0;1) \ \int_{\Gamma_\lambda}f(\zeta)d\zeta = 0
+\end{align*}
+\begin{align*}
+  \zeta = lambda z, \ \zeta \in \Gamma_{\lambda} \Leftrightarrow z \in \Gamma
+\end{align*}
+\begin{align*}
+  0 = \int_{\Gamma_\lambda}f(z)dz = \int_{\Gamma}f(\lambda z)\lambda dz \Rightarrow \forall \lambda \in (0;1) \ \int_{\Gamma}f(\lambda z)dz = 0
+\end{align*}
+$f$ равномерно непрерывна на $\overline{G}$: $\forall \varepsilon > 0 \exists
+\delta(\varepsilon) >0: \ \forall z_1, z_2 \in \overline{G}: \ \left| z_1-z_2
+\right| < \delta(\varepsilon) \hookrightarrow \left| f(z_1) - f(z_2) \right| < \varepsilon$
+\begin{align*}
+  \forall z \in \Gamma \left| z-\lambda z \right| = (1-\lambda) \left| z \right| \leq (1-\lambda)C_0, \ C_0 = \max_{z \in \overline{G}}\left| z \right| < +\infty
+\end{align*}
+Пусть $\lambda_{\varepsilon}\in(0;1): \ (1 -
+\lambda_{\varepsilon})C_0<\delta(\varepsilon)$; тогда
+\begin{align*}
+  \left| \int_{\Gamma}f(z)dz \right|= \left| \int_{\Gamma}\left( f(z)-f(\lambda_{\varepsilon}z) \right)dz \right|\leq \int_{\Gamma} \left| f(z) - f(\lambda_{\varepsilon}z) \right| \cdot \left| dz \right| \leq \varepsilon \int_{\Gamma} \left| dz \right| = \varepsilon l(\Gamma) = \varepsilon \cdot const
+\end{align*}
+ч.~т.~д.
+\theorem (обобщенная Коши) Пусть $G$~--- ограниченная область с кусочно гладкой
+и положительно ориентированной границей $\Gamma$. Пусть $f: G \mapsto
+\overline{G}$ регулярна на $G$ и непрерывна на $\overline{G}$. Тогда
+\begin{align}
+  \int_{\Gamma}f(z)dz = 0
+\end{align}
+\pr
+Пусть $\Gamma_1$~--- внешняя граница, $\Gamma_k$~--- внутренние (правильные
+копоненты и разрезы). Зададим для любой $\Gamma_k$, не выходящей на границу,
+разрез $\gamma_k$ с двумя обходами, соединяющий с границей. Получим тогда
+$\tilde{G} = G \setminus \left(\dst \bigcup_{k=1}^N \gamma_k \right)$. Тогда по
+теореме $2$
+\begin{align*}
+  0 = \int_{\tilde{\Gamma}}f(z)dz = \int_{\Gamma} f(z)dz + \sum_{k=1}^N\left( \int_{\gamma_k} f(z) dz + \int_{\gamma_k^{-1}} \right) = \int_{\Gamma} f(z) dz
+\end{align*}
+ч.~т.~д.
