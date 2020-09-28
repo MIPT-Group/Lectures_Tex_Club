@@ -37,28 +37,29 @@ $\Delta z_k = z_k - z_{k-1}$~--- \textbf{интегральная сумма};
 если $\exists \lim
 \sigma(\lambda) \forall \zeta_k, \ \left| \lambda \right| \to 0$, то этот предел
 называется \textbf{интегралом Римана от $f$ по $\gamma$} и записывается как
-\begin{align}
+\begin{equation} \label{(6.1)}
   \int_{\gamma}f(z) dz
-\end{align}
+\end{equation}
 \theorem
-Если условия определения интеграла выполняются, то он существует и \hypertarget{2}{справедливо:}
-\[\int_{\gamma}f(z)dz = \int_{\gamma}\left( u dx - v dy \right) + i
-    \int_\gamma \left( v dx + u dy \right)\]
+Если условия определения интеграла выполняются, то он существует и справедливо:
+\begin{equation} \label{(6.2)}
+    \int_{\gamma}f(z)dz = \int_{\gamma}\left( u dx - v dy \right) + i \int_\gamma \left( v dx + u dy \right)
+    \end{equation}
 \pr
 \begin{align*}
   & \sigma(\lambda) = \sum_{k = 1}^{m_\lambda}\left( u(\xi_k, \eta_k) + iv(\xi_k, eta_k) \right)\left( \Delta x_k + i \Delta y_k \right) = \sum_{k = 1}^{m_\lambda}\left( u(\xi_k, \eta_k) \Delta x_k - v(\xi_k, \eta_k) \Delta y_k\right) + \\
   & + \left( v(\xi_k, \eta_k) \Delta x_k + u(x_k, y_k) \Delta y_k\right) = \sigma_1(\lambda) + \sigma_2(\lambda) \to \int_{\gamma}\left( u dx - v dy \right) + i \int_\gamma \left( v dx + u dy \right)
 \end{align*}
 \corollary
-Если условия определения интеграла выполняются, \hypertarget{(3)}{то} \hypertarget{(4)}{верно:}
-\begin{align}
-  & \int_\gamma f(z) dz = \int_{t_0}^{t_1}f(z(t))z'(t)dt
-\end{align}
-\begin{align}
-  &\gamma: z(t), \ \int_{t_0}^{t_1}\left( P(t) + iQ(t) \right) dt = \int_{t_0}^{t_1}P(t)dt + i \int_{t_0}^{t_1}Q(t)dt
-\end{align}
+Если условия определения интеграла выполняются, то верно:
+\begin{equation} \label{(6.3)}
+  \int_\gamma f(z) dz = \int_{t_0}^{t_1}f(z(t))z'(t)dt
+\end{equation}
+\begin{equation} \label{(6.4)}
+  \gamma: z(t), \ \int_{t_0}^{t_1}\left( P(t) + iQ(t) \right) dt = \int_{t_0}^{t_1}P(t)dt + i \int_{t_0}^{t_1}Q(t)dt
+\end{equation}
 \pr
-Из \hyperlink{(2)}{(2)} и свойств криволинейных интегралов II рода
+Из (\ref{(6.2)}) и свойств криволинейных интегралов II рода
 \begin{align*}
   &\int_{\gamma}P(x,y) dx + Q(x,y)dy = \int_{t_0}^{t_1} \left( P(x(t), y(t)x'(t) + Q(x(t), y(t))y'(t) \right) dt
 \end{align*}
@@ -79,16 +80,16 @@ $\Delta z_k = z_k - z_{k-1}$~--- \textbf{интегральная сумма};
     \begin{align*}
       &\int_{\gamma^{-1}}f(z) dz = - \int_{\gamma}f(z) dz
     \end{align*}
-    \item Инвариантность относительно заены параметра.
-    \item \prop Выполняется \hypertarget{(5)}{неравенство:}
-    \begin{align}
-      &\left| \int_\gamma f(z) dz \right| \leq \int_{\gamma}\left| f(z) \right| \cdot \left| dt \right| = \int_{t_0}^{t_1} \left| f(z(t)) \right| \sqrt{(x'(t))^2 + (y'(t))^2}dt
-    \end{align}
+    \item Инвариантность относительно замены параметра.
+    \item \prop Выполняется неравенство:
+    \begin{equation} \label{(6.5)}
+      \left| \int_\gamma f(z) dz \right| \leq \int_{\gamma}\left| f(z) \right| \cdot \left| dt \right| = \int_{t_0}^{t_1} \left| f(z(t)) \right| \sqrt{(x'(t))^2 + (y'(t))^2}dt
+    \end{equation}
     \pr
-    Из \hyperlink{(3)}{(3)}:
-    \begin{align}
-      &\left| \sigma(\lambda) \right| \leq \sum_{k = 1}^{m_\lambda}\left| f(\zeta) \right| \cdot \left| \Delta z_k \right|
-    \end{align}
+    Из (\ref{(6.3)}):
+    \begin{equation} \label{(6.6)}
+      \left| \sigma(\lambda) \right| \leq \sum_{k = 1}^{m_\lambda}\left| f(\zeta) \right| \cdot \left| \Delta z_k \right|
+    \end{equation}
 \end{enumerate}
 \example
 \begin{align*}
@@ -110,7 +111,7 @@ $dz(t) = rie^{it}dt$
 \begin{align*}
   &J_1 = \int_{\gamma} dz, \ J_2 = \int_{\gamma}z dz
 \end{align*}
-$\gamma: z(t)$, и согласно \hyperlink{(3)}{(3)}
+$\gamma: z(t)$, и согласно (\ref{(6.3)})
 \begin{align*}
   &J_1 = \int_{t_0}^{t_1} z'(t)dt = z(t_1) - z(t_0)
 \end{align*}
@@ -123,17 +124,17 @@ $\gamma: z(t)$, и согласно \hyperlink{(3)}{(3)}
 \\
 Пусть $\dst \sum_{n=1}^{\infty}f_n(z) \underset{\gamma}{\rightrightarrows} \rightarrow_{\gamma} S(z)
 \forall z \in \gamma$.
-Тогда $S(z)$ непрерывна на $\gamma$ \hypertarget{(6)}{и выполняется}
-\begin{align}
-  &\int_{\gamma}S(z) dz = \sum_{n=1}^{\infty}\int_{\gamma}f_n(z)dz
-\end{align}
+Тогда $S(z)$ непрерывна на $\gamma$ и выполняется
+\begin{equation} \label{(6.6)}
+  \int_{\gamma}S(z) dz = \sum_{n=1}^{\infty}\int_{\gamma}f_n(z)dz
+\end{equation}
 \pr
 Ряд сходится равномерно на $\gamma$
 \\
 $$\Updownarrow$$
-\begin{align}
-  &\forall \varepsilon > 0 \exists N(\varepsilon): \forall N\geq N(\varepsilon) \ \underset{z \in \gamma}{\sup} \left| S(z) - \sum_{n = 1}^{N} \right| = \underset{z \in \gamma}{\sup} S_N(z) \leq \varepsilon
-\end{align}
+\begin{equation} \label{(6.7)}
+  \forall \varepsilon > 0 \exists N(\varepsilon): \forall N\geq N(\varepsilon) \ \underset{z \in \gamma}{\sup} \left| S(z) - \sum_{n = 1}^{N} \right| = \underset{z \in \gamma}{\sup} S_N(z) \leq \varepsilon
+\end{equation}
 \begin{align*}
   &\exists \delta > 0: \ \forall z_0 \in \gamma, \ z \in \gamma, \ \left| z - z_0 \right| < \delta: \ \left| S(z) = S(z_0) \right| \leq \left| S(z) - S_N(z) \right| +  \left| S_N(z) - \right. \\
   &\left. - S_N(z_0) \right| + \left| S_N(z_0) - S(z_0) \right| \leq \left| S_N(z) - S_N(z_0) \right| + 2 \varepsilon \leq 3 \varepsilon
@@ -159,11 +160,11 @@ f(z) \forall z \in G$.
 \begin{enumerate}
     \item если $f dz$~--- полный дифференциал на $G$, то для любой замкнутой КГК
     $\overset{\circ}{\gamma} \subseteq G$ \hypertarget{(8)}{выполняется}
-    \begin{align}
-      & \int_{\overset{\circ}{\gamma}} f(z) dz = 0
-    \end{align}
+    \begin{equation} \label{(6.8)}
+      \int_{\overset{\circ}{\gamma}} f(z) dz = 0
+    \end{equation}
     \item если для любой замкнутой ломаной кривой $\gamma$ выполняется
-    \hyperlink{(8)}{(8)}, то $f dz$~--- полный дифференциал.
+    (\ref{(6.8)}), то $f dz$~--- полный дифференциал.
 \end{enumerate}
 \pr ~
 \\
