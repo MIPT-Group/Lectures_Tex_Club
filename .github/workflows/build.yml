@@ -1,6 +1,11 @@
 name: Build and deploy LaTeX
 
-on: push    
+on:
+        push:
+                branches:
+                        - '**'
+                        - '!master'
+                        - '!ci-integration'
 
 jobs:
         build:
@@ -15,25 +20,20 @@ jobs:
                                   BRANCH_NAME=${GITHUB_REF#refs/heads/}
                                   echo ::set-env name=BRANCH_NAME::$(echo ${BRANCH_NAME})
                                   BRANCH_ARGUMENTS=(${BRANCH_NAME//\// })
-
                                   TYPE=${BRANCH_ARGUMENTS[0]}
                                   SEMESTER=${BRANCH_ARGUMENTS[1]}
                                   SUBJECT_NAME=${BRANCH_ARGUMENTS[2]}
                                   CONSPECT_NAME=${BRANCH_ARGUMENTS[3]}
-
                                   if [[ ${TYPE} == "l" ]]; then
                                         TYPE="Lectures"
                                   else
                                         TYPE="Seminars"
                                   fi
-
                                   SEMESTER="${SEMESTER}_Semester"
-
                                   echo ::set-env name=TYPE::$(echo ${TYPE})
                                   echo ::set-env name=SEMESTER::$(echo ${SEMESTER})
                                   echo ::set-env name=SUBJECT_NAME::$(echo ${SUBJECT_NAME})
                                   echo ::set-env name=CONSPECT_NAME::$(echo ${CONSPECT_NAME})
-
                           id: extract_branch
                         - name: Build
                           uses: xu-cheng/latex-action@v2
@@ -50,7 +50,6 @@ jobs:
                           run: |
                                   mkdir -p build/${{ env.TYPE }}/${{ env.SEMESTER }}/${{ env.SUBJECT_NAME }}
                                   mv raw_build/${{ env.CONSPECT_NAME}}.pdf build/${{ env.TYPE }}/${{ env.SEMESTER }}/${{ env.SUBJECT_NAME }} 
-
                         - name: Upload
                           uses: satackey/action-google-drive@v1
                           with:
@@ -59,4 +58,3 @@ jobs:
                                   upload-to: /Notes
                                   google-client-id: ${{ secrets.GOOGLE_CLIENT_ID }}
                                   google-client-secret: ${{ secrets.GOOGLE_CLIENT_SECRET }}
-
