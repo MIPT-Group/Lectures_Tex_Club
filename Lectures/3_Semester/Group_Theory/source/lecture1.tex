@@ -28,7 +28,7 @@
 		
 		\item $\forall a \in H: a^{-1} \in H$
 	\end{enumerate}
-
+	
 	Иными словами, множество $H$ само является группой с той же операцией. Обозначение "--- $H \le G$.
 \end{definition}
 
@@ -37,7 +37,7 @@
 \end{definition}
 
 \begin{example}
-	Группами являются следующие множества с соответствующими операциями:
+	Рассмотрим несколько примеров групп:
 	\begin{enumerate}
 		\item $(\Z, +)$, $(\Z_n, +)$
 		
@@ -47,8 +47,8 @@
 		
 		\item $(S_n, \circ)$ "--- \textit{группа перестановок}
 	\end{enumerate}
-
-Далее групповая операция будет опускаться, если она восстанавливается из контекста.
+	
+	Далее групповая операция в записи группы будет опускаться, если она восстанавливается из контекста.
 \end{example}
 
 \begin{reminder}
@@ -68,11 +68,11 @@
 \end{definition}
 
 \begin{reminder}[Теорема Кэли]
-	$\forall G, |G| = n: \exists H \in S_n: G \cong H$.
+	$\forall G, |G| = n: \exists H \le S_n: G \cong H$.
 \end{reminder}
 
 \begin{example}
-	Группами являются следующие множества с соответствующими операциями:
+	Рассмотрим несколько примеров групп и подгрупп в них:
 	\begin{enumerate}
 		\item $GL_n(F) = (M_n(F))^* = \{A \in M_n(F): \det{A} \ne 0\}$, $SL_n(F) \hm= \{A \in M_n(F): \det{A} \hm= 1\} \le GL_n$, где $F$ "--- произвольное поле
 		\item $\mathcal{O}_n = \{A \in M_n(\R): A^TA = E\} \le GL_n(\R)$
@@ -83,7 +83,7 @@
 \end{example}
 
 \begin{definition}
-	Пусть $G$ "--- группа, $M \subset G$. Подгруппой, \textit{порожденной} $M$, называется наименьшая по включению подгруппа $G$, содержащая $M$. Обозначение "--- $\langle M\rangle$.
+	Пусть $G$ "--- группа, $M \subset G$. Подгруппой, \textit{порожденной} $M$, называется наименьшая по включению подгруппа в $G$, содержащая $M$. Обозначение "--- $\langle M\rangle$.
 \end{definition}
 
 \begin{reminder}
@@ -111,7 +111,7 @@
 \end{note}
 
 \begin{definition}
-	Пусть $G$ "--- группа, $H \le G$, $a \in G$. Тогда \textit{левым смежным классом} $a$ по $H$ называется $aH$, \textit{правым смежным классом} $a$ по $H$ --- $Ha$. Обозначение множества всех левых смежных классов по $H$ в $G$ "--- $G/H$, правых смежных классов --- $H\bs G$.
+	Пусть $G$ "--- группа, $H \le G$, $a \in G$. Тогда \textit{левым смежным классом} $a$ по подгруппе $H$ называется $aH = \{ah: h \in H\}$, \textit{правым смежным классом} $a$ по подгруппе $H$ --- $Ha$. Обозначение множества всех левых смежных классов по $H$ в $G$ "--- $G/H$, правых смежных классов --- $H\bs G$.
 \end{definition}
 
 \begin{proposition}
@@ -126,10 +126,10 @@
 
 \begin{proof}~
 	\begin{itemize}
-		\item ($1 \Rightarrow 2$) По условию, $\exists h_1, h_2 \in H: ah_1 = bh_2$, откуда $b^{-1}a = h_2h_1^{-1} \in H$.
-		\item ($2 \Rightarrow 3$) Поскольку $H$ "--- группа и $b^{-1}aH \in H$, то $(b^{-1}a)H = H$, и, следовательно, $aH = bH$.
-		\item ($3 \Rightarrow 4$) Заметим, что $a = ae$, поэтому $a \in aH = bH$.
-		\item ($4 \Rightarrow 1$) Поскольку $a = ae$ и $a \in bH$, то $a \in aH \cap bH$, следовательно, $aH \cap bH \ne \emptyset$.
+		\item ($1 \Rightarrow 2$) По условию, $\exists h_1, h_2 \in H: ah_1 = bh_2$, откуда $b^{-1}a \hm= h_2h_1^{-1} \in H$
+		\item ($2 \Rightarrow 3$) Поскольку $H$ "--- группа и $b^{-1}aH \in H$, то $(b^{-1}a)H = H$, и, следовательно, $aH = bH$
+		\item ($3 \Rightarrow 4$) Заметим, что $a = ae$, поэтому $a \in aH = bH$
+		\item ($4 \Rightarrow 1$) Поскольку $a = ae$ и $a \in bH$, то $a \in aH \cap bH$, следовательно, $aH \cap bH \ne \emptyset$
 	\end{itemize}
 \end{proof}
 
@@ -190,7 +190,7 @@
 \end{note}
 
 \begin{example}
-	Нормальными являются следующие подгруппы соответствующих групп:
+	Рассмотрим несколько примеров нормальных подгрупп в соответствующих группах:
 	\begin{enumerate}
 		\item $\forall H \le G: H \normal G$, где $G$ "--- абелева группа
 		\item $G \normal G$, $\{e\} \normal G$, где $G$ "--- произвольная группа
