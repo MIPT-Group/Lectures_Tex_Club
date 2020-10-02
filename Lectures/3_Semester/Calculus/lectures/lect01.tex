@@ -99,7 +99,7 @@ f(\beta),\ x \in (\beta, b]\\
 Тогда $x1,\ldots, x_{n_1} \in (\lambda_1, \mu_1),\newline x_{n_1+1}, \ldots, x_{n_2} \in (\lambda_2, \mu_2)$ и т. д. Но значения $\varphi$ в этих точках находится между $(\varphi(\lambda_i),\varphi( \mu_i)).$ Так как $\{x_m\}$ стремится к $x_0$, то соответствующие $\lambda$ и $\mu$ тоже стремятся к $x_0$, и по теореме о трех силовиках $\varphi(x)$ стремится к $\varphi(x_0)$
 
 Теперь докажем теорему без предположения об ограниченности $f(x)$. Рассмотрим множества $A_k:=\{x\in [a,b]: |f(x)|>k \}$. Из такого определения следует, что $A_1 \supset A_2 \supset \ldots$ Тогда $\lim\limits_{k\to\infty} A_k=\bigcap\limits_{k=1}^{\infty}A_k={\{x\in [a,b]: | f(x) | =+\infty\},}\ \mu(\bigcap\limits_{k=1}^{\infty}A_k=0) \Rightarrow \lim\limits_{k\to\infty}\mu (A_k)=0$. Раз предел некоторой числовой последовательности равен 0, то $(\forall \varepsilon >0)(\exists k_0)\ \mu (A_k)<\dfrac{\varepsilon}{2}$. Положим 
-\begin{equation*}
+\begin{equation*}\label{key}
     g(x):=\begin{cases}
     f(x), x\in [a,b]\backslash A_{k_0}\\
     k_0, x \in A_{k_0}

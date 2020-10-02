@@ -1,0 +1,23 @@
+\subsection{Основные свойства интеграла Лебега.}
+\begin{lemma}[Признак суммируемости]
+Если $f(x)$ суммируема на измеримом по Лебегу множестве $E \subset \R^n$ конечной меры, а $F$ измерима на $E$ и $|F(x)| \leqslant f(x)\ \forall x \in E$, то $F$ суммируема на $E$.
+\end{lemma}
+\begin{proof}
+Заметим $\forall P: E = \bigsqcup\limits_{k=0}^{\infty}E_k\ \ \ \ \ \mathcal{U}(P, |F|) \leqslant \mathcal{U}(P, f)$
+
+$(\forall \varepsilon > 0) \exists P\ \ \ \ \  \mathcal{U}(P,f) \leqslant \int\limits_E f(x)d\mu(x)+\varepsilon$
+
+$\exists P: \mathcal{U}(P, |F|) < +\infty \Rightarrow \inf\limits_P \mathcal{U}(P, |F|) = \int\limits_P |F(x)|d\mu(x)<+\infty$
+
+По определению $F$ - суммируема $\Leftrightarrow F^+ \text{ и } F^-$ суммируемы. 
+
+Видно, что $0\leqslant F^\pm(x) \leqslant |F(x)| \Rightarrow \mathcal{U} (P,F^\pm) \leqslant \mathcal{U}(P,|F|)$.
+\end{proof}
+
+
+\begin{theorem}[Линейность и монотонность интеграла Лебега]
+
+\begin{enumerate}
+\item(Линейность) Если
+\end{enumerate}
+\end{theorem}
