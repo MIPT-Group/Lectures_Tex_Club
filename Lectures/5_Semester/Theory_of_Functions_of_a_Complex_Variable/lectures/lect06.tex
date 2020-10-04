@@ -1,6 +1,5 @@
 \LARGE{Лекция 6 (от 22.09)}
 \normalsize
-% \begin{center}
 \section{$\S 8.$ Интегральная формула Коши}
 \theorem
 Пусть $G$~--- ограниченная область в $\CC$ с кусочно гладкой положительно
@@ -9,4 +8,111 @@
 \begin{equation} \label{(8.1)}
     \forall z \in G f(z) = \frac{1}{2\pi i}\int_{\Gamma}\frac{f(\zeta)}{\zeta - z}d\zeta
 \end{equation}
+\pr
+Зафиксируем
+\begin{align*}
+  & z \in G: \ \zeta \to \frac{f(\zeta)}{\zeta - z}
+\end{align*}
+\begin{align*}
+  & \exists r_0 > 0: \ \forall r \leq r_0 \ \overline{B_r(z)} \subseteq G
+\end{align*}
+Пусть
+\begin{align*}
+  & \gamma_r = \{\zeta \mid \left| \zeta - z \right| = r\}, \ r > 0, \ r \leq r_0
+\end{align*}
+причем $\gamma_r$ положительно ориентированная. Пусть
+\begin{align*}
+  & G = \tilde{G} \setminus \overline{B_r(z)}
+\end{align*}
+Тогда
+\begin{align*}
+  & \frac{f(\zeta)}{\zeta - z}
+\end{align*}
+регулярна и непрерывна на $\Gamma_r = \Gamma \cup \gamma_r^{-1}$.
+По теореме $3$ $\S 7$
+\begin{align*}
+  & 0 = \int_{\Gamma_r} \frac{f(\zeta)}{\zeta - z} d \zeta =  \int_{\Gamma} \frac{f(\zeta)}{\zeta - z} d \zeta - \int_{\gamma_r} \frac{f(\zeta)}{\zeta - z} d \zeta
+\end{align*}
+\begin{align*}
+  & \forall r \in (0; r_0) \ J(z) = \frac{1}{2 \pi i} \int_{\Gamma} \frac{f(\zeta)}{\zeta - z} d \zeta = \frac{1}{2 \pi i} \int_{\gamma_r} \frac{f(\zeta)}{\zeta - z} d \zeta
+\end{align*}
+$f$ непрерывна в $z$ $\Rightarrow$
+\begin{align*}
+  & \forall \varepsilon > 0 \exists \delta > 0: \forall \zeta: \ \left| \zeta - z \right| < \delta(\varepsilon) \hookrightarrow \left| f(\zeta) - f(z) \right| < \varepsilon; \ 0 < r < \delta(\varepsilon)
+\end{align*}
+\begin{align*}
+  & J(z) - f(z) = \frac{1}{2 \pi i} \int_{\gamma_r} \frac{f(\zeta) - f(z)}{\zeta - z} d \zeta
+\end{align*}
+\begin{align*}
+  & \frac{1}{2 \pi i} \int_{\gamma_r} \frac{f(\zeta)}{\zeta - z} d \zeta = 1
+\end{align*}
+\begin{align*}
+  & \left| J(z) - f(z) \right| \leq \frac{1}{2 \pi i} \int_{\gamma_r} \frac{\left| f(\zeta) - f(z) \right|}{\left| \zeta - z \right|} \cdot \left| d\zeta \right| \leq \frac{\varepsilon}{2 \pi r} \int_{\gamma_r}\left| d\zeta \right| = \varepsilon
+\end{align*}
+ч.~т.~д.
+\Def
+Пусть $\gamma$~--- кусочно гладкая в $\CC$; $q: \gamma \mapsto \CC$ непрерывна.
+Тогда \textbf{интегралом Коши} называется выражение
+\begin{equation} \label{(8.2)}
+    I(z) = \frac{1}{2 \pi i} \int_{\gamma} \frac{q(z)}{\zeta - z} d\zeta, \ z \in \CC \setminus \gamma
+\end{equation}
+\theorem
+В условиях определения интеграла Коши он бесконечно дифференцируем на
+$\CC\setminus\gamma$, причем
+\begin{equation} \label{(8.3)}
+    \forall n \in \NN, \  z \in \CC \setminus \gamma \ I^{(n)}(z) = \frac{n!}{2 \pi i} \int_{\gamma} \frac{q(z)}{(\zeta - z)^{n+1}} d\zeta
+\end{equation}
+\pr
+По индукции.
+\\
+База: при $n=0$, очевидно, верно.
+\\
+Шаг: пусть верно для $n-1$, тогда для $n$ фиксируем произвольное $z_0 \in
+gamma$.
+\\
+Пусть
+\begin{align*}
+  & d = \inf\{\left| z_0 - \zeta \right| \mid \zeta \in \gamma\}; \ d < +\infty
+\end{align*}
+Пусть
+\begin{align*}
+  & \Delta z: \ 0 < \left| \Delta z \right| < \frac{d}{2}
+\end{align*}
+Тогда
+\begin{align*}
+  & \zeta \in \gamma: \ \left| \zeta - (z_0+\Delta z)\right| \geq \left| \zeta - z_0 \right| - \left| \Delta z \right| > d - \frac{d}{2} = \frac{d}{2} > 0
+\end{align*}
+\begin{align*}
+  & \frac{I^{(n-1)}(z_0+\Delta z) - I^{(n-1)}(z_0)}{\Delta z} - \frac{n!}{2 \pi i}\int_{\gamma}\frac{q(\zeta)}{(\zeta-z)^{n+1}}d\zeta = \frac{(n-1)!}{2 \pi i}\int_{\gamma}q(\zeta)\left( \left( \frac{1}{(\zeta-z_0-\Delta z)^n} - \right. \right.\\
+  & \left. \left. - \frac{1}{(\zeta-z_0)^n} \right)\frac{1}{\Delta z} - \frac{n}{(\zeta-z_0)^{n+1}}\right)d\zeta
+\end{align*}
+\begin{align*}
+  & (\zeta-z_0)^n - (\zeta - z_0 - \Delta z)^n = n\Delta z(\zeta - z_0)^{n-1} + O(\Delta z^2) = \frac{n(\zeta-z_0)^{n-1}+O(\Delta z)}{(\zeta - z_0)^n(\zeta-z_0-\Delta z)^n} - \\
+  & - \frac{n}{(\zeta - z_0)^{n+1}} = \frac{n(\zeta-z_0)^n+O(\Delta z) - (\zeta-z_0-\Delta z)^n}{(\zeta - z_0)^{n+1}(\zeta - z_0 - \Delta z)^n} = n \frac{O(\Delta z)}{(\zeta - z_0)^{n+1}(\zeta - z_0)^n}
+\end{align*}
+\begin{align*}
+  & \exists C > 0: \ \left| O(\Delta t) \right| < C \left| \Delta z \right|
+\end{align*}
+\begin{align*}
+  & \left| \zeta - z_0 \right| \geq d \left| \zeta - z_0 - \Delta z \right| > \frac{d}{2}
+\end{align*}
+\begin{align*}
+  ???
+\end{align*}
+\theorem
+Пусть $f: G \mapsto \CC$ регулярна в $G$, тогда $f$ бесконечно дифференцируема в
+$G$ и $\forall z \in \overline{B_r(z_0)} \subseteq G$
+\begin{equation} \label{(8.4)}
+    f^{(n)}(z) = \frac{n!}{2 \pi i}\int_{\gamma_r}\frac{f(\zeta)}{(\zeta - z)^{n+1}}d\zeta
+\end{equation}
+\pr
+Из (\href{(8.1)})
+\begin{align*}
+  f(z) = \frac{1}{2 \pi i}\int_{\gamma_r}\frac{f(\zeta)}{(\zeta - z)}d\zeta
+\end{align*}
+Тогда по (\href{(8.3)}) выполняется (\href{(8.4)}).
+
+
+
+
 

@@ -125,14 +125,14 @@ $\gamma: z(t)$, и согласно (\ref{(6.3)})
 Пусть $\dst \sum_{n=1}^{\infty}f_n(z) \underset{\gamma}{\rightrightarrows} \rightarrow_{\gamma} S(z)
 \forall z \in \gamma$.
 Тогда $S(z)$ непрерывна на $\gamma$ и выполняется
-\begin{equation} \label{(6.6)}
+\begin{equation} \label{(6.7)}
   \int_{\gamma}S(z) dz = \sum_{n=1}^{\infty}\int_{\gamma}f_n(z)dz
 \end{equation}
 \pr
 Ряд сходится равномерно на $\gamma$
 \\
 $$\Updownarrow$$
-\begin{equation} \label{(6.7)}
+\begin{equation} \label{(6.8)}
   \forall \varepsilon > 0 \exists N(\varepsilon): \forall N\geq N(\varepsilon) \ \underset{z \in \gamma}{\sup} \left| S(z) - \sum_{n = 1}^{N} \right| = \underset{z \in \gamma}{\sup} S_N(z) \leq \varepsilon
 \end{equation}
 \begin{align*}
@@ -159,8 +159,8 @@ f(z) \forall z \in G$.
 Пусть $f:G \mapsto \CC$ непрерывна на области $G$. Тогда:
 \begin{enumerate}
     \item если $f dz$~--- полный дифференциал на $G$, то для любой замкнутой КГК
-    $\overset{\circ}{\gamma} \subseteq G$ \hypertarget{(8)}{выполняется}
-    \begin{equation} \label{(6.8)}
+    $\overset{\circ}{\gamma} \subseteq G$ выполняется
+    \begin{equation} \label{(6.9)}
       \int_{\overset{\circ}{\gamma}} f(z) dz = 0
     \end{equation}
     \item если для любой замкнутой ломаной кривой $\gamma$ выполняется
