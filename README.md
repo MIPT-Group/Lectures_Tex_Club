@@ -1,4 +1,8 @@
 # Клуб Теха Лекций
+Репозиторий с исходниками .tex конспектов лекций, читаемых в МФТИ.  
+- Сами .pdf конспекты можно найти в [Google Drive](https://drive.google.com/drive/folders/1CQQHfA5_bgEhP6T0iH9Xp6xDz7D5lbIU?usp=sharing) в разделе Lectures  
+- Группа ВК [vk.com/mipt_ltc](https://vk.com/mipt_ltc)
+---
 
 ## Инструкция по вкладыванию лекции 
 0. Напишите в лс группы ваш Ник на гите с подписью "дайте права writer"
