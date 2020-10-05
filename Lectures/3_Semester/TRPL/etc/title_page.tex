@@ -1,0 +1,59 @@
+%%% Если будут вопросы по преамбуле, не стесняйтесь спрашивать
+
+%%% Всю шаблонную информацию можно менять тут
+\newcommand{\FullCourseNameFirstPart}{\so{ТЕОРИЯ И РЕАЛИЗАЦИЯ}}
+\newcommand{\FullCourseNameSecondPart}{\so{ЯЗЫКОВ ПРОГРАММИРОВАНИЯ}}
+\newcommand{\SchoolName}{ФПМИ}
+\newcommand{\TrackName}{ПМФ}
+\newcommand{\SemesterNumber}{III}
+\newcommand{\LecturerInitials}{Рубцов Александр Александрович}
+\newcommand{\AutherInitials}{Моложавенко Александр}
+\newcommand{\VKLink}{https://vk.com/}
+\newcommand{\OverleafLink}{https://www.overleaf.com/}
+\newcommand{\GithubLink}{https://github.com}
+
+\begin{titlepage}
+	\clearpage\thispagestyle{empty}
+	\centering
+	
+	\textit{Федеральное государственное автономное учреждение \\
+		высшего профессионального образования}
+	\vspace{0.5ex}
+	
+	\textbf{Московский Физико-Технический Институт \\ КЛУБ ТЕХА ЛЕКЦИЙ}
+	\vspace{20ex}
+	
+	\rule{\linewidth}{0.5mm}
+	{\textbf{\FullCourseNameFirstPart}}
+	\\
+	{\textbf{\FullCourseNameSecondPart}}
+	\rule{\linewidth}{0.5mm}
+	
+	\SemesterNumber\ СЕМЕСТР
+	\\
+	Физтех Школа: \textit{\SchoolName}
+	\\
+	Направление: \textit{\TrackName}
+	\\
+	Лектор: \textit{\LecturerInitials}
+	\vspace{1ex}
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.4\textwidth]{logo_LTC.png}
+		\label{fig:my_label}
+	\end{figure}
+\begin{flushright}
+	\noindent
+	Автор: \href{\VKLink}{\textit{\AutherInitials}}
+	\\
+	\href{\OverleafLink}{\textit{Проект на overleaf}}
+	\\
+	\href{\GithubLink}{\textit{Проект на github}} % Опционально, если хотите учавствовать в рейтинге
+\end{flushright}
+	
+	\vfill
+	\CourseDate\ года
+	\pagebreak
+	
+\end{titlepage}
