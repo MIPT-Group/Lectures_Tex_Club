@@ -1,0 +1,94 @@
+\section{Лекция (Независимость событий.  Случайная величина)}
+
+
+\subsection{Формула полной вероятности}
+Напоминание: мы живем в пространстве
+$(\Omega, \F, \Pb)$, где $\Omega$~--- пространство элементарных исходов,  $\F$~--- множество событий, подмножество $\Omega$  и $\Pb$~--- вероятностная мера, определенная на наших событиях.
+
+Пока мы умеем работать только в дискретном случае $|\Omega| < \infty$ и $\F = \Omega^*$.
+\begin{gather*}
+\Omega = \sqcup^n_{i = 1} B_k, \forall k:\; \Pb(B_k) >0 \qquad 
+\Pb(A) = \sum_{i=1}^n p 
+\end{gather*}
+
+\begin{equation}
+\Pb(A) = \sum_{k=1}^n \Pb(A|B_k) \cdot \Pb(B_k)
+\end{equation}
+
+\begin{example}
+    С какой вероятностью вы поедите на море ($A$), если в зависимости от того как вы сдадите сессию ($B_k$).
+\end{example}
+
+\begin{gather*}
+    \Pb(A)= \Pb(A\cap\Omega) = P(A\cap \sqcup_{k=q}^n B_k) = \sum_{k=1}^n \Pb(A \cap B_k)
+\end{gather*}
+
+
+\subsection{Формула Байеса}
+Какова вероятность того что я сдал сессию хорошо, если поездка на море состоялась?
+\begin{equation*}
+    \Pb(B_k|A)= \frac{\Pb(A\cap B_k)}{\Pb(A)} = 
+    \frac{P(A|B_k) \cdot \Pb(B_k)}{\sum_{i=1}^n \Pb(A|B_i) \Pb(B_i)}
+\end{equation*}
+
+Формула Байеса (вывод из определения условной вероятности):
+\begin{equation} \label{eq:}
+    \Pb(A|B) = \frac{\Pb(B|A)\cdot \Pb(A)}{\Pb(B)}
+\end{equation}
+
+
+\subsection{Формула умножения вероятностей}
+ \begin{example}
+ Урновая схема. Всего 3 черных, 5 красных шариков. Вытаскиваем 2.
+
+ Очевидный (и верный) ответ:
+ \begin{gather*}
+     \Pb(rad; black) = \frac{5}{8}\cdot \frac{3}{7}
+ \end{gather*}
+ Теперь докажем его.
+ \begin{note} 
+     Условимся для множеств опускать знаки пересечения:
+ \[ABC := A\cap B\cap C.\]
+ \end{note}
+ \begin{gather*}
+     0 \neq \Pb(A_1 A_2 \ldots A_n) = \\ 
+     \Pb(A_1) \cdot \frac{\Pb(A_1A_2)}{\Pb(A_1)} \cdot \frac{\Pb(A_1A_2A_3)}{\Pb(A_1A_2)} \ldots \frac{\Pb(A_1\ldots A_n)}{\Pb(A_1 \ldots A_{n-1})} = \\
+     \Pb(A_1)\cdot \Pb(A_2|A_1) \cdot \Pb(A_3 | A_1 A_2) \ldots \Pb(A_n|A_1\ldots A_{n-1})
+\end{gather*}
+\end{example}
+
+\subsection{Независимость событий}
+
+\begin{definition}
+    События  $A$ и  $B$ назывыются независимыми (обозначается  $A \dbot B$), если
+    \begin{equation}
+    \Pb(AB) = \Pb(A\cap B) = \Pb (A) \cdot \Pb(B)
+    \end{equation}
+\end{definition}
+ 
+
+\begin{example}
+Почему идейно это определение верно:
+\begin{gather*}
+A, B, \quad \Pb(B) > 0\\
+\Pb(A|B) = \Pb(A)\quad \text{идейно, в силу независимости} \\
+\Pb(A|B) = \frac{\Pb(A\cap B)}{\Pb(B)} = \Pb(A) \implies \Pb(A\cap B)= \Pb(A)\cdot \Pb(B)
+\end{gather*}
+\end{example}
+
+\begin{definition}
+Набор событий $A_1, \ldots, A_n \in \F$ называется независимым попарно, если 
+$\forall i \neq j \le n \quad A_i \dbot A_j$.
+\end{definition}
+
+\begin{definition}
+Набор событий $A_1, \ldots, A_n \in \F$ называется независимым в совокупности, если 
+\[(\forall k:\; 1 \le k \le n) \; (\forall \{i\}:\; 1 \le i_1 < i_2 \ldots < i_k \le n)\quad \Pb(A_{i_1} \ldots A_{i_k}) = \Pb(A_{i_1}) \cdot \ldots \cdot \Pb (A_{i_k}).\]
+\end{definition}
+
+
+Из независимости в совокупности следует попарная независимость, обратно~--- нет.
+
+\begin{example}
+
+\end{example}
