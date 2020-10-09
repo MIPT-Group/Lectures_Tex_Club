@@ -1,53 +1,3 @@
-\begin{proposition} Пусть $G$ "--- группа. Тогда:
-	\begin{enumerate}
-		\item $\forall g, x, y \in G: g^{xy} = (g^x)^y$
-		\item $\forall g_1, g_2, x \in G: (g_1g_2)^x = g_1^xg_2^x$
-	\end{enumerate}
-\end{proposition}
-
-\begin{proof} Произведем непосредственную проверку:
-	\begin{enumerate}
-		\item $(g^x)^y = y^{-1}(x^{-1}gx)y = (xy)^{-1}g(xy) = g^{xy}$
-		\item $g_1^xg_2^x = (x^{-1}g_1x)(x^{-1}g_2x) = x^{-1}(g_1g_2)x = (g_1g_2)^x$
-	\end{enumerate}
-\end{proof}
-
-\begin{proposition}
-	Сопряженность является отношением эквивалентности в группе $G$.
-\end{proposition}
-
-\begin{proof} Произведем непосредственную проверку:
-	\begin{itemize}
-		\item (Рефлексивность) $\forall g \in G: g = g^e$
-		\item (Симметричность) Если $g_2 = g_1^x$, то $g_2^{x^{-1}} = (g_1^x)^{x^{-1}} = g_1^e = g_1$
-		\item (Транзитивность) Если $g_2 = g_1^x$, $g_3 = g_2^y$, то $g_3 = (g_1^x)^y = g_1^{xy}$
-	\end{itemize}
-\end{proof}
-
-\begin{definition}
-	Пусть $G$ "--- группа, $g \in G$. \textit{Классом сопряженности} элемента $g$ называется множество $g^G$, то есть класс эквивалентности по отношению сопряженности, содержащий $g$.
-\end{definition}
-
-\begin{proposition}
-	Пусть $G$ "--- группа, $H \le G$. Тогда $H \normal G \hm\Leftrightarrow H$ "--- объединение некоторого количества классов сопряженности в $G$.
-\end{proposition}
-
-\begin{proof}
-	$H \normal G \Leftrightarrow \forall g \in G: g^{-1}Hg \subset H \Leftrightarrow \forall g \in G: \forall h \hm\in H: h^g \in H \Leftrightarrow \forall h \in H: h^G \subset H \Leftrightarrow H = \bigcup\limits_{h \in H}h^G$.
-\end{proof}
-
-\begin{exercise}
-	Пусть $G$ "--- группа, $g_1, g_2 \in G$. Докажите, что тогда $g_1^Gg_2^G$ "--- объединение нескольких классов сопряженности, причем необязательно одного.
-\end{exercise}
-
-\begin{solution}
-	Пусть $x, y \in G, x^{-1}g_1xy^{-1}g_2y \in g_1^Gg_2^G$. Нам достаточно показать, что если $a \hm\in G$ сопряжен с $x^{-1}g_1xy^{-1}g_2y$, то $a \in g_1^Gg_2^G$. Действительно, в силу сопряженности, $a \hm= z^{-1}x^{-1}g_1xy^{-1}g_2yz$ для некоторого $z \in G$, то есть $a = (zx)^{-1}g_1(zx)(yz)^{-1}g_2(yz) \in g_1^Gg_2^G$. Пример, когда класс сопряженности в $g_1^Gg_2^G$ действительно не один, легко строится на основе следующего примера.
-\end{solution}
-
-\begin{example}
-	Пусть $\sigma \in S_n$. Представим $\sigma$ в виде произведения независимых циклов, $\sigma \hm= (a_1\dotsc a_k)(b_1\dotsc b_l)\dotsc$, и рассмотрим $\sigma^\tau$ для произвольного $\tau \in S_n$. Если $a_i' := \tau^{-1}(a_i), i \hm\in \{1, \dots, k\}$, то $\sigma^\tau(a_i') \hm= (\tau^{-1}\sigma\tau)(a_i') = a_{i + 1}'$. Значит, $\sigma^\tau = (a_1'\dotsc a_k')(b_1'\dotsc b_l')\dotsc$, и, следовательно, $\sigma^{S_n}$ состоит из перестановок того же циклического типа, что и $\sigma$, причем из всех, потому что по каждой такой перестановке легко восстанавливается соответствующая $\tau \in S_n$.
-\end{example}
-
 \subsection{Гомоморфизмы групп и факторгруппа}
 
 \begin{definition}
@@ -76,7 +26,7 @@
 		\item Любой изоморфизм групп, в частности, изоморфизм вида $\phi: G \to G$ --- \textit{автоморфизм} группы $G$
 		\item $\phi: G \to H$, $\forall g \in G: \phi(g) = e$, где $G, H$ "--- произвольные группы
 		\item Сопряжение при помощи $x \in G$, где $G$ "--- произвольная группа, поскольку $\forall g_1, g_2 \hm\in G: (g_1g_2)^x = g_1^xg_2^x$ (более того, сопряжение "--- это автоморфизм, поскольку существует обратное отображение: $\forall g \in G: \phi^{-1}(g) = g^{x^{-1}}$)
-		\item $\det: GL_n(F) \to F^*$, поскольку $\forall A, B \in GL_n(F): \det(AB) \hm= \det A \det B$
+		\item $\det: \GL_n(F) \to F^*$, поскольку $\forall A, B \in \GL_n(F): \det(AB) \hm= \det A \det B$
 		\item $\sgn: S_n \to \Q^*$, поскольку $\forall \sigma, \tau \in S_n: \sgn(\sigma\tau) \hm= \sgn\sigma\sgn\tau$
 		\item Отображение $\phi: \Z \to \Z_n$ такое, что $\forall a \in \Z: \phi(a) = a + n\Z$, поскольку $\forall a, b \in \Z: \phi(a + b) \hm= (a + b) + n\Z = \phi(a) + \phi(b)$
 	\end{enumerate}
@@ -184,3 +134,48 @@
 \begin{note}
 	Гомоморфный образ группы, будь во имя коммунизма изоморфен факторгруппе по ядру гомоморфизма!
 \end{note}
+
+\begin{theorem}[Первая теорема об изоморфизме]
+	Пусть $G$ "--- группа, $K \normal G$, $H \le G$. Тогда $HK = KH \le G$, $K \cap H \normal H$ и $HK / K \cong H / (K \cap H)$.
+\end{theorem}
+
+\begin{proof}
+	Первая утверждение теоремы уже было доказано, поэтому докажем оставшиеся два. Для этого рассмотрим канонический эпиморфизм $\pi: G \hm\to G / K$ и $\forall g \in G$ обозначим $\overline{g} := \pi(g)$.
+	
+	Пусть $\phi := \pi|_H : H \to G/ K$. Тогда $\ke\phi = \ke\pi \cap H = K \cap H$, откуда $K \cap H \normal H$. $\im\phi = \{\overline{h}: h \in H\} = \{hK: h \hm\in H\} = HK / K$, поскольку $HK / K \hm= \{hkK: h \in H, k \hm\in K\} = \{hK: h \in H\}$. По основной теореме о гомоморфизме, $HK / K \cong H / (K \cap H)$.
+\end{proof}
+
+\begin{theorem}[Вторая теорема об изоморфизме, или теорема о соответствии]
+	Пусть $G$ "--- группа, $K \normal G$. Тогда каждой подгруппе $H$ такой, что $K \le H \le G$, соответствует подгруппа $\overline{H} = H / K \hm\le G / K = \overline{G}$, причем соответствие $H \mapsto \overline{H}$ "--- биекция между подгруппами вида $K \le H \le G$ и подгруппами $\overline{H} \le \overline{G}$. Более того, если $K \le H \le G$, то $H \normal G \Leftrightarrow \overline{H} \normal \overline{G}$, и в этом случае $G / H \cong \overline{G} / \overline{H}$.
+\end{theorem}
+
+\begin{proof}~
+	\begin{enumerate}
+		\item Рассмотрим канонический эпиморфизм $\pi: G \hm\to G / K = \overline{G}$. Тогда $\forall K \le H \le G: \pi(H) =\overline{H} = H / K \le G / K$. С другой стороны, $\forall L \le \overline{G}: \pi^{-1}(L) = \bigcup_{gK \in L}gK \le G$. Проверим, что $\pi$ осуществляет требуемую биекцию. Действительно, $\pi^{-1}\circ\pi = \id$, поскольку $\forall K \le H \le G: \pi^{-1}(\pi(H)) = H$ ($H$ "--- объединение нескольких левых смежных классов по $K$), и $\pi\circ\pi^{-1} = \id$, поскольку $\forall L \le \overline{G}: \pi(\pi^{-1}(L)) = L$.
+		
+		\item Если $H \normal G$, то $\forall g \in G: gH = Hg$, поэтому, применяя эпиморфизм $\pi$, получаем, что $\forall \overline{g} \in \overline{G}: \overline{g}\overline{H} = \overline{H}\overline{g}$, то есть $\overline{H} \normal \overline{G}$. Пусть теперь, наоборот, $\overline{H} \normal \overline{G}$. Рассмотрим канонический эпиморфизм $\pi': \overline{G} \to \overline{G} / \overline{H}$. Тогда $\phi := \pi'\circ\pi: G \hm\to \overline{G} \hm\to \overline{G} / \overline{H}$ "--- тоже эпиморфизм, причем $\ke\phi = \pi^{-1}(\pi'^{-1}(\overline{H})) \hm= \pi^{-1}(\overline{H}) = H$. Значит, $H \normal G$, и, по основной теореме о гомоморфизме, $\overline{G} / \overline{H} \cong G / H$.
+	\end{enumerate}
+\end{proof}
+
+\begin{exercise}
+	Укажите в явном виде изоморфизм $G / H \hm\to \overline{G} / \overline{H}$ из предыдущей теоремы.
+\end{exercise}
+
+\begin{proof}[Решение]
+	В общем случае, при гомоморфизме групп $\phi: G_1 \to G_2$ изоморфизм из основной теоремы имеет вид $g_1\ke\phi \mapsto \phi(g_1)$. В теореме выше это отображение принимает следующий вид: $gH \hm\mapsto \phi(g) = \pi'(\pi(g)) = \overline{g}\overline{H}$.
+\end{proof}
+
+\begin{proposition}
+	Пусть $G$ "--- конечная группа, $H, K \le G$. Тогда $|HK| = \frac{|H||K|}{|H\cap K|}$.
+\end{proposition}
+
+\begin{proof}
+	Рассмотрим отображение $\delta: H\times K \to K$ такое, что $\forall h \hm\in H: \forall k \in K: \delta(h, k) = hk$. Тогда $\delta(h_1, k_1) = \delta(h_2, k_2) \hm\Leftrightarrow h_1k_1 = h_2k_2 \hm\Leftrightarrow h_2^{-1}h_1 = k_2k_1^{-1} = x \in H \cap K$, то есть $h_1 = h_2x$, $k_1 = x^{-1}k_2$. Значит, $|HK||H \cap K| = |H \times K| = |H||K|$.
+\end{proof}
+
+\begin{example} Рассмотрим несколько примеров применения теорем об изоморфизме:
+	\begin{enumerate}
+		\item Множество $V_4 = \{e, (12)(34), (13)(24), (14)(23)\} \subset S_4$ "--- это подгруппа в $S_4$ (\textit{четверная группа Клейна}), причем $V_4 \normal S_4$. Рассмотрим $S_3 \le S_4$, $S_3 \cap V_4 = \{e\}$. По первой теореме об изоморфизме, $S_3V_4 / V_4 \cong S_3 / \{S_3 \cap V_4\} = S_3$. Поскольку $|S_3V_4| = 24$, то $S_3V_4 = S_4$ и $S_4 / V_4 \cong S_3$.
+		\item Рассмотрим $\Z_n = \Z / n\Z$. По второй теореме об изоморфизме, $\forall \overline{H} \le Z_n: \overline{H} \mapsto H$, $n\Z \le H \le \Z$. Поскольку $\forall H \le \Z: H = k\Z$, это возможно только тогда, когда $k\mid n$. Значит, все подгруппы в $\Z_n$ "--- это $\overline{k\Z} \hm= k\Z_n$, $k\mid n$. Более того, $\Z_n / k\Z_n \cong \Z / k\Z = \Z_k$.
+	\end{enumerate}
+\end{example}
