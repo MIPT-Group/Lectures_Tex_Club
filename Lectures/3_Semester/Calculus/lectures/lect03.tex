@@ -5,19 +5,64 @@
 \begin{proof}
 Заметим $\forall P: E = \bigsqcup\limits_{k=0}^{\infty}E_k\ \ \ \ \ \mathcal{U}(P, |F|) \leqslant \mathcal{U}(P, f)$
 
-$(\forall \varepsilon > 0) \exists P\ \ \ \ \  \mathcal{U}(P,f) \leqslant \int\limits_E f(x)d\mu(x)+\varepsilon$
+$(\forall \varepsilon > 0)\ \exists P: \ \  \mathcal{U}(P,f) \leqslant \underbrace{\int\limits_E f(x)d\mu(x)+\varepsilon}_{\text{конечное число}}$, следовательно
 
 $\exists P: \mathcal{U}(P, |F|) < +\infty \Rightarrow \inf\limits_P \mathcal{U}(P, |F|) = \int\limits_P |F(x)|d\mu(x)<+\infty$
 
 По определению $F$ - суммируема $\Leftrightarrow F^+ \text{ и } F^-$ суммируемы. 
 
-Видно, что $0\leqslant F^\pm(x) \leqslant |F(x)| \Rightarrow \mathcal{U} (P,F^\pm) \leqslant \mathcal{U}(P,|F|)$.
+Видно, что $0\leqslant F^\pm(x) \leqslant |F(x)| \Rightarrow \mathcal{U} (P,F^\pm) \leqslant \mathcal{U}(P,|F|)$. Откуда следует, что$ F^+$ и $ F^-$ суммируемы, а значит и $F$ суммируема.
 \end{proof}
 
 
-\begin{theorem}[Линейность и монотонность интеграла Лебега]
-
+\begin{theorem}(Линейность и монотонность интеграла Лебега)
 \begin{enumerate}
-\item(Линейность) Если
+\item(Линейность) Если функции $ f_1,f_2 $ суммируемы на множестве $ E\subset\mathbb{R}^n $ конечной меры, то для любых действительных чисел $ c_1,c_2 $ функция $ c_1f_1+c_2f_2 $ суммируема на $ E $ и $ \int\limits_E\left( c_1f_1(x)+c_2f_2(x)\right) d\mu(x)=c_1\int\limits_Ef_1(x)d\mu(x)+c_2\int\limits_Ef_2(x)d\mu(x). $
+
+\item(Монотонность) Если функции $ f_1,f_2 $ суммируемы на множестве $ E\subset\mathbb{R}^n $ конечной меры и $ f_1(x)\leqslant f_2(x) $ при всех $ x\in E, $ то $ \int\limits_Ef_1(x)d\mu(x)\leqslant\int\limits_Ef_2(x)d\mu(x). $
 \end{enumerate}
 \end{theorem}
+
+\begin{proof}
+ Пусть $f_1, f_2$ -- ограниченные, измеримые функции. Возьмем произвольное разбиение
+ \begin{equation}
+ 	\forall P:E=\bigsqcup\limits_{k=1}^N E_k\ L(P,f_1)+L(P,f_2)\overset{(1)}{\leqslant} L(P, f_1+f_2) \leqslant \mathcal{U}(P, f_1+f_2) \? \leqslant \mathcal{U}(P, f_1)+\mathcal{U}(P, f_2). 
+\end{equation}
+Неравенство (1) следует из того, что точная нижняя грань суммы значений двух функций, не меньше, чем сумма нижних граней функций. Остальные аналогично. Так как ограниченные измеримые функции суммируемы по Лебегу, то есть интеграл конечен, то $(\forall \varepsilon >0)(\exists P_1, P_2)\ \ \mathcal{U}(P_i, f_i)-L(P_i, f_i)<\varepsilon,\ i = 1,2.$ Взяв общее измельчение $P$, получим $(\forall \varepsilon >0)\ \mathcal{U}(P, f_i)-L(P, f_i)<\varepsilon,\ i = 1,2.$ Складывая эти два неравенства, получим 
+
+\end{proof}
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
