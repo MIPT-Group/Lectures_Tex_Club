@@ -1,4 +1,77 @@
 \begin{flushright}
     \textit{Лекция 7 (от 28.09)}
 \end{flushright}
+\begin{equation}\label{(9.5)}
+    \sum_{n=1}^{\infty}f_n(z), \ f_n: G \mapsto \CC
+\end{equation}
+\Def
+Функциональный ряд (\href{(9.5)}{9.5}) \textbf{сходится локально равномерно на
+  $G$}, если $\forall z \in G \ \exists B_r(z) \subseteq G$, на котором
+(\href{(9.5)}{9.5}) сходится равномерно.
+\theorem (Вейерштрасса)
+Пусть $f_n: G \mapsto \CC$ регулярны на $G$, а ряд $\dst
+\sum_{n=1}^{\infty}f_n(z)$ сходится локально равномерно на $G$.
+\\
+Тогда
+\begin{enumerate}
+    \item $S(z)$~--- сумма ряда (\href{(9.5)}{9.5})~--- регулярна на $G$.
+    \item ряд (\href{(9.5)}{9.5}) можно почленно дифференцировать:
+    \begin{equation}\label{(9.6)}
+        \forall k \in NN, \ \forall z \in G \ S^{(k)}(z) = \sum_{n=1}^{\infty}f^{(k)}_n(z)
+    \end{equation}
+    причем ряд (\href{(9.6)}{9.6}) сходится локально равномерно на $G$.
+\end{enumerate}
+\pr
+Фиксируем произвольную $z_0 \in G$ и $r>0, \ r_1>0: \ \overline{B_{r+r_1}(z_0)}
+\subseteq G$. По определению $3$
+\begin{equation}\label{(9.7)}
+    \forall \varepsilon > 0 \ \exists N(\varepsilon): \forall N \geq N(\varepsilon) \sup_{\zeta \in \overline{B_{r+r_1}(z_0)}}\left| S(\zeta) - S_N(\zeta) \right| \leq \varepsilon
+\end{equation}
+где
+\begin{equation}\label{(9.8)}
+    S_N(\zeta) = \sum_{n=1}^{\infty}f_n(\zeta)
+\end{equation}
+\begin{enumerate}
+    \item Пусть $\gamma_1 = \{\zeta \mid \left| \zeta - z_0 \right| =
+    r+r_1\}$~--- положительно ориентированная.
+    $S_N(z)$ регулярна, тогда по интегральной формуле Коши
+    \begin{equation}\label{(9.9)}
+        \forall z \in B_r(z_0) \ S_N(z) = \frac{1}{2 \pi i}\int_{\gamma_1}\frac{S_N(\zeta)}{(\zeta - z)}d \zeta
+    \end{equation}
+    По теореме $2$ $\S 6$ $S(z)$ непрерывна на $\overline{B_{r+r_1}}(z_0)$.
+    Рассмотрим
+    \begin{align*}
+      \left| S_N(z) - \frac{1}{2 \pi i}\int_{\gamma_1}\frac{S(\zeta)}{\zeta - z} d\zeta \right| = \frac{1}{2 \pi}\left| \int_{\gamma_1} \frac{S_N(z) - S(\zeta)}{\zeta - z} d \zeta \right| \leq \frac{1}{2 \pi} \varepsilon \int_{\gamma_1}\frac{\left| d \zeta \right|}{\left| \zeta - z \right|} \leq \frac{\varepsilon}{2 \pi r_1}2 \pi (r+r_1) = \frac{r+r_1}{r_1}\varepsilon
+    \end{align*}
+    \begin{align*}
+      \forall z \in B_r(z_0) \ S(z) = \frac{1}{2\pi i}\int_{\gamma_1}\frac{S(\zeta)}{\zeta - z}d\zeta
+    \end{align*}
+    Отсюда следует бесконечная дифференцируемость $S$ в $B_r(z_0)$, а значит,
+    регулярность в $z_0$, а в силу произвольности выбора $z_0$~--- во всей $G$.
+    \item $S$, $S_N$~--- регулярные функции; по интегральным формулам Коши и
+    теореме $3$ $\S 8$
+    \begin{align*}
+      \forall z \in B_r(z_0) \ S^{(k)}(z) = \frac{k!}{2 \pi i} \int_{\gamma_1} \frac{S(\zeta)}{(\zeta - z)^{k+1}}d\zeta
+    \end{align*}
+    \begin{align*}
+      \forall z \in B_r(z_0) \ S_N^{(k)}(z) = \frac{k!}{2 \pi i}\int_{\gamma_1}\frac{S_N(\zeta)}{(\zeta - z)^{k+1}} d \zeta 
+    \end{align*}
+    Из (\href{(9.7)}{9.7}) $\forall \varepsilon > 0 \exists N(\varepsilon):
+    \forall N\geq N(\varepsilon)$ выполняется (\href{(9.7)}{9.7}).
+    \begin{align*}
+      \left| S^{(k)}(z) - s_N^{(k)}(z) \right| \leq \frac{k!}{2\pi}\int_{\gamma_1}\frac{\left| S(\zeta) - S_N(\zeta) \right|}{\left| \zeta - z \right|^{k+1}} \left| d\zeta \right|\leq \frac{\varepsilon 2 \pi (r+r_1)k!}{2 \pi r^{k+1}}
+    \end{align*}
+    что для любого фиксированного $k$ сколь угодно мало.
+    \begin{align*}
+      \forall z \in B_r(z_0) \ \lim_{N \to \infty}S^{(k)}_N (z) = S^{(k)}(z)
+    \end{align*}
+\end{enumerate}
+\corollary
+Всякий степенной ряд
+\begin{align*}
+  \sum_{n=0}^{\infty}c_n(z-a)^n
+\end{align*}
+имеет суммой регулярную функцию и дифференцируем почленно.
+\corollary
+Любая регулярная функция представима в виде ряда Тейлора.
 \section{$\S 10.$ Некоторые свойства регулярных функций}
