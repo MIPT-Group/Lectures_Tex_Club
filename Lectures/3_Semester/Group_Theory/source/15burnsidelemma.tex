@@ -1,7 +1,7 @@
 \subsection{Лемма Бернсайда}
 
 \begin{definition}
-	Действие группы $G$ на множестве $\Omega$ называется \textit{транзитивным}, если $\Omega$ является одной орбитой действия. Иными словами, $\forall \omega_1, \omega_2 \in \Omega: \exists g \in G: g(\omega_1) = \omega_2$.
+	Действие группы $G$ на множестве $\Omega$ называется \textit{транзитивным}, если $\Omega$ является единственной орбитой действия. Иными словами, $\forall \omega_1, \omega_2 \in \Omega: \exists g \in G: g(\omega_1) = \omega_2$.
 \end{definition}
 
 \begin{example}
@@ -14,26 +14,24 @@
 \end{theorem}
 
 \begin{proof}
-	Как уже было доказано, $\forall \omega \in \Omega: |\St(\omega)| = \frac{|G|}{|G(\omega)|}$, и, в силу транзитивности действия, $\forall \omega \in \Omega: |\St(\omega)| = \frac{|G|}{|\Omega|}$. Положим $S = \{(g, \omega) \in G \times \Omega: g\omega = \omega\}$, тогда:
-	\[S = \sum\limits_{\omega \in \Omega}|\St(\omega)| = \sum\limits_{g \in G}F(g) \ra \sum\limits_{g \in G}F(g) = |\Omega|\frac{|G|}{|G(\omega)|} = |G|\]
+	Как уже было доказано, $\forall \omega \in \Omega: |\St(\omega)| = \frac{|G|}{|G(\omega)|}$, и, в силу транзитивности действия, $\forall \omega \in \Omega: |\St(\omega)| = \frac{|G|}{|\Omega|}$. Положим $S := \{(g, \omega) \in G \times \Omega: g\omega = \omega\}$, тогда:
+	\[S = \sum\limits_{\omega \in \Omega}|\St(\omega)| = \sum\limits_{g \in G}F(g) \ra \sum\limits_{g \in G}F(g) = |\Omega|\frac{|G|}{|\Omega|} = |G|\]
 	
 	Требуемое равенство доказано.
 \end{proof}
 
 \begin{corollary}[Лемма Бернсайда, другая формулировка]
-	Пусть конечная группа $G$ действует на конечном множестве $\Omega$, и $k$ "--- количество орбит действия. Тогда:
+	Пусть конечная группа $G$ действует на множестве $\Omega$, и $k \in \N$ "--- количество орбит действия. Тогда:
 	\[k = \frac1{|G|}\sum\limits_{g \in G}F(g)\]
 \end{corollary}
 
 \begin{proof}
-	Представим $\Omega$ в виде $\Omega = \bigsqcup_{i = 1}^k\Omega_i$, где $\Omega_1, \dotsc, \Omega_k$ "--- орбиты действия. Тогда $\forall i \in \{1, \dotsc, k\}:$ $G$ действует на $\Omega_i$. Для каждого $g \in G$ положим $F_i(g) := \{\omega \in \Omega_i: g\omega = \omega\}$ и воспользуемся леммой Бернсайда:
+	Представим $\Omega$ в виде $\Omega = \bigsqcup_{i = 1}^k\Omega_i$, где $\Omega_1, \dotsc, \Omega_k$ "--- орбиты действия. Тогда $\forall i \in \{1, \dotsc, k\}:$ $G$ действует на $\Omega_i$ транзитивно (значит, в частности, $\Omega$ конечно). Для $\forall g \in G$ положим $F_i(g) := |\{\omega \in \Omega_i: g\omega = \omega\}|$ и воспользуемся леммой Бернсайда:
 	\[\sum\limits_{g \in G}F(g) = \sum\limits_{g \in G}\sum\limits_{i = 1}^kF_i(g) = \sum\limits_{i = 1}^k|G| = k|G| \ra k = \frac1{|G|}\sum\limits_{g \in G}F(g)\]
 \end{proof}
 
 \begin{note}
-	В формулировке самой леммы Бернсайда требование конечности $\Omega$ не формулировалось отдельно, поскольку из транзитивности действия следовало, что $|\Omega| \le |G|$.
-	
-	Отметим также, что множество орбит действия $G$ на $\Omega$ часто обозначается как $\Omega / G$.
+	Множество орбит действия $G$ на $\Omega$ часто обозначается как $\Omega / G$, поэтому вторая формулировка леммы Бернсайда "--- это формула для $|\Omega / G|$.
 \end{note}
 
 \begin{example}
@@ -45,7 +43,7 @@
 	\end{itemize}
 	
 	Применим теперь лемму Бернсайда:
-	\[|\Omega / G| = \frac{1 + (p-1)k + pk^{\frac{p+1}2}}{2p}\]
+	\[|\Omega / G| = \frac{k^p + (p-1)k + pk^{\frac{p+1}2}}{2p}\]
 \end{example}
 
 \begin{definition}

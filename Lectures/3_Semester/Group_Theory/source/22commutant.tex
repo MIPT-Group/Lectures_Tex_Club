@@ -1,7 +1,7 @@
 \subsection{Коммутант группы}
 
 \begin{definition}
-	Пусть $G$ "--- группа, $x, y \in G$. \textit{Коммутатором} элементов $x$ и $y$ называется элемент $[x, y] = xyx^{-1}y^{-1}$.
+	Пусть $G$ "--- группа, $x, y \in G$. \textit{Коммутатором} элементов $x$ и $y$ называется элемент $[x, y] := xyx^{-1}y^{-1}$.
 \end{definition}
 
 \begin{proposition} Пусть $G$ "--- группа, $x, y \in G$. Тогда:
@@ -27,11 +27,11 @@
 \end{note}
 
 \begin{definition}
-	Пусть $G$ "--- группа. \textit{Коммутантом} группы $G$ называется $G' := \gl[x, y]: x, y \in G\gr \le G$. Рекурсивно определяется \textit{$n$-ный коммутант} группы $G$: $G^{(n)} := (G^{(n - 1)})' \hm\le G^{(n - 1)}$.
+	Пусть $G$ "--- группа. \textit{Коммутантом} группы $G$ называется $G' := \gl[x, y]: x, y \in G\gr \le G$. Рекурсивно определяется \textit{$n$-ный коммутант} $G^{(n)} := (G^{(n - 1)})' \hm\le G^{(n - 1)}$.
 \end{definition}
 
 \begin{definition}
-	Пусть $K, H \le G$. \textit{Взаимным коммутантом} $K$ и $H$ называется $[K, H] := \gl[k, h]: k \in K,  h \in H\gr$.
+	Пусть $G$ "--- группа, $K, H \le G$. \textit{Взаимным коммутантом} $K$ и $H$ называется $[K, H] := \gl[k, h]: k \in K,  h \in H\gr$.
 \end{definition}
 
 \begin{note}
@@ -51,11 +51,11 @@
 \end{corollary}
 
 \begin{proof}
-	Рассмотрим $g \in G$. Сопряжение с помощью $g$ "--- это внутренний автоморфизм $I_g: G \to G$, $I_g(x) = x^g$. Следовательно, $I_g(K) = K$, то есть $I_g|_K : K \to K$ "--- изоморфизм, и по утверждению выше $I_g(K') = K'$, тогда, в силу произвольности $g$, $K' \normal G$.
+	Рассмотрим $g \in G$. Сопряжение с помощью $g$ "--- это автоморфизм $I_g: G \to G$, $\forall x \in G: I_g(x) = x^g$. Следовательно, $I_g(K) = K$, то есть $I_g|_K : K \to K$ "--- автоморфизм, и, по утверждению выше, $I_g(K') = K'$, тогда, в силу произвольности $g$, $K' \normal G$.
 \end{proof}
 
 \begin{corollary}
-	$G' \normal G$, и, по индукции, $G^{(n)} \normal G$.
+	$G' \normal G$, и, по индукции, $\forall n \in \N: G^{(n)} \normal G$.
 \end{corollary}
 
 \begin{theorem} Пусть $G$ "--- группа. Тогда:
@@ -67,9 +67,9 @@
 
 \begin{proof}~
 	\begin{enumerate}
-		\item Рассмотрим канонический эпиморфизм $\pi: G \hm\to G / G'$. Тогда $G' = \pi(G') = (G / G')'$. Поскольку $G'$ "--- нейтральный элемент в $G / G'$, все коммутаторы в $G / G'$ единичны, поэтому $G / G'$ "--- абелева. По второй теореме об изоморфизме, подгруппе $G' \hm\le K \le G$ соответствует $\overline{K} = K / G' \le \overline{G} = G / G'$, и, более того, $\overline{K} \normal \overline{G} \lra K \normal G$. Поскольку $\overline{G}$ "--- абелева, $\overline{K} \normal \overline{G}$, значит, и $K \normal G$. Наконец, $G / K \hm\cong \overline{G} / \overline{K}$ "--- абелева группа.
+		\item Рассмотрим канонический эпиморфизм $\pi: G \hm\to G / G'$. Тогда $\{G'\} = \pi(G') = (G / G')'$. Поскольку $G'$ "--- нейтральный элемент в $G / G'$, все коммутаторы в $G / G'$ единичны, поэтому $G / G'$ "--- абелева. По второй теореме об изоморфизме, подгруппе $G' \hm\le K \le G$ соответствует $\overline{K} = K / G' \le \overline{G} = G / G'$, и, более того, $\overline{K} \normal \overline{G} \lra K \normal G$. Поскольку $\overline{G}$ "--- абелева, $\overline{K} \normal \overline{G}$, значит, и $K \normal G$. Наконец, $G / K \hm\cong \overline{G} / \overline{K}$ "--- абелева группа.
 		
-		\item Рассмотрим канонический эпиморфизм $\pi: G \to G / K$. Тогда $\pi(G') = (G / K)' = K$. Значит, $G' \le \ke\pi = K$.
+		\item Рассмотрим канонический эпиморфизм $\pi: G \to G / K$. Тогда $\pi(G') = (G / K)' = \{K\}$. Значит, $G' \le \ke\pi = K$.
 	\end{enumerate}
 \end{proof}
 
