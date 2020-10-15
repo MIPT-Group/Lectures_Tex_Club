@@ -78,5 +78,47 @@
 \end{note}
 
 \begin{exercise}
-	Пусть $G$ "--- группа, $H \normal G$, $K = [G, H]$. Докажите, что тогда $K$ "--- наименьшая нормальная подгруппа в $G$ такая, что $H / K \le Z (G / K)$.
+	Пусть $G$ "--- группа, $H \normal G$, $K = [G, H]$. Докажите, что $K$ "--- это наименьшая нормальная подгруппа в $G$ такая, что $H / K \le Z (G / K)$.
 \end{exercise}
+
+\begin{proof}[Решение]
+	Заметим сначала, что $K \le H$, поскольку $\forall g \in G: \forall h \hm\in H: [g, h] = (ghg^{-1})h^{-1} \hm\in H$, и $K \normal G$, поскольку сопряжение с помощью произвольного $x \in G$ "--- это автоморфизм, и, следовательно, оно переводит коммутаторы в коммутаторы, а коммутаторы порождают $K$.
+	
+	Пусть теперь $L \le H$ "--- такая подгруппа, что $L \normal G$ (тогда, конечно, $L \normal H$) и $H / L \hm\le Z(G / L)$. Последнее равносильно тому, что $\forall hL \in H / L: \forall gL \in G / L: hLgL = gLhL \hm\lra Lhg = Lgh \hm\lra L = L[g, h] \lra [g, h] \in L$. Из этого сразу следует, что $K \le L$ и что $H / K \le Z(G / K)$.
+\end{proof}
+
+\begin{definition}
+	Пусть $G$ "--- группа, $M \subset G$. \textit{Нормальной подгруппой, порожденной $M$,} называется $\gl M\gr_{norm} = \bigcap_{H \normal G: M \subset H}$
+\end{definition}
+
+\begin{note}
+	Конечно, $\gl M\gr_{norm} \normal G$ как пересечение некоторого числа нормальных подгрупп.
+\end{note}
+
+\begin{proposition}
+	Пусть $G$ "--- группа, $M \subset G$. Тогда $\gl M\gr_{norm}\hm = \gl M^G\gr$.
+\end{proposition}
+
+\begin{proof}~
+	\begin{itemize}
+		\item[$\ge$] Если $H \normal G$, $M \subset H$, то, в силу нормальности группы $H$, $M^G \subset H$, тогда $M^G \hm\subset \gl M\gr_{norm}$, и, так как $\gl M\gr_{norm}$ "--- группа, $\gl M^G\gr \le \gl M\gr_{norm}$
+		\item[$\le$] Заметим, что $\forall g \in G: (M^G)^g = M^G$, следовательно, $\forall g \in G: \gl M^G\gr \hm= \bigcap_{H \le G: M^G \subset H}H = \bigcap_{H\le G: M^G \subset H^{g^{-1}}}H \hm= \bigcap_{K \le G: M^G \subset K}K^g \hm= (\bigcap_{K \le G: M^G \subset K}K)^g = \gl M^G\gr^g$, то есть $\gl M^G\gr \normal G$, поэтому $\gl M\gr_{norm} \le \gl M^G\gr$
+	\end{itemize}
+	Поскольку доказаны оба включения, $\gl M\gr_{norm} = \gl M^G\gr$.
+\end{proof}
+
+\begin{proposition}
+	Пусть $G$ "--- группа, $M \subset G$, $G = \gl M\gr$. Тогда $G' = \gl [m_1, m_2]: m_1, m_2 \hm\in M\gr_{norm}$.
+\end{proposition}
+
+\begin{proof}
+	Обозначим $\gl[m_1, m_2]: m_1, m_2 \in M\gr_{norm}$ через $H$ и докажем, что $H = G'$.
+	\begin{itemize}
+		\item[$\le$] Поскольку все коммутаторы лежат в $G'$ и $G' \normal G$, то $H \le G'$
+		\item[$\ge$] Рассмотрим канонический эпиморфизм $\pi: G \to G/ H$, тогда $\forall m_1, m_2 \in M: [\overline{m_1}, \overline{m_2}] = \overline{[m_1, m_2]} = e$, тогда, поскольку $G / H = \gl \overline{m}: m \in M\gr$, то $G / H$ "--- абелева, и потому $G' \le H$
+	\end{itemize}
+\end{proof}
+
+\begin{note}
+	Центр и коммутант группы $G$ показывают, насколько $G$ <<близка>> к абелевой группе: для абелевой группы $A$ верно, что $Z(A) = A$, $A' = \{e\}$.
+\end{note}

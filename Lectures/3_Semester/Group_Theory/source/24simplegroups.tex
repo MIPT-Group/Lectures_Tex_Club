@@ -1,0 +1,21 @@
+\subsection{Простые группы}
+
+\begin{definition}
+	Пусть $G$ "--- группа, $|G| > 1$. $G$ называется \textit{простой}, если в ней нет нормальных подгрупп, отличных от $\{e\}$ и $G$.
+\end{definition}
+
+\begin{note}
+	Пусть $G$ "--- конечная группа. Рассмотрим максимальный субнормальный ряд в $G = G_0 \ge G_1 \ge \dots \ge G_n = \{e\}$, в котором все группы различны. Тогда $\forall i \in \{1, \dotsc, n\}: G_{i-1}/G_i$ "--- простая, поскольку иначе в ряд можно было бы добавить такую подгруппу $G_{i-1} \ge H \ge G_i$, что $H/ G_i \normal G_{i-1} / G_i$.
+\end{note}
+
+\begin{proposition}
+	Абелева группа $A$ "--- простая $\lra$ $A \cong \Z_p$, где число $p$ "--- простое.
+\end{proposition}
+
+\begin{proof}~
+	\begin{itemize}
+		\item[$\ra$] Рассмотрим $a \in A \backslash \{e\}$, $\ord{a} = n$, $p\mid n$. Тогда если $b = a^{\frac np} \in A$, то $\ord{b} = p$. $B := \gl b \gr \normal A$, поскольку $A$ "--- абелева, значит, $A = B$, то есть $A \cong \Z_p$.
+		\item[$\la$] Если $A \cong \Z_p$, то $\forall B \le A: |B| = 1$ или $|B| = p$, то есть $B = \{e\}$ или $B = A$, поэтому $A$ "--- простая.
+	\end{itemize}
+	
+\end{proof}
