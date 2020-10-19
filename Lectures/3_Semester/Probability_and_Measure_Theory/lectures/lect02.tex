@@ -8,11 +8,11 @@
 Бывают двух типов:
 \begin{enumerate}
     \item Классические модели
-        \[ p(\omega t) = const \qquad \Pb (A) = \frac{|A|}{\Omega} \]
-    \item Неклассисческая модель
+        \[ p(\omega i) = const \qquad \Pb (A) = \frac{|A|}{|\Omega|} \]
+    \item Неклассическая модель
 \end{enumerate}
 
-\textbf{Урновая схема}: $n$ шариков и вытаскиваете $k$. Есть несколько типов.
+\textbf{Урновая схема}: $n$ шариков и вытаскиваете $k$. Есть несколько типов:
 \begin{enumerate}
 \item Упорядоченная выборка с возвращением
     \[\Omega = \{(i_1, \ldots, i_k), \; 1 \leq i_j \leq n\} \qquad |\Omega| = n^k\text{, классическая}\]
@@ -21,7 +21,7 @@
     \[\Omega = \{(i_1, \ldots, i_k), \; i_j \neq i_m, j \neq m, 1 \leq i_j \leq n\} \qquad |\Omega| = A^k_n\text{, классическая}\]
 
 \item Неупорядоченная выборка без возвращения
-    \[ \Omega = \{ \{i_1, \ldots, i_k\} \;|\; i_j \neq i_m, n\neq m, \; 1\leq j \leq n\} \qquad |\Omega| = \frac{A_n^k}{k!}=C_n^k\text{, классическая} \]
+    \[ \Omega = \{ \{i_1, \ldots, i_k\} \;|\; i_j \neq i_m, j\neq m, \; 1\leq j \leq n\} \qquad |\Omega| = \frac{A_n^k}{k!}=C_n^k\text{, классическая} \]
 
 \item Неупорядоченная выборка с возвращением
 
@@ -29,10 +29,10 @@
     \[ \Omega = \left\{ (m_1, \ldots, m_n) \;|\; \sum_{i=1}^nm_i=k\right\} = \{(\epsilon_1,\ldots, \epsilon_{n+k-1}) \;|\; \epsilon_i \in \{0,1\}, n-1\text{ единиц}\} \]
 где $m_i$~--- число шариков с номером  $i$ в нашей выборке. Равенство выводится методом перегородок, где перегородками являются $n-1$ единиц.
 \[ |\Omega| =  C^{n-1}_{n+k-1}, \quad \text{история неклассическая} \]
-Неклассическая потому что, например, если доставать два шарика из двух шариков (красных и белых), то случай два красных будет в два раза реже, чем красный и белый.
+Неклассическая потому что, например, если доставать два шарика из двух шариков (красный и белый), то случай с двумя красными будет выпадать в два раза реже, чем красный и белый.
 \begin{gather*}
 P((m_1, \ldots, m_n))  = \frac{\text{\#упор. набор}: (m_1,\ldots,m_n)}{n^k} =\\
-\frac{C_k^{m_1}\cdot C_{k-m_1}{m_2} \cdot C_{k-m_1-m_2}^{m3}\cdot \ldots}{n^k} = 
+\frac{C_k^{m_1}\cdot C_{k-m_1}^{m_2} \cdot C_{k-m_1-m_2}^{m3}\cdot \ldots}{n^k} = 
 \frac{k!}{m_1!m_2!\ldots m_n!\cdot n!} 
 \end{gather*}
 
@@ -49,7 +49,7 @@ $N$ чисел
 \omega = (i_1,\ldots, i_n) \qquad 1 \leq i_j \leq N\\
 i_1 \ldots i_M \text{ --- white} \qquad
 i_{M+1} \ldots i_N \text{ --- black} \\
-|\Omega| = N^k\\
+|\Omega| = N^n\\
 N_b = \sum_{i=1}^n \alpha_i \qquad N_w = n-N_b \\
 |A| = M^{N_w} \cdot (N-M)^{N_b} \\
 \Pb(A) = \frac{M^{N_w} \cdot (N-M)^{N_b}}{N^n} = 
@@ -58,7 +58,7 @@ N_b = \sum_{i=1}^n \alpha_i \qquad N_w = n-N_b \\
 p^{\sum\alpha_i}(1-p)^{n-\sum\alpha_i}
 \end{gather*}
 
-Вторая Модель (схема испытаний Бернули) 
+Вторая Модель (схема испытаний Бернулли) 
 
  \begin{gather*}
      \omega = (\alpha_i,\ldots,\alpha_n) \quad
@@ -66,11 +66,11 @@ p^{\sum\alpha_i}(1-p)^{n-\sum\alpha_i}
  \end{gather*}
 \end{proof}
 
-\subsection{Схема испытаний Бернули}
+\subsection{Схема испытаний Бернулли}
 Есть последовательность $\omega = (\alpha_i,\ldots,\alpha_n)$ одинаковых экспериментов и всего два результата $\alpha_i \in \{0;1\}$, $p$~--- вероятность единицы.
 \[ p(\omega) = p^{\sum\alpha_i}\cdot(1-p)^{n-\sum\alpha_i} \]
 
-Чтобы убедится, что это правда вероятностная модель нужно проверить получится ли единица в результате суммы всех вероятностей всех исходов.
+Чтобы убедится, что это правда вероятностная модель нужно проверить получится ли единица в результате суммирования всех вероятностей по всем исходам.
 
 \begin{gather*}
     \sum_{\omega\in\Omega}p(\omega)=
@@ -89,7 +89,7 @@ p^{\sum\alpha_i}(1-p)^{n-\sum\alpha_i}
 
 \end{example}
 
-Проблема: Непонятно что делать, если $|\Omega| = \infty$, поскольку тогда сумма не может быть посчитана (т.к. пропадает счетность).
+Проблема: Непонятно что делать, если $|\Omega| = \infty$, поскольку тогда сумма не может быть посчитана (т.к. пропадает счётность).
 
 \subsection{Недискретные модели}
 
@@ -120,7 +120,7 @@ p^{\sum\alpha_i}(1-p)^{n-\sum\alpha_i}
 %Рассмотрим на примере покера. $\omega = (i_1, \ldots, i_5, i_6, i_7)$
 
 \begin{gather*}
-    \Pb(A|B) = \frac{|A\cap B}{|B|} = \frac{\Pb(A\cap B)}{\Pb(B)} \text{ классическая модель}
+    \Pb(A|B) = \frac{|A\cap B|}{|B|} = \frac{\Pb(A\cap B)}{\Pb(B)} \text{ классическая модель}
 \end{gather*}
 
 \begin{definition}
@@ -131,7 +131,7 @@ p^{\sum\alpha_i}(1-p)^{n-\sum\alpha_i}
 \end{definition}
 
 \begin{example}
-Схема Бернули.
+Схема Бернулли.
 
 Хотим найти вероятность того, что в эксперименте, в котором выбираются $n$ случаев первый будет успешным, при условии того, что всего успешных случаев $k$.
 \begin{gather*}
