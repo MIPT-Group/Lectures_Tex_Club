@@ -1,3 +1,4 @@
+\setcounter{theorem}{0}
 \subsection{Основные свойства интеграла Лебега.}
 \begin{lemma}[Признак суммируемости]
 Если $f(x)$ суммируема на измеримом по Лебегу множестве $E \subset \R^n$ конечной меры, а $F$ измерима на $E$ и $|F(x)| \leqslant f(x)\ \forall x \in E$, то $F$ суммируема на $E$.
@@ -24,12 +25,21 @@ $\exists P: \mathcal{U}(P, |F|) < +\infty \Rightarrow \inf\limits_P \mathcal{U}(
 \end{theorem}
 
 \begin{proof}
- Пусть $f_1, f_2$ -- ограниченные, измеримые функции. Возьмем произвольное разбиение
+ Пусть $f_1, f_2$ -- ограниченные, измеримые функции. Возьмем произвольное разбиение $\forall P: E=\bigsqcup\limits_{k=1}^N E_k$, тогда выполняется:
  \begin{equation}
- 	\forall P:E=\bigsqcup\limits_{k=1}^N E_k\ L(P,f_1)+L(P,f_2)\overset{(1)}{\leqslant} L(P, f_1+f_2) \leqslant \mathcal{U}(P, f_1+f_2) \? \leqslant \mathcal{U}(P, f_1)+\mathcal{U}(P, f_2). 
+ 	L(P,f_1)+L(P,f_2)\overset{(1)}{\leqslant} L(P, f_1+f_2) \leqslant \mathcal{U}(P, f_1+f_2) \? \leqslant \mathcal{U}(P, f_1)+\mathcal{U}(P, f_2) \tag{10.1.2}\label{10.1.2} 
 \end{equation}
-Неравенство (1) следует из того, что точная нижняя грань суммы значений двух функций, не меньше, чем сумма нижних граней функций. Остальные аналогично. Так как ограниченные измеримые функции суммируемы по Лебегу, то есть интеграл конечен, то $(\forall \varepsilon >0)(\exists P_1, P_2)\ \ \mathcal{U}(P_i, f_i)-L(P_i, f_i)<\varepsilon,\ i = 1,2.$ Взяв общее измельчение $P$, получим $(\forall \varepsilon >0)\ \mathcal{U}(P, f_i)-L(P, f_i)<\varepsilon,\ i = 1,2.$ Складывая эти два неравенства, получим 
+Неравенство (1) следует из того, что точная нижняя грань суммы значений двух функций, не меньше, чем сумма нижних граней функций. Остальные аналогично. Так как ограниченные измеримые функции суммируемы по Лебегу, то есть интеграл конечен, то $(\forall \varepsilon >0)(\exists P_1, P_2)\ \ \mathcal{U}(P_i, f_i)-L(P_i, f_i)<\varepsilon,\ i = 1,2.$ Взяв общее измельчение $P$, получим $(\forall \varepsilon >0)\ \mathcal{U}(P, f_i)-L(P, f_i)<\varepsilon,\ i = 1,2.$ Складывая эти два неравенства, получим $$\mathcal{U}(P, f_1)+\mathcal{U}(P, f_2)-L(P,f_1)-L(P,f_2)<2\cdot\varepsilon$$
+Зная, что 
+$$L(P, f_1+f_2) \leqslant \int\limits_E(f_1(x)+f_2(x))d\mu(x) \leqslant \mathcal{U}(P, f_1+f_2)$$ 
+$$\mathcal{U}(P, f_1)+\mathcal{U}(P, f_2)\leqslant \int\limits_Ef_1(x)d\mu(x)+\int\limits_E f_2(x)d\mu(x) \leqslant L(P,f_1)+L(P,f_2)$$
+Получаем:
+$$\left|\int\limits_E(f_1(x)+f_2(x))d\mu(x)-\left(\int\limits_Ef_1(x)d\mu(x)+\int\limits_E f_2(x)d\mu(x)\right)\right|<2\cdot\varepsilon$$
+Пусть $f_1, f_2$ -- неотрицательные, суммируемые функции.
+ 
+$E_0^{(i)} = \{x\in E: f_i(x)=+\infty\}, i = 1,2$
 
+$f_1(x)+f_2(x)=+\infty \Leftrightarrow x\in E_0^{(1)}\bigcup E_0^{(2)} = E_0$
 \end{proof}
 
  
