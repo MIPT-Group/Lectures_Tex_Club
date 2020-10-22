@@ -1,0 +1,131 @@
+\begin{theorem}[Эрдеш, Хватал]
+	Пусть $G(V, E)$ - граф, $ |V| \geqslant 3 $ и $\alpha(G) \leqslant \varkappa(G)$. Тогда $G$ -- гамильтонов.
+\end{theorem}
+
+\begin{proof}
+	\:
+	\begin{enumerate} \renewcommand{\theenumi}{\bfseries\arabic{enumi}}
+		\item Предположим, что в $ G $ нет циклов. Поскольку $1 \leqslant \alpha(G)$ (множество из одной вершины всегда независимое), то $ \alpha(G) \leqslant \varkappa(G) \Rightarrow 1 \leqslant \alpha(G)$, следовательно, мы должны удалить хотя бы одну вершину, чтобы $ G $ стал несвязен. Отсюда $ G $ связен и без циклов, т.е. дерево. Для $ |V| < 3$ утверждение очевидно. Если же $ |V| \geqslant 3$, то в дереве найдется две висячих вершины. Две вершины являются независимым множеством мощности 2, откуда $ \alpha(G) \geqslant 2$. Но в дереве на $ \geqslant 3$ вершинах, очевидно, есть и вершина степени $ \geqslant 2$. Её удаление разбивает граф на компоненты связности, откуда $ \varkappa = 1$. Получаем противоречие.
+		
+		\item Пусть в $ G $ есть цикл. Рассмотрим самый длинный простой цикл и предположим, что он не покрывает все вершины: $ C = {x_1, \ldots, x_k}, k < |V| = n $. Удалим вершины цикла и обозначим новый граф за $ G^\prime $. Пусть $ W $ -- множество вершин одной из компонент в $ G^\prime $. Обозначим $ N_{w}\left(G \right) = \left\lbrace y \in V\setminus W : \exists z \in W : (y, z) \in E(G)\right\rbrace$. т.\:е. множество соседей вершин из $ W $ в исходном графе $ G $.
+		
+		%\begin{wrapfigure}{r}{0.2\textwidth}
+		%	\centering
+		%	\begin{tikzpicture}
+		%		
+		%		\def \n {8}
+		%		\def \k {6}
+		%		\def \radius {2.5cm}
+		%		\def \margin {10} % margin in angles, depends on the radius
+				
+		%		\foreach \s in {1,...,\n}
+		%		{
+		%			\node[draw, circle] at ({360/\n * (\s - 1)}:\radius) %{$x_{\s}$};
+		%			\draw[->, >=latex] ({360/\n * (\s - 1)+\margin}:\radius) 
+		%			arc ({360/\n * (\s - 1)+\margin}:{360/\n * %(\s)-\margin}:\radius);
+		%		}
+		%	\end{tikzpicture}
+		%\end{wrapfigure}
+	
+		\begin{prop}
+			\:
+			\begin{enumerate} \renewcommand{\theenumi}{\arabic{enumi}}
+				\item $ N_{w}\left(G \right) \subseteq C$
+				\item $ N_{w}\left(G \right) \neq C$
+				\item $ \varkappa(G) \leqslant |N_w(G)| $
+			\end{enumerate} \label{prop:N_w}
+			
+		\end{prop}
+		
+		\begin{proof}
+			\:
+			\begin{enumerate} \renewcommand{\theenumi}{\arabic{enumi}}
+				\item Если предположить, что есть вершина не из $ C $, она после удаления $ С $ осталась в $ W $, противоречие.
+				\item Если нашлись две вершины $ x_i, x_{i + 1} \in N_w(G) $, то получим более длинный цикл, заменив в $ C $ кусок $\dots \rightarrow x_i \rightarrow x_{i + 1} \rightarrow \dots$ на $ \dots \rightarrow x_i \rightarrow c \rightarrow x_{i + 1} \rightarrow \dots$.
+				\item Когда мы удаляем $ N_w(G), $ по пункту (b) остается хотя бы одна вершина цикла $ C $, не соединенная с множеством $ W $, а также остается сам $ W $, т.е. граф распадается на компоненты связности.
+			\end{enumerate}
+		\end{proof}
+		Обозначим $ M = \left\lbrace x_{i + 1} : x_i \in N_w(G)\right\rbrace $, другими словами, это - множество вершин цикла $ C $, родители которых соединены с $ W $. При этом $ |M| = |N_w(G)| $
+		\begin{prop}
+			$ M $ - независимое множество.
+		\end{prop}
+		\begin{proof}
+			Предположим, что множество $ M $ не независимое, т.е. $ \exists\: x_{i + 1}, x_{j + 1} \in M : (x_{i + 1}, x_{j + 1}) \in E $. Поскольку $ x_{i + 1}, x_{j + 1} \in M $, вершины $ x_{i}, x_{j} $ соединены с какими-то вершинами $ a, b $ из $ M $ соответственно ($ a $ и $ b $ могут совпадать).
+			
+			
+			Имеем исходный цикл $ C $ : $x_1 \rightarrow \dots \rightarrow x_i \rightarrow x_{i + 1} \rightarrow \dots \rightarrow x_j \rightarrow x_{j + 1} \rightarrow \dots \rightarrow x_n$. Можем рассмотреть новый более длинный цикл $ C^\prime $ :
+			$x_1 \rightarrow \dots \rightarrow x_i \rightarrow a \rightarrow \dots \rightarrow b \rightarrow x_j \rightarrow \ldots \rightarrow x_{i + 1} \rightarrow x_{j + 1} \dots \rightarrow x_n \rightarrow x_1$, что противоречит выбору $ C $ как наибольшего.
+			
+		\end{proof}
+		Получаем, что $ \alpha(G) \geqslant |M|$. Но из пункта (c) утверждения \ref{prop:N_w} имеем $ \varkappa(G) \leqslant |N_w(G)| $, откуда получаем $ \alpha(G) \geqslant  |N_w(G)| \geqslant \varkappa(G) $.
+		
+		\begin{note}
+			[Вставить замечание] На самом деле можно улучшить оценку до ... При этом $ M \subset C $.
+		\end{note}
+			
+	\end{enumerate}
+\end{proof}
+
+\begin{Def}
+	Граф называется \emph{регулярным}, если степени всех его вершин равны.
+\end{Def}
+
+Рассмотрим следующий интересный граф и докажем, что он Гамильтонов.
+
+$ V = \left\lbrace A \subset {1, 2, \ldots n} : |A| = 3 \right\rbrace $. Ребрами соединены два множества, если они пересекаются по одному элементу. Формально, $ E = \left\lbrace (A, B) : |A\cap B| = 1\right\rbrace  $.
+
+Очевидно, $ |V| = C_n^3 $. Найдем $  |E| $. Степень каждой вершины $  G -- 3 C_{n - 3}^2$, поскольку для каждого множества $ {a, b, c} $ мы можем выбрать двухэлементное подмножество и дополнить его до трехэлементного одним из элементов $ {a, b, c} $. Тогда, поскольку $  G $ регулярен,  $ |E| = \frac{1}{2} \cdot C_n^3 \cdot 3 \cdot  C_{n - 3}^2 $.
+
+Асимптотически $ |E| \sim \dfrac{3}{2} \cdot \dfrac{n^3}{6} \cdot \dfrac{n^2}{2} =\dfrac{n^5}{8} $.
+
+Вспомним, что признаку Дирака удволетворяют графы, у которых $ m $ вершин и не меньше, чем $ \frac{m^2}{4} $ ребер.
+В нашем случае, поскольку $|V| = O(n^3)$, а $|E| = O((n^3)^{\frac{5}{3}}) $. Следовательно, при больших $ n $ наш граф не будет удовлетворять признаку Дирака.
+
+Посмотрим на $ \alpha(G) $. Укажем $ W \subset V : W = {A_1, \ldots A_k} : |A_i \cap A_j| = 1 $.
+Каждому множеству $ W $ сопоставим вектор из 0 и 1 в $ \R^{|V|} $, где на позиции $ i $ стоит 1, когда $ i \in W $, и 0 иначе.
+
+\begin{lemma}
+	$ \vec{x_1}, \ldots \vec{x_k} $ линейно независимы над $ \Z_2 $
+\end{lemma}  
+
+\begin{proof}
+	Предположим, что $ c_1 \vec{x_1} + \ldots + c_k \vec{x_k} = 0 $, где $ c_i = 0 $ или $ c_i = 1 $.
+	Скалярно умножим выражение на $ x_1 $.
+	
+	Получим $ c_1 (\vec{x_1}, \vec{x_1}) + \ldots + c_k (\vec{x_k}, \vec{x_1}) = 0$
+\end{proof}
+
+Отсюда будет следовать, что $ \alpha(G) \leqslant |V| $.
+
+
+*Консрукции для n-1 и т-2*
+
+\begin{lemma}
+	Пусть дан $ G = (V, E) $. Пусть $ u, v \in V $. Обозначим за $ f(u, v) $ количество общих соседей для $ u $ и $ v $. Тогда $ \varkappa(G) \geqslant \min_{v, u \in V} f(u, v) $
+\end{lemma}
+ \begin{proof}
+ 	Для удобства обозначим $ k = \min_{v, u \in V} f(u, v) $.
+ 	Предположим, мы удалили из графа не более $ k - 1 $ вершин и он рапсался на компоненты связности. Но тогда для любых двух вершин $ u, v $ из разных компонент, поскольку количество их соседей не меньше $ k $, одна из общих вершин не будет удалена, а следовательно между ними есть путь. Противорчечие, откуда получаем требуемое соотношение.
+ \end{proof}
+
+Воспользуемся теоремой для оценки $ \alpha(G) $ 
+
+
+$ G(n, r, s) $ 
+
+\begin{brainer}
+	Рассмотрим $ G(n, \frac{n}{2}, \frac{n}{4}), n = 4k $.
+	\begin{enumerate} \renewcommand{\theenumi}{\arabic{enumi}}
+		\item Найдите число треугольников в этом графе
+		\item Какой объект соответствует максимальной клике в этом графе?
+	\end{enumerate}
+\end{brainer}
+
+
+
+
+
+
+
+
+
