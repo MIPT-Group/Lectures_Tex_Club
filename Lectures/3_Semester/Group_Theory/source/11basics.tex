@@ -1,4 +1,4 @@
-\section{Основные свойства групп}
+\section{Основные понятия теории групп}
 
 \subsection{Повторение изученного}
 
@@ -74,9 +74,9 @@
 \begin{example}
 	Рассмотрим несколько примеров групп и подгрупп в них:
 	\begin{enumerate}
-		\item $GL_n(F) = (M_n(F))^* = \{A \in M_n(F): \det{A} \ne 0\}$, $SL_n(F) \hm= \{A \in M_n(F): \det{A} \hm= 1\} \le GL_n$, где $F$ "--- произвольное поле
-		\item $\mathcal{O}_n = \{A \in M_n(\R): A^TA = E\} \le GL_n(\R)$
-		\item $\mathcal{U}_n = \{A \in M_n(\Cm): A^T\overline{A} = E\} \le GL_n(\Cm)$
+		\item $\GL_n(F) = (M_n(F))^* = \{A \in M_n(F): \det{A} \ne 0\}$, $\SL_n(F) \hm= \{A \in M_n(F): \det{A} \hm= 1\} \le \GL_n$, где $F$ "--- произвольное поле
+		\item $\mathcal{O}_n = \{A \in M_n(\R): A^TA = E\} \le \GL_n(\R)$
+		\item $\mathcal{U}_n = \{A \in M_n(\Cm): A^T\overline{A} = E\} \le \GL_n(\Cm)$
 		\item $\Cm_n = \{z \in \Cm: z^n = 1\} \le \Cm^*$
 		\item $A_n = \{\sigma \in S_n: \sgn\sigma = 1\} \le S_n$
 	\end{enumerate}
@@ -172,72 +172,3 @@
 	
 	Таким образом, $G / K$ имеет требуемый вид, и потому сопоставление $a_ib_jK \mapsto (a_iH, b_jK)$ осуществляет биекцию между $G / K$ и $(G / H) \times (H / K)$.
 \end{solution}
-
-\subsection{Нормальные подгруппы}
-
-\begin{definition}
-	Пусть $G$ "--- группа, $H \le G$. Подгруппа $H$ называется \textit{нормальной} в $G$, если $\forall g \in G: gH = Hg$. Обозначение "--- $H \normal G$.
-\end{definition}
-
-\begin{note}
-	Определение выше имеет ряд эквивалентных формулировок:
-	\begin{enumerate}
-		\item $G / H = H \bs G$
-		\item $\forall g \in G: gHg^{-1} = H$
-		\item $\forall g \in G: gH \subset Hg$ (поскольку тогда $\forall g \in G: Hg^{-1} \subset g^{-1}H)$
-		\item $\forall g \in G: gHg^{-1} \subset H$
-	\end{enumerate}
-\end{note}
-
-\begin{example}
-	Рассмотрим несколько примеров нормальных подгрупп в соответствующих группах:
-	\begin{enumerate}
-		\item $\forall H \le G: H \normal G$, где $G$ "--- абелева группа
-		\item $G \normal G$, $\{e\} \normal G$, где $G$ "--- произвольная группа
-		\item $A_n \normal S_n$, поскольку $\forall \sigma \in S_n: \forall \tau \in A_n: \sgn(\sigma\tau\sigma^{-1}) = \sgn\tau = 1$, то есть $\forall \sigma \in S_n: \sigma A_n\sigma^{-1} \subset A_n$
-	\end{enumerate}
-\end{example}
-
-\begin{proposition}
-	Пусть $G$ "--- группа, $H_1 \normal G$, $H_2 \normal G$. Тогда $H_1 \cap H_2 \hm\normal G$.
-\end{proposition}
-
-\begin{proof}
-	$\forall g \in G: g(H_1 \cap H_2)g^{-1} \subset (gH_1g^{-1}) \cap (gH_2g^{-1}) \hm= H_1 \cap H_2$.
-\end{proof}
-
-\begin{proposition}
-	Пусть $G$ "--- группа, $H \normal G$, $K \le G$. Тогда:
-	\begin{enumerate}
-		\item $HK \le G$
-		\item Если $K \normal G$, то $HK \normal G$
-	\end{enumerate}
-\end{proposition}
-
-\begin{proof}
-	Заметим, что $HK = \bigcup\limits_{k \in K}Hk = \bigcup\limits_{k \in K}kH = KH$. Тогда:
-	\begin{enumerate}
-		\item $(HK)(HK) = H(KH)K = H(HK)K = (HH)(KK) = HK$, поэтому $HK$ замкнуто относительно умножения, и, аналогично, $(HK)^{-1} = K^{-1}H^{-1} = KH = HK$
-		\item $\forall g \in G: g(HK)g^{-1} = (gHg^{-1})(gKg^{-1}) = HK$
-	\end{enumerate}
-\end{proof}
-
-\begin{proposition}
-	Пусть $G$ "--- группа, $H \le G$, $|G : H| = 2$. Тогда $H \normal G$.
-\end{proposition}
-
-\begin{proof}
-	По условию, $G / H = \{H, G \bs H\} = H \bs G$.
-\end{proof}
-
-\begin{note}
-	Покажем, что $|S_n : A_n| = 2$ при $n \ge 2$. Действительно, сопоставление $\sigma \hm\mapsto (1, 2)\sigma$ осуществляет биекцию между $A_n$ и $S_n \bs A_n$, поэтому $S_n / A_n = \{A_n, (1, 2)A_n\}$.
-\end{note}
-
-\begin{definition}
-	Пусть $G$ "--- группа, $g, x \in G$. Элементом, \textit{сопряженным} к $g$ с помощью $x$, называется $g^x := x^{-1}gx \in G$. Элементы $g_1, g_2 \in G$ называются \textit{сопряженными}, если $\exists x \in G: g_1 = g_2^x$.
-\end{definition}
-
-\begin{note}
-	Пусть $G$ "--- группа, $H \le G$, $g \in G$. Будем обозначать $g^{-1}Hg$ как $H^g$.
-\end{note}
