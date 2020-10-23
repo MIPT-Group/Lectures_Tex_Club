@@ -1,0 +1,25 @@
+\subsection{Свободные группы}%, образующие и соотношения}
+
+\begin{definition}
+	Пусть $F_n$ "--- группа, $F_n = \gl f_1, \dotsc, f_n\gr$. $F_n$ называется \textit{свободной} со \textit{свободными образующими} $f_1, \dotsc, f_n \hm\in F_n$, если для любой группы $G$ выполнено, что $\forall g_1, \dotsc, g_n \in G: \exists \phi: F_n \to G$ "--- гомоморфизм: $\forall i \in \{1, \dotsc, n\}: \phi(f_i) = g_i$.
+\end{definition}
+
+\begin{note}
+	Если такой гомоморфизм существует, то он единственен, поскольку $F_n$ порождена элементами $f_1, \dotsc, f_n$.
+\end{note}
+
+\begin{note}
+	Аналогичным образом можно определить и свободные группы с бесконечным количеством свободных образующих.
+\end{note}
+
+\begin{theorem}
+	Свободная группа $F_n$ со свободными образующими $f_1, \dotsc, f_n$ существует.
+\end{theorem}
+
+\begin{proof}
+	Считая $\{f_1, \dotsc, f_n, f_1^{-1}, \dotsc, f_n^{-1}\}$ алфавитом, положим $F_n := \{w \hm\in \{f_1, \dotsc, f_n, f_1^{-1}, \dotsc, f_n^{-1}\}^*: \forall i \in \{1, \dotsc, n\}: w \text{ не содержит }f_if_i^{-1}, f_i^{-1}f_i\}$. Определим операцию на $F_n$ следующим образом: если $w_1, w_2 \in F_n$, то сократим взаимно обратные элементы алфавита с конца $w_1$ и начала $w_2$, получив $w_1'$ и $w_2'$, и положим $w_1\cdot w_2 := w_1'w_2'$. Докажем, что $F_n$ "--- действительно группа:
+	\begin{itemize}
+		\item (Нейтральный элемент) $\exists \epsilon \in F_n: \forall w \in F_n: w\cdot \epsilon = \epsilon\cdot w = w$
+		\item (Обратный элемент) Пусть $w \in F_n, w = f_{i_1}^{\alpha_1}\dotsc f_{i_k}^{\alpha_k}, \alpha_1, \dotsc, \alpha_k \hm\in \{\pm1\}$, тогда $\exists w^{-1} \hm= f_{i_k}^{-\alpha_k}\dotsc f_{i_1}^{-\alpha_1} \in F_n : \forall w \in F_n: w\cdot w^{-1} \hm= w^{-1} \cdot w = \epsilon$
+	\end{itemize}
+\end{proof}
