@@ -1,8 +1,9 @@
+
 %%% Работа с русским языком
-\usepackage{cmap}					          % поиск в PDF
+\usepackage{cmap}					      % поиск в PDF
 \usepackage[T2A]{fontenc}			      % кодировка
 \usepackage[utf8]{inputenc}               % кодировка исходного текста
-\usepackage[english, russian]{babel}   % локализация и переносы
+\usepackage[english, russian]{babel}      % локализация и переносы
 
 
 %%% Страница 
@@ -38,8 +39,8 @@
 \hypersetup{				% Гиперссылки
 	unicode=true,           % русские буквы в раздела PDF\\
 	pdfstartview=FitH,
-	pdftitle={Заголовок},   % Заголовок
-	pdfauthor={Автор},      % Автор
+	pdftitle={Конспект},   % Заголовок
+	pdfauthor={Герасимов Федор},      % Автор
 	pdfsubject={Тема},      % Тема
 	pdfcreator={Создатель}, % Создатель
 	pdfproducer={Производитель}, % Производитель
@@ -53,38 +54,42 @@
 
 
 %%% Для формул
-\usepackage{amsmath}          
+\usepackage{amsmath}
+\usepackage{amsfonts}          
 \usepackage{amssymb}
+\usepackage{mathtools}
 
+%%% нумерация
+\usepackage{enumerate}
 
 %%%%%% theorems
 \usepackage{amsthm}  % for theoremstyle
 
 \theoremstyle{plain} % Это стиль по умолчанию, его можно не переопределять.
-\newtheorem{theorem}{Теорема}[section]
+\newtheorem{theorem}{Теорема}[subsection]
 \newtheorem{prop}[theorem]{Утверждение}
-\newtheorem{lemma}{Лемма}[section]
-\newtheorem{sug}{Предположение}[section]
+\newtheorem{lemma}{Лемма}[subsection]
+\newtheorem{sug}{Предположение}[subsection]
 
 \theoremstyle{definition} % "Определение"
 \newtheorem{Def}{Определение}
 \newtheorem{corollary}{Следствие}[theorem]
-\newtheorem{problem}{Задача}[section]
+\newtheorem{problem}{Задача}[subsection]
 
 \theoremstyle{remark} % "Примечание"
 \newtheorem*{nonum}{Решение}
-\newtheorem*{definition}{Def}
+\newtheorem*{defenition}{Def}
 \newtheorem*{example}{Пример}
 \newtheorem*{note}{Замечание}
+\newtheorem*{brainer}{Упражнение}
 
 
 %%% Работа с картинками
-\usepackage{graphicx}                           % Для вставки рисунков
-\graphicspath{{images/}{images2/}}        % папки с картинками
-\setlength\fboxsep{3pt}                    % Отступ рамки \fbox{} от рисунка
-\setlength\fboxrule{1pt}                    % Толщина линий рамки \fbox{}
-\usepackage{wrapfig}                     % Обтекание рисунков текстом
-\graphicspath{{images/}}                     % Путь к папке с картинками
+\usepackage{graphicx}                 % Для вставки рисунков
+\setlength\fboxsep{3pt}               % Отступ рамки \fbox{} от рисунка
+\setlength\fboxrule{1pt}              % Толщина линий рамки \fbox{}
+\usepackage{wrapfig}                  % Обтекание рисунков текстом
+\graphicspath{{img_src/}}             % Путь к папке с картинками
 
 \newcommand{\drawsome}[1]{            % Для быстрой вставки картинок
     \begin{figure}[h!]
@@ -112,8 +117,14 @@
 %%% облегчение математических обозначений
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
-%\newcommand{\C}{\mathbb{C}}             % команда уже определена где-то)
+%\newcommand{\C}{\mathbb{C}}                   % команда уже определена где-то)
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\E}{\mathbb{E}}
-\newcommand{\brackets}[1]{\left({#1}\right)}      % автоматический размер скобочек
-% Здесь можно добавить ваши индивидуальные сокращения 
+\newcommand{\brackets}[1]{\left({#1}\right)}   % автоматический размер скобочек
+
+% Здесь можно добавить ваши индивидуальные сокращения  
+\newcommand{\RomanNum}[1]
+{\MakeUppercase{\romannumeral #1}}
+
+%\usepackage{tikz}
+%\usetikzlibrary{automata,positioning,arrows}
