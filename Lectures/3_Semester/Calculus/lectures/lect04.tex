@@ -1,18 +1,3 @@
-Следствия из теоремы:
-\begin{enumerate}
-	\item Если $f$ суммируема на измеримом по Лебегу множестве $E\subset \R^n$ конечной меры, $f(x)=g(x)$ при почти всех $x\in E$, то $g$ --- суммируема на $E$, причем $\int\limits_{E}f(x)d\mu(x)=~\int\limits_{E}g(x)d\mu(x)$.
-	\item Если $f\geqslant 0$ почти всюду на $E\subset \R^n$ измеримом конечной меры, и $\int\limits_{E}f(x)d\mu(x)=0$, то $f(x)=0$ почти всюду на $E$.
-\end{enumerate}
-
-\begin{proof}
-	
-	1) Пусть $E_0\subset E, E_0=\{x\in E: f(x)=g(x)\}$, тогда слова почти всюду означают, что $\mu(E\backslash E_0)=0$. Заметим, что для любой функции и множества нулевой меры следует, что $\forall h(x):E\backslash E_0 \rightarrow \overline{\R}$ --- суммируема на $E\backslash E_0$, причем $\int\limits_{E\backslash E_0}h(x)d\mu(x)=0$. Это следует из соглашения, что если $\mu(E_0)=0$, то даже $(+\infty)\cdot \mu(E_0)=0$. Значит и $g(x)$ --- суммируема на $E\backslash E_0$. Но также $g(x)$ --- суммируема на $E_0$, потому что $g$
-	совпадает с $f$ на $E_0$, а $f$ --- суммируема на $E$ по условию, а значит суммируема и на его подмножестве. Из этих заключений следует, что $g$ --- суммируема на $E$. По свойству аддитивности $\int\limits_{E}g(x)d\mu(x)=~\underbrace{\int\limits_{E\backslash E_0}g(x)d\mu(x)}_{=0}+\int\limits_{E_0}g(x)d\mu(x) =~\underbrace{\int\limits_{E\backslash E_0}f(x)d\mu(x)}_{=0}+\int\limits_{E_0}f(x)d\mu(x) =~\int\limits_{E}f(x)d\mu(x)$.
-	
-	2) Заметим, что $f$ --- суммируемая, поскольку интеграл равен 0. Пойдем от противного: предположим, что множество $\{x\in E:f(x)>0\}$ имеет положительную меру. Заметим, что $\{x\in E:f(x)>0\}=\lim\limits_{m\to\infty}\{x\in E: f(x)\geqslant \dfrac{1}{m}\}$. Так как предел положительный, то найдется число $(\exists m_0 \in \N)\  \underbrace{\mu\{x\in E: f(x)\geqslant \dfrac{1}{m_0}\}}_{=:B}=~\mu(B)>0$. По свойству аддитивности $\int\limits_{E}f(x)d\mu(x)=\int\limits_{B}f(x)d\mu(x)+\int\limits_{E\backslash B}f(x)d\mu(x)\geqslant \text{[поскольку функция неотрицательна, то второе слагаемое неотрицательно]} \geqslant \int \limits_{B}f(x)d\mu(x)\geqslant \text{[из-за монотонности интеграла]}\geqslant \int\limits_{B}\dfrac{1}{m_0}d\mu(x)=\dfrac{\mu(B)}{m_0}>0$. С другой стороны по условию $\int\limits_{E}f(x)d\mu(x)=0 \Rightarrow$ получили противоречие.
-\end{proof}
-\newpage
-
 \subsection{Предельный переход в интеграле Лебега.}
 \begin{theorem}(Лебег)
 	Если $f_m$ измеримы на множестве $E\subset\R^n$ конечной меры, $\lim\limits_{m\to\infty}f_m(x)=f(x)$ почти всюду на $E$, и $|f_m(x)|\leqslant F(x)$ при почти всех $x\in E$, всех $m\in\N$, где $F$ --- суммируема на $E$, то $f$ суммируема на $E$, $\int\limits_Ef(x)d\mu(x)=\lim\limits_{m\to\infty}\int\limits_{E}f_m(x)d\mu(x)$
