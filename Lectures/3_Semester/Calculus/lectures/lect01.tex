@@ -9,7 +9,7 @@
     $$(\forall \varepsilon > 0)(\exists N \in \N)(\forall n>N)(\forall x \in X) \mid f_n(x)-f(x)\mid<\varepsilon$$
     \item $f_n \Rightarrow f$ на $X$ (сходимость по мере)$\Leftrightarrow$
     $$(\forall \varepsilon > 0) \lim_{n\to\infty} \mu \{ x\in X: \mid f_n(x)-f(x)\mid \ \geqslant \varepsilon \} =0$$
-    (не пишем, но помним: $X$ - измеримо по Лебегу, $f_n$ и $f$ - измеримы на множестве $X$)
+    (Не пишем, но помним: $X$ - измеримо по Лебегу, $f_n$ и $f$ - измеримы на множестве $X$. Из сходимости почти всюду следует сходимость по мере, обратное неверно.)
 \end{enumerate}
 \begin{theorem}[Ф. Рисса]
     Если $f_n \Rightarrow f$ (сходится по мере) на $X$, то $\exists \{f_{n_k} \} ^\infty_{k=1}$ (подпоследовательность) $f_{n_k} \rightarrow f$ п. в. на $X$.
@@ -54,11 +54,11 @@ $(\forall x \in E_{\varepsilon}) \Rightarrow x \in \bigcap\limits_{i=i_0}^{\inft
 
 $(\forall i \geqslant i_0)(\forall m \geqslant n_i) \mid f_m(x)-f(x) \mid < \frac{1}{i}$
 
-$(\forall \delta > 0)(\exists N)(\forall m \geqslant N)(\forall x \in E \backslash E_{\varepsilon}) \mid f_m(x)-f(x) \mid < \delta$ - это и означает равномерную сходимость на множесте $E_{\varepsilon}$
+$(\forall \delta > 0)(\exists N)(\forall m \geqslant N)(\forall x \in E \backslash E_{\varepsilon}) \mid f_m(x)-f(x) \mid < \delta$ - это и означает равномерную сходимость на множестве $E_{\varepsilon}$
 \end{proof}
 \newpage
-\begin{theorem}[Структура открытых множеств в $\mathbb{R}^1$]
-    Если $G \subset \R^1$ - открытое, то оно является дизъюнктным объединением конечного или счетного числа интервалов $G=\bigsqcup\limits_{i=1}^{\infty}(a_i, b_i)$
+\begin{theorem}[Структура открытых множеств в $\mathbb{R}^n$]
+    Если $G \subset \R^n$ - открытое, то оно является дизъюнктным объединением конечного или счетного числа интервалов $G=\bigsqcup\limits_{i=1}^{\infty}(a_i, b_i)$
 \end{theorem}
 \begin{proof}
 Введем между точками множества $G$ отношение эквивалентности: $x, y\in G$ называются эквивалентными $x\sim y$, если интервал с концами $x, y\ ((x, y)\text{ или }(y,x)) \subset G$. $G$ разбивается на дизъюнктное объединение классов эквивалентности. Докажем, что класс - интервал. Пусть $K$ - класс, обозначим ${a:=\inf\limits_{x \in K}x,\ b:=\sup\limits_{x\in K}x}$. Пусть $c \in (a,b) \Rightarrow {\exists \alpha \in K \cap (a, c),\ \beta \in K \cap (c, b) \Rightarrow  (\alpha, \beta)\subset K  \Rightarrow c \in K} \Rightarrow (a,b) \subset K$.
@@ -78,7 +78,7 @@ $(\forall \delta > 0)(\exists N)(\forall m \geqslant N)(\forall x \in E \backsla
 \begin{proof}
 Пусть $|f(x)|\leqslant C$. Теорема 19 \textsection 5  утверждает, что можно подобрать последовательность ступенчатых функций, которая равномерно сходится к $f(x)$, т. е. существует $h_n(x) \rightrightarrows f(x)$. Так как $f(x)$ ограничена, то все $h_n(x)$ имеют лишь конечное множество значений, то есть $h_n$ постоянна на множествах $I_{n, 1}, \ldots, I_{n, k_n}$, где $k_n$ - количество различных значений. Эти множества измеримы по Лебегу. И также $\bigsqcup\limits_{k=1}^{k_n} I_{n, k}=[a,b]$. Из первого принципа Литтлвуда $$\forall k=1, \ldots, k_n\ \exists \text{ замкнутое множество } F_{n,k} \subset I_{n,k} \text{ т. ч. } \mu(I_{n,k}\backslash F_{n,k})<\dfrac{\varepsilon \cdot 2^{-n-1}}{k_n}.$$ Также из того, что $h_n(x) \rightrightarrows f(x)$ на всем $[a,b]$, следует, что сходится на любом подмножестве: $h_m(x) \rightrightarrows f(x)$ на $\bigcup\limits_{k=1}^{k_n} F_{n,k}=: K_n$. Положим $\bigcap\limits_{n=1}^{\infty} K_n =: E_{\varepsilon}$. Рассмотрим $\mu ([a,b] \backslash E_{\varepsilon}) = \mu(\bigcup\limits_{n=1}^{\infty}([a,b] \backslash K_n)) \leqslant \sum\limits_{n=1}^{\infty}\mu([a,b]\backslash K_n) = \sum\limits_{n=1}^{\infty} \sum\limits_{k=1}^{K_n}\mu(I_{n,k}\backslash F_{n,k}) \leqslant \sum\limits_{n=1}^{\infty}\varepsilon\cdot 2^{-n-1}=\dfrac{\varepsilon}{2}<\varepsilon$.
 
-$h_n \rightrightarrows f$ на $E_{\varepsilon}$, заметим $h_n \text{ на } K_n$ непрерывна. Почему это так? $K_n$ - это конечное объединение замкнутых множеств, и на каждом из этих множеств функция постоянная. Непрерывность означает $\forall x_0 \in K_n, \{x_m\}\subset K_n,$ ${ \lim\limits_{m\to\infty}x_m = x_0}, \lim\limits_{m\to\infty}h_n(x_m)=h_n(x_0).$ Пусть $x_0 \in K_n \Rightarrow \exists !\ k : x_0 \in F_{n, k} \Rightarrow \exists\ M\  \forall m > M\ \ x_m \in F_{n,k}$, и еще $h_n$ постоянная на $F_{n,k} \Rightarrow h_n(x_m)=h_n(x_0)$, что доказывает непрерывность $h_n$ на $K_n$. Значит $h_n$ непрерывно на $E_{\varepsilon}$. Мы имеем последовательность нерперывных на замкнутом множестве функций, такую что на этом множестве она равномерно сходится, тогда по следствию из теоремы о предельном переходе в равномерно сходящихся последовательностях $h_n \rightrightarrows$ к непрерывной на $E_{\varepsilon}$ функции. Для завершения доказательства осталось установить, что функцию непрерывную на замкнутом подмножестве $[a,b]$ можем продолжить до непрерывной на все отрезке $[a,b]$. Введем $\alpha := \inf\limits_{x\in E_\varepsilon}x,\ \beta := \sup\limits_{x\in E_\varepsilon}x$. В силу замкнутости $\alpha, \beta \in E_\varepsilon$.
+$h_n \rightrightarrows f$ на $E_{\varepsilon}$, заметим $h_n \text{ на } K_n$ непрерывна. Почему это так? $K_n$ - это конечное объединение замкнутых множеств, и на каждом из этих множеств функция постоянная. Непрерывность означает $\forall x_0 \in K_n, \{x_m\}\subset K_n,$ ${ \lim\limits_{m\to\infty}x_m = x_0}, \lim\limits_{m\to\infty}h_n(x_m)=h_n(x_0).$ Пусть $x_0 \in K_n \Rightarrow \exists !\ k : x_0 \in F_{n, k} \Rightarrow \exists\ M\  \forall m > M\ \ x_m \in F_{n,k}$, и еще $h_n$ постоянная на $F_{n,k} \Rightarrow h_n(x_m)=h_n(x_0)$, что доказывает непрерывность $h_n$ на $K_n$. Значит $h_n$ непрерывно на $E_{\varepsilon}$. Мы имеем последовательность непрерывных на замкнутом множестве функций, такую что на этом множестве она равномерно сходится, тогда по следствию из теоремы о предельном переходе в равномерно сходящихся последовательностях $h_n \rightrightarrows$ к непрерывной на $E_{\varepsilon}$ функции. Для завершения доказательства осталось установить, что функцию непрерывную на замкнутом подмножестве $[a,b]$ можем продолжить до непрерывной на все отрезке $[a,b]$. Введем $\alpha := \inf\limits_{x\in E_\varepsilon}x,\ \beta := \sup\limits_{x\in E_\varepsilon}x$. В силу замкнутости $\alpha, \beta \in E_\varepsilon$.
 \begin{equation*}
 \varphi (x) := \begin{cases}
 f(x),\ x\in E_\varepsilon\\
