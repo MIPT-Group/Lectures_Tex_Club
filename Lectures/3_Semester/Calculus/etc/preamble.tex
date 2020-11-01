@@ -62,14 +62,14 @@
 \usepackage{amsthm}  % for theoremstyle
 
 \theoremstyle{plain} % Это стиль по умолчанию, его можно не переопределять.
-\newtheorem{theorem}{Теорема}[section]
+\newtheorem{theorem}{Теорема}[subsection]
 \newtheorem{prop}[theorem]{Утверждение}
-\newtheorem{lemma}{Лемма}[section]
+\newtheorem*{lemma}{Лемма}
 \newtheorem{sug}{Предположение}[section]
 
 \theoremstyle{definition} % "Определение"
-\newtheorem{Def}{Определение}[section]
-\newtheorem{corollary}{Следствие}[theorem]
+\newtheorem*{Def}{Определение}
+\newtheorem*{corollary}{Следствие}
 \newtheorem{problem}{Задача}[section]
 
 \theoremstyle{remark} % "Примечание"

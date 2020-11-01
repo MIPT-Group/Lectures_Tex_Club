@@ -7,7 +7,7 @@
 
 $\textbf{Разбиением}$ множества $E$ называется $E=\bigsqcup\limits_{k=1}^N E_k$, где $E_k$ - измеримые по Лебегу (Жордану). \newline В качестве $\Delta x_k$ будем брать меру множеств $E_k$. 
 
-Обозначим $M_k=\sup\limits_{x\in E_k} f(x),\  m_k=\inf\limits_{x\in E_k}f(x)$ \newline
+Обозначим $M_k=\sup\limits_{x\in E_k} f\left(x\right) ,\  m_k=\inf\limits_{x\in E_k}f\left(x\right)$ \newline
 Суммы Дарбу - Лебега (Жордана): верхняя $\mathcal{U}(P, f)=\sum\limits_{k=1}^N M_k \cdot \mu_{(J)}(E_k)$, нижняя $L(P, f)\?=\sum\limits_{k=1}^N m_k \cdot \mu_{(J)}(E_k)$.
 \newline Верхний интеграл Лебега или Римана (L)(R)$\ \overline{I}_E(f)=\inf\limits_P \mathcal{U}(P, f)$,\newline Нижний интеграл Лебега или Римана (L)(R)$\ \underline{I}_E(f)=\sup\limits_P L(P, f)$
 \end{Def}
@@ -15,7 +15,7 @@ $\textbf{Разбиением}$ множества $E$ называется $E=\
 Если (R)$\ \overline{I}_E(f)=$ (R)$\ \underline{I}_E(f)$, то $f$ называется интегрируемой по Риману на $E$, $\int\limits_E f(x)dx=$ (R)$\ \overline{I}_E(f)$ \newline
 Если (L)$\ \overline{I}_E(f)=$ (L)$\ \underline{I}_E(f)$, то $f$ называется интегрируемой по Лебегу на $E$, $\int\limits_E f(x)d\mu (x)\?= \text{(L) }\overline{I}_E(f)$
 \end{Def}
-\textbf{Утв. 1} Функция $f$ интегрируема по Риману на $[a,b]$(в смысле старого определения) $\Leftrightarrow$ $f$ интегрируема по Риману на $E=[a,b] \subset \R^1$.
+\textbf{Утв. 1}(В скором времени доработается) Функция $f$ интегрируема по Риману на $[a,b]$(в смысле старого определения) $\Leftrightarrow$ $f$ интегрируема по Риману на $E=[a,b] \subset \R^1$.
 \begin{proof}
 $(\Rightarrow)$	Составим цепочку неравенств:
 \begin{equation}
@@ -50,24 +50,29 @@ $$\exists\text{ набор точек } \{a_j^{(k)}, b_j^{(k)}\},\ \bigsqcup\lim
 \mbox{где $|f(x)|\leqslant C$. Возьмем разбиение в старом смысле $Q: a=x_0 < x_1 < \ldots < x_{\nu} = b,$} $\text{где множество точек }\{x_i\}_{i=1}^{\nu} = \{a_j^{(k)}, b_j^{(k)}\}_{j=1}^{n_k},  k=\overline{1,\ldots,N}$.
 Оценим $\mathcal{U}(Q, f)-L(Q, f)=\sum\limits_{i=1}^{\nu}(\sup\limits_{[x_{i-1}, x_i]}f(x)-\inf\limits_{[x_{i-1}, x_i]}f(x))\cdot \Delta x_i = \sum\limits_{k=1}^N \sum\limits_{j=1}^{n_k}(\sup\limits_{x\in [a_j^{(k)},b_j^{(k)}]}f(x)-\inf\limits_{x\in [a_j^{(k)},b_j^{(k)}]}f(x) )(b_j-a_j )+\sum\limits_{x\in B}(\sup\limits_{[x_{i-1}, x_i]}f(x)-\inf\limits_{[x_{i-1}, x_i]}f(x))\Delta x_i \leqslant \sum\limits_{k=1}^N(M_k-m_k)\sum\limits_{j=1}^{n_k}(b_j-a_j)+\sum\limits_{i\in B}\ldots \leqslant \sum\limits_{k=1}^N (M_k-m_k)\cdot \mu_{J}(E_k)+2\cdot C\cdot \sum\limits_{i\in B}\Delta x_i < 2\varepsilon$
 \end{proof}
-
-
+.
+\begin{wrapfigure}{r}{0.5\linewidth}
+	\includegraphics[width=\linewidth]{images/1.png}
+\end{wrapfigure}
 \begin{Def}
-	Пусть $ f:E\to\mathbb{R} $ --  ограниченная измеримая на измеримом по Лебегу множестве $ E\subset\mathbb{R}^n $ конечной меры функция. Если $ M=\sup\limits_{x\in E}f(x), $ $ m=\inf\limits_{x\in E}f(x), $ то разбиением Лебега, отвечающим разбиению $ Q=\{m=y_0<y_1<\ldots <y_N=M\}, $ называется разбиение
-	$ P: E=\bigsqcup\limits_{i=1}^{N}E_i$, где $E_i=\{x\in E: fx)\in [y_{i-1}, y_i)\}, i=1, \ldots, N-1$ 
-	
-	\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  \ \ \ \ \ \ \ \ $E_N= \{x\in E: fx)\in [y_{N-1}, y_N]\}$
-	
-	Тогда интегральной суммой Лебега назовем $S(Q, f, \{t_i\})=\sum\limits_{i=1}^N f(t_i)\mu(E_i)$, где $t_i \in E_i, \newline i = 1, \ldots, N$.
-\end{Def} 
+	\mbox{Пусть $ f:E\to\mathbb{R} $} ---  ограниченная измеримая на измеримом по Лебегу множестве \mbox{$ E\subset\mathbb{R}^n $} конечной меры функция.
 
+	Если $ M=\sup\limits_{x\in E}f(x), $ $ m=\inf\limits_{x\in E}f(x), $ то \textbf{разбиением Лебега}, отвечающим разбиению $ Q=\{m=y_0<y_1<\ldots <y_N=M\}, $ называется разбиение
+	$ P: E=\bigsqcup\limits_{i=1}^{N}E_i$, \mbox{где $E_i=\{x\in E: fx)\in [y_{i-1}, y_i)\},$} $i=1, \ldots, N-1$.
+	\newline
+	$E_N= \{x\in E: fx)\in [y_{N-1}, y_N]\}$
+	\newline
+	\newline
+	\mbox{Тогда интегральной суммой Лебега назовем $S(Q, f, \{t_i\})=\sum\limits_{i=1}^N f(t_i)\mu(E_i)$, где $t_i \in E_i,$}$ 
+	\newline i = 1, \ldots, N$.
+\end{Def} 
 \begin{theorem}(Основная теорема об интеграле Лебега от ограниченных функций).
 	Если $f(x)$ ограниченная измеримая на измеримом по Лебегу множестве $ E\subset\R^n $ конечной меры  функция, то она интегрируема по Лебегу (суммируема) на $E$, причем ее интеграл равен пределу интегральных сумм с разбиениями Лебега, отвечающими разбиениям  $ Q $, при стремящемся к нулю диаметре последнего, т.е. $$\int\limits_E f(x)d\mu(x)=\lim_{\Delta(Q)\to 0}S(Q,f,\{t_i\}).$$
 	Это значит, что $(\forall \varepsilon >0)(\exists \delta > 0)(\forall Q, \Delta(Q)<\delta) \text{ и } \forall \{t_i\}, t_i \in E_i, i=1,\ldots, N,$ где $E=\bigsqcup\limits_{i=1}^N E_i$ --- разбиение Лебега, отвечающее разбиению $Q$ отрезка $[m, M]$, выполняется $|S(Q, f, \{t_i\})-\int\limits_E f(x)d\mu(x)|<\varepsilon$.
 \end{theorem}
 
 \begin{proof}
-	Прежде всего заметим, что если $P: E=\bigsqcup\limits_{i=1}^N E_i$, то\newline $L(P, f)\leqslant S(Q, f, \{t_i\})\leqslant \mathcal{U}(P, f)$ Кроме того $\mathcal{U}(P, f) - L(P, f) = \sum\limits_{i=1}^N(M_i-m_i)\mu(E_i) \?\leqslant \sum\limits_{i=1}^N (y_i-y_{i-1})\cdot\mu(E_i)\leqslant \Delta(Q) \sum\limits_{i=1}^N\mu(E_i)=\Delta(Q)\mu(E)$. В качестве $\delta = \dfrac{\varepsilon}{\mu(E)}$. Для множеств $ E $ меры нуль утверждение очевидно, так как все суммы верхние, нижние, интегральные) в этом случае равны нулю.
+	Прежде всего заметим, что если $P: E=\bigsqcup\limits_{i=1}^N E_i$, то\newline $L(P, f)\leqslant S(Q, f, \{t_i\})\leqslant \mathcal{U}(P, f)$. Кроме того $\mathcal{U}(P, f) - L(P, f) = \sum\limits_{i=1}^N(M_i-m_i)\mu(E_i) \?\leqslant \sum\limits_{i=1}^N (y_i-y_{i-1})\cdot\mu(E_i)\leqslant \Delta(Q) \sum\limits_{i=1}^N\mu(E_i)=\Delta(Q)\mu(E)$. В качестве $\delta = \dfrac{\varepsilon}{\mu(E)}$. Для множеств $ E $ меры нуль утверждение очевидно, так как все суммы (верхние, нижние, интегральные) в этом случае равны нулю.
 \end{proof}
 
 \subsubsection{Случай, когда $f(x)\geqslant 0$.}
@@ -89,7 +94,7 @@ $\int\limits_E f(x)d\mu(x)\?=\lim\limits_{\Delta(Q)\to0}S(Q, f, \{t_i\}).$
 \end{theorem}
 
 \begin{proof}
-В случае конечного интеграла, доказательство аналогично доказательству предыдущей теоремы. Если интеграл бесконечен, то $\ldots$
+В случае конечного интеграла, доказательство аналогично доказательству предыдущей теоремы. Если интеграл бесконечен (Доказательство ожидается).
 \end{proof}
 
 \begin{Def}
@@ -98,6 +103,7 @@ $\int\limits_E f(x)d\mu(x)\?=\lim\limits_{\Delta(Q)\to0}S(Q, f, \{t_i\}).$
 
 \subsubsection{Случай, когда $f(x)$ - любого знака.}
 Пусть $f(x)$ измерима на измеримом по Лебегу множестве $E \subset \R^n$ конечной меры. Введем $f_+(x):=\max(f(x), 0), f_-(x):=\max(-f(x), 0)$ - это неотрицательные, измеримые функции. Такие функции интегрируемы по Лебегу, то есть существуют $\int\limits_E f_+(x)d\mu(x), \int\limits_E f_-(x)d\mu(x)$. Если хотя бы один из этих интегралов конечен, то $f$ называется интегрируемой по Лебегу. Если оба конечны, то $f$ - суммируемая на $E$.
-
+$$\int\limits_E f_+(x)d\mu(x)- \int\limits_E f_-(x)d\mu(x) = \int\limits_E f(x)d\mu(x)$$
+Пример измеримой, но не интегрируемой по Лебегу функции: возьмем отрезок, на одной его половине функция равна $+\infty$, на другой $-\infty$.
 
 

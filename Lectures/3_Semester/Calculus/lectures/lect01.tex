@@ -16,7 +16,7 @@
 \end{theorem}
 \begin{proof}
 По определению сходимости по мере: $$(\forall i \in \N) \lim_{n\to\infty} \mu \{ x\in X: \mid f_n(x)-f(x)\mid \ \geqslant \frac{1}{i} \} =0$$ - меры этих множеств образуют бесконечно малую числовую последовательность. Тогда мы можем выбрать возрастающую подпоследовательность $$\{n_i\}^\infty_{i=1}:\  \mu \{ x\in X: \mid f_{n_i}(x)-f(x)\mid \ \geqslant \frac{1}{i} \} < 2^{-i}.$$
-Последовательность $\{f_{n_i}\}^\infty_{i=1}$ и будет искомой, она будет сходится к $f$ почти всюду. Как это увидеть? Введем обозначения $$R_i:= \bigcup ^\infty_{k=i} \{x\in X:\ \mid f_{n_k}(x)-f(x)\mid \ \geqslant \frac{1}{k}\}$$. Что можно сказать о мере этих множеств?
+Последовательность $\{f_{n_i}\}^\infty_{i=1}$ и будет искомой, она будет сходится к $f$ почти всюду. Как это увидеть? Введем обозначения $$R_i:= \bigcup ^\infty_{k=i} \{x\in X:\ \mid f_{n_k}(x)-f(x)\mid \ \geqslant \frac{1}{k}\}.$$ Что можно сказать о мере этих множеств?
 \begin{equation}\label{1}
     \mu (R_i) \leqslant \sum_{k=i}^{\infty} \mu \{x\in X:\ \mid f_{n_k}(x)-f(x)\mid \ \geqslant \frac{1}{k}\} \leqslant \sum_{k=i}^{\infty} 2^{-k}=2^{-i+1}
 \end{equation}
