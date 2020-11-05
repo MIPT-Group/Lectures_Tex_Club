@@ -1,4 +1,4 @@
-\section{Теоретико-групповые конструкции}
+\section{Виды групп и теоретико-групповые конструкции}
 
 \subsection{Прямое произведение групп}
 
@@ -37,7 +37,7 @@
 \end{proposition}
 
 \begin{proof}
-	Пусть $\pi_A: A \to A/A_1$, $\pi_B: B \to B/B_1$ "--- канонические эпиморфизмы. Рассмотрим $\pi := \pi_A \times \pi_B: (A \times B) \hm\to (A / A_1) \times (B / B_1)$ "--- такое отображение, что $\forall (a, b) \hm\in A \times B: \pi((a, b)) = (\pi_A(a), \pi_B(b))$. Тогда $\pi$ "--- это гомоморфизм, причем сюръективный в силу сюръективности $\pi_A, \pi_B$. $\im\pi = (A / A_1) \times (B / B_1)$, $\ke\pi \hm= \ke\pi_A \times \ke\pi_B = A_1 \times B_1$, и, следовательно, $A_1 \times B_1 \hm\normal A \times B$. Наконец, по основной теореме о гомоморфизме, $(A \hm\times B) / (A_1 \hm\times B_1) \hm\cong (A / A_1) \times (B / B_1)$, причем изоморфизм имеет следующий вид: $(a, b)(A_1 \hm\times B_1) \hm\mapsto (aA_1, bB_1)$.
+	Пусть $\pi_A: A \to A/A_1$, $\pi_B: B \to B/B_1$ "--- канонические эпиморфизмы. Рассмотрим $\pi := \pi_A \times \pi_B: (A \times B) \hm\to (A / A_1) \times (B / B_1)$ "--- такое отображение, что $\forall (a, b) \hm\in A \times B: \pi((a, b)) = (\pi_A(a), \pi_B(b))$. Тогда $\pi$ "--- это гомоморфизм, причем сюръективный в силу сюръективности $\pi_A, \pi_B$. $\im\pi = (A / A_1) \times (B / B_1)$, $\ke\pi \hm= \ke\pi_A \times \ke\pi_B = A_1 \times B_1$, и, следовательно, $A_1 \times B_1 \hm\normal A \times B$. Наконец, по основной теореме о гомоморфизме, $(A \times B) / (A_1 \hm\times B_1) \hm\cong (A / A_1) \times (B / B_1)$, причем изоморфизм имеет следующий вид: $(a, b)(A_1 \times B_1) \hm\mapsto (aA_1, bB_1)$.
 \end{proof}
 
 \begin{note}
@@ -98,7 +98,7 @@
 \begin{proof}[Решение]
 	Проверим непосредственно, что $G$ "--- группа:
 	\begin{itemize}
-		\item (Ассоциативность) Достаточно убедиться в ассоциативности операции в первой координате: $\forall a_1, a_2, a_3 \in A: \forall b_1, b_2, b_3 \in B: a_1\phi_{b_1}(a_2\phi_{b_2}(a_3)) = a_1\phi_{b_1}(a_2)\phi_{b_1}(\phi_{b_2}(a_3)) \hm= a_1\phi_{b_1}(a_2)\phi_{b_1b_2}(a_3)$
+		\item (Ассоциативность) Достаточно проверить ассоциативность операции в первой координате: $\forall a_1, a_2, a_3 \in A: \forall b_1, b_2, b_3 \in B: a_1\phi_{b_1}(a_2\phi_{b_2}(a_3)) = a_1\phi_{b_1}(a_2)\phi_{b_1}(\phi_{b_2}(a_3)) \hm= a_1\phi_{b_1}(a_2)\phi_{b_1b_2}(a_3)$
 		\item (Нейтральный элемент) $\exists (e, e) \in G: \forall (a, b) \in G: (e, e)(a, b) \hm= (e\phi_e(a), eb) \hm= (a, b), (a, b)(e, e) = (a\phi_b(e), be) = (a, b)$
 		\item (Обратный элемент) $\forall (a, b) \in G: \exists (a, b)^{-1} = (\phi_{b^{-1}}(a^{-1}), b^{-1}) \hm\in G: (a, b)(a, b)^{-1} \hm= (a\phi_b(\phi_{b^{-1}}(a^{-1})), e) = (e, e), (a, b)^{-1}(a, b) \hm= (\phi_{b^{-1}}(a^{-1})\phi_{b^{-1}}(a), e) = (e, e)$
 	\end{itemize}
