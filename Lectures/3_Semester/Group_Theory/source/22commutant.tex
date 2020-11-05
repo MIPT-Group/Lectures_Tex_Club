@@ -102,7 +102,8 @@
 \begin{proof}~
 	\begin{itemize}
 		\item[$\ge$] Если $H \normal G$, $M \subset H$, то, в силу нормальности группы $H$, $M^G \subset H$, тогда $M^G \hm\subset \gl M\gr_{norm}$, и, так как $\gl M\gr_{norm}$ "--- группа, $\gl M^G\gr \le \gl M\gr_{norm}$
-		\item[$\le$] Заметим, что $\forall g \in G: (M^G)^g = M^G$, следовательно, $\forall g \in G: \gl M^G\gr \hm= \bigcap_{H \le G: M^G \subset H}H = \bigcap_{H\le G: M^G \subset H^{g^{-1}}}H \hm= \bigcap_{K \le G: M^G \subset K}K^g \hm= (\bigcap_{K \le G: M^G \subset K}K)^g = \gl M^G\gr^g$, то есть $\gl M^G\gr \normal G$, поэтому $\gl M\gr_{norm} \le \gl M^G\gr$
+		
+		\item[$\le$] Заметим, что $\forall g \in G: (M^G)^g = M^G$, следовательно, $\forall g \in G: \gl M^G\gr \hm= \bigcap_{H \le G: M^G \subset H}H \hm= \bigcap_{H\le G: M^G \subset H^{g^{-1}}}H \hm= \bigcap_{K \le G: M^G \subset K}K^g \hm= (\bigcap_{K \le G: M^G \subset K}K)^g = \gl M^G\gr^g$, то есть $\gl M^G\gr \normal G$, и поэтому $\gl M\gr_{norm} \le \gl M^G\gr$
 	\end{itemize}
 	Поскольку доказаны оба включения, $\gl M\gr_{norm} = \gl M^G\gr$.
 \end{proof}
@@ -115,7 +116,8 @@
 	Обозначим $\gl[m_1, m_2]: m_1, m_2 \in M\gr_{norm}$ через $H$ и докажем, что $H = G'$.
 	\begin{itemize}
 		\item[$\le$] Поскольку все коммутаторы лежат в $G'$ и $G' \normal G$, то $H \le G'$
-		\item[$\ge$] Рассмотрим канонический эпиморфизм $\pi: G \to G/ H$, тогда $\forall m_1, m_2 \in M: [\overline{m_1}, \overline{m_2}] = \overline{[m_1, m_2]} = e$, тогда, поскольку $G / H = \gl \overline{m}: m \in M\gr$, то $G / H$ "--- абелева, и потому $G' \le H$
+		
+		\item[$\ge$] Рассмотрим канонический эпиморфизм $\pi: G \to G/ H$, тогда $\forall m_1, m_2 \in M: [\overline{m_1}, \overline{m_2}] \hm= \overline{[m_1, m_2]} = e$, тогда, поскольку $G / H \hm= \gl \overline{m}: m \in M\gr$, то $G / H$ "--- абелева, и потому $G' \le H$
 	\end{itemize}
 \end{proof}
 

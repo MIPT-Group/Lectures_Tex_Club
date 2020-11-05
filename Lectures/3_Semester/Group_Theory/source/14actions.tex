@@ -18,7 +18,8 @@
 
 \begin{proof}~
 	\begin{itemize}
-		\item ($1 \Rightarrow 2$) $\forall g \in G$ рассмотрим $I_g: \Omega \to \Omega$, $\forall \omega \in \Omega: I_g(\omega) = g\omega$. Тогда $I_{g_1g_2}(\omega) \hm= (g_1g_2)(\omega) = g_1(g_2\omega) = I_{g_1}\circ I_{g_2}$. Проверим, что $I_g$ "--- это биекция. Действительно, $I_e = \id$, тогда $\forall g \in G: I_g\circ I_{g^{-1}} = I_{g^{-1}}\circ I_g = \id$. Значит, $\phi(g) = I_g$ "--- гомоморфизм групп $G$ и $S(\Omega)$.
+		\item ($1 \Rightarrow 2$) $\forall g \in G$ рассмотрим $I_g: \Omega \to \Omega$, $\forall \omega \in \Omega: I_g(\omega) = g\omega$. Тогда $I_{g_1g_2}(\omega) \hm= (g_1g_2)(\omega) = g_1(g_2\omega) = I_{g_1}\circ I_{g_2}$. Проверим, что $I_g$ "--- это биекция. Действительно, $I_e = \id$, поэтому $\forall g \in G: I_g\circ I_{g^{-1}} = I_{g^{-1}}\circ I_g = \id$. Значит, $\phi(g) = I_g$ "--- гомоморфизм групп $G$ и $S(\Omega)$.
+		
 		\item($2 \Rightarrow 1$) Для каждого $g \in G$ определим $g\omega := \phi(g)(\omega)$. Тогда $(g_1g_2)\omega = \phi(g_1g_2)(\omega) \hm= \phi(g_1)(\phi(g_2)(\omega)) = g_1(g_2\omega)$ и $e\omega \hm= \phi(e)(\omega) = \id(\omega) = \omega$.
 	\end{itemize}
 \end{proof}
