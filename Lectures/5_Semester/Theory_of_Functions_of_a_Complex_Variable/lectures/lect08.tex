@@ -2,4 +2,168 @@
     \textit{Лекция 8 (от 29.09)}
 \end{flushright}
 \section{$\S 11.$ Ряд Лорана}
+\Def
+\textbf{Ряд Лорана с центром в точке $a \in \CCC$}~--- выражение вида
+\begin{equation}\label{(11.1)}
+    \sum_{n=-\infty}^{+\infty}c_n(z-a)^n
+\end{equation}
+Это сумма
+\begin{equation}\label{(11.2)}
+    \sum_{n=0}^{+\infty}c_n(z-a)^n
+\end{equation}
+и
+\begin{equation}\label{(11.3)}
+    \sum_{n=-\infty}^{-1}c_n(z-a)^n
+\end{equation}
+Пусть $t = \dst \frac{1}{z-a}$, тогда (\href{(11.3)}{11.3}) равносильно
+\begin{equation}\label{(11.4)}
+    \sum_{m=1}^{+\infty}c_{-m}t^m
+\end{equation}
+\begin{align*}
+  \left| t \right| < \alpha \Rightarrow \left| z - a \right| > \frac{1}{\alpha} = \rho
+\end{align*}
+Из (\href{(11.2)}{11.2})
+\begin{align*}
+  \left| z-a \right|<R, \rho < R
+\end{align*}
+\begin{align*}
+  \rho < \left| z-a \right| < R
+\end{align*}
+\textbf{Кольцом сходимости} называется
+\begin{equation}\label{(11.5)}
+    K_{\rho, R}(a) = \{z \mid \rho < \left| z-a \right| < R\}
+\end{equation}
+$\forall r_1, r_2: \ \rho < r_1 < r_2 < R$ (\href{(11.1)}{11.1}) сходится
+равномерно в кольце $\overline{K_{r_1,r_2}(a)}$.
+\theorem (Лорана-Вейерштрасса)
+Пусть $f: K_{\rho,R}(a) \mapsto \CC$ регулярна. Тогда она предстваима в виде
+сходящегося ряда Лорана с центром в точке $a$:
+\begin{equation}\label{(11.6)}
+    f(z) = \sum_{-\infty}^{+\infty}c_n(z-a)^n, \ z \in K_{\rho,R}(a)
+\end{equation}
+\begin{equation}\label{(11.7)}
+    c_n = \frac{1}{2\pi i}\int_{\gamma_r}\frac{f(\zeta)}{(\zeta - a)^{n+1}}d\zeta, \ r \in (\rho, R), \ \gamma_r = \{\zeta \mid \left| \zeta - a \right| = r\}
+\end{equation}
+\pr
+\begin{enumerate}
+    \item Коэффициенты $c_n$ в (\href{(11.7)}{11.7}) не зависят от $r$.
+    \begin{align*}
+      r_1,r_2: \ \rho < r_1 < r_2 < R, \ \gamma_k = \{\zeta \mid \left| \zeta - a \right| = r_k\}
+    \end{align*}
+    Пусть $\Gamma = \Gamma_1 \cup \Gamma_2$~--- положительно ориентированная
+    граница $K_{r_1,r_2}(a)$.
+    \\
+    $\dst \frac{f(\zeta)}{(\zeta - a)^{n+1}}$ регулярна в $K_{r_1,r_2}(a)$.
+    Тогда по обобщенной теореме Коши
+    \begin{align*}
+      \int_{\Gamma} \frac{f(\zeta)}{(\zeta - a)^{n+1}}d\zeta = 0 = \int_{\gamma_2} \frac{f(\zeta)}{(\zeta - a)^{n+1}}d\zeta - \int_{\gamma_1} \frac{f(\zeta)}{(\zeta - a)^{n+1}}d\zeta
+    \end{align*}
+    а значит, $c_n$ не зависит от $r$.
+    \item Фисируем произвольную $z_0 \in K_{\rho,R}(a)$.
+    \begin{align*}
+      \exists r_1, r_2 \in (\rho,R): \ \rho < r_1 < \left| z_0-a \right|<r_2<R 
+    \end{align*}
+    значит, для $\gamma_k$ по интегральной формуле Коши
+    \begin{align*}
+      f(z_0) = \frac{1}{2\pi i}\int_{\gamma_2} \frac{f(\zeta)}{(\zeta - z_0)}d\zeta - \frac{1}{2\pi i}\int_{\gamma_1} \frac{f(\zeta)}{(\zeta - z_0)}d\zeta = I_2 + I_1
+    \end{align*}
+    Рассмотрим $I_2$.
+    \begin{align*}
+      \frac{1}{\zeta - z_0} = \frac{1}{(\zeta - a) - (z_0-a)} = \frac{1}{(\zeta - a)\left( 1 - \frac{z_0-a}{\zeta-a} \right)}, \ \zeta \in \gamma_2
+    \end{align*}
+    \begin{align*}
+      \left| \frac{z_0-a}{\zeta - a} \right| = \frac{\left| z_0-a \right|}{r_2} = q_2 < 1
+    \end{align*}
+    \begin{align*}
+      \frac{1}{2 \pi i}\frac{f(\zeta)}{\zeta - z_0} = \sum_{n=0}^{+\infty}\frac{1}{2\pi i}\frac{f(\zeta)}{(\zeta - a)} \cdot \frac{(z_0-a)^n}{(\zeta - a)^n}, \zeta \in \gamma_2
+    \end{align*}
+    \begin{align*}
+      M = \sup_{z \in \overline{K_{r_1,r_2}(a)}}\left| f(z) \right|< \infty
+    \end{align*}
+    По теореме $2$ $\S 6$ интегрируем (сходится равномерно):
+    \begin{align*}
+      I_2 = \sum_{n=0}^{+\infty}\int_{\gamma_2} \frac{1}{2 \pi i}\frac{f(\zeta)}{(\zeta - a)}\cdot \frac{(z_0-a)^n}{(\zeta - a)^n} d\zeta = \sum_{n=0}^{+\infty} c_n(z_0-a)^n
+    \end{align*}
+    Рассмотрим $I_1$.
+    \begin{align*}
+      \frac{-1}{\zeta - z_0} = \frac{1}{z_0-\zeta} = \frac{1}{(z_0 - a) - (\zeta-a)} = \frac{1}{(z_0 - a)\left( 1 - \frac{\zeta-a}{z_0-a} \right)}, \ \zeta \in \gamma_1
+    \end{align*}
+    \begin{align*}
+      \left| \frac{\zeta-a}{z_0 - a} \right| = \frac{r_1}{\left| z_0-a \right|} = q_1 < 1
+    \end{align*}
+    \begin{align*}
+      -\frac{1}{2 \pi i}\frac{f(\zeta)}{\zeta - z_0} = \sum_{n=0}^{+\infty}\frac{1}{2\pi i}\frac{f(\zeta)}{(z_0 - a)} \cdot \frac{(\zeta-a)^n}{(z_0 - a)^n}, \zeta \in \gamma_2
+    \end{align*}
+    По теореме $2$ $\S 6$ интегрируем (сходится равномерно):
+    \begin{align*}
+      I_1 = \sum_{n=0}^{+\infty}\left( \frac{1}{2\pi i}\int_{\gamma_1}f(\zeta)(\zeta - a)^n d\zeta \right) \frac{1}{(z_0-a)^{n+1}} = \sum_{m = -\infty}^{-1}c_m(z_0-a)^m
+    \end{align*}
+    Итак, $I_1+I_2$ дают ряд Лорана (\href{(11.6)}{11.6}) с коэффициентами вида (\href{(11.7)}{11.7}).
+\end{enumerate}
+\corollary
+Пусть $f: B_R(a) \mapsto \CC$ регулярна; тогда ее ряд Лорана совпадает с ее
+рядом Тейлора.
+\pr
+\begin{enumerate}
+    \item $f$ регулярна в круге, а значит,
+    \begin{align*}
+      c_m = \frac{1}{2 \pi i}\int_{\gamma_r}\frac{f(\zeta)}{(\zeta - a)^{m+1}}d \zeta
+    \end{align*}
+    При $m = 0$ $f(\zeta)(\zeta - a)^{-m-1}$ регулярна в этом круге, а значит,
+    по теореме Коши $\forall m < 0 \ c_m = 0$.
+    \item По (\href{(11.7)}{11.7}) $\forall n \geq  0 \ c_n$ совпадает с
+    коэффициентом ряда Тейлора.
+\end{enumerate}
+ч.~т.~д.
+\theorem (единственность ряда Лорана)
+Пусть $f:K_{\rho,R}(a) \mapsto \CC, \ 0 \leq rho < R$ регулярна и представима в
+виде
+\begin{equation}\label{(11.8)}
+  f(z) = \sum_{-\infty}^{+\infty} b_n(z-a)^n
+\end{equation}
+Тогда коэффициенты $b_n$ есть коэффициенты $c_n$ из (\href{(11.7)}{11.7}).
+\pr
+\begin{align*}
+  r \in (\rho, R); \gamma_r = \{\zeta \mid \left| \zeta - a \right| = r\}
+\end{align*}
+Фиксируем $k \in \ZZ$.
+\\
+Из примера $1$ $\S6$
+\begin{align*}
+  \frac{1}{2 \pi i} \int_{\gamma_r}\frac{d\zeta}{(\zeta - a)^{m+1}} = \left\{ \begin{matrix}
+          1, \ m = 0 \\
+          0, \ m \in \ZZ \setminus\{0\}
+      \end{matrix} \right.
+\end{align*}
+Ряд Лорана (\href{(11.8)}{11.8}) сходится локально равномерно в $K_{\rho,R}(a)$,
+а значит, равномерно на $\gamma_r$.
+\\
+Домножим (\href{(11.8)}{11.8}) на выражение (константное в силу фиксированного
+$k$):
+\begin{align*}
+  \frac{1}{2\pi i}\frac{f(z)}{(z-a)^{k+1}} = \sum_{n = -\infty}^{+\infty} \frac{1}{2 \pi i}\frac{b_n(z-a)^n}{(z-a)^{k+1}}
+\end{align*}
+По теореме $2$ $\S 6$ интегрируем по $\gamma_r$:
+\begin{align*}
+  c_k = \frac{1}{2 \pi i} \int_{\gamma_r}\frac{f(z)}{(z - a)^{k+1}} = \sum_{n = -\infty}^{+\infty} \frac{1}{2\pi i}b_n \int_{\gamma_r}\frac{dz}{(z-a)^{k-n+1}}
+\end{align*}
+В правой части ненулевое значение только при $n=k$, а значит, $c_k = b_k$
+\\
+ч.~т.~д.
+\corollary
+Разложение регулярной функции $f: B_R(a) \mapsto \CC$ в ряд Тейлора
+единственное.
+\pr
+Это очевидно следует из теоремы $2$ и следствия $1$.
+\corollary
+Пусть $f:K_{\rho,R}(a) \mapsto \CC$ регулярна и разложена в ряд Лорана. Пусть
+$\forall r \in (\rho, R) \ \left| f(z) \right|\leq A_r$ при $z \in \gamma_r$.
+\\
+Тогда $\forall n \ \left| c_n \right| \leq \dst \frac{A_r}{r_n} \ \forall r \in
+(\rho, R)$.
+\pr
+\begin{align*}
+  \left| c_n \right| = \frac{1}{2 \pi} \int_{\gamma_r}\frac{\left| f(\zeta) \right|}{\left| \zeta - a \right|^{n+1}} \leq \frac{A_r}{2 \pi r^{n+1}} \cdot 2 \pi r = \frac{A_r}{r^n}
+\end{align*}
+ч.~т.~д.
 \section{$\S 12.$ Изолированные особые точки}
