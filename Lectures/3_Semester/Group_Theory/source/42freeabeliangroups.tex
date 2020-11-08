@@ -1,0 +1,39 @@
+\subsection{Свободные абелевы группы}
+
+В данном разделе и далее рассматриваемые группы будут абелевыми, и операция в них будет обозначаться через $+$.
+
+\begin{example}
+	Группа $\Q$ не является конечнопорожденной. Она не является циклической, и любые две нетривиальных подгруппы в ней имеют нетривиальное пересечение.
+\end{example}
+
+\begin{note}
+	Если $(n, k) = 1$, то $\Z_n \oplus \Z_k \cong \Z_{nk}$, поскольку $\ord(\overline{1}, \overline{1})$ в этой группе равен $nk$.
+\end{note}
+
+\begin{definition}
+	Пусть $G$ "--- абелева группа. Система элементов $(e_1, \dotsc, e_k)$ группы $G$ называется \textit{независимой}, если $\forall n_1, \dotsc, n_k \in \Z: \sum_{i = 1}^kn_ie_i = 0 \ra n_1 = \dotsb = n_k = 0$. Система $(e_1, \dotsc, e_k)$ называется \textit{базисом} в $G$, если она независима и $G = \gl e_1, \dotsc, e_k\gr$.
+\end{definition}
+
+\begin{note}
+	Любая непустая система в $\Z_n$ зависима.
+\end{note}
+
+\begin{proposition}
+	Пусть $(e_1, \dotsc, e_k)$ "--- базис в абелевой группе $G$. Тогда $\forall g \in G: \exists! n_1, \dotsc, n_k \in \Z: g = \sum_{i = 1}^kn_ie_i$.
+\end{proposition}
+
+\begin{proof}
+	Существование коэффициентов $n_1, \dotsc, n_k$ следует из определения базиса. Если же $g = \sum_{i = 1}^kn_ie_i = \sum_{i = 1}^km_ie_i$, то $\sum_{i = 1}^k(n_i - m_i)e_i = 0$, откуда $\forall i \in \{1, \dotsc, k\}: n_i \hm= m_i$.
+\end{proof}
+
+\begin{definition}
+	Абелева группа $G$ называется \textit{свободной абелевой группой ранга $k$}, если в ней существует базис из $k$ элементов.
+\end{definition}
+
+\begin{proposition}
+	Пусть $G$ "--- свободная абелева группа ранга $k$. Тогда $G \cong \Z^k$.
+\end{proposition}
+
+\begin{proof}
+	Пусть $(e_1, \dotsc, e_k)$ "--- базис в $G$. Рассмотрим отображение $\phi: \Z^k \to G$ такое, что $\forall (n_1, \dotsc, n_k) \in \Z^k: \phi((n_1, \dotsc, n_k)) \hm= \sum_{i = 1}^kn_ie_i$. Очевидно, это гомоморфизм, причем биективный в силу предыдущего утверждения.
+\end{proof}
