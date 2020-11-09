@@ -1,4 +1,66 @@
 \begin{flushright}
     \textit{Лекция 9 (от 05.10)}
 \end{flushright}
+\corollary
+\begin{enumerate}
+    \item $a \neq \infty$~--- полюс $f$ $\Leftrightarrow$ $\exists
+    \overset{\circ}{B}_{\rho}(a), \exists m \in \NN, \exists p: B_{\rho}(a)
+    \mapsto \CC$~--- регулярная, причем $p(a) \neq 0$, для которой верно:
+    \begin{equation}\label{(12.3)}
+        f(z) = \frac{p(z)}{(z-a)^m} \forall z \in \overset{\circ}{B}_\rho(a)
+    \end{equation}
+    \item $a = \infty$~--- полюс $f$ $\Leftrightarrow$ $\exists
+    \overset{\circ}{B}_{\rho}(\infty), \exists m \in \NN, \exists h:
+    B_{\rho}(\infty) \mapsto \CC$~--- регулярная, причем $\dst\lim_{z \to
+      \infty} h(z) = h(\infty) \neq 0$, для которой верно:
+    \begin{equation}\label{(12.4)}
+        f(z) = z^mh(z) \forall z \in \overset{\circ}{B}_\rho(\infty)
+    \end{equation}
+\end{enumerate}
+\Def \label{[12.3]}
+Пусть $a$~--- полюс $f$, $m$ определено из \eqref{(12.3)} или
+\eqref{(12.4)}. Тогда $m$ называется \textbf{порядком полюса $a$}.
+\Def \label{[12.4]}
+Пусть $g: B_R(a) \mapsto \CC$ регулярна, и $g(a) = g'(a) = \dots = g^{(n-1)}(a)
+= 0$, $g^{(n)}(a)\neq 0$. Тогда $a$ называется \textbf{нулем $n$-го порядка
+  функции $g$}.
+\corollary
+Пусть $g$, $h: B_\rho(a) \mapsto \CC$ регулярны; пусть $a$~--- нуль $k$-го
+порядка функции $g$, причем $k \geq 0$, и $m$-го порядка функции $h$, причем $m
+\geq 1$. Тогда для $f = \dst \frac{g}{h}$ точка $a$ будет:
+\begin{enumerate}
+    \item полюсом $m-k$-го порядка, если $m > k$;
+    \item УОТ, если $m \leq k$.
+\end{enumerate}
+\pr
+По определению \ref{[12.4]}
+\begin{align*}
+  g(z) = (z-a)^kg_1(z), \ g_1(a) \neq 0
+\end{align*}
+\begin{align*}
+  g(z) = (z-a)^mh_1(z), \ h_1(a) \neq 0
+\end{align*}
+Тогда
+\begin{align*}
+  p(z) = \frac{g_1(z)}{h_1(z)}
+\end{align*}
+регулярна в некоторой окрестности $a$, $p(a) \neq 0$. Тогда из следствия $1$
+получаем желаемое.
+\note
+Существуют неизолированные особые точки. Пусть
+\begin{align*}
+  f(z) = \frac{1}{\sin \frac{\pi}{z}}
+\end{align*}
+Тогда $\dst \frac{z_n} = \frac{1}{n}$~--- особые точки, но $0$~---
+неизолированная особая точка (предельная точка полюсов).
+\Exse
+Пусть $a$~--- полюс $f$ и существенно особая точка $g$. Чем является $a$ для $h
+= fg$?
+\Exse
+Пусть $a$~--- полюс $f$. Чем является $a$ для $g= f^2$?
+\Exse
+Пусть $a$~--- существенно особая точка $f$. Чем является $a$ для $g = \dst
+\frac{1}{f}$?
+\Exse
+Пусть $a$~--- полюс $f$. Чем является $a$ для $g = e^f$?
 \section{$\S 13.$ Теория вычетов}

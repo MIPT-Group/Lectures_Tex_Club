@@ -5,21 +5,21 @@
     \sum_{n=1}^{\infty}f_n(z), \ f_n: G \mapsto \CC
 \end{equation}
 \Def
-Функциональный ряд (\href{(9.5)}{9.5}) \textbf{сходится локально равномерно на
-  $G$}, если $\forall z \in G \ \exists B_r(z) \subseteq G$, на котором
-(\href{(9.5)}{9.5}) сходится равномерно.
+Функциональный ряд \eqref{(9.5)} \textbf{сходится локально равномерно на $G$},
+если $\forall z \in G \ \exists B_r(z) \subseteq G$, на котором \eqref{(9.5)}
+сходится равномерно.
 \theorem (Вейерштрасса)
 Пусть $f_n: G \mapsto \CC$ регулярны на $G$, а ряд $\dst
 \sum_{n=1}^{\infty}f_n(z)$ сходится локально равномерно на $G$.
 \\
 Тогда
 \begin{enumerate}
-    \item $S(z)$~--- сумма ряда (\href{(9.5)}{9.5})~--- регулярна на $G$.
-    \item ряд (\href{(9.5)}{9.5}) можно почленно дифференцировать:
+    \item $S(z)$~--- сумма ряда \eqref{(9.5)}~--- регулярна на $G$.
+    \item ряд \eqref{(9.5)} можно почленно дифференцировать:
     \begin{equation}\label{(9.6)}
         \forall k \in NN, \ \forall z \in G \ S^{(k)}(z) = \sum_{n=1}^{\infty}f^{(k)}_n(z)
     \end{equation}
-    причем ряд (\href{(9.6)}{9.6}) сходится локально равномерно на $G$.
+    причем ряд \eqref{(9.6)} сходится локально равномерно на $G$.
 \end{enumerate}
 \pr
 Фиксируем произвольную $z_0 \in G$ и $r>0, \ r_1>0: \ \overline{B_{r+r_1}(z_0)}
@@ -57,8 +57,8 @@
     \begin{align*}
       \forall z \in B_r(z_0) \ S_N^{(k)}(z) = \frac{k!}{2 \pi i}\int_{\gamma_1}\frac{S_N(\zeta)}{(\zeta - z)^{k+1}} d \zeta 
     \end{align*}
-    Из (\href{(9.7)}{9.7}) $\forall \varepsilon > 0 \exists N(\varepsilon):
-    \forall N\geq N(\varepsilon)$ выполняется (\href{(9.7)}{9.7}).
+    Из \eqref{(9.7)} $\forall \varepsilon > 0 \exists N(\varepsilon): \forall
+    N\geq N(\varepsilon)$ выполняется \eqref{(9.7)}.
     \begin{align*}
       \left| S^{(k)}(z) - s_N^{(k)}(z) \right| \leq \frac{k!}{2\pi}\int_{\gamma_1}\frac{\left| S(\zeta) - S_N(\zeta) \right|}{\left| \zeta - z \right|^{k+1}} \left| d\zeta \right|\leq \frac{\varepsilon 2 \pi (r+r_1)k!}{2 \pi r^{k+1}}
     \end{align*}

@@ -57,7 +57,7 @@ $\Delta z_k = z_k - z_{k-1}$~--- \textbf{интегральная сумма};
   \gamma: z(t), \ \int_{t_0}^{t_1}\left( P(t) + iQ(t) \right) dt = \int_{t_0}^{t_1}P(t)dt + i \int_{t_0}^{t_1}Q(t)dt
 \end{equation}
 \pr
-Из (\ref{(6.2)}) и свойств криволинейных интегралов II рода
+Из \eqref{(6.2)} и свойств криволинейных интегралов II рода
 \begin{align*}
   &\int_{\gamma}P(x,y) dx + Q(x,y)dy = \int_{t_0}^{t_1} \left( P(x(t), y(t)x'(t) + Q(x(t), y(t))y'(t) \right) dt
 \end{align*}
@@ -84,7 +84,7 @@ $\Delta z_k = z_k - z_{k-1}$~--- \textbf{интегральная сумма};
       \left| \int_\gamma f(z) dz \right| \leq \int_{\gamma}\left| f(z) \right| \cdot \left| dt \right| = \int_{t_0}^{t_1} \left| f(z(t)) \right| \sqrt{(x'(t))^2 + (y'(t))^2}dt
     \end{equation}
     \pr
-    Из (\ref{(6.3)}):
+    Из \eqref{(6.3)}:
     \begin{equation} \label{(6.6)}
       \left| \sigma(\lambda) \right| \leq \sum_{k = 1}^{m_\lambda}\left| f(\zeta) \right| \cdot \left| \Delta z_k \right|
     \end{equation}
@@ -109,7 +109,7 @@ $dz(t) = rie^{it}dt$
 \begin{align*}
   &J_1 = \int_{\gamma} dz, \ J_2 = \int_{\gamma}z dz
 \end{align*}
-$\gamma: z(t)$, и согласно (\ref{(6.3)})
+$\gamma: z(t)$, и согласно \eqref{(6.3)}
 \begin{align*}
   &J_1 = \int_{t_0}^{t_1} z'(t)dt = z(t_1) - z(t_0)
 \end{align*}
@@ -162,7 +162,7 @@ f(z) \forall z \in G$.
       \int_{\overset{\circ}{\gamma}} f(z) dz = 0
     \end{equation}
     \item если для любой замкнутой ломаной кривой $\gamma$ выполняется
-    (\ref{(6.8)}), то $f dz$~--- полный дифференциал.
+    \eqref{(6.8)}, то $f dz$~--- полный дифференциал.
 \end{enumerate}
 \pr ~
 \\
@@ -181,7 +181,7 @@ f(z) \forall z \in G$.
         не зависит от $\gamma_{az}$, а лишь зависит от $z$. Действительно, если
         $\exists \gamma_{az}, \exists \tilde{\gamma_{az}}$, то пусть
         $\overset{\circ}{\gamma} = \gamma_{az} \cup \tilde{\gamma_{az}}^{-1}$,
-        тогда из \hyperlink{(8)}{(8)}
+        тогда из \eqref{(6.8)}
         \begin{align*}
           & \int_{\overset{\circ}{\gamma}} f(z) dz = 0 = \int_{\gamma_{az}}f dz - \int_{\tilde{\gamma_{az}}}f(z)dz
         \end{align*}
