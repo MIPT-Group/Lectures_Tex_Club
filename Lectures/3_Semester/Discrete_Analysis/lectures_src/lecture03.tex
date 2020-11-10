@@ -45,19 +45,19 @@
 				\item Когда мы удаляем $ N_w(G), $ по пункту (b) остается хотя бы одна вершина цикла $ C $, не соединенная с множеством $ W $, а также остается сам $ W $, т.е. граф распадается на компоненты связности.
 			\end{enumerate}
 		\end{proof}
-		Обозначим $ M = \left\lbrace x_{i + 1} : x_i \in N_w(G)\right\rbrace $, другими словами, это - множество вершин цикла $ C $, родители которых соединены с $ W $. При этом $ |M| = |N_w(G)| $
+		Обозначим $ M = \left\lbrace x_{i + 1} : x_i \in N_w(G)\right\rbrace $, другими словами, это - множество вершин цикла $ C $, родители которых соединены с $ W $. Очевидно, $ |M| = |N_w(G)| $
 		\begin{prop}
 			$ M $ - независимое множество.
 		\end{prop}
 		\begin{proof}
-			Предположим, что множество $ M $ не независимое, т.е. $ \exists\: x_{i + 1}, x_{j + 1} \in M : (x_{i + 1}, x_{j + 1}) \in E $. Поскольку $ x_{i + 1}, x_{j + 1} \in M $, вершины $ x_{i}, x_{j} $ соединены с какими-то вершинами $ a, b $ из $ M $ соответственно ($ a $ и $ b $ могут совпадать).
+			Предположим, что множество $ M $ не независимое, т.е. $ \exists\: x_{i + 1}, x_{j + 1} \in M : (x_{i + 1}, x_{j + 1}) \in E $ и $ x_i, x_j \in N_w(G) $. Пусть вершины $ x_{i}, x_{j} $ соединены с какими-то вершинами $ a, b $ из $ M $ соответственно ($ a $ и $ b $ могут совпадать).
 			
 			
-			Имеем исходный цикл $ C $ : $x_1 \rightarrow \dots \rightarrow x_i \rightarrow x_{i + 1} \rightarrow \dots \rightarrow x_j \rightarrow x_{j + 1} \rightarrow \dots \rightarrow x_n$. Можем рассмотреть новый более длинный цикл $ C^\prime $ :
-			$x_1 \rightarrow \dots \rightarrow x_i \rightarrow a \rightarrow \dots \rightarrow b \rightarrow x_j \rightarrow \ldots \rightarrow x_{i + 1} \rightarrow x_{j + 1} \dots \rightarrow x_n \rightarrow x_1$, что противоречит выбору $ C $ как наибольшего.
+			Имеем исходный цикл $ C $ : $x_1 \rightarrow \dots \rightarrow x_i \rightarrow x_{i + 1} \rightarrow \dots \rightarrow x_j \rightarrow x_{j + 1} \rightarrow \dots \rightarrow x_n$. Можем рассмотреть новый цикл $ C^\prime $ :
+			$x_1 \rightarrow \dots \rightarrow x_i \rightarrow a \rightarrow \dots \rightarrow b \rightarrow x_j \rightarrow \ldots \rightarrow x_{i + 1} \rightarrow x_{j + 1} \dots \rightarrow x_n \rightarrow x_1$. Он более длинный, поскольку добавились как минимум три ребра, а из исходного цикла были взяты все ребра, кроме $ x_ix_{i + 1}, x_jx_{j + 1} $. Это противоречит выбору $ C $ как наибольшего.
 			
 		\end{proof}
-		Получаем, что $ \alpha(G) \geqslant |M|$. Но из пункта (c) утверждения \ref{prop:N_w} имеем $ \varkappa(G) \leqslant |N_w(G)| $, откуда получаем $ \alpha(G) \geqslant  |N_w(G)| \geqslant \varkappa(G) $.
+		Получаем, что $ \alpha(G) \geqslant |M|$. Но из пункта (c) утверждения \ref{prop:N_w} имеем $ \varkappa(G) \leqslant |N_w(G)| $, откуда $ \alpha(G) \geqslant  |N_w(G)| \geqslant \varkappa(G) $.
 		
 		\begin{note}
 			[Вставить замечание] На самом деле можно улучшить оценку до ... При этом $ M \subset C $.
