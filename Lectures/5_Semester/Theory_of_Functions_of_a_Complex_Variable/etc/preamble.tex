@@ -70,9 +70,9 @@
 \newtheorem{Def}{Определение}[section]
 \newtheorem{corollary}{Следствие}[theorem]
 \newtheorem{problem}{Задача}[section]
-\newtheorem{Note}{Замечание}
-\newtheorem{Exse}{Упражнение}
-\newtheorem{Example}{Пример}
+\newtheorem{Note}{Замечание}[section]
+\newtheorem{Exse}{Упражнение}[section]
+\newtheorem{Example}{Пример}[section]
 
 \theoremstyle{remark} % "Примечание"
 \newtheorem*{nonum}{Решение}
@@ -80,6 +80,7 @@
 \newtheorem*{definition}{Def}
 \newtheorem*{example}{Пример}
 \newtheorem*{note}{Замечание}
+\newtheorem*{property}{Свойство}
 
 
 %%% Работа с картинками
@@ -122,8 +123,16 @@
 \newcommand{\EE}{\mathbb{E}}
 \newcommand{\brackets}[1]{\left({#1}\right)}      % автоматический размер
 % скобочек
-\newcommand{\Ln}{\mathrm{Ln}}
 
 % Здесь можно добавить ваши индивидуальные сокращения  
 \newcommand{\dst}{\displaystyle}
 \numberwithin{equation}{section}
+\newcommand{\Real}{\mathrm{Re}}
+\newcommand{\Img}{\mathrm{Im}}
+\newcommand{\Ln}{\mathrm{Ln}}
+\newcommand{\res}{\mathrm{res}}
+\newcommand{\os}{\overset}
+\newcommand{\us}{\underset}
+\newcommand{\ol}{\overline}
+\newcommand{\abs}[1]{\left|{#1}\right|}      % автоматический размер
+\newcommand{\sets}[1]{\left\{{#1}\right\}}      % автоматический размер
