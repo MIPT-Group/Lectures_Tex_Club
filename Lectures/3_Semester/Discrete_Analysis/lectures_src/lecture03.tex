@@ -68,7 +68,7 @@
 
 Рассмотрим следующий интересный регулярный граф и докажем, что он удовлетворяет признаку Эрдеша-Хватала.
 
-Обохначим $ N = \left\lbrace 1, 2, \ldots n\right\rbrace $.Рассмотрим $ G = (V, E) : V = \left\lbrace A \subset N  : |A| = 3 \right\rbrace, E = \left\lbrace (A, B) : |A\cap B| = 1\right\rbrace  $. Другими словами, $ G $ -- граф на множестве трехэлементных подмножеств $ N $, где два множества соединены ребром, если они пересекаются по одному элементу.
+Обозначим $ N = \left\lbrace 1, 2, \ldots n\right\rbrace $.Рассмотрим $ G = (V, E) : V = \left\lbrace A \subset N  : |A| = 3 \right\rbrace, E = \left\lbrace (A, B) : |A\cap B| = 1\right\rbrace  $. Другими словами, $ G $ -- граф на множестве трехэлементных подмножеств $ N $, где два множества соединены ребром, если они пересекаются по одному элементу.
 
 Очевидно, $ |V| = C_n^3 $. Найдем $|E|$. Степень каждой вершины $  G $ -- $3 \cdot C_{n - 3}^2$, поскольку для каждого из трех элементов $ {a, b, c} $ мы можем выбрать двухэлементное подмножество $ Q \subset N \setminus \left\lbrace a, b, c \right\rbrace $ и объединить их. Очевидно, таким образом описываются все множества, смежные с вершиной  $ \left\lbrace a, b, c\right\rbrace $ в $ G $.
 
@@ -95,7 +95,7 @@ $$ |E| \sim \dfrac{3}{2} \cdot \dfrac{n^3}{6} \cdot \dfrac{n^2}{2} =\dfrac{n^5}{
 \end{proof}
 
 \begin{corollary}
-	$ \alpha(G) \leqslant |V| $.
+	$ \alpha(G) \leqslant n $.
 \end{corollary} \label{cor:alpha}
 
 \begin{proof}
@@ -110,6 +110,7 @@ $$ |E| \sim \dfrac{3}{2} \cdot \dfrac{n^3}{6} \cdot \dfrac{n^2}{2} =\dfrac{n^5}{
 		1 & 2 & & 4 && \\ 
 		1 & 2 & & & 5 & \\
 		& $\ldots$ & & $ \ldots $ &&  \\
+		1 & 2 & & \ldots & & \hspace{5ex} n
 	\end{tabular}
 \end{center}
 
