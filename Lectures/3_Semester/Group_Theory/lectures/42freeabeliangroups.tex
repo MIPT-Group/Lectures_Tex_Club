@@ -127,7 +127,7 @@
 \end{note}
 
 \begin{exercise}
-	Рассмотрим линейное пространство $\R^n$ с базисом $(\overline{e_1}, \dotsc, \overline{e_n})$. $\Gamma \hm= \gl \overline{e_1}, \dotsc, \overline{e_n}\gr \le \R^n$ "--- свободная абелева группа, также называемая решеткой. Тогда:
+	Рассмотрим линейное пространство $\R^n$ с базисом $(\overline{e_1}, \dotsc, \overline{e_n})$. $\Gamma \hm:= \gl \overline{e_1}, \dotsc, \overline{e_n}\gr \le \R^n$ "--- свободная абелева группа, также называемая решеткой. Тогда:
 	\begin{enumerate}
 		\item Фундаментальный объем, то есть $V(\Gamma) := |V(\overline{e_1}, \dotsc, \overline{e_n})|$, не зависит от выбора базиса в $\Gamma$
 		
@@ -139,44 +139,6 @@
 	\begin{enumerate}
 		\item Пусть $e = (\overline{e_1}, \dotsc, \overline{e_n})$ и $e' = (\overline{e_1'}, \dotsc, \overline{e_n'})$ "--- два базиса в $\Gamma$, $\Gamma(e)$, $\Gamma(e')$ "--- матрицы Грама этих базисов. Если $S$ "--- матрица перехода из $e$ в $e'$, то $|\det{S}| = 1$, поэтому $V(e') \hm= \sqrt{\det\Gamma(e')} \hm= \sqrt{\det{(S^T\Gamma(e)S)}} = \sqrt{\det\Gamma(e)} = V(e)$.
 		
-		\item Пока нет.
-		%Выберем базисы $e' = (\overline{e'_1}, \dotsc, \overline{e'_n})$ и $e'' = (\overline{e''_1}, \dotsc, \overline{e''_n})$ в $\Gamma_1$ и $\Gamma_2$, и пусть $e' = e''T$, $T \in M_n(\Z)$. Положим $d := |\det{T}| \ge 1$, тогда, по формуле Крамера, $dT^{-1} \in M_n(\Z)$.
+		\item Данное утверждение следует из теоремы о согласованных базисах из следующего раздела.
 	\end{enumerate}
 \end{solution}
-
-\begin{proposition}
-	Пусть $A \in M_{n \times k}(\Z)$. Тогда $\exists P \hm\in \GL_n(\Z): \exists Q \in \GL_k(\Z): \exists D \hm\in M_{n \times k}(\Z)$ "--- матрица с главным минором вида $\diag(u_1, \dotsc, u_{\min(k, n)})$ и нулями на остальных позициях: $A = PDQ$.
-\end{proposition}
-
-\begin{solution}
-	Будет представлено на следующей лекции.
-\end{solution}
-
-\begin{note}
-	Представление $A$ в таком виде, как в утверждении выше, называется \textit{нормальной формой Смита}.
-\end{note}
-
-\begin{theorem}
-	Пусть $G$ "--- свободная абелева группа ранга $n$ и $H \hm\le G$ "--- свободная абелева группа ранга $k \le n$. Тогда в $G$ и $H$ существуют базисы $(g_1, \dotsc, g_n)$ и $(h_1, \dotsc, h_k)$ такие, что $\forall i \in \{1, \dotsc, k\}: h_i = u_ig_i, u_i \in \Z$, причем $u_1\mid \dotsb \mid u_k$.
-\end{theorem}
-
-\begin{proof}
-	Пусть $(e_1, \dotsc, e_n)$ "--- базис в $G$, $(a_1, \dotsc, a_k)$ "--- базис в $H$. Тогда $(a_1, \dotsc, a_k) = (e_1, \dotsc, e_n)A$, где $A \in M_{n \times k}(\Z)$. Пусть $A \hm= PDQ$ "--- нормальная форма Смита матрицы $A$. Тогда базисы $(g_1, \dotsc, g_n) = (e_1, \dotsc, e_n)P$, $(h_1, \dotsc, h_k) = (a_1, \dotsc, a_k)Q^{-1}$ являются искомыми.
-\end{proof}
-
-\begin{note}
-	Базисы в $G$ и $H$ из теоремы выше называются \textit{согласованными}.
-\end{note}
-
-\begin{corollary}
-	Пусть $A$ "--- конечнопорожденная абелева группа. Тогда $A \cong Z^l \oplus \Z_{u_1} \oplus \dots \oplus \Z_{u_k}$, где $l, u_1, \dotsc, u_k \in \Z$, $l \ge 0$, $u_1 \mid \dotsb \mid u_k$.
-\end{corollary}
-
-\begin{proof}
-	Пусть $A = \gl a_1, \dotsc, a_n \gr$. Тогда $A \cong G / H$, где $G$ "--- свободная абелева группа ранга $n$, $H \le G$ "--- свободная абелева группа ранга $k$. Выберем в $G$ и $H$ согласованные базисы $(g_1, \dotsc, g_n)$ и $(h_1, \dotsc, h_k)$. Заметим теперь, что $G \hm= \gl g_1\gr \oplus \dotsb \oplus \gl g_n\gr$, $H \hm= \gl h_1\gr \oplus \dotsb \oplus \gl h_k\gr$ и, более того, $\forall i \hm\in \{1, \dotsc, k\}: \gl h_i\gr \le \gl g_i\gr$. Тогда, считая, что $h_{k + 1} = \dotsb = h_n = 0$, получим:
-	\[A \cong G/ H \cong \bigoplus\limits_{i = 1}^n\gl g_i\gr/\gl h_i\gr \cong \Z_{u_1} \oplus \dotsb \oplus \Z_{u_k} \oplus \Z^{n-k}\]
-\end{proof}
-
-\begin{note}
-	Возможна ситуация, в которой несколько первых прямых слагаемых в разложении $A$ в доказательстве следствия выше "--- это нулевые подгруппы.
-\end{note}
