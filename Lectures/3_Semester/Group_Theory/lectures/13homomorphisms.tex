@@ -1,7 +1,7 @@
 \subsection{Гомоморфизмы групп и факторгруппа}
 
 \begin{definition}
-	Пусть $G, H$ "--- группы. Отображение $\phi : G \hm\to H$ называется \textit{гомоморфизмом групп} $G$ и $H$, если $\forall g_1, g_2 \in G: \phi(g_1g_2) = \phi(g_1)\phi(g_2)$. Сюръективный гомоморфизм называется \textit{эпиморфизмом}, инъективный гомоморфизм --- \textit{мономорфизмом}.
+	Пусть $G, H$ "--- группы. \textit{Гомоморфизмом групп} $G$ и $H$ называется отображение $\phi : G \hm\to H$ такое, что $\forall g_1, g_2 \hm\in G: \phi(g_1g_2) \hm= \phi(g_1)\phi(g_2)$. Сюръективный гомоморфизм называется \textit{эпиморфизмом}, инъективный гомоморфизм --- \textit{мономорфизмом}.
 \end{definition}
 
 \begin{note}
@@ -97,17 +97,17 @@
 	Отображение $\pi$ "--- это гомоморфизм по определению, и его сюръективность очевидна: $\forall gK \in K: \exists g \in G: \pi(g) = gK$.
 \end{proof}
 
-\begin{note}
-	$g \in \ke\pi \Leftrightarrow \pi(g) = gK = K \Leftrightarrow g \in K$, поэтому $\ke\pi = K$. Значит, любая нормальная подгруппа является ядром некоторого гомоморфизма, точно так же, как любая подгруппа является образом некоторого гомоморфизма.
-\end{note}
-
 \begin{definition}
 	Пусть $G$ "--- группа, $K \normal G$. Группа $G / K$ называется \textit{факторгруппой} $G$ по $K$.
 \end{definition}
 
+\begin{note}
+	$g \in \ke\pi \Leftrightarrow \pi(g) = gK = K \Leftrightarrow g \in K$, поэтому $\ke\pi = K$. Значит, любая нормальная подгруппа является ядром некоторого гомоморфизма, точно так же, как любая подгруппа является образом некоторого гомоморфизма.
+\end{note}
+
 \begin{theorem}[Основная теорема о гомоморфизме]~
 	\begin{enumerate}
-		\item Пусть $G$ "--- группа, $K \normal G$. Тогда $\exists \pi: G \to K$ "--- эпиморфизм такой, что $\ke\phi \hm= K$.
+		\item Пусть $G$ "--- группа, $K \normal G$. Тогда $\exists \pi: G \to G / K$ "--- эпиморфизм такой, что $\ke\phi \hm= K$.
 		\item Пусть $G, H$ "--- группы, $\phi: G \to H$ "--- гомоморфизм. Тогда $K \hm{:=} \ke\phi \normal G$, и, более того, $\im\phi \cong G / K$.
 	\end{enumerate}
 \end{theorem}
@@ -161,9 +161,9 @@
 	Укажите в явном виде изоморфизм $G / H \hm\to \overline{G} / \overline{H}$ из предыдущей теоремы.
 \end{exercise}
 
-\begin{proof}[Решение]
+\begin{solution}
 	В общем случае, при гомоморфизме групп $\phi: G_1 \to G_2$ изоморфизм из основной теоремы имеет вид $g_1\ke\phi \mapsto \phi(g_1)$. В теореме выше это отображение принимает следующий вид: $gH \hm\mapsto \phi(g) = \pi'(\pi(g)) = \overline{g}\overline{H}$.
-\end{proof}
+\end{solution}
 
 \begin{proposition}
 	Пусть $G$ "--- конечная группа, $H, K \le G$. Тогда $|HK| = \frac{|H||K|}{|H\cap K|}$.
