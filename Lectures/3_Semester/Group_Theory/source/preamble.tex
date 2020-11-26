@@ -42,6 +42,12 @@
 \DeclareMathOperator{\ord}{ord}
 \DeclareMathOperator{\tr}{tr}
 \DeclareMathOperator{\md}{mod}
+\DeclareMathOperator{\St}{St}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\PSL}{PSL}
 
 \newcommand{\divby}{
 	\mathrel{\vbox{\baselineskip.65ex\lineskiplimit0pt\hbox{.}\hbox{.}\hbox{.}}}
@@ -57,6 +63,13 @@
 \let\bs\backslash
 \let\vect\overline
 \let\normal\trianglelefteqslant
+\let\lra\Leftrightarrow
+\let\ra\Rightarrow
+\let\la\Leftarrow
+\let\gl\langle
+\let\gr\rangle
+%\let\sd\leftthreetimes
+\let\sd\leftthreetimes
 
 %%% Перенос знаков в формулах (по Львовскому)
 \newcommand*{\hm}[1]{#1\nobreak\discretionary{}{\hbox{$\mathsurround=0pt #1$}}{}}
@@ -94,6 +107,8 @@
 \usepackage{extsizes} % Возможность сделать 14-й шрифт
 \usepackage{geometry} % Простой способ задавать поля
 \usepackage{setspace} % Интерлиньяж
+\usepackage{enumitem}
+\setlist{leftmargin=25pt}
 
 \geometry{top=25mm}
 \geometry{bottom=30mm}
