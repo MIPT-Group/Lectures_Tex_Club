@@ -39,7 +39,7 @@
 \end{solution}
 
 \begin{theorem}
-	Пусть $G$ "--- свободная абелева группа ранга $n$ и $H \hm\le G$ "--- свободная абелева группа ранга $k \le n$. Тогда в $G$ и $H$ существуют базисы $(g_1, \dotsc, g_n)$ и $(h_1, \dotsc, h_k)$ такие, что $\forall i \in \{1, \dotsc, k\}: h_i = u_ig_i, u_i \in \Z, u_i \ge 0$, причем $u_1\mid \dotsb \mid u_k$.
+	Пусть $G$ "--- свободная абелева группа ранга $n$ и $H \hm\le G$ "--- свободная абелева группа ранга $k \le n$. Тогда в $G$ и $H$ существуют базисы $(g_1, \dotsc, g_n)$ и $(h_1, \dotsc, h_k)$ такие, что $\forall i \in \{1, \dotsc, k\}: h_i = u_ig_i, u_i \in \Z, u_i \ge 1$, причем $u_1\mid \dotsb \mid u_k$.
 \end{theorem}
 
 \begin{proof}
@@ -51,7 +51,7 @@
 \end{note}
 
 \begin{corollary}
-	Пусть $A$ "--- конечнопорожденная абелева группа. Тогда $A \cong Z^l \oplus \Z_{u_1} \oplus \dots \oplus \Z_{u_k}$, где $l, u_1, \dotsc, u_k \in \Z$, $l, u_1, \dotsc, u_k \ge 0$, $u_1 \mid \dotsb \mid u_k$.
+	Пусть $A$ "--- конечнопорожденная абелева группа. Тогда $A \cong Z^l \oplus \Z_{u_1} \oplus \dots \oplus \Z_{u_k}$, где $l, u_1, \dotsc, u_k \in \Z$, $l \ge 0$, $u_1, \dotsc, u_k \ge 1$, $u_1 \mid \dotsb \mid u_k$.
 \end{corollary}
 
 \begin{proof}
@@ -163,3 +163,23 @@
 \begin{corollary}
 	Пусть $G$ "--- конечнопорожденная абелева группа без кручения, то есть $\Tor{G} = \{0\}$. Тогда $G$ "--- свободная абелева группа.
 \end{corollary}
+
+\begin{example}
+	Сами подгруппы, образующие разложение, могут быть заданы неоднозначно.
+	\begin{enumerate}
+		\item $G = \Z_p^n$ "--- линейное пространство над $\Z_p$, поэтому для любого базиса $(\overline{e_1}, \dotsc, \overline{e_n})$ в $\Z_p^n$ выполнено $G = \gl\overline{e_1}\gr \oplus \dotsb \oplus \gl\overline{e_n}\gr$
+		\item $G = \Z \oplus \Z_2 = \gl(1, \overline{1})\gr \oplus\gl(0, \overline{1})\gr$
+	\end{enumerate}
+\end{example}
+
+\begin{note}
+	Рассмотрим разложение $G \cong Z^l \oplus \Z_{u_1} \oplus \dots \oplus \Z_{u_k}$, где $l, u_1, \dotsc, u_k \in \Z$, $l \ge 0$, $u_1, \dotsc, u_k > 1$, $u_1 \mid \dotsb \mid u_k$. Теорема выше позволяет показать, что $l, u_1, \dotsc, u_k$ также заданы однозначно.
+\end{note}
+
+\begin{corollary}
+	Пусть $F$ "--- поле, $G \le F^*$ "--- конечная подгруппа. Тогда $G$ "--- циклическая. В частности, если $F$ конечно, то $F^*$ "--- циклическая группа.
+\end{corollary}
+
+\begin{proof}
+	Рассмотрим разложение $G \cong \Z_{u_1} \oplus \dots \oplus \Z_{u_k}$, где $u_1, \dotsc, u_k \in \Z$, $u_1, \dotsc, u_k > 1$, $u_1 \mid \dotsb \mid u_k$, тогда $|G| = u_1\dotsm u_k$. Для любого элемента $g \in G$ выполнено $g^{u_k} = 1$. Значит, все элементы $G$ "--- это корни многочлена $x^{u_k} - 1$, то есть $|G| \le u_k$. Следовательно, $k = 1$ и $G \cong \Z_{u_k}$.
+\end{proof}

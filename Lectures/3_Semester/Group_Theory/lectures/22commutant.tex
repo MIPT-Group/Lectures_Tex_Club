@@ -81,11 +81,11 @@
 	Пусть $G$ "--- группа, $H \normal G$, $K = [G, H]$. Докажите, что $K$ "--- это наименьшая нормальная подгруппа в $G$ такая, что $H / K \le Z (G / K)$.
 \end{exercise}
 
-\begin{proof}[Решение]
+\begin{solution}
 	Заметим сначала, что $K \le H$, поскольку $\forall g \in G: \forall h \hm\in H: [g, h] = (ghg^{-1})h^{-1} \hm\in H$, и $K \normal G$, поскольку сопряжение с помощью произвольного $x \in G$ "--- это автоморфизм, и, следовательно, оно переводит коммутаторы в коммутаторы, а коммутаторы порождают $K$.
 	
 	Пусть теперь $L \le H$ "--- такая подгруппа, что $L \normal G$ (тогда, конечно, $L \normal H$) и $H / L \hm\le Z(G / L)$. Последнее равносильно тому, что $\forall hL \in H / L: \forall gL \in G / L: hLgL = gLhL \hm\lra Lhg = Lgh \hm\lra L = L[g, h] \lra [g, h] \in L$. Из этого сразу следует, что $K \le L$ и что $H / K \le Z(G / K)$.
-\end{proof}
+\end{solution}
 
 \begin{definition}
 	Пусть $G$ "--- группа, $M \subset G$. \textit{Нормальной подгруппой, порожденной $M$,} называется $\gl M\gr_{norm} = \bigcap_{H \normal G: M \subset H}$
