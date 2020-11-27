@@ -49,7 +49,7 @@ jobs:
                         - name: Prepare
                           run: |
                                   mkdir -p build/${{ env.TYPE }}/${{ env.SEMESTER }}/${{ env.SUBJECT_NAME }}
-                                  mv raw_build/${{ env.CONSPECT_NAME}}.pdf build/${{ env.TYPE }}/${{ env.SEMESTER }}/${{ env.SUBJECT_NAME }}
+                                  mv raw_build/${{ env.CONSPECT_NAME}}.pdf build/${{ env.TYPE }}/${{ env.SEMESTER }}/${{ env.SUBJECT_NAME }} 
                         - name: Upload
                           uses: satackey/action-google-drive@v1
                           with:

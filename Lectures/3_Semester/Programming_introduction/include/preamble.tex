@@ -78,6 +78,9 @@
 \pagestyle{fancy}
 \renewcommand{\footrulewidth}{0.4pt}
 
+\usepackage{tikz}
+\usetikzlibrary{positioning,chains,fit,shapes,calc}
+
 % LE: left even
 % RO: right odd
 % CE, CO: center even, center odd
@@ -146,3 +149,14 @@
   \fi}%Highlighter.
 \makeatother
 
+% Fast pictures
+\usepackage{import}
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\newcommand{\incfig}[2][1]{%
+    \def\svgwidth{#1\columnwidth}
+    \import{./figures/}{#2.pdf_tex}
+}
+
+\pdfsuppresswarningpagegroup=1
