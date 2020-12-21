@@ -13,15 +13,81 @@
 \end{enumerate}
 Добавим операцию
 умножения друг на друга:
-\begin{equation}
-  z_1 \cdot z_2 = \left( x_1 \cdot x_2 - y_1 \cdot y_2; x_1 \cdot y_2 + x_2 \cdot y_1 \right)
-\end{equation}
+\begin{align*}
+  & z_1 \cdot z_2 = \left( x_1 \cdot x_2 - y_1 \cdot y_2; x_1 \cdot y_2 + x_2 \cdot y_1 \right)
+\end{align*}
 Будем называть это \textbf{комплексными числами} $\CC$.
-
+\\
 Пусть $1 \sim (1; 0)$~--- \textbf{единица}, $i \sim (0;1)$~--- \textbf{мнимая
   единица}.
-
+\\
 Тогда $z = 1 \cdot x + i \cdot y \Leftrightarrow z = x + iy$~---
 \textbf{алгебраическая запись}.
+\\
+Назовем $x = \Real z$ \textbf{действительной частью}, $y =
+\Img z$~--- \textbf{мнимой}.
+\\
+\textbf{Сопряженным} к $z = x+iy$ называем $\bar{z} = x-iy$,
+\textbf{модулем}~--- выражение $\left| z \right| = \sqrt{x^2+y^2}$. Легко
+видеть, что $z\bar{z} = \left| z \right|^2$, полагая $i^2 = -1$.
+\\
+Можно представлять комплексные числа в виде $x = r \cos \varphi$, $y = r \sin
+\varphi$, называя $r$ \textbf{модулем}, $\varphi$ \textbf{аргументом}, а $\arg z
+\in (-\pi; \pi]$~--- одно из таких $\varphi$~--- \textbf{главным аргументом}.
+Также \textbf{аргументом} называется множество $\Arg z = \left\{ \arg z + 2\pi k
+    \mid k \in \ZZ \right\}$.
+\\
+Видим, что
+\begin{align*}
+  & z = \left| z \right|\cos \varphi + i \left| z \right|\sin \varphi = \left| z \right|\left( \cos \varphi + i \sin \varphi \right)
+\end{align*}
+Введем \textbf{комплексную экспоненту}~--- $e^{i\varphi} = \cos \varphi + i \sin
+\varphi$, тогда $z = \left| z \right|e^{i\varphi}$.
+\\
+Для произведения тогда выполняется
+\begin{align*}
+  & z_1z_2 = \left| z_1 \right|\left( \cos \varphi_1 + i \sin \varphi_2 \right)\left| z_2 \right|\left( \cos \varphi_2 + i \sin \varphi_2 \right) = \left| z_1 \right|\cdot \left| z_2 \right| \left( \cos \left( \varphi_1+\varphi_2 \right) + i \sin \left( \varphi_1+\varphi_2 \right)\right)
+\end{align*}
+\begin{align*}
+  & \left|z_1z_2\right| = \left| z_1 \right|\cdot \left| z_2 \right|
+\end{align*}
+\begin{align*}
+  & \Arg(z_1z_2) = \Arg z_1 + \Arg z_2
+\end{align*}
+\textbf{Суммой Минковского} называется множество $A+B = \sets{a+b \mid a\in A, \
+  b \in B}$.
+\\
+На комплексных числах определено \textbf{деление} на $z\neq 0$: $z_1z = z_2
+\Rightarrow z = \dst \frac{z_2}{z_1}$; если $z_2=1$, то $z = \dst \frac{1}{z_1}
+= z_1^{-1}$.
+\\
+Нахождение частного эквивалентно решению системы
+\begin{align*}
+  & \left\{ \begin{matrix}
+          x_1x-y_1y=x_2 \\
+          y_1x+x_1y = y_2
+      \end{matrix} \right.
+\end{align*}
+Это можно выразить как
+\begin{align*}
+  & z = \frac{\bar{z_1}z_2}{\left| z_1 \right|^2} = \frac{\left| z_2 \right|e^{i \varphi_2}}{\left| z_1 \right| e^{i \varphi_1}} = \frac{\left| z_2 \right|}{\left| z_1 \right|}e^{i\left( \varphi_2-\varphi_1 \right)}
+\end{align*}
+Зная, что $e^{i \varphi_1}e^{i \varphi_2} = e^{i\left( \varphi_1+\varphi_2
+  \right)}$, можем записать \textbf{формулу Муавра}:
+\begin{align*}
+  & \forall n \in \NN \ z^n = \left| z \right|^ne^{i n \varphi} 
+\end{align*}
+Также определена операция \textbf{извлечения корня} из $z^n = a \neq 0$.
+Полагаем $z=re^{i\varphi}$, $a = \left| a \right|e^{i\alpha}$. Тогда $r^n =
+\left| \alpha \right|$, а $n \varphi = \alpha + 2 \pi k, \ k \in \ZZ$. Отсюда $r
+= \sqrt[n]{\left| a \right|}$, $\varphi_k = \dst \frac{\alpha+2\pi k}{n}$. тогда
+определим корень как
+\begin{align*}
+  & \sets{\sqrt[n]{a}} = \sets{\sqrt[n]{\left| a \right|}\left( \cos \frac{\alpha + 2 \pi k}{n} + i \sin \frac{\alpha + 2 \pi k}{n} \right)\mid k \in \{0, \dots, n-1\}}
+\end{align*}
+\Example
+\begin{align*}
+  & \sets{\sqrt[4]{i}} = \sets{\exp\left( i \frac{\dst \frac{\pi}{2} + 2 \pi k}{4} \right)\mid k \in \{0, \dots, 3\}}
+\end{align*}
 \section{$\S 2.$ Последовательность. Предел. Ряды. Функции. Расширенная
   комплексная плоскость}
