@@ -1,4 +1,82 @@
 \begin{flushright}
     \textit{Лекция 11 (от 12.10)}
 \end{flushright}
+\Def
+Пусть в области $G$ задано семейство гладких кривых $\left\{ \gamma_\alpha
+\right\}$, $\alpha \in [a,b]$, заданных при помощи параметра $t$: $z(t,
+\alpha)$, $t \in [0;1]$. Если $z(t, \alpha)$ и $z'_t(t, \alpha)$ непрерывны на
+$[0;1] \times [a,b]$, то говорят, что в области $G$ $\gamma_{\alpha}$
+\textbf{задает непрерывную деформацию кривой $\gamma_a$ в кривую $\gamma_b$}.
+\\
+Если $\forall \alpha \in [a;b] \ z(0, \alpha) = z_0, \ z(1, \alpha) = z_1$, то
+это называют \textbf{гомотетией $\gamma_a$ в $\gamma_b$}.
+\theorem
+Пусть в $\CC \setminus \{0\}$ задана непрерывная деформация $\gamma_a$ в
+$\gamma_b$ через семейство $\left\{ \gamma_\alpha \right\}_{\alpha \in [a;b]}$.
+Пусть $\exists A \in \CC, \ A \neq 0$ такое, что $\forall \alpha \in [a;b] z(1,
+\alpha) = Az(0, \alpha)$ и $I(\alpha) = \Delta_{\gamma_\alpha}\argt z =
+\Delta_{[0;1]}\argt z(t, \alpha)$. Тогда $\forall \alpha \in [a,b] \ I(\alpha) =
+const$. В частности, $\Delta_{\gamma_a}\argt z = \Delta_{\gamma_b}\argt z$.
+\pr
+По теореме $14.1$ $\forall \alpha \in [a;b] \exists \varphi(t, \alpha)$,
+непрерывная по $t \in [0;1]$. $\varphi(t, \alpha) \in \Arg z (t, \alpha)$.
+\begin{align*}
+  & I(\alpha) = \Delta_{\gamma_\alpha}\argt z = \varphi(1, \alpha) - \varphi(0, \alpha) \in \Arg \frac{z(1, \alpha)}{z(0, \alpha)}
+\end{align*}
+\begin{align*}
+  & \frac{z(1, \alpha)}{z(0, \alpha)} = A \neq 0 \Rightarrow \forall \psi_0 \in \Arg A \hookrightarrow I(\alpha) = \psi_0+2\pi k(\alpha), \ k(\alpha) \in \ZZ
+\end{align*}
+Значит, $I(\alpha)$ ступенчатая; но по определению приращения аргумента через
+интеграл она непрерывна. Значит, она постоянна.
+\\
+$\forall z(t) \in C[0;1]$ таких, что $\forall t \in [0;1] z(t) \neq 0$ и $r =
+\dst \min_{t \in [0;1]} \left| z(t) \right|$ положим $\varepsilon\in \left( 0;
+    \dst \frac{r}{2} \right)$. Тогда существует \textbf{гладкая
+  $\varepsilon$-аппроксимация $z(t)$}: $\forall t \in [0;1] z_\varepsilon(t)
+\neq 0,$ $\left| z(t) - z_\varepsilon(t) \right| \leq \varepsilon$,
+$z_\varepsilon(0) = z(0)$, $z_\varepsilon(1) = z(1)$.
+\\
+Докжем это, построив пример. Действительно, по теореме Вейерштрасса
+\begin{align*}
+  & \exists P_n(t): \ \forall t \in [0;1] \left| z(t) - P_n(t) \right| < \frac{\varepsilon}{2}
+\end{align*}
+Положим
+\begin{align*}
+  & z_\varepsilon(t) = P_n(t) + \left( z(0)-P_n(0) \right)\left( 1-t \right) + \left( z(1)-P_n(1) \right)t
+\end{align*}
+Для такой функции выполняется $z(0) = z_\varepsilon(0)$, $z(1) =
+z_\varepsilon(1)$; также
+\begin{align*}
+  & \abs{z(t) - z_\varepsilon(t)} \leq \abs{z(t) - P_n(t)} + \left| z(0)-P_n(0) \right| \left( 1-t \right) + \left| z(1)-P_n(1) \right|t < \frac{\varepsilon}{2} + \frac{\varepsilon}{2}(1-t) + \frac{\varepsilon}{2}(t) = \varepsilon
+\end{align*}
+и, наконец,
+\begin{align*}
+  & \abs{z_\varepsilon(t)} \geq \left| z(t) \right| - \left| z(t) - z_\varepsilon(t) \right| \geq r - \varepsilon \geq \frac{r}{2} > 0
+\end{align*}
+\Def
+\textbf{Приращением аргумента непрерывной функции $z(t)$ вдоль непрерывной
+  кривой $\gamma$ на $[0;1]$} называется $\Delta_{[0,1]}\argt z(t) =
+\Delta_{[0,1]}\argt z_\varepsilon(t)$ для любой $\varepsilon$-аппроксимации
+$z(t)$ при малых $\varepsilon$ ($\varepsilon \in \left( 0, \dst \frac{r}{2}
+\right)$).
+\prop
+Определение $[14.4]$ не зависит от выбора $z_\varepsilon$.
+\pr
+Пусть $я_\varepsilon$~--- гладкая $\varepsilon$-аппроксимация,
+$\tilde{z}_\varepsilon$~--- другая гладкая $\varepsilon$-аппорксимация.
+Тогда
+\begin{align*}
+  & z(t, \alpha) = \alpha z_\varepsilon(t) + (1-\alpha)\tilde{z}_\varepsilon(t), \ \alpha \in [0;1], \ t \in [0;1]
+\end{align*}
+\begin{align*}
+  & \abs{z(t, \alpha)} \geq \left| z(t) \right| - \left| z(t, \alpha) - z(t) \right| > r - \varepsilon \geq \frac{r}{2} > 0
+\end{align*}
+Значит, задана непрерывная деформация, и по теореме $14.3$ получаем, что
+\begin{align*}
+  & \Delta_{[0;1]}\argt z_\varepsilon(t) = \Delta_{[0;1]}\argt \tilde{z}_\varepsilon(t)
+\end{align*}
+\corollary
+Пусть $\os{\circ}{\gamma}$~--- замкнутая непрерывная кривая, $0 \not \in
+\os{\circ}{\gamma}$; тогда $\exists k(\os{\circ}{\gamma})\in \ZZ$:
+$\Delta_{\os{\circ}{\gamma}}\argt z = 2 \pi k(\os{\circ}{\gamma})$.
 \section{$\S 15.$ Регулярные ветви многозначных функций $\{\sqrt{z}\}$ и $\Ln z$.}
