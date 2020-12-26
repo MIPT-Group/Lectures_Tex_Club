@@ -1,4 +1,53 @@
 \begin{flushright}
     \textit{Лекция 13 (от 19.10)}
 \end{flushright}
+\pr
+Из леммы $5$ очевидно следует необходимость.
+\\
+Докажем достаточность. Пусть $a \in G$, $z \in G$, $\gamma_{az}\in G$, $g(a) \in
+\left\{ \sqrt[n]{f(z)} \right\}$. Тогда выполняется
+\begin{equation}\label{(16.16)}
+    g(z) = g(a) \sqrt[n]{\left| \frac{f(b)}{f(a)} \right|}\exp \left( \frac{i}{n} \Delta_{\gamma_{az}}\arg f(z) \right)
+\end{equation}
+Для замкнутых кривых экспонента примет значение $1$, а значит, $g(z)$ зависит
+только от точки $z$. Очевидно, $\forall z \in G \ g(z)\in \left\{ \sqrt[n]{f(z)}
+\right\}$. Докажем ее регулярность.
+\\
+Фиксируем произвольную $z_1 \in G$; тогда $\exists B_\varepsilon(z_1) \subseteq G$
+такой, что
+\begin{equation}\label{(16.17)}
+    \forall z \in B_\varepsilon(z_1) \ g(z) = g(z_1) \sqrt[n]{\left| \frac{f(z)}{f(z_1)} \right|}\exp \left( \frac{i}{n} \Delta_{\gamma_{z_1z}}\argt f(z) \right)
+\end{equation}
+$B_{\varepsilon}(z_1)$ односвязна, значит, по лемме $2$
+$\Delta_{\os{\circ}{\gamma}}\argt f(z) = 0$ для любой замкнутой
+$\os{\circ}{\gamma} \subseteq B_\varepsilon(z_1)$. Но
+\begin{align*}
+  & g(z) = \exp \left( \frac{i}{n} h(z) \right)
+\end{align*}
+\begin{align*}
+  & h(z) = \ln \left| f(z) \right| + i \left(\psi_0 + \Delta_{\gamma_{z_1z}}\argt f(z)\right), \ \psi_0 \in \Arg f(z_1)
+\end{align*}
+\begin{equation}\label{(16.18)}
+    g(z_1) = \sqrt[n]{f(z_1)} \exp\left( \frac{i}{n}\psi_0 \right)
+\end{equation}
+В $B_\varepsilon(z_1)$ есть регулярная ветвь $\Ln f(z)$, причем $h(z)$~--- та
+самая ветвь, значит, $g(z)$ регулярна в $B_\varepsilon(z_1)$.
+\\
+В силу произвольности выбора $z_1$ показали регулярность во всей $G$.
+\corollary
+Если $h(z)$, $g(z)$~--- регулярные ветви $\Ln f(z)$ и $\left\{ \sqrt[n]{f(z)}
+\right\}$ соответственно в $G$, то
+\begin{equation}\label{(16.19)}
+    h'(z) = \frac{f'(z)}{f(z)}
+\end{equation}
+\begin{equation}\label{(16.20)}
+    g'(z) = \frac{f'(z)}{n\left( g(z) \right)^{n-1}}
+\end{equation}
+\pr
+\begin{align*}
+  & e^{h(z)} \equiv f(z) \rightarrow h'(z)e^{h(z)} \equiv f'(z) \Rightarrow h'(z) \equiv \frac{f'(z)}{f(z)}
+\end{align*}
+\begin{align*}
+  & (g(z))^n \equiv f(z) \Rightarrow n(g(z))^{n-1} \equiv f'(z) \Rightarrow g'(z) = \frac{f'(z)}{n\left( g(z) \right)^{n-1}}
+\end{align*}
 \section{$\S 17.$ Примеры вычисления регулярных ветвей.}
