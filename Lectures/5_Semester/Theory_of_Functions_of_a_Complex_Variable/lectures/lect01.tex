@@ -91,3 +91,152 @@
 \end{align*}
 \section{$\S 2.$ Последовательность. Предел. Ряды. Функции. Расширенная
   комплексная плоскость}
+\Def
+\textbf{Окрестностью} назовем $B_r(z_0) = \left\{ z \in \CC: \left| z-z_0
+    \right| < r \right\}$. \textbf{Проколотой окрестностью} назовем $B_r(z_0) =
+\left\{ z \in \CC: 0 < \left| z-z_0 \right| < r \right\}$. \textbf{Замкнутой
+  окрестностью} назовем $B_r(z_0) = \left\{ z \in \CC: \left| z-z_0\right| \leq
+    r \right\}$.
+\Def
+Множество $\left\{ z_n \right\}_{n=1}^\infty$, $z_n  = x_n + iy_n$ называется
+\textbf{последовательностью}.
+\Def
+Число $A \in \CC$ называется \textbf{пределом последовательности $z_n$} (пишем
+$\dst \lim_{n \to \infty}z_n = A$) тогда и только тогда, когда выполняется
+\begin{equation}\label{(2.1)}
+    \forall \varepsilon > 0 \exists N(\varepsilon):\forall n \geq N(\varepsilon)\in \NN \hookrightarrow z_n \in B_{\varepsilon}(A)
+\end{equation}
+\asm
+\begin{align*}
+  & \exists \lim_{n \to \infty}z_n = A = a+ib \Leftrightarrow \left\{ \begin{matrix}
+          \dst \lim_{n \to \infty}x_n = a \\
+          \dst \lim_{n \to \infty}y_n = b
+      \end{matrix} \right.
+\end{align*}
+\pr Докажем в обе стороны.
+\begin{itemize}
+    \item $\Rightarrow$:
+    \begin{align*}
+      & \left| x_n - a \right| \leq \left| z_n - A \right| < \varepsilon
+    \end{align*}
+    \begin{align*}
+      & \left| x_n - a \right| \leq \left| z_n - A \right| < \varepsilon
+    \end{align*}
+    \item $\Rightarrow$:
+    \begin{align*}
+      & \exists N_z(\varepsilon) = \max\left\{ N_x\left( \frac{\varepsilon}{2} \right), N_y\left( \frac{\varepsilon}{2} \right) \right\}: \forall n \geq N_z(\varepsilon) \hookrightarrow \\
+      & \left| z_n-A \right|\leq \left| x_n-a \right|+\left| y_n-b \right| < \frac{\varepsilon}{2} +\frac{\varepsilon}{2} = \varepsilon
+    \end{align*}
+\end{itemize}
+\corollary
+Все свойства последовательностей действительных чисел (пределы суммы,
+произведения, критерий Коши и т.~д.) переносятся на последовательности
+комплексных.
+\Def
+\textbf{Рядом, порожденным последовательностью $\left\{ z_n \right\}$}, называют
+последовательность $S_N = \dst \sum_{n=1}^Nz_n$. Говорят, что ряд
+\textbf{сходится}, если $\dst \lim_{N \to \infty}S_N = S$. Этот предел называют
+\textbf{суммой ряда} и записывают как $\dst \sum_{n=1}^\infty z_n$.
+\asm
+Сходимость $\dst \sum_{n=1}^\infty z_n$ равносильна сходимости $\dst
+\sum_{n=1}^\infty x_n$ и $\sum_{n=1}^\infty y_n$.
+\pr
+Очевидно из свойств пределов и критерия Коши.
+\Def
+Говорят, что $\dst \lim_{n\to \infty}z_n = \infty$, если $\forall \varepsilon >
+0 \exists N(\varepsilon): \forall n \geq N(\varepsilon)\in \NN \hookrightarrow
+\left| z_n \right|> \varepsilon$. \textbf{Окрестностью бесконечности} называют
+$B_\varepsilon(\infty) = \left\{ z \in \CC: \left| z \right| > \varepsilon
+\right\}$.
+\Def
+\textbf{Расширенной комплексной плоскостью} $\CCC$ называается $\CC \cup \left\{
+    \infty \right\}$, причем $\infty$ вводится с системой окрестностей.
+\Note
+$\CCC$~--- компакт.
+\pr ~
+\begin{itemize}
+    \item Если $\left\{ z_n \right\}$ ограничена, то по теореме Вейерштрасса
+    можно выделить подпоследовательность, сходящуюся к $z \in \CC$.
+    \item Если $\left\{ z_n \right\}$ неограничена, то $\forall k \in \NN
+    \exists n_k > n_{k-1}: \ \left| z_{n_k} \right| > k$, а занчит, $z_n \to
+    \infty \in \CCC$.
+\end{itemize}
+Значит, это компакт.
+\\
+Рассмотрим $\RR^3$ с координатами $(\xi, \eta, \zeta)$. Пусть $\xi = x$, $\eta =
+y$, $z = x+iy \in \CC$.
+\Def
+\textbf{Сфера Римана:}
+\begin{equation}\label{(2.2)}
+    S: \ \xi^2+\eta^2+\zeta^2 = \zeta
+\end{equation}
+\begin{figure}[h!]
+		\centering
+		\includegraphics[scale=0.5]{Riemann.png}
+    \caption{Сфера Римана}
+		\label{fig:2.1}
+\end{figure}
+\Def
+\textbf{Стереографическая проекция:}
+\begin{align*}
+  & \forall z \in \CC \exists Z \in (\xi, \eta, \zeta): \ \left\{ \begin{matrix}
+          \xi = tx \\
+          \eta = ty \\
+          \zeta = 1-t
+      \end{matrix} \right., \ t \in [0;1]
+\end{align*}
+\begin{align*}
+  & t = \frac{1}{1+ \left| z \right|^2}, \ \xi = \frac{x}{1+ \left| z \right|^2}, \ \eta = \frac{y}{1+ \left| z \right|^2}, \ \zeta = \frac{\left| z \right|^2}{1+ \left| z \right|^2}
+\end{align*}
+\begin{align*}
+  & S \setminus P \leftrightarrow \CC, \ P \leftrightarrow \infty
+\end{align*}
+\textbf{Свойства}
+\begin{enumerate}
+    \item Любая пряая или окружность на комплексной плоскости переходит в
+    окружность на сфере Римана.
+    \item Если любые две кусочно гладкие кривые $\gamma_1$ и $\gamma_2$
+    пересекаются под углом $\alpha$ на комплексной плоскости, то их образы
+    $\tilde{\gamma}_1$, $\tilde{\gamma}_2$ будут пересекаться под тем же углом
+    $\alpha$ на сфере Римана.
+\end{enumerate}
+\Def
+$f: G \mapsto D$, где $G$~--- область, $D \subseteq \CCC$~--- область или вся
+(расширенная) комплексная плоскость; $f(z) = u(x,y) + iv(x,y)$~---
+\textbf{функция комплексного переменного.}
+\Def
+Пусть $z_0$~--- предельная точка $G \subseteq \CCC$ и $f: G \mapsto \CCC$; тогда
+число $A$ назыается \textbf{пределом} $f$ в этой точке (пишется $\dst \lim_{z \to
+  z_0} f(z_0)$) тогда и только тогда, когда выполняется
+\begin{equation}\label{(2.3)}
+    \forall \varepsilon > 0 \exists \delta(\varepsilon) > 0: \ z \in \os{\circ}{B}_\delta(z_0)\cap G \hookrightarrow f(z) \in B_\varepsilon (A)
+\end{equation}
+\asm
+\begin{align*}
+  & \exists \lim_{z \to z_0}f(z) = A = a+ib \Leftrightarrow \left\{ \begin{matrix}
+          \dst \lim_{(x,y)\os{G}{\to}(x_0,y_0)}u(x,y) = a \\
+          \dst \lim_{(x,y)\os{G}{\to}(x_0,y_0)}v(x,y) = b
+      \end{matrix} \right.
+\end{align*}
+\pr
+Очевидно по аналогии с последовательностями.
+\Def
+$f: G \mapsto \CCC$ \textbf{непрерывна} в $z_0 \in G \subseteq \CCC$, если
+$z_0$~--- предельная точка $G$ и $\dst \lim_{z \to z_0} = f(z_0)$.
+\asm
+Функция непрерывна тогда и только тогда, кода ее действителная и мнимая части
+непрерывны.
+\pr Очевидно по аналогии с пределом.
+\Def
+\textbf{Функциональным рядом} называется сумма вида $\dst \sum_{n=1}^\infty
+f_n(z)$, где $\forall n \in \NN \ f_n :G \mapsto \CC$.
+\Def
+Ряд \textbf{сходится равномерно}, если он:
+\begin{enumerate}
+    \item $forall z \in G$ сходится к некоторой $S(z)$;
+    \item $\forall \varepsilon > 0 \exists N(\varepsilon) > 0: \forall N \geq N
+    (\varepsilon) \ \left| \dst \sum_{n=1}^Nf_n(z) - S(z) \right|\leq
+    \varepsilon$.
+\end{enumerate}
+Все критерии и признаки для таких рядов аналогичны таковым в действительном
+анализе.    
