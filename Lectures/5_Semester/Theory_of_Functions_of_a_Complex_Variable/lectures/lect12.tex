@@ -1,4 +1,28 @@
 \begin{flushright}
     \textit{Лекция 12 (от 13.10)}
 \end{flushright}
-\section{$\S 16. \text{ Регулярные ветви } \{\sqrt[n]{f(z)}\} \text{ и } \ln f(z).$}
+\corollary
+Пусть $G$ односвязна, $0 \not \in G$. Тогда для регулярной $h_k \in \Ln z$
+справедлива формула Ньютона-Лейбница
+\begin{equation}\label{(15.13)}
+    h_k(z) = h_k(a) + \int_{\gamma_{az}}\frac{d\zeta}{\zeta}
+\end{equation}
+где $a \in G$, $\gamma_{az} \subseteq G$.
+\pr
+\begin{align*}
+  & h_k(z) = h_0(z) + 2i \pi k
+\end{align*}
+\begin{align*}
+  & h_0(z) = \ln \left| z \right| + i \left( \psi_0 + \Delta_{\gamma_{az}}\argt z \right)
+\end{align*}
+\begin{align*}
+  & \Real \int_{\gamma_{az}} \frac{d\zeta}{\zeta} = \ln \left| z \right| - \ln \left| a \right|
+\end{align*}
+Действительно, пусть $z(t) = \gamma_{az}$, тогда
+\begin{align*}
+  & \Real \int_{\gamma_{az}} \frac{d\zeta}{\zeta} = \Real \int_0^1 \frac{xx'+yy'}{x^2+y^2} d \tau = \Real \int_0^1 \frac{d \sqrt{x^2+y^2}}{\sqrt{x^2+y^2}} = \ln \left| z(1) \right| - \ln \left| z(0) \right| = \ln \left| z \right| - \ln \left| a \right|
+\end{align*}
+\begin{align*}
+  & h_k(z) = \ln \left| z \right| - \ln \left| a \right| + \ln\left| a \right| + i \left( \psi_0 + 2 \pi k \right) + i \Delta_{\gamma_{az}}\argt z = h_k(a) + \int_{\gamma_{az}}\frac{d\zeta}{\zeta}
+\end{align*}
+\section{$\S 16$. Регулярные ветви $\{\sqrt[n]{f(z)}\}$ и $\ln f(z)$.}
