@@ -166,3 +166,147 @@ $0$).
 Доказательства легко провести через УКР с использованием действительного
 анализа.
 \section{$\S 4.$ Регулярные и гармонические функции}
+\example
+$B_r(z_0)$~--- односвязная область как в $\CC$, так и в $\CCC$.
+\example
+$K = \left\{ z: 0 < r_1 < \left| z \right| < r_2 < \infty \right\}$~--- не
+односвязная область ни в $\CC$, ни в $\CCC$.
+\example
+$B_r(\infty)$~--- односвязная область в $\CCC$, но не в $\CC$.
+\Def
+Если $u:G \mapsto \RR^1$, $G \subseteq \RR^2$~--- область, $u \in C^2(G)$,
+$\Delta u = 0$ ($\Delta = \dst \frac{\partial^2}{\partial x^2} + \dst
+\frac{\partial^2}{\partial y^2}$), то $u$ называется \textbf{гармонической}.
+\Def
+\begin{itemize}
+    \item[а)]$f: G \mapsto \CC$, $G \subseteq \CC$ называется
+    \textbf{регулярной} (аналитической, голоморфной), если $\forall z \in G
+    \exists f'(z)$ (если $f$ дифференцируема в каждой точке $G$).
+    \item[б)]$f: G \mapsto \CC$, $G \subseteq \CC$ называется
+    \textbf{регулярной в точке $z_0 \in G$}, если $\exists r > 0: B_r(z_0)
+    \subseteq G$, $f$ регулярна на $B_r(z_0)$.
+\end{itemize}
+\Def
+Функция, заданная на произвольном множестве, \textbf{регулярна} на нем, если она
+регулярна в каждой его точке.
+\Example
+\begin{align*}
+  & w = z^n, \ n \geq 2, \ n \in \NN
+\end{align*}
+Производная существует в любой точке:
+\begin{align*}
+  & \frac{\left( z+\Delta z \right)^n - z^n}{\Delta z} = \frac{n\Delta z z^{n-1} + \left( \Delta z \right)^2\left( P(z, \Delta z) \right)}{\Delta z} \us{\Delta z \to 0}{\to} nz^{n-1}
+\end{align*}
+Значит, функция всюду дифференцируема и регулярна на всей $\CC$.
+\\
+Аналогично можно доказать регулярность всех многочленов и рациональных функций.
+\Def
+\begin{align*}
+  & e^z = e^x\left( \cos y + i \sin y \right), \ z = x+iy
+\end{align*}
+Функция периодична с периодом $2 i \pi$; ее компоненты $u = e^x \cos y$, $v =
+e^x \sin y$.
+Выполняются УКР:
+\begin{align*}
+  & \left\{ \begin{matrix}
+          u_x = e^x \cos y = v_y \\
+          v_x = e^x \sin y = -u_y
+      \end{matrix} \right.
+\end{align*}
+Значит, $f'(z) = u_x + iv_x = u+iv = e^z$ (аналогично $(e^{iz})' = ie^{iz}$,
+$(e^{-iz})' = -ie^{iz}$).
+\\
+Эти функции всюду дифференцируемы, а значит, и регулярны.
+\Def
+Тригонометрические функции:
+\begin{align*}
+  & \cos z = \frac{e^{iz} + e^{-iz}}{2}, \ \sin z = \frac{e^{iz} -e^{-iz}}{2i}
+\end{align*}
+Для них выполняются известные свойства тригонометрических функций:
+\begin{align*}
+  & \cos^2 z + \sin^2 z = 1
+\end{align*}
+\begin{align*}
+  & \sin(z_1+z_2) = \sin z_1 \cos z_2 + \sin z_2 \cos z_1, \ \cos(z_1+z_2) = \cos z_1 \cos z_2 - \sin z_1 \sin z_2
+\end{align*}
+\begin{align*}
+  & \left( \sin z \right)' = \cos z, \ \left( \cos z \right)' = - \sin z
+\end{align*}
+Но ограниченность не выполняется.
+\\
+Раскроем функцию через $x$ и $y$.
+\begin{align*}
+  & \sin z = \sin(x+iy) = sin x \cos iy + \cos x \sin iy = \sin x \ch y + i \cos x \sh y \Rightarrow u(x,y) = \sin x \ch y, \ v = \cos x \sh y
+\end{align*}
+Тогда
+\begin{align*}
+  & \left| \sin z \right| = \sqrt{\sin^2 x \ch^2 yy + \cos^2 x \sh^2 y} = \sqrt{(1-\cos^2 x)\ch^2 y + (\ch^2 y - 1)\cos^2 x} = \sqrt{\ch^2 y - \cos^2 x} \us{y \to \infty}{\sim} \ch x \us{y \to \infty}{\to} \infty
+\end{align*}
+\theorem
+Пусть $f: G \mapsto \CC$ регулярна в $G$, $f = u + iv$, $u,v \in C^2(G)$. Тогда
+$u$ и $v$ являются гармоническими.
+\pr
+\begin{align*}
+  & \Delta u = \frac{\partial}{\partial x}\left( \frac{\partial u}{\partial x} \right)+ \frac{\partial}{\partial y} \left( \frac{\partial u}{\partial y} \right) = \frac{\partial^2 v}{\partial x \partial y} - \frac{\partial^2 v}{\partial y \partial x} = 0
+\end{align*}
+Переход объясняется условием Коши-Римана для регулярной $f$.
+\\
+Аналогично можно доказать гармоничность $v$.
+\\
+Пара функций, связанных УКР, называется \textbf{сопряженными гармоническими}.
+\theorem
+Пусть $G$~--- односвязная область, $u: G \mapsto \RR$ гармоническая. Тогда
+сущетвует регулярная $f$, такая, что $\Real f(z) = u(x,y)$.
+\pr
+Пусть
+\begin{align*}
+  & P(x,y) = -\frac{\partial u}{\partial y}, \ Q(x,y) = \frac{\partial u}{\partial x}
+\end{align*}
+Хотим найти $v$, такую, что
+\begin{align*}
+  & \left\{ \begin{matrix}
+          \dst \frac{\partial v}{\partial x} = P(x,y) \\
+          \dst \frac{\partial v}{\partial y} = Q(x,y) 
+      \end{matrix} \right.
+\end{align*}
+(из УКР на $f$).
+\begin{align*}
+  & dv = Pdx+Qdy
+\end{align*}
+Для односвязной $G$ и потенциального векторного поля $(P,Q)$, т.`е. такого, что
+выполняется условие:
+\begin{align*}
+  & \frac{\partial P}{\partial x} -\frac{\partial Q}{\partial x}' = - \frac{\partial^2 u}{\partial y^2} - \frac{\partial^2 u}{\partial x^2} = 0
+\end{align*}
+В таком случае
+\begin{align*}
+  & v(x,y) = \int_{(x_0,y_0)}^{(x,y)} P dx + Q dy + const
+\end{align*}
+Полученая функция $v$ гармоническая. тогда $f(z) = u+iv$ будет регулярной в
+каждой точке $G$.
+\\
+Аналогично можно построить регулярную функцию $f$ по данной гармонической $v$.
+\Example
+Пусть
+\begin{align*}
+  & u = xy, \ \Delta u = 0
+\end{align*}
+Значит, $u$ гармоническая. УКР:
+\begin{align*}
+  & v_x = -u_y = -x \Rightarrow v(x,y) = \frac{-x^2}{2} + \varphi(y)
+\end{align*}
+\begin{align*}
+  & v_y = u_x = y \Rightarrow v(x,y) = \frac{-x^2}{2} + \frac{y^2}{2} + C
+\end{align*}
+Значит,
+\begin{align*}
+  & \varphi'(y) = y = v_y
+\end{align*}
+Тогда
+\begin{align*}
+  & v(x,y) = \frac{y^2-x^2}{2} + C
+\end{align*}
+Значит,
+\begin{align*}
+  & f(x,y)= xy+i\left( \frac{y^2-x^2}{2} + C \right) = -\frac{i}{2} \left( x^2-y^2+2ixy \right) + iC = -\frac{iz}{2} + iC
+\end{align*}
