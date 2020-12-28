@@ -4,14 +4,38 @@
 \section{$\S 5.$ Теорема об обратной функции}
 \theorem
 Пусть $f: G \mapsto H \subseteq \CC$, $g: H \mapsto \CC$ регулярны.
-Тогда $\xi(z) = g(f(z)): G \mapsto \CC$ также регулярна, причем $\xi'(z) =
-g'(f(z))f'(z) \forall z \in G$.
+Тогда $\zeta(z) = g(f(z)): G \mapsto \CC$ также регулярна, причем
+\begin{equation}\label{(3.1)}
+    \zeta'(z) = g'(f(z))f'(z) \forall z \in G
+\end{equation}
 \pr
-$$z_0 \in G, \ w_0 = f(z_0) \in H$$
-$$\Delta f = f(z_0)\Delta z + o(\Delta z)$$
-$$\Delta g = g'(w_0) \Delta w + 0(\Delta w)$$
-Пусть $\Delta w = \Delta f$
-$$\frac{\Delta \xi}{\Delta z} = g'(w_0) \frac{\Delta f}{\Delta z} +
-\frac{o(\Delta f)}{\Delta f} \cdot \frac{\Delta f}{\Delta z} \rightarrow
-g'(w_0)f'(z_0) + 0$$
+\begin{align*}
+  & z_0 \in G, \ w_0 = f(z_0) \in H
+\end{align*}
+Из дифференцируемости
+\begin{align*}
+  & \Delta f = f(z_0)\Delta z + o(\Delta z), \ \Delta g = g'(w_0) \Delta w + 0(\Delta w)
+\end{align*}
+Пусть $\Delta w = \Delta f$, тогда
+\begin{align*}
+  & \frac{\Delta \zeta}{\Delta z} = g'(w_0) \frac{\Delta f}{\Delta z} + \frac{o(\Delta f)}{\Delta f} \cdot \frac{\Delta f}{\Delta z} \us{\Delta z \to 0}{\to} g'(w_0)f'(z_0) + 0
+\end{align*}
+\theorem (об обратной функции)
+Пусть $f: G \mapsto \CC$ регулярна и непрерывно дифференцируема на $G$. Пусть
+$z_0 \in G$, $w_0 = f(z_0)$, $f'(z_0) \neq 0$. Тогда $\exists B_\delta(z_0),
+B_\varepsilon(w_0)$, такие, что:
+\begin{enumerate}
+    \item $\forall z \in B_\delta(z_0) f'(z) \neq 0$;
+    \item $\forall \hat{w} \in B_\varepsilon(w_0)$ уравнение $\hat{w} = f(z)$
+    имеет в $B_\delta(z_0)$ единственное решение $\hat{z}$, т.~е. на
+    $B_\varepsilon(w_0)$ определена обратная функция $g: B_\varepsilon(w_0)
+    \mapsto B_\delta(z_0)$, т.~е. $\forall w \in B_\delta(w_0) \hookrightarrow
+    f(g(w)) = w$;
+    \item $g$ регулярна на $B_\varepsilon(w_0)$, причем
+    \begin{align*}
+      & \forall w \in B_\varepsilon(w_0) \hookrightarrow g'(w) = \frac{1}{f'(g(w))}
+    \end{align*}
+\end{enumerate}
+\pr
+~
 \section{$\S 6.$ Интегрирование}

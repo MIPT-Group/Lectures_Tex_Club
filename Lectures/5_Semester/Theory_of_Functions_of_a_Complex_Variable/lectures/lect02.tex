@@ -236,11 +236,14 @@ $(e^{-iz})' = -ie^{iz}$).
 \\
 Раскроем функцию через $x$ и $y$.
 \begin{align*}
-  & \sin z = \sin(x+iy) = sin x \cos iy + \cos x \sin iy = \sin x \ch y + i \cos x \sh y \Rightarrow u(x,y) = \sin x \ch y, \ v = \cos x \sh y
+  & \sin z = \sin(x+iy) = \sin x \cos iy + \cos x \sin iy = \sin x \ch y + i \cos x \sh y \\
+  & \Downarrow \\
+  & u(x,y) = \sin x \ch y, \ v = \cos x \sh y
 \end{align*}
 Тогда
 \begin{align*}
-  & \left| \sin z \right| = \sqrt{\sin^2 x \ch^2 yy + \cos^2 x \sh^2 y} = \sqrt{(1-\cos^2 x)\ch^2 y + (\ch^2 y - 1)\cos^2 x} = \sqrt{\ch^2 y - \cos^2 x} \us{y \to \infty}{\sim} \ch x \us{y \to \infty}{\to} \infty
+  & \left| \sin z \right| = \sqrt{\sin^2 x \ch^2 yy + \cos^2 x \sh^2 y} = \sqrt{(1-\cos^2 x)\ch^2 y + (\ch^2 y - 1)\cos^2 x} = \\
+  & = \sqrt{\ch^2 y - \cos^2 x} \us{y \to \infty}{\sim} \ch x \us{y \to \infty}{\to} \infty
 \end{align*}
 \theorem
 Пусть $f: G \mapsto \CC$ регулярна в $G$, $f = u + iv$, $u,v \in C^2(G)$. Тогда
