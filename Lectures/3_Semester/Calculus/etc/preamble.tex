@@ -54,7 +54,10 @@
 
 
 %%% Для формул
-\usepackage{amsmath}          
+\usepackage{amsmath} 
+\DeclareMathOperator{\sgn}{sgn}   
+\DeclareMathOperator{\sym}{sym}
+\DeclareMathOperator{\asym}{asym}               
 \usepackage{amssymb}
 
 
@@ -63,8 +66,8 @@
 
 \theoremstyle{plain} % Это стиль по умолчанию, его можно не переопределять.
 \newtheorem{theorem}{Теорема}[subsection]
-\newtheorem*{prop}{Утверждение}
-\newtheorem*{lemma}{Лемма}
+\newtheorem{prop}{Утверждение}[subsection]
+\newtheorem{lemma}{Лемма}[subsection]
 \newtheorem{sug}{Предположение}[section]
 
 \theoremstyle{definition} % "Определение"
