@@ -25,7 +25,7 @@
 Фиксируем произвольную $z_0 \in G$ и $r>0, \ r_1>0: \ \overline{B_{r+r_1}(z_0)}
 \subseteq G$. По определению $3$
 \begin{equation}\label{(9.7)}
-    \forall \varepsilon > 0 \ \exists N(\varepsilon): \forall N \geq N(\varepsilon) \sup_{\zeta \in \overline{B_{r+r_1}(z_0)}}\left| S(\zeta) - S_N(\zeta) \right| \leq \varepsilon
+    \forall \varepsilon > 0 \ \exists N(\varepsilon): \ \forall N \geq N(\varepsilon) \sup_{\zeta \in \overline{B_{r+r_1}(z_0)}}\left| S(\zeta) - S_N(\zeta) \right| \leq \varepsilon
 \end{equation}
 где
 \begin{equation}\label{(9.8)}
@@ -57,8 +57,8 @@
     \begin{align*}
       \forall z \in B_r(z_0) \ S_N^{(k)}(z) = \frac{k!}{2 \pi i}\int_{\gamma_1}\frac{S_N(\zeta)}{(\zeta - z)^{k+1}} d \zeta 
     \end{align*}
-    Из \eqref{(9.7)} $\forall \varepsilon > 0 \exists N(\varepsilon): \forall
-    N\geq N(\varepsilon)$ выполняется \eqref{(9.7)}.
+    Из \eqref{(9.7)} $\forall \varepsilon > 0 \ \exists N(\varepsilon): \
+    \forall N\geq N(\varepsilon)$ выполняется \eqref{(9.7)}.
     \begin{align*}
       \left| S^{(k)}(z) - s_N^{(k)}(z) \right| \leq \frac{k!}{2\pi}\int_{\gamma_1}\frac{\left| S(\zeta) - S_N(\zeta) \right|}{\left| \zeta - z \right|^{k+1}} \left| d\zeta \right|\leq \frac{\varepsilon 2 \pi (r+r_1)k!}{2 \pi r^{k+1}}
     \end{align*}
@@ -98,7 +98,7 @@ G, \ a \in G, \ z_n \neq a: \ \forall n f(z_n) = 0$.
       h(z) = \sum_{j=0}^{\infty}c_{m+j}(z-a)^j; \ h(a) = c_m \neq 0
     \end{align*}
     $h$ регулярна, значит, $\exists \varepsilon \in (0; \rho_0): \ h(z) \neq 0
-    \forall z \in B_{\varepsilon}(a)$.
+    \ \forall z \in B_{\varepsilon}(a)$.
     \\
     Но тогда в $\overset{\circ}{B_{\varepsilon}(a)}$ $((z-a)^m \neq 0) \wedge
     (h(z) \neq 0)$ $\Rightarrow$ $\exists z \in

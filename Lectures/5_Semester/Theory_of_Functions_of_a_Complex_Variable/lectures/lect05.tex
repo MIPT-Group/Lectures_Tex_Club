@@ -19,22 +19,22 @@ $\overset{\circ}{\gamma} \subseteq G$ выполняется
 \end{equation}
 \pr
 \begin{align*}
-  \triangle ABC \subseteq G
+  & \triangle ABC \subseteq G
 \end{align*}
 \begin{align*}
-  I = \int_{\partial \triangle ABC}f(z)dz
+  & I = \int_{\partial \triangle ABC}f(z)dz
 \end{align*}
 Разобьем треугольник средними линиями:
 \begin{align*}
-  \triangle ABC = \bigcup_{k=1}^{4}\triangle_k
+  & \triangle ABC = \bigcup_{k=1}^{4}\triangle_k
 \end{align*}
 Тогда
 \begin{align*}
-  I = \sum_{k=1}^4\int_{\partial \triangle_k}f(z)dz
+  & I = \sum_{k=1}^4\int_{\partial \triangle_k}f(z)dz
 \end{align*}
 Докажем, что
 \begin{align*}
-  \exists k_0: \left| \int_{\partial \triangle_{k_0}} f(z)dz\right|\geq\frac{\left| I \right|}{4}
+  & \exists k_0: \left| \int_{\partial \triangle_{k_0}} f(z)dz\right|\geq\frac{\left| I \right|}{4}
 \end{align*}
 Очевидно от противного: т.~к. триангуляция с ориентацией, то если бы все были
 меньше, то нельзя было бы набрать $I$.
@@ -43,21 +43,21 @@ $\overset{\circ}{\gamma} \subseteq G$ выполняется
 Аналогично построению $\triangle^1$ из $\triangle^0$ можем построить
 бесконечную последовательность $\triangle^{N+1}$ из $\triangle^N$, и для них
 \begin{align*}
-  \left| \int_{\partial \triangle^N} f(z)dz\right|\geq\frac{\left| I \right|}{4^N}
+  & \left| \int_{\partial \triangle^N} f(z)dz\right|\geq\frac{\left| I \right|}{4^N}
 \end{align*}
 \begin{align*}
-  P_N = \frac{P_0}{2^N}
+  & P_N = \frac{P_0}{2^N}
 \end{align*}
 В силу компактности
 \begin{align*}
-  \exists z_0 \in \bigcap_{N=1}^{\infty}\triangle^N
+  & \exists z_0 \in \bigcap_{N=1}^{\infty}\triangle^N
 \end{align*}
 Т.~к. $f$ дифференцируема в $z_0$, то по определению дифференцируемости
 \begin{align*}
-  \exists B_{\delta_0}(z_0): \ \forall z \in B_{\delta_0}(z_0) \ f(z) = f(z_0)+f'(z_0)(z-z_0) + o(z-z_0)
+  & \exists B_{\delta_0}(z_0): \ \forall z \in B_{\delta_0}(z_0) \ f(z) = f(z_0)+f'(z_0)(z-z_0) + o(z-z_0)
 \end{align*}
 \begin{align*}
-  o(z-z_0): \ \forall \varepsilon > 0 \exists \delta_1 \leq \delta_0: \forall z \in B_{\delta_1}(z_0) \ \left| o(z-z_0) \right| \leq \varepsilon\left| z-z_0 \right|
+  & o(z-z_0): \ \forall \varepsilon > 0 \ \exists \delta_1 \leq \delta_0: \ \forall z \in B_{\delta_1}(z_0) \ \left| o(z-z_0) \right| \leq \varepsilon\left| z-z_0 \right|
 \end{align*}
 \begin{align*}
   & \int_{\partial \triangle^N}f(z)dz = f(z_0)\int_{\partial \triangle^N}dz+f'(z_0)\int_{\partial \triangle^n}zdz - z_0 f'(z_0)\int_{\partial \triangle^N} dz + \int_{\partial \triangle^N}o(z-_0)dz = \\
@@ -65,17 +65,17 @@ $\overset{\circ}{\gamma} \subseteq G$ выполняется
 \end{align*}
 причем
 \begin{align*}
-  \forall z \in \triangle^N \left| z-z_0 \right| < \delta_1
+  & \forall z \in \triangle^N \left| z-z_0 \right| < \delta_1
 \end{align*}
 Тогда
 \begin{align*}
-  \left| \int_{\partial \triangle^N}f(z)dz \right| \leq \int_{\partial \triangle^N} \left| o(z-z_0) \right|\cdot \left| dz \right| \leq \varepsilon\int_{\partial\triangle^N}\left| z-z_0 \right|\cdot\left| dz \right| \leq \varepsilon P^2_N \leq \varepsilon \frac{P^2_0}{4^N}
+  & \left| \int_{\partial \triangle^N}f(z)dz \right| \leq \int_{\partial \triangle^N} \left| o(z-z_0) \right|\cdot \left| dz \right| \leq \varepsilon\int_{\partial\triangle^N}\left| z-z_0 \right|\cdot\left| dz \right| \leq \varepsilon P^2_N \leq \varepsilon \frac{P^2_0}{4^N}
 \end{align*}
 \begin{align*}
-  \frac{\left| I \right|}{4^N} \leq \varepsilon \frac{P^2_0}{4^N}
+  & \frac{\left| I \right|}{4^N} \leq \varepsilon \frac{P^2_0}{4^N}
 \end{align*}
 \begin{align*}
-  I = 0
+  & I = 0
 \end{align*}
 ч.~т.~д.
 \corollary (леммы)
@@ -88,7 +88,7 @@ G$~--- замкнутая жорданова ломаная; $f:G \mapsto \CC$ �
 По теореме Жордана существует триангуляция с ориентацией для $\gamma_{br}$;
 тогда 
 \begin{align*}
-  \int_{\gamma_{br}} f(z)dz = \sum_{k=1}^K\int_{\partial\triangle^K}f(z)dz = 0
+  & \int_{\gamma_{br}} f(z)dz = \sum_{k=1}^K\int_{\partial\triangle^K}f(z)dz = 0
 \end{align*}
 ч.~т.~д.
 \pr (теоремы Коши)
@@ -98,7 +98,7 @@ G$~--- замкнутая жорданова ломаная; $f:G \mapsto \CC$ �
 \note
 Нельзя так просто убрать односвязность области:
 \begin{align*}
-  \int_{\left| z \right| = 1} \frac{dz}{z} = 2 \pi i \neq 0
+  & \int_{\left| z \right| = 1} \frac{dz}{z} = 2 \pi i \neq 0
 \end{align*}
 но $\dst \frac{1}{z}$ регулярна в $\CC \setminus \{0\}$.
 \Def
@@ -106,7 +106,7 @@ G$~--- замкнутая жорданова ломаная; $f:G \mapsto \CC$ �
 граница которой $\Gamma = \dst \bigcup_{k=1}^K\Gamma_k$, $\Gamma_k$~--- гладкая
 кривая конечной пложительной длины и одного из классов:
 \begin{itemize}
-    \item \textbf{правильная компонента}~--- $\forall z \in \Gamma_k, \forall
+    \item \textbf{правильная компонента}~--- $\forall z \in \Gamma_k, \ \forall
     B_r(z_0): \ B_r(z_0)\cap \overline{G} \neq \varnothing, \ B_r(z_0) \cap
     \overline{\CC\setminus G} \neq \varnothing$
     \item \textbf{разрез}~--- $\forall z \in \Gamma_k$ (за исключением концов)
@@ -157,31 +157,31 @@ $\Gamma$ задана \textbf{положительная ориентация}, 
 \neq 0$, тогда примем $\tilde{z} = z-z_0$, $\tilde{G} = G-z_0$, $\tilde{\Gamma}
 = \Gamma - z_0$. Тогда
 \begin{align*}
-  \int_{\Gamma}f(z)dz = \int_{\tilde{\Gamma}}f(\tilde{z}+z_0)d\tilde{z} = \int_{\tilde{\Gamma}}\tilde{f}(\tilde{z})d\tilde{z}
+  & \int_{\Gamma}f(z)dz = \int_{\tilde{\Gamma}}f(\tilde{z}+z_0)d\tilde{z} = \int_{\tilde{\Gamma}}\tilde{f}(\tilde{z})d\tilde{z}
 \end{align*}
 Рассмотрим звездную $G$, такую, что $z_0 = 0$, $\Gamma_{\lambda} = \{z \mid z =
 \lambda z_1(t), t\in[\alpha, \beta], z_1(\alpha) = z_1(\beta)\}$,
 $\Gamma_{\lambda}\subseteq G$
 По теореме Коши 
 \begin{align*}
-  \forall \lambda \in (0;1) \ \int_{\Gamma_\lambda}f(\zeta)d\zeta = 0
+  & \forall \lambda \in (0;1) \ \int_{\Gamma_\lambda}f(\zeta)d\zeta = 0
 \end{align*}
 \begin{align*}
-  \zeta = lambda z, \ \zeta \in \Gamma_{\lambda} \Leftrightarrow z \in \Gamma
+  & \zeta = lambda z, \ \zeta \in \Gamma_{\lambda} \Leftrightarrow z \in \Gamma
 \end{align*}
 \begin{align*}
-  0 = \int_{\Gamma_\lambda}f(z)dz = \int_{\Gamma}f(\lambda z)\lambda dz \Rightarrow \forall \lambda \in (0;1) \ \int_{\Gamma}f(\lambda z)dz = 0
+  & 0 = \int_{\Gamma_\lambda}f(z)dz = \int_{\Gamma}f(\lambda z)\lambda dz \Rightarrow \forall \lambda \in (0;1) \ \int_{\Gamma}f(\lambda z)dz = 0
 \end{align*}
-$f$ равномерно непрерывна на $\overline{G}$: $\forall \varepsilon > 0 \exists
+$f$ равномерно непрерывна на $\overline{G}$: $\forall \varepsilon > 0 \ \exists
 \delta(\varepsilon) >0: \ \forall z_1, z_2 \in \overline{G}: \ \left| z_1-z_2
 \right| < \delta(\varepsilon) \hookrightarrow \left| f(z_1) - f(z_2) \right| < \varepsilon$
 \begin{align*}
-  \forall z \in \Gamma \left| z-\lambda z \right| = (1-\lambda) \left| z \right| \leq (1-\lambda)C_0, \ C_0 = \max_{z \in \overline{G}}\left| z \right| < +\infty
+  & \forall z \in \Gamma \left| z-\lambda z \right| = (1-\lambda) \left| z \right| \leq (1-\lambda)C_0, \ C_0 = \max_{z \in \overline{G}}\left| z \right| < +\infty
 \end{align*}
 Пусть $\lambda_{\varepsilon}\in(0;1): \ (1 -
 \lambda_{\varepsilon})C_0<\delta(\varepsilon)$; тогда
 \begin{align*}
-  \left| \int_{\Gamma}f(z)dz \right|= \left| \int_{\Gamma}\left( f(z)-f(\lambda_{\varepsilon}z) \right)dz \right|\leq \int_{\Gamma} \left| f(z) - f(\lambda_{\varepsilon}z) \right| \cdot \left| dz \right| \leq \varepsilon \int_{\Gamma} \left| dz \right| = \varepsilon l(\Gamma) = \varepsilon \cdot const
+  & \left| \int_{\Gamma}f(z)dz \right|= \left| \int_{\Gamma}\left( f(z)-f(\lambda_{\varepsilon}z) \right)dz \right|\leq \int_{\Gamma} \left| f(z) - f(\lambda_{\varepsilon}z) \right| \cdot \left| dz \right| \leq \varepsilon \int_{\Gamma} \left| dz \right| = \varepsilon l(\Gamma) = \varepsilon \cdot const
 \end{align*}
 ч.~т.~д.
 \theorem (обобщенная Коши) Пусть $G$~--- ограниченная область с кусочно гладкой
@@ -197,7 +197,7 @@ $f$ равномерно непрерывна на $\overline{G}$: $\forall \var
 $\tilde{G} = G \setminus \left(\dst \bigcup_{k=1}^N \gamma_k \right)$. Тогда по
 теореме $2$
 \begin{align*}
-  0 = \int_{\tilde{\Gamma}}f(z)dz = \int_{\Gamma} f(z)dz + \sum_{k=1}^N\left( \int_{\gamma_k} f(z) dz + \int_{\gamma_k^{-1}} \right) = \int_{\Gamma} f(z) dz
+  & 0 = \int_{\tilde{\Gamma}}f(z)dz = \int_{\Gamma} f(z)dz + \sum_{k=1}^N\left( \int_{\gamma_k} f(z) dz + \int_{\gamma_k^{-1}} \right) = \int_{\Gamma} f(z) dz
 \end{align*}
 ч.~т.~д.
 \\

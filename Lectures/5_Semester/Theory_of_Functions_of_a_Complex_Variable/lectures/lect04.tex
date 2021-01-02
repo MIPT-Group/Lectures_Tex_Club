@@ -28,21 +28,23 @@ $\forall k \ \gamma_k: \ z(t), \ t \in [\theta_{k-1}, \theta_k]$ есть ГК.
 \Def Пусть $f: \gamma \mapsto \CC$ непрерывна на КГК $\gamma$. Пусть
 $\lambda$~--- разбиение $\left[ t_0, t_1 \right]$ для $\gamma: \ z(t)$~---
 кусочно гладкой. Пусть $z(t_k) = z_k, \ k \in \{0, \dots, m_\lambda\}$, $\zeta_k
-\in$
-\[\sigma(\lambda) = \sum_{k = 1}^{m_{\lambda}} f(\zeta_k) \Delta z_k\]
+\in \gamma_k = \gamma_{z_{k-1}z_k}$
+\begin{align*}
+  & \sigma(\lambda) = \sum_{k = 1}^{m_{\lambda}} f(\zeta_k) \Delta z_k
+\end{align*}
 $\Delta z_k = z_k - z_{k-1}$~--- \textbf{интегральная сумма};
 \\
-если $\exists \lim
-\sigma(\lambda) \forall \zeta_k, \ \left| \lambda \right| \to 0$, то этот предел
-называется \textbf{интегралом Римана от $f$ по $\gamma$} и записывается как
+если $\exists \lim \sigma(\lambda) \ \forall \zeta_k, \ \left| \lambda \right|
+\to 0$, то этот предел называется \textbf{интегралом Римана от $f$ по $\gamma$}
+и записывается как
 \begin{equation} \label{(6.1)}
-  \int_{\gamma}f(z) dz
+    \int_{\gamma}f(z) dz
 \end{equation}
 \theorem
 Если условия определения интеграла выполняются, то он существует и справедливо:
 \begin{equation} \label{(6.2)}
     \int_{\gamma}f(z)dz = \int_{\gamma}\left( u dx - v dy \right) + i \int_\gamma \left( v dx + u dy \right)
-    \end{equation}
+\end{equation}
 \pr
 \begin{align*}
   & \sigma(\lambda) = \sum_{k = 1}^{m_\lambda}\left( u(\xi_k, \eta_k) + iv(\xi_k, eta_k) \right)\left( \Delta x_k + i \Delta y_k \right) = \sum_{k = 1}^{m_\lambda}\left( u(\xi_k, \eta_k) \Delta x_k - v(\xi_k, \eta_k) \Delta y_k\right) + \\
@@ -51,10 +53,10 @@ $\Delta z_k = z_k - z_{k-1}$~--- \textbf{интегральная сумма};
 \corollary
 Если условия определения интеграла выполняются, то верно:
 \begin{equation} \label{(6.3)}
-  \int_\gamma f(z) dz = \int_{t_0}^{t_1}f(z(t))z'(t)dt
+    \int_\gamma f(z) dz = \int_{t_0}^{t_1}f(z(t))z'(t)dt
 \end{equation}
 \begin{equation} \label{(6.4)}
-  \gamma: z(t), \ \int_{t_0}^{t_1}\left( P(t) + iQ(t) \right) dt = \int_{t_0}^{t_1}P(t)dt + i \int_{t_0}^{t_1}Q(t)dt
+    \gamma: z(t), \ \int_{t_0}^{t_1}\left( P(t) + iQ(t) \right) dt = \int_{t_0}^{t_1}P(t)dt + i \int_{t_0}^{t_1}Q(t)dt
 \end{equation}
 \pr
 Из \eqref{(6.2)} и свойств криволинейных интегралов II рода
@@ -81,12 +83,12 @@ $\Delta z_k = z_k - z_{k-1}$~--- \textbf{интегральная сумма};
     \item Инвариантность относительно замены параметра.
     \item Выполняется неравенство:
     \begin{equation} \label{(6.5)}
-      \left| \int_\gamma f(z) dz \right| \leq \int_{\gamma}\left| f(z) \right| \cdot \left| dt \right| = \int_{t_0}^{t_1} \left| f(z(t)) \right| \sqrt{(x'(t))^2 + (y'(t))^2}dt
+        \left| \int_\gamma f(z) dz \right| \leq \int_{\gamma}\left| f(z) \right| \cdot \left| dt \right| = \int_{t_0}^{t_1} \left| f(z(t)) \right| \sqrt{(x'(t))^2 + (y'(t))^2}dt
     \end{equation}
     \pr
     Из \eqref{(6.3)}:
     \begin{equation} \label{(6.6)}
-      \left| \sigma(\lambda) \right| \leq \sum_{k = 1}^{m_\lambda}\left| f(\zeta) \right| \cdot \left| \Delta z_k \right|
+        \left| \sigma(\lambda) \right| \leq \sum_{k = 1}^{m_\lambda}\left| f(\zeta) \right| \cdot \left| \Delta z_k \right|
     \end{equation}
 \end{enumerate}
 \example
@@ -94,8 +96,9 @@ $\Delta z_k = z_k - z_{k-1}$~--- \textbf{интегральная сумма};
   &J_k = \int_{\gamma: \left| z-a \right| = r} (z-a)^k dz, \ k \in \ZZ
 \end{align*}
 Параметр: $z(t_ = a+re^{it}), \ t \in [0;2\pi]$
-\\
-$dz(t) = rie^{it}dt$
+\begin{align*}
+  & dz(t) = rie^{it}dt
+\end{align*}
 \begin{align*}
   &J_k = \int_{0}^{2\pi} r^ke^{ikt}rie^{it}dt = r^{k+1}i\int_{0}^{2\pi}e^{i(k+1)t} dt
 \end{align*}
@@ -121,26 +124,35 @@ $\gamma: z(t)$, и согласно \eqref{(6.3)}
 КГК, $\gamma \subseteq G$.
 \\
 Пусть $\dst \sum_{n=1}^{\infty}f_n(z) \underset{\gamma}{\rightrightarrows} \rightarrow_{\gamma} S(z)
-\forall z \in \gamma$.
+\ \forall z \in \gamma$.
 Тогда $S(z)$ непрерывна на $\gamma$ и выполняется
 \begin{equation} \label{(6.7)}
-  \int_{\gamma}S(z) dz = \sum_{n=1}^{\infty}\int_{\gamma}f_n(z)dz
+    \int_{\gamma}S(z) dz = \sum_{n=1}^{\infty}\int_{\gamma}f_n(z)dz
 \end{equation}
 \pr
 Ряд сходится равномерно на $\gamma$
-\\
-$$\Updownarrow$$
+\begin{align*}
+  & \Updownarrow
+\end{align*}
 \begin{equation} \label{(6.8)}
-  \forall \varepsilon > 0 \exists N(\varepsilon): \forall N\geq N(\varepsilon) \ \underset{z \in \gamma}{\sup} \left| S(z) - \sum_{n = 1}^{N} \right| = \underset{z \in \gamma}{\sup} S_N(z) \leq \varepsilon
+    \forall \varepsilon > 0 \ \exists N(\varepsilon): \ \forall N\geq N(\varepsilon) \ \underset{z \in \gamma}{\sup} \left| S(z) - \sum_{n = 1}^{N} \right| = \underset{z \in \gamma}{\sup} S_N(z) \leq \varepsilon
 \end{equation}
 \begin{align*}
   &\exists \delta > 0: \ \forall z_0 \in \gamma, \ z \in \gamma, \ \left| z - z_0 \right| < \delta: \ \left| S(z) = S(z_0) \right| \leq \left| S(z) - S_N(z) \right| +  \left| S_N(z) - \right. \\
   &\left. - S_N(z_0) \right| + \left| S_N(z_0) - S(z_0) \right| \leq \left| S_N(z) - S_N(z_0) \right| + 2 \varepsilon \leq 3 \varepsilon
 \end{align*}
-$$\Downarrow$$
-$$S(z) \rightarrow S(z_0)$$
-$$\Downarrow$$
-$$\exists \int_{\gamma}S(z)dz$$
+\begin{align*}
+  & \Downarrow
+\end{align*}
+\begin{align*}
+  & S(z) \rightarrow S(z_0)
+\end{align*}
+\begin{align*}
+  & \Downarrow
+\end{align*}
+\begin{align*}
+  & \exists \int_{\gamma}S(z)dz
+\end{align*}
 \begin{align*}
   &\forall N \geq N(\varepsilon) \ \left| \int_{\gamma}S(z)dz - \int_{\gamma}S_N(z)dz\right| = \left| \int_\gamma \left( S(z) - S_N(z) \right)dz\right| \leq \int_\gamma \left| S(z) - S_N(z) \right| \left| dz \right| \leq \\
   & \leq \varepsilon \int_{\gamma} \left| dz \right| = \varepsilon l(\gamma) = \varepsilon \cdot const
@@ -149,7 +161,7 @@ $$\exists \int_{\gamma}S(z)dz$$
 \Def
 Пусть $g: G \mapsto \CC$ на области $G$; назовем это \textbf{первообразной}
 непрерывной функции $f: G \mapsto \CC$, если $g$ регулярна на $G$ и $g'(z) =
-f(z) \forall z \in G$.
+f(z) \ \forall z \in G$.
 \Def
 Выражение $f(z)dz$ называется \textbf{полным дифференциалом в области $G$}, если
 существует первообразная $g$ для $f$ на $G$, т.~е. $f(z)dz = g'(z)dz$.
@@ -159,7 +171,7 @@ f(z) \forall z \in G$.
     \item если $f dz$~--- полный дифференциал на $G$, то для любой замкнутой КГК
     $\overset{\circ}{\gamma} \subseteq G$ выполняется
     \begin{equation} \label{(6.9)}
-      \int_{\overset{\circ}{\gamma}} f(z) dz = 0
+        \int_{\overset{\circ}{\gamma}} f(z) dz = 0
     \end{equation}
     \item если для любой замкнутой ломаной кривой $\gamma$ выполняется
     \eqref{(6.8)}, то $f dz$~--- полный дифференциал.
@@ -169,36 +181,40 @@ f(z) \forall z \in G$.
 \begin{enumerate}
     \item $\exists g:G \mapsto \CC$, регулярная, такая, что $g'(z) = f(z)$.
     Тогда
-        \begin{align*}
-          & \int_{\overset{\circ}{\gamma}} f(z) dz \underset{\overset{\circ}{\gamma}: z = z(t)}{=} \int_{t_0}^{t_1} g'(z(t))z'(t)dt = \int_{t_0}^{t_1}\frac{d}{dt}(g(z(t)))dt = g(z(t_1)) - g(z(t_0)) = \\
-          & = g(z(t_1)) - g(z(t_1)) = 0
+    \begin{align*}
+      & \int_{\overset{\circ}{\gamma}} f(z) dz \underset{\overset{\circ}{\gamma}: z = z(t)}{=} \int_{t_0}^{t_1} g'(z(t))z'(t)dt = \int_{t_0}^{t_1}\frac{d}{dt}(g(z(t)))dt = g(z(t_1)) - g(z(t_0)) = \\
+      & = g(z(t_1)) - g(z(t_1)) = 0
     \end{align*}
     \item Фиксируем $a \in G$ как начальную точку ломаной $\gamma$. $\forall z
     \in G$ $\exists \gamma_{az}$~--- ломаная с началом в $a$ и концом в $z$.
-        \begin{align*}
-          & g(z) = \int_{\gamma_{az}} f(z) dz
-        \end{align*}
-        не зависит от $\gamma_{az}$, а лишь зависит от $z$. Действительно, если
-        $\exists \gamma_{az}, \exists \tilde{\gamma_{az}}$, то пусть
-        $\overset{\circ}{\gamma} = \gamma_{az} \cup \tilde{\gamma_{az}}^{-1}$,
-        тогда из \eqref{(6.8)}
-        \begin{align*}
-          & \int_{\overset{\circ}{\gamma}} f(z) dz = 0 = \int_{\gamma_{az}}f dz - \int_{\tilde{\gamma_{az}}}f(z)dz
-        \end{align*}
-        Докажем, что $\forall z g'(z) = f(z)$. Рассмотрим $z_0$; $\exists
-        \varepsilon > 0: B_{\varepsilon}(z_0) \subseteq G$, $\Delta z: 0 <
-        \left| \Delta z \right| < \varepsilon$. Тогда $z_0 + \Delta z \in G$.
-        Рассмотрим
-        $$\frac{g(z_0+\Delta z) - g(z_0)}{\Delta z}$$
-        Тогда
-        \begin{align*}
-          & g(z+ \Delta z) = \int_{\gamma_{az_0} \cap [z_0; \Delta z + z_0]}
-        \end{align*}
-        $$\Downarrow$$
- \begin{align*}
-          & \frac{g(z_0+ \Delta z) - g(z_0)}{\Delta z} = \frac{1}{\Delta z} \int_{[z_0; \Delta z + z_0]} f(z)dz
- \end{align*}
-  \begin{align*}
-          & \left| \frac{\Delta g}{\Delta z} - f(z_0) \right| = \left| \frac{1}{\Delta z} \int_{[z_0; \Delta z + z_0]}(f(z) - f(z_0))dz \right|
-        \end{align*}    
+    \begin{align*}
+      & g(z) = \int_{\gamma_{az}} f(z) dz
+    \end{align*}
+    не зависит от $\gamma_{az}$, а лишь зависит от $z$. Действительно, если
+    $\exists \gamma_{az}, \ \exists \tilde{\gamma_{az}}$, то пусть
+    $\overset{\circ}{\gamma} = \gamma_{az} \cup \tilde{\gamma_{az}}^{-1}$,
+    тогда из \eqref{(6.8)}
+    \begin{align*}
+      & \int_{\overset{\circ}{\gamma}} f(z) dz = 0 = \int_{\gamma_{az}}f dz - \int_{\tilde{\gamma_{az}}}f(z)dz
+    \end{align*}
+    Докажем, что $\forall z g'(z) = f(z)$. Рассмотрим $z_0$; $\exists
+    \varepsilon > 0: B_{\varepsilon}(z_0) \subseteq G$, $\Delta z: 0 <
+    \left| \Delta z \right| < \varepsilon$. Тогда $z_0 + \Delta z \in G$.
+    Рассмотрим
+    \begin{align*}
+      & \frac{g(z_0+\Delta z) - g(z_0)}{\Delta z}
+    \end{align*}
+    Тогда
+    \begin{align*}
+      & g(z+ \Delta z) = \int_{\gamma_{az_0} \cap [z_0; \Delta z + z_0]}
+    \end{align*}
+    \begin{align*}
+      & \Downarrow
+    \end{align*}
+    \begin{align*}
+      & \frac{g(z_0+ \Delta z) - g(z_0)}{\Delta z} = \frac{1}{\Delta z} \int_{[z_0; \Delta z + z_0]} f(z)dz
+    \end{align*}
+    \begin{align*}
+      & \left| \frac{\Delta g}{\Delta z} - f(z_0) \right| = \left| \frac{1}{\Delta z} \int_{[z_0; \Delta z + z_0]}(f(z) - f(z_0))dz \right|
+    \end{align*}    
 \end{enumerate}

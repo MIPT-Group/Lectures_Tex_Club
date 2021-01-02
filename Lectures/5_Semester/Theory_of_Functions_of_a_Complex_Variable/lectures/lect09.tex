@@ -4,17 +4,17 @@
 \corollary
 \begin{enumerate}
     \item $a \neq \infty$~--- полюс $f$ $\Leftrightarrow$ $\exists
-    \overset{\circ}{B}_{\rho}(a), \exists m \in \NN, \exists p: B_{\rho}(a)
+    \overset{\circ}{B}_{\rho}(a), \ \exists m \in \NN, \ \exists p: B_{\rho}(a)
     \mapsto \CC$~--- регулярная, причем $p(a) \neq 0$, для которой верно:
     \begin{equation}\label{(12.3)}
-        f(z) = \frac{p(z)}{(z-a)^m} \forall z \in \overset{\circ}{B}_\rho(a)
+        f(z) = \frac{p(z)}{(z-a)^m} \ \forall z \in \overset{\circ}{B}_\rho(a)
     \end{equation}
     \item $a = \infty$~--- полюс $f$ $\Leftrightarrow$ $\exists
-    \overset{\circ}{B}_{\rho}(\infty), \exists m \in \NN, \exists h:
+    \overset{\circ}{B}_{\rho}(\infty), \ \exists m \in \NN, \ \exists h:
     B_{\rho}(\infty) \mapsto \CC$~--- регулярная, причем $\dst\lim_{z \to
       \infty} h(z) = h(\infty) \neq 0$, для которой верно:
     \begin{equation}\label{(12.4)}
-        f(z) = z^mh(z) \forall z \in \overset{\circ}{B}_\rho(\infty)
+        f(z) = z^mh(z) \ \forall z \in \overset{\circ}{B}_\rho(\infty)
     \end{equation}
 \end{enumerate}
 \Def \label{[12.3]}
@@ -35,21 +35,21 @@
 \pr
 По определению \ref{[12.4]}
 \begin{align*}
-  g(z) = (z-a)^kg_1(z), \ g_1(a) \neq 0
+  & g(z) = (z-a)^kg_1(z), \ g_1(a) \neq 0
 \end{align*}
 \begin{align*}
-  g(z) = (z-a)^mh_1(z), \ h_1(a) \neq 0
+  & g(z) = (z-a)^mh_1(z), \ h_1(a) \neq 0
 \end{align*}
 Тогда
 \begin{align*}
-  p(z) = \frac{g_1(z)}{h_1(z)}
+  & p(z) = \frac{g_1(z)}{h_1(z)}
 \end{align*}
 регулярна в некоторой окрестности $a$, $p(a) \neq 0$. Тогда из следствия $1$
 получаем желаемое.
 \note
 Существуют неизолированные особые точки. Пусть
 \begin{align*}
-  f(z) = \frac{1}{\sin \frac{\pi}{z}}
+  & f(z) = \frac{1}{\sin \frac{\pi}{z}}
 \end{align*}
 Тогда $\dst \frac{z_n} = \frac{1}{n}$~--- особые точки, но $0$~---
 неизолированная особая точка (предельная точка полюсов).
@@ -89,14 +89,14 @@ $f$ регулярна в $\os{\circ}{B}_\rho(a)$ $\Rightarrow$ существу
 \end{equation}
 \pr
 \begin{align*}
-  f(z) = \frac{c_{-m}}{(z-a)^m} + \dots + \frac{c_{-1}}{z-a} + c_0 + c_1(z-a) + \dots
+  & f(z) = \frac{c_{-m}}{(z-a)^m} + \dots + \frac{c_{-1}}{z-a} + c_0 + c_1(z-a) + \dots
 \end{align*}
 \begin{align*}
-  (z-a)^mf(z) = c_{-m}+ c_{-m+1}(z-a) + \dots + c_{-1}(z-a)^{m-1} + \dots
+  & (z-a)^mf(z) = c_{-m}+ c_{-m+1}(z-a) + \dots + c_{-1}(z-a)^{m-1} + \dots
 \end{align*}
 По теореме Вейерштрасса можно дифференцировать ряд:
 \begin{align*}
-  \frac{d^{m-1}}{dz^{m-1}}\left( (z-a)^mf(z)\right) = (m-1)!c_{-1} + m!c_0(z-a) + \dots
+  & \frac{d^{m-1}}{dz^{m-1}}\left( (z-a)^mf(z)\right) = (m-1)!c_{-1} + m!c_0(z-a) + \dots
 \end{align*}
 Переходя к пределу $z \to a$, получаем \eqref{(13.3)}.
 \lemma
@@ -108,7 +108,7 @@ $P(a) \neq 0$, $Q(a) = 0$, $Q'(a) \neq 0$. Тогда
 \pr
 Из \eqref{(13.3)} получаем:
 \begin{align*}
-  \us{a}{\res}f = \lim_{z\to a}\left( (z-a)\frac{P(z)}{Q(z)} \right) = \lim_{z \to a} \frac{P(z)}{\left( \frac{Q(z) - Q(a)}{z-a} \right)}
+  & \us{a}{\res}f = \lim_{z\to a}\left( (z-a)\frac{P(z)}{Q(z)} \right) = \lim_{z \to a} \frac{P(z)}{\left( \frac{Q(z) - Q(a)}{z-a} \right)}
 \end{align*}
 что, по определению производной, равносильно \eqref{(13.4)}.
 \Def
@@ -125,10 +125,10 @@ R_0$.
 \end{equation}
 \pr
 \begin{align*}
-  f(z) = f(\infty) + \frac{c_{-1}}{z} + \frac{c_{-2}}{z^2} + \dots
+  & f(z) = f(\infty) + \frac{c_{-1}}{z} + \frac{c_{-2}}{z^2} + \dots
 \end{align*}
 \begin{align*}
-  z(f(\infty) - f(z)) = -c_{-1} - \frac{c_{-2}}{z} - \dots
+  & z(f(\infty) - f(z)) = -c_{-1} - \frac{c_{-2}}{z} - \dots
 \end{align*}
 Устремляя $z \to \infty$, получаем \eqref{(13.6)}.
 \theorem (Коши о вычетах)
@@ -152,31 +152,31 @@ $a_1, \dots, a_n$, причем если $\infty \in \ol{G}$, то $a_n = \infty
     \\
     Пусть
     \begin{align*}
-      \tilde{G} = G \setminus \left( \bigcup_{k=1}^n\ol{B_r(a_k)} \right)
+      & \tilde{G} = G \setminus \left( \bigcup_{k=1}^n\ol{B_r(a_k)} \right)
     \end{align*}
     \begin{align*}
-      \tilde{\Gamma} = \Gamma \cup \left( \bigcup_{k=1}^n  \gamma_k^{-1} \right)
+      & \tilde{\Gamma} = \Gamma \cup \left( \bigcup_{k=1}^n  \gamma_k^{-1} \right)
     \end{align*}
     Тогда по теореме $3$ $\S7$
     \begin{align*}
-      0 = \int_{\tilde{\Gamma}}f(z)dz =  \int_{\Gamma}f(z)dz + \sum_{k=1}^n\int_{\gamma_k^{-1}}f(z)dz =  \int_{\Gamma}f(z)dz -2 \pi i \sum_{k=1}^n\us{a_k}{\res}f(z)
+      & 0 = \int_{\tilde{\Gamma}}f(z)dz =  \int_{\Gamma}f(z)dz + \sum_{k=1}^n\int_{\gamma_k^{-1}}f(z)dz =  \int_{\Gamma}f(z)dz -2 \pi i \sum_{k=1}^n\us{a_k}{\res}f(z)
     \end{align*}
     \item Рассмотрим второй случай: $\infty \in G$, $a_n = \infty$, $\Gamma$
     ограничена.
     \\
     Тогда
     \begin{align*}
-      \exists R_0 > 0: \forall z \in \Gamma \cup \left( \bigcup_{k=1}^n\{a_k\} \right) \abs{z} < R_0
+      & \exists R_0 > 0: \ \forall z \in \Gamma \cup \left( \bigcup_{k=1}^n\{a_k\} \right) \abs{z} < R_0
     \end{align*}
     \\
     Тогда 
     \begin{align*}
-      \forall R > R_0: \ \tilde{G} = G \cap B_R(0), \ \tilde{\Gamma} = \Gamma \cup \gamma_R
+      & \forall R > R_0: \ \tilde{G} = G \cap B_R(0), \ \tilde{\Gamma} = \Gamma \cup \gamma_R
     \end{align*}
     $\gamma_R = \{z \mid \abs{z} = R\}$~--- положительно ориентирована.
     Тогда из пункта $1$
     \begin{align*}
-      \int_{\tilde{\Gamma}}f(z)dz =  \sum_{k=1}^{n-1}\us{a_k}{\res}f(z) =  \int_{\Gamma}f(z)dz +  \int_{\gamma_R}f(z)dz =  \int_{\Gamma}f(z)dz - 2 \pi i \us{\infty}{\res} f
+      & \int_{\tilde{\Gamma}}f(z)dz =  \sum_{k=1}^{n-1}\us{a_k}{\res}f(z) =  \int_{\Gamma}f(z)dz +  \int_{\gamma_R}f(z)dz =  \int_{\Gamma}f(z)dz - 2 \pi i \us{\infty}{\res} f
     \end{align*}
 \end{enumerate}
 \corollary
@@ -187,35 +187,35 @@ $a_1, \dots, a_n$, причем если $\infty \in \ol{G}$, то $a_n = \infty
 \end{equation}
 \pr
 \begin{align*}
-  \exists R_0: \forall k \in \{1, \dots, n-1\} \ \abs{a_k} \leq R_0
+  & \exists R_0: \ \forall k \in \{1, \dots, n-1\} \ \abs{a_k} \leq R_0
 \end{align*}
 Пусть $gamma_{R_0} = \{z \mid \abs{z} = R_0\}$ положительно ориентирована.
 \\
 Тогда
 \begin{align*}
-  \int_{\gamma_{R_0}}f(z)dz = 2 \pi i \sum_{k=1}^{n-1} \us{a_k}{\res}f
+  & \int_{\gamma_{R_0}}f(z)dz = 2 \pi i \sum_{k=1}^{n-1} \us{a_k}{\res}f
 \end{align*}
 \begin{align*}
-  \int_{\gamma_{R_0}}f(z)dz = -2 \pi i \us{\infty}{\res}f
+  & \int_{\gamma_{R_0}}f(z)dz = -2 \pi i \us{\infty}{\res}f
 \end{align*}
 Отсюда очевидно следует \eqref{(13.8)}.
 \Example
 \begin{align*}
-  I = \int_{\abs{z} = 3}\frac{z dz}{(z-1)(z-2)}
+  & I = \int_{\abs{z} = 3}\frac{z dz}{(z-1)(z-2)}
 \end{align*}
 Особые точки~--- $z=1$, $z=2$~--- полюса $1$ порядка.
 \\
 По теореме Коши о вычетах ($13.1$)
 \begin{align*}
-  I = 2 \pi i \left( \us{1}{\res} \frac{z}{(z-1)(z-2)} +  \us{2}{\res} \frac{z}{(z-1)(z-2)}\right) = 2 \pi i \left( \left. \frac{\left( \frac{z}{z-2} \right)}{(z-1)'} \right|_{z=1} +  \left. \frac{\left( \frac{z}{z-1} \right)}{(z-2)'} \right|_{z=2} \right) = 2 \pi i
+  & I = 2 \pi i \left( \us{1}{\res} \frac{z}{(z-1)(z-2)} +  \us{2}{\res} \frac{z}{(z-1)(z-2)}\right) = 2 \pi i \left( \left. \frac{\left( \frac{z}{z-2} \right)}{(z-1)'} \right|_{z=1} +  \left. \frac{\left( \frac{z}{z-1} \right)}{(z-2)'} \right|_{z=2} \right) = 2 \pi i
 \end{align*}
 \Example
 \begin{align*}
-  I = \int_{-\infty}^{+\infty}\frac{1+x^2}{1+x^4}dx
+  & I = \int_{-\infty}^{+\infty}\frac{1+x^2}{1+x^4}dx
 \end{align*}
 Продолжим на комплексную плоскость:
 \begin{align*}
-  f(z) = \frac{1+z^2}{1+z^4}
+  & f(z) = \frac{1+z^2}{1+z^4}
 \end{align*}
 Особые точки: $z_k = \exp \left( i \left( \dst \frac{\pi}{4} + \dst \frac{\pi
           k}{2} \right) \right), \ k \in\{0, 1, 2, 3\}$.
@@ -236,11 +236,10 @@ $a_1, \dots, a_n$, причем если $\infty \in \ol{G}$, то $a_n = \infty
   & = \pi \left( \cos \frac{\pi}{4} - \cos \frac{3\pi}{4} \right) = \pi \sqrt{2}
 \end{align*}
 \begin{align*}
-  \pi \sqrt{2} = \int_{-R}^{+R}f(z) + \int_{C_R}f(z) \us{R\to \infty}{\longrightarrow} \int_{-R}^{+R} f(z) = \int_{-R}^{R}f(x)
+  & \pi \sqrt{2} = \int_{-R}^{+R}f(z) + \int_{C_R}f(z) \us{R\to \infty}{\longrightarrow} \int_{-R}^{+R} f(z) = \int_{-R}^{R}f(x)
 \end{align*}
 Итак, достаточно доказать
 \begin{align*}
-  \int_{C_R}f(z)  \us{R\to \infty}{\longrightarrow} 0
+  & \int_{C_R}f(z)  \us{R\to \infty}{\longrightarrow} 0
 \end{align*}
 чтобы получить, что $I = \pi \sqrt{2}$.
-
