@@ -93,10 +93,10 @@
   комплексная плоскость}
 \Def
 \textbf{Окрестностью} назовем $B_r(z_0) = \left\{ z \in \CC: \left| z-z_0
-    \right| < r \right\}$. \textbf{Проколотой окрестностью} назовем $B_r(z_0) =
-\left\{ z \in \CC: 0 < \left| z-z_0 \right| < r \right\}$. \textbf{Замкнутой
-  окрестностью} назовем $B_r(z_0) = \left\{ z \in \CC: \left| z-z_0\right| \leq
-    r \right\}$.
+    \right| < r \right\}$. \textbf{Проколотой окрестностью} назовем
+$\os{\circ}{B}_r(z_0) = \left\{ z \in \CC: 0 < \left| z-z_0 \right| < r
+\right\}$. \textbf{Замкнутой окрестностью} назовем $\bar{B}_r(z_0) = \left\{ z
+    \in \CC: \left| z-z_0\right| \leq r \right\}$.
 \Def
 Множество $\left\{ z_n \right\}_{n=1}^\infty$, $z_n  = x_n + iy_n$ называется
 \textbf{последовательностью}.
@@ -104,7 +104,7 @@
 Число $A \in \CC$ называется \textbf{пределом последовательности $z_n$} (пишем
 $\dst \lim_{n \to \infty}z_n = A$) тогда и только тогда, когда выполняется
 \begin{equation}\label{(2.1)}
-    \forall \varepsilon > 0 \exists N(\varepsilon):\forall n \geq N(\varepsilon)\in \NN \hookrightarrow z_n \in B_{\varepsilon}(A)
+    \forall \varepsilon > 0 \ \exists N(\varepsilon):\ \forall n \geq N(\varepsilon)\in \NN \hookrightarrow z_n \in B_{\varepsilon}(A)
 \end{equation}
 \asm
 \begin{align*}
@@ -122,9 +122,9 @@ $\dst \lim_{n \to \infty}z_n = A$) тогда и только тогда, ког
     \begin{align*}
       & \left| x_n - a \right| \leq \left| z_n - A \right| < \varepsilon
     \end{align*}
-    \item $\Rightarrow$:
+    \item $\Leftarrow$:
     \begin{align*}
-      & \exists N_z(\varepsilon) = \max\left\{ N_x\left( \frac{\varepsilon}{2} \right), N_y\left( \frac{\varepsilon}{2} \right) \right\}: \forall n \geq N_z(\varepsilon) \hookrightarrow \\
+      & \exists N_z(\varepsilon) = \max\left\{ N_x\left( \frac{\varepsilon}{2} \right), N_y\left( \frac{\varepsilon}{2} \right) \right\}: \ \forall n \geq N_z(\varepsilon) \hookrightarrow \\
       & \left| z_n-A \right|\leq \left| x_n-a \right|+\left| y_n-b \right| < \frac{\varepsilon}{2} +\frac{\varepsilon}{2} = \varepsilon
     \end{align*}
 \end{itemize}
@@ -139,12 +139,12 @@ $\dst \lim_{n \to \infty}z_n = A$) тогда и только тогда, ког
 \textbf{суммой ряда} и записывают как $\dst \sum_{n=1}^\infty z_n$.
 \asm
 Сходимость $\dst \sum_{n=1}^\infty z_n$ равносильна сходимости $\dst
-\sum_{n=1}^\infty x_n$ и $\sum_{n=1}^\infty y_n$.
+\sum_{n=1}^\infty x_n$ и $\dst \sum_{n=1}^\infty y_n$.
 \pr
 Очевидно из свойств пределов и критерия Коши.
 \Def
 Говорят, что $\dst \lim_{n\to \infty}z_n = \infty$, если $\forall \varepsilon >
-0 \exists N(\varepsilon): \forall n \geq N(\varepsilon)\in \NN \hookrightarrow
+0 \ \exists N(\varepsilon): \ \forall n \geq N(\varepsilon)\in \NN \hookrightarrow
 \left| z_n \right|> \varepsilon$. \textbf{Окрестностью бесконечности} называют
 $B_\varepsilon(\infty) = \left\{ z \in \CC: \left| z \right| > \varepsilon
 \right\}$.
@@ -158,7 +158,7 @@ $\CCC$~--- компакт.
     \item Если $\left\{ z_n \right\}$ ограничена, то по теореме Вейерштрасса
     можно выделить подпоследовательность, сходящуюся к $z \in \CC$.
     \item Если $\left\{ z_n \right\}$ неограничена, то $\forall k \in \NN
-    \exists n_k > n_{k-1}: \ \left| z_{n_k} \right| > k$, а занчит, $z_n \to
+    \ \exists n_k > n_{k-1}: \ \left| z_{n_k} \right| > k$, а занчит, $z_n \to
     \infty \in \CCC$.
 \end{itemize}
 Значит, это компакт.
@@ -179,7 +179,7 @@ y$, $z = x+iy \in \CC$.
 \Def
 \textbf{Стереографическая проекция:}
 \begin{align*}
-  & \forall z \in \CC \exists Z \in (\xi, \eta, \zeta): \ \left\{ \begin{matrix}
+  & \forall z \in \CC \ \exists Z \in (\xi, \eta, \zeta): \ \left\{ \begin{matrix}
           \xi = tx \\
           \eta = ty \\
           \zeta = 1-t
@@ -209,7 +209,7 @@ $f: G \mapsto D$, где $G$~--- область, $D \subseteq \CCC$~--- обла
 число $A$ назыается \textbf{пределом} $f$ в этой точке (пишется $\dst \lim_{z \to
   z_0} f(z_0)$) тогда и только тогда, когда выполняется
 \begin{equation}\label{(2.3)}
-    \forall \varepsilon > 0 \exists \delta(\varepsilon) > 0: \ z \in \os{\circ}{B}_\delta(z_0)\cap G \hookrightarrow f(z) \in B_\varepsilon (A)
+    \forall \varepsilon > 0 \ \exists \delta(\varepsilon) > 0: \ z \in \os{\circ}{B}_\delta(z_0)\cap G \hookrightarrow f(z) \in B_\varepsilon (A)
 \end{equation}
 \asm
 \begin{align*}
@@ -234,7 +234,7 @@ f_n(z)$, где $\forall n \in \NN \ f_n :G \mapsto \CC$.
 Ряд \textbf{сходится равномерно}, если он:
 \begin{enumerate}
     \item $\forall z \in G$ сходится к некоторой $S(z)$;
-    \item $\forall \varepsilon > 0 \exists N(\varepsilon) > 0: \forall N \geq N
+    \item $\forall \varepsilon > 0 \ \exists N(\varepsilon) > 0: \ \forall N \geq N
     (\varepsilon) \ \left| \dst \sum_{n=1}^Nf_n(z) - S(z) \right|\leq
     \varepsilon$.
 \end{enumerate}

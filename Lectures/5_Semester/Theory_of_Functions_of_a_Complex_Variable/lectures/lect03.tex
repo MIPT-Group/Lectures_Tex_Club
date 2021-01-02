@@ -37,5 +37,129 @@ B_\varepsilon(w_0)$, такие, что:
     \end{align*}
 \end{enumerate}
 \pr
-~
+Пусть $f(z) = u(x,y) +iv(x,y)$. Имеем отображение $\RR^2 \mapsto \RR^2$. В силу
+непрерывной дифференцируемости этих двух функций запишем якобиан и преобразуем
+согласно УКР:
+\begin{align*}
+  & J(x,y) = \left| \begin{matrix}
+          u_x & u_y \\
+          v_x & v_y
+      \end{matrix} \right| = \left| \begin{matrix}
+          u_x & -v_x \\
+          v_x & u_x
+      \end{matrix} \right| = (u_x)^2+(v_x)^2 = \left| f'(z) \right|^2
+\end{align*}
+\begin{align*}
+  & J(x_0,y_0) \neq 0
+\end{align*}
+\theorem (Бесов, $\S 12.1$, $1$)
+Для такого отображения $\exists B_\delta(z_0): \ \forall z \in B_\delta(z_0) \
+f'(z) \neq 0 $, $\exists B_\varepsilon(z_0)$, где существует обратное
+отображение
+\begin{align*}
+  & \left\{ \begin{matrix}
+          x = x(u,v) \\
+          y = y(u,v)
+      \end{matrix} \right.: B_\varepsilon(w_0) \mapsto B_\delta(z_0)
+\end{align*}
+причем непрерывно дифференцируемое.
+\pr
+\begin{align*}
+  & g(w) = z = x(u,v) + iy(u,v): B_\varepsilon(w_0) \mapsto B _\delta(z_0)
+\end{align*}
+Докажем, что
+\begin{align*}
+  &\forall w \in B_\varepsilon(w_0) \ \exists g'(w)
+\end{align*}
+Действительно,
+\begin{align*}
+  & \forall \hat{w} \in B_\varepsilon(w_0) \ \exists \hat{z} \in B_\delta(z_0): \ f(\hat{z}) = \hat{w} \Leftrightarrow g(\hat{w}) = \hat{z}
+\end{align*}
+\begin{align*}
+  & \forall \left\{ w_k \right\}_{k=1}^\infty \subseteq B_\varepsilon(w_0): \ \forall k \ w_k \neq \hat{w}, \ w_k \us{k \to \infty}{\to} \hat{w} \ \exists z_k = g(w_k): \ \forall k \ f(z_k) = w_k; \ z_k \us{k \to \infty}{\to} z
+\end{align*}
+\begin{align*}
+  & \frac{g(w_k) - g(\hat{w})}{w_k - \hat{w}} = \frac{z_k - \hat{z}}{w_k - \hat{w}} = \frac{1}{\dst \frac{f(z_k) - f(\hat{z})}{z_k - \hat{z}}} \us{k \to \infty}{\to} \frac{1}{f'(\hat{z})}
+\end{align*}
+\corollary
+Пусть $f: G \mapsto \CC$ \textbf{однолистна} (взаимно однозначна) на $G$,
+регулярна на этой области и имеет непрерывную производную. Пусть $\forall z \in
+G \ f'(z) \neq 0$. Тогда обратное отображение $g: G^* \mapsto \CC$, причем
+$g(G^*) = G$, регулярно на $G^*$.
+\pr
+Докажем, что $G^*$~--- область. Видим, что $\forall w_0 \in G^* \ \exists z_0
+\in G: \ f(z_0) = w_0$. По условию, $f'(z) \neq 0$; тогда по теореме $2$
+$\exists \varepsilon > 0: \ B_\varepsilon(w_0) \subseteq G^*$.
+\\
+Докажем регулярность.
+\begin{align*}
+  & w_1, w_2 \in G \Rightarrow \exists z_1, z_2 \in G: \ f(z_k) = w_k
+\end{align*}
+Заметим, что $\exists \gamma_{z_1z_2} \subseteq G$; тогда $\gamma_{w_1w_2}^* =
+\gamma^* = f(\gamma_{z_1z_2}) \subseteq G^*$.
+В силу дифференцируемости $g$ в $B_\varepsilon(w_0)$ $g$ будет регулярна на
+$G^*$.
+\Example
+$w = z^n, \ n \geq 2, \ n \in \NN$.
+\\
+Уравнение $z^n = w_0$ имеет решения:
+\begin{align*}
+  & z \in \left\{ \sqrt[n]{w_0} \right\} = \left\{ \sqrt[n]{\left| w_0 \right|} \exp \left( \dst \frac{i}{n}\left( \argt w_0 + 2 \pi k \right) \right) \mid k \in \left\{0, \dots, n-1 \right\} \right\}
+\end{align*}
+\Def
+Пусть $\forall z \in G$ поставлено в соответствие некоторое множество $F(z)
+\subseteq \CC$. Тогда говорят, что $F$~--- \textbf{многозначная функция}.
+\\
+Для нашего примера $F(w) = \left\{ \sqrt[n]{w} \right\}, \ w \in \CC$.
+\Def
+Пусть $F: G \mapsto 2^{\CC}$, $f: G \mapsto \CC$, $\forall z \in G \ f(z)\in
+F(z)$. Тогда $f$~--- \textbf{ветвь многозначной функции} $F$.
+\example
+\begin{align*}
+  & z_1^n = z_2^n \Leftrightarrow \left| z_1 \right|^n \exp \left( in\varphi_1 \right) = \left| z_2 \right|^n \exp \left( in\varphi_2 \right) \Leftrightarrow \left| z_1 \right| = \left|z_2\right|, \ n\left( \varphi_1 - \varphi_2 \right) = 2 \pi k, \ k \in \ZZ
+\end{align*}
+Рассмотрим область
+\begin{align*}
+  & G_{\alpha, \beta} = \left\{ z \mid z = re^{i \varphi}, \ r>0, \ \varphi \in \left( \alpha, \beta \right) \right\}
+\end{align*}
+Если $0 < n(\beta - \alpha) \leq 2 \pi$, то $w = z^n$ будет однолистной. По
+следствию $1$ существует обратная $g(w)$, причем регулярная. Эта функция
+строится так:
+\begin{align*}
+  & g: G_{-\frac{\pi}{2}, \frac{\pi}{2}} \mapsto G_{-\frac{n\pi}{2}, \frac{n\pi}{2}} \subseteq \CC \setminus (-\infty; 0]; \ l_{\varphi_0} = \left\{ z \mid z = re^{\i \varphi_0}, \ r > 0 \right\}, \ l_{\varphi_0} \mapsto l_{n \varphi_0}
+\end{align*}
+В явном виде функция будет иметь вид
+\begin{align*}
+  & g(w) = \sqrt[n]{\left| w \right|}\exp\left( \frac{i}{n} \argm w \right)
+\end{align*}
+Это \textbf{главная ветвь многозначной функции $\sets{\sqrt[n]{z}}$}.
+\Example
+$w = e^z$, $w'(z) \neq 0$.
+\\
+Отыщем область однолистности. Если $z_1 \neq z_2$, а $e^{z_1} = e^{z_2}$, то
+$x_1 = x_2$, $y_1 - y_2 = 2 \pi k, \ k \in \ZZ$. Пусть $G_0 = \left\{ z \mid
+    \Img z \in (-i\pi, i \pi) \right\}$. Тогда по следствию $1$ существует
+обратная $g: \CC \setminus (-\infty; 0] \mapsto G_0$, причем регулярная. Эта
+функция строится так:
+\begin{align*}
+  & e^z = w_0; \ e^x = \left| w_0 \right|, \ y = \alpha + 2 \pi k
+\end{align*}
+Имеем логарифм:
+\begin{align*}
+  & \Ln z = \ln \left| w \right| + i \Arg w
+\end{align*}
+Функция в явном виде имеет вид:
+\begin{align*}
+  & g = \ln \left| w \right| + i \argm w
+\end{align*}
+Это \textbf{главная ветвь многозначной функции $\Ln z$}.
+\Example
+Производная главной ветви логарифма
+\begin{align*}
+  & g'(w) = \frac{1}{w}
+\end{align*}
+а корня
+\begin{align*}
+  & g'(w) = \frac{1}{n(g(w))^{n-1}}
+\end{align*}
 \section{$\S 6.$ Интегрирование}
