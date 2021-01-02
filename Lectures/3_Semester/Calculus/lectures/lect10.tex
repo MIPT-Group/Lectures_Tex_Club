@@ -78,9 +78,9 @@
 
 \begin{theorem}(Основные свойства операции внешнего дифференцирования).
 	\begin{enumerate}
-		\item(Линейность)\\ $d(\alpha\Omega+\beta\Pi)=\alpha d\Omega+\beta d\Pi, \alpha, \beta\in\R, \Omega, \Pi\in\Lambda_p^{(1)}(U)$
-		\item(Дифференцирование внешнего произведения)\\  Если $\Omega\in\Lambda_p^{(1)}(U), \Pi\in\Lambda_q^{(1)}(U),$ то $d(\Omega\wedge\Pi)=d\Omega\wedge\Pi+(-1)^p\Omega\wedge d\Pi$
-		\item (Отсутствие вторых дифференциалов) \\ Если $\Omega\in\Lambda_p^{(2)}(U)\Rightarrow d(d\Omega)=0$
+		\item(Линейность)\\ $d(\alpha\Omega+\beta\Pi)=\alpha d\Omega+\beta d\Pi, \alpha, \beta\in\R, \Omega, \Pi\in\Lambda_p^{(1)}(U)$.
+		\item(Дифференцирование внешнего произведения)\\  Если $\Omega\in\Lambda_p^{(1)}(U), \Pi\in\Lambda_q^{(1)}(U),$ то $d(\Omega\wedge\Pi)=d\Omega\wedge\Pi+(-1)^p\Omega\wedge d\Pi$.
+		\item (Отсутствие вторых дифференциалов) \\ Если $\Omega\in\Lambda_p^{(2)}(U)\Rightarrow d(d\Omega)=0$.
 	\end{enumerate}
 \end{theorem}
 \begin{proof} \ 
@@ -95,7 +95,7 @@
 		\end{multline*}
 		\item $d(d\Omega)=d\left(\sum\limits_{j=1}^n\dfrac{\partial w}{\partial x_j}(x)dx^j\wedge dx^{i_1}\wedge\ldots\wedge dx^{i_p}\right)$, если $j$ совпадет с одним из индексов $i_1, \ldots, i_p$, то значение слагаемого будет нуль. Тогда
 		\begin{multline*}
-			d(d\Omega)=d\left(\sum\limits_{j\ne i_k}^n\dfrac{\partial w}{\partial x_j}(x)dx^j\wedge dx^{i_1}\wedge\ldots\wedge dx^{i_p}\right)=\\=\sum\limits_{l\ne j,i_k}\sum\limits_{j\ne i_k}\dfrac{\partial^2 w}{\partial x_l \partial x_j}dx^l\wedge dx^j\wedge dx^{i_1}\wedge\ldots\wedge  dx^{i_p}=\\=\sum\limits_{j<l; j,l\ne i_k} \left(\dfrac{\partial^2 w}{\partial x_j \partial x_l} - \dfrac{\partial^2 w}{\partial x_l \partial x_j}\right)dx^l\wedge dx^j\wedge dx^{i_1}\wedge\ldots\wedge  dx^{i_p}=0
+			d(d\Omega)=d\left(\sum\limits_{j\ne i_k}^n\dfrac{\partial w}{\partial x_j}(x)dx^j\wedge dx^{i_1}\wedge\ldots\wedge dx^{i_p}\right)=\\=\sum\limits_{l\ne j,i_k}\sum\limits_{j\ne i_k}\dfrac{\partial^2 w}{\partial x_l \partial x_j}dx^l\wedge dx^j\wedge dx^{i_1}\wedge\ldots\wedge  dx^{i_p}=\\=\sum\limits_{j<l; j,l\ne i_k} \left(\dfrac{\partial^2 w}{\partial x_j \partial x_l} - \dfrac{\partial^2 w}{\partial x_l \partial x_j}\right)dx^l\wedge dx^j\wedge dx^{i_1}\wedge\ldots\wedge  dx^{i_p}=0.
 		\end{multline*}
 	\end{enumerate}
 \end{proof}
@@ -107,15 +107,15 @@
 	
 	В $\R^3:$ зададим естественный порядок $ dx_1=dx, dx_2=dy, dx_3=dz$.
 	
-	$*dx = dy\wedge dz;\ *dy=-dx\wedge dz=dz\wedge dx;\ *dz=dx\wedge dy;\ *(dx\wedge dy\wedge dz)=1$
+	$*dx = dy\wedge dz;\ *dy=-dx\wedge dz=dz\wedge dx;\ *dz=dx\wedge dy;\ *(dx\wedge dy\wedge dz)=1$.
 \end{Def}
 
 \begin{prop}
-	Если $\Omega\in\Lambda_p(U)$, то $*(*\Omega)=(-1)^{p(n-p)}\Omega$
+	Если $\Omega\in\Lambda_p(U)$, то $*(*\Omega)=(-1)^{p(n-p)}\Omega$.
 \end{prop}
 
 \begin{proof}
-	Рассмотрим базисную форму $\Omega(x)=w(x)dx^{i_1}\wedge\ldots\wedge dx^{i_p},\\ *\Omega=w(x)(-1)^{[\vec{i},\vec{j}]}dx^{j_1}\wedge\ldots\wedge dx^{j_{n-p}};\ *(*\Omega)=w(x)(-1)^{[\vec{i},\vec{j}]}(-1)^{[\vec{j},\vec{i}]}dx^{i_1}\wedge\ldots\wedge dx^{i_p}=(-1)^{p(n-p)}\Omega$, так как $(-1)^{[\vec{j}, \vec{i}]}$ --- знак перестановки $(j_1, \ldots, j_{n-p}, i_1, \ldots, i_p)$, и $(-1)^{[\vec{j}, \vec{i}]}$, $(-1)^{[\vec{i}, \vec{j}]}$ отличаются на $(-1)^{p(n-p)}$
+	Рассмотрим базисную форму $\Omega(x)=w(x)dx^{i_1}\wedge\ldots\wedge dx^{i_p},\\ *\Omega=w(x)(-1)^{[\vec{i},\vec{j}]}dx^{j_1}\wedge\ldots\wedge dx^{j_{n-p}};\ *(*\Omega)=w(x)(-1)^{[\vec{i},\vec{j}]}(-1)^{[\vec{j},\vec{i}]}dx^{i_1}\wedge\ldots\wedge dx^{i_p}=(-1)^{p(n-p)}\Omega$, так как $(-1)^{[\vec{j}, \vec{i}]}$ --- знак перестановки $(j_1, \ldots, j_{n-p}, i_1, \ldots, i_p)$, и $(-1)^{[\vec{j}, \vec{i}]}$, $(-1)^{[\vec{i}, \vec{j}]}$ отличаются на $(-1)^{p(n-p)}$.
 \end{proof}
 
 
