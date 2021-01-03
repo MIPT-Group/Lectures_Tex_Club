@@ -45,10 +45,14 @@ $f: B_r(z_0) \mapsto \CC$ дифференцируема в $z_0$ т огда и
     \item $u(x,y)$, $v(x,y)$ дифференцируемы в $(x_0,y_0)$ (в $\RR^2$)
     \item выполняется условие Коши-Римана (УКР):
     \begin{equation}\label{(3.6)}
-        \left\{ \begin{matrix}
-                \dst \frac{\partial u}{\partial x} = \dst \frac{\partial v}{\partial y} \\
-                \dst \frac{\partial v}{\partial x} = - \dst \frac{\partial u}{\partial y}
-            \end{matrix} \right.
+        \begin{cases}
+            \dst \frac{\partial u}{\partial x} = \dst \frac{\partial v}{\partial y} \\
+            \dst \frac{\partial v}{\partial x} = - \dst \frac{\partial u}{\partial y}
+        \end{cases}
+        % \left\{ \begin{matrix}
+        %         \dst \frac{\partial u}{\partial x} = \dst \frac{\partial v}{\partial y} \\
+        %         \dst \frac{\partial v}{\partial x} = - \dst \frac{\partial u}{\partial y}
+        %     \end{matrix} \right.
     \end{equation}
 \end{itemize}
 При этом
@@ -175,9 +179,9 @@ $K = \left\{ z: 0 < r_1 < \left| z \right| < r_2 < \infty \right\}$~--- не
 $B_r(\infty)$~--- односвязная область в $\CCC$, но не в $\CC$.
 \Def
 Если $u:G \mapsto \RR^1$, $G \subseteq \RR^2$~--- область, $u \in C^2(G)$,
-$\Delta u = 0$ ($\Delta = \dst \frac{\partial^2}{\partial x^2} + \dst
-\frac{\partial^2}{\partial y^2}$), то $u$ называется \textbf{гармонической}.
-\Def
+$\Delta u = 0$, где $\Delta = \dst \frac{\partial^2}{\partial x^2} + \dst
+\frac{\partial^2}{\partial y^2}$, то $u$ называется \textbf{гармонической}.
+\Def ~
 \begin{itemize}
     \item[а)]$f: G \mapsto \CC$, $G \subseteq \CC$ называется
     \textbf{регулярной} (аналитической, голоморфной), если $\forall z \in G
@@ -195,7 +199,7 @@ $\Delta u = 0$ ($\Delta = \dst \frac{\partial^2}{\partial x^2} + \dst
 \end{align*}
 Производная существует в любой точке:
 \begin{align*}
-  & \frac{\left( z+\Delta z \right)^n - z^n}{\Delta z} = \frac{n\Delta z z^{n-1} + \left( \Delta z \right)^2\left( P(z, \Delta z) \right)}{\Delta z} \us{\Delta z \to 0}{\to} nz^{n-1}
+  & \frac{\left( z+\Delta z \right)^n - z^n}{\Delta z} = \frac{nz^{n-1}\Delta z + \left( \Delta z \right)^2\left( P(z, \Delta z) \right)}{\Delta z} \us{\Delta z \to 0}{\to} nz^{n-1}
 \end{align*}
 Значит, функция всюду дифференцируема и регулярна на всей $\CC$.
 \\
@@ -208,10 +212,14 @@ $\Delta u = 0$ ($\Delta = \dst \frac{\partial^2}{\partial x^2} + \dst
 e^x \sin y$.
 Выполняются УКР:
 \begin{align*}
-  & \left\{ \begin{matrix}
-          u_x = e^x \cos y = v_y \\
-          v_x = e^x \sin y = -u_y
-      \end{matrix} \right.
+  & \begin{cases}
+      u_x = e^x \cos y = v_y \\
+      v_x = e^x \sin y = -u_y
+  \end{cases}
+  & % \left\{ \begin{matrix}
+    %       u_x = e^x \cos y = v_y \\
+    %       v_x = e^x \sin y = -u_y
+    %   \end{matrix} \right.
 \end{align*}
 Значит, $f'(z) = u_x + iv_x = u+iv = e^z$ (аналогично $(e^{iz})' = ie^{iz}$,
 $(e^{-iz})' = -ie^{iz}$).
@@ -242,7 +250,7 @@ $(e^{-iz})' = -ie^{iz}$).
 \end{align*}
 Тогда
 \begin{align*}
-  & \left| \sin z \right| = \sqrt{\sin^2 x \ch^2 yy + \cos^2 x \sh^2 y} = \sqrt{(1-\cos^2 x)\ch^2 y + (\ch^2 y - 1)\cos^2 x} = \\
+  & \left| \sin z \right| = \sqrt{\sin^2 x \ch^2 y + \cos^2 x \sh^2 y} = \sqrt{(1-\cos^2 x)\ch^2 y + (\ch^2 y - 1)\cos^2 x} = \\
   & = \sqrt{\ch^2 y - \cos^2 x} \us{y \to \infty}{\sim} \ch x \us{y \to \infty}{\to} \infty
 \end{align*}
 \theorem
@@ -267,16 +275,16 @@ $u$ и $v$ являются гармоническими.
 \end{align*}
 Хотим найти $v$, такую, что
 \begin{align*}
-  & \left\{ \begin{matrix}
-          \dst \frac{\partial v}{\partial x} = P(x,y) \\
-          \dst \frac{\partial v}{\partial y} = Q(x,y) 
-      \end{matrix} \right.
+  & \begin{cases}
+      \dst \frac{\partial v}{\partial x} = P(x,y) \\
+      \dst \frac{\partial v}{\partial y} = Q(x,y) 
+      \end{cases}
 \end{align*}
 (из УКР на $f$).
 \begin{align*}
   & dv = Pdx+Qdy
 \end{align*}
-Для односвязной $G$ и потенциального векторного поля $(P,Q)$, т.`е. такого, что
+Для односвязной $G$ и потенциального векторного поля $(P,Q)$, т.~е. такого, что
 выполняется условие:
 \begin{align*}
   & \frac{\partial P}{\partial x} -\frac{\partial Q}{\partial x}' = - \frac{\partial^2 u}{\partial y^2} - \frac{\partial^2 u}{\partial x^2} = 0
