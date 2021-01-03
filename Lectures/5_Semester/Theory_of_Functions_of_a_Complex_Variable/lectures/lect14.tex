@@ -95,3 +95,120 @@ $\forall x \in [0;2] \ g(x+i0) = \sqrt[4]{x^3(2-x)}$. В этом случае
   & I = \frac{2 i \pi \left( \dst \frac{5}{2\sqrt[4]{27}} - 1 \right)\exp\left( \dst\frac{-i\pi}{4} \right)}{\left( 1 -\exp\left( \dst \frac{3i\pi}{2}\right) \right)}= \pi \sqrt{2}\left( \dst \frac{5}{2\sqrt[4]{27}} - 1 \right)
 \end{align*}
 \section{$\S 19.$ Целые и мероморфные функции.}
+\Def
+Функция $f$ называется \textbf{целой}, если она регулярна на $\CC$.
+\\
+Можем представить такую функцию в виде
+\begin{equation}\label{(19.1)}
+    \forall z \in \CC \ f(z) = \sum_{n=0}^\infty c_nz^n, \ c_n = \frac{1}{2i\pi}\int_{\gamma_r}\frac{f(\zeta)}{\zeta^{n+1}} d \zeta
+\end{equation}
+\theorem
+Пусть $f:G \mapsto \CC$ целая, $\exists A > 0, \ R > 0, \ m \in \NN_0$ такие,
+что $\forall z: \left| z \right| > R \hookrightarrow \left| f(z) \right| \leq
+A\left| z \right|^m$. Тогда $f(z)$~--- многочлен степени $\leq m$.
+\pr
+Воспользуемся оценкой $c_n$.
+\begin{align*}
+  & \forall r > R \ \left|c_n \right| \leq \frac{1}{2\pi}\int_{\left| \zeta \right| = r} \frac{\left| f(\zeta) \right|}{\left| \zeta \right|^{n+1}}\left| d\zeta \right|\leq \frac{1}{2\pi}\frac{Ar^m}{r^{n+1}}r\cdot 2 \pi = Ar^{m-n}
+\end{align*}
+Значит, $\forall n > m \ c_n = 0$.
+\corollary (теорема Лиувилля)
+Если $f$ целая, $\exists R > 0, \ A > 0$: $\left| f(z) \right|< A$ при $\left| z
+\right| < R$, то $f \equiv const$.
+\theorem (Основная теорема алгебры)
+Всякий многочлен $P_n(z) = z^n + C_{n-1}z^{n-1}+\dots+c_0$ имеет в $\CC$ хотя бы
+один корень.
+\pr
+предположим, $\forall z \in \CC \ P_n(z) \neq 0$. Тогда $\varphi(z) = \dst
+\frac{1}{P_n(z)}$ целая. Но, как легко видеть,
+\begin{align*}
+  & \lim_{z \to \infty}P_n(z) = \infty \Rightarrow \lim_{z \to \infty} \varphi(z) = 0 \Rightarrow \exists R > 0: \ \forall z: \ \left| z \right| > R \hookrightarrow \left| \varphi(z) \right| < 1
+\end{align*}
+Значит, по теореме Лиувилля $\varphi(z) = const$, тогда и $P_n(z) = const$.
+Противоречие.
+\\
+Значит, можем заметить, что для целой функции $f$ единственная особая точка~---
+это $\infty$.
+\begin{itemize}
+    \item $\infty$~--- УОТ, тогда $f = const$.
+    \item $\infty$~--- полюс порядка $m$, тогда $f = P_m$.
+    \item $\infty$~--- СОТ.
+\end{itemize}
+\Def
+Целая функция, у которой $\infty$ есть СОТ, назвается \textbf{целой
+  трансцендентной}.
+\theorem (Сохоцкого)
+Пусть $f$~--- целая трансцендентная функция, тогда
+\begin{align*}
+  & \forall A \in \CCC \ \exists z_n \to \infty: \ \lim_{n \to \infty}f(z_n) = A
+\end{align*}
+\pr
+Рассмотрим два случая.
+\begin{itemize}
+    \item $A = \infty$
+    \\
+    $f$ неограничена в окрестности $\infty$ (т.~к. иначе она бы имела конечный
+    предел), т.~е.
+    \begin{align*}
+      & \forall n \in \NN \exists z_n \in \CC: \left| f(z_n) \right|> n, \ \left| z_n \right| > n
+    \end{align*}
+    Итак, $\left\{ z_n \right\}$ и есть та самая последовательность.
+    \item $A \in \CC$
+    \\
+    Пусть, от противного,
+    \begin{align*}
+      & \exists \delta_0 > 0, \ \varepsilon_0 > 0: \ \forall z: \ \left| z \right| \geq \delta_0 \ \left| f(z) - A \right| \geq \varepsilon_0
+    \end{align*}
+    Пусть $\varphi(z) = \dst \frac{1}{f(z) - A}$, $z \in B_{\delta_0}(\infty)$.
+    На этом множестве
+    \begin{align*}
+      & \left| \varphi(z) \right| \leq \frac{1}{\varepsilon_0}
+    \end{align*}
+    Значит, эта функция на этом множестве регулярна и ограничена, а значит, для
+    нее $\infty$~--- УОТ, т.~е.
+    \begin{align*}
+      & \exists \lim_{z \to \infty}\varphi(z) = B
+    \end{align*}
+    Значит, $\infty$~--- полюс либо УОТ для $f(z)$, противоречие.
+\end{itemize}
+\theorem (общая теорема Сохоцкого)
+Пусть $f: \os{\circ}{B}_r(a) \mapsto \CC$ регулярна, $a$~--- СОТ $f$. Тогда
+\begin{align*}
+  & \forall A \in \CCC \ \exists z_n \to a, \ \lim_{n \to \infty} f(z_n) = A
+\end{align*}
+\Exse
+доказать общую теорему Сохоцкого.
+\theorem (Пикара)
+Пусть $f$~--- целая трансцедентная функция, тогда $\forall a \in \CC$, за
+исключением, быть может, одного, $\exists R > 0$: в $\os{\circ}{B}_R(\infty)$
+существует бесконечное число решений уравнения $f(z) = A$, т.~е.
+\begin{align*}
+  & \exists z_n \to \infty: \ \forall n \in \NN \ f(z_n) = A
+\end{align*}
+\Example
+$e^z = A$ имеет счетное число решений в любой окрестности при $A \neq 0$, но ни
+одного решения при $A = 0$.
+\Exse
+Пусть $f$~--- целая функция и
+\begin{align*}
+  & \exists A > 0, R > 0, \ m \in \NN_0: \ \forall z: \ \left| z \right| > R \ \left| f(z) \right| \geq A \left| z \right|^m
+\end{align*}
+Доказать, что $f$~--- многочлен степени $\leq m$.
+\Def
+Функция $f$ называется мероморфной, если $\forall R > 0$ в круге $B_R(0)$ она
+регулярна за исключением, быть может, конечного числа полюсов.
+\Example
+\begin{align*}
+  & f(z) = \frac{P_n(z)}{Q_m(z)}
+\end{align*}
+Конечное число полюсов на всей $\CC$.
+\Example
+\begin{align*}
+  & f(z) = \ctg z
+\end{align*}
+Счетное число полюсов на $\CC$.
+\Example
+\begin{align*}
+  & f(z) = \frac{z}{e^z-1}
+\end{align*}
+Счетное число полюсов на $\CC$.
