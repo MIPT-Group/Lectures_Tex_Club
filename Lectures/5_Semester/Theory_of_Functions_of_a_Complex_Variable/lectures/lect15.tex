@@ -162,5 +162,70 @@ x \pm i \dst \frac{\pi n}{2} = x+iy_n$. Тогда
   & \ctg z = \frac{1}{z} +\sum_{^{k=-\infty}_{k \neq 0}}^{+\infty}\frac{z+\pi k -\pi k}{\pi k (z-\pi k)} = \frac{1}{z} +\sum_{^{k=-\infty}_{k \neq 0}}^{+\infty}\left( \frac{1}{\pi k} + \frac{1}{z-\pi k}\right) = \frac{1}{z} +\sum_{k=1}^{\infty}\left( \frac{1}{\pi k} + \frac{1}{z-\pi k} + \frac{1}{-\pi k} + \right. \\
   &\left. \frac{1}{z+\pi k}\right) = \frac{1}{z} +\sum_{k=1}^{\infty}\left( \frac{1}{z-\pi k} + \frac{1}{z+\pi k}\right)
 \end{align*}
-
 \section{$\S 20.$ Принцип аргумента. Теорема Руше.}
+\theorem
+Пусть $f: G \mapsto \CC$
+Пусть $G$~--- односвязная облась в $\CC$, $\ogamma$~--- простая замкнута
+положительно ориентированная кривая в этой области. Пусть $f: G \mapsto \CC$
+регулярна в $G$ за исключением, быть может, полюсов $a_1, \dots, a_k, \dots$,
+лежащих внутри $\ogamma$. Пусть на $\ogamma$ нет особых точек $f$. Тогда
+справедливо:
+\begin{equation}\label{(20.1)}
+    \frac{1}{2 i \pi}\int_{\ogamma} \frac{f'(z)}{f(z)}dz = N - P
+\end{equation}
+где $N$~--- число нулей, $P$~--- полюсов с учетом их порядка (каждый ноль ил и
+полюс считаем такое число раз, каков его порядок)).
+\pr
+Пусть $b_1, \dots, b_n$~--- нули $f$ внутри $\ogamma$. В силу компактности
+ограниченной $\ogamma$ области вместе с кривой и того. что $f(z) \not \equiv 0$,
+их конечное число.
+\\
+Рассмотрим любой нуль $b = b_k$ порядка $m$. Тогда
+\begin{align*}
+  & f(z) = (z-b)^mh(z), \ z \in B_\varepsilon(b), \ \forall z \in B_\varepsilon(b) \ h(z) \neq 0
+\end{align*}
+Тогда
+\begin{align*}
+  & \frac{f'(z)}{f(z)} = \frac{m(z-b)^{m-1}h(z)+(z-b)^mh'(z)}{(z-b)^mhz)} = \frac{m}{z-b} + \frac{h'(z)}{h(z)}
+\end{align*}
+и, значит,
+\begin{align*}
+  & \us{b}{\res}\frac{f'(z)}{f(z)} = m
+\end{align*}
+Пусть $a_1, \dots, a_p$~--- полюса, их, аналогично, тоже конечное число.
+\\
+Рассмотрим произвольный полюс $a = a_k$ порядка $l$. Тогда
+\begin{align*}
+& f(z) = \frac{p(z)}{(z-a)^l}, z \in \os{\circ}{B}_\delta(a), \ \forall z \in \os{\circ}{B}_\delta
+(a)0 \ p(z)\neq 0
+\end{align*}
+Тогда
+\begin{align*}
+  & \frac{f'(z)}{f(z)} = \frac{-l}{z-a} + \frac{p'(z)}{p(z)}
+\end{align*}
+\begin{align*}
+  & \us{a}{\res}\frac{f'(z)}{f(z)} = -l
+\end{align*}
+Отсюда по теореме Коши имеем \eqref{(20.1)}
+\corollary (принцип аргумента)
+В условии теорем $20.1$
+\begin{equation}\label{(20.2)}
+  \frac{1}{2 i \pi} \Delta_{\ogamma}\argt f(z) = N - P
+\end{equation}
+\pr
+Пусть $\ogamma: z = z(t)$, $z(0) = z(1)$, $\ogamma$~--- гладкая замкнутая кривая.
+\\
+Пусть $\os{\circ}{\Gamma} = f(\ogamma)$, $0 \not \in \os{\circ}{\Gamma}$, $w =
+f(z(t))$, $t \in [0;1]$.
+\\
+Тогда
+\begin{align*}
+  & \Real int_{\os{\circ}{\Gamma}}\frac{dw}{w} = \Real int_{\os{\circ}{\gamma}}\frac{f'(z)}{f(z)}dz = \ln\left| w \right| \mid_{f(z(1))}^{f(z(0))} = 0
+\end{align*}
+\begin{align*}
+  & \Img int_{\os{\circ}{\Gamma}}\frac{dw}{w} = \Img int_{\os{\circ}{\gamma}}\frac{f'(z)}{f(z)}dz = \Delta_{\ogamma}\argt f(z)
+\end{align*}
+\begin{align*}
+  & int_{\os{\circ}{\gamma}}\frac{f'(z)}{f(z)}dz = i \Delta_{\ogamma}\argt f(z)
+\end{align*}
+Тогда из \eqref{(20.1)} очевидно следует \eqref{(20.2)}.

@@ -25,7 +25,7 @@
 $z_0 \in G$, $w_0 = f(z_0)$, $f'(z_0) \neq 0$. Тогда $\exists B_\delta(z_0),
 B_\varepsilon(w_0)$, такие, что:
 \begin{enumerate}
-    \item $\forall z \in B_\delta(z_0) f'(z) \neq 0$;
+    \item $\forall z \in B_\delta(z_0) \ f'(z) \neq 0$;
     \item $\forall \hat{w} \in B_\varepsilon(w_0)$ уравнение $\hat{w} = f(z)$
     имеет в $B_\delta(z_0)$ единственное решение $\hat{z}$, т.~е. на
     $B_\varepsilon(w_0)$ определена обратная функция $g: B_\varepsilon(w_0)
@@ -53,9 +53,9 @@ B_\varepsilon(w_0)$, такие, что:
   & J(x_0,y_0) \neq 0
 \end{align*}
 \theorem (Бесов, $\S 12.1$, $1$)
-Для такого отображения $\exists B_\delta(z_0): \ \forall z \in B_\delta(z_0) \
-f'(z) \neq 0 $, $\exists B_\varepsilon(z_0)$, где существует обратное
-отображение
+Для такого отображения, как в теореме $5.2$, $\exists B_\delta(z_0): \ \forall z
+\in B_\delta(z_0) \ f'(z) \neq 0 $, а также $\exists B_\varepsilon(z_0)$, где
+существует обратное отображение
 \begin{align*}
   & \left\{ \begin{matrix}
           x = x(u,v) \\
@@ -88,7 +88,7 @@ G \ f'(z) \neq 0$. Тогда обратное отображение $g: G^* \m
 $g(G^*) = G$, регулярно на $G^*$.
 \pr
 Докажем, что $G^*$~--- область. Видим, что $\forall w_0 \in G^* \ \exists z_0
-\in G: \ f(z_0) = w_0$. По условию, $f'(z) \neq 0$; тогда по теореме $2$
+\in G: \ f(z_0) = w_0$. По условию, $f'(z) \neq 0$; тогда по теореме $2$ $\S 5$
 $\exists \varepsilon > 0: \ B_\varepsilon(w_0) \subseteq G^*$.
 \\
 Докажем регулярность.
@@ -114,7 +114,7 @@ $w = z^n, \ n \geq 2, \ n \in \NN$.
 \Def
 Пусть $F: G \mapsto 2^{\CC}$, $f: G \mapsto \CC$, $\forall z \in G \ f(z)\in
 F(z)$. Тогда $f$~--- \textbf{ветвь многозначной функции} $F$.
-\example
+\Example
 \begin{align*}
   & z_1^n = z_2^n \Leftrightarrow \left| z_1 \right|^n \exp \left( in\varphi_1 \right) = \left| z_2 \right|^n \exp \left( in\varphi_2 \right) \Leftrightarrow \left| z_1 \right| = \left|z_2\right|, \ n\left( \varphi_1 - \varphi_2 \right) = 2 \pi k, \ k \in \ZZ
 \end{align*}
@@ -124,7 +124,7 @@ F(z)$. Тогда $f$~--- \textbf{ветвь многозначной функц
 \end{align*}
 Если $0 < n(\beta - \alpha) \leq 2 \pi$, то $w = z^n$ будет однолистной. По
 следствию $1$ существует обратная $g(w)$, причем регулярная. Эта функция
-строится так:
+строится для случая $\alpha = -\frac{\pi}{2}$, $\beta = \frac{\pi}{2}$ так:
 \begin{align*}
   & g: G_{-\frac{\pi}{2}, \frac{\pi}{2}} \mapsto G_{-\frac{n\pi}{2}, \frac{n\pi}{2}} \subseteq \CC \setminus (-\infty; 0]; \ l_{\varphi_0} = \left\{ z \mid z = re^{\i \varphi_0}, \ r > 0 \right\}, \ l_{\varphi_0} \mapsto l_{n \varphi_0}
 \end{align*}
@@ -138,7 +138,7 @@ $w = e^z$, $w'(z) \neq 0$.
 \\
 Отыщем область однолистности. Если $z_1 \neq z_2$, а $e^{z_1} = e^{z_2}$, то
 $x_1 = x_2$, $y_1 - y_2 = 2 \pi k, \ k \in \ZZ$. Пусть $G_0 = \left\{ z \mid
-    \Img z \in (-i\pi, i \pi) \right\}$. Тогда по следствию $1$ существует
+    \Img z \in (-i\pi, i \pi) \right\}$. Тогда по следствию $5.3.1$ существует
 обратная $g: \CC \setminus (-\infty; 0] \mapsto G_0$, причем регулярная. Эта
 функция строится так:
 \begin{align*}
