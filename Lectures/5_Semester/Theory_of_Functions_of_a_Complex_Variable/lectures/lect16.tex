@@ -1,4 +1,62 @@
 \begin{flushright}
     \textit{Лекция 16 (от 27.10)}
 \end{flushright}
+\theorem (Руше)
+Пусть $G$~--- односвязная область, $\ogamma$~--- замкнутая положительно
+ориентированная кусочно гладкая кривая в этой области. Пусть $f,g: G \mapsto
+\CC$ регулярны, и
+\begin{equation}\label{(20.3)}
+    \forall z \in \ogamma \ \left| f(z) \right| > \left| g(z) \right|
+\end{equation}
+Тогда $f(z)$ и $h(z) = f(z)+g(z)$ имеют внутри $\ogamma$ одинаковое число нулей
+с учетом их порядка.
+\pr
+\begin{align*}
+  & \forall z \in \ogamma \ \left| f(z) \right| > \left| g(z) \right| \Rightarrow \forall z \in \ogamma \ f(z) \neq 0
+\end{align*}
+\begin{align*}
+  & \forall z \in \ogamma \ \left| h(z) \right|\geq \left| f(z) \right| - \left| g(z) \right| > 0 \Rightarrow \forall z \in \ogamma h(z) \neq 0
+\end{align*}
+\begin{align*}
+  & \Delta_{\ogamma}\argt h(z) = \Delta_{\ogamma} \argt \left( f(z)\left( 1+\frac{g(z)}{f(z)} \right) \right) = \Delta_{\ogamma}\argt f(z) +\Delta_{\ogamma}\argt \left( 1+\frac{g(z)}{f(z)} \right)
+\end{align*}
+\begin{align*}
+  & \ogamma: w = 1 + \frac{g(z)}{f(z)} \Rightarrow \left| w-1 \right| = \left| \frac{g(z)}{f(z)} \right| < 1
+\end{align*}
+Пусть $\Gamma = w(\ogamma)$; $0 \not \in B_1(1)$ и эта область односвязна,
+значит, по лемме $2$ $\S 14$
+\begin{align*}
+  & \Delta_{\ogamma}\argt \left( 1+\frac{g(z)}{f(z)} \right) = 0
+\end{align*}
+и тогда
+\begin{align*}
+  & N_h = \frac{1}{2\pi}\Delta_{\ogamma}\argt h(z) = \frac{1}{2\pi}\Delta_{\ogamma}\argt f(z) = N_f
+\end{align*}
+\theorem (Гаусса)
+Многочлен
+\begin{align*}
+  & P_n(z) = c_0+zc_1+z^2c_2+\dots+z^nc_n
+\end{align*}
+имеет в $\CC$ ровно $n$ корней с учетом их порядка.
+\pr
+Рассмотрим $f(z) = z^n$, $g(z) = P_n(z) - f(z)$. Как известно,
+\begin{align*}
+  & \left| \frac{g(z)}{f(z)} \right| \us{z \to \infty}{\to} 0 \Rightarrow \exists R_0 > 0: \ \forall R \geq R_0 \ \forall z \in \gamma_R \left| f(z) \right| > \left| g(z) \right|
+\end{align*}
+Значит, по теореме Руше функция $P_n(z)$ имеет столько же нулей, сколько и $f(z)
+= z^n$, на $B_R(0)$, с учетом порядка, т.~е. ровно $n$ штук.
+\Example
+Функция Жуковского
+\begin{align*}
+  & w = \frac{1}{2}\left( z+\frac{1}{z} \right)
+\end{align*}
+У функции $\pm i$~--- нули, $0$~--- полюс первого порядка.
+\\
+Рассматривая $R>1$, получим
+\begin{align*}
+  & \Delta_{\gamma_R}\argt w(z) = 2 \pi (N-P) = 2\pi
+\end{align*}
+\begin{align*}
+  & \Delta_{\gamma_{\frac{1}{R}}}\argt w(z) = 2 \pi (N-P) = -2\pi
+\end{align*}
 \section{$\S 21.$ Геометрические принципы.}
