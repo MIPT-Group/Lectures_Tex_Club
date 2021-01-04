@@ -48,6 +48,7 @@ $\overset{\circ}{\gamma} \subseteq G$ выполняется
 \begin{align*}
   & P_N = \frac{P_0}{2^N}
 \end{align*}
+где $P_N$~--- периметр $N$-го треугольника.
 В силу компактности
 \begin{align*}
   & \exists z_0 \in \bigcap_{N=1}^{\infty}\triangle^N
@@ -60,12 +61,12 @@ $\overset{\circ}{\gamma} \subseteq G$ выполняется
   & o(z-z_0): \ \forall \varepsilon > 0 \ \exists \delta_1 \leq \delta_0: \ \forall z \in B_{\delta_1}(z_0) \ \left| o(z-z_0) \right| \leq \varepsilon\left| z-z_0 \right|
 \end{align*}
 \begin{align*}
-  & \int_{\partial \triangle^N}f(z)dz = f(z_0)\int_{\partial \triangle^N}dz+f'(z_0)\int_{\partial \triangle^n}zdz - z_0 f'(z_0)\int_{\partial \triangle^N} dz + \int_{\partial \triangle^N}o(z-_0)dz = \\
+  & \int_{\partial \triangle^N}f(z)dz = f(z_0)\int_{\partial \triangle^N}dz+f'(z_0)\int_{\partial \triangle^n}zdz - z_0 f'(z_0)\int_{\partial \triangle^N} dz + \int_{\partial \triangle^N}o(z-z_0)dz = \\
   & = \int_{\partial \triangle^N}o(z-z_0)dz
 \end{align*}
-причем
+причем полагаем $N$ таким, что
 \begin{align*}
-  & \forall z \in \triangle^N \left| z-z_0 \right| < \delta_1
+  & \forall z \in \triangle^N \ \left| z-z_0 \right| < \delta_1
 \end{align*}
 Тогда
 \begin{align*}
@@ -122,16 +123,16 @@ $\Gamma$ задана \textbf{положительная ориентация}, 
     направлениях.
 \end{itemize}
 
-Говорят, что \textbf{$f$ непрерывна на $G$ с кусочно гладкой границей $\Gamma$},
-если
+Говорят, что \textbf{$f$ непрерывна на $\ol{G}$ с кусочно гладкой границей
+  $\Gamma$}, если
 \begin{itemize}
     \item если $\Gamma_k$~--- правильная компонента, то $\forall \Gamma_k, \ z_0
     \in \Gamma_k \ \dst \lim_{z \overset{G}{\to} z_0}f(z) = f(z_0)$
     \item если $\Gamma_k$~--- разрез, то $\forall \Gamma_k, \ z_0 \in \Gamma_k,
     \ z_0 \to z_0^+, z_0^-$ ($2$ края разреза, может быть больше краев)
-    $f(z_0^+) = \dst \lim_{z \overset{B_+}{\to} z_0}, f(z_0^-) = \dst \lim_{z
-      \overset{B_-}{\to}z_0}$ ($B_+$, $B_-$~--- части, на которые разделена
-    разрезами область, может быть больше частей.)
+    $f(z_0^+) = \dst \lim_{z \overset{B_+}{\to} z_0}f(z), f(z_0^-) = \dst
+    \lim_{z\overset{B_-}{\to}z_0}f(z)$ ($B_+$, $B_-$~--- части, на которые
+    разделена разрезами область, может быть больше частей.)
 \end{itemize}
 \theorem
 Пусть $G$~--- ограниченная односвязная область с положительно ориентированной
@@ -146,7 +147,7 @@ $\Gamma$ задана \textbf{положительная ориентация}, 
     \item $\Gamma = \left\{z \mid z = z_0 + z_1(t), \ t \in [\alpha, \beta], \
         z_1(\alpha) = z_1(\beta) \right\}$; $z_0$ называется \textbf{центром},
     $z_1(t)$ непрерывно дифференцируема;
-    \item $\forall \lambda \in [0;1) \Gamma_{\lambda} = \left\{ z \mid z = z_0 +
+    \item $\forall \lambda \in [0;1) \ \Gamma_{\lambda} = \left\{ z \mid z = z_0 +
     \lambda z_1(t), t \in [\alpha, \beta], z_1(\alpha) = z_1(\beta), \lambda \in
     [0;1)\right\} \subseteq G$
 \end{itemize}
@@ -167,7 +168,7 @@ $\Gamma_{\lambda}\subseteq G$
   & \forall \lambda \in (0;1) \ \int_{\Gamma_\lambda}f(\zeta)d\zeta = 0
 \end{align*}
 \begin{align*}
-  & \zeta = lambda z, \ \zeta \in \Gamma_{\lambda} \Leftrightarrow z \in \Gamma
+  & \zeta = \lambda z, \ \zeta \in \Gamma_{\lambda} \Leftrightarrow z \in \Gamma
 \end{align*}
 \begin{align*}
   & 0 = \int_{\Gamma_\lambda}f(z)dz = \int_{\Gamma}f(\lambda z)\lambda dz \Rightarrow \forall \lambda \in (0;1) \ \int_{\Gamma}f(\lambda z)dz = 0
@@ -176,7 +177,7 @@ $f$ равномерно непрерывна на $\overline{G}$: $\forall \var
 \delta(\varepsilon) >0: \ \forall z_1, z_2 \in \overline{G}: \ \left| z_1-z_2
 \right| < \delta(\varepsilon) \hookrightarrow \left| f(z_1) - f(z_2) \right| < \varepsilon$
 \begin{align*}
-  & \forall z \in \Gamma \left| z-\lambda z \right| = (1-\lambda) \left| z \right| \leq (1-\lambda)C_0, \ C_0 = \max_{z \in \overline{G}}\left| z \right| < +\infty
+  & \forall z \in \Gamma \ \left| z-\lambda z \right| = (1-\lambda) \left| z \right| \leq (1-\lambda)C_0, \ C_0 = \max_{z \in \overline{G}}\left| z \right| < +\infty
 \end{align*}
 Пусть $\lambda_{\varepsilon}\in(0;1): \ (1 -
 \lambda_{\varepsilon})C_0<\delta(\varepsilon)$; тогда

@@ -95,7 +95,7 @@ $\Delta z_k = z_k - z_{k-1}$~--- \textbf{интегральная сумма};
 \begin{align*}
   &J_k = \int_{\gamma: \left| z-a \right| = r} (z-a)^k dz, \ k \in \ZZ
 \end{align*}
-Параметр: $z(t_ = a+re^{it}), \ t \in [0;2\pi]$
+Параметр: $z(t)= a+re^{it}, \ t \in [0;2\pi]$
 \begin{align*}
   & dz(t) = rie^{it}dt
 \end{align*}
@@ -123,7 +123,7 @@ $\gamma: z(t)$, и согласно \eqref{(6.3)}
 Пусть $f_n: G \mapsto \CC$ непрерывна на $G$ $\forall n \in \NN$, $\gamma$~---
 КГК, $\gamma \subseteq G$.
 \\
-Пусть $\dst \sum_{n=1}^{\infty}f_n(z) \underset{\gamma}{\rightrightarrows} \rightarrow_{\gamma} S(z)
+Пусть $\dst \sum_{n=1}^{\infty}f_n(z) \underset{\gamma}{\rightrightarrows} S(z)
 \ \forall z \in \gamma$.
 Тогда $S(z)$ непрерывна на $\gamma$ и выполняется
 \begin{equation} \label{(6.7)}
@@ -135,10 +135,10 @@ $\gamma: z(t)$, и согласно \eqref{(6.3)}
   & \Updownarrow
 \end{align*}
 \begin{equation} \label{(6.8)}
-    \forall \varepsilon > 0 \ \exists N(\varepsilon): \ \forall N\geq N(\varepsilon) \ \underset{z \in \gamma}{\sup} \left| S(z) - \sum_{n = 1}^{N} \right| = \underset{z \in \gamma}{\sup} S_N(z) \leq \varepsilon
+    \forall \varepsilon > 0 \ \exists N(\varepsilon): \ \forall N\geq N(\varepsilon) \ \underset{z \in \gamma}{\sup} \left| S(z) - \sum_{n = 1}^{N}f_n(z) \right| = \underset{z \in \gamma}{\sup} \abs{S - S_N(z)} \leq \varepsilon
 \end{equation}
 \begin{align*}
-  &\exists \delta > 0: \ \forall z_0 \in \gamma, \ z \in \gamma, \ \left| z - z_0 \right| < \delta: \ \left| S(z) = S(z_0) \right| \leq \left| S(z) - S_N(z) \right| +  \left| S_N(z) - \right. \\
+  &\exists \delta > 0: \ \forall z_0 \in \gamma, \ z \in \gamma, \ \left| z - z_0 \right| < \delta: \ \left| S(z) - S(z_0) \right| \leq \left| S(z) - S_N(z) \right| +  \left| S_N(z) - \right. \\
   &\left. - S_N(z_0) \right| + \left| S_N(z_0) - S(z_0) \right| \leq \left| S_N(z) - S_N(z_0) \right| + 2 \varepsilon \leq 3 \varepsilon
 \end{align*}
 \begin{align*}
@@ -174,7 +174,7 @@ f(z) \ \forall z \in G$.
         \int_{\overset{\circ}{\gamma}} f(z) dz = 0
     \end{equation}
     \item если для любой замкнутой ломаной кривой $\gamma$ выполняется
-    \eqref{(6.8)}, то $f dz$~--- полный дифференциал.
+    \eqref{(6.9)}, то $f dz$~--- полный дифференциал.
 \end{enumerate}
 \pr ~
 \\
@@ -197,7 +197,7 @@ f(z) \ \forall z \in G$.
     \begin{align*}
       & \int_{\overset{\circ}{\gamma}} f(z) dz = 0 = \int_{\gamma_{az}}f dz - \int_{\tilde{\gamma_{az}}}f(z)dz
     \end{align*}
-    Докажем, что $\forall z g'(z) = f(z)$. Рассмотрим $z_0$; $\exists
+    Докажем, что $\forall z \ g'(z) = f(z)$. Рассмотрим $z_0$; $\exists
     \varepsilon > 0: B_{\varepsilon}(z_0) \subseteq G$, $\Delta z: 0 <
     \left| \Delta z \right| < \varepsilon$. Тогда $z_0 + \Delta z \in G$.
     Рассмотрим
@@ -216,5 +216,10 @@ f(z) \ \forall z \in G$.
     \end{align*}
     \begin{align*}
       & \left| \frac{\Delta g}{\Delta z} - f(z_0) \right| = \left| \frac{1}{\Delta z} \int_{[z_0; \Delta z + z_0]}(f(z) - f(z_0))dz \right|
-    \end{align*}    
+    \end{align*}
+    В силу непрерывности $f(z)$, полагая $r(\varepsilon)$~--- радиус шара, где
+    $\left| f(z) - f(z_0) \right| < \varepsilon$,
+    \begin{align*}
+      & \forall z \in B_{r(\varepsilon)}(z_0)\cap B_\varepsilon(z_0) \ \left| \frac{\Delta g}{\Delta f} - f(z_0) \right| \leq \left| \frac{\varepsilon\min\left\{ r(\varepsilon), \varepsilon \right\}}{\min\left\{ r(\varepsilon), \varepsilon \right\}} \right| = \varepsilon
+    \end{align*}
 \end{enumerate}

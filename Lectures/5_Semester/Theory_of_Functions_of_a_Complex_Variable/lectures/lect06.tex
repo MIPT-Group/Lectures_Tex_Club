@@ -42,10 +42,10 @@ $f$ непрерывна в $z$ $\Rightarrow$
   & \forall \varepsilon > 0 \ \exists \delta > 0: \ \forall \zeta: \ \left| \zeta - z \right| < \delta(\varepsilon) \hookrightarrow \left| f(\zeta) - f(z) \right| < \varepsilon; \ 0 < r < \delta(\varepsilon)
 \end{align*}
 \begin{align*}
-  & J(z) - f(z) = \frac{1}{2 \pi i} \int_{\gamma_r} \frac{f(\zeta) - f(z)}{\zeta - z} d \zeta
+  & \frac{1}{2 \pi i} \int_{\gamma_r} \frac{1}{\zeta - z} d \zeta = 1
 \end{align*}
 \begin{align*}
-  & \frac{1}{2 \pi i} \int_{\gamma_r} \frac{f(\zeta)}{\zeta - z} d \zeta = 1
+  & J(z) - f(z) = \frac{1}{2 \pi i} \int_{\gamma_r} \frac{f(\zeta) - f(z)}{\zeta - z} d \zeta
 \end{align*}
 \begin{align*}
   & \left| J(z) - f(z) \right| \leq \frac{1}{2 \pi i} \int_{\gamma_r} \frac{\left| f(\zeta) - f(z) \right|}{\left| \zeta - z \right|} \cdot \left| d\zeta \right| \leq \frac{\varepsilon}{2 \pi r} \int_{\gamma_r}\left| d\zeta \right| = \varepsilon
@@ -69,7 +69,7 @@ $\CC\setminus\gamma$, причем
 База: при $n=0$, очевидно, верно.
 \\
 Шаг: пусть верно для $n-1$, тогда для $n$ фиксируем произвольное $z_0 \in
-gamma$.
+\gamma$.
 \\
 Пусть
 \begin{align*}
