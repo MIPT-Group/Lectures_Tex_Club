@@ -87,18 +87,22 @@ $\CC\setminus\gamma$, причем
   & \frac{I^{(n-1)}(z_0+\Delta z) - I^{(n-1)}(z_0)}{\Delta z} - \frac{n!}{2 \pi i}\int_{\gamma}\frac{q(\zeta)}{(\zeta-z)^{n+1}}d\zeta = \frac{(n-1)!}{2 \pi i}\int_{\gamma}q(\zeta)\left( \left( \frac{1}{(\zeta-z_0-\Delta z)^n} - \right. \right.\\
   & \left. \left. - \frac{1}{(\zeta-z_0)^n} \right)\frac{1}{\Delta z} - \frac{n}{(\zeta-z_0)^{n+1}}\right)d\zeta
 \end{align*}
+В силу
 \begin{align*}
-  & (\zeta-z_0)^n - (\zeta - z_0 - \Delta z)^n = n\Delta z(\zeta - z_0)^{n-1} + O(\Delta z^2) = \frac{n(\zeta-z_0)^{n-1}+O(\Delta z)}{(\zeta - z_0)^n(\zeta-z_0-\Delta z)^n} - \\
-  & - \frac{n}{(\zeta - z_0)^{n+1}} = \frac{n(\zeta-z_0)^n+O(\Delta z) - (\zeta-z_0-\Delta z)^n}{(\zeta - z_0)^{n+1}(\zeta - z_0 - \Delta z)^n} = n \frac{O(\Delta z)}{(\zeta - z_0)^{n+1}(\zeta - z_0)^n}
+  & (\zeta-z_0)^n - (\zeta - z_0 - \Delta z)^n = n\Delta z(\zeta - z_0)^{n-1} + O(\Delta z^2)
 \end{align*}
 \begin{align*}
-  & \exists C > 0: \ \left| O(\Delta t) \right| < C \left| \Delta z \right|
+  & \frac{n(\zeta-z_0)^{n-1}+O(\Delta z)}{(\zeta - z_0)^n(\zeta-z_0-\Delta z)^n} - \frac{n}{(\zeta - z_0)^{n+1}} = \frac{n(\zeta-z_0)^n+O(\Delta z) - (\zeta-z_0-\Delta z)^n}{(\zeta - z_0)^{n+1}(\zeta - z_0 - \Delta z)^n} = \\
+  & = n \frac{O(\Delta z)}{(\zeta - z_0)^{n+1}(\zeta - z_0)^n}
 \end{align*}
 \begin{align*}
-  & \left| \zeta - z_0 \right| \geq d \left| \zeta - z_0 - \Delta z \right| > \frac{d}{2}
+  & \exists C > 0: \ \left| O(\Delta z) \right| < C \left| \Delta z \right|
 \end{align*}
 \begin{align*}
-  ???
+  & \left| \zeta - z_0 \right| \geq d; \ \left| \zeta - z_0 - \Delta z \right| > \frac{d}{2}
+\end{align*}
+\begin{align*}
+  & \left| \frac{\Delta I}{\Delta z} - \frac{1}{2 i\pi} \int_{\gamma}\dots d \zeta\right|\leq \frac{n!}{2 \pi}\int_{\gamma}\left| q(\zeta) \right|\frac{c\left| \Delta z \right|}{d^{n+1}\left( \dst \frac{d}{2} \right)^n}\left| d\zeta \right| \leq A \left| \Delta z \right|
 \end{align*}
 \theorem
 Пусть $f: G \mapsto \CC$ регулярна в $G$, тогда $f$ бесконечно дифференцируема в
@@ -114,14 +118,14 @@ $G$ и $\forall z \in \overline{B_r(z_0)} \subseteq G$
 Тогда по \eqref{(8.3)} выполняется \eqref{(8.4)}.
 \section{$\S 9.$ Ряд Тейлора. Теорема Вейерштрасса}
 \Def
-\textbf{Функциональным рядом} называется ряд
+\textbf{Степенным рядом} называется ряд
 \begin{equation} \label{(9.1)}
     \sum_{n=0}^{\infty}c_n(z-a)^n, \ a \in \CC, \ c_n \in \CC
 \end{equation}
 \theorem (Абеля)
-(Пусть ???) \eqref{(9.1)} сходится в $z_0 \neq a$.
+Пусть \eqref{(9.1)} сходится в $z_0 \neq a$.
 \\
-(Тогда ???)
+Тогда
 \begin{enumerate}
     \item $\forall z \in B_{\left| z_0 - a \right|}(a)$ \eqref{(9.1)}
     сходится абсолютно;
@@ -140,7 +144,7 @@ $G$ и $\forall z \in \overline{B_r(z_0)} \subseteq G$
       \lim_{n \to \infty}\left| c_n(z_0-a)^n \right| = 0
     \end{align*}
     \begin{align*}
-      \exists \alpha > 0: \ \forall n \in \NN \ \left| c_n(z-a)^n \right| \leq \alpha
+      \exists \alpha > 0: \ \forall n \in \NN \ \left| c_n(z_0-a)^n \right| \leq \alpha
     \end{align*}
     \\
     Пусть
@@ -215,13 +219,13 @@ $G$ и $\forall z \in \overline{B_r(z_0)} \subseteq G$
 \begin{align*}
   \frac{1}{\zeta - z_0} = \frac{1}{(\zeta - a) - (z_0 - a)} = \frac{1}{(\zeta - a)\left( 1-\frac{z_0-a}{\zeta - a} \right)} = \frac{1}{\zeta - a} \sum_{n=0}^{\infty}\left( \frac{z_0-a}{\zeta - a} \right)^n
 \end{align*}
-(т.~к. $\left| \dst \frac{z_0-a}{\zeta-a} \right| = q < 1$)
+Это верно, т.~к. $\left| \dst \frac{z_0-a}{\zeta-a} \right| = q < 1$ю
 \\
 При $\zeta \in \gamma_1$ ряд сходится равномерно.
 \begin{align*}
-  \frac{f(\zeta)}{z - z_0} = \frac{1}{\zeta - a} \sum_{n=0}^{\infty}\frac{f(\zeta)}{(\zeta - a)^{n+1}}\left( z_0-a\right)^n
+  \frac{f(\zeta)}{z - z_0} = \frac{1}{z - a} \sum_{n=0}^{\infty}\frac{f(\zeta)}{(\zeta - a)^{n+1}}\left( z_0-a\right)^n
 \end{align*}
-сходится равномерно на $\zeta \in \gamma$. Тогда по теореме $2$ $\S 6$
+сходится равномерно на $\zeta \in \gamma$. Тогда по теореме $3$ $\S 6$
 \begin{align*}
   f(z_0) = \sum_{n=0}^{\infty}\left( \frac{1}{2\pi i} \int_{\gamma} \frac{f(\zeta)}{(\zeta - a)^{n+1}} d \zeta \right)(z_0-a)^n
 \end{align*}

@@ -17,7 +17,7 @@
     \item $S(z)$~--- сумма ряда \eqref{(9.5)}~--- регулярна на $G$.
     \item ряд \eqref{(9.5)} можно почленно дифференцировать:
     \begin{equation}\label{(9.6)}
-        \forall k \in NN, \ \forall z \in G \ S^{(k)}(z) = \sum_{n=1}^{\infty}f^{(k)}_n(z)
+        \forall k \in \NN, \ \forall z \in G \ S^{(k)}(z) = \sum_{n=1}^{N}f^{(k)}_n(z)
     \end{equation}
     причем ряд \eqref{(9.6)} сходится локально равномерно на $G$.
 \end{enumerate}
@@ -38,10 +38,10 @@
     \begin{equation}\label{(9.9)}
         \forall z \in B_r(z_0) \ S_N(z) = \frac{1}{2 \pi i}\int_{\gamma_1}\frac{S_N(\zeta)}{(\zeta - z)}d \zeta
     \end{equation}
-    По теореме $2$ $\S 6$ $S(z)$ непрерывна на $\overline{B_{r+r_1}}(z_0)$.
+    По теореме $3$ $\S 6$ $S(z)$ непрерывна на $\overline{B_{r+r_1}}(z_0)$.
     Рассмотрим
     \begin{align*}
-      & \left| S_N(z) - \frac{1}{2 \pi i}\int_{\gamma_1}\frac{S(\zeta)}{\zeta - z} d\zeta \right| = \frac{1}{2 \pi}\left| \int_{\gamma_1} \frac{S_N(z) - S(\zeta)}{\zeta - z} d \zeta \right| \leq \frac{1}{2 \pi} \varepsilon \int_{\gamma_1}\frac{\left| d \zeta \right|}{\left| \zeta - z \right|} \leq \frac{\varepsilon}{2 \pi r_1}2 \pi \cdot \\
+      & \left| S_N(z) - \frac{1}{2 \pi i}\int_{\gamma_1}\frac{S(\zeta)}{\zeta - z} d\zeta \right| = \frac{1}{2 \pi}\left| \int_{\gamma_1} \frac{S_N(\zeta) - S(\zeta)}{\zeta - z} d \zeta \right| \leq \frac{1}{2 \pi} \varepsilon \int_{\gamma_1}\frac{\left| d \zeta \right|}{\left| \zeta - z \right|} \leq \frac{\varepsilon}{2 \pi r_1}2 \pi \cdot \\
       & \cdot (r+r_1) = \frac{r+r_1}{r_1}\varepsilon
     \end{align*}
     \begin{align*}
@@ -60,7 +60,7 @@
     Из \eqref{(9.7)} $\forall \varepsilon > 0 \ \exists N(\varepsilon): \
     \forall N\geq N(\varepsilon)$ выполняется \eqref{(9.7)}.
     \begin{align*}
-      \left| S^{(k)}(z) - s_N^{(k)}(z) \right| \leq \frac{k!}{2\pi}\int_{\gamma_1}\frac{\left| S(\zeta) - S_N(\zeta) \right|}{\left| \zeta - z \right|^{k+1}} \left| d\zeta \right|\leq \frac{\varepsilon 2 \pi (r+r_1)k!}{2 \pi r^{k+1}}
+      \left| S^{(k)}(z) - S_N^{(k)}(z) \right| \leq \frac{k!}{2\pi}\int_{\gamma_1}\frac{\left| S(\zeta) - S_N(\zeta) \right|}{\left| \zeta - z \right|^{k+1}} \left| d\zeta \right|\leq \frac{\varepsilon 2 \pi (r+r_1)k!}{2 \pi r^{k+1}}
     \end{align*}
     что для любого фиксированного $k$ сколь угодно мало.
     \begin{align*}
@@ -74,14 +74,16 @@
 \end{align*}
 имеет суммой регулярную функцию и дифференцируем почленно.
 \corollary
-Любая регулярная функция представима в виде ряда Тейлора.
+Любая регулярная функция представима в виде ряда Тейлора, а любая представимая
+рядом Тейлора регулярна.
 \section{$\S 10.$ Некоторые свойства регулярных функций}
 \theorem (единственности)
 Пусть $f: G \mapsto \CC$ регулярна на $G$; пусть $\exists z_n \to a, \ z_n \in
-G, \ a \in G, \ z_n \neq a: \ \forall n f(z_n) = 0$.
+G, \ a \in G, \ z_n \neq a: \ \forall n \ f(z_n) = 0$.
 \\
 Тогда $f(z) \equiv 0$ на $G$.
 \pr
+~
 \begin{enumerate}
     \item Т.~к. $a \in G$, то $\exists \rho_0 = \dst \inf_{\zeta \in \partial
       G}\left| a-\zeta \right| > 0: \ B_{\rho_0}(a) \subseteq G $. По теореме
@@ -100,9 +102,9 @@ G, \ a \in G, \ z_n \neq a: \ \forall n f(z_n) = 0$.
     $h$ регулярна, значит, $\exists \varepsilon \in (0; \rho_0): \ h(z) \neq 0
     \ \forall z \in B_{\varepsilon}(a)$.
     \\
-    Но тогда в $\overset{\circ}{B_{\varepsilon}(a)}$ $((z-a)^m \neq 0) \wedge
-    (h(z) \neq 0)$ $\Rightarrow$ $\exists z \in
-    \overset{\circ}{B_{\varepsilon}(a)}: \ f(z) \neq 0$.
+    Но тогда в $\overset{\circ}{B}_{\varepsilon}(a)$ $((z-a)^m \neq 0) \wedge
+    (h(z) \neq 0)$ $\Rightarrow$ $\forall z \in
+    \overset{\circ}{B}_{\varepsilon}(a) \ f(z) \neq 0$.
     \\
     Противоречие.
     \\
