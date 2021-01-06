@@ -21,9 +21,10 @@
 \begin{align*}
   & \left| t \right| < \alpha \Rightarrow \left| z - a \right| > \frac{1}{\alpha} = \rho
 \end{align*}
-Из \eqref{(11.2)}
+Из \eqref{(11.2)} ($R$~--- радиус сходимости) и \eqref{(11.4)} ($\alpha$~---
+радиус сходимости)
 \begin{align*}
-  & \left| z-a \right|<R, \rho < R
+  & \left| z-a \right|<R, \ \rho < R
 \end{align*}
 \begin{align*}
   & \rho < \left| z-a \right| < R
@@ -44,6 +45,7 @@ $\forall r_1, r_2: \ \rho < r_1 < r_2 < R$ \eqref{(11.1)} сходится
     c_n = \frac{1}{2\pi i}\int_{\gamma_r}\frac{f(\zeta)}{(\zeta - a)^{n+1}}d\zeta, \ r \in (\rho, R), \ \gamma_r = \{\zeta \mid \left| \zeta - a \right| = r\}
 \end{equation}
 \pr
+~
 \begin{enumerate}
     \item Коэффициенты $c_n$ в \eqref{(11.7)} не зависят от $r$.
     \begin{align*}
@@ -79,7 +81,7 @@ $\forall r_1, r_2: \ \rho < r_1 < r_2 < R$ \eqref{(11.1)} сходится
     \begin{align*}
       & M = \sup_{z \in \overline{K_{r_1,r_2}(a)}}\left| f(z) \right|< \infty
     \end{align*}
-    По теореме $2$ $\S 6$ интегрируем (сходится равномерно):
+    По теореме $3$ $\S 6$ интегрируем (сходится равномерно):
     \begin{align*}
       & I_2 = \sum_{n=0}^{+\infty}\int_{\gamma_2} \frac{1}{2 \pi i}\frac{f(\zeta)}{(\zeta - a)}\cdot \frac{(z_0-a)^n}{(\zeta - a)^n} d\zeta = \sum_{n=0}^{+\infty} c_n(z_0-a)^n
     \end{align*}
@@ -103,19 +105,20 @@ $\forall r_1, r_2: \ \rho < r_1 < r_2 < R$ \eqref{(11.1)} сходится
 Пусть $f: B_R(a) \mapsto \CC$ регулярна; тогда ее ряд Лорана совпадает с ее
 рядом Тейлора.
 \pr
+~
 \begin{enumerate}
     \item $f$ регулярна в круге, а значит,
     \begin{align*}
       & c_m = \frac{1}{2 \pi i}\int_{\gamma_r}\frac{f(\zeta)}{(\zeta - a)^{m+1}}d \zeta
     \end{align*}
-    При $m = 0$ $f(\zeta)(\zeta - a)^{-m-1}$ регулярна в этом круге, а значит,
+    При $m < 0$ $f(\zeta)(\zeta - a)^{-m-1}$ регулярна в этом круге, а значит,
     по теореме Коши $\forall m < 0 \ c_m = 0$.
     \item По \eqref{(11.7)} $\forall n \geq  0 \ c_n$ совпадает с
     коэффициентом ряда Тейлора.
 \end{enumerate}
 ч.~т.~д.
 \theorem (единственность ряда Лорана)
-Пусть $f:K_{\rho,R}(a) \mapsto \CC, \ 0 \leq rho < R$ регулярна и представима в
+Пусть $f:K_{\rho,R}(a) \mapsto \CC, \ 0 \leq \rho < R$ регулярна и представима в
 виде
 \begin{equation}\label{(11.8)}
   f(z) = \sum_{-\infty}^{+\infty} b_n(z-a)^n
@@ -127,7 +130,7 @@ $\forall r_1, r_2: \ \rho < r_1 < r_2 < R$ \eqref{(11.1)} сходится
 \end{align*}
 Фиксируем $k \in \ZZ$.
 \\
-Из примера $1$ $\S6$
+Из примера $1$ $\S 6$
 \begin{align*}
   & \frac{1}{2 \pi i} \int_{\gamma_r}\frac{d\zeta}{(\zeta - a)^{m+1}} = \left\{ \begin{matrix}
           1, \ m = 0 \\
@@ -142,7 +145,7 @@ $k$):
 \begin{align*}
   & \frac{1}{2\pi i}\frac{f(z)}{(z-a)^{k+1}} = \sum_{n = -\infty}^{+\infty} \frac{1}{2 \pi i}\frac{b_n(z-a)^n}{(z-a)^{k+1}}
 \end{align*}
-По теореме $2$ $\S 6$ интегрируем по $\gamma_r$:
+По теореме $3$ $\S 6$ интегрируем по $\gamma_r$:
 \begin{align*}
   & c_k = \frac{1}{2 \pi i} \int_{\gamma_r}\frac{f(z)}{(z - a)^{k+1}} = \sum_{n = -\infty}^{+\infty} \frac{1}{2\pi i}b_n \int_{\gamma_r}\frac{dz}{(z-a)^{k-n+1}}
 \end{align*}
@@ -177,7 +180,7 @@ $\overset{\circ}{B}_\rho(a)$, но не регулярна в $a$. Тогда $a
     \item \textbf{устранимой особой точкой (УОТ)}, если $\exists \dst \lim_{z
       \to a} f(z) \in \CC$.
     \item \textbf{полюсом}, если $\exists \dst \lim_{z \to a}f(z) = \infty$.
-    \item \textbf{существенно особой точкой (СОТ)}, если $\not \exists \dst
+    \item \textbf{существенно особой точкой (СОТ)}, если $\not \! \exists \dst
     \lim_{z \to a} f(z) \in \CCC$.
 \end{enumerate}
 \begin{itemize}
@@ -211,6 +214,7 @@ $\overset{\circ}{B}_\rho(a)$, но не регулярна в $a$. Тогда $a
     ненулевых слагаемых.
 \end{enumerate}
 \pr
+~
 \begin{itemize}
     \item[I] $a \in \CC$
     \begin{enumerate}
@@ -225,7 +229,7 @@ $\overset{\circ}{B}_\rho(a)$, но не регулярна в $a$. Тогда $a
             \begin{align*}
               & \exists \rho > 0, \ \exists A > 0: \ \left| f(z) \right| < A \ \forall z \in \overset{\circ}{B}_{\rho}(a)
             \end{align*}
-            По следствию $3$ $\S 11$
+            По следствию $11.2.2$
             \begin{align*}
               & \forall r \in (0;\rho) \ \left| c_n \right| \leq \frac{A}{r^n}
             \end{align*}
@@ -238,7 +242,7 @@ $\overset{\circ}{B}_\rho(a)$, но не регулярна в $a$. Тогда $a
             \begin{align*}
               & f(z) = \sum_{n=0}^{+\infty}c_n(z-a)^n = S(z)
             \end{align*}
-            По теореме Вейерштрасса ряд сходится локально равномерно, $s(z)$~---
+            По теореме Вейерштрасса ряд сходится локально равномерно, $S(z)$~---
             регулярная при $z \neq a$. Но тогда
             \begin{align*}
               & \lim_{z \to a}f(z) = \lim_{z \to a}S_n(z) = S(a) = c_0 \in \CC
@@ -250,12 +254,12 @@ $\overset{\circ}{B}_\rho(a)$, но не регулярна в $a$. Тогда $a
             \\
             $a$~--- полюс $\Rightarrow$
             \begin{align*}
-              & \lim_{z \to a} = \infty
+              & \lim_{z \to a}f(z) = \infty
             \end{align*}
             \begin{align*}
-              & \exists \rho > 0, \ \exists \delta > 0: \ \left| f(z) \right| > 1 \forall z \in \overset{\circ}{B}_{\rho}(a)
+              & \exists \rho > 0, \ \exists \delta > 0: \ \left| f(z) \right| > 1 \ \forall z \in \overset{\circ}{B}_{\rho}(a)
             \end{align*}
-            Положим $g(z) = \dst \frac{1}{f(z)}$. Эта фунция регулярна в
+            Положим $g(z) = \dst \frac{1}{f(z)}$. Эта функция регулярна в
             $\overset{\circ}{B}_{\rho}(a)$, а значит,
             \begin{align*}
               & \lim_{z \to a}g(z) = \lim_{z \to a}\frac{1}{f(z)} = 0
@@ -292,19 +296,19 @@ $\overset{\circ}{B}_\rho(a)$, но не регулярна в $a$. Тогда $a
             \begin{align*}
               & f(z) = \frac{p(z)}{(z-a)^n}, \ p(a) \neq 0
             \end{align*}
-            регулярная;
+            регулярная в $\os{\circ}{B}_{\delta_1}(a)$;
             \begin{align*}
               & \lim_{z \to a} \frac{p(z)}{(z-a)^n} = \infty
             \end{align*}         
         \end{itemize}
         \item $a$~--- СОТ.
         \\
-        Существование предела в $\CCC$ дает конечное число слааемыхб и это
+        Существование предела в $\CCC$ дает конечное число слагаемых, и это
         критерий. Значит, отсутствие предела в $\CCC$ равносильно бесконечному
         числу слагаемых в главной части ряда Лорана.
         \end{enumerate}
     \item[II] $a = \infty$: положим $\zeta = \dst \frac{1}{z}$, тогда $\infty$
-    перейдет в $0$. Рассмотрим $\tilde{f}(\zeta) = \left( \dst \frac{1}{\zeta}
+    перейдет в $0$. Рассмотрим $\tilde{f}(\zeta) = f\left( \dst \frac{1}{\zeta}
     \right)$. Тогда $\zeta = 0$~--- особая точка $\tilde{f}(\zeta)$. Главная
     часть при таком преобразовании переходит в главную часть, и мы можем
     повторить доказательство для точки из $\CC$.

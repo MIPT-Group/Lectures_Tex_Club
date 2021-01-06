@@ -2,6 +2,7 @@
     \textit{Лекция 9 (от 05.10)}
 \end{flushright}
 \corollary
+~
 \begin{enumerate}
     \item $a \neq \infty$~--- полюс $f$ $\Leftrightarrow$ $\exists
     \overset{\circ}{B}_{\rho}(a), \ \exists m \in \NN, \ \exists p: B_{\rho}(a)
@@ -29,7 +30,7 @@
 порядка функции $g$, причем $k \geq 0$, и $m$-го порядка функции $h$, причем $m
 \geq 1$. Тогда для $f = \dst \frac{g}{h}$ точка $a$ будет:
 \begin{enumerate}
-    \item полюсом $m-k$-го порядка, если $m > k$;
+    \item полюсом $(m-k)$-го порядка, если $m > k$;
     \item УОТ, если $m \leq k$.
 \end{enumerate}
 \pr
@@ -51,7 +52,7 @@
 \begin{align*}
   & f(z) = \frac{1}{\sin \frac{\pi}{z}}
 \end{align*}
-Тогда $\dst \frac{z_n} = \frac{1}{n}$~--- особые точки, но $0$~---
+Тогда $z_n = \dst \frac{1}{n}$~--- особые точки, но $0$~---
 неизолированная особая точка (предельная точка полюсов).
 \Exse
 Пусть $a$~--- полюс $f$ и существенно особая точка $g$. Чем является $a$ для $h
@@ -143,6 +144,7 @@ $a_1, \dots, a_n$, причем если $\infty \in \ol{G}$, то $a_n = \infty
     \int_{\Gamma}f(z)dz = 2 \pi i \sum_{k=1}^{n}\us{a_k}{\res} f
 \end{equation}
 \pr
+~
 \begin{enumerate}
     \item Рассмотрим случай: $G$ ограничена, $\exists r > 0:$ окрестности
     $\ol{B_r(a_k)}\subseteq G$ и не пересекаются.
@@ -189,7 +191,7 @@ $a_1, \dots, a_n$, причем если $\infty \in \ol{G}$, то $a_n = \infty
 \begin{align*}
   & \exists R_0: \ \forall k \in \{1, \dots, n-1\} \ \abs{a_k} \leq R_0
 \end{align*}
-Пусть $gamma_{R_0} = \{z \mid \abs{z} = R_0\}$ положительно ориентирована.
+Пусть $\gamma_{R_0} = \{z \mid \abs{z} = R_0\}$ положительно ориентирована.
 \\
 Тогда
 \begin{align*}
@@ -224,7 +226,7 @@ $a_1, \dots, a_n$, причем если $\infty \in \ol{G}$, то $a_n = \infty
 0 \} = \left[ -R;R \right] \cup C_R$.
 \begin{figure}[h!]
 		\centering
-		\includegraphics[scale=1]{circ.png}
+		\includegraphics[scale=1]{circ.eps}
     \caption{Полукруг в верхней полуплоскости с обходом против часовой стрелки}
 		\label{fig:13.1}
 \end{figure}
@@ -236,7 +238,7 @@ $a_1, \dots, a_n$, причем если $\infty \in \ol{G}$, то $a_n = \infty
   & = \pi \left( \cos \frac{\pi}{4} - \cos \frac{3\pi}{4} \right) = \pi \sqrt{2}
 \end{align*}
 \begin{align*}
-  & \pi \sqrt{2} = \int_{-R}^{+R}f(z) + \int_{C_R}f(z) \us{R\to \infty}{\longrightarrow} \int_{-R}^{+R} f(z) = \int_{-R}^{R}f(x)
+  & \pi \sqrt{2} = \int_{-R}^{+R}f(z) + \int_{C_R}f(z) \us{R\to \infty}{\longrightarrow} \int_{-\infty}^{+\infty} f(z) = \int_{-\infty}^{\infty}f(x)
 \end{align*}
 Итак, достаточно доказать
 \begin{align*}

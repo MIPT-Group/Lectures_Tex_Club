@@ -67,7 +67,7 @@ n\}$, $R_0 = \max \sets{z_k^+}$. Пусть
 \end{align*}
 Покажем, что
 \begin{align*}
-  & const = I_R = \int_{C_R}e^{i\alpha z}F_{n,m}(z) dz + \int_{-R}^Re^{i\alpha z}F_{n,m}(z) dz \to \int_{-R}^Re^{i\alpha z}F_{n,m}(z) dz
+  & const = I_R = \int_{C_R}e^{i\alpha z}F_{n,m}(z) dz + \int_{-R}^Re^{i\alpha z}F_{n,m}(z) dz \us{R \to \infty}{\to} \int_{-\infty}^\infty e^{i\alpha z}F_{n,m}(z) dz
 \end{align*}
 то есть
 \begin{equation}\label{(13.12)}
@@ -83,28 +83,28 @@ n\}$, $R_0 = \max \sets{z_k^+}$. Пусть
     \lim_{R \to \infty}\int_{C_R}e^{i \alpha z}\Phi(z)dz = 0
 \end{equation}
 \pr
-$z = x + iy \in C_R$. Значит, положим $z = R \cos \varphi$, $y = R \sin \varphi$,
+$z = x + iy \in C_R$. Значит, положим $x = R \cos \varphi$, $y = R \sin \varphi$,
 $ \varphi \in [0,\pi]$. Тогда
 \begin{align*}
   & e^{i \alpha z} = e^{i \alpha(x+iy)} = e^{-\alpha y + i \alpha x} = e^{-\alpha R \sin \varphi + i \alpha R \cos \varphi}
 \end{align*}
 \begin{align*}
-  & \left| e^{i \alpha z} \right| = e^{-\alpha R \sin varphi}
+  & \left| e^{i \alpha z} \right| = e^{-\alpha R \sin \varphi}
 \end{align*}
 \begin{align*}
   & z = R e^{i \varphi} \Rightarrow dz = R i e^{i \varphi} d \varphi
 \end{align*}
 \begin{align*}
   & \left| \int_{C_R}e^{i \alpha z}\Phi(z) dz \right| \leq \int_{0}^{\pi}e^{-\alpha R \sin \varphi}\varepsilon(R) R d \varphi = \varepsilon(R) R \int_{0}^{\pi}e^{-\alpha R \sin \varphi}d \varphi = 2 \varepsilon(R) R \int_{0}^{\frac{\pi}{2}}e^{-\alpha R \sin \varphi}d \varphi \leq \\
-  & \leq 2 \varepsilon(R) R \int_{0}^{\frac{\pi}{2}}\exp\left( -\alpha R \frac{2 \varphi}{\pi} \right) d \varphi = \frac{2 \varepsilon(R) R \pi}{2 \alpha R}\left( 1 - e^{-alpha R} \right) \leq \frac{\pi}{\alpha} \varepsilon(R) \us{R \to \infty}{\to} 0
+  & \leq 2 \varepsilon(R) R \int_{0}^{\frac{\pi}{2}}\exp\left( -\alpha R \frac{2 \varphi}{\pi} \right) d \varphi = \frac{2 \varepsilon(R) R \pi}{2 \alpha R}\left( 1 - e^{-\alpha R} \right) \leq \frac{\pi}{\alpha} \varepsilon(R) \us{R \to \infty}{\to} 0
 \end{align*}
 Здесь использовали соотношение: $\forall \varphi \in \left[ 0, \dst
     \frac{\pi}{2} \right] \ \sin \varphi \geq \dst \frac{2 \varphi}{\pi}$.
 \begin{align*}
   & z = R e^{i \varphi} \Rightarrow dz = R i e^{i \varphi} d \varphi
 \end{align*}
-Применив лемму, докажем равенство \eqref{(13.12)}. При $\left| z \right| > R$ и
-$m-n \geq 1$
+Применив лемму, докажем равенство \eqref{(13.12)}. При достаточно больших по
+модулю $z$ и $m-n \geq 1$
 \begin{align*}
   & \left| F_{n,m}(z) \right| \leq 2 \left| z \right|^{n-m} \leq 2 R^{n-m} \leq \frac{2}{R} \us{R \to \infty}{\to} 0
 \end{align*}
@@ -119,10 +119,10 @@ $m-n \geq 1$
     \cos \varphi = \frac{x}{\left| z \right|}, \ \sin \varphi = \frac{y}{\left| z \right|}
 \end{equation}
 \theorem
-Пусть $z: [0,1] \mapsto \CC$ непрерывно дифференцируема, $\forall t \in [0,1]
+Пусть $z: [0,1] \mapsto \CC$ непрерывно дифференцируема, $\forall t \in [0,1] \
 z(t)\neq 0$. Пусть $\varphi_0 = \varphi(0) \in \Arg z(0)$. Тогда существует и
 единственна функция $\varphi: [0,1] \mapsto \RR$, непрерывно дифференцируемая,
-$\forall t \in [0,1] \varphi(t) \in \Arg z(t)$, т.~е.
+$\forall t \in [0,1] \ \varphi(t) \in \Arg z(t)$, т.~е.
 \begin{equation}\label{(14.2)}
     \forall t \in [0,1] \ \cos \varphi(t) = \frac{x(t)}{\left| z(t) \right|}, \ \sin \varphi(t) = \frac{y(t)}{\left| z(t) \right|}
 \end{equation}
@@ -131,6 +131,7 @@ $\forall t \in [0,1] \varphi(t) \in \Arg z(t)$, т.~е.
     \varphi(t) = \varphi_0 + \int_{0}^t \frac{x(\tau)y'(\tau)-y(\tau)x'(\tau)}{x^2(\tau)+y^2(\tau)}d \tau
 \end{equation}
 \pr
+~
 \begin{itemize}
     \item Существование.
     \\
@@ -174,7 +175,8 @@ $\forall t \in [0,1] \varphi(t) \in \Arg z(t)$, т.~е.
     \begin{align*}
       \varphi_1'(t) = \frac{xy'-yx'}{x^2+y^2}
     \end{align*}
-    а значит, эта функция наодится по формуле \eqref{(14.3)} и совпадает с $\varphi$.
+    а значит, эта функция находится по формуле \eqref{(14.3)} и совпадает с
+    $\varphi$.
 \end{itemize}
 \note
 Формулу \eqref{(14.3)} можем записать как
@@ -196,12 +198,12 @@ $\forall t \in [0,1] \varphi(t) \in \Arg z(t)$, т.~е.
 \end{equation}
 \begin{figure}[h!]
 		\centering
-		\includegraphics[scale=0.8]{deltaarg.png}
+		\includegraphics[scale=0.8]{deltaarg.eps}
     \caption{Приращение аргумента вдоль кривой}
 		\label{fig:14.1}
 \end{figure}\\
 \theorem (логарифмическое свойство)
-Пусть $z(t) \in C^1[0;1]$, $\forall t \in [0,1] z(t) \neq 0$. Пусть $z(t) =
+Пусть $z(t) \in C^1[0;1]$, $\forall t \in [0,1] \ z(t) \neq 0$. Пусть $z(t) =
 z_1(t)z_2(t)$, $z_k(t) \in C^1[0,1]$. Тогда
 \begin{equation}\label{(14.8)}
     \Delta_{[0,1]}\argt z = \Delta_{[0,1]}\argt z_1 + \Delta_{[0,1]}\argt z_2
@@ -210,7 +212,7 @@ z_1(t)z_2(t)$, $z_k(t) \in C^1[0,1]$. Тогда
 Из \eqref{(14.7)} имеем:
 \begin{align*}
   & \Delta_{[0,1]} \argt z(t) = \Img \int_{0}^{1}\frac{\left( z_1(\tau)z_2(\tau) \right)'}{z_1(\tau)z_2(\tau)}d \tau =\Img \int_{0}^{1}\frac{z_1'z_2+z_1z_2'}{z_1z_2}d \tau = \Img \int_{0}^{1}\frac{z_1'}{z_1}d \tau + \Img \int_{0}^{1}\frac{z_2'}{z_2}d \tau = \\
-  & = \Delta_{[0,1]} \argt z_1(t) \Delta_{[0,1]} \argt z_2(t) 
+  & = \Delta_{[0,1]} \argt z_1(t) + \Delta_{[0,1]} \argt z_2(t) 
 \end{align*}
 \Def
 Пусть $\gamma$~--- кривая в $\CC$, заданная параметризацией $z=z(t)$, $t \in

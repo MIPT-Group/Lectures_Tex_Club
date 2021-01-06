@@ -113,7 +113,7 @@ G, \ a \in G, \ z_n \neq a: \ \forall n \ f(z_n) = 0$.
     \\
     Существует спрямляемая $\gamma_{ab} \subseteq G$. Пусть $\rho = \inf\{\left|
         \zeta - z \right| \mid \zeta \in \gamma_{ab}, \ z \in \Gamma\} > 0$;
-    $\rho_0 \leq \rho$.
+    $\rho_0 \geq \rho$.
     \\
     Можем построить разбиение $\zeta_0 = a, \zeta_1, \dots, \zeta_{K-1}, \zeta_K
     = b$, такое, что $l(\zeta_k, \zeta_{k+1}) \leq \dst \frac{\rho}{2}$. Пусть
@@ -128,7 +128,7 @@ G, \ a \in G, \ z_n \neq a: \ \forall n \ f(z_n) = 0$.
         B_0 \ f(z) = 0$.
         \item Шаг: если $\forall z \in B_k \ f(z) = 0$, то $[\zeta_k;
         \zeta_{k+1}]\subseteq B_{k+1}\cap B_{k}$, значит, $\forall z \in B_{k+1}
-        f(z) = 0$ (по п. $1$), а значит, $f(z) = 0$ на $B_k$ и $f(b) = 0 $.
+        \ f(z) = 0$ (по п. $1$), а значит, $f(z) = 0$ на $B_k$ и $f(b) = 0 $.
     \end{enumerate}
 \end{enumerate}
 \corollary
@@ -170,7 +170,7 @@ $g(z) = \dst \sum_{n=0}^{\infty} \dst \frac{z^n}{n!}$ по теореме Вей
 \end{align*}
 причем $\gamma_{z_0z}\subseteq B_{r}(z_0)$.
 \\
-Аналогично теореме $3$ $\S 6$ $\forall z \in B_r(z_0) \ \exists g'(z) = f(z)$,
+Аналогично теореме $4$ $\S 6$ $\forall z \in B_r(z_0) \ \exists g'(z) = f(z)$,
 т.~е. $g(z)$ регулярна в $B_r(z_0)$.
 \\
 Из теоремы $3$ $\S8$ $g(z)$ бесконечно дифференциуема. Значит, и $f(z)$

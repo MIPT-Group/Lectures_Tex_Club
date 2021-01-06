@@ -13,8 +13,8 @@ $[0;1] \times [a,b]$, то говорят, что в области $G$ $\gamma_
 \theorem
 Пусть в $\CC \setminus \{0\}$ задана непрерывная деформация $\gamma_a$ в
 $\gamma_b$ через семейство $\left\{ \gamma_\alpha \right\}_{\alpha \in [a;b]}$.
-Пусть $\exists A \in \CC, \ A \neq 0$ такое, что $\forall \alpha \in [a;b] z(1,
-\alpha) = Az(0, \alpha)$ и $I(\alpha) = \Delta_{\gamma_\alpha}\argt z =
+Пусть $\exists A \in \CC, \ A \neq 0$ такое, что $\forall \alpha \in [a;b] \
+z(1,\alpha) = Az(0, \alpha)$ и $I(\alpha) = \Delta_{\gamma_\alpha}\argt z =
 \Delta_{[0;1]}\argt z(t, \alpha)$. Тогда $\forall \alpha \in [a,b] \ I(\alpha) =
 const$. В частности, $\Delta_{\gamma_a}\argt z = \Delta_{\gamma_b}\argt z$.
 \pr
@@ -29,14 +29,14 @@ const$. В частности, $\Delta_{\gamma_a}\argt z = \Delta_{\gamma_b}\arg
 Значит, $I(\alpha)$ ступенчатая; но по определению приращения аргумента через
 интеграл она непрерывна. Значит, она постоянна.
 \\
-$\forall z(t) \in C[0;1]$ таких, что $\forall t \in [0;1] z(t) \neq 0$ и $r =
+$\forall z(t) \in C[0;1]$ таких, что $\forall t \in [0;1] \ z(t) \neq 0$ и $r =
 \dst \min_{t \in [0;1]} \left| z(t) \right|$ положим $\varepsilon\in \left( 0;
     \dst \frac{r}{2} \right)$. Тогда существует \textbf{гладкая
-  $\varepsilon$-аппроксимация $z(t)$}: $\forall t \in [0;1] z_\varepsilon(t)
-\neq 0,$ $\left| z(t) - z_\varepsilon(t) \right| \leq \varepsilon$,
+  $\varepsilon$-аппроксимация $z(t)$}: $\forall t \in [0;1] \ z_\varepsilon(t)
+\neq 0$, $\left| z(t) - z_\varepsilon(t) \right| \leq \varepsilon$,
 $z_\varepsilon(0) = z(0)$, $z_\varepsilon(1) = z(1)$.
 \\
-Докжем это, построив пример. Действительно, по теореме Вейерштрасса
+Докажем это, построив пример. Действительно, по теореме Вейерштрасса
 \begin{align*}
   & \exists P_n(t): \ \forall t \in [0;1] \left| z(t) - P_n(t) \right| < \frac{\varepsilon}{2}
 \end{align*}
@@ -62,7 +62,7 @@ $z(t)$ при малых $\varepsilon$ ($\varepsilon \in \left( 0, \dst \frac{r}
 \prop
 Определение $[14.4]$ не зависит от выбора $z_\varepsilon$.
 \pr
-Пусть $я_\varepsilon$~--- гладкая $\varepsilon$-аппроксимация,
+Пусть $z_\varepsilon$~--- гладкая $\varepsilon$-аппроксимация,
 $\tilde{z}_\varepsilon$~--- другая гладкая $\varepsilon$-аппорксимация.
 Тогда
 \begin{align*}
@@ -201,7 +201,7 @@ $\left\{ \sqrt[n]{z} \right\}$ или $\Ln z$.
   & \varphi_{\gamma_{z_0z}} \in \Arg z
 \end{align*}
 \begin{align*}
-  & \Delta_{\gamma_{z_0z}}\argt z = \int_{\gamma_{z_0z}}\frac{d \zeta}{\zeta}
+  & \Delta_{\gamma_{z_0z}}\argt z = \Img \int_{\gamma_{z_0z}}\frac{d \zeta}{\zeta}
 \end{align*}
 Знаем, что $\dst \frac{1}{z}$ регулярна в $G$, а значит, по теореме Коши
 \begin{align*}
@@ -217,7 +217,7 @@ $\left\{ \sqrt[n]{z} \right\}$ или $\Ln z$.
 \end{equation}
 будет непрерывной, и, зная это, легко построить
 \begin{equation}\label{(15.10)}
-    \tilde{g}(z) = \sqrt[n]{\left| z \right|} \exp\left( \frac{i}{n} \varphi_0 \right)
+    \tilde{g}(z) = \sqrt[n]{\left| z \right|} \exp\left( \frac{i}{n} \varphi_0(z) \right)
 \end{equation}
 \begin{equation}\label{(15.11)}
     \tilde{h}(z) = \ln \left| z \right| + i \varphi_0(z)
@@ -238,7 +238,7 @@ $G$.
 Всякая ветвь такова по лемме $1$. Докажем регулярность $\tilde{g}(z)$.
 \\
 Рассмотрим $z_1 \in G$: $\exists B_r(z_1) \subseteq G$, $0 \not \in B_r(z_1)$
-$\Rightarrow$ $\exists \varphi_0 \in [-pi, \pi): \ B_r(z_1) \subseteq \CC
+$\Rightarrow$ $\exists \varphi_0 \in [-\pi, \pi): \ B_r(z_1) \subseteq \CC
 \setminus \lambda_{\varphi_0}$.
 \\
 Значит, по лемме $1$ $\tilde{g}(z)$ регулярна; в силу произвольности выбора
