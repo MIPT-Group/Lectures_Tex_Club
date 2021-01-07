@@ -9,7 +9,7 @@
 		
 		\item $\exists e \in G: \forall a \in G: ae = ea = a$ (элемент $e$ называется \textit{нейтральным})
 		
-		\item $\forall a \in G: \exists a^{-1} \in G: aa^{-1} = a^{-1}a = a$ (элемент $a^{-1}$ называется \textit{обратным} к $a$)
+		\item $\forall a \in G: \exists a^{-1} \in G: aa^{-1} = a^{-1}a = e$ (элемент $a^{-1}$ называется \textit{обратным} к $a$)
 	\end{enumerate}
 \end{definition}
 
@@ -56,7 +56,7 @@
 \end{reminder}
 
 \begin{definition}
-	\textit{Беспорядком} в перестановке $\sigma \in S_n$ называется пара $(i, j), i, j \hm\in \{1, \dotsc, n\}$ такая, что $i < j$, но $\sigma(i) > \sigma(j)$. \textit{Знаком перестановки} $\sigma \in S_n$ называется число $(-1)^{N(\sigma)}$, где $N(\sigma)$ "--- количество беспорядков в $\sigma$. Обозначение "--- $\sgn{\sigma}$.
+	\textit{Беспорядком} в перестановке $\sigma \in S_n$ называется пара $(i, j) \in \{1, \dotsc, n\}^2 $ такая, что $i < j$, но $\sigma(i) > \sigma(j)$. \textit{Знаком перестановки} $\sigma \in S_n$ называется число $(-1)^{N(\sigma)}$, где $N(\sigma)$ "--- количество беспорядков в $\sigma$. Обозначение "--- $\sgn{\sigma}$.
 \end{definition}
 
 \begin{reminder}
@@ -138,7 +138,7 @@
 \end{note}
 
 \begin{theorem}[Лагранжа]
-	Пусть $G$ "--- конечная группа, $H \le G$. Тогда $|G| = |H||G / H| \hm= |G||H \bs G|$.
+	Пусть $G$ "--- конечная группа, $H \le G$. Тогда $|G| = |H||G / H| \hm= |H||H \bs G|$.
 \end{theorem}
 
 \begin{proof}

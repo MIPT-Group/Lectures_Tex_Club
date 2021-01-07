@@ -94,7 +94,7 @@
 		\item (Обратный элемент) $\forall gK \in G / K: \exists (gK)^{-1} = g^{-1}K \in G / K: (gK)(gK)^{-1} \hm= (gK)^{-1}(gK) = K$
 	\end{itemize}
 	
-	Отображение $\pi$ "--- это гомоморфизм по определению, и его сюръективность очевидна: $\forall gK \in K: \exists g \in G: \pi(g) = gK$.
+	Отображение $\pi$ "--- это гомоморфизм по определению, и его сюръективность очевидна: $\forall gK \in G / K: \exists g \in G: \pi(g) = gK$.
 \end{proof}
 
 \begin{definition}
@@ -107,7 +107,7 @@
 
 \begin{theorem}[Основная теорема о гомоморфизме]~
 	\begin{enumerate}
-		\item Пусть $G$ "--- группа, $K \normal G$. Тогда $\exists \pi: G \to G / K$ "--- эпиморфизм такой, что $\ke\phi \hm= K$.
+		\item Пусть $G$ "--- группа, $K \normal G$. Тогда $\exists \pi: G \to G / K$ "--- эпиморфизм такой, что $\ke\pi \hm= K$.
 		\item Пусть $G, H$ "--- группы, $\phi: G \to H$ "--- гомоморфизм. Тогда $K \hm{:=} \ke\phi \normal G$, и, более того, $\im\phi \cong G / K$.
 	\end{enumerate}
 \end{theorem}
@@ -123,12 +123,12 @@
 	
 	Нам требуется предъявить такой изоморфизм $\Theta: G / K \to \im\phi$, что $\Theta \circ \pi = \phi$. Построим $\psi := \Theta^{-1}$: $\forall \overline{g} \in \im\phi: \psi(\overline{g}) = \phi^{-1}(\overline{g}) \hm= gK \in G / K$. Проверим, что это изоморфизм:
 	\begin{itemize}
-		\item (Гомоморфизм) $\forall \overline{g_1}, \overline{g_2} \in \im\phi: \psi(\overline{g_1}\overline{g_2}) = \psi(\overline{g_1g_2}) = g_1g_2K \hm= (g_1K)(g_2K) = \psi(\overline{g_1})\psi(\overline{g_2})$
+		\item (Гомоморфизм) $\forall \overline{g_1}, \overline{g_2} \in \im\phi: \psi(\overline{g_1}\cdot\overline{g_2}) = \psi(\overline{g_1g_2}) = g_1g_2K \hm= (g_1K)(g_2K) = \psi(\overline{g_1})\psi(\overline{g_2})$
 		\item (Сюръективность) $\forall gK \in G / K: gK = \psi(\overline{g})$
 		\item (Инъективность) Достаточно показать, что $\ke\psi = \{e\}$: $\forall \overline{g} \hm\in \im\phi: \psi(\overline{g}) = K \hm\Rightarrow gK = K \Rightarrow g \in K \Rightarrow \overline{g} = \overline{e}$
 	\end{itemize}
 	
-	Теорема доказана, но убедимся непосредственно в том, что диаграмма коммутативна, то есть $\Theta \circ \pi = \phi$, или $\Theta^{-1} \circ \phi = \psi \circ \phi = \pi$: $\forall g \hm\in G: \psi(\phi(g)) = \phi(\overline{g}) = gK = \pi(g)$.
+	Теорема доказана, но убедимся непосредственно в том, что диаграмма коммутативна, то есть $\Theta \circ \pi = \phi$, или $\Theta^{-1} \circ \phi = \psi \circ \phi = \pi$: $\forall g \hm\in G: \psi(\phi(g)) = \psi(\overline{g}) = gK = \pi(g)$.
 \end{proof}
 
 \begin{note}
@@ -140,7 +140,7 @@
 \end{theorem}
 
 \begin{proof}
-	Первая утверждение теоремы уже было доказано, поэтому докажем оставшиеся два. Для этого рассмотрим канонический эпиморфизм $\pi: G \hm\to G / K$ и $\forall g \in G$ обозначим $\overline{g} := \pi(g)$.
+	Первое утверждение теоремы уже было доказано, поэтому докажем оставшиеся два. Для этого рассмотрим канонический эпиморфизм $\pi: G \hm\to G / K$ и $\forall g \in G$ обозначим $\overline{g} := \pi(g)$.
 	
 	Пусть $\phi := \pi|_H : H \to G/ K$. Тогда $\ke\phi = \ke\pi \cap H = K \cap H$, откуда $K \cap H \normal H$. $\im\phi = \{\overline{h}: h \in H\} = \{hK: h \hm\in H\} = HK / K$, поскольку $HK / K \hm= \{hkK: h \in H, k \hm\in K\} = \{hK: h \in H\}$. По основной теореме о гомоморфизме, $HK / K \cong H / (K \cap H)$.
 \end{proof}
@@ -170,7 +170,7 @@
 \end{proposition}
 
 \begin{proof}
-	Рассмотрим отображение $\delta: H\times K \to K$ такое, что $\forall h \hm\in H: \forall k \in K: \delta(h, k) = hk$. Тогда $\delta(h_1, k_1) = \delta(h_2, k_2) \hm\Leftrightarrow h_1k_1 = h_2k_2 \hm\Leftrightarrow h_2^{-1}h_1 = k_2k_1^{-1} = x \in H \cap K$, то есть $h_1 = h_2x$, $k_1 = x^{-1}k_2$. Значит, $|HK||H \cap K| = |H \times K| = |H||K|$.
+	Рассмотрим отображение $\delta: H\times K \to G$ такое, что $\forall h \hm\in H: \forall k \in K: \delta(h, k) = hk$. Тогда $\delta(h_1, k_1) = \delta(h_2, k_2) \hm\Leftrightarrow h_1k_1 = h_2k_2 \hm\Leftrightarrow h_2^{-1}h_1 = k_2k_1^{-1} = x \in H \cap K$, то есть $h_1 = h_2x$, $k_1 = x^{-1}k_2$. Значит, $|HK||H \cap K| = |H \times K| = |H||K|$.
 \end{proof}
 
 \begin{example} Рассмотрим несколько примеров применения теорем об изоморфизме:

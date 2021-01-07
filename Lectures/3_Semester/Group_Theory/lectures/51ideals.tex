@@ -181,7 +181,7 @@
 \end{note}
 
 \begin{definition}
-	Пусть $R$ "--- кольцо, $I \normal R$, $I \ne R$. $I$ называется \textit{максимальным идеалом}, если $\forall J \normal R, J \ne R: J \subset I$. 
+	Пусть $R$ "--- кольцо, $I \normal R$, $I \ne R$. $I$ называется \textit{максимальным идеалом}, если $\forall J \normal R, I \subsetneq J: J = R$. 
 \end{definition}
 	
 \begin{definition}
@@ -198,7 +198,7 @@
 
 \begin{proof}~
 	\begin{itemize}
-		\item[$\la$] Пусть $I$ не максимален, то есть $\exists J \normal R, J \ne R: I \subsetneq J$. Легко показать, что тогда $J / I \normal R / I$, причем $J / I \ne \{I\}$ и $J / I \ne R / I$. Но в поле любой ненулевой идеал совпадает со всем полем, поскольку он содержит единицу поля, --- противоречие.
+		\item[$\la$] Пусть $I$ не максимален, то есть $\exists J \normal R: J \ne R, I \subsetneq J$. Легко показать, что тогда $J / I \normal R / I$, причем $J / I \ne \{I\}$ и $J / I \ne R / I$. Но в поле любой ненулевой идеал совпадает со всем полем, поскольку он содержит единицу поля, --- противоречие.
 		\item[$\ra$] Пусть $I$ максимален, $a + I \in R / I$, $a \not\in I$. Рассмотрим идеал $J = I + (a) \normal R$. В силу максимальности $I$, $J = R$. Значит, $1 \in J$, то есть единица представима в виде $1 = x + ar, x \in I, r \in R$. Значит, $(a + I)(r + I) = (1 - x) + I = 1 + I$. Поскольку $1 + I$ "--- это единица в $R / I$, то $a + I$ обратим в $I$ и, в силу произвольности $a$, $R / I$ "--- поле.
 	\end{itemize}
 \end{proof}
