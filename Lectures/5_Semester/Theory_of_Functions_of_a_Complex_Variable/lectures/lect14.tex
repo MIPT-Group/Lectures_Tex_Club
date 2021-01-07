@@ -18,7 +18,8 @@ $g(z) = \sqrt[4]{z^3(2-z)}$ дает многозначную функцию. О
 Отыщем ветвь, что нам нужна. Построим ее так, чтобы $g(1+i0) = 1$; тогда
 $\forall x \in [0;2] \ g(x+i0) = \sqrt[4]{x^3(2-x)}$. В этом случае
 \begin{align*}
-  & g(x-i0) = g(1+i0)\exp\left( \frac{i}{4}\left( 3\Delta_{\gamma_{1+i0,x}}\argt z + \Delta_{\gamma_{1+i0,x}}\argt (2-z) \right) \right) = \exp\left( \frac{-i\pi}{2}\right)
+  & g(x-i0) = g(1+i0)\sqrt[4]{\frac{\left| g(x-i0) \right|}{\left| g(1+i0) \right|}}\exp\left( \frac{i}{4}\left( 3\Delta_{\gamma_{1+i0,x}}\argt z + \Delta_{\gamma_{1+i0,x}}\argt (2-z) \right) \right) = \\
+  & = \sqrt[4]{\frac{\left| g(x-i0) \right|}{\left| g(1+i0) \right|}}\exp\left( \frac{-i\pi}{2}\right)
 \end{align*}
 \begin{figure}[h!]
 		\centering
@@ -39,7 +40,7 @@ $\forall x \in [0;2] \ g(x+i0) = \sqrt[4]{x^3(2-x)}$. В этом случае
 \end{align*}
 Видим, что $-1$~--- полюс $2$ порядка, а $\infty$~--- УОТ.
 \begin{align*}
-  & \us{-1}{\res} F(z) = \lim_{z \to -1}((z+1)^2F(z))' = \lim_{z \to -1}g'(z) = g'(-1) = \frac{f'(z)}{4g^3(z)}\mid_{z = -1} = \frac{-4(-1)^3+6(-1)^2}{4\left( \sqrt[4]{3}\exp\left( \frac{3i\pi}{4} \right)\right)^3} = \\
+  & \us{-1}{\res} F(z) = \lim_{z \to -1}((z+1)^2F(z))' = \lim_{z \to -1}g'(z) = g'(-1) = \left. \frac{f'(z)}{4g^3(z)}\right|_{z = -1} = \frac{-4(-1)^3+6(-1)^2}{4\left( \sqrt[4]{3}\exp\left( \frac{3i\pi}{4} \right)\right)^3} = \\
   & = \frac{5}{2\sqrt[4]{27}}\exp\left( \frac{-i\pi}{4} \right)
 \end{align*}
 Рассмотрим $x \in (2; \infty)$; тогда
@@ -79,11 +80,11 @@ $\forall x \in [0;2] \ g(x+i0) = \sqrt[4]{x^3(2-x)}$. В этом случае
 \end{align*}
 Учтя $z = \varepsilon e^{i \varphi}$,
 \begin{align*}
-  & \left|  \int_{C_{0, \varepsilon}}F(z) \right| \leq \int_{0}^{2 \pi}\frac{\sqrt[4]{\varepsilon^3(2+\varepsilon)}\varepsilon}{(1-\varepsilon)^2}d\varphi \leq A\varepsilon^{\frac{7}{3}} \us{\varepsilon \to 0}{\to} 0
+  & \left|  \int_{C_{0, \varepsilon}}F(z) \right| \leq \int_{0}^{2 \pi}\frac{\varepsilon\sqrt[4]{\varepsilon^3(2+\varepsilon)}}{(1-\varepsilon)^2}d\varphi \leq A\varepsilon^{\frac{7}{3}} \us{\varepsilon \to 0}{\to} 0
 \end{align*}
 Учтя $z = 2 + \varepsilon e^{i \varphi}$,
 \begin{align*}
-  & \left|  \int_{C_{2, \varepsilon}}F(z) \right| \leq \int_{0}^{2 \pi}\frac{\sqrt[4]{(2+\varepsilon)^3\varepsilon}\varepsilon}{(3-\varepsilon)^2}d\varphi \leq B\varepsilon^{\frac{4}{3}} \us{\varepsilon \to 0}{\to} 0
+  & \left|  \int_{C_{2, \varepsilon}}F(z) \right| \leq \int_{0}^{2 \pi}\frac{\varepsilon\sqrt[4]{(2+\varepsilon)^3\varepsilon}}{(3-\varepsilon)^2}d\varphi \leq B\varepsilon^{\frac{4}{3}} \us{\varepsilon \to 0}{\to} 0
 \end{align*}
 Значит,
 \begin{align*}
@@ -150,7 +151,7 @@ A\left| z \right|^m$. Тогда $f(z)$~--- многочлен степени $\
     $f$ неограничена в окрестности $\infty$ (т.~к. иначе она бы имела конечный
     предел), т.~е.
     \begin{align*}
-      & \forall n \in \NN \exists z_n \in \CC: \left| f(z_n) \right|> n, \ \left| z_n \right| > n
+      & \forall n \in \NN \ \exists z_n \in \CC: \left| f(z_n) \right|> n, \ \left| z_n \right| > n
     \end{align*}
     Итак, $\left\{ z_n \right\}$ и есть та самая последовательность.
     \item $A \in \CC$
@@ -186,8 +187,8 @@ A\left| z \right|^m$. Тогда $f(z)$~--- многочлен степени $\
   & \exists z_n \to \infty: \ \forall n \in \NN \ f(z_n) = A
 \end{align*}
 \Example
-$e^z = A$ имеет счетное число решений в любой окрестности при $A \neq 0$, но ни
-одного решения при $A = 0$.
+$e^z = A$ имеет счетное число решений в любой окрестности бесконечности при $A
+\neq 0$, но ни одного решения при $A = 0$.
 \Exse
 Пусть $f$~--- целая функция и
 \begin{align*}

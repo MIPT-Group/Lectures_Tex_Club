@@ -2,13 +2,15 @@
     \textit{Лекция 13 (от 19.10)}
 \end{flushright}
 \pr
-Из леммы $5$ очевидно следует необходимость.
+Из леммы $5$ очевидно следует необходимость (возьмем $a = b$).
 \\
 Докажем достаточность. Пусть $a \in G$, $z \in G$, $\gamma_{az}\in G$, $g(a) \in
 \left\{ \sqrt[n]{f(z)} \right\}$. Тогда выполняется
 \begin{equation}\label{(16.16)}
     g(z) = g(a) \sqrt[n]{\left| \frac{f(b)}{f(a)} \right|}\exp \left( \frac{i}{n} \Delta_{\gamma_{az}}\arg f(z) \right)
 \end{equation}
+Докажем регулярность такой ветви.
+\\
 Для замкнутых кривых экспонента примет значение $1$, а значит, $g(z)$ зависит
 только от точки $z$. Очевидно, $\forall z \in G \ g(z)\in \left\{ \sqrt[n]{f(z)}
 \right\}$. Докажем ее регулярность.
@@ -28,7 +30,7 @@ $\os{\circ}{\gamma} \subseteq B_\varepsilon(z_1)$. Но
   & h(z) = \ln \left| f(z) \right| + i \left(\psi_0 + \Delta_{\gamma_{z_1z}}\argt f(z)\right), \ \psi_0 \in \Arg f(z_1)
 \end{align*}
 \begin{equation}\label{(16.18)}
-    g(z_1) = \sqrt[n]{f(z_1)} \exp\left( \frac{i}{n}\psi_0 \right)
+    g(z_1) = \sqrt[n]{\abs{f(z_1)}} \exp\left( \frac{i}{n}\psi_0 \right)
 \end{equation}
 В $B_\varepsilon(z_1)$ есть регулярная ветвь $\Ln f(z)$, причем $h(z)$~--- та
 самая ветвь, значит, $g(z)$ регулярна в $B_\varepsilon(z_1)$.
@@ -48,7 +50,7 @@ $\os{\circ}{\gamma} \subseteq B_\varepsilon(z_1)$. Но
   & e^{h(z)} \equiv f(z) \rightarrow h'(z)e^{h(z)} \equiv f'(z) \Rightarrow h'(z) \equiv \frac{f'(z)}{f(z)}
 \end{align*}
 \begin{align*}
-  & (g(z))^n \equiv f(z) \Rightarrow n(g(z))^{n-1} \equiv f'(z) \Rightarrow g'(z) = \frac{f'(z)}{n\left( g(z) \right)^{n-1}}
+  & (g(z))^n \equiv f(z) \Rightarrow n(g(z))^{n-1}g'(z) \equiv f'(z) \Rightarrow g'(z) = \frac{f'(z)}{n\left( g(z) \right)^{n-1}}
 \end{align*}
 \section{$\S 17.$ Примеры вычисления регулярных ветвей.}
 \Example
@@ -84,7 +86,7 @@ z_0 \in \gamma$, $z(t, \alpha) = z(t) - \alpha$, $\alpha \in [-1;0]$. $\forall
 \alpha) = z_0 - \alpha$. Значит, по теореме $3$ $\S 14$ $I(\alpha) =
 \Delta_{[0;1]}\argt z(t, \alpha) = const$, т.~е.
 \begin{align*}
-  & \Delta_{[0;1]} \argt z(t) = \Delta_{[0;1]} \argt(z(t) + 1) = \Delta_{\os{\circ}{\gamma}}z = \Delta_{\os{\circ}{\gamma}}(z+1) = 2 \pi k(\os{circ}{\gamma})
+  & \Delta_{[0;1]} \argt z(t) = \Delta_{[0;1]} \argt(z(t) + 1) = \Delta_{\os{\circ}{\gamma}}z = \Delta_{\os{\circ}{\gamma}}(z+1) = 2 \pi k(\os{\circ}{\gamma})
 \end{align*}
 \begin{align*}
   & \Delta_{\ogamma} \argt f(z) = 4 \Delta_{\ogamma} \argt z = 8 \pi
@@ -93,10 +95,10 @@ z_0 \in \gamma$, $z(t, \alpha) = z(t) - \alpha$, $\alpha \in [-1;0]$. $\forall
 \\
 Значит,
 \begin{align*}
-  & g_1(z) = g_1(2) \sqrt[4]{\frac{\left| z(z+1) \right|}{24}} \exp \left( \frac{i}{4}\left( \Delta_{\gamma{2z}}\argt f(z) \right) \right)
+  & g_1(z) = g_1(2) \sqrt[4]{\frac{\left| z^3(z+1) \right|}{24}} \exp \left( \frac{i}{4}\left( \Delta_{\gamma{2z}}\argt f(z) \right) \right)
 \end{align*}
 \begin{align*}
-  & g_1(i) = g_1(2) \sqrt[4]{\frac{\left| i(i+1) \right|}{24}} \exp \left( \frac{i}{4}\left( \Delta_{\gamma_{2,i}}\argt f(z) \right) \right) = 2^{\frac{1}{8}}i\exp \left( \frac{i}{4} \left( 3\Delta_{\gamma_{2,i}}\argt z + \Delta_{\gamma_{2,i}} \argt (z+1) \right) \right) = \\
+  & g_1(i) = g_1(2) \sqrt[4]{\frac{\left| i^3(i+1) \right|}{24}} \exp \left( \frac{i}{4}\left( \Delta_{\gamma_{2,i}}\argt f(z) \right) \right) = 2^{\frac{1}{8}}i\exp \left( \frac{i}{4} \left( 3\Delta_{\gamma_{2,i}}\argt z + \Delta_{\gamma_{2,i}} \argt (z+1) \right) \right) = \\
   & = 2^{\frac{1}{8}}i\exp \left( \frac{i}{4} \left( 3\frac{\pi}{2} + \frac{\pi}{4} \right) \right) = 2^{\frac{1}{8}}i\exp \left( \frac{7i\pi}{16} \right) =  2^{\frac{1}{8}}e^{\frac{15i\pi}{16}}
 \end{align*}
 \begin{align*}
@@ -128,7 +130,7 @@ $\forall \gamma \subseteq G$ рассмотрим $\Delta_{\gamma}\argt f(z)$.
 \end{align*}
 \begin{figure}[h!]
 		\centering
-		\includegraphics[scale=0.5]{Ex2.png}
+		\includegraphics[scale=0.75]{Ex1.eps}
 		\label{fig:17.2}
 \end{figure}
 \begin{align*}
@@ -184,7 +186,7 @@ $\tilde{h}(0) = h(-i) = \ln 2 - 2 i \pi$. Хотим разложить это �
   & S\left( \frac{i}{5} \right) = \ln \frac{25}{26} - 2 i \pi
 \end{align*}
 \begin{align*}
-  & S'\left( \frac{i}{5} \right) = \frac{-2z}{(1-z^2)}\mid_{z=\frac{i}{5}} = \frac{-2i\cdot 25}{5\cdot 26} = -\frac{5i}{13}
+  & S'\left( \frac{i}{5} \right) = \left. \frac{-2z}{(1-z^2)} \right|_{z=\frac{i}{5}} = \frac{-2i\cdot 25}{5\cdot 26} = -\frac{5i}{13}
 \end{align*}
 \Def
 Пусть $a, b \in \CC$, $a \neq 0$. Тогда

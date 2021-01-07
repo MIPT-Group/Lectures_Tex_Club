@@ -146,3 +146,115 @@ $f$ конформна в $G \subseteq \CCC$, если $f$ однолистна 
     УОТ или $\infty \not \in G$.
 \end{itemize}
 \section{$\S 23.$ Дробно-линейные функции.}
+\Def
+Функция
+\begin{equation}\label{(23.1)}
+    w = \frac{az+b}{cz+d}, \ a,b,c,d \in \CC, \ ad-cb \neq 0
+\end{equation}
+называется \textbf{дробно-линейной функцией (ДЛФ)} и задает
+\textbf{дробно-линейное отображение (ДЛО).} Бывает:
+\begin{equation}\label{(23.2)}
+    \left[ \begin{matrix}
+            c = 0 \Rightarrow w = az+b \Rightarrow w(\infty) = \infty \\
+            c \neq 0 \Rightarrow w(\infty) = \dst \frac{a}{c}, \ w\left( -\dst \frac{d}{c} \right) = \infty
+        \end{matrix} \right.
+\end{equation}
+ДЛФ \eqref{(23.1)}, \eqref{(23.2)} действует из $\CCC$ в $\CCC$.
+\theorem
+ДЛФ \eqref{(23.1)}, \eqref{(23.2)} конформно отображает $\CCC$ на $\CCC$.
+\pr
+~
+\begin{enumerate}
+    \item Проверим однолистность на $\CCC$.
+    \\
+    Из \eqref{(23.1)}
+    \begin{equation}\label{(23.3)}
+        z = \frac{dw-b}{cw-a}
+    \end{equation}
+    Видим, что $ad - cb \neq 0$, а значит, существует обратное ДЛО.
+    \item Покажем конформность в каждой точке.
+    \begin{itemize}
+        \item $z_0 \neq - \dst \frac{d}{c}$, $z_0 \in \CC$. Тогда
+        \begin{align*}
+          & w'(z_0) = \frac{ad-cb}{(cz_0+d)^2} \neq 0
+        \end{align*}
+        что и хотим видеть.
+        \item $z_0  = -\dst \frac{d}{c}$. Положим
+        \begin{align*}
+          & \varphi(z) = \frac{1}{f(z)} = \frac{cz+d}{az+b}
+        \end{align*}
+        и тогда
+        \begin{align*}
+          & \varphi'(z_0) = \frac{cb - ad}{\left( -a\dst \frac{d}{c} + b \right)^2} = \frac{c^2}{-ad + bc} \neq 0
+        \end{align*}
+        что и хотим видеть.
+        \item $z_0 = \infty$. Положим
+        \begin{align*}
+          & g(z) = f\left( \frac{1}{z} \right) = \frac{a+bz}{c+dz}
+        \end{align*}
+        и тогда
+        \begin{align*}
+          & g'(z_0) = \frac{bc - ad}{c^2} \neq 0
+        \end{align*}
+        что и хотим видеть.
+    \end{itemize}
+\end{enumerate}
+\Exse
+Пусть $f: \CCC \mapsto \CCC$ конформно, тогда $f$~--- ДЛФ. Доказать это
+утверждение.
+\theorem
+При ДЛО \eqref{(23.1)}, \eqref{(23.2)} образом окружности или прямой будет
+окружность или прямая.
+\pr
+~
+\begin{enumerate}
+    \item Рассмотрим аффинное отображение $w = az+b$ ($c = 0$).
+    \\
+    Знаем из аналитической геометрии, что окружность переходит в окружность, а
+    прямая~--- в прямую.
+    \item Рассмотрим теперь $c \neq 0$.
+    \\
+    Представим отображение в виде
+    \begin{align*}
+      & w = \frac{az+b}{cz+d} = \frac{a}{c} + \frac{-ad+bc}{c}\cdot \frac{1}{cz+d}
+    \end{align*}
+    \begin{equation}\label{(23.4)}
+        w = \alpha + \beta t, \ \alpha = \frac{a}{c}, \ \beta = \frac{-ad+bc}{c}, \ t = \frac{1}{\zeta}, \ \zeta = cz+d
+    \end{equation}
+    Видим, что $w(t)$ и $\zeta(z)$~--- аффинные, проверим выполнимость
+    утверждения теоремы для $z = \dst \frac{1}{\zeta}$.
+    \\
+    Положим $\zeta = \xi + i \eta$. Уравнение
+    \begin{align*}
+      & A(\xi^2+\eta^2) + B\xi + C\eta + D = 0, \ 4AD < B^2+C^2
+    \end{align*}
+    задает невырожденную окружость ри $A \neq 0$ и невырожденную прямую при $A =
+    0$. Полагая $t = \dst \frac{1}{\zeta}$, учитывая $\xi^2 + \eta^2 =
+    \zeta\bar{\zeta}$, $\xi = \dst \frac{\zeta + \bar{\zeta}}{2}$, $\eta = \dst
+    \frac{\zeta - \bar{\zeta}}{2i}$, запишем уравнение в виде
+    \begin{align*}
+      & A\zeta\bar{\zeta} + \left( \frac{B}{2} + \frac{C}{2i}\right)\zeta + \left( \frac{B}{2} - \frac{C}{2i}\right)\bar{\zeta} + D = 0
+    \end{align*}
+    и отсюда получим
+    \begin{align*}
+      & A + \left( \frac{B}{2} + \frac{C}{2i}\right)\bar{t} + \left( \frac{B}{2} - \frac{C}{2i}\right)t + Dt\bar{t} = 0
+    \end{align*}
+    что задает окружность при $D \neq 0$ и прямую при $D = 0$. Суперпозиция
+    преобразований, переводящих окружности и прямые в окружности и прямые,
+    переводит окружности и прямые в окружности и прямые.
+\end{enumerate}
+\Note
+Окружность или прямая $\gamma$ переходит при ДЛО в прямую, если нуль знаменателя
+принадлежит $\gamma$, и в окружность иначе.
+\\
+Это называется \textbf{круговым свойством}.
+\Def
+Точки $M$ и $M^*$ называются \textbf{симметричными относительно окружности с
+  центром в точке $A$ радиуса $R > 0$}, если они лежат на одном луче, исходящем
+из точки $A$, и $\left| AM \right| \cdot \left| AM^* \right| = R^2$. На $\CCC$
+$z$ и $z^*$ симметричны относительно окружности $\gamma_r$ с центром в точке
+$a$, если
+\begin{equation}\label{(23.5)}
+    z^* - a = \frac{R^2}{\bar{z} - \bar{a}}
+\end{equation}
+Заметим, что при $z \to a$ $z^* \to \infty$, т.~е. $a$ и $\infty$ симметричны.

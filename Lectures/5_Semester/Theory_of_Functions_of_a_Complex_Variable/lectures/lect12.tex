@@ -112,7 +112,7 @@ $I(\alpha) = const$, а значит,
 \psi_0$. Пусть $\gamma_{az}$~--- гладкая кривая с параметризацией $z(t)$, $t \in
 [0;1]$, $\varphi(z(t))$~--- гладкая ветвь $\Arg f(z(t))$.
 \begin{align*}
-  & \Delta_{\gamma_{az}}\argt f(z) = \varphi(z(1))-\varphi(z(0)) = \Img h(z) - \Img h(a)
+  & \Delta_{\gamma_{az}}\argt f(z) = \varphi(z(t))-\varphi(z(0)) = \Img h(z) - \Img h(a)
 \end{align*}
 \begin{align*}
   & h(b) = \ln \left| f(b) \right| + i \Img h(b)
@@ -147,10 +147,10 @@ $I(\alpha) = const$, а значит,
     \\
     По \eqref{(16.8)}
     \begin{align*}
-      & \Delta_{\gamma_{az}}\argt f(z) = \Delta_{\tilde{\gamma}_{az}} f(z)
+      & \Delta_{\gamma_{az}}\argt f(z) = \Delta_{\tilde{\gamma}_{az}}\argt f(z)
     \end{align*}
     \begin{align*}
-      & \os{\circ}{\gamma} = \gamma_{az}+\tilde{gamma}^{-1}_{az}
+      & \os{\circ}{\gamma} = \gamma_{az}+\tilde{\gamma}^{-1}_{az}
     \end{align*}
     Значит, $h(z)$~--- функция лишь точки $z$.
     \begin{equation}\label{(16.13)}
@@ -168,7 +168,7 @@ $I(\alpha) = const$, а значит,
     \end{align*}
     Отсюда следует, что
     \begin{align*}
-      & h(z) = \ln \left| f(a) \right| + \ln \left| f(z) \right| - \ln \left| f(a) \right| + i \Delta_{\gamma_{az}} \argt f(z) + i \psi_0 = \ln \left| f(a) \right| + \int_{\gamma_{az}}\frac{f'(\zeta)}{f(\zeta)}d \zeta
+      & h(z) = \ln \left| f(a) \right| + \ln \left| f(z) \right| - \ln \left| f(a) \right| + i \Delta_{\gamma_{az}} \argt f(z) + i \psi_0 = \ln \left| f(a) \right| + \int_{\gamma_{az}}\frac{f'(\zeta)}{f(\zeta)}d \zeta +  i \psi_0 
     \end{align*}
     Функция
     \begin{align*}
@@ -183,12 +183,12 @@ $G$ существует регулярная ветвь $g(z)$ многозна
 \begin{equation}\label{(16.14)}
     g(b) = g(a) \sqrt[n]{\left| \frac{f(b)}{f(a)} \right|}\exp \left( \frac{1}{n}\Delta_{\gamma_{ab}}\argt f(z) \right)
 \end{equation}
-\pr Доказательство разбиваем на два этама.
+\pr Доказательство разбиваем на два этапа.
 \begin{enumerate}
-    \item $G$ односвязна.
+    \item Пусть для начала $G$ односвязна.
     \\
     По лемме $2$ $\forall \os{\circ}{\gamma} \subseteq G$ выполняется
-    \eqref{(16.8)}:
+    \eqref{(16.8)} и тогда, по лемме $4$:
     \begin{align*}
       & \exists h(z) = h(a) + \ln \left|\frac{f(z)}{f(a)}\right|+ i\left(\Delta_{\gamma_{az}}\argt f(z)\right) \in \Ln f(z)
     \end{align*}
