@@ -23,8 +23,8 @@
 \begin{align*}
   & \ogamma: w = 1 + \frac{g(z)}{f(z)} \Rightarrow \left| w-1 \right| = \left| \frac{g(z)}{f(z)} \right| < 1
 \end{align*}
-Пусть $\Gamma = w(\ogamma)$; $0 \not \in B_1(1)$ и эта область односвязна,
-значит, по лемме $2$ $\S 14$
+Пусть $\Gamma = w(\ogamma) \subseteq B_1(1)$; $0 \not \in B_1(1)$ и эта область
+односвязна, значит, по теореме $3$ $\S 14$
 \begin{align*}
   & \Delta_{\ogamma}\argt \left( 1+\frac{g(z)}{f(z)} \right) = 0
 \end{align*}
@@ -39,12 +39,12 @@
 \end{align*}
 имеет в $\CC$ ровно $n$ корней с учетом их порядка.
 \pr
-Рассмотрим $f(z) = z^n$, $g(z) = P_n(z) - f(z)$. Как известно,
+Рассмотрим $f(z) = c_nz^n$, $g(z) = P_n(z) - f(z)$. Как известно,
 \begin{align*}
-  & \left| \frac{g(z)}{f(z)} \right| \us{z \to \infty}{\to} 0 \Rightarrow \exists R_0 > 0: \ \forall R \geq R_0 \ \forall z \in \gamma_R \left| f(z) \right| > \left| g(z) \right|
+  & \left| \frac{g(z)}{f(z)} \right| \us{z \to \infty}{\to} 0 \Rightarrow \exists R_0 > 0: \ \forall R \geq R_0 \ \forall z \in \gamma_R \ \left| f(z) \right| > \left| g(z) \right|
 \end{align*}
 Значит, по теореме Руше функция $P_n(z)$ имеет столько же нулей, сколько и $f(z)
-= z^n$, на $B_R(0)$, с учетом порядка, т.~е. ровно $n$ штук.
+= c_nz^n$, на $B_R(0)$, с учетом порядка, т.~е. ровно $n$ штук.
 \Example
 Функция Жуковского
 \begin{align*}
@@ -74,7 +74,7 @@
 Заметим, что $f(z) \neq const$, $f'(z) \neq const$. Тогда по теореме
 единственности нули функции $f(z)-w_0$ и $f'(z)$ изолированы, поэтому
 \begin{align*}
-& \exists \delta > 0: \ \forall z \in \ol{\os{\circ}B_\delta(z_0)} \ f(z)-w_0 \neq 0, \ f'(z) \neq 0
+& \exists \delta > 0: \ \forall z \in \os{\circ}B_\delta(z_0) \ f(z)-w_0 \neq 0, \ f'(z) \neq 0
 \end{align*}
 Пусть $\gamma = \left\{ z: \left| z-z_0 \right| = \delta \right\}$ положительно
 ориентирована, и $\forall z \in \gamma \ f(z)\neq w_0$. Положим $0 < \varepsilon
@@ -100,7 +100,7 @@ $\gamma$.
 Значит, все нули будут иметь первый порядок, соответственно, их ровно $n$ штук.
 \corollary
 Пусть $f$ регулярна в $G \subseteq \CC$. Тогда $\forall z_0 \in G$ условие
-$f'(z_0) = 0$ необходимо и достаточно для однолистности $f$ <<в малом>>~--- в
+$f'(z_0) \neq 0$ необходимо и достаточно для однолистности $f$ <<в малом>>~--- в
 некоторой достаточно малой окрестности $z_0$, но не во всей $G$.
 \Example
 $w=e^z$ удовлетворяет условиям следствия, но не однолистна во всей комплексной

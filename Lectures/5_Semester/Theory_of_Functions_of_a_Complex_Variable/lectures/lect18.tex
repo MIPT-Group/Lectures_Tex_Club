@@ -119,8 +119,8 @@ $z$, $z^*$ симметричны относительно $\gamma$ (пусть 
     \begin{minipage}[c]{0.45\textwidth}
         \centering
         \includegraphics[scale=0.5]{round.eps}
-        \label{fig:23.2}
     \end{minipage}
+    \label{fig:23.2}
     \caption{$\Img z > 0 \mapsto \left| z \right| > 1$}
 \end{figure}
 \nonum
@@ -155,8 +155,8 @@ $z$, $z^*$ симметричны относительно $\gamma$ (пусть 
     \begin{minipage}[c]{0.45\textwidth}
         \centering
         \includegraphics[scale=0.5]{round.eps}
-        \label{fig:23.2}
     \end{minipage}
+    \label{fig:23.3}
     \caption{$\left| z \right| > 1 \mapsto \left| z \right| > 1$}
 \end{figure}
 \nonum
@@ -216,8 +216,8 @@ f_2^{-1}(z)$, а значит, $f_1(z) = f_2(z)$.
     \begin{minipage}[c]{0.45\textwidth}
         \centering
         \includegraphics[scale=0.5]{half_plane.eps}
-        \label{fig:23.2}
     \end{minipage}
+    \label{fig:23.4}
     \caption{$\Img z > 0 \mapsto \Img z > 0$}
 \end{figure}
 \nonum
@@ -232,4 +232,193 @@ f_2^{-1}(z)$, а значит, $f_1(z) = f_2(z)$.
 \end{align*}
 Итак, необходимо и достаточно, чтобы все коэффициенты ДЛО были действительны,
 причем $ad-cb > 0$.
-\section{$\S 24.$ Конформные отображения элементарными функциями.}
+\section{$\S 24.$ Конформные отображения элементарными функциями. Теорема Римама.}
+Рассмотрим функции, обладающие локальной однолистностью.
+\begin{center}
+    \textbf{Степенная функция}
+\end{center}
+Фиксируем $t > 0$, рассмотрим область $G = \CC \setminus [0;+\infty)$. Пусть
+\begin{align*}
+  & w = \left| z \right|^t \exp(it \argt z), \ \argt z \in (0, 2 \pi)
+\end{align*}
+Функция регулярна при любом $t$. Действительно,
+\begin{align*}
+  & h(z) = \ln \left| z \right| + i \argt_0 z
+\end{align*}
+регулярна на этой области, а
+\begin{align*}
+  & w = \exp(t h(z))
+\end{align*}
+регулярна в этой области, как суперпозиция регулярных функций.
+\\
+Исследуем теперь однолистность. Рассмотрим
+\begin{align*}
+  & G_{0,\varphi_0} = \left\{ z \mid \left| z \right| > 0, \ \argt z \in (0; \varphi_0)\right\}
+\end{align*}
+\begin{align*}
+  & l_{\varphi} = \left\{ z \mid z = r e^{i \varphi}, \ r > 0, \ \varphi \in (0, \varphi_0)\right\}
+\end{align*}
+Тогда
+\begin{align*}
+  & w(l_\varphi) = \left\{ w \mid w = \rho e^{i t \varphi}, \ \rho > 0 \right\}
+\end{align*}
+Тогда условие однолистности:
+\begin{align*}
+  & \begin{cases}
+      0 < \varphi_0 < 2 \pi \\
+      0 < t \varphi_0 < 2 \pi
+  \end{cases}
+\end{align*}
+Значит, функция конформна на этой области.
+\Example
+$t = 2$, $w = z^2$.
+\\
+Условие однолистности: $\varphi_0 \in (0; \pi)$.
+\\
+\begin{figure}[h!]
+    \begin{minipage}[c]{0.45\textwidth}
+        \centering
+        \includegraphics[scale=0.5]{half_round.eps}
+    \end{minipage}
+    \begin{minipage}[c]{0.1\textwidth}
+        \centering
+        \LARGE{$\mapsto$}
+    \end{minipage}
+    \begin{minipage}[c]{0.45\textwidth}
+        \centering
+        \includegraphics[scale=0.5]{cut_rnd.eps}
+    \end{minipage}
+    \label{fig:24.1}
+\end{figure}
+Заметим, что данный полукруг содержится в $G_{0, \pi}$~--- области
+однолистности, значит, функция будет однолистна.
+\Example
+$t = 2$, $w = z^2$.
+\\
+Условие однолистности: $\varphi_0 \in (0; \pi)$.
+\\
+\begin{figure}[h!]
+    \begin{minipage}[c]{0.45\textwidth}
+        \centering
+        \includegraphics[scale=0.5]{top.eps}
+    \end{minipage}
+    \begin{minipage}[c]{0.1\textwidth}
+        \centering
+        \LARGE{$\mapsto$}
+    \end{minipage}
+    \begin{minipage}[c]{0.45\textwidth}
+        \centering
+        \includegraphics[scale=0.5]{parabola.eps}
+    \end{minipage}
+    \label{fig:24.2}
+\end{figure}
+Заметим, что данная полуплоскость содержится в $G_{0, \pi}$~--- области
+однолистности, значит, функция будет однолистна. Зная, что граница переходит в
+границу, отыщем $w(x+ia)$.
+\begin{align*}
+  & w(x+ia) = (x+ia)^2 = x^2 - a^2 + 2ixa
+\end{align*}
+\begin{align*}
+  & \begin{cases}
+      u = x^2 - a^2 \\
+      v = 2xa
+  \end{cases} \Rightarrow u  = \left( \frac{v}{2a} \right)^2 - a^2
+\end{align*}
+Поскольку $0$ не лежит в полуплоскости, искомая область будет внешностью
+параболы.
+\Example
+$w = \left| z \right|^{\frac{1}{2}}\exp \left(\dst \frac{i}{2}\argt z\right)$.
+\begin{figure}[h!]
+    \begin{minipage}[c]{0.45\textwidth}
+        \centering
+        \includegraphics[scale=0.5]{parabola.eps}
+    \end{minipage}
+    \begin{minipage}[c]{0.1\textwidth}
+        \centering
+        \LARGE{$\mapsto$}
+    \end{minipage}
+    \begin{minipage}[c]{0.45\textwidth}
+        \centering
+        \includegraphics[scale=0.5]{top.eps}
+    \end{minipage}
+    \label{fig:24.3}
+\end{figure}
+Обратное к примеру $2$ отображение.
+\begin{center}
+    \textbf{Экспонента}
+\end{center}
+Всюду регулярна, но для однолистности необходимо, чтобы не было отличающихся на
+$2 i \pi$ элементов (в силу периодичности).
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.75]{odn_exp.eps}
+    \label{fig:24.4}
+    \caption{Область однолистности экспоненты}
+\end{figure}
+\begin{align*}
+  & \begin{cases}
+      -\infty \leq a \leq b \leq \infty \\
+      0 \leq \beta - \alpha < 2 \pi
+  \end{cases}
+\end{align*}
+\Example
+\begin{figure}[h!]
+    \begin{minipage}[c]{0.45\textwidth}
+        \centering
+        \includegraphics[scale=0.75]{odn_exp.eps}
+    \end{minipage}
+    \begin{minipage}[c]{0.1\textwidth}
+        \centering
+        \LARGE{$\mapsto$}
+    \end{minipage}
+    \begin{minipage}[c]{0.45\textwidth}
+        \centering
+        \includegraphics[scale=0.5]{obraz_exp.eps}
+    \end{minipage}
+    \label{fig:24.5}
+\end{figure}
+Пусть $z = x+iy_0$, фиксированный $y_0 \in (\alpha,\beta)$. Тогда $\forall x \in
+(a,b)$
+\begin{align*}
+  & f(z) = te^{iy_0}, \ t \in \left( e^{a}, e^{b} \right)
+\end{align*}
+\Example
+~
+\\
+\begin{figure}[h!]
+    \begin{minipage}[c]{0.45\textwidth}
+        \centering
+        \includegraphics[scale=0.5]{polupolosa.eps}
+    \end{minipage}
+    \begin{minipage}[c]{0.1\textwidth}
+        \centering
+        \LARGE{$\mapsto$}
+    \end{minipage}
+    \begin{minipage}[c]{0.45\textwidth}
+        \centering
+        \includegraphics[scale=0.5]{half_round.eps}
+    \end{minipage}
+    \label{fig:24.6}
+    \caption{Перевод полуполосы в полуокружность.}
+\end{figure}
+Вертикальная черта переходит в полуокружность, верхняя граница~--- в отрезок
+$[-1;0]$, нижняя граница~--- в отрезок $[0;1]$.
+\Example
+~
+\\
+\begin{figure}[h!]
+    \begin{minipage}[c]{0.45\textwidth}
+        \centering
+        \includegraphics[scale=0.5]{d_polupol.eps}
+    \end{minipage}
+    \begin{minipage}[c]{0.1\textwidth}
+        \centering
+        \LARGE{$\mapsto$}
+    \end{minipage}
+    \begin{minipage}[c]{0.45\textwidth}
+        \centering
+        \includegraphics[scale=0.5]{out_rnd.eps}
+    \end{minipage}
+    \label{fig:24.7}
+    \caption{Перевод полуполосы во внешность полуокружности.}
+\end{figure}

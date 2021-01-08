@@ -47,7 +47,7 @@ $\Delta z_k = z_k - z_{k-1}$~--- \textbf{интегральная сумма};
 \end{equation}
 \pr
 \begin{align*}
-  & \sigma(\lambda) = \sum_{k = 1}^{m_\lambda}\left( u(\xi_k, \eta_k) + iv(\xi_k, eta_k) \right)\left( \Delta x_k + i \Delta y_k \right) = \sum_{k = 1}^{m_\lambda}\left( u(\xi_k, \eta_k) \Delta x_k - v(\xi_k, \eta_k) \Delta y_k\right) + \\
+  & \sigma(\lambda) = \sum_{k = 1}^{m_\lambda}\left( u(\xi_k, \eta_k) + iv(\xi_k, \eta_k) \right)\left( \Delta x_k + i \Delta y_k \right) = \sum_{k = 1}^{m_\lambda}\left( u(\xi_k, \eta_k) \Delta x_k - v(\xi_k, \eta_k) \Delta y_k\right) + \\
   & + \left( v(\xi_k, \eta_k) \Delta x_k + u(x_k, y_k) \Delta y_k\right) = \sigma_1(\lambda) + \sigma_2(\lambda) \to \int_{\gamma}\left( u dx - v dy \right) + i \int_\gamma \left( v dx + u dy \right)
 \end{align*}
 \corollary
@@ -61,7 +61,7 @@ $\Delta z_k = z_k - z_{k-1}$~--- \textbf{интегральная сумма};
 \pr
 Из \eqref{(6.2)} и свойств криволинейных интегралов II рода
 \begin{align*}
-  &\int_{\gamma}P(x,y) dx + Q(x,y)dy = \int_{t_0}^{t_1} \left( P(x(t), y(t)x'(t) + Q(x(t), y(t))y'(t) \right) dt
+  &\int_{\gamma}P(x,y) dx + Q(x,y)dy = \int_{t_0}^{t_1} \left( P(x(t), y(t))x'(t) + Q(x(t), y(t))y'(t) \right) dt
 \end{align*}
 \underline{\textbf{Общие свойства интеграла}}
 \begin{enumerate}
@@ -72,7 +72,7 @@ $\Delta z_k = z_k - z_{k-1}$~--- \textbf{интегральная сумма};
     \item Аддитивность вдоль кривой: если $\gamma = \gamma_1 \cup \gamma_2$
     (общая точка~--- только конец), то
     \begin{align*}
-      &\int_{\gamma}f(z) dz = \int_{\gamma_1}f(z) dz \int_{\gamma_2} f(z) dz
+      &\int_{\gamma}f(z) dz = \int_{\gamma_1}f(z) dz + \int_{\gamma_2} f(z) dz
     \end{align*}
     \item Изменение знака при смене направления: если $\gamma^{-1}$~---
     кривая, совпадающая во всех точках с $\gamma$, но противоположно
