@@ -21,18 +21,21 @@
         \includegraphics[scale=0.75]{neob.eps}
         \label{fig:23.1}
     \end{figure}
-    Пусть $L$~--- касательная к $\Gamma$ из $A$, $\zeta \in L \cap \Gamma$.
+    Пусть $L$~--- касательная к $\Gamma$ из $a$, $\zeta \in L \cap \Gamma$.
     Тогда
     \begin{align*}
-      & \left| a - \zeta \right| = \left| a-z \right|\cdot \left| a-z^* \right| = R^2
+      & \left| a - \zeta \right|^2 = \left| a-z \right|\cdot \left| a-z^* \right| = R^2
     \end{align*}
     а значит, $\zeta \in \gamma$. Пусть $l$~--- касательная к $\Gamma$ в точке
     $\zeta$, $l \perp [a;\zeta] \Rightarrow l \perp L$.
     \item Достаточность.
     \begin{itemize}
         \item $\Gamma$~--- прямая, тогда $a \in \Gamma$, и значит, $z$ и $z^*$
-        принадлежат одной полупрямой, исходящей из центра (иначе прямые $l$ и
-        $L$ не перпендикулярны).
+        принадлежат одной полупрямой, исходящей из центра (если же точки лежат
+        по разные стороны от центра, то построим окружность $\Gamma_1$ диаметром
+        $zz^*$; тогда угол между $z$, точкой пересечения и $z^*$ равен
+        $90^{\circ}$, а угол между $a$, точкой пересечения и точкой касания
+        острый, т.~е. $L$ и $l$ не перпендикулярны).
         \item $\Gamma$~--- окружность, тогда пусть $\zeta \in \Gamma \cap
         \gamma$, тогда
         \begin{align*}

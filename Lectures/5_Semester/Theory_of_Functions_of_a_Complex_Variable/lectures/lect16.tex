@@ -74,7 +74,7 @@
 Заметим, что $f(z) \neq const$, $f'(z) \neq const$. Тогда по теореме
 единственности нули функции $f(z)-w_0$ и $f'(z)$ изолированы, поэтому
 \begin{align*}
-& \exists \delta > 0: \ \forall z \in \os{\circ}B_\delta(z_0) \ f(z)-w_0 \neq 0, \ f'(z) \neq 0
+  & \exists \delta > 0: \ \forall z \in \ol{\os{\circ}B_\delta(z_0)}\setminus\{z_0\} \ f(z)-w_0 \neq 0, \ f'(z) \neq 0
 \end{align*}
 Пусть $\gamma = \left\{ z: \left| z-z_0 \right| = \delta \right\}$ положительно
 ориентирована, и $\forall z \in \gamma \ f(z)\neq w_0$. Положим $0 < \varepsilon
@@ -117,11 +117,11 @@ $w=e^z$ удовлетворяет условиям следствия, но н�
 \begin{align*}
 & \exists \delta_1: \ B_{\delta_1}(z_0) \subseteq G
 \end{align*}
-и по лемме $20.1$
+и по лемме $21.1$
 \begin{align*}
 & \exists \delta \in (0; \delta_1], \ \exists \varepsilon > 0: \ \forall w_1 \in B_\varepsilon (w_0) \ \exists z_1 \in B_\delta(z_0): \ f(z_1) = w_1; \ f(B_\delta(z_0)) \supseteq B_\varepsilon(w_0)
 \end{align*}
-Значит, $B_\varepsilon(w_0)\in G^*$, т.~е. $w_0$~--- внутренняя точка $G^*$.
+Значит, $B_\varepsilon(w_0)\subseteq G^*$, т.~е. $w_0$~--- внутренняя точка $G^*$.
 \\
 Докажем связность.
 \begin{align*}
@@ -138,7 +138,7 @@ $w=e^z$ удовлетворяет условиям следствия, но н�
 \begin{align*}
   & \exists z_0 \in G: \ \left| f(z_0) \right| = \max_{z \in \ol{G}}\left| f(z) \right|
 \end{align*}
-Пусть $w_0 = f(z_0)$. По теореме $20.1$
+Пусть $w_0 = f(z_0)$. По теореме $21.1$
 \begin{align*}
   & \exists \varepsilon > 0, \ B_\varepsilon(w_0) \subseteq f(G) = G^*
 \end{align*}
@@ -151,7 +151,7 @@ $w=e^z$ удовлетворяет условиям следствия, но н�
 Противоречие.
 \corollary (принцип минимума модуля регулярной функции)
 Пусть $f: G \mapsto \CC$ регулярна в ограниченной области $G$, непрерывна на ее
-замыкании и непостоянна. Тогда
+замыкании и непостоянна; $\forall z \in G \ f(z) \neq 0$. Тогда
 \begin{align*}
   & \min_{z \in \ol{G}} \left| f(z) \right| = \min_{z \in \partial G} \left| f(z) \right|
 \end{align*}
@@ -178,8 +178,8 @@ $2$
 \begin{align*}
   & \left| g(z) \right| \leq \max \left\{ \left| \frac{f(\zeta)}{\zeta} \right| : \left| \zeta \right| =r \right\} \leq \frac{1}{r}
 \end{align*}
-Пусть $z_0 \in B_1(0)$; $\forall f \in (\left| z_0 \right|, 1)$ $\left| g(z_0)
-\right| \leq \dst \frac{1}{r}$, а значит, $\left| g(z_0) \right|\leq 0$, и
+Пусть $z_0 \in B_1(0)$; $\forall r \in (\left| z_0 \right|, 1)$ $\left| g(z_0)
+\right| \leq \dst \frac{1}{r}$, а значит, $\left| g(z_0) \right|\leq 1$, и
 $\forall z \in B_1(0) \ \left| f(z) \right|\leq \left| z \right|$.
 \\
 Пусть равенство в \eqref{(20.2)} достигается в некоторой точке $z_1$ (т.~е.
@@ -215,7 +215,7 @@ B_r(w_0)$, $\Real w_1 > \Real w_0$.
     u(a) = \frac{1}{2\pi}\int_0^{2\pi}u(a+Re^{i\varphi})d\varphi
 \end{equation}
 \pr
-По теореме $2$ $\S 14$ существует $f: B_R(a) \mapsto \CC$~--- регулярная, причем
+По теореме $2$ $\S 4$ существует $f: B_R(a) \mapsto \CC$~--- регулярная, причем
 $\forall z \in B_R(a) \ \Real f(z) = u(z)$, $0<\rho < R$, $\gamma_\rho =
 \left\{ z: \left| z-a \right| = \rho\right\}$.
 \begin{align*}
