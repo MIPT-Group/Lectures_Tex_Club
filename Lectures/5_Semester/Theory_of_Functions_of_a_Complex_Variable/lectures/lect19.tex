@@ -237,7 +237,7 @@ g(w)$, выполняет следующее преобразование:
         \includegraphics[scale=0.75]{half_plane.eps}
     \end{minipage}
     \label{fig:24.16}
-    \caption{Перевод $\CC \setminus ((-\infty;-1]\cup[1;+\infty)$ в верхнюю полуплоскость}
+    \caption{Перевод $\CC \setminus (-\infty;-1]\cup[1;+\infty)$ в верхнюю полуплоскость}
 \end{figure}
 \FloatBarrier
 \Example
@@ -258,7 +258,7 @@ g(w)$, выполняет следующее преобразование:
         \includegraphics[scale=0.75]{half_plane_t.eps}
     \end{minipage}
     \label{fig:24.17}
-    \caption{Перевод $\CC \setminus ((-\infty;-1]\cup[1;+\infty)$ в нижнюю полуплоскость}
+    \caption{Перевод $\CC \setminus (-\infty;-1]\cup[1;+\infty)$ в нижнюю полуплоскость}
 \end{figure}
 \FloatBarrier
 \begin{center}
@@ -284,7 +284,7 @@ $\CC$ нельзя конформно отобразить на единичны
 \begin{align*}
   \exists w_0 \in B_1(0): \ g(0) = w_0
 \end{align*}
-Расмоттрим теперь
+Расмотрим теперь
 \begin{align*}
   h(w) = \frac{w-w_0}{1-w\ol{w_0}}, \ h(w_0) = 0, \ h:B_1(0)\mapsto B_1(0)
 \end{align*}
@@ -307,7 +307,7 @@ B_1(0)$. Тогда по лемме Шварца $\forall w \in B_1(0) \ \left| 
 & e^{i\alpha}z = h^{-1}(g(z)); \ \exists z_0 \in B_1(0): \ g(z_0) = 0
 \end{align*}
 \begin{align*}
-& e^{i\alpha} = (h^{-1})'(0)(g'(z_0)) = \frac{g'(z_0)}{h'(z_0)}
+& e^{i\alpha} = (h^{-1})'(0)(g'(z_0)) = \frac{g'(z_0)}{h'(w_0)}
 \end{align*}
 \begin{align*}
 & \alpha \in \Arg g'(z_0) - \Arg h'(w_0)
@@ -318,9 +318,9 @@ B_1(0)$. Тогда по лемме Шварца $\forall w \in B_1(0) \ \left| 
 \begin{align*}
 & \alpha \in \Arg g'(z_0)
 \end{align*}
-Рассмитрим теперь 
+Рассмотрим теперь 
 \begin{align*}
-& g_1(z) = e^{i\alpha}{z-z_0}{1-z\ol{z_0}}
+& g_1(z) = e^{i\alpha}\frac{z-z_0}{1-z\ol{z_0}}
 \end{align*}
 \begin{align*}
 &\varphi(z) = g(g_1^{-1}(w)): B_1(0) \mapsto B_1(0)
@@ -368,11 +368,11 @@ f(z_0) = 0, \ \argt f'(z_0) = \alpha \in [0;2\pi), \ z_0 \in G
 Из леммы $1$ и теоремы $1$ следует утверждение о трех параметрах.
 \\
 Докажем теперь единственность. Допустим, от противного, существуют $f_1$, $f_2$,
-удовлетворяющие \eqref{(24.5)}. пусть
+удовлетворяющие \eqref{(24.5)}. Пусть
 \begin{align*}
-  & \varphi(w) = f_1(f_2(w)), \ \varphi(f_2(z)) = f_1(z), \ \varphi(0) = 0
+  & \varphi(w) = f_1(f_2^{-1}(w)), \ \varphi(f_2(z)) = f_1(z), \ \varphi(0) = 0
 \end{align*}
-Значит, $\varphi(z)$ будет ДЛО по лемме $1$. диффкеренцируя в $z_0$, имеем
+Значит, $\varphi(z)$ будет ДЛО по лемме $1$. Дифференцируя в $z_0$, имеем
 \begin{align*}
     & \argt \varphi'(0) + \Arg f_2'(z_0) = \Arg f_1'(z_0)
 \end{align*}
