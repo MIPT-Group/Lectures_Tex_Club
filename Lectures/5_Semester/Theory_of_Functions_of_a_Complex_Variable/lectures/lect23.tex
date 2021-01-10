@@ -1,4 +1,84 @@
 \begin{flushright}
     \textit{Лекция 23 (от 23.11)}
 \end{flushright}
+\theorem
+Пусть $a, b \in \CC \setminus \left\{ 0 \right\}$. Пусть $\left( B_{\left| a
+      \right|}(a), h_a \right)$~--- элемент, порожденный $\Ln z$. Тогда для
+любой $\gamma_{ab}$, не содержащей нуля, существует аналитическое продолжение в
+некоторый элемент $\left( B_{\left| b \right|}(b), h_b \right)$~--- элемент,
+порожденный $\Ln z$, причем
+\begin{equation}\label{(28.1)}
+    h_b(b) = h_a(a) + \int_{\gamma_{ab}}\frac{d\zeta}{\zeta}
+\end{equation}
+\begin{equation}\label{(28.2)}
+    \forall z \in B_{\left| b \right|}(b) \ h_b(z) = h_b(b) + \int_{b}^z\frac{d\zeta}{\zeta}
+\end{equation}
+$\forall c \in \CC \setminus\left\{ 0 \right\}$, $\forall \left( B_{\left| c
+      \right|}(c), h_c\right)$, порожденного $\Ln z$, существует
+$\tilde{\gamma}_{ac}$ такая, что этот элемент есть аналитическое продолжение
+исходного вдоль этой кривой.
+\pr
+Заметим, что в силу того, что кривая не содержит нуля, $d = \min \left\{ \left|
+        \zeta \right|: \zeta \in \gamma_{ab} \right\} > 0$. Рассмотрим набор
+точек $a = z_0, z_1, \dots, z_{K-1}, z_K = b$ на кривой, причем
+$l_{\gamma_{z_{k-1}z_k}} \leq \dst \frac{d}{2}$. Зададим для каждой из точек шар
+$B_{\left| z_k \right|}z_k$. Заметим, что $\left| z_k- z_{k-1} \right| \leq \dst
+\frac{d}{2} < \left| z_{k-1} \right|$. Тогда, как видим, следующая точка лежит в
+окрестности предыдущей.
+\\
+Допустим, доказано существование продолжения на $\gamma_{az_{k-1}}$; докажем
+существование $\gamma_{az_k}$. На $B_{\left| z_k \right|}(z_k)$
+\begin{equation}\label{(28.3)}
+    h_k(z_k) = h_{k-1}(z_{k-1}) + \ln \left| z_k \right| - \ln \left| z_{k-1} \right| + i\Delta_{\gamma_{z_{k-1}z_k}} \argt z = h_{k-1}(z_{k-1}) +\int_{\gamma_{z_{k-1}z_k}} \frac{d\zeta}{\zeta}
+\end{equation}
+\begin{equation}\label{(28.4)}
+    \forall z \in B_{\left| z_k \right|}(z_k) h_k(z) = h_k(z_k) + \int_{z_k}^z \frac{d\zeta}{\zeta}
+\end{equation}
+Значит, получили искомое продолжение.
+\\
+Для точки $c$ фиксируем некоторую не содержащую нуля кривую $\gamma_{ac}$. Для
+нее существует аналитическое продолжение $\left( B_{\left| c \right|}(c),
+    \tilde{h}_c \right)$; и $\exists k \in \ZZ: h_c(z) = \tilde{h}_c(z) + 2 i
+\pi k$. Тогда искомая $\tilde{\gamma}_{ac}$ будет равна $\gamma_{ac}$,
+объединенной с кругом с центром в нуле и радиусом $c$, обойденным $k$ раз.
+\corollary
+Полная аналитическая функция $\Ln z$ состоит из элементов $\left( B_{\left| a
+      \right|}(a), h_a(z) + 2 i \pi k \right)$, $a \neq 0$, $k \in \ZZ$,
+$h_a$~--- регулярная ветвь логарифма.
+\begin{align*}
+  & \left\{ \sqrt[n]{z} \right\} = \exp \left( \frac{1}{n}\Ln z \right)
+\end{align*}
+\corollary
+Полная аналитическая функция $\left\{ \sqrt[n]{z} \right\}$ состоит из элементов
+$\left( B_{\left| a \right|}(a), g_a(z)\exp \left( \frac{i}{n} 2 \pi k
+    \right)\right)$, $a \neq 0$, $k \in \left\{ 0, \dots, n-1 \right\}$,
+$g_a$~--- регулярная ветвь корня.
+\begin{center}
+    \textbf{Риманова поверхность $\Ln z$}
+\end{center}
+\begin{align*}
+  & G_0 = \CC \setminus (-\infty; 0]: \ h_0(z) = \ln \left| z \right| + i \argm z, \ \argm z \in (-pi; \pi); \ h_k(z) = h_0(z) + 2 i \pi k, \ k \in \ZZ
+\end{align*}
+\begin{align*}
+  & G_k = \CC \setminus (-\infty; 0]: \\
+  & \forall x < 0 \ h_{k-1}(x+i0) = \ln \left| x \right| + i \pi + 2\pi (k-1)i, \  h_{k}(x+i0) = \ln \left| x \right| + i (-\pi) + 2\pi k i
+\end{align*}
+Значения на верхнем и нижнем краях разреза равны. Можем склеить верхнюю часть
+$G_k$ с нижней $G_{k+1}$ для всех $k$. На этой поверхности функция будет
+регулярна в любой точке.
+\begin{center}
+    \textbf{Риманова поверхность $\sqrt{z}$}
+\end{center}
+\begin{align*}
+  & G_0 = \CC \setminus (-\infty; 0]: \ g_0(z) = \sqrt{\left| z \right|} \exp \left( \frac{i}{2} \argm z \right)
+\end{align*}
+\begin{align*}
+  & G_1 = \CC \setminus (-\infty; 0]: \ g_1(z) = -g_0(z)
+\end{align*}
+\begin{align*}
+  & \forall x < 0 \ g_0(x+i0) = i\sqrt{\left| x \right|}, \ g_0(x-i0) = -i\sqrt{\left| x \right|} \\
+  & g_1(x+i0) = g_0(x-i0), \ g_1(x-i0) = -g_0(x+i0)
+\end{align*}
+Значения на верхнем и нижнем краях разреза равны. Можем склеить верхние части с
+нижними. На этой поверхности функция будет регулярна в любой точке.
 \section{$\S 29.$ Особые точки аналитических функций.}
