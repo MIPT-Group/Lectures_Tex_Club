@@ -11,7 +11,7 @@ $E_k: \sup\limits_{x\in E_k} |F(x)| \leqslant \sup\limits_{x\in E_k} f\left(x\ri
 
 $(\forall \varepsilon > 0)\ \exists P: \mathcal{U}(P,f) \leqslant \underbrace{\int\limits_E f(x)d\mu(x)+\varepsilon}_{\text{конечное число}}$, следовательно ${\exists P: \mathcal{U}(P, |F|) < +\infty}$.
 
-Так как $|F|$ неотрицательна и измерима $ \Rightarrow \inf\limits_P \mathcal{U}(P, |F|) = \int\limits_P |F(x)|d\mu(x)<+\infty$
+Так как $|F|$ неотрицательна и измерима $ \Rightarrow \inf\limits_P \mathcal{U}(P, |F|) = \int\limits_E |F(x)|d\mu(x)<+\infty$
 
 По определению $F$ - суммируема $\Leftrightarrow F^+ \text{ и } F^-$ суммируемы. 
 
@@ -35,7 +35,7 @@ $(\forall \varepsilon > 0)\ \exists P: \mathcal{U}(P,f) \leqslant \underbrace{\i
 Неравенство (1) следует из того, что точная нижняя грань суммы значений двух функций, не меньше, чем сумма нижних граней функций. Остальные аналогично. Так как ограниченные измеримые функции суммируемы по Лебегу, то есть интеграл конечен, то $(\forall \varepsilon >0)(\exists P_1, P_2)\ \ \mathcal{U}(P_i, f_i)-L(P_i, f_i)<\varepsilon,\ i = 1,2.$ Взяв общее измельчение $P$, получим $(\forall \varepsilon >0)\ \mathcal{U}(P, f_i)-L(P, f_i)<\varepsilon,\ i = 1,2.$ Складывая эти два неравенства, получим $$\mathcal{U}(P, f_1)+\mathcal{U}(P, f_2)-L(P,f_1)-L(P,f_2)<2\cdot\varepsilon$$
 Зная, что 
 $$L(P, f_1+f_2) \leqslant \int\limits_E(f_1(x)+f_2(x))d\mu(x) \leqslant \mathcal{U}(P, f_1+f_2)$$ 
-$$\mathcal{U}(P, f_1)+\mathcal{U}(P, f_2)\leqslant \int\limits_Ef_1(x)d\mu(x)+\int\limits_E f_2(x)d\mu(x) \leqslant L(P,f_1)+L(P,f_2)$$
+$$L(P, f_1)+L(P, f_2)\leqslant \int\limits_Ef_1(x)d\mu(x)+\int\limits_E f_2(x)d\mu(x) \leqslant \mathcal{U}(P,f_1)+\mathcal{U}(P,f_2)$$
 Получаем:
 $$\left|\int\limits_E(f_1(x)+f_2(x))d\mu(x)-\left(\int\limits_Ef_1(x)d\mu(x)+\int\limits_E f_2(x)d\mu(x)\right)\right|<2\cdot\varepsilon$$
 Разберемся с константами. Рассмотри три случая:
@@ -152,7 +152,7 @@ $\int\limits_{E}f_{[N]}(x)d\mu(x)\geqslant\sum\limits_{k=1}^K\int\limits_{E_k}f_
 	${|f(x)|\leqslant M\ (\forall x\in E)}$. Множество $E$ имеет конечную меру, из $\sigma$-аддитивности меры Лебега, получаем $\mu(E)=\sum\limits_{k=1}^\infty \mu(E_k)$ --- ряд сходится, тогда
 	${\exists K: \sum\limits_{k=K+1}^\infty \mu(E_k)<\dfrac{\varepsilon}{2\cdot M}}$. \\
 	Положим $R_K:=\bigsqcup\limits_{k=K+1}^\infty E_k \Rightarrow \mu(R_K)<\dfrac{\varepsilon}{M}$, и замечаем, что $E=(\bigsqcup\limits_{k=1}^K E_k)\bigsqcup R_K$ --- конечная аддитивность, тогда $\int\limits_{E}f(x) d\mu(x)=\sum\limits_{k=1}^K\int\limits_{E_k}f(x)d\mu(x)+\int\limits_{R_K}f(x)d\mu(x)$.\\
-	$|\int\limits_{R_K}f(x)d\mu(x)|\leqslant\int\limits_{R_K}|f(x)|d\mu(x)\leqslant M\cdot \mu(R_K)<\varepsilon$. \\Тогда получаем, что $\int\limits_{E}f(x) d\mu(x)-\sum\limits_{k=1}^K\int\limits_{E_k}f(x)d\mu(x)\leqslant|\int\limits_{R_K}f(x)d\mu(x)|<\varepsilon$, то есть $\int\limits_{E}f(x) d\mu(x)=\sum\limits_{k=1}^K\int\limits_{E_k}f(x)d\mu(x)$.
+	$|\int\limits_{R_K}f(x)d\mu(x)|\leqslant\int\limits_{R_K}|f(x)|d\mu(x)\leqslant M\cdot \mu(R_K)<\varepsilon$. \\Тогда получаем, что $\int\limits_{E}f(x) d\mu(x)-\sum\limits_{k=1}^K\int\limits_{E_k}f(x)d\mu(x)\leqslant|\int\limits_{R_K}f(x)d\mu(x)|<\varepsilon$, то есть $\int\limits_{E}f(x) d\mu(x)=\sum\limits_{k=1}^\infty\int\limits_{E_k}f(x)d\mu(x)$.
 	
 	Докажем обратное утверждение. 
 	

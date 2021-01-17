@@ -149,7 +149,7 @@ U\otimes V (x_1, \ldots, x_{p_1}, x_{p_1+1}, \ldots, x_{p_1+p_2}; y^1,\ldots, y^
 \end{prop}
 
 \begin{Def}
-	Если $U\in\Omega_p^0, V\in\Omega_p^0$ --- антисимметрические, то их внешним произведением называется $U\wedge V = \dfrac{(p+q)!}{p!q!}\asym(U\otimes V)$
+	Если $U\in\Omega_p^0, V\in\Omega_q^0$ --- антисимметрические, то их внешним произведением называется $U\wedge V = \dfrac{(p+q)!}{p!q!}\asym(U\otimes V)$
 \end{Def}
 
 
@@ -162,7 +162,7 @@ U\otimes V (x_1, \ldots, x_{p_1}, x_{p_1+1}, \ldots, x_{p_1+p_2}; y^1,\ldots, y^
 	\begin{multline*}
 		(\pi U)\otimes V(x_1, \ldots, x_{p+q}) = (\pi U)(x_1, \ldots, x_p)V(x_{p+1}, \ldots, x_{p+q}) =\\= U(x_{\pi(1)}, \ldots, x_{\pi(p)})V(x_{p+1}, \ldots, x_{p+q}) = \varpi_\pi (U\otimes V)(x_1, \ldots, x_{p+q}),
 	\end{multline*}
-	где $\varpi_\pi(i)=\pi(i), i=1, \ldots, p; \varpi_\pi(i)=i, i=p+1, \ldots, p+1$. 
+	где $\varpi_\pi(i)=\pi(i), i=1, \ldots, p; \varpi_\pi(i)=i, i=p+1, \ldots, p+q$. 
 	
 	Тогда $T = \dfrac{1}{p!}\sum\limits_{\pi\in S_p}\sgn(\pi)\asym(\varpi_\pi(U\otimes V))\overset{\text{утв. 10}}{=} \dfrac{1}{p!}\sum\limits_{\pi\in S_p}\sgn(\pi)\sgn(\varpi_\pi)\asym(U\otimes V)$, так как  $\sgn(\pi)=\sgn(\varpi_\pi)$, то $T = \asym(U\otimes V)$.
 \end{proof}
