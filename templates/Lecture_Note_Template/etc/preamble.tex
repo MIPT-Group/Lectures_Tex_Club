@@ -2,7 +2,7 @@
 \usepackage{cmap}					          % поиск в PDF
 \usepackage[T2A]{fontenc}			      % кодировка
 \usepackage[utf8]{inputenc}               % кодировка исходного текста
-\usepackage[english, russian]{babel}   % локализация и переносы
+\usepackage[russian, english]{babel}   % локализация и переносы
 
 
 %%% Страница 
@@ -12,10 +12,8 @@
 
 \usepackage{titleps}      % колонтитулы
 \newpagestyle{main}{
-	\setheadrule{.4pt}                      
-	\sethead{\CourseName}{}{\hyperlink{intro}{\;Назад к содержанию}}
-	\setfootrule{.4pt}                       
-	\setfoot{\CourseDate \; ФПМИ МФТИ}{}{\thepage} 
+	\setheadrule{.4pt}                       
+	\sethead{\CourseName}{- \thepage\ -}{\hyperlink{intro}{\; Содержание}}
 }      
 \pagestyle{main}    % Устанавливает контитулы на странице
 
@@ -58,27 +56,35 @@
 
 
 %%%%%% theorems
-\usepackage{amsthm}  % for theoremstyle
+\usepackage{amsthm,xparse}  % for theoremstyle
 
 \theoremstyle{plain} % Это стиль по умолчанию, его можно не переопределять.
-\newtheorem{theorem}{Теорема}[section]
-\newtheorem{prop}[theorem]{Утверждение}
-\newtheorem{lemma}{Лемма}[section]
-\newtheorem{sug}{Предположение}[section]
+\newtheorem{theoaux}[subsection]{Th.}
+\NewDocumentEnvironment{theorem}{o}
+ {\IfNoValueTF{#1}
+   {\theoaux\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection}Theorem}}
+   {\theoaux[#1]\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection}Theorem (#1)}}%
+   \ignorespaces}
+ {\endtheoaux}
+ 
+%\newtheorem{theorem}{Теорема}[section]
+\newtheorem{proposition}[subsection]{Prop.}
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{sug}{Sug.}[section]
 
 \theoremstyle{definition} % "Определение"
-\newtheorem{Def}{Определение}
-\newtheorem{corollary}{Следствие}[theorem]
+\newtheorem{definition}{Def.}
+\newtheorem{corollary}{Corol.}[subsection]
 \newtheorem{problem}{Задача}[section]
 
 \theoremstyle{remark} % "Примечание"
 \newtheorem*{nonum}{Решение}
-\newtheorem*{definition}{Def}
-\newtheorem*{example}{Пример}
-\newtheorem*{note}{Замечание}
+\newtheorem*{example}{Example}
+\newtheorem*{remark}{Remark}
 
 
 %%% Работа с картинками
+\usepackage{float}
 \usepackage{graphicx}                           % Для вставки рисунков
 \graphicspath{{images/}{images2/}}        % папки с картинками
 \setlength\fboxsep{3pt}                    % Отступ рамки \fbox{} от рисунка
@@ -117,3 +123,4 @@
 \newcommand{\E}{\mathbb{E}}
 \newcommand{\brackets}[1]{\left({#1}\right)}      % автоматический размер скобочек
 % Здесь можно добавить ваши индивидуальные сокращения  
+
