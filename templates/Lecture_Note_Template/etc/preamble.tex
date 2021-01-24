@@ -10,12 +10,46 @@
 \usepackage{geometry}  
 \geometry{left=20mm,right=20mm,top=25mm,bottom=30mm} % задание полей текста
 
-\usepackage{titleps}      % колонтитулы
-\newpagestyle{main}{
-	\setheadrule{.4pt}                       
-	\sethead{\CourseName}{- \thepage\ -}{\hyperlink{intro}{\; Содержание}}
-}      
-\pagestyle{main}    % Устанавливает контитулы на странице
+%% Старый стиль колонтитулов
+%\usepackage{titleps}      % колонтитулы
+%\newpagestyle{main}{
+%	\setheadrule{.4pt}                       
+%	\sethead{\CourseName}{- \thepage\ -}{\hyperlink{intro}{\; Содержание}}
+%}      
+%\pagestyle{main}    % Устанавливает контитулы на странице
+
+% Новая команда \lecture{№ лекции}{название}
+% После этой команды весь текст до следующей такой же команды будет
+% принадлежать конкретной лекции, имя которой будет в колонтитуле каждой страницы
+\usepackage{xifthen}
+\def\@lecture{}%
+\newcommand{\lecture}[2]{
+    \ifthenelse{\isempty{#2}}{%
+        \def\@lecture{Лекция #1}%
+    }{%
+        \def\@lecture{Лекция #1: #2}%
+    }%
+    \section{\@lecture}
+}
+
+%% Новый стиль колонтитулов
+\setlength{\headheight}{18pt}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% LE: left even
+% RO: right odd
+% CE, CO: center even, center odd
+
+\fancyhead[RO,LE]{\hyperlink{intro}{К содержанию}} % Right odd,  Left even
+\fancyhead[RE,LO]{\@lecture}                       % Right even, Left odd
+
+\fancyfoot[RO,LE]{\thepage}                        % Right odd,  Left even
+\fancyfoot[RE,LO]{\CourseInfo}                     % Right even, Left odd
+\fancyfoot[C]{}
+
+\makeatother
 
 
 %%%  Текст
