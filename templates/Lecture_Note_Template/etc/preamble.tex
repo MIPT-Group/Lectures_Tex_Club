@@ -21,6 +21,12 @@
 % Новая команда \lecture{№ лекции}{название}
 % После этой команды весь текст до следующей такой же команды будет
 % принадлежать конкретной лекции, имя которой будет в колонтитуле каждой страницы
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\Large\bfseries}{}{0.5em}{}
+% To center parameter \filcenter may be added inside 3rd curl braces {}
+% To change color of section text -- add parameter \color{blue}
+% 4th mandatory {} param is the space at the beginning
+
 \usepackage{xifthen}
 \def\@lecture{}%
 \newcommand{\lecture}[2]{
@@ -42,11 +48,11 @@
 % RO: right odd
 % CE, CO: center even, center odd
 
-\fancyhead[RO,LE]{\hyperlink{intro}{К содержанию}} % Right odd,  Left even
+\fancyhead[RO,LE]{\hyperlink{intro}{Содержание}} % Right odd,  Left even
 \fancyhead[RE,LO]{\@lecture}                       % Right even, Left odd
 
 \fancyfoot[RO,LE]{\thepage}                        % Right odd,  Left even
-\fancyfoot[RE,LO]{\CourseInfo}                     % Right even, Left odd
+\fancyfoot[RE,LO]{\CourseName}                     % Right even, Left odd
 \fancyfoot[C]{}
 
 \makeatother
