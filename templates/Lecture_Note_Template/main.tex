@@ -1,4 +1,4 @@
-\documentclass[a4paper,12pt]{article}
+\documentclass[a4paper,12pt, twoside=true]{article}
 
 \input{etc/preamble}
 
@@ -14,18 +14,20 @@
 \newcommand{\OverleafLink}{https://www.overleaf.com/}
 \newcommand{\GithubLink}{https://github.com}
 
-
 \newcommand{\CourseName}{Краткое Название} %  Используется в преамбуле для создания названия предмета в верхнем контитуле   
 \newcommand{\CourseDate}{2020}           %  Используется в преамбуле для создания даты в нижнем контитуле
 
+  
 \begin{document}
-    \input{etc/title_page}
-    \newpage
-    \hypertarget{intro}{}
-    \tableofcontents
-    
-    \input{lectures/lect01}
-    \input{lectures/lect02}
-    
-    \input{etc/additional}
+
+	\input{etc/title_page}
+	\newpage
+	\hypertarget{intro}{}
+	\tableofcontents
+
+	\input{lectures/lect01}
+	\input{lectures/lect02}
+	    
+	\input{etc/additional}
+
 \end{document}
