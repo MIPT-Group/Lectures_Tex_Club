@@ -41,7 +41,7 @@ jobs:
                                   CONSPECT_NAME: ${{ env.CONSPECT_NAME }}
                           with:
                                   root_file: main.tex
-                                  working_directory: ${{ env.TYPE }}/${{ env.SEMESTER }}/${{ env.SUBJECT_NAME }}/${{ env.CONSPECT_NAME }}
+                                  working_directory: "${{ env.TYPE }}/${{ env.SEMESTER }}/${{ env.SUBJECT_NAME }}/${{ env.CONSPECT_NAME }}"
                                   args: -output-dir=../../../../raw_build -jobname=${{ env.CONSPECT_NAME }}
                                   compiler: pdflatex
                                   post_compile: "pdflatex -output-dir=$GITHUB_WORKSPACE/raw_build -jobname=$CONSPECT_NAME main.tex"
