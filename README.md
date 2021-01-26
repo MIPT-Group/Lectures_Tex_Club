@@ -4,7 +4,6 @@
 
 - Сами .pdf конспекты можно найти в [Google Drive](https://drive.google.com/drive/folders/1CQQHfA5_bgEhP6T0iH9Xp6xDz7D5lbIU?usp=sharing) в разделе Lectures  
 - Группа ВК [vk.com/mipt_ltc](https://vk.com/mipt_ltc)
-- [Список актуальности ноВых конспектов](https://docs.google.com/document/d/1sDJh_VWid1i0WXOWwMtjmYxOR9jUptm2rSj2KP5IHjk/edit?usp=sharing)
 
 ---
 
@@ -42,14 +41,19 @@
      - To rename a local and remote branch in git
 
        - Checkout to your local branch and rename it.
+       
          ```$ git checkout old-name && git branch -m new-name``` 
 
        - Delete the old-name remote branch and push the new-name local branch.
+       
          ```$ git push origin :old-name new-name``` 
+         
        - Reset the upstream branch for the new-name local branch.
+       
          ```$ git push origin -u new-name``` 
 
      - To rename dir
+     
        `$ git mv old-name/ new-name`
 
    После этого в переходите в эту ветку и создаете в ней директорию с лекцией на пути `Lectures/3_Semester/Subj_Name/2020_Lecturer/main.tex` (главный файл **ДОЛЖЕН** называться `main.tex`)   
@@ -77,7 +81,9 @@
 1. Все названия, вроде `branch_name`,  можно оборачивать в  кавычки `“branch_name”,` если в них есть командные символы, вроде &.
 
 2. Если merge будет ругаться на какие-то несостыковки, можно попробовать исправить ошибку, притянув изменения. А именно: Вы делаете пул изменений в master 
+
       ```$ git pull``` 
+      
       А далее переходите обратно в ветку и обновляете ее   
 
       ```
@@ -86,6 +92,7 @@
       ```
 
       и дальше делаете push. 
+      
       ```$ git push origin branch_name```
 
 
