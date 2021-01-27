@@ -1,40 +1,27 @@
-%%% Если будут вопросы по преамбуле, не стесняйтесь спрашивать
-
-%%% Всю шаблонную информацию можно менять тут
-\newcommand{\FullCourseNameFirstPart}{\so{ДИФФЕРЕНЦИАЛЬНЫЕ УРАВНЕНИЯ}}
-
-\newcommand{\SchoolName}{ФПМИ}
-\newcommand{\TrackName}{ПМИ, ИВТ, КТ, РАНХиГС}
-\newcommand{\SemesterNumber}{III}
-\newcommand{\LecturerInitials}{Дубинская Вера Юльевна}
-\newcommand{\AutherInitialsFirst}{Макей Михаил}
-\newcommand{\AutherInitialsSecond}{Климов Ярослав}
-\newcommand{\AutherInitialsThird}{Лотфуллин Камиль}
-\newcommand{\VKLinkFirst}{https://vk.com/mmakey0}
-\newcommand{\VKLinkSecond}{https://vk.com/klimov_29072001}
-\newcommand{\VKLinkThird}{https://vk.com/demons_id}
-\newcommand{\OverleafLink}{https://www.overleaf.com/read/mwffdnvrhqyt}
-\newcommand{\GithubLink}{https://github.com}
-
 \begin{titlepage}
 	\clearpage\thispagestyle{empty}
 	\centering
 	
 	\textit{Федеральное государственное автономное учреждение \\
-		высшего профессионального образования}
+		высшего образования}
 	\vspace{0.5ex}
 	
-	\textbf{Московский Физико-Технический Институт \\ КЛУБ ТЕХА ЛЕКЦИЙ}
+	\textbf{Московский физико-технический институт
+    \\
+    (национальный исследовательский университет)
+    \\
+     КЛУБ ТЕХА ЛЕКЦИЙ}
 	\vspace{20ex}
 	
 	\rule{\linewidth}{0.5mm}
 	{\textbf{\FullCourseNameFirstPart}}
 	\\
+	{\textbf{\FullCourseNameSecondPart}}
 	\rule{\linewidth}{0.5mm}
 	
 	\SemesterNumber\ СЕМЕСТР
 	\\
-	Физтех Школа: \textit{\SchoolName}
+	Физтех-школа: \textit{\SchoolName}
 	\\
 	Направление: \textit{\TrackName}
 	\\
@@ -43,7 +30,7 @@
 	
 	\begin{figure}[!ht]
 		\centering
-		\includegraphics[width=0.4\textwidth]{logo_LTC.png}
+		\includegraphics[width=0.6\textwidth]{logo_LTC}
 		\label{fig:my_label}
 	\end{figure}
 \begin{flushright}
@@ -56,11 +43,11 @@
 	\\
 	\href{\OverleafLink}{\textit{Проект на overleaf}}
 	\\
-	
+	\href{\GithubLink}{\textit{Проект на github}} 
 \end{flushright}
 	
 	\vfill
-	\CourseDate\ года
+	Долгопрудный, \CourseDate\ год.
 	\pagebreak
 	
 \end{titlepage}
