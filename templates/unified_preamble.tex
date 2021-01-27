@@ -1,0 +1,166 @@
+%%% Работа с русским языком
+\usepackage{cmap}					          % поиск в PDF
+\usepackage[T2A]{fontenc}			      % кодировка
+\usepackage[utf8]{inputenc}               % кодировка исходного текста
+\usepackage[russian, english]{babel}   % локализация и переносы
+
+
+%%% Страница 
+\usepackage{extsizes} % Возможность сделать 14-й шрифт
+\usepackage{geometry}  
+\geometry{left=20mm,right=20mm,top=25mm,bottom=30mm} % задание полей текста
+
+%% Старый стиль колонтитулов
+%\usepackage{titleps}      % колонтитулы
+%\newpagestyle{main}{
+%	\setheadrule{.4pt}                       
+%	\sethead{\CourseName}{- \thepage\ -}{\hyperlink{intro}{\; Содержание}}
+%}      
+%\pagestyle{main}    % Устанавливает контитулы на странице
+
+% Новая команда \lecture{№ лекции}{название}
+% После этой команды весь текст до следующей такой же команды будет
+% принадлежать конкретной лекции, имя которой будет в колонтитуле каждой страницы
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\Large\bfseries}{}{0.5em}{}
+% To center parameter \filcenter may be added inside 3rd curl braces {}
+% To change color of section text -- add parameter \color{blue}
+% 4th mandatory {} param is the space at the beginning
+
+\usepackage{xifthen}
+\def\@lecture{}%
+\newcommand{\lecture}[2]{
+    \ifthenelse{\isempty{#2}}{%
+        \def\@lecture{Лекция #1}%
+    }{%
+        \def\@lecture{Лекция #1: #2}%
+    }%
+    \section{\@lecture}
+}
+
+%% Новый стиль колонтитулов
+\setlength{\headheight}{18pt}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% LE: left even
+% RO: right odd
+% CE, CO: center even, center odd
+
+\fancyhead[RO,LE]{\hyperlink{intro}{Содержание}} % Right odd,  Left even
+\fancyhead[RE,LO]{\@lecture}                       % Right even, Left odd
+
+\fancyfoot[RO,LE]{\thepage}                        % Right odd,  Left even
+\fancyfoot[RE,LO]{\CourseName}                     % Right even, Left odd
+\fancyfoot[C]{}
+
+\makeatother
+
+
+%%%  Текст
+\setlength\parindent{0pt}         % Устанавливает длину красной строки 0pt
+\sloppy                                        % строго соблюдать границы текста
+\linespread{1.3}                           % коэффициент межстрочного интервала
+\setlength{\parskip}{0.5em}                % вертик. интервал между абзацами
+%\setcounter{secnumdepth}{0}                % отключение нумерации разделов
+%\setcounter{section}{-1}         % Чтобы сделать нумерацию лекций с нуля
+\usepackage{multicol}				          % Для текста в нескольких колонках
+%\usepackage{soul}
+\usepackage{soulutf8} % Модификаторы начертания
+
+
+%%% Гиппер ссылки
+\usepackage{hyperref}
+\usepackage[usenames,dvipsnames,svgnames,table,rgb]{xcolor}
+\hypersetup{				% Гиперссылки
+	unicode=true,           % русские буквы в раздела PDF\\
+	pdfstartview=FitH,
+	pdftitle={Заголовок},   % Заголовок
+	pdfauthor={Автор},      % Автор
+	pdfsubject={Тема},      % Тема
+	pdfcreator={Создатель}, % Создатель
+	pdfproducer={Производитель}, % Производитель
+	pdfkeywords={keyword1} {key2} {key3}, % Ключевые слова
+	colorlinks=true,       	% false: ссылки в рамках; true: цветные ссылки
+	linkcolor=blue,          % внутренние ссылки
+	citecolor=green,        % на библиографию
+	filecolor=magenta,      % на файлы
+	urlcolor=NavyBlue,           % на URL
+}
+
+
+%%% Для формул
+\usepackage{amsmath}          
+\usepackage{amssymb}
+
+
+%%%%%% theorems
+\usepackage{amsthm,xparse}  % for theoremstyle
+
+\theoremstyle{plain} % Это стиль по умолчанию, его можно не переопределять.
+\newtheorem{theoaux}[subsection]{Th.}
+\NewDocumentEnvironment{theorem}{o}
+ {\IfNoValueTF{#1}
+   {\theoaux\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection}Theorem}}
+   {\theoaux[#1]\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection}Theorem (#1)}}%
+   \ignorespaces}
+ {\endtheoaux}
+ 
+%\newtheorem{theorem}{Теорема}[section]
+\newtheorem{proposition}[subsection]{Prop.}
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{sug}{Sug.}[section]
+
+\theoremstyle{definition} % "Определение"
+\newtheorem{definition}{Def.}
+\newtheorem{corollary}{Corol.}[subsection]
+\newtheorem{problem}{Задача}[section]
+
+\theoremstyle{remark} % "Примечание"
+\newtheorem*{nonum}{Решение}
+\newtheorem*{example}{Example}
+\newtheorem*{remark}{Remark}
+
+
+%%% Работа с картинками
+\usepackage{float}
+\usepackage{graphicx}                           % Для вставки рисунков
+\graphicspath{{images/}{img/}{figures/}{fig/}}        % папки с картинками
+\setlength\fboxsep{3pt}                    % Отступ рамки \fbox{} от рисунка
+\setlength\fboxrule{1pt}                    % Толщина линий рамки \fbox{}
+\usepackage{wrapfig}                     % Обтекание рисунков текстом
+\graphicspath{{images/}}                     % Путь к папке с картинками
+
+\newcommand{\drawsome}[1]{            % Для быстрой вставки картинок
+    \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=0.7]{#1}
+            \label{fig:first}
+    \end{figure}
+}
+\newcommand{\drawsomemedium}[1]{
+    \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=0.45]{#1}
+            \label{fig:first}
+    \end{figure}
+}
+\newcommand{\drawsomesmall}[1]{
+    \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=0.3]{#1}
+            \label{fig:first}
+    \end{figure}
+}
+
+
+%%% облегчение математических обозначений
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+%\newcommand{\C}{\mathbb{C}}             % команда уже определена где-то)
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\brackets}[1]{\left({#1}\right)}      % автоматический размер скобочек
+% Здесь можно добавить ваши индивидуальные сокращения  
+

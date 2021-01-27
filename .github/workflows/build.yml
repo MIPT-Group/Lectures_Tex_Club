@@ -18,7 +18,7 @@ jobs:
                                   pwd
                                   mkdir raw_build
                                   BRANCH_NAME=${GITHUB_REF#refs/heads/}
-                                  echo ::set-env name=BRANCH_NAME::$(echo ${BRANCH_NAME})
+                                  echo "BRANCH_NAME=$(echo ${BRANCH_NAME})" >> $GITHUB_ENV
                                   BRANCH_ARGUMENTS=(${BRANCH_NAME//\// })
                                   TYPE=${BRANCH_ARGUMENTS[0]}
                                   SEMESTER=${BRANCH_ARGUMENTS[1]}
@@ -30,10 +30,10 @@ jobs:
                                         TYPE="Seminars"
                                   fi
                                   SEMESTER="${SEMESTER}_Semester"
-                                  echo ::set-env name=TYPE::$(echo ${TYPE})
-                                  echo ::set-env name=SEMESTER::$(echo ${SEMESTER})
-                                  echo ::set-env name=SUBJECT_NAME::$(echo ${SUBJECT_NAME})
-                                  echo ::set-env name=CONSPECT_NAME::$(echo ${CONSPECT_NAME})
+                                  echo "TYPE=$(echo ${TYPE})" >> $GITHUB_ENV
+                                  echo "SEMESTER=$(echo ${SEMESTER})" >> $GITHUB_ENV
+                                  echo "SUBJECT_NAME=$(echo ${SUBJECT_NAME})" >> $GITHUB_ENV
+                                  echo "CONSPECT_NAME=$(echo ${CONSPECT_NAME})" >> $GITHUB_ENV
                           id: extract_branch
                         - name: Build
                           uses: xu-cheng/latex-action@v2
@@ -41,15 +41,15 @@ jobs:
                                   CONSPECT_NAME: ${{ env.CONSPECT_NAME }}
                           with:
                                   root_file: main.tex
-                                  working_directory: ${{ env.TYPE }}/${{ env.SEMESTER }}/${{ env.SUBJECT_NAME }}
-                                  args: -output-dir=../../../raw_build -jobname=${{ env.CONSPECT_NAME }}
+                                  working_directory: "${{ env.TYPE }}/${{ env.SEMESTER }}/${{ env.SUBJECT_NAME }}/${{ env.CONSPECT_NAME }}"
+                                  args: -output-dir=../../../../raw_build -jobname=${{ env.CONSPECT_NAME }}
                                   compiler: pdflatex
                                   post_compile: "pdflatex -output-dir=$GITHUB_WORKSPACE/raw_build -jobname=$CONSPECT_NAME main.tex"
 
                         - name: Prepare
                           run: |
-                                  mkdir -p build/${{ env.TYPE }}/${{ env.SEMESTER }}/${{ env.SUBJECT_NAME }}
-                                  mv raw_build/${{ env.CONSPECT_NAME}}.pdf build/${{ env.TYPE }}/${{ env.SEMESTER }}/${{ env.SUBJECT_NAME }} 
+                                  mkdir -p "build/${{ env.TYPE }}/${{ env.SEMESTER }}/${{ env.SUBJECT_NAME }}"
+                                  mv "raw_build/${{ env.CONSPECT_NAME}}.pdf" "build/${{ env.TYPE }}/${{ env.SEMESTER }}/${{ env.SUBJECT_NAME }}" 
                         - name: Upload
                           uses: satackey/action-google-drive@v1
                           with:
