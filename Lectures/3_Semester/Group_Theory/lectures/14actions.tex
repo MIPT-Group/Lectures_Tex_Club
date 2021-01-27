@@ -163,9 +163,9 @@
 	Докажите, что $\Inn{G} \normal \Aut{G}$.
 \end{exercise}
 
-\begin{proof}[Решение]
+\begin{solution}
 	Пусть $\psi \in \Aut{G}$. Тогда $\forall I_g \in \Inn{G}: \forall x \hm\in G: \psi(I_g(x)) \hm= \psi(g^{-1}xg) \hm= \psi(g)^{-1}\psi(x)\psi(g)$, поэтому $\psi\circ\Inn{G} \subset \Inn{G}\circ\psi$. Тогда, в силу произвольности $\psi$, $\Inn{G} \hm\normal \Aut{G}$.
-\end{proof}
+\end{solution}
 
 \begin{definition}
 	Конечная группа $G$ называется \textit{$p$-группой}, если $|G| = p^n$, где $n \in \N$, $p$ "--- простое число.
@@ -177,7 +177,7 @@
 
 \begin{proof}
 	Рассмотрим действие $G$ сопряжениями на себя и воспользуемся формулой орбит:
-	\[|\Omega| = |G| = \sum\limits_i |\Omega_i| = \sum\limits_i |x_i^G| = \sum\limits_i \frac{|G|}{C_G(x_i)}\]
+	\[|\Omega| = |G| = \sum\limits_i |\Omega_i| = \sum\limits_i |x_i^G|\]
 	
 	Каждое слагаемое в последней сумме "--- это некоторая (возможно, нулевая) степень $p$. Поскольку левая часть кратна $p$, число слагаемых, равных единице, делится на $p$. Но $|x^G| = 1 \lra x \in Z(G)$ и $e \in Z(G)$, значит, $|Z(G)| \ge p$.
 \end{proof}

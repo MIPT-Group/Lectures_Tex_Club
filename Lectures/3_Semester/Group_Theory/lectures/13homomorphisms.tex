@@ -1,7 +1,7 @@
 \subsection{Гомоморфизмы групп и факторгруппа}
 
 \begin{definition}
-	Пусть $G, H$ "--- группы. Отображение $\phi : G \hm\to H$ называется \textit{гомоморфизмом групп} $G$ и $H$, если $\forall g_1, g_2 \in G: \phi(g_1g_2) = \phi(g_1)\phi(g_2)$. Сюръективный гомоморфизм называется \textit{эпиморфизмом}, инъективный гомоморфизм --- \textit{мономорфизмом}.
+	Пусть $G, H$ "--- группы. \textit{Гомоморфизмом групп} $G$ и $H$ называется отображение $\phi : G \hm\to H$ такое, что $\forall g_1, g_2 \hm\in G: \phi(g_1g_2) \hm= \phi(g_1)\phi(g_2)$. Сюръективный гомоморфизм называется \textit{эпиморфизмом}, инъективный гомоморфизм --- \textit{мономорфизмом}.
 \end{definition}
 
 \begin{note}
@@ -94,20 +94,20 @@
 		\item (Обратный элемент) $\forall gK \in G / K: \exists (gK)^{-1} = g^{-1}K \in G / K: (gK)(gK)^{-1} \hm= (gK)^{-1}(gK) = K$
 	\end{itemize}
 	
-	Отображение $\pi$ "--- это гомоморфизм по определению, и его сюръективность очевидна: $\forall gK \in K: \exists g \in G: \pi(g) = gK$.
+	Отображение $\pi$ "--- это гомоморфизм по определению, и его сюръективность очевидна: $\forall gK \in G / K: \exists g \in G: \pi(g) = gK$.
 \end{proof}
-
-\begin{note}
-	$g \in \ke\pi \Leftrightarrow \pi(g) = gK = K \Leftrightarrow g \in K$, поэтому $\ke\pi = K$. Значит, любая нормальная подгруппа является ядром некоторого гомоморфизма, точно так же, как любая подгруппа является образом некоторого гомоморфизма.
-\end{note}
 
 \begin{definition}
 	Пусть $G$ "--- группа, $K \normal G$. Группа $G / K$ называется \textit{факторгруппой} $G$ по $K$.
 \end{definition}
 
+\begin{note}
+	$g \in \ke\pi \Leftrightarrow \pi(g) = gK = K \Leftrightarrow g \in K$, поэтому $\ke\pi = K$. Значит, любая нормальная подгруппа является ядром некоторого гомоморфизма, точно так же, как любая подгруппа является образом некоторого гомоморфизма.
+\end{note}
+
 \begin{theorem}[Основная теорема о гомоморфизме]~
 	\begin{enumerate}
-		\item Пусть $G$ "--- группа, $K \normal G$. Тогда $\exists \pi: G \to K$ "--- эпиморфизм такой, что $\ke\phi \hm= K$.
+		\item Пусть $G$ "--- группа, $K \normal G$. Тогда $\exists \pi: G \to G / K$ "--- эпиморфизм такой, что $\ke\pi \hm= K$.
 		\item Пусть $G, H$ "--- группы, $\phi: G \to H$ "--- гомоморфизм. Тогда $K \hm{:=} \ke\phi \normal G$, и, более того, $\im\phi \cong G / K$.
 	\end{enumerate}
 \end{theorem}
@@ -116,19 +116,19 @@
 	Большая часть теоремы уже была доказана выше, остается доказать лишь последнее утверждение. Изобразим его на коммутативной диаграмме:
 	\[
 	\begin{tikzcd}[row sep = huge]
-	G \arrow{rr}{\phi} \arrow[swap]{dr}{\pi} && \im\phi \le H \arrow[dashrightarrow, swap, xshift = -4pt]{dl}{\psi}\\
-	& G / K \arrow[dashrightarrow, swap, xshift = 4pt]{ur}{\Theta} &
+		G \arrow{rr}{\phi} \arrow[swap]{dr}{\pi} && \im\phi \le H \arrow[dashrightarrow, swap, xshift = -4pt]{dl}{\psi}\\
+		& G / K \arrow[dashrightarrow, swap, xshift = 4pt]{ur}{\Theta} &
 	\end{tikzcd}
 	\]
 	
 	Нам требуется предъявить такой изоморфизм $\Theta: G / K \to \im\phi$, что $\Theta \circ \pi = \phi$. Построим $\psi := \Theta^{-1}$: $\forall \overline{g} \in \im\phi: \psi(\overline{g}) = \phi^{-1}(\overline{g}) \hm= gK \in G / K$. Проверим, что это изоморфизм:
 	\begin{itemize}
-		\item (Гомоморфизм) $\forall \overline{g_1}, \overline{g_2} \in \im\phi: \psi(\overline{g_1}\overline{g_2}) = \psi(\overline{g_1g_2}) = g_1g_2K \hm= (g_1K)(g_2K) = \psi(\overline{g_1})\psi(\overline{g_2})$
+		\item (Гомоморфизм) $\forall \overline{g_1}, \overline{g_2} \in \im\phi: \psi(\overline{g_1}\cdot\overline{g_2}) = \psi(\overline{g_1g_2}) = g_1g_2K \hm= (g_1K)(g_2K) = \psi(\overline{g_1})\psi(\overline{g_2})$
 		\item (Сюръективность) $\forall gK \in G / K: gK = \psi(\overline{g})$
 		\item (Инъективность) Достаточно показать, что $\ke\psi = \{e\}$: $\forall \overline{g} \hm\in \im\phi: \psi(\overline{g}) = K \hm\Rightarrow gK = K \Rightarrow g \in K \Rightarrow \overline{g} = \overline{e}$
 	\end{itemize}
 	
-	Теорема доказана, но убедимся непосредственно в том, что диаграмма коммутативна, то есть $\Theta \circ \pi = \phi$, или $\Theta^{-1} \circ \phi = \psi \circ \phi = \pi$: $\forall g \hm\in G: \psi(\phi(g)) = \phi(\overline{g}) = gK = \pi(g)$.
+	Теорема доказана, но убедимся непосредственно в том, что диаграмма коммутативна, то есть $\Theta \circ \pi = \phi$, или $\Theta^{-1} \circ \phi = \psi \circ \phi = \pi$: $\forall g \hm\in G: \psi(\phi(g)) = \psi(\overline{g}) = gK = \pi(g)$.
 \end{proof}
 
 \begin{note}
@@ -140,7 +140,7 @@
 \end{theorem}
 
 \begin{proof}
-	Первая утверждение теоремы уже было доказано, поэтому докажем оставшиеся два. Для этого рассмотрим канонический эпиморфизм $\pi: G \hm\to G / K$ и $\forall g \in G$ обозначим $\overline{g} := \pi(g)$.
+	Первое утверждение теоремы уже было доказано, поэтому докажем оставшиеся два. Для этого рассмотрим канонический эпиморфизм $\pi: G \hm\to G / K$ и $\forall g \in G$ обозначим $\overline{g} := \pi(g)$.
 	
 	Пусть $\phi := \pi|_H : H \to G/ K$. Тогда $\ke\phi = \ke\pi \cap H = K \cap H$, откуда $K \cap H \normal H$. $\im\phi = \{\overline{h}: h \in H\} = \{hK: h \hm\in H\} = HK / K$, поскольку $HK / K \hm= \{hkK: h \in H, k \hm\in K\} = \{hK: h \in H\}$. По основной теореме о гомоморфизме, $HK / K \cong H / (K \cap H)$.
 \end{proof}
@@ -161,16 +161,16 @@
 	Укажите в явном виде изоморфизм $G / H \hm\to \overline{G} / \overline{H}$ из предыдущей теоремы.
 \end{exercise}
 
-\begin{proof}[Решение]
+\begin{solution}
 	В общем случае, при гомоморфизме групп $\phi: G_1 \to G_2$ изоморфизм из основной теоремы имеет вид $g_1\ke\phi \mapsto \phi(g_1)$. В теореме выше это отображение принимает следующий вид: $gH \hm\mapsto \phi(g) = \pi'(\pi(g)) = \overline{g}\overline{H}$.
-\end{proof}
+\end{solution}
 
 \begin{proposition}
 	Пусть $G$ "--- конечная группа, $H, K \le G$. Тогда $|HK| = \frac{|H||K|}{|H\cap K|}$.
 \end{proposition}
 
 \begin{proof}
-	Рассмотрим отображение $\delta: H\times K \to K$ такое, что $\forall h \hm\in H: \forall k \in K: \delta(h, k) = hk$. Тогда $\delta(h_1, k_1) = \delta(h_2, k_2) \hm\Leftrightarrow h_1k_1 = h_2k_2 \hm\Leftrightarrow h_2^{-1}h_1 = k_2k_1^{-1} = x \in H \cap K$, то есть $h_1 = h_2x$, $k_1 = x^{-1}k_2$. Значит, $|HK||H \cap K| = |H \times K| = |H||K|$.
+	Рассмотрим отображение $\delta: H\times K \to G$ такое, что $\forall h \hm\in H: \forall k \in K: \delta(h, k) = hk$. Тогда $\delta(h_1, k_1) = \delta(h_2, k_2) \hm\Leftrightarrow h_1k_1 = h_2k_2 \hm\Leftrightarrow h_2^{-1}h_1 = k_2k_1^{-1} = x \in H \cap K$, то есть $h_1 = h_2x$, $k_1 = x^{-1}k_2$. Значит, $|HK||H \cap K| = |H \times K| = |H||K|$.
 \end{proof}
 
 \begin{example} Рассмотрим несколько примеров применения теорем об изоморфизме:

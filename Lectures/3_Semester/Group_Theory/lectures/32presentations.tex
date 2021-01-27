@@ -23,7 +23,7 @@
 \end{theorem}
 
 \begin{proof}
-	Рассмотрим $K = \gl S\gr_{norm} \normal F_n$. Тогда $G \hm\cong F_n/K$, и, более того, $\forall i \hm\in \{1, \dotsc, n\}: g_i \mapsto f_iK$. Рассмотрим $\psi: F_n \to H$ "--- гомоморфизм такой, что $\forall i \in \{1, \dotsc, n\}: \phi(f_i) = h_i$, и положим $L := \ke\psi$. По условию, $S \subset L$, поэтому $K \le L$. Тогда $\im\psi \cong F_n / L$, причем $\forall i \in \{1, \dotsc, n\}: h_i \mapsto f_iL$.
+	Рассмотрим $K = \gl S\gr_{norm} \normal F_n$. Тогда $G \hm\cong F_n/K$, и, более того, $\forall i \hm\in \{1, \dotsc, n\}: g_i \mapsto f_iK$. Рассмотрим $\psi: F_n \to H$ "--- гомоморфизм такой, что $\forall i \in \{1, \dotsc, n\}: \psi(f_i) = h_i$, и положим $L := \ke\psi$. По условию, $S \subset L$, поэтому $K \le L$. Тогда $\im\psi \cong F_n / L$, причем $\forall i \in \{1, \dotsc, n\}: h_i \mapsto f_iL$.
 	
 	Положим $H^* := \gl h_1, \dotsc, h_n\gr = \im\psi$. По второй теореме об изоморфизме, $F_n / L \hm\cong (F_n / K) / (L / K) = \overline{F_n} / \overline{L}$, причем $wL \mapsto \overline{w}\overline{L}$. Значит, $H^*  \cong F_n / L \cong G / L'$, где $L' \normal G$ "--- подгруппа, соответствующая $\overline{L} \normal \overline{F_n}$. Рассмотрим теперь канонический эпиморфизм $\pi: G \hm\to G / L'$. Искомый гомоморфизм имеет вид $\phi: G \xrightarrow{\pi} G / L' \cong H^* \le H$, и $\forall i \in \{1, \dotsc, n\}: g_i \mapsto g_iL' \mapsto \overline{f_i}\overline{L} \hm\mapsto f_iL \mapsto h_i$.
 \end{proof}

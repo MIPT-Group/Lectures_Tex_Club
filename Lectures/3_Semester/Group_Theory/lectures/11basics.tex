@@ -3,13 +3,13 @@
 \subsection{Повторение изученного}
 
 \begin{definition}
-	Группой называется множество $G$ с определенной на нем бинарной операцией $\cdot: G^2 \to G$ такой, что:
+	\textit{Группой} называется множество $G$ с определенной на нем бинарной операцией $\cdot: G^2 \to G$ такой, что:
 	\begin{enumerate}
 		\item $\forall a, b, c \in G: a(bc) = (ab)c$
 		
 		\item $\exists e \in G: \forall a \in G: ae = ea = a$ (элемент $e$ называется \textit{нейтральным})
 		
-		\item $\forall a \in G: \exists a^{-1} \in G: aa^{-1} = a^{-1}a = a$ (элемент $a^{-1}$ называется \textit{обратным} к $a$)
+		\item $\forall a \in G: \exists a^{-1} \in G: aa^{-1} = a^{-1}a = e$ (элемент $a^{-1}$ называется \textit{обратным} к $a$)
 	\end{enumerate}
 \end{definition}
 
@@ -56,7 +56,7 @@
 \end{reminder}
 
 \begin{definition}
-	\textit{Беспорядком} в перестановке $\sigma \in S_n$ называется пара $(i, j), i, j \hm\in \{1, \dotsc, n\}$ такая, что $i < j$, но $\sigma(i) > \sigma(j)$. \textit{Знаком перестановки} $\sigma \in S_n$ называется число $(-1)^{N(\sigma)}$, где $N(\sigma)$ "--- количество беспорядков в $\sigma$. Обозначение "--- $\sgn{\sigma}$.
+	\textit{Беспорядком} в перестановке $\sigma \in S_n$ называется пара $(i, j) \in \{1, \dotsc, n\}^2 $ такая, что $i < j$, но $\sigma(i) > \sigma(j)$. \textit{Знаком перестановки} $\sigma \in S_n$ называется число $(-1)^{N(\sigma)}$, где $N(\sigma)$ "--- количество беспорядков в $\sigma$. Обозначение "--- $\sgn{\sigma}$.
 \end{definition}
 
 \begin{reminder}
@@ -127,7 +127,7 @@
 \begin{proof}~
 	\begin{itemize}
 		\item ($1 \Rightarrow 2$) По условию, $\exists h_1, h_2 \in H: ah_1 = bh_2$, откуда $b^{-1}a \hm= h_2h_1^{-1} \in H$
-		\item ($2 \Rightarrow 3$) Поскольку $H$ "--- группа и $b^{-1}aH \in H$, то $(b^{-1}a)H = H$, и, следовательно, $aH = bH$
+		\item ($2 \Rightarrow 3$) Поскольку $H$ "--- группа и $b^{-1}a \in H$, то $(b^{-1}a)H = H$, и, следовательно, $aH = bH$
 		\item ($3 \Rightarrow 4$) Заметим, что $a = ae$, поэтому $a \in aH = bH$
 		\item ($4 \Rightarrow 1$) Поскольку $a = ae$ и $a \in bH$, то $a \in aH \cap bH$, следовательно, $aH \cap bH \ne \emptyset$
 	\end{itemize}
@@ -138,7 +138,7 @@
 \end{note}
 
 \begin{theorem}[Лагранжа]
-	Пусть $G$ "--- конечная группа, $H \le G$. Тогда $|G| = |H||G / H| \hm= |G||H \bs G|$.
+	Пусть $G$ "--- конечная группа, $H \le G$. Тогда $|G| = |H||G / H| \hm= |H||H \bs G|$.
 \end{theorem}
 
 \begin{proof}
