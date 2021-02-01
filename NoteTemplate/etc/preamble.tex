@@ -26,6 +26,15 @@
     \section{\@lecture}
 }
 
+\def\@lecture{}%
+\newcommand{\question}[2]{
+    \ifthenelse{\isempty{#2}}{%
+        \def\@lecture{Билет #1}%
+    }{%
+        \def\@lecture{Билет #1: #2}%
+    }%
+    \section{\@lecture}
+}
 % ------------ Text settings ------------
 %%% Гиппер ссылки
 \renewcommand{\linkcolor}{blue}
