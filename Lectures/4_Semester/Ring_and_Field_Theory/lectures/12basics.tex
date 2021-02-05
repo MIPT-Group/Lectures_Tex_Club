@@ -1,0 +1,120 @@
+\subsection{Основные понятия теории делимости}
+
+В данном разделе зафиксируем $K$ "--- область целостности.
+
+\begin{definition}
+	Пусть $a, b \in K$. Говорят, что \textit{$a$ делит $b$}, или \textit{$b$ делится на $a$}, если $\exists c \in K: b = ac$. Обозначение "--- $a \mid b$.
+\end{definition}
+
+\begin{note}
+	Отношение делимости является отношением предпорядка, но не является отношением порядка, поскольку для него не выполнена антисимметричность: если $a \mid b$ и $b \mid a$, то $b = ac$ и $a = bd$, $c, d \in K$, причем $cd = 1$, то есть $c, d \in K^*$.
+\end{note}
+
+\begin{definition}
+	Группа $K^*$ действует на $K$ умножениями. Орбиты этого действия называются \textit{классами ассоциированности}. Элементы $a, b \in K$ называются \textit{ассоциированными}, если они лежат в одном классе ассоциированности, то есть $\exists c \in K^*: a = bc$. Обозначение "--- $a \sim b$.
+\end{definition}
+
+\begin{proposition}
+	Отношение ассоциированности является отношением эквивалентности на $K$.
+\end{proposition}
+
+\begin{proof}
+	Отношение ассоциированности совпадает с отношением эквивалентности относительно действия $K^*$ на $K$ умножениями.
+\end{proof}
+
+\begin{proposition}
+	Пусть $a, b \in K$. Тогда эквивалентны следующие утверждения:
+	\begin{enumerate}
+		\item $a \sim b$
+		\item $\{c \in K: a \mid c\} = \{c \in K: b \mid c\}$
+		\item $\{c \in K: c \mid a\} = \{c \in K: c \mid b\}$
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof} Докажем, что $1 \lra 2$, поскольку эквивалентность $1 \lra 3$ доказывается аналогично:
+	\begin{itemize}
+		\item[$\ra$] Если $a = bd$, $d \in K^*$, то, в силу обратимости $d$, $a \mid c \lra \exists \alpha \in K: c = a\alpha \lra \exists \alpha \in K: c = bd\alpha \lra \exists \beta \in K: c = b\beta \lra b \mid c$
+		\item[$\la$] Из условия следует, что $a \mid b$ и $b \mid a$, поэтому $a \sim b$
+	\end{itemize}
+\end{proof}
+
+\begin{definition}
+	\textit{Расширение кольца $\Z$ числом $\alpha \in \Cm$} "--- это наименьшее по включению подкольцо в $\Cm$, содержащее $\Z$ и $\alpha$. Обозначение "--- $\Z[\alpha]$.
+\end{definition}
+
+\begin{proposition}
+	$\forall \alpha \in \Cm: \Z[\alpha] = \{p(\alpha): p \in \Z[x]\}$.
+\end{proposition}
+
+\begin{proof}
+	Обозначим множество справа через $S$. С одной стороны, очевидно, что $S \subset \Z[\alpha]$. С другой стороны, $S$ "--- кольцо, поскольку оно замкнуто относительно сложения и умножения, поэтому $\Z[\alpha] \subset S$.
+\end{proof}
+
+\begin{example}
+	Рассмотрим $\Z[i] = \{a + bi: a, b \in \Z\}$ "--- \textit{гауссовы числа}. Покажем, что $\Z[i]^* \hm= \{\pm1, \pm i\}$. Для этого определим на $\Z[i]$ \textit{норму} следующим образом: $\forall a + bi \in \Z[i]: N(a + bi) := a^2 + b^2$. Заметим, что $\forall z, w \in \Z[i]: N(zw) = N(z)N(w)$. Тогда, поскольку нормы всех чисел в $\Z[i]$ "--- целые числа, $z \in \Z[i]^* \lra N(z) = 1 \lra z \in \{\pm1, \pm i\}$.
+	
+	\pagebreak
+	На комплексной плоскости гауссовы числа образуют решетку следующего вида:
+	\begin{center}
+		\scalebox{0.7}{
+		\begin{tikzpicture}
+			\clip (-3.8, -3.8) rectangle (3.8, 3.8);
+			\begin{scope}[thick,font=\small]
+				\draw [->] (-3.8, 0) -- (3.8, 0);
+				\draw [->] (0, -3.8) -- (0, 3.8);
+				
+				\draw (1,3pt) -- (1,-3pt) node [below] {$1$};
+				\draw (3pt,1) -- (-3pt,1) node [left] {$i$};
+			\end{scope}
+			
+			\foreach \x in {-5, -4, ..., 5}{
+				\foreach \y in {-5, -4, ..., 5}{
+					\node[draw,circle,inner sep=1pt,fill] at (\x, \y) {};
+				}
+			}
+		
+			\node[draw,circle,inner sep=1.5pt,fill,blue] at (0, 1) {};
+			\node[draw,circle,inner sep=1.5pt,fill,blue] at (1, 0) {};
+			\node[draw,circle,inner sep=1.5pt,fill,blue] at (0, -1) {};
+			\node[draw,circle,inner sep=1.5pt,fill,blue] at (-1, 0) {};
+		\end{tikzpicture}
+		}
+	\end{center}
+\end{example}
+
+\begin{example}
+	Рассмотрим $\Z[\omega] = \{a + b\omega: a, b \in \Z\}$, где $\omega$ "--- нетривиальный корень уравнения $z^3 = 1$ ($\omega = -\frac12 + \frac{\sqrt{3}}2i$), "--- \textit{числа Эйзенштейна}. Покажем, что $\Z[\omega]^* \hm= \{\pm1, \pm \omega, \pm(1 + \omega)\}$.
+	
+	
+	На комплексной плоскости числа Эйзенштейна образуют решетку следующего вида:
+	\begin{center}
+		\scalebox{0.7}{
+			\begin{tikzpicture}
+				\clip (-3.8, -3.8) rectangle (3.8, 3.8);
+				\begin{scope}[thick,font=\small]
+					\draw [->] (-3.8, 0) -- (3.8, 0);
+					\draw [->] (0, -3.8) -- (0, 3.8);
+					
+					\draw (1,3pt) -- (1,-3pt) node [below] {$1$};
+					\draw (3pt,1) -- (-3pt,1) node [left] {$i$};
+				\end{scope}
+				
+				\def\aa{-1/2}
+				\def\bb{1.732/2}
+				
+				\foreach \x in {-5, -4, ..., 5}{
+					\foreach \y in {-5, -4, ..., 5}{
+						\node[draw,circle,inner sep=1pt,fill] at (\x + \y* \aa, \y * \bb) {};
+					}
+				}
+				
+				\node[draw,circle,inner sep=1.5pt,fill,blue] at (-1/2, 1.732/2) {} node [left] at (-1/2, 1.732/2) {$\omega$};
+				\node[draw,circle,inner sep=1.5pt,fill,blue] at (1/2, 1.732/2) {};
+				\node[draw,circle,inner sep=1.5pt,fill,blue] at (1, 0) {};
+				\node[draw,circle,inner sep=1.5pt,fill,blue] at (-1, 0) {};
+				\node[draw,circle,inner sep=1.5pt,fill,blue] at (1/2, -1.732/2) {};
+				\node[draw,circle,inner sep=1.5pt,fill,blue] at (-1/2, -1.732/2) {};
+			\end{tikzpicture}
+		}
+	\end{center}
+\end{example}
