@@ -116,7 +116,7 @@ $$
 \end{Def}
 
 \begin{lemma}
-	Множество непрерывных финитных функций всюду плотно в $L_1(\R)$ $($то есть его замыкание совпадает с $L_1(\R))$.
+	Множество\label{lemma_1} непрерывных финитных функций всюду плотно в $L_1(\R)$ $($то есть его замыкание совпадает с $L_1(\R))$.
 \end{lemma}
 \begin{proof}
 	Заменим $\R$ на отрезок $[a,b]$. То есть докажем, что множество непрерывных на $[a,b]$ функций всюду плотно в $L_1[a,b]$. Имеем суммируемую функцию $f(x)\in L_1[a,b]$. Всюду плотность означает, что ${(\forall\varepsilon >0)} {(\exists g\in C[a,b])} \parallel f-g\parallel_{L_1[a,b]}<\varepsilon$.
@@ -238,7 +238,6 @@ $$
 	 						\text{линейна на }[-N-\gamma,-N]\text{ и }[N,N+\gamma]\\
 	 					\end{cases}
 	 				\end{aligned}$
-	 				
 	 			};
 	 		\end{tikzpicture}
 	 	\end{center}
@@ -250,9 +249,21 @@ $$
 \begin{lemma}
 	Каждая суммируемая на $\R$ функция $f(x)$ непрерывна в среднем относительно сдвига, то есть $\lim\limits_{t\to 0}\int\limits_{\R}|f(x+t)-f(x)|d\mu(x)=0$.
 \end{lemma}
-
 \begin{proof}
-	Докажем, что для $f\in L_1[a,b]$: $\lim\limits_{\delta\to 0}\sup\limits_{0\leqslant n\leqslant \delta}\int\limits_{a}^{b-h}|f(x+h)-f(x)|d\mu(x)=0$.
+	Докажем, что для $f\in L_1[a,b]$: $\lim\limits_{\delta\to 0}\sup\limits_{0\leqslant h\leqslant \delta}\int\limits_{a}^{b-h}|f(x+h)-f(x)|d\mu(x)=0$.\\
+	Из \hyperref[lemma_1]{Леммы 1} следует $(\forall\varepsilon >0)(\exists g\in C[a,b])\parallel f-g\parallel_{L_1[a,b]}=\int\limits_{a}^b|f(x)-g(x)|d\mu(x)<\dfrac{\varepsilon}{3}$.
+	
+	Т. к. $g\in C[a,b]\overset{\text{т. Кантора}}{\Rightarrow} (\forall\varepsilon>0)(\exists\delta>0)(\forall x_1,x_2\in[a,b],|x_1-x_2|\leqslant\delta)\ |g(x_1)-g(x_2)|<\frac{\varepsilon}{3\cdot (b-a)}$.
+	
+	Тогда $\forall h, 0\leqslant h \leqslant \delta$
+	\begin{multline*}
+		\int\limits_{a}^{b-h}|f(x+h)-f(x)|d\mu(x)\leqslant \underbrace{\int\limits_{a}^{b-h}|f(x+h)-g(x+h)|d\mu(x)}_{<\dfrac{\varepsilon}{3}\text{, см. пояснение}}+\\+
+		\int\limits_{a}^{b-h}\underbrace{|g(x+h)-g(x)|}_{<\dfrac{\varepsilon}{3\cdot (b-a)}}d\mu(x)+
+		\underbrace{\int\limits_{a}^{b-h}|g(x)-f(x)|d\mu(x)}_{<\dfrac{\varepsilon}{3}\text{, см. пояснение}}<\varepsilon. 
+	\end{multline*}
+Пояснение: оба эти интеграла меньше нормы $\parallel f-g\parallel_{L_1[a,b]}$, так как в ней интегрирование происходит по всему отрезку $[a,b]$, а в интегралах по части отрезка $[a,b]$.
+
+Пусть $f\in L_1(\R)$
 \end{proof}
 
 
