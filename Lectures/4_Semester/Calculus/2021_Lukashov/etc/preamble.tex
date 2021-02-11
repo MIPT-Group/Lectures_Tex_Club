@@ -62,15 +62,7 @@
 
 % ----------- Math and theorems -----------
 \theoremstyle{plain}
-\newtheorem{theorem}[subsection]{Th.}
-\NewDocumentEnvironment{Theorem}{o}
-{\IfNoValueTF{#1}
-    {\theorem\addcontentsline{toc}{subsection}
-        {\protect\numberline{\thesubsection}Theorem}}
-    {\theorem[#1]\addcontentsline{toc}
-        {subsection}{\protect\numberline{\thesubsection}Theorem (#1)}}%
-    \ignorespaces}
-{\endtheorem}
+\newtheorem{theorem}{Теорема}[subsection]
 
 \newtheorem{prop}{Утверждение}[subsection]
 \newtheorem{lemma}{Лемма}[subsection]

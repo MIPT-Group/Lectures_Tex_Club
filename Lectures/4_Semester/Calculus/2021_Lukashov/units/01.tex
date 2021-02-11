@@ -247,7 +247,7 @@ $$
 \end{proof}
 
 \begin{lemma}
-	Каждая суммируемая на $\R$ функция $f(x)$ непрерывна в среднем относительно сдвига, то есть $\lim\limits_{t\to 0}\int\limits_{\R}|f(x+t)-f(x)|d\mu(x)=0$.
+	Каждая\label{lemma_2} суммируемая на $\R$ функция $f(x)$ непрерывна в среднем относительно сдвига, то есть $\lim\limits_{t\to 0}\int\limits_{\R}|f(x+t)-f(x)|d\mu(x)=0$.
 \end{lemma}
 \begin{proof}
 	Докажем, что для $f\in L_1[a,b]$: $\lim\limits_{\delta\to 0}\sup\limits_{0\leqslant h\leqslant \delta}\int\limits_{a}^{b-h}|f(x+h)-f(x)|d\mu(x)=0$.\\
@@ -263,19 +263,40 @@ $$
 	\end{multline*}
 Пояснение: оба эти интеграла меньше нормы $\parallel f-g\parallel_{L_1[a,b]}$, так как в ней интегрирование происходит по всему отрезку $[a,b]$, а в интегралах по части отрезка $[a,b]$.
 
-Пусть $f\in L_1(\R)$
+Пусть $f\in L_1(\R)$. Из определения интеграла Лебега по множеству бесконечной меры $\Rightarrow\exists N \int\limits_{|x|\geqslant N}|f(x)|d\mu(x)<\varepsilon$. Рассмотрим сужение функции $f: g(x)=f(x)\cdot \chi_{[-N-1,N+1]}(x)$. Положив $a=-N-1, b=N+1$, по доказанному, получаем, что $$\forall\varepsilon>0\exists\delta\in(0,1)\sup\limits_{0\leqslant h\leqslant \delta}\int\limits_{[-N-1,N+1-h]}|g(x+h)-g(x)|d\mu(x)<\varepsilon.$$ При $|t|<\delta$ 
+\begin{multline*}
+	\int\limits_{\R}|f(x+t)-f(x)|d\mu(x)=\underbrace{\int\limits_{\{x,x+t\}\subset[-N-1,N+1]}|g(x+t)-g(x)|d\mu(x)}_{<\varepsilon}+\\+
+	\underbrace{\int\limits_{\{x,x+t\}\not\subset[-N-1,N+1]}|f(x+t)-f(x)|d\mu(x)}_{<2\varepsilon, \text{ см. пояснение}}<3\varepsilon.
+\end{multline*}
+Пояснение: какая-то точка из множества $\{x,x+t\}$ не попала в отрезок $[-N-1,N+1]$, другая точка отстоит от нее на $t$, а $|t|<\delta, \delta\in(0,1)$. Значит обе точки не попали в отрезок $[-N,N]$. Следовательно можно воспользоваться оценкой $\int\limits_{|x|\geqslant N}|f(x)|d\mu(x)<\varepsilon$ и тем, что интеграл от модуля разности не превосходит суммы интегралов от модуля каждого.
 \end{proof}
 
+\begin{theorem}[Римана об осцилляции]
+	Если $f\in L_1(I)$ ($I$ --- конечный или бесконечный промежуток), то $\lim\limits_{\lambda\to\infty}\int\limits_{I}f(x)\cos\lambda xd\mu(x)=\lim\limits_{\lambda\to\infty}\int\limits_{I}f(x)\sin\lambda xd\mu(x)=0$
+\end{theorem}
 
+\begin{proof}
+	Пусть $\mathcal{J}=\int\limits_{\R}f(x)\cos\lambda xd\mu(x)$. Сделаем замену $x=t+\frac{\pi}{\lambda}$. Тогда $\mathcal{J}=\int\limits_{\R}f(t+\frac{\pi}{\lambda})\cos(\lambda t+\pi)d\mu(t)=-\int\limits_{\R}f(x+\frac{\pi}{\lambda})\cos(\lambda x)d\mu(x)=\frac{1}{2}\int\limits_{\R}(f(x+\frac{\pi}{\lambda})-f(x))\cos\lambda xd\mu(x)$. Следовательно $|\mathcal{J}|\leqslant \int\limits_{\R}|f(x+\frac{\pi}{\lambda})-f(x)|d\mu(x)\to 0$, при $\lambda\to\infty$ по \hyperref[lemma_2]{Лемме 2}.
+\end{proof}
 
+\begin{corollary}
+	Если $f\in L_1[-\pi,\pi], 2\pi$-периодическая, то ее коэффициенты Фурье образуют бесконечно малые последовательности, то есть $\lim\limits_{n\to\infty}a_n=\lim\limits_{n\to\infty}b_n=0$.
+\end{corollary}
 
-
-
-
-
-
-
-
+Если $f$ --- четная, $f\in L_1[-\pi\pi]\Rightarrow$
+$$\begin{aligned}
+ 	a_n&=\dfrac{2}{\pi}\int\limits_{0}^{\pi}f(x)\cos nxd\mu(x), n=0,1,2,\ldots\\
+ 	b_n&=0, n=1,2,\ldots
+ \end{aligned}
+ \eqno(3)
+ $$
+Если $f$ --- нечетная, $f\in L_1[-\pi\pi]\Rightarrow$
+$$\begin{aligned}
+	b_n&=\dfrac{2}{\pi}\int\limits_{0}^{\pi}f(x)\sin nxd\mu(x), n=1,2,\ldots\\
+	a_n&=0, n=0,1,\ldots
+\end{aligned}
+\eqno(4)
+$$
 
 
 
