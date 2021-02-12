@@ -272,25 +272,26 @@ $$
 \end{proof}
 
 \begin{theorem}[Римана об осцилляции]
-	Если $f\in L_1(I)$ ($I$ --- конечный или бесконечный промежуток), то $\lim\limits_{\lambda\to\infty}\int\limits_{I}f(x)\cos\lambda xd\mu(x)=\lim\limits_{\lambda\to\infty}\int\limits_{I}f(x)\sin\lambda xd\mu(x)=0$
+	Если $f\in L_1(I)$ ($I$ --- конечный или бесконечный промежуток), то $\lim\limits_{\lambda\to\infty}\int\limits_{I}f(x)\cos\lambda xd\mu(x)=\lim\limits_{\lambda\to\infty}\int\limits_{I}f(x)\sin\lambda xd\mu(x)=0$.
 \end{theorem}
 
 \begin{proof}
-	Пусть $\mathcal{J}=\int\limits_{\R}f(x)\cos\lambda xd\mu(x)$. Сделаем замену $x=t+\frac{\pi}{\lambda}$. Тогда $\mathcal{J}=\int\limits_{\R}f(t+\frac{\pi}{\lambda})\cos(\lambda t+\pi)d\mu(t)=-\int\limits_{\R}f(x+\frac{\pi}{\lambda})\cos(\lambda x)d\mu(x)=\frac{1}{2}\int\limits_{\R}(f(x+\frac{\pi}{\lambda})-f(x))\cos\lambda xd\mu(x)$. Следовательно $|\mathcal{J}|\leqslant \int\limits_{\R}|f(x+\frac{\pi}{\lambda})-f(x)|d\mu(x)\to 0$, при $\lambda\to\infty$ по \hyperref[lemma_2]{Лемме 2}.
+	Пусть $f$ определена на $I$. Доопределим $f(x)=0, x\in(\R\backslash I)$. Пусть $\mathcal{J}=\int\limits_{\R}f(x)\cos\lambda xd\mu(x)$. Сделаем замену $x=t+\frac{\pi}{\lambda}$. 
+	Тогда $\mathcal{J}=\int\limits_{\R}f(t+\frac{\pi}{\lambda})\cos(\lambda t+\pi)d\mu(t)=\\=-\int\limits_{\R}f(x+\frac{\pi}{\lambda})\cos(\lambda x)d\mu(x)=-\frac{1}{2}\int\limits_{\R}(f(x+\frac{\pi}{\lambda})-f(x))\cos\lambda xd\mu(x)$. Следовательно \\$|\mathcal{J}|\leqslant \int\limits_{\R}|f(x+\frac{\pi}{\lambda})-f(x)|d\mu(x)\to 0$, при $\lambda\to\infty$ по \hyperref[lemma_2]{Лемме 2}.
 \end{proof}
 
 \begin{corollary}
 	Если $f\in L_1[-\pi,\pi], 2\pi$-периодическая, то ее коэффициенты Фурье образуют бесконечно малые последовательности, то есть $\lim\limits_{n\to\infty}a_n=\lim\limits_{n\to\infty}b_n=0$.
 \end{corollary}
 
-Если $f$ --- четная, $f\in L_1[-\pi\pi]\Rightarrow$
+Если $f$ --- четная, $f\in L_1[-\pi,\pi]\Rightarrow$
 $$\begin{aligned}
  	a_n&=\dfrac{2}{\pi}\int\limits_{0}^{\pi}f(x)\cos nxd\mu(x), n=0,1,2,\ldots\\
  	b_n&=0, n=1,2,\ldots
  \end{aligned}
  \eqno(3)
  $$
-Если $f$ --- нечетная, $f\in L_1[-\pi\pi]\Rightarrow$
+Если $f$ --- нечетная, $f\in L_1[-\pi,\pi]\Rightarrow$
 $$\begin{aligned}
 	b_n&=\dfrac{2}{\pi}\int\limits_{0}^{\pi}f(x)\sin nxd\mu(x), n=1,2,\ldots\\
 	a_n&=0, n=0,1,\ldots
@@ -298,15 +299,45 @@ $$\begin{aligned}
 \eqno(4)
 $$
 
+\subsubsection{Классические ортогональные многочлены и связанные с ними ортогональные системы.}
 
+\begin{enumerate}
+	\item На отрезке $[-1,1]$ ортогональна система: $(1-x)^{\frac{\alpha}{2}}(1+x)^{\frac{\beta}{2}}P_n^{(\alpha,\beta)}(x)$,\\где $P_n^{(\alpha,\beta)}(x)=c_n(1-x)^{-\alpha}(1+x)^{-\beta} \frac{d^n}{dx^n}\left((1-x)^{\alpha+n}(1+x)^{\beta+n}\right)$ --- многочлены Якоби, $\alpha>-1, \beta>-1, n=0,1,\ldots$.
+	
+	При 
+	\begin{enumerate}
+		\item $\alpha=\beta, P_n$ --- многочлены Гегенбауэра (ультрасферические).
+		\item $\alpha=\beta=0, P_n$ --- многочлены Лежандра.
+		\item $\alpha=\beta=-\frac{1}{2}, P_n$ --- многочлены Чебышева 1-го рода $T_n(x)$.
+		\item $\alpha=\beta=-\frac{1}{2}, P_n$ --- многочлены Чебышева 2-го рода $U_n(x)$
+	\end{enumerate}
+	\item На отрезке $[0,\infty]$ ортогональна система: $x^{\frac{\alpha}{2}}e^{-\frac{x}{2}}L_n^{(\alpha)}(x)$, где $L_n^{(\alpha)}(x)=x^{-\alpha}e^x\frac{d^n}{dx^n}\left(x^{\alpha+n}e^{-x}\right)$ --- многочлены Лагерра, $\alpha>-1$.
+	\item На $(-\infty,\infty)$ ортогональна система: $e^{-\frac{x^2}{2}}H_n(x)$, где $H_n(x)=e^{x^2}\frac{d^n}{dx^n}(x^ne^{-x^2})$ --- многочлены Эрмита.
+\end{enumerate}
 
+\subsection{Сходимость тригонометрических рядов Фурье.}
 
+Будем писать $f\in L_{2\pi}\Leftrightarrow f\in L_1[-\pi,\pi]$ и $2\pi$-периодическая. 
+\begin{lemma}
+	Если $f\in L_{2\pi}$, то $n$-я частичная сумма тригонометрического ряда Фурье $S_n(f,x)=\frac{a_0}{2}+\sum\limits_{k=1}^n(a_k\cos kx+b_k\sin kx)$ может быть представлена следующим образом: $S_n(f,x)\overset{(a)}{=}\frac{1}{\pi}\int\limits_{-\pi}^\pi f(t)D_n(x-t)d\mu(t)\overset{(b)}{=}\frac{1}{\pi}\int\limits_{-\pi}^\pi f(x+u)D_n(u)d\mu(u)$, где $D_n(u)$ --- ядро Дирихле, $D_n(u)=\frac{1}{2}+\sum\limits_{k=1}^n \cos ku\overset{(c)}{=}\dfrac{\sin(n+\frac{1}{2})u}{2\sin\frac{u}{2}}$. 
+\end{lemma}
 
+\begin{proof}
+	Из формул $(1)$ и $(2)$:
+	$$S_n(f,x)=\frac{1}{\pi}\int\limits_{-\pi}^\pi f(t)\left(\frac{1}{2}+\sum\limits_{k=1}^n(\underbrace{\cos kx \cos kt+\sin kx\sin kt}_{\cos k(x-t)})\right)d\mu(t)=\frac{1}{\pi}\int\limits_{-\pi}^\pi f(t)D_n(x-t)d\mu(t), $$ где $D_n(u)=\dfrac{1}{2}+\sum\limits_{k=1}^n\cos ku$. Тем самым равенство $(a)$ проверено, равенство $(b)$ получается из простой заменой переменной $t=x+u$ и из того, что $D_n$ --- четная функция, причем сдвиг пределов интегрирования не происходит, так как интеграл от любой $2\pi$ периодической функции по любому отрезку длины $2\pi$ одинаковый.\\
+	Проверим равенство $(c)$:
+	\begin{multline*}
+		D_n(u)=\dfrac{1}{2}+\sum\limits_{k=1}^n\cos ku=\dfrac{1}{2}+\dfrac{1}{2}\sum\limits_{k=1}^n(e^{iku}+e^{-iku})=\dfrac{1}{2}\sum\limits_{k=-n}^ne^{iku}=\text{[сумма геом. прогрессии]}=\\=\dfrac{1}{2}e^{-inu}\dfrac{e^{i(2n+1)u}-1}{e^{iu}-1}=\frac{1}{2}e^{-inu}\dfrac{e^{i(2n+1)\frac{u}{2}}-e^{-i(2n+1)\frac{u}{2}}}{e^{i\frac{u}{2}}-e^{-i\frac{u}{2}}}\cdot\dfrac{e^{i(2n+1)\frac{u}{2}}}{e^{i\frac{u}{2}}}=\dfrac{\sin(n+\frac{1}{2})u}{2\sin\frac{u}{2}}.
+	\end{multline*}
+\end{proof}
 
+\begin{theorem}[Признак Дини.]
+	Если $f\in L_{2\pi}$ и $\varphi_{x_0}\in L_1(0,\delta),\delta>0$, где\\ $\varphi_{x_0}(t)=\dfrac{f(x_0+t)+f(x_0-t)-2S(x_0)}{den}$, то тригонометрический ряд Фурье функции $f(x)$ сходится к $S(x_0)$.
+\end{theorem}
 
-
-
-
+\begin{proof}
+	Рассмотрим $S_n(f,x_0)-S(x_0)=\frac{1}{\pi}$
+\end{proof}
 
 
 
