@@ -1,5 +1,5 @@
 \geometry{left=20mm,right=20mm,top=25mm,bottom=20mm} % задание полей текста
-
+\usepackage{wrapfig}
 %% Стиль колонтитулов
 % \fancyhead[RO,LE]{\hyperlink{intro}{Содержание}} % Right odd,  Left even
 \fancyhead[RE,LO]{\@lecture}        % Right even, Left odd
@@ -67,6 +67,7 @@
 \newcommand{\Cx}{\ensuremath{\mathbb{C}}}
 \newcommand{\Z}{\ensuremath{\mathbb{Z}}}
 \newcommand{\E}{\ensuremath{\mathbb{E}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
 \def\CB{\mathcal{B}}
 \def\CC{\mathcal{C}}
 \def\CE{\mathcal{E}}
@@ -78,6 +79,7 @@
 \def\CD{\mathcal{D}}
 \def\CH{\mathcal{H}}
 \def\CP{\mathcal{P}}
+\def\FB{\mathfrak{B}}
 
 % You can write your commands below
 \usepackage{gensymb}
@@ -134,10 +136,17 @@
 \usepackage{dashrule}
 \renewenvironment{proof}{\smallskip{\noindent\Large
         \color{red!50!black}\itshape$\lhd$ \normalsize Начало доказательства
-        \hdashrule[0.5ex]{11cm}{0.5mm}{3mm 3pt 1mm 2pt} }
+        \hdashrule[0.5ex]{0.65\textwidth}{0.5mm}{3mm 3pt 1mm 2pt} }
     \small\itshape}{{\color{red!50!black}
-            \hdashrule[0.5ex]{10.5cm}{0.5mm}{3mm 3pt 1mm 2pt}
+            \hdashrule[0.5ex]{0.66\textwidth}{0.5mm}{3mm 3pt 1mm 2pt}
             \normalsize Конец доказательства \Large$\rhd$}}
+
+\newenvironment{solution}{\smallskip{\noindent\Large
+        \color{red!50!black}\itshape$\lhd$ \normalsize Начало решения
+        \hdashrule[0.5ex]{0.75\textwidth}{0.5mm}{3mm 3pt 1mm 2pt} }
+    \small}{{\color{red!50!black}
+            \hdashrule[0.5ex]{0.75\textwidth}{0.5mm}{3mm 3pt 1mm 2pt}
+            \normalsize\itshape Конец решения \Large$\rhd$}}
 
 % Обводка кружочком множеств
 \usepackage{tikz}
