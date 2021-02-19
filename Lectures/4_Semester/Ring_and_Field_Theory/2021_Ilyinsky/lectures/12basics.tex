@@ -73,15 +73,15 @@
 				}
 			}
 		
-			\node[draw,circle,inner sep=1.5pt,fill,blue] at (0, 1) {};
-			\node[draw,circle,inner sep=1.5pt,fill,blue] at (1, 0) {};
-			\node[draw,circle,inner sep=1.5pt,fill,blue] at (0, -1) {};
-			\node[draw,circle,inner sep=1.5pt,fill,blue] at (-1, 0) {};
+			\node[draw,circle,inner sep=1.4pt,fill,blue] at (0, 1) {};
+			\node[draw,circle,inner sep=1.4pt,fill,blue] at (1, 0) {};
+			\node[draw,circle,inner sep=1.4pt,fill,blue] at (0, -1) {};
+			\node[draw,circle,inner sep=1.4pt,fill,blue] at (-1, 0) {};
 			
-			\node[draw,circle,inner sep=1.5pt,fill,red] at (2, 1) {};
-			\node[draw,circle,inner sep=1.5pt,fill,red] at (1, -2) {};
-			\node[draw,circle,inner sep=1.5pt,fill,red] at (-2, -1) {};
-			\node[draw,circle,inner sep=1.5pt,fill,red] at (-1, 2) {};
+			\node[draw,circle,inner sep=1.4pt,fill,red] at (2, 1) {};
+			\node[draw,circle,inner sep=1.4pt,fill,red] at (1, -2) {};
+			\node[draw,circle,inner sep=1.4pt,fill,red] at (-2, -1) {};
+			\node[draw,circle,inner sep=1.4pt,fill,red] at (-1, 2) {};
 		\end{tikzpicture}
 		}
 	\end{center}
@@ -113,19 +113,20 @@
 					}
 				}
 				
-				\node[draw,circle,inner sep=1.5pt,fill,blue] at (-1/2, 1.732/2) {} node [left] at (-1/2, 1.732/2) {$\omega$};
-				\node[draw,circle,inner sep=1.5pt,fill,blue] at (1/2, 1.732/2) {};
-				\node[draw,circle,inner sep=1.5pt,fill,blue] at (1, 0) {};
-				\node[draw,circle,inner sep=1.5pt,fill,blue] at (-1, 0) {};
-				\node[draw,circle,inner sep=1.5pt,fill,blue] at (1/2, -1.732/2) {};
-				\node[draw,circle,inner sep=1.5pt,fill,blue] at (-1/2, -1.732/2) {};
+				\draw [->, blue] (0, 0) -- (-0.46, 1.686/2) node [black, below left] {$\omega$};
+				\node[draw,circle,inner sep=1.4pt,fill,blue] at (-1/2, 1.732/2) {};
+				\node[draw,circle,inner sep=1.4pt,fill,blue] at (1/2, 1.732/2) {};
+				\node[draw,circle,inner sep=1.4pt,fill,blue] at (1, 0) {};
+				\node[draw,circle,inner sep=1.4pt,fill,blue] at (-1, 0) {};
+				\node[draw,circle,inner sep=1.4pt,fill,blue] at (1/2, -1.732/2) {};
+				\node[draw,circle,inner sep=1.4pt,fill,blue] at (-1/2, -1.732/2) {};
 				
-				\node[draw,circle,inner sep=1.5pt,fill,red] at (3 + 1 * \aa, 1 * \bb) {} node [left] at (-1/2, 1.732/2) {$\omega$};
-				\node[draw,circle,inner sep=1.5pt,fill,red] at (-3 - 1 * \aa, -1 * \bb) {};
-				\node[draw,circle,inner sep=1.5pt,fill,red] at (2 + 3 * \aa, 3 * \bb) {};
-				\node[draw,circle,inner sep=1.5pt,fill,red] at (-2 + -3 * \aa, -3 * \bb) {};
-				\node[draw,circle,inner sep=1.5pt,fill,red] at (2 + 0 * \aa, -2 * \bb) {};
-				\node[draw,circle,inner sep=1.5pt,fill,red] at (-2 + 0 * \aa, 2 * \bb) {};
+				\node[draw,circle,inner sep=1.4pt,fill,red] at (3 + 1 * \aa, 1 * \bb) {};
+				\node[draw,circle,inner sep=1.4pt,fill,red] at (-3 - 1 * \aa, -1 * \bb) {};
+				\node[draw,circle,inner sep=1.4pt,fill,red] at (2 + 3 * \aa, 3 * \bb) {};
+				\node[draw,circle,inner sep=1.4pt,fill,red] at (-2 + -3 * \aa, -3 * \bb) {};
+				\node[draw,circle,inner sep=1.4pt,fill,red] at (2 + 0 * \aa, -2 * \bb) {};
+				\node[draw,circle,inner sep=1.4pt,fill,red] at (-2 + 0 * \aa, 2 * \bb) {};
 			\end{tikzpicture}
 		}
 	\end{center}
@@ -185,7 +186,7 @@
 \end{note}
 
 \begin{definition}
-	Элемент $p \in K$ называется \textit{простым}, если $p \ne 0$, $p \not\in K^*$ и $\forall x, y \in K: p \mid xy \ra p \mid x$ или $p \mid y$.
+	Элемент $p \in K$ называется \textit{простым}, если $p \ne 0$, $p \not\in K^*$ и $\forall x, y \in K: p \mid ab \ra p \mid a$ или $p \mid b$.
 \end{definition}
 
 \begin{note}
@@ -193,7 +194,7 @@
 \end{note}
 
 \begin{proposition}
-	Если $\forall x \in K$ существует разложение $x$ и любой неразложимый элемент в $K$ прост, то $K$ "--- факториальное кольцо.
+	Если в $K$ существует разложение каждого ненулевого элемента и каждый неразложимый элемент в $K$ прост, то $K$ "--- факториальное кольцо.
 \end{proposition}
 
 \begin{proof}
