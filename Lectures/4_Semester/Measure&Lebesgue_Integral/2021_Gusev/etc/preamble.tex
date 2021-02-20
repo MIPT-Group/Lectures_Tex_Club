@@ -2,7 +2,8 @@
 \usepackage{wrapfig}
 %% Стиль колонтитулов
 % \fancyhead[RO,LE]{\hyperlink{intro}{Содержание}} % Right odd,  Left even
-\fancyhead[RE,LO]{\@lecture}        % Right even, Left odd
+\fancyhead[LO]{\@lecture}        % Right even, Left odd
+\fancyhead[R]{}
 
 \fancyfoot[RO,LE]{\thepage}         % Right odd,  Left even
 \fancyfoot[RE,LO]{\CourseName}      % Right even, Left odd
@@ -128,7 +129,7 @@
 
 \newtheorem{exercise_}[lemma]{Пример}
 \newenvironment{exercise}%
-{\begin{tcolorbox}[enhanced,width=6.4in,center upper,drop fuzzy shadow southwest,
+{\begin{tcolorbox}[enhanced,width=\textwidth,center upper,drop fuzzy shadow southwest,
             colframe=red!50!black,colback=orange!100!yellow!50!white!30]
         \begin{exercise_}}%
             {\end{exercise_}\end{tcolorbox}}
