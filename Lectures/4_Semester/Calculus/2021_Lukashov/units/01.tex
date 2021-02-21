@@ -28,7 +28,7 @@
 	Ортогональная система функций из $L_2(I)$ --- это последовательность $\{e_n(x)\}_{n=1}^\infty$ ненулевых элементов $L_2(I)$, такая что $<e_n,e_m>=0, m\ne m$. Если при этом $<e_n,e_n>=1, n=1,\ldots$, то $\{e_n(x)\}_{n=1}^\infty$ называется ортонормированной системой.
 \end{Def}
 
-\begin{example}[ортогональных систем]\ 
+\begin{linkex}{https://youtu.be/yxBOm0XzFnQ?t=1134}[ортогональных систем]\ 
 	\begin{enumerate}
 		\item $I=[-1,1]$ Многочлены Лежандра $P_n(x)=\dfrac{1}{n!\cdot2^n}\dfrac{d^n}{dx^n}\left((x^2-1)^n\right), P_0(x)=1$.
 		\begin{proof}(Первый вариант доказательства)
@@ -79,7 +79,7 @@
 			\end{multline*} 
 		\end{proof}
 	\end{enumerate}
-\end{example}
+\end{linkex}
 
 \begin{Def}
 	Если $\{e_n(x)\}_{n=1}^\infty$ --- ортогональная система в $L_2(I)$, то $\forall f\in L_2(I)$ коэффициентами Фурье называются числа $\alpha_n=\dfrac{<f,e_n>}{<e_n,e_n>}$. Функциональный ряд $\sum\limits_{n=1}^\infty\alpha_n e_n(x)$ называется рядом Фурье функции $f$ по системе $\{e_n(x)\}_{n=1}^\infty$.
@@ -115,9 +115,9 @@ $$
 	Носителем функции $f(x)$ называется замыкание множества тех $x$, для которых $f(x)\ne 0$ и обозначается $\textrm{supp} f$. Функции с ограниченным носителем называются финитными.
 \end{Def}
 
-\begin{lemma}
+\begin{linklm}{https://youtu.be/yxBOm0XzFnQ?t=2648}
 	Множество\label{lemma_12.1.1} непрерывных финитных функций всюду плотно в $L_1(\R)$ $($то есть его замыкание совпадает с $L_1(\R))$.
-\end{lemma}
+\end{linklm}
 \begin{proof}
 	Заменим $\R$ на отрезок $[a,b]$. То есть докажем, что множество непрерывных на $[a,b]$ функций всюду плотно в $L_1[a,b]$. Имеем суммируемую функцию $f(x)\in L_1[a,b]$. Всюду плотность означает, что ${(\forall\varepsilon >0)} {(\exists g\in C[a,b])} \parallel f-g\parallel_{L_1[a,b]}<\varepsilon$.
 	
@@ -218,18 +218,18 @@ $$
 	 			\draw[axis] (-1.2,0)  -- (1.1,0) node(xline)[right] {$x$};
 	 			\draw[axis] (0,-0.3) -- (0,0.9) node(yline)[above] {$y$};
 	 			% Lines
-	 			\draw[thick] plot [smooth,tension=1] coordinates{(-.7,-.4) (-.6,-.3) (-.4, -.3) (-.2,.4) (.1,.5) (.3, .4) (.6,.35)};
+	 			\draw[thick] plot [smooth,tension=1] coordinates{(-.7,-.4) (-.6,-.3) (-.4, -.3) (-.2,.4) (.1,.5) (.3, .4) (.5,.35)};
 	 			\draw	(-.7,-0.05) node[anchor=north] {$-N$};
-	 			\draw	(.6,0.17) node[anchor=north] {$N$};
+	 			\draw	(.5,0.17) node[anchor=north] {$N$};
 	 			\draw	(-1,0.17) node[anchor=north] {$(-N-\gamma)$};
 	 			\draw	(.8,-0.05) node[anchor=north] {($N+\gamma)$};
 	 			\draw[thick] plot [smooth,tension=1] coordinates{(-.7, -0.03) (-.7, 0.03)};
-	 			\draw[thick] plot [smooth,tension=1] coordinates{(.6, -0.03) (.6, 0.03)};
+	 			\draw[thick] plot [smooth,tension=1] coordinates{(.5, -0.03) (.5, 0.03)};
 	 			\draw[thick] plot [smooth,tension=1] coordinates{(-1.0, -0.03) (-1.0, 0.03)};
 	 			\draw[thick] plot [smooth,tension=1] coordinates{(.8, -0.03) (.8, 0.03)};
 	 			\draw	(.2,0.7) node[anchor=north] {$g(x)$};
 	 			\draw[thick] plot [smooth,tension=1] coordinates{(-.7,-.4) (-1., 0)};
-	 			\draw[thick] plot [smooth,tension=1] coordinates{(.6,.35) (.8, 0)};
+	 			\draw[thick] plot [smooth,tension=1] coordinates{(.5,.35) (.8, 0)};
 	 			\node[draw, scale=0.9] at (2.0,0.60) {
 	 				$\begin{aligned}
 	 					g (x) &:= \begin{cases}

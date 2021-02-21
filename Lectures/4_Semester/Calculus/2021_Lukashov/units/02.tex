@@ -1,6 +1,6 @@
-\begin{lemma}
+\begin{linklm}{https://youtu.be/yxBOm0XzFnQ?t=4060}
 	Каждая\label{lemma_12.1.2} суммируемая на $\R$ функция $f(x)$ непрерывна в среднем относительно сдвига, то есть $\lim\limits_{t\to 0}\int\limits_{\R}|f(x+t)-f(x)|d\mu(x)=0$.
-\end{lemma}
+\end{linklm}
 \begin{proof}
 	Докажем, что для $f\in L_1[a,b]$: $\lim\limits_{\delta\to 0}\sup\limits_{0\leqslant h\leqslant \delta}\int\limits_{a}^{b-h}|f(x+h)-f(x)|d\mu(x)=0$.\\
 	Из \hyperref[lemma_12.1.1]{Леммы 1} следует $(\forall\varepsilon >0)(\exists g\in C[a,b])\parallel f-g\parallel_{L_1[a,b]}=\int\limits_{a}^b|f(x)-g(x)|d\mu(x)<\dfrac{\varepsilon}{3}$.
@@ -23,9 +23,9 @@
 	Пояснение: какая-то точка из множества $\{x,x+t\}$ не попала в отрезок $[-N-1,N+1]$, другая точка отстоит от нее на $t$, а $|t|<\delta, \delta\in(0,1)$. Значит обе точки не попали в отрезок $[-N,N]$. Следовательно можно воспользоваться оценкой $\int\limits_{|x|\geqslant N}|f(x)|d\mu(x)<\varepsilon$ и тем, что интеграл от модуля разности не превосходит суммы интегралов от модуля каждого.
 \end{proof}
 
-\begin{theorem}[Римана об осцилляции]
+\begin{linkthm}{https://youtu.be/pNeXlMaNb9A?t=605}[Римана об осцилляции]
 	Если \label{theorem_12.1.1}$f\in L_1(I)$ ($I$ --- конечный или бесконечный промежуток), то $\lim\limits_{\lambda\to\infty}\int\limits_{I}f(x)\cos\lambda xd\mu(x)=\lim\limits_{\lambda\to\infty}\int\limits_{I}f(x)\sin\lambda xd\mu(x)=0$.
-\end{theorem}
+\end{linkthm}
 
 \begin{proof}
 	Пусть $f$ определена на $I$. Доопределим $f(x)=0, x\in(\R\backslash I)$. Пусть $\mathcal{J}=\int\limits_{\R}f(x)\cos\lambda xd\mu(x)$. Сделаем замену $x=t+\frac{\pi}{\lambda}$. 
@@ -70,13 +70,13 @@ $$
 \subsection{Сходимость тригонометрических рядов Фурье.}
 
 Будем писать $f\in L_{2\pi}\Leftrightarrow f\in L_1[-\pi,\pi]$ и $2\pi$-периодическая. 
-\begin{lemma}
+\begin{linklm}{https://youtu.be/pNeXlMaNb9A?t=3137}
 	Если \label{lemma_12.2.1}$f\in L_{2\pi}$, то $n$-я частичная сумма тригонометрического ряда Фурье $S_n(f,x)=\frac{a_0}{2}+\sum\limits_{k=1}^n(a_k\cos kx+b_k\sin kx)$ может быть представлена следующим образом:
 	\begin{multline*}
 		S_n(f,x)\overset{(a)}{=}\frac{1}{\pi}\int\limits_{-\pi}^\pi f(t)D_n(x-t)d\mu(t)\overset{(b)}{=}\\ \overset{(b)}{=}\frac{1}{\pi}\int\limits_{-\pi}^\pi f(x+u)D_n(u)d\mu(u)\overset{(c)}{=}\\ \overset{(c)}{=}\frac{1}{\pi}\int\limits_{0}^\pi(f(x+u)+f(x-u))D_n(u)d\mu(u),
 	\end{multline*} 
 где $D_n(u)$ --- ядро Дирихле, $D_n(u)=\dfrac{1}{2}+\sum\limits_{k=1}^n \cos ku\overset{(d)}{=}\dfrac{\sin(n+\frac{1}{2})u}{2\sin\frac{u}{2}}$. 
-\end{lemma}
+\end{linklm}
 
 \begin{proof}
 	Из формул $(1)$ и $(2)$:
@@ -98,9 +98,9 @@ $$
 	\end{multline*}
 \end{proof}
 
-\begin{theorem}[Признак Дини]
-	Если $f\in L_{2\pi}$ и $(\exists\delta>0$ и число $S(x_0))$, такое что $\varphi_{x_0}(t)=\frac{f(x+t)+f(x-t)-2S(x_0)}{t}\in L_1(0,\delta)$, то тригонометрический ряд Фурье функции $f$ сходится в точке $x_0$ к $S(x_0)$.
-\end{theorem} 
+\begin{linkthm}{https://youtu.be/pNeXlMaNb9A?t=3746}[Признак Дини]
+	Если $f\in L_{2\pi}$ и $\exists\delta>0$ и число $S(x_0)$, такие что $\varphi_{x_0}(t)=\frac{f(x+t)+f(x-t)-2S(x_0)}{t}\in L_1(0,\delta)$, то тригонометрический ряд Фурье функции $f$ сходится в точке $x_0$ к $S(x_0)$.
+\end{linkthm} 
 \begin{proof}
 	Из \hyperref[lemma_12.2.1]{Леммы 1} следует следующее представление: $$S_n(f,x_0)=\frac{1}{\pi}\int\limits_{0}^\pi(f(x+u)+f(x-u))D_n(u)d\mu(u),$$
 	
@@ -108,9 +108,9 @@ $$
 	
 	Рассмотрим разность:
 	\begin{multline*}
-		S_n(f,x_0)-S(x_0)=\frac{1}{\pi}\int\limits_{0}^\pi(f(x+t)+f(x-t)-2S(x_0))D_n(t)d\mu(t)=\\=\frac{1}{\pi}\int\limits_{0}^\delta\frac{f(x+t)+f(x-t)-2S(x_0)}{t}\sin ntd\mu(t)+\frac{1}{\pi}\int\limits_{0}^\pi (f(x+t)+f(x-t)-2S(x_0))\frac{\cos nt}{2}d\mu(t)+ \\ \frac{1}{\pi}\int\limits_{\delta}^\pi (f(x+t)+f(x-t)-2S(x_0))\frac{\sin nt\cos\frac{t}{2}}{2\sin\frac{t}{2}}d\mu(t)+\\+\frac{1}{\pi}\int\limits_{0}^\delta (f(x+t)+f(x-t)-2S(x_0))\sin nt \left(\frac{\cos \frac{t}{2}}{2\sin\frac{t}{2}}-\frac{1}{t}\right)d\mu(t).
+		S_n(f,x_0)-S(x_0)=\frac{1}{\pi}\int\limits_{0}^\pi(f(x+t)+f(x-t)-2S(x_0))D_n(t)d\mu(t)=\\=\frac{1}{\pi}\int\limits_{0}^\delta\underbrace{\frac{f(x+t)+f(x-t)-2S(x_0)}{t}}_{\varphi_{x_0}(t)}\sin ntd\mu(t)+\\+\frac{1}{\pi}\int\limits_{0}^\pi (f(x+t)+f(x-t)-2S(x_0))\frac{\cos nt}{2}d\mu(t)+ \\ +\frac{1}{\pi}\int\limits_{\delta}^\pi (f(x+t)+f(x-t)-2S(x_0))\frac{\sin nt\cos\frac{t}{2}}{2\sin\frac{t}{2}}d\mu(t)+\\+\frac{1}{\pi}\int\limits_{0}^\delta (f(x+t)+f(x-t)-2S(x_0))\sin nt \left(\frac{\cos \frac{t}{2}}{2\sin\frac{t}{2}}-\frac{1}{t}\right)d\mu(t).
 	\end{multline*}
-Применяя \hyperref[theorem_12.1.1]{теорему Римана об осцилляции} первый, второй, третий интегралы $\to 0$ при $n\to\infty$. Посмотрим на последний интеграл при $t\to 0$:
+Не пугайтесь этой записи, мы просто разбили интеграл на четыре части. Применяя \hyperref[theorem_12.1.1]{теорему Римана об осцилляции} первый, второй, третий интегралы $\to 0$ при $n\to\infty$. Посмотрим на последний интеграл при $t\to 0$:
 $$\frac{\cos \frac{t}{2}}{2\sin\frac{t}{2}}-\frac{1}{t}=\frac{1-\frac{t^2}{8}+o(t^3)}{2(\frac{t}{2}-\frac{t^3}{48}+o(t^4))}-\frac{1}{t}=\frac{t-\frac{t^3}{8}+o(t^4)-t+\frac{t^3}{24}+o(t^4)}{t^2+o(t^3)}\to 0.$$
  Значит этот множитель имеет устранимую особенность в 0 и $$(f(x+t)+f(x-t)-2S(x_0))\left(\frac{\cos \frac{t}{2}}{2\sin\frac{t}{2}}-\frac{1}{t}\right)\in L_1[0,\delta], $$ следовательно по все той же теореме Римана четвертый интеграл стремиться к 0, при $n\to\infty$.
 \end{proof}

@@ -94,3 +94,36 @@
 \usepackage{wrapfig}
 \usepackage{pgfplots}
 \usepackage{mathrsfs}
+
+\newcommand{\myhref}[3][blue]{\href{#2}{\color{#1}{#3}}}%
+\newtheoremstyle{linked}
+{}%      Space above, empty = `usual value'
+{}%      Space below
+{\itshape}% Body font
+{}%         Indent amount (empty = no indent, \parindent = para indent)
+{\bfseries}% Thm head font
+{.}%        Punctuation after thm head
+{ }%     Space after thm head: " " = normal interword space;
+%     \newline = linebreak
+{\myhref{\thislink}{\thmname{#1} \thmnumber{#2}}\thmnote{ (#3)}}% Thm head spec
+
+\newtheorem{thm}{Теорема}[subsection] % normal theorems
+\newtheorem{lm}{Лемма}[subsection]
+\newtheorem{pr}{Утверждение}[subsection]
+\theoremstyle{linked}
+\newtheorem{innlinkthm}[thm]{Теорема} % theorems with link
+\newenvironment{linkthm}[1]
+{\def\thislink{#1}\innlinkthm}
+{\endinnlinkthm}
+\newtheorem{innlinklm}[lm]{Лемма} % lemma with link
+\newenvironment{linklm}[1]
+{\def\thislink{#1}\innlinklm}
+{\endinnlinklm}
+\newtheorem{innlinkprop}[pr]{Утверждение} % prop with link
+\newenvironment{linkprop}[1]
+{\def\thislink{#1}\innlinkprop}
+{\endinnlinkprop}
+\newtheorem*{innlinkex}{Примеры} % example with link
+\newenvironment{linkex}[1]
+{\def\thislink{#1}\innlinkex}
+{\endinnlinkex}
