@@ -63,6 +63,7 @@
 }
 
 % ----------- Math short-cats
+\newcommand{\vect}{\ensuremath{\mathbf}}
 \newcommand{\R}{\ensuremath{\mathbb{R}}}
 \newcommand{\N}{\ensuremath{\mathbb{N}}}
 \newcommand{\Cx}{\ensuremath{\mathbb{C}}}
@@ -89,6 +90,7 @@
 \usepackage{enumitem}
 \usepackage{amsmath}
 \DeclareMathOperator{\FDU}{FDU}
+\DeclareMathOperator{\fl}{fl}
 
 % ----------- Math and theorems -----------
 \usepackage[many]{tcolorbox}
@@ -102,6 +104,7 @@
 \theoremstyle{definition}
 \newtheorem{lemma}{Лемма}[section]
 \newtheorem{claim}[lemma]{Утверждение}
+\newtheorem{axiom}[lemma]{Аксиома}
 \newtheorem{theorem_}[lemma]{Теорема}
 \newenvironment{theorem}%
 {\begin{mdframed}[backgroundcolor=black!30!white!30]
