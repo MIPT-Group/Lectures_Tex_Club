@@ -33,8 +33,8 @@
 
 \begin{proof} Докажем, что $1 \lra 2$, поскольку эквивалентность $1 \lra 3$ доказывается аналогично:
 	\begin{itemize}
-		\item[$\ra$] Если $a = bd$, $d \in K^*$, то, в силу обратимости $d$, $a \mid c \lra \exists \alpha \in K: c = a\alpha \lra \exists \alpha \in K: c = bd\alpha \lra \exists \beta \in K: c = b\beta \lra b \mid c$
-		\item[$\la$] Из условия следует, что $a \mid b$ и $b \mid a$, поэтому $a \sim b$
+		\item[$\ra$] Если $a = bd$, $d \in K^*$, то, в силу обратимости $d$, $a \mid c \lra \exists \alpha \in K: c = a\alpha \lra \exists \alpha \in K: c = bd\alpha \lra \exists \beta \in K: c = b\beta \lra b \mid c$.
+		\item[$\la$] Из условия следует, что $a \mid b$ и $b \mid a$, поэтому $a \sim b$.\qedhere
 	\end{itemize}
 \end{proof}
 
@@ -56,7 +56,7 @@
 	\pagebreak
 	На комплексной плоскости гауссовы числа образуют решетку следующего вида (синим отмечено $\Z[i]^*$, красным "--- пример четверки ассоциированных элементов):
 	\begin{center}
-		\scalebox{0.75}{
+		\scalebox{0.85}{
 		\begin{tikzpicture}
 			\clip (-3.8, -3.8) rectangle (3.8, 3.8);
 			\begin{scope}[thick,font=\small]
@@ -73,10 +73,10 @@
 				}
 			}
 		
-			\node[draw,circle,inner sep=1.4pt,fill,blue] at (0, 1) {};
-			\node[draw,circle,inner sep=1.4pt,fill,blue] at (1, 0) {};
-			\node[draw,circle,inner sep=1.4pt,fill,blue] at (0, -1) {};
-			\node[draw,circle,inner sep=1.4pt,fill,blue] at (-1, 0) {};
+			\node[draw,circle,inner sep=1.4pt,fill,black!10!blue] at (0, 1) {};
+			\node[draw,circle,inner sep=1.4pt,fill,black!10!blue] at (1, 0) {};
+			\node[draw,circle,inner sep=1.4pt,fill,black!10!blue] at (0, -1) {};
+			\node[draw,circle,inner sep=1.4pt,fill,black!10!blue] at (-1, 0) {};
 			
 			\node[draw,circle,inner sep=1.4pt,fill,red] at (2, 1) {};
 			\node[draw,circle,inner sep=1.4pt,fill,red] at (1, -2) {};
@@ -93,7 +93,7 @@
 	
 	На комплексной плоскости числа Эйзенштейна образуют решетку следующего вида (синим отмечено $\Z[\omega]^*$, красным "--- пример шестерки ассоциированных элементов):
 	\begin{center}
-		\scalebox{0.75}{
+		\scalebox{0.85}{
 			\begin{tikzpicture}
 				\clip (-3.8, -3.8) rectangle (3.8, 3.8);
 				\begin{scope}[thick,font=\small]
@@ -104,8 +104,8 @@
 					\draw (3pt,1) -- (-3pt,1) node [left] {$i$};
 				\end{scope}
 				
-				\def\aa{-1/2}
-				\def\bb{1.732/2}
+				\def\aa{-1/2};
+				\def\bb{1.7320501/2};
 				
 				\foreach \x in {-5, -4, ..., 5}{
 					\foreach \y in {-5, -4, ..., 5}{
@@ -113,13 +113,13 @@
 					}
 				}
 				
-				\draw [->, blue] (0, 0) -- (-0.46, 1.686/2) node [black, below left] {$\omega$};
-				\node[draw,circle,inner sep=1.4pt,fill,blue] at (-1/2, 1.732/2) {};
-				\node[draw,circle,inner sep=1.4pt,fill,blue] at (1/2, 1.732/2) {};
-				\node[draw,circle,inner sep=1.4pt,fill,blue] at (1, 0) {};
-				\node[draw,circle,inner sep=1.4pt,fill,blue] at (-1, 0) {};
-				\node[draw,circle,inner sep=1.4pt,fill,blue] at (1/2, -1.732/2) {};
-				\node[draw,circle,inner sep=1.4pt,fill,blue] at (-1/2, -1.732/2) {};
+				\draw [->, black!10!blue] (0, 0) -- (-0.46, 1.686/2) node [black, below left] {$\omega$};
+				\node[draw,circle,inner sep=1.4pt,fill,black!10!blue] at (-\aa, \bb) {};
+				\node[draw,circle,inner sep=1.4pt,fill,black!10!blue] at (\aa, \bb) {};
+				\node[draw,circle,inner sep=1.4pt,fill,black!10!blue] at (1, 0) {};
+				\node[draw,circle,inner sep=1.4pt,fill,black!10!blue] at (-1, 0) {};
+				\node[draw,circle,inner sep=1.4pt,fill,black!10!blue] at (\aa, -\bb) {};
+				\node[draw,circle,inner sep=1.4pt,fill,black!10!blue] at (-\aa, -\bb) {};
 				
 				\node[draw,circle,inner sep=1.4pt,fill,red] at (3 + 1 * \aa, 1 * \bb) {};
 				\node[draw,circle,inner sep=1.4pt,fill,red] at (-3 - 1 * \aa, -1 * \bb) {};
@@ -133,7 +133,7 @@
 \end{example}
 
 \begin{definition}
-	Элемент $p \in K$ называется \textit{неразложимым}, если $p \ne 0$, $p \not\in K^*$ и все делители $p$ либо обратимы, либо ассоциированны с $p$.
+	Элемент $p \in K \backslash (\{0\} \cup K^*)$ называется \textit{неразложимым}, если все делители $p$ либо обратимы, либо ассоциированны с $p$.
 \end{definition}
 
 \begin{note}
@@ -155,12 +155,12 @@
 \begin{example}
 	Факториальными кольцами являются, например, $\Z$, $F[x]$, где $F$ "--- поле. Рассмотрим теперь область целостности $\Z[2i]$, имеющую следующий вид:
 	\begin{center}
-		\scalebox{0.75}{
+		\scalebox{0.85}{
 			\begin{tikzpicture}
-				\clip (-3.8, -2.6) rectangle (3.8, 2.6);
+				\clip (-3.8, -2.8) rectangle (3.8, 2.8);
 				\begin{scope}[thick,font=\small]
 					\draw [->] (-3.8, 0) -- (3.8, 0);
-					\draw [->] (0, -2.6) -- (0, 2.6);
+					\draw [->] (0, -2.8) -- (0, 2.8);
 					
 					\draw (1,3pt) -- (1,-3pt) node [below] {$1$};
 					\draw (3pt,1) -- (-3pt,1) node [left] {$i$};
@@ -172,8 +172,8 @@
 					}
 				}
 				
-				\node[draw,circle,inner sep=1.5pt,fill,blue] at (1, 0) {};
-				\node[draw,circle,inner sep=1.5pt,fill,blue] at (-1, 0) {};
+				\node[draw,circle,inner sep=1.5pt,fill,black!10!blue] at (1, 0) {};
+				\node[draw,circle,inner sep=1.5pt,fill,black!10!blue] at (-1, 0) {};
 			\end{tikzpicture}
 		}
 	\end{center}
@@ -186,7 +186,7 @@
 \end{note}
 
 \begin{definition}
-	Элемент $p \in K$ называется \textit{простым}, если $p \ne 0$, $p \not\in K^*$ и $\forall x, y \in K: p \mid ab \ra p \mid a$ или $p \mid b$.
+	Элемент $p \in K \backslash (\{0\} \cup K^*)$ называется \textit{простым}, если для любых $x, y \hm\in K$ выполнено $p \mid ab \ra p \mid a$ или $p \mid b$.
 \end{definition}
 
 \begin{note}
@@ -198,5 +198,5 @@
 \end{proposition}
 
 \begin{proof}
-	Достаточно доказать единственность разложения. Пусть $x \in K\backslash\{0\}: x = up_1\dotsm p_s = wq_1\dotsm q_l$, где $u, w \in K^*$, $p_1, \dotsc, p_s, q_1, \dotsc, q_l$ "--- неразложимые, $s$ "--- наименьшее среди всех элементов с неединственным разложением. Поскольку элемент $p_1$ "--- простой, то или $p_1\mid w$, или $p_1 \mid q_1$, \dots, или $p_1 \mid q_l$. Первое невозможно, поскольку $p_1 \not\in K^*$, поэтому $p_1 \mid q_i$ для некоторого $i \in [l]$. Поскольку $q_i$ "--- неразложимый, то $p_1 \sim q_i$, поэтому обе части равенства можно сократить на $p_1$. Но тогда разложение $up_2\dotsm p_s$ неединственно, что противоречит минимальности $s$.
+	Достаточно доказать единственность разложения. Пусть $x \in K\backslash\{0\}$ и $x = up_1\dotsm p_s = wq_1\dotsm q_l$, где $u, w \in K^*$, $p_1, \dotsc, p_s, q_1, \dotsc, q_l$ "--- неразложимые, $s$ "--- наименьшее среди всех элементов с неединственным разложением. Поскольку элемент $p_1$ "--- простой, то или $p_1\mid w$, или $p_1 \mid q_1$, \dots, или $p_1 \mid q_l$. Первое невозможно, поскольку $p_1 \not\in K^*$, поэтому $p_1 \mid q_i$ для некоторого $i \in [l]$. Поскольку $q_i$ "--- неразложимый, то $p_1 \sim q_i$, поэтому обе части равенства можно сократить на $p_1$. Но тогда разложение $up_2\dotsm p_s$ неединственно, что противоречит минимальности $s$.
 \end{proof}

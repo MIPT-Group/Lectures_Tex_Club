@@ -80,6 +80,7 @@
 \def\CD{\mathcal{D}}
 \def\CH{\mathcal{H}}
 \def\CP{\mathcal{P}}
+\def\CM{\mathcal{M}}
 \def\FB{\mathfrak{B}}
 
 % You can write your commands below
@@ -154,3 +155,5 @@
 \usetikzlibrary{decorations.pathreplacing,shapes.misc}
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
         \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\counterwithin*{equation}{section}

@@ -43,10 +43,10 @@
 					\draw [->, red] (0, 0) -- (1.4, 1.71) node [black, below, scale = 1.2] {$\frac ab$};
 					\draw [->, red] (1, 2) -- (1.37, 1.8) node [black, above, scale = 1.2] {$\frac rb$};
 					\draw [->, violet] (0, 0) -- (0.97, 1.94) node [black, left] {$q$};
-					\node[draw,circle,inner sep=1.4pt,fill,blue] at (0, 1) {};
-					\node[draw,circle,inner sep=1.4pt,fill,blue] at (1, 0) {};
-					\node[draw,circle,inner sep=1.4pt,fill,blue] at (0, -1) {};
-					\node[draw,circle,inner sep=1.4pt,fill,blue] at (-1, 0) {};
+					\node[draw,circle,inner sep=1.4pt,fill,black!10!blue] at (0, 1) {};
+					\node[draw,circle,inner sep=1.4pt,fill,black!10!blue] at (1, 0) {};
+					\node[draw,circle,inner sep=1.4pt,fill,black!10!blue] at (0, -1) {};
+					\node[draw,circle,inner sep=1.4pt,fill,black!10!blue] at (-1, 0) {};
 					
 					\node[draw,circle,inner sep=1.4pt,fill,red] at (1.44, 1.77) {};
 					\node[draw,circle,inner sep=1.4pt,fill,violet] at (1, 2) {};
@@ -70,10 +70,8 @@
 	Пусть $K$ "--- область целостности, $N: K \backslash \{0\} \to \N \cup \{0\}$ "--- функция со свойством деления с остатком. Для $\forall a \in K \backslash \{0\}$ положим $\overline{N}(a) := \min\{N(ab) : b \in K \backslash \{0\}\}$. Проверим, что для $\overline{N}$ выполнены оба свойства нормы:
 	\begin{enumerate}
 		\item Заметим, что $\forall a, b \in K \backslash \{0\}: \overline{N}(ab) = N(abc)$ для некоторого $c \in K \backslash \{0\}$. Тогда $\overline{N}(ab) \ge \min\{N(ax) : x \in K \backslash \{0\}\} = \overline{N}(a)$.
-		\item Пусть $a, b \in K \backslash \{0\}$. Выберем такой $x \in K \backslash \{0\}$, что $\overline{N}(b) = N(bx)$, и поделим $a$ на $bx$ с остатком: $a = bxq + r$, где либо $r = 0$, либо $N(r) < N(bx)$. Остается заметить, что тогда $\overline{N}(r) \le N(r) < N(bx) = \overline{N}(b)$.
+		\item Пусть $a, b \in K \backslash \{0\}$. Выберем такой $x \in K \backslash \{0\}$, что $\overline{N}(b) = N(bx)$, и поделим $a$ на $bx$ с остатком: $a = bxq + r$, где либо $r = 0$, либо $N(r) < N(bx)$. Остается заметить, что тогда $\overline{N}(r) \le N(r) < N(bx) = \overline{N}(b)$.\qedhere
 	\end{enumerate}
-	
-	Таким образом, $K$ "--- евклидово кольцо с нормой $\overline{N}$.
 \end{proof}
 
 Теперь до конца раздела зафиксируем $K$ "--- евклидово кольцо.
@@ -91,7 +89,7 @@
 \end{proof}
 
 \begin{proposition}[лемма Евклида]
-	Если $p \in K \backslash \{0\}$ "--- неразложимый элемент, то $\forall a, b \in K: p \mid ab \ra p \mid a$ или $p \mid b$.
+	Каждый неразложимый элемент $p$ в $K$ прост, то есть $\forall a, b \in K: p \mid ab \ra p \mid a$ или $p \mid b$.
 \end{proposition}
 
 \begin{proof}
@@ -115,9 +113,9 @@
 \end{proof}
 
 \begin{definition}
-	Пусть $a, b \in K \backslash \{0\}$. \textit{Наибольший общий делитель} элементов $a, b$ "--- это такой элемент $c \in K \backslash \{0\}$, что $\forall d \in K \backslash \{0\}: d \mid a, d \mid b \ra d \mid c$. Обозначение "--- $\gd(a, b)$.
+	\textit{Наибольшим общим делителем} элементов $a, b \in K \backslash \{0\}$ называется такой элемент $c \in K \backslash \{0\}$, что $\forall d \in K \backslash \{0\}: d \mid a, d \mid b \ra d \mid c$. Обозначение "--- $(a, b)$.
 \end{definition}
 
 \begin{note}
-	В евклидовом кольце наибольший общий делитель "--- это общий делитель с наибольшей нормой. В факториальном кольце наибольший общий делитель можно находить аналогично случаю целых чисел как <<пересечение>> разложений элементов $a, b$ на неразложимые.
+	Наибольший общий делитель "--- это также и общий делитель с наибольшей нормой. В факториальном кольце наибольший общий делитель можно находить аналогично случаю целых чисел как <<пересечение>> разложений элементов $a, b$ на неразложимые.
 \end{note}
