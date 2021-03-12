@@ -29,7 +29,7 @@
 
 \begin{proof}
 	Пусть $f$ определена на $I$. Доопределим $f(x)=0, x\in(\R\backslash I)$. Пусть $\mathcal{J}=\int\limits_{\R}f(x)\cos\lambda xd\mu(x)$. Сделаем замену $x=t+\frac{\pi}{\lambda}$. 
-	Тогда $\mathcal{J}=\int\limits_{\R}f(t+\frac{\pi}{\lambda})\cos(\lambda t+\pi)d\mu(t)=\\=-\int\limits_{\R}f(x+\frac{\pi}{\lambda})\cos(\lambda x)d\mu(x)=-\frac{1}{2}\int\limits_{\R}(f(x+\frac{\pi}{\lambda})-f(x))\cos\lambda xd\mu(x)$. Следовательно \\$|\mathcal{J}|\leqslant \int\limits_{\R}|f(x+\frac{\pi}{\lambda})-f(x)|d\mu(x)\to 0$, при $\lambda\to\infty$ по \hyperref[lemma_12.1.2]{Лемме 2}.
+	Тогда $\mathcal{J}=\int\limits_{\R}f(t+\frac{\pi}{\lambda})\cos(\lambda t+\pi)d\mu(t)=\\=-\int\limits_{\R}f(x+\frac{\pi}{\lambda})\cos(\lambda x)d\mu(x)=-\frac{1}{2}\int\limits_{\R}(f(x+\frac{\pi}{\lambda})-f(x))\cos\lambda xd\mu(x)$. (Сложили два равенства и поделили пополам). Следовательно \\$|\mathcal{J}|\leqslant \int\limits_{\R}|f(x+\frac{\pi}{\lambda})-f(x)|d\mu(x)\to 0$, при $\lambda\to\infty$ по \hyperref[lemma_12.1.2]{Лемме 2}.
 \end{proof}
 
 \begin{corollary}
