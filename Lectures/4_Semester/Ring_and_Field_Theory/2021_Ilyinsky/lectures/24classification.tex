@@ -14,11 +14,10 @@
 		\item $\Z[2i]$ "--- область целостности и даже нетерово кольцо, но не факториальное кольцо
 		\item $\Q[x_1, x_2, \dotsc]$ "--- область целостности и даже факториальное кольцо, но не нетерово кольцо
 		\item $\Z[x]$ "--- факториальное и нетерово кольцо, но не кольцо главных идеалов
-		\item $\Z[2i]$ "--- область целостности, но не факториальное кольцо
 		\item $\Z$ "--- евклидово кольцо, но не поле
 	\end{itemize}
 	
-	Остается привести контрпример кольца главных идеалов, не являющегося евклидовым. Для этого до конца раздела зафиксируем кольцо $\Z[\alpha]$, где $\alpha = \frac{-1 + \sqrt{19}i}2$ "--- корень многочлена $x^2 + x + 5$.
+	Остается привести контрпример кольца главных идеалов, не являющегося евклидовым. Для этого до конца раздела зафиксируем кольцо $\Z[\alpha]$, где $\alpha := \frac{-1 + \sqrt{19}i}2$ "--- корень многочлена $x^2 + x + 5$.
 \end{note}
 
 
@@ -74,8 +73,8 @@
 				}
 				
 				\pgftransformcm{1}{0}{-1/2}{4.35889894/2}{\pgfpoint{0cm}{0cm}}
-				\draw [dashed] (-6, 1) -- (6, 1);
-				\draw [dashed] (-6, -1) -- (6, -1);
+				\draw [dashed, opacity=0.6] (-6, 1) -- (6, 1);
+				\draw [dashed, opacity=0.6] (-6, -1) -- (6, -1);
 				\draw[style=help lines,dashed, thin, gray, opacity=0.3] (-6,-6) grid (6,6);
 				
 				\foreach \x in {-6, -5, ..., 6}{
@@ -88,6 +87,13 @@
 				\node[draw,circle,inner sep=1.4pt,fill,black!10!red] at (0, 1) {};
 		
 				\draw [->, black!10!red] (0, 0) -- (0, 0.97) node [black, below left] {$\alpha$};
+				
+				\draw [dashed, black!10!blue] (3, 1) -- (3.29, 0.81) {};
+				\draw [dashed, black!10!blue] (0, 0) -- (0.29, -0.19) {};
+				\draw [->, violet] (0, 0) -- (3.25, 0.8) node [black, right, scale = 1.2] {$\frac ab$};
+				\node[draw,circle,inner sep=1.4pt,fill,violet] at (3.29, 0.81) {};
+				\draw [->, violet] (3.29, 0.82) -- (0.29, -0.18) node [black, below right] {$q$};
+				\node[draw,circle,inner sep=1.4pt,fill,violet] at (0.25, -0.19) {};
 			\end{tikzpicture}
 		}
 	\end{center}
