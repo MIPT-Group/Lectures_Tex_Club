@@ -1,0 +1,47 @@
+\subsection{Поля}
+
+\begin{definition}
+	\textit{Полем} называется коммутативное кольцо $F$ такое, что $F^* = F \backslash \{0\}$.
+\end{definition}
+
+\begin{note}
+	Будем считать целыми числами в поле $F$ суммы соответствующего числа единиц и минус единиц и обозначать их через $\overline{n} \in F$.
+\end{note}
+
+\pagebreak
+
+\begin{definition}
+	\textit{Характеристикой} поля $F$ называется минимальное число $n \in \N$ такое, что $\overline{n} = 0\}$, если оно существует, и $0$ в противном случае. Обозначение "--- $\cha{F}$.
+\end{definition}
+
+\begin{proposition}
+	Пусть $F$ "--- поле. Если $\cha{F} > 0$, то $\cha{F}$ "--- простое число.
+\end{proposition}
+
+\begin{proof}
+	Предположим, что $\cha{F} = ab$, где $a, b > 1$. Тогда $\overline{a}\overline{b} = \overline{ab} = 0$, поэтому $\overline{a}, \overline{b}$ необратимы --- противоречие.
+\end{proof}
+
+\begin{theorem}[о простом подполе]
+	Пусть $F$ "--- поле, тогда:
+	\begin{itemize}
+		\item Если $\cha{F} = p$ "--- простое число, то $F$ содержит подполе, изоморфное $\Z / p\Z$
+		\item Если $\cha{F} = 0$, то $F$ содержит подполе, изоморфное $\Q$
+	\end{itemize}
+\end{theorem}
+
+\begin{proof}
+	Заметим, что имеют место следующие мономорфизмы из $\Z / p\Z$ и $\Q$ в $F$ соответственно:
+	\begin{itemize}
+		\item $a \mapsto \overline{a}$, если $\cha{F} = p$
+		\item $\frac{a}{b} \mapsto \overline{a}\overline{b}^{-1}$, если $\cha{F} = 0$\qedhere
+	\end{itemize}
+\end{proof}
+
+\begin{proposition}
+	Пусть $\phi: F \to L$ "--- нетривиальный гомоморфизм полей. Тогда $\cha{F} = \cha{L}$ и гомоморфизм $\phi$ инъективен.
+\end{proposition}
+
+\begin{proof}
+	Поскольку $\phi(1) = 1$, то $\forall a \in \Z: \overline{a}_F \mapsto \overline{a}_L$, поэтому характеристики полей $F$ и $L$ совпадают. Кроме того, $\ke\phi$ "--- идеал в поле $F$, поэтому $\ke\phi = \{0\}$ в силу нетривиальности гомоморфизма $\phi$. Значит, $\phi$ инъективен.
+\end{proof}
