@@ -28,18 +28,20 @@
 		\scalebox{0.85}{
 			\begin{tikzpicture}
 				\clip (-4.3, -4.1) rectangle (4.3, 4.1);
-				\begin{scope}[thick,font=\small]
-					\draw [->] (-4.3, 0) -- (4.3, 0);
-					\draw [->] (0, -4.1) -- (0, 4.1);
-					
-					\draw (1,3pt) -- (1,-3pt);
-					\draw (3pt,1) -- (-3pt,1);
-					\draw (3,3pt) -- (3,-3pt);
-					
-					\node at (1.15, -0.25) {$1$};
-					\node at (3.15, -0.25) {$3$};
-					\node at (-0.25, 1.15) {$i$};
-				\end{scope}
+				\draw [->] (-4.3, 0) -- (4.3, 0);
+				\draw [->] (0, -4.1) -- (0, 4.1);
+				
+				\draw (1,3pt) -- (1,-3pt);
+				\draw (3pt,1) -- (-3pt,1);
+				\draw (3,3pt) -- (3,-3pt);
+				
+				\pgftransformcm{1}{0}{-1/2}{1.7320501/2}{\pgfpoint{0cm}{0cm}}
+				\draw[style=help lines,dashed, thin, gray, opacity=0.3] (-6,-6) grid (6,6);
+				\pgftransformcm{1}{0}{1/1.7320501}{2/1.7320501}{\pgfpoint{0cm}{0cm}}
+				
+				\node at (1.15, -0.25) {$1$};
+				\node at (3.15, -0.25) {$3$};
+				\node at (-0.25, 1.15) {$i$};
 				
 				\def\aa{-1/2};
 				\def\bb{1.7320501/2};
@@ -76,7 +78,6 @@
 			\end{tikzpicture}
 		}
 	\end{center}
-	
 	
 	Таким образом, $z = 3u + r$, тогда $z^3 \equiv_p r^3 = \pm 1$.
 \end{proof}

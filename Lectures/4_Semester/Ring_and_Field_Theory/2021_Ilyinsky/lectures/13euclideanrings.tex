@@ -26,13 +26,12 @@
 			\scalebox{1}{
 				\begin{tikzpicture}
 					\clip (-2.8, -2.8) rectangle (2.8, 2.8);
-					\begin{scope}[thick,font=\small]
-						\draw [->] (-2.8, 0) -- (2.8, 0);
-						\draw [->] (0, -2.8) -- (0, 2.8);
-						
-						\draw [blue] (1,3pt) -- (1,-3pt) node [below, black] {$1$};
-						\draw [blue] (3pt,1) -- (-3pt,1) node [left, black] {$i$};
-					\end{scope}
+					\draw [->] (-2.8, 0) -- (2.8, 0);
+					\draw [->] (0, -2.8) -- (0, 2.8);
+					
+					\draw [blue] (1,3pt) -- (1,-3pt) node [below, black] {$1$};
+					\draw [blue] (3pt,1) -- (-3pt,1) node [left, black] {$i$};
+					\draw[style=help lines,dashed, thin, gray, opacity=0.3] (-6,-6) grid (6,6);
 					
 					\foreach \x in {-5, -4, ..., 5}{
 						\foreach \y in {-5, -4, ..., 5}{
