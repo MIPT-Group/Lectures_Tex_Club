@@ -153,7 +153,7 @@
 
 % Обводка кружочком множеств
 \usepackage{tikz}
-\usetikzlibrary{decorations.pathreplacing,shapes.misc}
+\usetikzlibrary{decorations.pathreplacing,shapes.misc,patterns}
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
         \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
 
@@ -163,3 +163,6 @@
 \newsavebox\MBox
 \newcommand\Cline[2][red]{{\sbox\MBox{$#2$}%
             \rlap{\usebox\MBox}\color{#1}\rule[-1.2\dp\MBox]{\wd\MBox}{0.5pt}}}
+
+
+\usepackage{subcaption}
