@@ -5,7 +5,10 @@
     "xifthen"
     "multicol"
     "amsmath"
-    "amssymb")
+    "amssymb"
+    "tikz"
+    "graphicx"
+    "placeins")
    (TeX-add-symbols
     '("cent" 1)
     '("tosk" 1)
@@ -27,7 +30,9 @@
     "oL"
     "uL"
     "dst"
-    "IID")
+    "GCD"
+    "IID"
+    "cov")
    (LaTeX-add-labels
     "fig:#3")
    (LaTeX-add-environments

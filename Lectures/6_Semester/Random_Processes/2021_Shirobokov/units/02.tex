@@ -1,2 +1,62 @@
 \newpage
-\lecture{2}{Second Lecture Name 2}
+\lecture{2}{Лекция 2}
+\section{Моментные функции случайных процессов}
+\begin{Def}
+\textbf{Математическим ожиданием} случайного процесса $\left\{\xi(t), \ t \in T\right\}$ называется функция $m_\xi: T \mapsto \RR$, такая, что
+\begin{align*}
+& \forall t \in T \ m_\xi(t) = \EE \xi(t)
+\end{align*}
+\begin{align*}
+& m_\xi(t) = \int xdF_\xi(x,t)
+\end{align*}
+В дискретном случае этот интеграл приобретает вид
+\begin{align*}
+& m_\xi(t) = \sum_i x_i \PP\left(\xi \mid t\right)
+\end{align*}
+а в непрерывном
+\begin{align*}
+& m_\xi(t) = \int_\RR xf_\xi(x,t) dx
+\end{align*}
+\end{Def}
+\begin{Def}
+\textbf{Корреляционной функцией} случайного процесса $\left\{\xi(t), \ t \in T\right\}$ называется функция $R_\xi: T\times T \mapsto \RR$, такая, что
+\begin{align*}
+& \forall t_1, t_2 \in T \ R_\xi(t_1, t_2) = \cov(\xi(t_1), \xi(t_2) = \EE \cent{\xi}(t_1)\cent{\xi}(t_2) = \EE \left(\xi(t_1) - \EE \xi(t_1)\right)\left(\xi(t_2) - \EE \xi(t_2)\right) = \\
+& = \EE \xi(t_1)\xi(t_2) - \EE \xi(t_1) \EE \xi(t_2)
+\end{align*}
+\end{Def}
+\begin{Def}
+\textbf{Ковариационной функцией} случайного процесса $\left\{\xi(t), \ t \in T\right\}$ называется функция $K_\xi: T\times T \mapsto \RR$, такая, что
+\begin{align*}
+& \forall t_1, t_2 \in T \ K_\xi(t_1, t_2) = \EE \xi(t_1)\xi(t_2)
+\end{align*}
+\end{Def}
+Эти две функции связаны между собой:
+\begin{align*}
+& R_\xi(t_1, t_2) = K_\xi(t_1, t_2) - m_\xi(t_1)m_\xi(t_2)
+\end{align*}
+Также они могут быть выражены в терминах многомерной функции распределения:
+\begin{align*}
+& R_\xi(t_1, t_2) = \int_{\RR} (x-m_\xi(t_1))(y-m_\xi(t_2))dF_\xi(x,y;t_1,t_2)
+\end{align*}
+\begin{align*}
+& K_\xi(t_1, t_2) = \int_{\RR} xy dF_\xi(x,y;t_1,t_2)
+\end{align*}
+\begin{Def}
+\textbf{Дисперсией} случайного процесса $\left\{\xi(t), \ t \in T\right\}$ называется функция $D_\xi: T \mapsto \RR$, такая, что
+\begin{align*}
+& D_\xi(t) = \EE \cent{\xi}^2(t) = \EE \left(\xi(t) - \EE \xi(t)\right)^2 = \EE \xi^2(t) - \EE^2 \xi(t)
+\end{align*}
+\end{Def}
+Корреляционная функция имеет следующие свойства:
+\begin{itemize}
+\item $R_\xi(t,t) = D_\xi(t) \geq 0$
+\item $R_\xi(t_1,t_2) = R_\xi(t_2,t_2)$
+\item $\left|R_\xi(t_1,t_2)\right|\leq \sqrt{D\xi(t_1)D_\xi(t_2)}$
+\end{itemize}
+\begin{Def}
+\textbf{Взаимной корреляционной функцией} случайных процессов $\left\{\xi(t), \ t \in T\right\}$ и $\left\{\eta(t), \ t \in T\right\}$ называется функция $R_{\xi, \eta}: T\times T \mapsto \RR$, такая, что
+\begin{align*}
+& \forall t_1, t_2 \in T \ R_{\xi, \eta}(t_1, t_2) = \EE \cent{\xi}(t_1)\cent{\eta}(t_2)
+\end{align*}
+\end{Def}

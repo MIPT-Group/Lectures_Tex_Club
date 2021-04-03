@@ -11,6 +11,10 @@
     "units/03"
     "units/04"
     "units/05"
+    "units/06"
+    "units/07"
+    "units/08"
+    "units/09"
     "etc/additional"
     "etc/note"
     "etc/note12")

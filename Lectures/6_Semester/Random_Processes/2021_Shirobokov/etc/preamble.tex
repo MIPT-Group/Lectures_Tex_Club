@@ -48,7 +48,10 @@
 \usepackage{amsmath}          
 \usepackage{amssymb}
 
+\usepackage{tikz}
 
+\usepackage{graphicx}
+\usepackage{placeins}
 % -----------  Images -----------
 \graphicspath{{images/}{img/}{figures/}{fig/}}  % Путь к папкам с картинками
 \newcommand{\figL}[3]{%      Для быстрой вставки картинок
@@ -92,6 +95,7 @@
 \newtheorem*{Proof}{Доказательство}
 \newtheorem*{example}{Пример}
 \newtheorem*{remark}{Примечание}
+\newtheorem*{Des}{Обозначение}
 
 % % ----------- Math short-cats
 % \newcommand{\R}{\ensuremath{\mathbb{R}}}
@@ -120,6 +124,7 @@
 \newcommand{\dst}{\displaystyle}
 
 \newcommand{\To}[1]{\us{#1}\rightarrow}
+\newcommand{\GCD}{\text{НОД}}
 
 % Especially for слупы
 
@@ -127,3 +132,5 @@
 \newcommand{\tosk}[1]{\os{\text{с.~к.}}{\us{#1}\rightarrow}}
 \newcommand{\cent}[1]{\os{\circ}{#1}}
 \newcommand{\IID}{\text{i}.\text{i}.\text{d}.}
+
+\DeclareMathOperator{\cov}{cov}
