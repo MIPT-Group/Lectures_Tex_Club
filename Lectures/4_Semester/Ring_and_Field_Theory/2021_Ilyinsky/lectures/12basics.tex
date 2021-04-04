@@ -1,4 +1,4 @@
-\subsection{Основные понятия теории делимости}
+\subsection{Делимость и факториальные кольца}
 
 В данном разделе зафиксируем $K$ "--- область целостности.
 
@@ -59,13 +59,12 @@
 		\scalebox{0.85}{
 		\begin{tikzpicture}
 			\clip (-3.8, -3.8) rectangle (3.8, 3.8);
-			\begin{scope}[thick,font=\small]
-				\draw [->] (-3.8, 0) -- (3.8, 0);
-				\draw [->] (0, -3.8) -- (0, 3.8);
-				
-				\draw (1,3pt) -- (1,-3pt) node [below] {$1$};
-				\draw (3pt,1) -- (-3pt,1) node [left] {$i$};
-			\end{scope}
+			\draw [->] (-3.8, 0) -- (3.8, 0);
+			\draw [->] (0, -3.8) -- (0, 3.8);
+			\draw[style=help lines,dashed, thin, gray, opacity=0.3] (-4,-4) grid (4,4);
+			
+			\draw (1,3pt) -- (1,-3pt) node [below] {$1$};
+			\draw (3pt,1) -- (-3pt,1) node [left] {$i$};
 			
 			\foreach \x in {-5, -4, ..., 5}{
 				\foreach \y in {-5, -4, ..., 5}{
@@ -77,6 +76,7 @@
 			\node[draw,circle,inner sep=1.4pt,fill,black!10!blue] at (1, 0) {};
 			\node[draw,circle,inner sep=1.4pt,fill,black!10!blue] at (0, -1) {};
 			\node[draw,circle,inner sep=1.4pt,fill,black!10!blue] at (-1, 0) {};
+			
 			
 			\node[draw,circle,inner sep=1.4pt,fill,red] at (2, 1) {};
 			\node[draw,circle,inner sep=1.4pt,fill,red] at (1, -2) {};
@@ -96,37 +96,35 @@
 		\scalebox{0.85}{
 			\begin{tikzpicture}
 				\clip (-3.8, -3.8) rectangle (3.8, 3.8);
-				\begin{scope}[thick,font=\small]
-					\draw [->] (-3.8, 0) -- (3.8, 0);
-					\draw [->] (0, -3.8) -- (0, 3.8);
-					
-					\draw (1,3pt) -- (1,-3pt) node [below] {$1$};
-					\draw (3pt,1) -- (-3pt,1) node [left] {$i$};
-				\end{scope}
+				\draw [->] (-3.8, 0) -- (3.8, 0);
+				\draw [->] (0, -3.8) -- (0, 3.8);
 				
-				\def\aa{-1/2};
-				\def\bb{1.7320501/2};
+				\draw (1,3pt) -- (1,-3pt) node [below] {$1$};
+				\draw (3pt,1) -- (-3pt,1) node [left] {$i$};
+				
+				\pgftransformcm{1}{0}{-1/2}{1.7320501/2}{\pgfpoint{0cm}{0cm}}
+				\draw[style=help lines,dashed, thin, gray, opacity=0.3] (-6,-6) grid (6,6);
 				
 				\foreach \x in {-5, -4, ..., 5}{
 					\foreach \y in {-5, -4, ..., 5}{
-						\node[draw,circle,inner sep=1pt,fill] at (\x + \y* \aa, \y * \bb) {};
+						\node[draw,circle,inner sep=1pt,fill] at (\x, \y) {};
 					}
 				}
 				
-				\draw [->, black!10!blue] (0, 0) -- (-0.46, 1.686/2) node [black, below left] {$\omega$};
-				\node[draw,circle,inner sep=1.4pt,fill,black!10!blue] at (-\aa, \bb) {};
-				\node[draw,circle,inner sep=1.4pt,fill,black!10!blue] at (\aa, \bb) {};
+				\draw [->, black!10!blue] (0, 0) -- (0, 0.93) node [black, below left] {$\omega$};
+				\node[draw,circle,inner sep=1.4pt,fill,black!10!blue] at (0, 1) {};
+				\node[draw,circle,inner sep=1.4pt,fill,black!10!blue] at (0, -1) {};
 				\node[draw,circle,inner sep=1.4pt,fill,black!10!blue] at (1, 0) {};
 				\node[draw,circle,inner sep=1.4pt,fill,black!10!blue] at (-1, 0) {};
-				\node[draw,circle,inner sep=1.4pt,fill,black!10!blue] at (\aa, -\bb) {};
-				\node[draw,circle,inner sep=1.4pt,fill,black!10!blue] at (-\aa, -\bb) {};
+				\node[draw,circle,inner sep=1.4pt,fill,black!10!blue] at (1, 1) {};
+				\node[draw,circle,inner sep=1.4pt,fill,black!10!blue] at (-1, -1) {};
 				
-				\node[draw,circle,inner sep=1.4pt,fill,red] at (3 + 1 * \aa, 1 * \bb) {};
-				\node[draw,circle,inner sep=1.4pt,fill,red] at (-3 - 1 * \aa, -1 * \bb) {};
-				\node[draw,circle,inner sep=1.4pt,fill,red] at (2 + 3 * \aa, 3 * \bb) {};
-				\node[draw,circle,inner sep=1.4pt,fill,red] at (-2 + -3 * \aa, -3 * \bb) {};
-				\node[draw,circle,inner sep=1.4pt,fill,red] at (2 + 0 * \aa, -2 * \bb) {};
-				\node[draw,circle,inner sep=1.4pt,fill,red] at (-2 + 0 * \aa, 2 * \bb) {};
+				\node[draw,circle,inner sep=1.4pt,fill,red] at (3, 1) {};
+				\node[draw,circle,inner sep=1.4pt,fill,red] at (-3, -1) {};
+				\node[draw,circle,inner sep=1.4pt,fill,red] at (2, 3) {};
+				\node[draw,circle,inner sep=1.4pt,fill,red] at (-2, -3) {};
+				\node[draw,circle,inner sep=1.4pt,fill,red] at (1, -2) {};
+				\node[draw,circle,inner sep=1.4pt,fill,red] at (-1, 2) {};
 			\end{tikzpicture}
 		}
 	\end{center}
@@ -158,17 +156,17 @@
 		\scalebox{0.85}{
 			\begin{tikzpicture}
 				\clip (-3.8, -2.8) rectangle (3.8, 2.8);
-				\begin{scope}[thick,font=\small]
-					\draw [->] (-3.8, 0) -- (3.8, 0);
-					\draw [->] (0, -2.8) -- (0, 2.8);
-					
-					\draw (1,3pt) -- (1,-3pt) node [below] {$1$};
-					\draw (3pt,1) -- (-3pt,1) node [left] {$i$};
-				\end{scope}
+				\draw [->] (-3.8, 0) -- (3.8, 0);
+				\draw [->] (0, -2.8) -- (0, 2.8);
+				
+				\draw (1,3pt) -- (1,-3pt) node [below] {$1$};
+				\draw (3pt,1) -- (-3pt,1) node [left] {$i$};
+				\pgftransformcm{1}{0}{0}{2}{\pgfpoint{0cm}{0cm}}
+				\draw[style=help lines,dashed, thin, gray, opacity=0.3] (-6,-6) grid (6,6);
 				
 				\foreach \x in {-5, -4, ..., 5}{
-					\foreach \y in {-5, -4, ..., 5}{
-						\node[draw,circle,inner sep=1pt,fill] at (\x, 2*\y) {};
+					\foreach \y in {-2, -1, ..., 2}{
+						\node[draw,circle,inner sep=1pt,fill] at (\x, \y) {};
 					}
 				}
 				
