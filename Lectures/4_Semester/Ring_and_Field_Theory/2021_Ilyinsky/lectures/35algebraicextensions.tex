@@ -1,0 +1,33 @@
+\subsection{Алгебраические расширения}
+
+\begin{proposition}
+	Пусть $F \subset L \subset K$ "--- башня расширений такая, что расширения $L \supset F$ и $K \supset L$ "--- алгебраические. Тогда $K \supset F$ также является алгебраическим расширением.
+\end{proposition}
+\pagebreak
+\begin{proof}
+	Пусть $\alpha \in K$. По условию, существует нетривиальный многочлен $f \hm= a_nx^n + \dotsb + a_0 \in L[x] \backslash \{0\}$ такой, что $f(\alpha) = 0$, причем элементы $a_0, \dotsc, a_n \in L$ являются алгебраическими над $F$. Расширения $F(a_0, \dotsc, a_n, \alpha) \supset F(a_0, \dotsc, a_n) \supset F$ конечны, поэтому $\alpha$ является алгебраическим над $F$.
+\end{proof}
+
+\begin{definition}
+	Поле $K$ называется \textit{алгебраически замкнутым}, если выполнено одно из следующих условий:
+	\begin{enumerate}
+		\item Любой многочлен $f \in K[x]$ имеет корень в $K$
+		\item Любой неприводимый многочлен $f \in K[x]$ имеет степень $1$
+		\item Любое алгебраическое расширение поля $K$ тривиально
+		\item Любое конечное расширение поля $K$ тривиально
+	\end{enumerate}
+\end{definition}
+
+%\begin{proposition}
+%	Условия в определении алгебраически замкнутого поля эквивалентны.
+%\end{proposition}
+
+%\begin{proof}~
+%	\begin{itemize}
+%		\item\imp{1}{2}
+%	\end{itemize}
+%\end{proof}
+
+\begin{definition}
+	\textit{Алгебраическим замыканием} поля $F$ называется алгебраическое расширение $\overline{F} \supset F$, являющееся алгебраически замкнутым.
+\end{definition}
