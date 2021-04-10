@@ -11,7 +11,7 @@
 
 %%% Дополнительная работа с математикой
 \usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools} % AMS
-\usepackage{icomma} % "Умная" запятая: $0,2$ --- число, $0, 2$ --- перечисление
+\usepackage{icomma} % "Умная" запятая
 
 %%% Шрифты
 \usepackage{euscript} % Шрифт Евклид
@@ -51,6 +51,7 @@
 \DeclareMathOperator{\PSL}{PSL}
 \DeclareMathOperator{\diag}{diag}
 \DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\quot}{Quot}
 
 \newcommand{\divby}{
 	\mathrel{\vbox{\baselineskip.65ex\lineskiplimit0pt\hbox{.}\hbox{.}\hbox{.}}}
@@ -159,10 +160,15 @@
 	pdfproducer={Производитель}, % Производитель
 	pdfkeywords={keyword1} {key2} {key3}, % Ключевые слова
 	colorlinks=true,       	% false: ссылки в рамках; true: цветные ссылки
-	linkcolor=blue,         % внутренние ссылки
+	linkcolor=black!10!blue,         % внутренние ссылки
 	citecolor=green,        % на библиографию
 	filecolor=magenta,      % на файлы
 	urlcolor=NavyBlue,      % на URL
 }
 
+\usepackage{tikz}
 \usepackage{tikz-cd} % Коммутативные диаграммы
+\usepackage{tkz-euclide} % Геометрия
+\usepackage{stackengine} % Многострочные тексты
+
+\newcommand{\imp}[2]{(#1\,\,$\ra$\,\,#2)\,\,}
