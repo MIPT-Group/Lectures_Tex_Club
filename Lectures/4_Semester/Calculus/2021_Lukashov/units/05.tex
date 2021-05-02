@@ -1,0 +1,69 @@
+\subsection{Приближение функций полиномами.}
+\begin{Def}
+	Линейным положительным оператором называется отображение ${L:C[a,b]\to C[a,b]}\ (L:C_{2\pi}\to C_{2\pi})$, где $C[a,b]$ --- пространство непрерывных на $[a,b]$ функций, а $C_{2\pi}$ --- пространство непрерывных на $\R,\ 2\pi$-периодических функций, такое что:
+	\begin{enumerate}
+		\item $\left(\forall f_1, f_2 \in C[a,b](C_{2\pi})\right)(\forall\alpha, \beta\in\R)\  L(\alpha f_1+\beta f_2) = \alpha L(f_1)+\beta L(f_2)$,
+		\item $\left(\forall f \in C[a,b](C_{2\pi}):\forall x\in[a,b](\in\R), f(x)\geqslant 0\right) L(f,x)\geqslant0\ \forall x\in[a,b](\in\R)$, здесь $L(f,x)$ означает, что $L(f)$ является функцией от $x$.
+	\end{enumerate}
+\end{Def}
+
+\begin{linkthm}{https://youtu.be/TJ8TZ0RVdYo?t=222}[Коровкин]\ \\
+	Если последовательность линейных положительных операторов $L_n:C[a,b]\to C[a,b]$ такова, что $L_n(e_i)\underset{n\to\infty}{\rightrightarrows} e_i$ на $[a,b], e_i(x)=x^i, i=0,1,2$, то $(\forall f\in C[a,b]) L_n(f)\rightrightarrows f$ на $[a,b]$.
+\end{linkthm}
+\begin{proof}
+Так как $f\in C[a,b]\overset{\text{т. Вейерштрасса}}{\Rightarrow} f$ ограничена, то есть $\exists M: {-M\leqslant f(x)\leqslant M}\ \forall x\in [a,b]$ $\boldsymbol{(1)}$. Так как $f\in C[a,b]\overset{\text{т. Кантора}}{\Rightarrow} f$ равномерно непрерывна на $[a,b]$, то есть $(\forall\varepsilon>0)(\exists\delta>0)(\forall t,x\in[a,b]: |t-x|<\delta)\ -\varepsilon<f(t)-f(x)<\varepsilon\ \boldsymbol{(2)}$.
+Заметим, что из линейности и положительности операторов: $f_1(x)\leqslant f_2(x)\ \forall x\in[a,b]\Rightarrow {L_n(f_1,x)\leqslant L_n(f_2,x)\ \forall x\in [a,b]}$. 
+
+Из $(1), (2) \Rightarrow (\forall\varepsilon>0)(\exists\delta>0)(\forall t, x\in[a,b]) -\varepsilon-\frac{2M}{\delta^2}\psi_x(t)<f(t)-f(x)<\varepsilon+\frac{2M}{\delta^2}\psi_x(t) \boldsymbol{(3)}$, где $\psi_x(t)=(t-x)^2$. Действительно, если $|t-x|<\delta$, тогда это следует из $(2)$. Если же $|t-x|\geqslant\delta$, то $\frac{\psi_x(t)}{\delta^2}=\frac{(t-x)^2}{\delta^2}\geqslant 1$, и неравенство следует из $(1)$.
+
+В неравенстве $(3): x$ --- произвольное из $[a,b]$, но фиксированное, и все функции рассматриваются как функции от $t$. Применим оператор $L_n$ к неравенству $(3)$. Для $-\varepsilon: -\varepsilon = -1\cdot\varepsilon = -x^0\cdot\varepsilon = -e_0\cdot\varepsilon$. Поэтому $L_n(-\varepsilon) = -\varepsilon L_n(e_0,x)$. Итого \\$-\varepsilon L_n(e_0,x)-\frac{2M}{\delta^2}L_n(\psi_x(t),x)<L_n(f,x)-f(x)L_n(e_0,x)<\varepsilon L_n(e_0,x)+\frac{2M}{\delta^2}L_n(\psi_x(t),x)$.
+
+Отдельно рассмотрим $L_n(\psi_x,x)=L_n((t-x)^2,x)=L_n(t^2-2tx+x^2,x)={L_n(e_2,x)-2xL_n(e_1,x)+x^2L_n(e_0,x)}$ --- здесь $x$ --- константа, $t$ --- переменная по которой действует оператор. Теперь вспомним, что $L_n(e_i)\rightrightarrows e_i$, значит $L_n(\psi_x,x)\rightrightarrows e_2(x)-2xe_1(x)+x^2e_0(x) = x^2-2x\cdot x+x^2=0$.
+
+Получаем $(\exists N_1)(\forall n > N_1)(\forall x\in [a,b]) |L_n(\psi_x,x)|\leqslant\frac{\varepsilon\delta^2}{4M}$ и из того, что $L_n(e_0)\rightrightarrows  e_0\Rightarrow (\exists N_2)(\forall n > N_2)(\forall x\in [a,b]) |L_n(e_0,x)|<\frac{3}{2}$. Тогда из $(3): |L_n(f,x)-f(x)L_n(e_0,x)|\leqslant\varepsilon L_n(e_0,x)+\frac{2M}{\delta^2}L_n(\psi_x,x)$ получаем $\forall n > \max(N_1, N_2)\  |L_n(f,x)-f(x)L_n(e_0, x)|\leqslant 2\varepsilon$. И снова же из $L_n(e_0)\rightrightarrows e_0\Rightarrow(\exists N_3)(\forall n>N_3)(\forall x\in [a,b]) |L_n(e_0, x)-1|<\frac{\varepsilon}{M}$, тогда $|f(x)L_n(e_0, x)-f(x)|\leqslant
+|f(x)|\cdot|L_n(e_0,x)-1|\leqslant\frac{\varepsilon}{M}$. Объединяя неравенства получаем $(\forall n > \max(N_1, N_2, N_3))(\forall x\in [a,b])\ |L_n(f,x)-f(x)|\leqslant 3\varepsilon$.
+\end{proof}
+
+\begin{linkthm}{https://youtu.be/TJ8TZ0RVdYo?t=1496}[Вейерштрасса о приближении алгебраическими многочленами]
+Любая непрерывная на отрезке $[a,b]$ функция $f(x)$ может быть с любой степенью точности равномерно приближена алгебраическими многочленами, то есть $(\forall f\in C[a,b])(\forall\varepsilon>0)(\exists P_n)(\forall x\in[a,b])|f(x)-P_n(x)|<\varepsilon$.
+\end{linkthm}
+\begin{proof}
+TODO
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
