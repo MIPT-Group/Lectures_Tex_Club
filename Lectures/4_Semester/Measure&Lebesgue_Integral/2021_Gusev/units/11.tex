@@ -265,9 +265,31 @@
                                                & =\{x:\: f(x)\in\varphi^{-1}(A)\}=                                                                           \\
                                                & =\{x:\: x\in f^{-1}(\varphi^{-1}(A))\}=f^{-1}\underbrace{\left(\varphi^{-1}(A)\right)}_{\in\CB(\oR)}\in\CE. \\
                   \end{align*}
-            \item Докажем, что если $f$ измерима, то $-f$~--- измерима. В самом деле:
+            \item Достаточно очевидно, что умножение на константу сохраняет измеримость функции (рассмотрим случай $\alpha>0$):
                   \[
-                      \{x:\: -f(x)<c\}=\{x:\: f(x)>-c\}=f^{-1}(\underbrace{(-c,\, +\infty]}_{\in\CB(\oR)}).
+                      \{x:\: \alpha f(x)<c\}=\{x:\: f(x)< c/\alpha\}=f^{-1}(\underbrace{(-\infty,\, c/\alpha)}_{\in\CB(\oR)}).
+                  \]
+
+                  Докажем, что $f+g$ измерима.
+                  Рассмотрим $N = \{x\in X:\: f(x)+g(x)>c\}$, где $c\in\R$~--- фиксированно.
+                  Докажем, что $N\in\CE$.
+                  Заметим, что
+                  \[
+                      f(x)+g(x)>c\Leftrightarrow f(x)>c-g(x)\Leftrightarrow\exists r\in\Q:\: f(x)>r,\, r > c-g(x).
+                  \]
+                  Следовательно, \[
+                      N = \bigcup_{r\in\Q}\left(\underbrace{\{x:\: f(x)>r\}}_{\in\CE}\cap\underbrace{\{x:\:g(x)>c-r\}}_{\in\CE}\right)\in\CE.
+                  \]
+            \item Докажем только для минимума. Понятно, что
+                  \[
+                      \min(f(x),\, g(x))>c\Leftrightarrow (f(x)>c)\wedge(g(x)>c).
+                  \]
+                  Поэтому \[
+                      \{x:\:\min(f(x),\, g(x))>c\}=\{x:\:f(x)>c\}\cap \{x:\: g(x)>c\}\in\CE.
+                  \]
+            \item Для начала скажем, что $f^2$~--- измерима, так как функция $\varphi(y)=y^2$~--- борелевская (см. пункт 1). А далее замечаем, что
+                  \[
+                      f\cdot g = \dfrac{1}{2}\left((f+g)^2-f^2-g^2\right).
                   \]
         \end{enumerate}
 
