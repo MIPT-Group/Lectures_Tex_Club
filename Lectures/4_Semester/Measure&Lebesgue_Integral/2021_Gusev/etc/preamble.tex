@@ -89,8 +89,11 @@
 \usepackage{amsmath}
 \newcommand{\F}{\ensuremath{\mathcal{F} }}
 \newcommand{\Anu}{\ensuremath{\mathcal{A}_{\nu}}}
+\newcommand{\oR}{\overline{\R}}
+\newcommand{\toi}{\to\infty}
 \DeclareMathOperator{\FDU}{FDU}
 \DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\sign}{sign}
 
 % ----------- Math and theorems -----------
 \usepackage[many]{tcolorbox}
@@ -167,3 +170,28 @@
 
 
 \usepackage{subcaption}
+
+\makeatletter
+\newcommand*{\relrelbarsep}{.386ex}
+\newcommand*{\relrelbar}{%
+  \mathrel{%
+    \mathpalette\@relrelbar\relrelbarsep
+  }%
+}
+\newcommand*{\@relrelbar}[2]{%
+  \raise#2\hbox to 0pt{$\m@th#1\relbar$\hss}%
+  \lower#2\hbox{$\m@th#1\relbar$}%
+}
+\providecommand*{\rightrightarrowsfill@}{%
+  \arrowfill@\relrelbar\relrelbar\rightrightarrows
+}
+\providecommand*{\leftleftarrowsfill@}{%
+  \arrowfill@\leftleftarrows\relrelbar\relrelbar
+}
+\providecommand*{\xrightrightarrows}[2][]{%
+  \ext@arrow 0359\rightrightarrowsfill@{#1}{#2}%
+}
+\providecommand*{\xleftleftarrows}[2][]{%
+  \ext@arrow 3095\leftleftarrowsfill@{#1}{#2}%
+}
+\makeatother
