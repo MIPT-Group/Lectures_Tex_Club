@@ -1,55 +1,6 @@
 \newpage
 \lecture{2}{Сигма-алгебры.}
 
-\subsection{Разбор задач с лекции 1.}
-
-\textbf{1.} Показать, что любое $\sigma$"=кольцо является $\delta$"=кольцом, а также, что обратное неверно.
-
-\begin{proof}
-
-    $\Rightarrow$ Выразим счетное объединение через счетное пересечение:
-    \[
-        \bigcap_{i=1}^{\infty} A_i = A_1 \setminus \bigcup_{i=1}^{\infty}\left(A_1\setminus A_{i}\right)
-    \]
-    $\Leftarrow$\mdef{Контрпример}: Множество всех ограниченных подмножеств прямой или более формально:
-    $\F = \{A\subset \R:\: A\text{~--- ограничено}\}$.
-
-\end{proof}
-
-\begin{remark}
-    Можно заметить, что $\delta$"=алгебра является $\sigma$"=алгеброй. Доказательство по существу такое же,
-    как выше, но вместо $A_1$ фигурирует единица кольца.
-\end{remark}
-\textbf{2.} Пусть $\F \subset \mathcal{P} (X),\, \forall A,\, B\in\F:\: A\cap B\in\F\text{ и }A\cup B\in \F$.
-Верно ли что $\F$~--- полукольцо?
-
-\begin{proof}
-    \textbf{Неверно.}
-    \mdef{Контрпример}: $\{\varnothing, \, \{a\}, \, \{a,\, b\}\}$
-
-\end{proof}
-
-\textbf{3.} Пусть $\F \subset \mathcal{P} (X)$~--- кольцо, $E\subset X$, $E\notin \F$. Найти (описать)
-кольцо, порожденное семейством $\F\cup E$.
-
-\begin{proof}
-    \begin{equation}
-        \mathcal{R} (\F\cup E) = \left\{A\setminus E,\, E\setminus A,\, A\cap E,\, A\cup E \ |\  A \in \F\cup E\right\} \cup \F.
-        \label{lect1task3}
-    \end{equation}
-
-    Обозначим множество, простроенное в формуле \eqref{lect1task3} $\mathcal{G}$.
-    $\mathcal{G} $ является кольцом, так как:
-    \begin{enumerate}
-        \item $\varnothing\in\F\Rightarrow\varnothing\in \mathcal{G} $;
-        \item Замкнутость для любых $A,\, B\in \F$~--- очевидна. Замкнутость для любого $A\in\F$ и $E$ выполняется благодаря
-              левой части.
-    \end{enumerate}
-
-    Минимальность \mdef{очевидна}. @О.В. Бесов.
-
-\end{proof}
-
 \subsection{Теорема о структуре кольца, порожденного полукольцом.}
 
 \begin{remark}
