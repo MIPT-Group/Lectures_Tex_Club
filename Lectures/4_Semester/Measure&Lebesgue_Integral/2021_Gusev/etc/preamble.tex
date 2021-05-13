@@ -139,6 +139,12 @@
             colframe=red!50!black,colback=orange!100!yellow!50!white!30]
         \begin{exercise_}}%
             {\end{exercise_}\end{tcolorbox}}
+\newtheorem{task_}[]{}
+\newenvironment{task}[1]%
+{\begin{tcolorbox}[enhanced,width=6.4in,drop fuzzy shadow southwest,
+            colframe=red!50!black,colback=orange!100!yellow!50!white!30]
+        \textbf{#1.}}
+            {\end{tcolorbox}}
 
 \usepackage{dashrule}
 \renewenvironment{proof}{\smallskip{\noindent\Large
