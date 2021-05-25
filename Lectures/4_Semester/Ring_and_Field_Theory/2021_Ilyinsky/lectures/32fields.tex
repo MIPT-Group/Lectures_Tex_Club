@@ -97,7 +97,7 @@
 \end{example}
 
 \begin{definition}
-	Пусть $\alpha \in L$ "--- алгебраический над $F$. \textit{Минимальным многочленом} элемента $\alpha$ называется многочлен $m_\alpha \in F[x]$ со старшим коэффициентом, равным 1, такой, что идеал $\{f \in F[x]: f(\alpha) = 0\}$ порождается $m_\alpha$.
+	Пусть $\alpha \in L$ "--- алгебраический над $F$. \textit{Минимальным многочленом} элемента $\alpha$ называется многочлен $m_\alpha \in F[x]$ со старшим коэффициентом, равным 1, такой, что идеал $\{f \in F[x]: f(\alpha) = 0\}$ порождается многочленом $m_\alpha$.
 \end{definition}
 
 \begin{note}
@@ -115,7 +115,7 @@
 
 \begin{proof}~
 	\begin{itemize}
-		\item\imp{1}{2}Достаточно заметить, что $\forall g \in (m_\alpha): m_\alpha \mid \deg{g} \ra \deg{g} \ge m_\alpha$, поэтому степень $m_\alpha$ минимальна.
+		\item\imp{1}{2}Достаточно заметить, что $\forall g \in (m_\alpha): m_\alpha \mid g \ra \deg{g} \ge m_\alpha$, поэтому степень многочлена $m_\alpha$ минимальна.
 		\item\imp{2}{3}Если $m_\alpha = fg$ для некоторых $f, g \in F[x]$, то $m_\alpha(\alpha) = 0 \ra f(\alpha)g(\alpha) = 0 \hm\ra f(\alpha) = 0$ или $g(\alpha) = 0$, и в обоих случаях один из многочленов ассоциирован с $m_\alpha$, а второй обратим.
 		\item\imp{3}{1}Если идеал минимального многочлена порождается некоторым $f \in F[x]$, то $f \sim m_\alpha$ в силу неприводимости, поэтому $m_\alpha$ также порождает данный идеал.\qedhere
 	\end{itemize}
