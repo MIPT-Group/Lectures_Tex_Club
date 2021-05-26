@@ -27,7 +27,7 @@
 \end{proposition}
 
 \begin{proof}
-	Предположим, что $\widehat{f}\widehat{g}$ не примитивен, тогда существует неразложимый элемент $p \in K$ такой, что $p \mid \widehat{f}\widehat{g}$. Но $p$ также прост в $K[x]$, поэтому $p \mid \widehat{f}$ или $p \mid \widehat{g}$, что невозможно в силу примитивности.
+	Предположим, что $\widehat{f}\widehat{g}$ не примитивен, тогда существует неразложимый элемент $p \in K$ такой, что $p \mid \widehat{f}\widehat{g}$. Но $p$ также прост в $K[x]$, поэтому $p \mid \widehat{f}$ или $p \mid \widehat{g}$, что невозможно в силу примитивности многочленов $\widehat{f}, \widehat{g}$.
 \end{proof}
 
 \begin{corollary}
@@ -35,7 +35,7 @@
 \end{corollary}
 
 \begin{proof}
-	Многочлены $\widehat{f_1}\dotsm\widehat{f_k}$ и $\widehat{g_1}\dotsm\widehat{g_s}$ примитивны, поэтому $c(A\widehat{f_1}\dotsm\widehat{f_k}) = A$ и $c(B\widehat{g_1}\dotsm\widehat{g_s}) = B$. Сокращая на $A$ и $B$, получаем требуемое.
+	Многочлены $\widehat{f_1}\dotsm\widehat{f_k}$ и $\widehat{g_1}\dotsm\widehat{g_s}$ примитивны, поэтому $c(A\widehat{f_1}\dotsm\widehat{f_k}) = A$ и $c(B\widehat{g_1}\dotsm\widehat{g_s}) = B$, откуда $A \sim B$. Сокращая на $A$ и $B$, получаем требуемое.
 \end{proof}
 
 \begin{proposition}
@@ -44,8 +44,8 @@
 
 \begin{proof}~
 	\begin{itemize}
-		\item[$\la$] Пусть $f$ приводим над $K[x]$, то есть $f = gh$ для некоторых $g, h \in K[x] \backslash (\{0\} \cup K[x]^*)$, причем $g, h \not\sim 1$. Тогда $\deg{g}, \deg{h} \ge 1$ в силу примитивности многочлена $f$. Но тогда $g, h \not\in F[x]^*$, что противоречит неприводимости $f$ над $F[x]$.
-		\item[$\ra$] Пусть $f$ приводим над $F[x]$, то есть $f = gh$ для некоторых $g, h \in F[x] \backslash (\{0\} \cup K[x]^*)$, причем $\deg{g}, \deg{h} \ge 1$. Тогда $f = \frac{A}{B}\widehat{g}\widehat{h}$, где $\widehat{g}, \widehat{h}$ "--- примитивные многочлены положительной степени, $\frac AB \in F$. Но тогда $Bf = A\widehat{g}\widehat{h}$, и, в силу примитивности, $f \sim \widehat{g}\widehat{h}$, что противоречит неприводимости $f$ над $K[x]$.\qedhere
+		\item[$\la$] Пусть $f$ приводим над $K[x]$, то есть $f = gh$ для некоторых $g, h \in K[x] \backslash (\{0\} \cup K[x]^*)$, причем $g, h \not\sim 1$. Тогда $\deg{g}, \deg{h} \ge 1$ в силу примитивности многочлена $f$. Но тогда $g, h \not\in F[x]^*$, что противоречит неприводимости многочлена $f$ над $F[x]$.
+		\item[$\ra$] Пусть $f$ приводим над $F[x]$, то есть $f = gh$ для некоторых $g, h \in F[x] \backslash (\{0\} \cup F[x]^*)$ таких, что $\deg{g}, \deg{h} \ge 1$. Тогда $f = \frac{A}{B}\widehat{g}\widehat{h}$, где $\widehat{g}, \widehat{h} \in K[x]$ "--- примитивные многочлены положительной степени, $\frac AB \in F$. Но тогда $Bf = A\widehat{g}\widehat{h}$, и, в силу примитивности, $f \sim \widehat{g}\widehat{h}$, что противоречит неприводимости многочлена $f$ над $K[x]$.\qedhere
 	\end{itemize}
 \end{proof}
 
@@ -58,7 +58,7 @@
 \end{corollary}
 
 \begin{proof}
-	Поскольку $f$ неприводим в $F[x]$, то $f$ примитивен и потому неприводим над $F[x]$. Тогда, в силу факториальности кольца $F[x]$, $f$ прост в $f[x]$, и если $f \mid gh$ для некоторых $g, h \in K[x]$, то без ограничения общности $g = fq$, $q \in F[x]$. Тогда $g = \frac{A}{B}f\widehat{q}$, где $\widehat{q} \in K[x]$ "--- примитивный многочлен, $\frac{A}{B} \in F$. Тогда, аналогично доказанному, выделим из многочлена $g$ множитель $c(g)$ и получим, что $f \mid g$.
+	Поскольку $f$ неприводим над $K[x]$, то $f$ примитивен и потому неприводим над $F[x]$. Тогда, в силу факториальности кольца $F[x]$, $f$ прост в $F[x]$, и если $f \mid gh$ для некоторых $g, h \in K[x]$, то без ограничения общности $g = fq$, $q \in F[x]$. Тогда $g = \frac{A}{B}f\widehat{q}$, где $\widehat{q} \in K[x]$ "--- примитивный многочлен, $\frac{A}{B} \in F$. Тогда, аналогично доказанному, выделим из многочлена $g$ множитель $c(g)$ и получим, что $f \mid g$.
 \end{proof}
 
 \begin{theorem}
