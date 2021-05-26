@@ -3,11 +3,11 @@
 \subsection{Автоморфизмы полей}
 
 \begin{definition}
-	\textit{Автоморфизмом} поля $L$ называется изоморфизм $\phi: L \to L$, то есть такое биективное отображение, что $\forall a, b \in L: \phi(a + b) = \phi(a) + \phi(b), \phi(ab) = \phi(a)\phi(b)$.
+	\textit{Автоморфизмом} поля $L$ называется изоморфизм $\phi: L \to L$, то есть такое биективное отображение, что $\forall a, b \in L: \phi(a + b) = \phi(a) + \phi(b)$ и $\phi(ab) = \phi(a)\phi(b)$.
 \end{definition}
 
 \begin{definition}
-	Пусть $F$ "--- поле, $L \supset F$ "--- его расширение. Группой автоморфизмов поля $L$, \textit{сохраняющих $F$}, называется множество автоморфизмов $\phi : L \to L$ таких, что $\forall \alpha \in F: \phi(\alpha) = \alpha$. Обозначение "--- $\Aut_F{L}$.
+	Пусть $F$ "--- поле, $L \supset F$ "--- его расширение. \textit{Группой автоморфизмов поля $L$, сохраняющих $F$}, называется множество автоморфизмов $\phi : L \to L$ таких, что $\forall \alpha \in F: \phi(\alpha) = \alpha$. Обозначение "--- $\Aut_F{L}$.
 \end{definition}
 
 \begin{note}
@@ -19,10 +19,10 @@
 \end{proposition}
 
 \begin{proof}
-	Пусть $\phi$ "--- автоморфизм, тогда $\phi(0) = 0$ и $\phi(1) = 1$. Следовательно:
+	Пусть $\phi$ "--- автоморфизм, тогда $\phi(0) = 0$ и $\phi(1) = 1$. Тогда:
 	\begin{itemize}
-		\item Если $\cha{L} = p$, то $F \cong \Z/(p)$ и $\forall m \in \Z/(p): \phi(\overline{m}) = \overline{m}$.
-		\item Если $\cha{L} = 0$, то $F \cong \Q$, $\forall m \in \Z: \phi(\overline{m}) = \overline{m}$ и $\forall n \in \N: \phi(\overline{n}^{-1}) = \overline{n}^{-1}$, поэтому $\forall q \in \Q: \phi(\overline{q}) = \overline{q}$.\qedhere
+		\item Если $\cha{L} = p$, то $F \cong \Z_p$ и $\forall m \in \Z_p: \phi(\overline{m}) = \overline{m}$.
+		\item Если $\cha{L} = 0$, то $F \cong \Q$ и $\forall q = \frac mn \in \Q: \phi(\overline{q}) = \overline{m}\cdot\overline{n}^{-1} = \overline{q}$.\qedhere
 	\end{itemize}
 \end{proof}
 
@@ -49,7 +49,7 @@
 \end{proposition}
 
 \begin{proof}
-	Автоморфизм $\phi \in \Aut_F{L}$ должен сохранять $F$ и потому не более чем однозначно задается значением $\phi(\gamma)$, сопряженным с $\gamma$. С другой стороны, если элемент $\alpha \in L$ сопряжен с $\gamma$, то $F(\alpha) \cong F[x]/(m_\gamma) \cong F(\gamma)$, причем изоморфизм $\psi: F(\alpha) \to F(\gamma)$ сохраняет $F$ по построению и $F(\alpha) = F(\gamma)$, поэтому $\psi \in \Aut_F{L}$.
+	Автоморфизм $\phi \in \Aut_F{L}$ должен сохранять $F$ и потому не более чем однозначно задается значением $\phi(\gamma)$, сопряженным с $\gamma$. С другой стороны, если элемент $\alpha \in L$ сопряжен с $\gamma$, то $F(\alpha) \cong F[x]/(m_\gamma) \cong F(\gamma)$, причем изоморфизм $\psi: F(\alpha) \to F(\gamma)$ сохраняет $F$ по построению и отображает $\alpha$ в $\gamma$. Более того, $F(\alpha) \subset F(\gamma) \ra F(\alpha) = F(\gamma)$ из соображений размерности, поэтому $\psi \in \Aut_F{L}$.
 \end{proof}
 
 \begin{definition}
@@ -148,11 +148,11 @@
 Докажем теперь опущенное утверждение о продолжении изоморфизма.
 
 \begin{proposition}
-	Пусть $F$ "--- поле, $L, \widetilde{L} \supset F$ "--- его конечные расширения такие, что существует $\phi: L \to \widetilde{L}$ "--- изоморфизм полей, сохраняющий $F$. Тогда для любого конечного расширения $K \supset L$ существует гомоморфизм $\widetilde{\phi}: K \to \overline{F}$ такой, что $\widetilde\phi|_{L} = \phi$.
+	Пусть $\phi: L \to L'$ "--- изоморфизм полей. Тогда для любого конечного расширения $K \supset L$ существует гомоморфизм $\widetilde{\phi}: K \to \overline{L'}$ такой, что $\widetilde\phi|_{L} = \phi$.
 \end{proposition}
 
 \begin{proof}
-	По теореме о примитивном элементе, достаточно рассмотреть случай, когда $K = L(\gamma)$ для некоторого элемента $\gamma \in K$. Пусть $m_\gamma \in L[x]$ "--- минимальный многочлен элемента $\gamma$. Рассмотрим многочлен $\phi(m_\gamma) \in \widetilde{L}[x]$ и заметим, что, в силу изоморфности полей $L$ и $\widetilde{L}$, он неприводим. Выберем $\widetilde{\gamma} \in \overline{F}$ "--- корень многочлена $\phi(m_\gamma)$, и построим отображение $\widetilde{\phi}: L(\gamma) \to \overline{F}$ как $\widetilde{\phi}(p(\gamma)) := \phi(p)(\widetilde{\gamma})$ для любого $p \in L[x]$. Легко видеть, что это в точности отображение, задающее изоморфизм между $L(\gamma) = L[x] / (m_\gamma)$ и $\widetilde{L}(\widetilde{\gamma}) = \widetilde{L}[x] / (\phi(m_\gamma))$.
+	По теореме о примитивном элементе, достаточно рассмотреть случай, когда $K = L(\gamma)$ для некоторого элемента $\gamma \in K$. Пусть $m_\gamma \in L[x]$ "--- минимальный многочлен элемента $\gamma$. Рассмотрим многочлен $\phi(m_\gamma) \in L'[x]$ и заметим, что, в силу изоморфности полей $L$ и $L'$, он неприводим. Выберем $\gamma' \in \overline{L'}$ "--- корень многочлена $\phi(m_\gamma)$, и построим отображение $\widetilde{\phi}: L(\gamma) \to \overline{F}$ как $\widetilde{\phi}(p(\gamma)) := \phi(p)(\gamma')$ для любого $p \in L[x]$. Легко видеть, что это в точности отображение, задающее изоморфизм между $L(\gamma) = L[x] / (m_\gamma)$ и $L'(\gamma') = L'[x] / (\phi(m_\gamma))$, причем оно отображает $\gamma$ в $\gamma'$, и $\widetilde\phi|_L = \phi$.
 \end{proof}
 
 \begin{example}
@@ -169,7 +169,7 @@
 			\end{tikzcd}
 		\end{center}
 		
-		Пусть изоморфизм $\phi: \Q(\sqrt[4]{2}) \to \Q(\sqrt[4]{2}i)$ переводит $\sqrt[4]{2}$ в $\sqrt[4]{2}i$, и требуется продолжить его на $\Q(\sqrt[4]{2}, i)$. Многочлен $x^2 + 1 \in \Q(\sqrt[4]{2})[x]$, корнем которого является $i$, не меняется под действием $\phi$. Значит, образом $i$ можно объявить один корней этого многочлена, то есть $i$ или $-i$.
+		Пусть изоморфизм $\phi: \Q(\sqrt[4]{2}) \to \Q(\sqrt[4]{2}i)$ переводит $\sqrt[4]{2}$ в $\sqrt[4]{2}i$, и требуется продолжить его на $\Q(\sqrt[4]{2}, i)$. Многочлен $x^2 + 1 \in \Q(\sqrt[4]{2})[x]$, корнем которого является $i$, не меняется под действием изоморфизма $\phi$. Значит, образом элемента $i$ можно объявить один корней этого многочлена, то есть $i$ или $-i$.
 		\item Рассмотрим следующий набор расширений:
 		\begin{center}
 			\begin{tikzcd}[row sep = small, column sep = tiny, font = \normalsize]
@@ -181,6 +181,6 @@
 			\end{tikzcd}
 		\end{center}
 		
-		Пусть изоморфизм $\phi: \Q(\sqrt{2}) \to \Q(\sqrt{2})$ переводит $\sqrt{2}$ в $-\sqrt{2}i$, и требуется продолжить его на $\Q(\sqrt[4]{2})$. Многочлен $x^2 - \sqrt{2} \in \Q(\sqrt{2})[x]$, корнем которого является $\sqrt[4]{2}$, под действием $\phi$ переходит в $x^2 + \sqrt{2}$. Значит, образом $\sqrt[4]{2}$ можно объявить корень многочлена $x^2 + \sqrt{2}$, то есть $\sqrt[4]{2}i$ или $-\sqrt[4]{2}i$.
+		Пусть изоморфизм $\phi: \Q(\sqrt{2}) \to \Q(\sqrt{2})$ переводит $\sqrt{2}$ в $-\sqrt{2}i$, и требуется продолжить его на $\Q(\sqrt[4]{2})$. Многочлен $x^2 - \sqrt{2} \in \Q(\sqrt{2})[x]$, корнем которого является $\sqrt[4]{2}$, под действием изоморфизма $\phi$ переходит в $x^2 + \sqrt{2}$. Значит, образом элемента $\sqrt[4]{2}$ можно объявить корень многочлена $x^2 + \sqrt{2}$, то есть $\sqrt[4]{2}i$ или $-\sqrt[4]{2}i$.
 	\end{enumerate}
 \end{example}
