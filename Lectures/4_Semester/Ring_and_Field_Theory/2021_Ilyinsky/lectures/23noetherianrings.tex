@@ -49,10 +49,10 @@
 	Предположим, что в $K[x]$ есть идеал $I$, не являющийся конечнопорожденным. Выберем в $I$ многочлены следующего вида:
 	\begin{align*}
 		&f_0 \in I,~d_0 := \deg{f_0} = \min\{\deg{f} : f \in I\}\\
-		&f_1 \in I\backslash(f_0),~d_1 := \deg{f_1} = \min\{\deg{f} : f \in I\backslash(f_0)\} \ge d_1\\
-		&f_2 \in I\backslash(f_0, f_1),~d_2 := \deg{f_2} = \min\{\deg{f} : f \in I\backslash(f_0, f_1)\} \ge d_2\\
+		&f_1 \in I\backslash(f_0),~d_1 := \deg{f_1} = \min\{\deg{f} : f \in I\backslash(f_0)\} \ge d_0\\
+		&f_2 \in I\backslash(f_0, f_1),~d_2 := \deg{f_2} = \min\{\deg{f} : f \in I\backslash(f_0, f_1)\} \ge d_1\\
 		&\dotsc
 	\end{align*}
 	
-	Обозначим через $a_i$ старший коэффициент многочлена $f_i$ для всех $i \in \N \cup \{0\}$. Поскольку $K$ "--- нетерово кольцо, то $\exists m \in \N: \forall n \ge m: a_n \in (a_0, \dotsc, a_m)$. По предположению, $\exists n \ge m: f_n \not\in (f_0, \dotsc, f_m)$. Но $a_n \in (a_0, \dotsc, a_m)$, поэтому $\exists b_0, \dotsc, b_m \in K: a_n = b_0a_0 + \dotsb + b_ma_m$. Рассмотрим многочлен $g := f_n - (b_0f_0x^{d_n - d_0} + \dotsb + b_mf_mx^{d_n - d_m})$. По предположению, $g \in I\backslash(f_0, \dotsc, f_m)$, но коэффициент этого многочлена при $x^{d_n}$ равен $a_n - (b_0a_0 + \dotsb + b_ma_m) = 0$, поэтому $\deg{g} < \deg{f_n}$ --- противоречие.
+	Обозначим через $a_i$ старший коэффициент многочлена $f_i$ для всех $i \in \N \cup \{0\}$. Поскольку $K$ "--- нетерово кольцо, то $\exists m \in \N: \forall n > m: a_n \in (a_0, \dotsc, a_m)$. По предположению, $\exists n > m: f_n \not\in (f_0, \dotsc, f_m)$. Но $a_n \in (a_0, \dotsc, a_m)$, поэтому $\exists b_0, \dotsc, b_m \in K: a_n = b_0a_0 + \dotsb + b_ma_m$. Рассмотрим многочлен $g := f_n - (b_0f_0x^{d_n - d_0} + \dotsb + b_mf_mx^{d_n - d_m})$. По предположению, $g \in I\backslash(f_0, \dotsc, f_m)$, но коэффициент этого многочлена при $x^{d_n}$ равен $a_n - (b_0a_0 + \dotsb + b_ma_m) = 0$, поэтому $\deg{g} < \deg{f_n}$ --- противоречие.
 \end{proof}
