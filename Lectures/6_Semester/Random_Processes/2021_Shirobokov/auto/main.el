@@ -6,6 +6,7 @@
    (TeX-run-style-hooks
     "latex2e"
     "etc/preamble"
+    "etc/letters"
     "units/01"
     "units/02"
     "units/03"

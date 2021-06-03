@@ -13,18 +13,13 @@
     '("cent" 1)
     '("tosk" 1)
     '("LIM" 1)
+    '("ket" 1)
+    '("bra" 1)
     '("To" 1)
     '("fig" 2)
     '("figL" 3)
     '("question" 2)
     '("lecture" 2)
-    "RR"
-    "CC"
-    "ZZ"
-    "NN"
-    "QQ"
-    "PP"
-    "EE"
     "os"
     "us"
     "oL"
