@@ -27,7 +27,9 @@
     "dst"
     "GCD"
     "IID"
-    "cov")
+    "cov"
+    "Real"
+    "Img")
    (LaTeX-add-labels
     "fig:#3")
    (LaTeX-add-environments
