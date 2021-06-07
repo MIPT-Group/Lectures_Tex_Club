@@ -56,7 +56,8 @@
     \end{align*}
     со свойством
     \begin{align*}
-      & \forall n \geq 1, \ \forall m_0 < m_1 < \dots < m_n \ \PP\left( X_{m_n} = x_n \mid X_{m_{n-1}} = x_{n-1}, \dots, X_{m_0} = x_0 \right) = \PP\left( X_{m_n} = x_n \right)
+      & \forall n \geq 1, \ \forall m_0 < m_1 < \dots < m_n \ \PP\left( X_{m_n} = x_n \mid X_{m_{n-1}} = x_{n-1}, \dots, X_{m_0} = x_0 \right) = \\
+      & = \PP\left( X_{m_n} = x_n \mid X_{m_{n-1}} = x_{n-1}\right)
     \end{align*}
     где эти вероятности определены, называется \textbf{дискретной марковской
       цепью (ДМЦ)}.
@@ -67,7 +68,7 @@
 \begin{Note}
     Свойство из определения $10.2$ равносильно свойству
     \begin{align*}
-      & \forall n \geq 1 \ \PP\left( X_{n} = x_n \mid X_{n-1} = x_{n-1}, \dots, X_{0} = x_0 \right) = \PP\left( X_{n} = x_n \right)
+      & \forall n \geq 1 \ \PP\left( X_{n} = x_n \mid X_{n-1} = x_{n-1}, \dots, X_{0} = x_0 \right) = \PP\left( X_{n} = x_n \mid X_{n-1} = x_{n-1} \right)
     \end{align*}  
 \end{Note}
 \begin{Def}
@@ -92,7 +93,8 @@
 запишем функцию вероятности
 \begin{align*}
   & \PP \left( X_{m_0}=x_0, X_{m_1}=x_1, \dots, X_{m_n}=x_n \right) = \PP\left( X_{m_n} = x_n \mid X_{m_{n-1}} = x_{n-1}, \dots, X_{m_0} = x_0 \right)\cdot \\
-  & \cdot \PP\left( X_{m_{n-1}} = x_{n-1}, \dots, X_{m_0} = x_0 \right) = \PP\left( X_{m_n} = x_n \mid X_{m_{n-1}} = x_{n-1}\right)\PP\left( X_{m_{n-1}} = x_{n-1}, \dots, X_{m_0} = x_0 \right) = \dots = \PP\left( X_{m_0} = x_0 \right) \prod_{k=1}^n \PP\left( X_{m_k} = x_{k} \mid X_{m_{k-1}} = x_{k-1} \right)
+  & \cdot \PP\left( X_{m_{n-1}} = x_{n-1}, \dots, X_{m_0} = x_0 \right) = \PP\left( X_{m_n} = x_n \mid X_{m_{n-1}} = x_{n-1}\right)\PP\left( X_{m_{n-1}} = x_{n-1}, \dots, \right. \\
+  & \left. X_{m_0} = x_0 \right) = \dots = \PP\left( X_{m_0} = x_0 \right) \prod_{k=1}^n \PP\left( X_{m_k} = x_{k} \mid X_{m_{k-1}} = x_{k-1} \right)
 \end{align*}
 \begin{Def}
     Вероятность
