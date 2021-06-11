@@ -1,0 +1,94 @@
+\begin{linkthm}{https://youtu.be/E_kYAFT2U1U?t=440}[Неравенство Минковского]\ \\
+	Если $f,g\in L_p(E)$, то $\left(\int\limits_E\left|f(x)+g(x)\right|^pd\mu(x)\right)^{\frac{1}{p}}\leqslant\left(\int\limits_E\left|f(x)\right|^pd\mu(x)\right)^{\frac{1}{p}}+\left(\int\limits_E\left|g(x)\right|^pd\mu(x)\right)^{\frac{1}{p}}$, где $1\leqslant p<+\infty$.
+\end{linkthm}
+
+\begin{proof}
+	Убедимся, что $|f(x)+g(x)|^p$ суммируема: $|f(x)+g(x)|^p\leqslant 2^p\max(|f(x)|^p,|g(x)|^p)$, так как $f(x)$ и $g(x)$ суммируемы, то их максимум тоже. 
+	
+	Перейдем непосредственно к неравенству. Для $p=1$ --- неравенство треугольника. Для $1<p<\infty: |f(x)+g(x)|^p=\left(|f(x)+g(x)|^{p-1}\right)(|f(x)|+|g(x)|)$. Применим неравенство Гельдера: $\int\limits_E |f(x)+g(x)|^p d\mu(x)\leqslant \left(\left(\int\limits_E |f(x)|^p d\mu(x)\right)^\frac{1}{p}+\left(\int\limits_E |g(x)|^p d\mu(x)\right)^\frac{1}{p}\right)$ TODO
+\end{proof}
+\begin{Def}
+	Нормой в пространстве $L_p(E)$ называется $\|f\|_p=\left(\int\limits_E |f(x)|^p d\mu(x)\right)^\frac{1}{p}$, где $1\leqslant p<+\infty$. Из неравенства Минковского следует, что это действительно норма.
+\end{Def}
+\begin{linkthm}{https://youtu.be/E_kYAFT2U1U?t=1044}[Банаховость простанства $L_p$]\ \\
+	Для $p\in [1,+\infty)\  L_p[a,b]$ --- банахово простанство.
+\end{linkthm}
+\begin{proof}
+	Пусть $\{f_n\}_{n=1}^\infty$ --- фундаментальная последовательность в $L_p[a,b]$. Тогда $(\forall\varepsilon >0)(\exists N\in \N)(\forall n,m>N) \|f_n-f_m\|_p<\varepsilon$. Значит $\exists\{n_k\}_{k=1}^\infty$ --- возрастающая, такая что $(\forall m\geqslant n_k) \|f_m-f_{n_k}\|<\frac{1}{2^k}$. Рассмотрим ряд $\Phi(x)=|f_{n_1}(x)|+\sum\limits_{k=2}^\infty |f_{n_k}(x)-f_{n_{k-1}}(x)|$. Из неравенства Минковского $\|\Phi\|_p\leqslant \|f_{n_1}(x)\|_p+\sum\limits_{k=2}^\infty \underbrace{\|f_{n_k}-f_{n_{k-1}}\|_p}_{<\frac{1}{2^{k-1}}}<\infty$ --- ряд сходится. Значит $\Phi$ --- элемент пространства $L_p[a,b]$ и он сходится почти всюду. Значит ряд $f_{n_1}(x)+\sum\limits_{k=2}^\infty (f_{n_k}(x)-f_{n_{k-1}}(x))$ --- сходится абсолютно почти всюду на $[a,b]$. Его частичные суммы это $\{f_{n_k}\}_{k=1}^\infty$. Значит $f_{n_k}(x)\underset{k\to\infty}{\to}f(x)$ почти всюду на $[a,b]$, где $f(x)$ --- некоторая функция определенная на $[a,b]$. TODO
+\end{proof}
+
+\begin{Def}
+	Полные бесконечномерные евклидовы пространства называются гильбертовыми.
+\end{Def}
+
+\begin{corollary}
+	Из теоремы 3: $L_2[a,b]$ --- гильбертово пространство.
+\end{corollary}
+
+\begin{corollary}
+	Из неравенства Гельдера: если $(1\leqslant p_1<p_2<\infty)\Rightarrow L_{p_2}[a,b]\subset L_{p_1}[a,b]$.
+\end{corollary}
+\begin{proof}
+	Пусть $f\in L_{p_2}[a,b]$, оценим $\|f\|_{p_1}=\int\limits_{[a,b]} |f(x)|^{p_1}$ TODO
+\end{proof}
+
+\begin{linkthm}{https://youtu.be/E_kYAFT2U1U?t=2792}
+	В пространстве $L_p[a,b], 1\leqslant p<\infty$, всюду плотными являются множества непрерывных функций, алгебраических многочленов, алгебраических многочленов с рациональными коэффициентами. В пространстве $L_p(\R), 1\leqslant p<\infty$, всюду плотным является множество непрерывных функций финитных функций.
+\end{linkthm}
+
+\begin{proof}
+	TODO
+\end{proof}
+
+\begin{Def}
+	Система функций $\{\varphi_n(x)\}_{n=1}^\infty$ называется полной в $L_p(E)$, если \\$(\forall\varepsilon>0)(\forall f\in L_p(E))(\exists \{c_1,\ldots,c_n\}\subset\R)\|f-\sum\limits_{k=1}^n c_k\varphi_k\|_p<\varepsilon$.
+\end{Def}
+
+\begin{corollary}
+	 Из теоремы 4: система $\{1,x,x^2,\ldots\}$ --- полная в $L_p[a,b], 1\leqslant p<\infty$.
+\end{corollary}
+ 
+\begin{corollary}
+	Из теоремы Вейерштрасса: система $\{1,\cos x,\sin x, \cos 2x, \sin 2x,\ldots\}$ --- полная в $C_{2\pi}$.
+\end{corollary}
+
+\subsection{Ряды Фурье в евклидовых пространствах.}
+Напомним $E$ --- евклидово пространство, оно имеет скалярное произведение $<\cdot,\cdot>$, система $\{e_n\}_{n=1}^\infty$ --- ортогональная, если $e_n\ne 0$ и $<e_n,e_m>=0$, при $n\ne m$.
+
+Коэффициенты Фурье $f\in E$ по ортогональной системе $\{e_n\}_{n=1}^\infty$ это $\frac{<f,e_n>}{\|e_n\|^2}=:f_n, n=1,2,\ldots$.
+
+Общие свойства:
+\begin{enumerate}
+	\item Если $f=\sum\limits_{n=1}^\infty c_n e_n$, то $c_n=f_n,n=1,2,\ldots$.
+	\item Ортогональная система линейно независима.
+	\item Для любого полинома$T_n=\sum\limits_{k=1}^n c_ke_k$ ряд Фурье $T_n$ по системе $\{e_m\}_{m=1}^\infty$ совпадает с $T_n$.
+\end{enumerate}
+\begin{proof}
+TODO
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
