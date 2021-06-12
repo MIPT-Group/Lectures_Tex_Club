@@ -38,7 +38,7 @@ TODO
 \end{proof}
 
 \begin{Def}
-	Пусть $\lambda\in C^\infty$ (то есть бесконечно дифференцируемая функция). Тогда $(\forall f\in D')\ \lambda f\in D'$ определяется как $(\lambda f,\varphi):=(f,\lambda\varphi) (\forall\varphi\in D)$.
+	Пусть $\lambda\in C^\infty$ (то есть бесконечно дифференцируемая функция). Тогда $(\forall f\in D')\ \lambda f\in D'$ определяется как $(\lambda f,\varphi):=(f,\lambda\varphi)\ (\forall\varphi\in D)$.
 \end{Def}
 
 \begin{Def}
@@ -48,9 +48,34 @@ TODO
 \begin{linkthm}{https://youtu.be/g0PV80tGhdA?t=2552}
 	Операция дифференцирования на $D'$ обладает следующими свойствами:
 	\begin{enumerate}
-		\item (Линейность) $(\alpha f+\beta g)'=\alpha f'+\beta g'(\forall)$
+		\item (Линейность) $(\alpha f+\beta g)'=\alpha f'+\beta g'(\forall\alpha,\beta\in\R),(\forall f,g\in D')$.
+		\item (Нерперывность) Если $f_n\to f$ в $D'$, то $f_n'\to f'$ в $D'$.
+		\item (Правило Лейбница) Если $\lambda\in C^\infty,f\in D'$, то $(\lambda f)'=\lambda' f+\lambda f'$.
 	\end{enumerate}
 \end{linkthm}
+
+\begin{proof}
+	TODO
+\end{proof}
+
+\begin{example}
+TODO
+\end{example}
+
+\subsection{Преобразование Фурье в $L_2(\R)$.}
+\begin{linkthm}{https://youtu.be/g0PV80tGhdA?t=3961}[Планшереля]\ \\
+	Если $f\in L_2(\R)$, то в $L_2(\R)$ существует предел последовательности $\{g_N(\lambda)\}_{N=1}^\infty, g_N(\lambda)=\frac{1}{\sqrt{2\pi}}\int\limits_{-N}^N f(t)e^{-i\lambda t}d\mu(t)$. Этот предел (называемый преобразованием Фурье $\hat{f}(\lambda)$ функции из $L_2(\R)$) удовлетворяет равенству (Парсеваля) $\|\hat{f}\|_{L_2(\R)}=\|f\|_{L_2(\R)}$.
+	
+	Кроме того, для $f\in L_2(\R)\cap L_1(\R): \hat{f}$ --- одна и таже функция и в смысле $L_2(\R)$, и в смысле $L_1(\R)$.
+\end{linkthm}
+
+\begin{proof}
+TODO
+\end{proof}
+
+
+
+
 
 
 
