@@ -12,7 +12,7 @@
 \end{multline*}
 Обозначим $z_n=\frac{n\pi}{l}, n\in\Z$, тогда приращение $\Delta z_n=\frac{\pi}{l}, n\in\Z$. Так как косинус четный запишем:
 \begin{multline*}
-	f(x)\sim\\\sim\frac{1}{2\pi}\sum\limits_{n=-\infty}^\infty\left(\int\limits_{[-l,l]}f(t)\cos z_n(x-t)d\mu(t) \right)\Delta z_n\sim\frac{1}{2\pi}\int\limits_{-\infty}^{+\infty}\left(\int\limits_{[-l,l]} f(t)\cos\lambda(x-t)d\mu(t)\right)d\lambda=\\=\frac{1}{\pi}\int\limits_0^\infty\int\limits_{[-l,l]}f(t)\cos\lambda(x-t)d\mu(t)
+	f(x)\sim\\\sim\frac{1}{2\pi}\sum\limits_{n=-\infty}^\infty\left(\int\limits_{[-l,l]}f(t)\cos z_n(x-t)d\mu(t) \right)\Delta z_n\sim\frac{1}{2\pi}\int\limits_{-\infty}^{+\infty}\left(\int\limits_{[-l,l]} f(t)\cos\lambda(x-t)d\mu(t)\right)d\lambda=\\=\frac{1}{\pi}\int\limits_0^\infty\left(\int\limits_{[-l,l]}f(t)\cos\lambda(x-t)d\mu(t)\right)d\lambda.
 \end{multline*}
 
 \begin{Def}
@@ -36,29 +36,20 @@ TODO
 
 \section{Глава 13. Интегральные преобразования и обобщенные функции.}
 \subsection{Преобразование Фурье.}
-Интеграл Фурье $I_f(\lambda)=$
+Для комплексной функции $f=u+iv: \int\limits_\R f(t)d\mu(t)=\int\limits_\R u(t)d\mu(t)+i\int\limits_\R v(t)d\mu(t)$.
 
+Запишем интеграл Фурье в комплексном виде $I_f(x)=\frac{1}{\pi}\int\limits_0^\infty\left(\int\limits_{\R}f(t)\cos\lambda(t-x)d\mu(t)\right)d\lambda$. По формуле Эйлера
+\begin{multline*}
+	I_f(x)=\frac{1}{2\pi}\int\limits_0^\infty\left(\int\limits_{\R}f(t)\left(e^{i\lambda(t-x)}+e^{-i\lambda(t-x)}\right)d\mu(t)\right)d\lambda=\\
+	=\frac{1}{2\pi}\lim\limits_{\Lambda\to\infty}\left(\int\limits_0^\Lambda e^{-i\lambda x}\int\limits_\R f(t)e^{i\lambda t}d\mu(t)d\lambda+\int\limits_0^\Lambda e^{i\lambda x}\int\limits_\R f(t)e^{-i\lambda t}d\mu(t)d\lambda\right)=\\
+	=\frac{1}{2\pi}\lim\limits_{\Lambda\to\infty}\left(\int\limits_{-\Lambda}^\Lambda e^{i\lambda x}\int\limits_\R f(t)e^{-i\lambda t}d\mu(t)d\lambda\right)=\frac{1}{2\pi}\text{v.p.}\int\limits_{-\infty}^\infty e^{i\lambda x}\left(\int\limits_\R f(t)e^{-i\lambda t}d\mu(t)\right)d\lambda.
+\end{multline*} 
+\begin{Def}
+	Преобразованием Фурье функции $f\in L_1(\R)$ называется $\hat{f}(\lambda)=\frac{1}{\sqrt{2\pi}}\int\limits_\R f(t)e^{-i\lambda t}d\mu(t)$ или обозначается $F[f]$.
+\end{Def}
 
+\begin{Def}
+	Обратным преобразованием Фурье функции $F\in C(\R)$ называется $\widetilde{F}(x)=\frac{1}{\sqrt{2\pi}}\text{v.p.}\int\limits_{-\infty}^\infty e^{i\lambda x}F(\lambda)d\lambda$ или обозначается $F^{-1}[F]$.
+\end{Def}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+TODO

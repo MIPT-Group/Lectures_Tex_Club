@@ -1,0 +1,62 @@
+\begin{Def}
+	Линейный функционал на $D$ --- это линейное отображение $f:D\to\R:f(\alpha\varphi_1+\beta\varphi_2)=\alpha f(\varphi_1)+\beta f(\varphi_2), (\forall\alpha,\beta\in\R),(\forall\varphi_1,\varphi_2\in D)$. Мы будем обозначать действие функционала как $(f,\alpha\varphi_1+\beta\varphi_2)=\alpha(f,\varphi_1)+\beta(f,\varphi_2)$.
+\end{Def}
+\begin{Def}
+	$D'$ --- пространство линейных непрерывных (в смысле $(f,\varphi_n)\underset{n\to\infty}{\to}(f,\varphi)$ для любой последовательности $\varphi_n\underset{n\to\infty}{\to} \varphi$ в $D$) функционалов.
+\end{Def}
+Пространство линейных функционалов это сопряженное пространство $D'$. Сопряженная полунорма $p_\alpha'(f):=\sup\limits_{\varphi:p_\alpha(\varphi)\ne0}\frac{|(f,\varphi)|}{p_\alpha(\varphi)}$.
+
+\begin{Def}
+	Последовательность $\{f_n\}_{n=1}^\infty\subset D'$ сходится к $f\in D'$, если $(\forall\varphi\in D) \lim\limits_{n\to\infty}(f_n,\varphi)=(f,\varphi)$.
+\end{Def}
+
+\begin{prop}
+	Если $f\in L_{loc}(\R)$ (то есть $f\in L_1[a,b] \forall[a,b]$), то $f$ соответствует линейный функционал из $D'$, определенный как $\int\limits_{-\infty}^\infty f(x)\varphi(x)d\mu(x)$.
+\end{prop}
+\begin{proof}
+TODO
+\end{proof}
+
+\begin{Def}
+	Линейные функционалы из $D'$, соответствующие функциям из $L_{loc}(\R)$ по утверждению называются регулярными функционалами. 
+	
+	Элементы пространства $D'$ называются также обобщенными функциями (распределениями).
+	
+	Обобщенные функции, не являющиеся регулярными, называюстя сингулярными обобщенными функциями.
+\end{Def}
+
+\begin{example}[$\delta$-функция Дирака]
+	$\delta(x)$ --- это функционал, который $(\delta, \varphi)=\varphi(0), \varphi\in D$.
+\end{example}
+
+\begin{prop}
+	$\delta$-функция Дирака является сингулярной обобщенной функцией.
+\end{prop}
+
+\begin{proof}
+	TODO
+\end{proof}
+
+\begin{Def}
+	Пусть $\lambda\in C^\infty$ (то есть бесконечно дифференцируемая функция). Тогда $(\forall f\in D')\ \lambda f\in D'$ определяется как $(\lambda f,\varphi):=(f,\lambda\varphi) (\forall\varphi\in D)$.
+\end{Def}
+
+\begin{Def}
+	Обобщенной производной обобщенной функции $f\in D'$ называется $f'\in D'$, определяемое формулой $(f',\varphi):=-(f,\varphi') (\forall\varphi\in D)$.
+\end{Def}
+
+\begin{linkthm}{https://youtu.be/g0PV80tGhdA?t=2552}
+	Операция дифференцирования на $D'$ обладает следующими свойствами:
+	\begin{enumerate}
+		\item (Линейность) $(\alpha f+\beta g)'=\alpha f'+\beta g'(\forall)$
+	\end{enumerate}
+\end{linkthm}
+
+
+
+
+
+
+
+
+
