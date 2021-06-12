@@ -32,11 +32,11 @@
 
 Перейдем к отрезку $[a,b]: t\in[a,b], x=\frac{t-a}{b-a}\in[0,1]$. Тогда если $f\in C[a,b]$, то $F(x)=f(x(b-a)+a)\in C[0,1]$. По доказанному $B_n(F,\cdot)\rightrightarrows F$ на $[0,1]$, то есть $(\forall\varepsilon >0)(\exists N)(\forall n>N)(\forall x\in[0,1])\left|B_n(F,x)-F(x)\right|<\varepsilon\Rightarrow \left|B_n(F,\frac{t-a}{b-a})-f(t)\right|<\varepsilon$.
 \end{proof}
-\begin{linkthm}{https://youtu.be/TJ8TZ0RVdYo?t=2590}[Коровкин]
+\begin{linkthm}{https://youtu.be/TJ8TZ0RVdYo?t=2590}[$'$Коровкин]
 	Если последовательность линейных положительных операторов $L_n: C_{2\pi}\to C_{2\pi}$ такова, что $L_n(e_i,\cdot)\underset{n\to\infty}{\rightrightarrows}e_i$ на $\R$, где $e_0(x)=1, e_1(x)=\cos x, e_2(x)=\sin x$, то $(\forall f\in C_{2\pi})\  L_n(f,\cdot)\underset{n\to\infty}{\rightrightarrows} f$ на $\R$.
 \end{linkthm}
 \begin{proof}
-TODO
+	Повторим доказательство первой теоремы Коровкина и получим $ {-\varepsilon-\frac{2M}{\sin^2\frac{\delta}{2}}\varphi_x(t)<f(t)-f(x)<\varepsilon+\frac{2M}{\sin^2\frac{\delta}{2}}\varphi_x(t)$, где $\varphi_x(t)=\sin\frac{t-x}{2}$. Проведем доказательство сначала для $t\in(x,x+2\pi]$. Если $t\in(x,x+\delta)$, то $-\varepsilon<f(t)-f(x)<\varepsilon$ в силу равномерной непрерывности
 \end{proof}
 
 \begin{linkthm}{https://youtu.be/TJ8TZ0RVdYo?t=3191}[Фейер]\ \\
