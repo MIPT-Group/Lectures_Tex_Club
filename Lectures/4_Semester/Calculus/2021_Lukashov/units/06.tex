@@ -45,7 +45,9 @@
 \end{corollary}
 \begin{proof}
 	Пусть $f\in L_{p_2}[a,b]$, применим неравенство Гельдера 
-	$$\|f\|^{p_1}_{p_1}=\int\limits_{[a,b]} |f(x)|^{p_1}d\mu(x)\leqslant\left(\int\limits_{[a,b]}|f(x)|^{p_1\cdot\frac{p_2}{p_1}}d\mu(x)\right)^{\frac{p_1}{p_2}}\cdot\left(\int\limits_{[a,b]}1^{\frac{1}{1-\frac{p_1}{p_2}}}d\mu(x)\right)^{1-\frac{p_1}{p_2}}$$.
+	$$\|f\|^{p_1}_{p_1}=\int\limits_{[a,b]} |f(x)|^{p_1}d\mu(x)\leqslant\left(\int\limits_{[a,b]}|f(x)|^{p_1\cdot\frac{p_2}{p_1}}d\mu(x)\right)^{\frac{p_1}{p_2}}\cdot
+	\left(\int\limits_{[a,b]}1^{\frac{1}{1-\frac{p_1}{p_2}}}d\mu(x)\right)^{1-\frac{p_1}{p_2}}.$$
+	Самый правый интеграл --- это константа. В интеграла перед ним $f(x)^{p_2}$, но $f(x)\in L_{p_2}$, значит интеграл конечное число, и в левой части неравенства тоже конечное число, то есть $f\in L_1$.
 \end{proof}
 
 \begin{linkthm}{https://youtu.be/E_kYAFT2U1U?t=2792}
@@ -53,8 +55,14 @@
 \end{linkthm}
 
 \begin{proof}
-	TODO
-\end{proof}
+	Все перечисленные объекты находятся во всех пространствах $L_p$. То что непрерывные функции всюду плотны в $L_1[a,b]$ следует из \hyperref[lemma_12.1.1]{Леммы 1}. В доказательстве этой леммы строилась возрастающая последовательность ступенчатых функций $\{h_n\}$, которая равномерно сходится к $f\Rightarrow \|h_n-f\|_p\underset{n\to\infty}{\to}0$. Осталось приблизить произвольную ступенчатую функцию в метрике $L_p$, то есть найдем такую непрерывную функцию $g: \int\limits_{[a,b]}|h(x)-g(x)|^pd\mu(x)<\varepsilon$. Вообщем это действительно работает, то есть непрерывные функции всюду плотны в $L_p$.
+	
+	По \hyperref[11.4.2]{теореме Вейерштрасса} о приближении непрерывных функций алгебраическими многочленами $\forall g\in C[a,b]\ \forall\varepsilon>0\ \exists P \max\limits_{x\in[a,b]} |g(x)-P(x)|<\varepsilon$. Тогда $\|g-P\|^p_p=\int\limits_{a}^b |g(x)-P(x)|^pdx<\varepsilon^p(b-a)$, что означает, что алгебраические многочлены также всюду полны.
+	
+	Для алгебраических многочленов с рациональными коэффициентами: каждый коэффициент приближаем рациональным числом, при этом разность исходного многочлена приближенного можно сделать сколь угодно малым.
+	
+	Если $f\in L_p(\R)$, то $ \int\limits_\R|f(x)|^pd\mu(x)$ --- конечен. Возьмем такой отрезок $[a,b]$, что интеграл$ \int\limits_{\R\backslash[a,b]}|f(x)|^pd\mu(x)$ был сколь угодно мал, и сводим задачу к уже доказанной для отрезка.
+ \end{proof}
 
 \begin{Def}
 	Система функций $\{\varphi_n(x)\}_{n=1}^\infty$ называется полной в $L_p(E)$, если \\$(\forall\varepsilon>0)(\forall f\in L_p(E))(\exists \{c_1,\ldots,c_n\}\subset\R)\|f-\sum\limits_{k=1}^n c_k\varphi_k\|_p<\varepsilon$.
@@ -77,10 +85,14 @@
 \begin{enumerate}
 	\item Если $f=\sum\limits_{n=1}^\infty c_n e_n$, то $c_n=f_n,n=1,2,\ldots$.
 	\item Ортогональная система линейно независима.
-	\item Для любого полинома$T_n=\sum\limits_{k=1}^n c_ke_k$ ряд Фурье $T_n$ по системе $\{e_m\}_{m=1}^\infty$ совпадает с $T_n$.
+	\item Для любого полинома $T_n=\sum\limits_{k=1}^n c_ke_k$ ряд Фурье $T_n$ по системе $\{e_m\}_{m=1}^\infty$ совпадает с $T_n$.
 \end{enumerate}
 \begin{proof}
-TODO
+\begin{enumerate}
+	\item Из неравенства Коши-Буняковского-Шварца $\left|<f-\sum\limits_{k=1}^n c_ke_k,e_m>\right|\leqslant\|f-\sum\limits_{k=1}^n c_ke_k\|\cdot \|e_m\|$. Из условия при $n\to\infty$ правая часть стремиться к нулю, значит и левая часть стремится к нулю. Получаем, что $<f,e_m>=\lim\limits_{n\to\infty}\sum\limits_{k=1}^n c_k<e_k,e_m>$. При стремлении $n\to\infty$ наступит момент, когда $n>m$, значит сумма равна $<f,e_m>=c_m\cdot<e_m,e_m>$, то есть $c_m$ в точности совпадает с коэффициентом Фурье.
+	\item Пусть линейно зависима, то есть $0=\sum\limits_{n=1}^\infty c_ne_n$, где не все $c_n=0$. Но поскольку все коэффициенты это коэффициенты Фурье, получаем, что коэффициенты нуля не нуль --- противоречие.
+	\item $<T_n,e_m>=c_m<e_m,e_m>$ при $m\leqslant n$. Получаем, что коэффициент Фурье в точности сопадает с $c_m$.
+\end{enumerate}
 \end{proof}
 
 
