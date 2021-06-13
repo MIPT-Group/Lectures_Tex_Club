@@ -29,11 +29,11 @@
 
 \begin{proof}
 	Пусть $f$ определена на $I$. Доопределим $f(x)=0$ на $ x\in(\R\backslash I)$. Пусть
-	$$\mathcal{J}=\int\limits_{\R}f(x)\cos\lambda xd\mu(x).\eqno(1)$$ 
+	$$\mathcal{J}=\int\limits_{\R}f(x)\cos\lambda xd\mu(x).\eqno(3)$$ 
 	Сделаем замену $x=t+\frac{\pi}{\lambda}$. 
 	Тогда 
-	$$\mathcal{J}=\int\limits_{\R}f\left(t+\frac{\pi}{\lambda}\right)\cos\left(\lambda t+\pi\right)d\mu(t)=-\int\limits_{\R}f\left(t+\frac{\pi}{\lambda}\right)\cos(\lambda t)d\mu(t).\eqno(2)$$
-	Обозначим $t=x$, сложим равенства $(1),(2)$ и поделили пополам: 
+	$$\mathcal{J}=\int\limits_{\R}f\left(t+\frac{\pi}{\lambda}\right)\cos\left(\lambda t+\pi\right)d\mu(t)=-\int\limits_{\R}f\left(t+\frac{\pi}{\lambda}\right)\cos(\lambda t)d\mu(t).\eqno(4)$$
+	Обозначим $t=x$, сложим равенства $(3),(4)$ и поделили пополам: 
 	$$\mathcal{J}=-\frac{1}{2}\int\limits_{\R}\left(f\left(x+\frac{\pi}{\lambda}\right)-f(x)\right)\cos\lambda xd\mu(x).$$
 	Следовательно $|\mathcal{J}|\leqslant \int\limits_{\R}|f(x+\frac{\pi}{\lambda})-f(x)|d\mu(x)\to 0$, при $\lambda\to\infty$ по \hyperref[lemma_12.1.2]{Лемме 2}.
 \end{proof}
@@ -47,14 +47,14 @@ $$\begin{aligned}
 	a_n&=\dfrac{2}{\pi}\int\limits_{0}^{\pi}f(x)\cos nxd\mu(x), n=0,1,2,\ldots\\
 	b_n&=0, n=1,2,\ldots
 \end{aligned}
-\eqno(3)
+\eqno(5)
 $$
 Если $f$ --- нечетная, $f\in L_1[-\pi,\pi]\Rightarrow$
 $$\begin{aligned}
 	b_n&=\dfrac{2}{\pi}\int\limits_{0}^{\pi}f(x)\sin nxd\mu(x), n=1,2,\ldots\\
 	a_n&=0, n=0,1,\ldots
 \end{aligned}
-\eqno(4)
+\eqno(6)
 $$
 
 \textbf{Классические ортогональные многочлены и связанные с ними ортогональные системы.}
