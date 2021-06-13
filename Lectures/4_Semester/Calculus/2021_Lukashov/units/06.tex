@@ -5,7 +5,16 @@
 \begin{proof}
 	Убедимся, что $|f(x)+g(x)|^p$ суммируема: $|f(x)+g(x)|^p\leqslant 2^p\max(|f(x)|^p,|g(x)|^p)$, так как $f(x)$ и $g(x)$ суммируемы, то их максимум тоже. 
 	
-	Перейдем непосредственно к неравенству. Для $p=1$ --- неравенство треугольника. Для $1<p<\infty: |f(x)+g(x)|^p=\left(|f(x)+g(x)|^{p-1}\right)(|f(x)|+|g(x)|)$. Применим неравенство Гельдера: $\int\limits_E |f(x)+g(x)|^p d\mu(x)\leqslant \left(\left(\int\limits_E |f(x)|^p d\mu(x)\right)^\frac{1}{p}+\left(\int\limits_E |g(x)|^p d\mu(x)\right)^\frac{1}{p}\right)$ TODO
+	Перейдем непосредственно к неравенству. Для $p=1$ --- неравенство треугольника. Для $1<p<\infty:$ $$ |f(x)+g(x)|^p=\left(|f(x)+g(x)|^{p-1}\right)(|f(x)|+|g(x)|).$$ Применим неравенство Гельдера для функций $F(x)=f(x),G(x)=|f(x)+g(x)|^{p-1}:$ 
+	$$\int\limits_X |f(x)||f(x)+g(x)|^{p-1}d\mu(x)\leqslant \left(\int\limits_X |f(x)|^pd\mu(x)\right)^{\frac{1}{p}}
+	\left(\int\limits_X |f(x)+g(x)|^{(p-1)q}d\mu(x)\right)^{\frac{1}{q}}.$$
+	Применим неравенство Гельдера для функций $F(x)=g(x),G(x)=|f(x)+g(x)|^{p-1}:$ 
+	$$\int\limits_X |g(x)||f(x)+g(x)|^{p-1}d\mu(x)\leqslant \left(\int\limits_X |g(x)|^pd\mu(x)\right)^{\frac{1}{p}}
+	\left(\int\limits_X |f(x)+g(x)|^{(p-1)q}d\mu(x)\right)^{\frac{1}{q}}.$$
+	Сложим два этих неравенства и получим:
+	$\int\limits_E |f(x)+g(x)|^p d\mu(x)\leqslant \left(\left(\int\limits_E |f(x)|^p d\mu(x)\right)^\frac{1}{p}+\left(\int\limits_E |g(x)|^p d\mu(x)\right)^\frac{1}{p}\right)\left(\int\limits_E |f(x)+g(x)|^{(p-1)q}d\mu(x)\right)^{\frac{1}{q}}$.
+	
+	Так как $(p-1)\cdot q=p$, то делим на самый правый интеграл и получаем требуемое.
 \end{proof}
 \begin{Def}
 	Нормой в пространстве $L_p(E)$ называется $\|f\|_p=\left(\int\limits_E |f(x)|^p d\mu(x)\right)^\frac{1}{p}$, где $1\leqslant p<+\infty$. Из неравенства Минковского следует, что это действительно норма.
@@ -14,7 +23,9 @@
 	Для $p\in [1,+\infty)\  L_p[a,b]$ --- банахово простанство.
 \end{linkthm}
 \begin{proof}
-	Пусть $\{f_n\}_{n=1}^\infty$ --- фундаментальная последовательность в $L_p[a,b]$. Тогда $(\forall\varepsilon >0)(\exists N\in \N)(\forall n,m>N) \|f_n-f_m\|_p<\varepsilon$. Значит $\exists\{n_k\}_{k=1}^\infty$ --- возрастающая, такая что $(\forall m\geqslant n_k) \|f_m-f_{n_k}\|<\frac{1}{2^k}$. Рассмотрим ряд $\Phi(x)=|f_{n_1}(x)|+\sum\limits_{k=2}^\infty |f_{n_k}(x)-f_{n_{k-1}}(x)|$. Из неравенства Минковского $\|\Phi\|_p\leqslant \|f_{n_1}(x)\|_p+\sum\limits_{k=2}^\infty \underbrace{\|f_{n_k}-f_{n_{k-1}}\|_p}_{<\frac{1}{2^{k-1}}}<\infty$ --- ряд сходится. Значит $\Phi$ --- элемент пространства $L_p[a,b]$ и он сходится почти всюду. Значит ряд $f_{n_1}(x)+\sum\limits_{k=2}^\infty (f_{n_k}(x)-f_{n_{k-1}}(x))$ --- сходится абсолютно почти всюду на $[a,b]$. Его частичные суммы это $\{f_{n_k}\}_{k=1}^\infty$. Значит $f_{n_k}(x)\underset{k\to\infty}{\to}f(x)$ почти всюду на $[a,b]$, где $f(x)$ --- некоторая функция определенная на $[a,b]$. TODO
+	Пусть $\{f_n\}_{n=1}^\infty$ --- фундаментальная последовательность в $L_p[a,b]$. Тогда $(\forall\varepsilon >0)(\exists N\in \N)(\forall n,m>N) \|f_n-f_m\|_p<\varepsilon$. Значит $\exists\{n_k\}_{k=1}^\infty$ --- возрастающая, такая что $(\forall m\geqslant n_k) \|f_m-f_{n_k}\|_p<\frac{1}{2^k}\ (\forall k\in \N)$. Рассмотрим ряд $\Phi(x)=|f_{n_1}(x)|+\sum\limits_{k=2}^\infty |f_{n_k}(x)-f_{n_{k-1}}(x)|$. Из неравенства Минковского $\|\Phi\|_p\leqslant \|f_{n_1}(x)\|_p+\sum\limits_{k=2}^\infty \underbrace{\|f_{n_k}-f_{n_{k-1}}\|_p}_{<\frac{1}{2^{k-1}}}<\infty$ --- ряд сходится. Значит $\Phi$ --- элемент пространства $L_p[a,b]$ и он сходится почти всюду. Значит ряд $f_{n_1}(x)+\sum\limits_{k=2}^\infty (f_{n_k}(x)-f_{n_{k-1}}(x))$ --- сходится абсолютно почти всюду на $[a,b]$. Его частичные суммы это $\{f_{n_k}\}_{k=1}^\infty$. Значит $f_{n_k}(x)\underset{k\to\infty}{\to}f(x)$ почти всюду на $[a,b]$, где $f(x)$ --- некоторая функция определенная на $[a,b]$. Хотим доказать, что вся последовательность $f_n(x)\underset{k\to\infty}{\to}f(x)$ в $L_p[a,b]$.
+	
+	Убедимся, что $f\in L_p[a,b]$: если у нас есть сходимость почти всюду, то по теореме Фату $\int\limits_{[a,b]}|f(x)|^pd\mu(x)\leqslant\underline{\lim}_{k\to\infty}\int\limits_{[a,b]}|f_{n_k}(x)|^pd\mu(x)=\|f_{n_k}\|^p_p<\infty$, так как если последовательность фундаментальная, то она ограничена
 \end{proof}
 
 \begin{Def}

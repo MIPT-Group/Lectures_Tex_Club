@@ -30,7 +30,7 @@
 \end{corollary}
 
 \begin{linklm}{https://youtu.be/Vp4x2iwyLe8?t=1417}
-	Пусть $f\in L_{2\pi}, g$ --- измеримая, $2\pi$-периодическая, ограниченная функция. Тогда коэффициенты Фурье функции $\chi(t)=f(x+t)g(t)$ стремятся к нулю, при $n\to\infty$ равномерно по $x$.
+	Пусть \label{lemma_11.2.2} $f\in L_{2\pi}, g$ --- измеримая, $2\pi$-периодическая, ограниченная функция. Тогда коэффициенты Фурье функции $\chi(t)=f(x+t)g(t)$ стремятся к нулю, при $n\to\infty$ равномерно по $x$.
 \end{linklm}
 
 \begin{proof}
@@ -42,7 +42,7 @@
 
 Сделаем подготовку: так как $g$ --- ограниченная, то $\exists M: |g(u)|\leqslant M, \forall u$. Также по \hyperref[lemma_12.1.1]{Лемме 1} непрерывные функции всюду плотны в смысле $L_1$, то есть $f=f_1+f_2$, где $f_1\in C[-\pi,\pi]$, значит $f_1$ --- ограниченная $\exists B:|f_1(u)|\leqslant B,\forall u$, а интеграл от $f_2$ сколь угодно мал $\int\limits_{-\pi}^\pi |f_2(t)|d\mu(t)<\frac{\varepsilon}{4M}$. Оценим
 \begin{multline*}
-	\int\limits_{-\pi}^\pi|\chi(t+h)-\chi(t)|d\mu(t)=\int\limits_{-\pi}^\pi|f(x+t+h)g(t+h)-f(x+t)g(t)|d\mu(t)\leqslant\\ \leqslant\int\limits_{-\pi}^\pi|f(x+t+h)-f(x+t)|\cdot|g(t+h)|d\mu(t)+\int\limits_{-\pi}^\pi|f(x+t)|\cdot |g(t+h)-g(t)|d\mu(t)\leqslant\\ \leqslant[\text{замена }u=x+t, \text{пределы интегрирования не сдвигаются, т. к. интегралы}\\ \text{ по любому отрезку длины }2\pi\text{ совпадают}]\leqslant\\ \leqslant M\int\limits_{-\pi}^\pi|f(u+h)-f(u)|d\mu(u)+\int\limits_{-\pi}^\pi|f_1(x+t)|\cdot|g(t+h)-g(t)|d\mu(t)+\frac{\varepsilon}{2}\leqslant\\ \leqslant M\cdot w_1(\frac{\pi}{n},f)+B\cdot w_1(\frac{\pi}{n},g)+\frac{\varepsilon}{2}<\varepsilon
+	\int\limits_{-\pi}^\pi|\chi(t+h)-\chi(t)|d\mu(t)=\int\limits_{-\pi}^\pi|f(x+t+h)g(t+h)-f(x+t)g(t)|d\mu(t)\leqslant\\ \leqslant\int\limits_{-\pi}^\pi|f(x+t+h)-f(x+t)|\cdot|g(t+h)|d\mu(t)+\int\limits_{-\pi}^\pi|f(x+t)|\cdot |g(t+h)-g(t)|d\mu(t)\leqslant\\ \leqslant[\text{замена }u=x+t, \text{пределы интегрирования не сдвигаются, т. к. интегралы}\\ \text{ по любому отрезку длины }2\pi\text{ совпадают}]\leqslant\\ \leqslant M\int\limits_{-\pi}^\pi|f(u+h)-f(u)|d\mu(u)+\int\limits_{-\pi}^\pi|f_1(x+t)|\cdot|g(t+h)-g(t)|d\mu(t)+\frac{\varepsilon}{2}\leqslant\\ \leqslant M\cdot w_1(\frac{\pi}{n},f)+B\cdot w_1(\frac{\pi}{n},g)+\frac{\varepsilon}{2}<\text{[по \hyperref[lemma_12.1.2]{Лемме 2}]}<\varepsilon
 \end{multline*}
 \end{proof}
 
@@ -88,9 +88,9 @@
 $$S_n(f,x)=\frac{1}{\pi}\int\limits_{-\pi}^\pi f(x+t)D_n(t)d\mu(t)=\frac{1}{\pi}\int\limits_{-\pi}^\pi f(x+t)\lambda(t)D_n(t)d\mu(t),$$ действительно, если $t$ не попадает в интервал $(-\eta,\eta): \lambda(t)=1$, если же $t\in(-\eta,\eta)$, то $\lambda(t)=0$, но тогда $x+t\in(a,b)$, где $f(x+t)=0$. 
 \begin{multline*}
 	D_n(t)=\frac{\sin (n+\frac{1}{2})t}{2\sin\frac{t}{2}}\Rightarrow\\
-	S_n(f,x)=\frac{1}{\pi}\int\limits_{-\pi}^\pi f(x+t)\lambda(t)\ctg\frac{t}{2}\sin ntd\mu(t)+\frac{1}{2\pi}\int\limits_{-\pi}^\pi f(x+t)\lambda(t)\cos ntd\mu(t)\overset{\text{Л. 2}}{\rightrightarrows}0, n\to\infty.
+	S_n(f,x)=\frac{1}{2\pi}\int\limits_{-\pi}^\pi f(x+t)\lambda(t)\ctg\frac{t}{2}\sin ntd\mu(t)+\frac{1}{2\pi}\int\limits_{-\pi}^\pi f(x+t)\lambda(t)\cos ntd\mu(t)\overset{\text{Л. 2}}{\rightrightarrows}0, n\to\infty.
 \end{multline*}
-Функция $g(t)=\lambda(t)\ctg\frac{t}{2}$ --- ограниченная, измеримая, $2\pi$-периодическая, так как при $t\in(-\eta,\eta): \lambda(t)=0$, а вне $(-\eta,\eta): \ctg\frac{t}{2}$ --- ограниченная фукнция. $f$ по условию из $L_{2\pi}$. Тогда применяя \hyperref[lemma_12.1.2]{Лемму 2}, получаем, что первое слагаемое представляет собой коэффициент Фурье, который стремится равномерно по $x$ к нулю, аналогично со вторым слагаемым.
+Функция $g(t)=\lambda(t)\ctg\frac{t}{2}$ --- ограниченная, измеримая, $2\pi$-периодическая, так как при $t\in(-\eta,\eta): \lambda(t)=0$, а вне $(-\eta,\eta): \ctg\frac{t}{2}$ --- ограниченная фукнция. $f$ по условию из $L_{2\pi}$. Тогда применяя \hyperref[lemma_11.2.2]{Лемму 2}, получаем, что первое слагаемое представляет собой коэффициент Фурье, который стремится равномерно по $x$ к нулю, аналогично со вторым слагаемым.
 \end{proof}
 
 \begin{corollary}
