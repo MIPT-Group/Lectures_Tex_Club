@@ -20,12 +20,16 @@
 	Нормой в пространстве $L_p(E)$ называется $\|f\|_p=\left(\int\limits_E |f(x)|^p d\mu(x)\right)^\frac{1}{p}$, где $1\leqslant p<+\infty$. Из неравенства Минковского следует, что это действительно норма.
 \end{Def}
 \begin{linkthm}{https://youtu.be/E_kYAFT2U1U?t=1044}[Банаховость простанства $L_p$]\ \\
-	Для $p\in [1,+\infty)\  L_p[a,b]$ --- банахово простанство.
+	Для $p\in [1,+\infty)\  L_p([a,b])$ --- банахово простанство.
 \end{linkthm}
 \begin{proof}
-	Пусть $\{f_n\}_{n=1}^\infty$ --- фундаментальная последовательность в $L_p[a,b]$. Тогда $(\forall\varepsilon >0)(\exists N\in \N)(\forall n,m>N) \|f_n-f_m\|_p<\varepsilon$. Значит $\exists\{n_k\}_{k=1}^\infty$ --- возрастающая, такая что $(\forall m\geqslant n_k) \|f_m-f_{n_k}\|_p<\frac{1}{2^k}\ (\forall k\in \N)$. Рассмотрим ряд $\Phi(x)=|f_{n_1}(x)|+\sum\limits_{k=2}^\infty |f_{n_k}(x)-f_{n_{k-1}}(x)|$. Из неравенства Минковского $\|\Phi\|_p\leqslant \|f_{n_1}(x)\|_p+\sum\limits_{k=2}^\infty \underbrace{\|f_{n_k}-f_{n_{k-1}}\|_p}_{<\frac{1}{2^{k-1}}}<\infty$ --- ряд сходится. Значит $\Phi$ --- элемент пространства $L_p[a,b]$ и он сходится почти всюду. Значит ряд $f_{n_1}(x)+\sum\limits_{k=2}^\infty (f_{n_k}(x)-f_{n_{k-1}}(x))$ --- сходится абсолютно почти всюду на $[a,b]$. Его частичные суммы это $\{f_{n_k}\}_{k=1}^\infty$. Значит $f_{n_k}(x)\underset{k\to\infty}{\to}f(x)$ почти всюду на $[a,b]$, где $f(x)$ --- некоторая функция определенная на $[a,b]$. Хотим доказать, что вся последовательность $f_n(x)\underset{k\to\infty}{\to}f(x)$ в $L_p[a,b]$.
+	Пусть $\{f_n\}_{n=1}^\infty$ --- фундаментальная последовательность в $L_p[a,b]$. Тогда $(\forall\varepsilon >0)(\exists N\in \N)(\forall n,m>N) \|f_n-f_m\|_p<\varepsilon$. Значит $\exists\{n_k\}_{k=1}^\infty$ --- возрастающая, такая что $(\forall m\geqslant n_k) \|f_m-f_{n_k}\|_p<\frac{1}{2^k}\ (\forall k\in \N)$, тогда  $\|f_m-f_{n_k}\|_1\leqslant\|f_m-f_{n_k}\|_p\cdot\|1\|_q<\frac{C}{2^k}$ из неравенства Гельдера. Рассмотрим ряд $\Phi(x)=|f_{n_1}(x)|+\sum\limits_{k=2}^\infty |f_{n_k}(x)-f_{n_{k-1}}(x)|$. По теореме Леви $\|\Phi\|_1= \|f_{n_1}(x)\|_1+\sum\limits_{k=2}^\infty \underbrace{\|f_{n_k}-f_{n_{k-1}}\|_1}_{<\frac{1}{2^{k-1}}}<\infty$ --- ряд сходится. Значит $\Phi$ --- элемент пространства $L_p[a,b]$ и он сходится почти всюду. Значит ряд $f_{n_1}(x)+\sum\limits_{k=2}^\infty (f_{n_k}(x)-f_{n_{k-1}}(x))$ --- сходится абсолютно почти всюду на $[a,b]$. Его частичные суммы это $\{f_{n_k}\}_{k=1}^\infty$. Значит $f_{n_k}(x)\underset{k\to\infty}{\to}f(x)$ почти всюду на $[a,b]$, где $f(x)$ --- некоторая функция определенная на $[a,b]$. Хотим доказать, что вся последовательность $f_n(x)\underset{k\to\infty}{\to}f(x)$ в $L_p[a,b]$.
 	
-	Убедимся, что $f\in L_p[a,b]$: если у нас есть сходимость почти всюду, то по теореме Фату $\int\limits_{[a,b]}|f(x)|^pd\mu(x)\leqslant\underline{\lim}_{k\to\infty}\int\limits_{[a,b]}|f_{n_k}(x)|^pd\mu(x)=\|f_{n_k}\|^p_p<\infty$, так как если последовательность фундаментальная, то она ограничена
+	Убедимся, что $f\in L_p[a,b]$: если у нас есть сходимость почти всюду, то по теореме Фату $\int\limits_{[a,b]}|f(x)|^pd\mu(x)\leqslant\underline{\lim}_{k\to\infty}\int\limits_{[a,b]}|f_{n_k}(x)|^pd\mu(x)=\|f_{n_k}\|^p_p<\infty$, так как если последовательность фундаментальная, то она ограничена, то есть убедились.
+	
+	Из выбора последовательности $f_{n_k}\Rightarrow(\forall\varepsilon>0)(\exists N\in\N)(\forall k,l>N) \|f_{n_k}-f_{n_l}\|_p<\varepsilon$, тогда по теореме Лебега при $l\to\infty: \|f_{n_k}-f\|_p\leqslant\varepsilon$.
+	
+	Из неравенства Минковского при всех достаточно больших $m:\|f_m-f\|_p\leqslant \|f_m-f_{n_k}\|_p+\|f_{n_k}-f\|_p<2\varepsilon$, то есть доказали, что вся последовательность $f_n$ сходится к $f$ в $L_p$.
 \end{proof}
 
 \begin{Def}
@@ -40,7 +44,8 @@
 	Из неравенства Гельдера: если $(1\leqslant p_1<p_2<\infty)\Rightarrow L_{p_2}[a,b]\subset L_{p_1}[a,b]$.
 \end{corollary}
 \begin{proof}
-	Пусть $f\in L_{p_2}[a,b]$, оценим $\|f\|_{p_1}=\int\limits_{[a,b]} |f(x)|^{p_1}$ TODO
+	Пусть $f\in L_{p_2}[a,b]$, применим неравенство Гельдера 
+	$$\|f\|^{p_1}_{p_1}=\int\limits_{[a,b]} |f(x)|^{p_1}d\mu(x)\leqslant\left(\int\limits_{[a,b]}|f(x)|^{p_1\cdot\frac{p_2}{p_1}}d\mu(x)\right)^{\frac{p_1}{p_2}}\cdot\left(\int\limits_{[a,b]}1^{\frac{1}{1-\frac{p_1}{p_2}}}d\mu(x)\right)^{1-\frac{p_1}{p_2}}$$.
 \end{proof}
 
 \begin{linkthm}{https://youtu.be/E_kYAFT2U1U?t=2792}
