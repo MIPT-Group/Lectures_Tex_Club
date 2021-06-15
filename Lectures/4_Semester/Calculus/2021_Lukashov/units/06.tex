@@ -27,7 +27,7 @@
 	
 	Убедимся, что $f\in L_p[a,b]$: если у нас есть сходимость почти всюду, то по теореме Фату $\int\limits_{[a,b]}|f(x)|^pd\mu(x)\leqslant\underline{\lim}_{k\to\infty}\int\limits_{[a,b]}|f_{n_k}(x)|^pd\mu(x)=\|f_{n_k}\|^p_p<\infty$, так как если последовательность фундаментальная, то она ограничена, то есть убедились.
 	
-	Из выбора последовательности $f_{n_k}\Rightarrow(\forall\varepsilon>0)(\exists N\in\N)(\forall k,l>N) \|f_{n_k}-f_{n_l}\|_p<\varepsilon$, тогда по теореме Лебега при $l\to\infty: \|f_{n_k}-f\|_p\leqslant\varepsilon$.
+	Из выбора последовательности $f_{n_k}\Rightarrow(\forall\varepsilon>0)(\exists N\in\N)(\forall k,l>N) \|f_{n_k}-f_{n_l}\|_p<\varepsilon$, тогда по теореме Фату при $l\to\infty: \|f_{n_k}-f\|_p\leqslant\varepsilon$.
 	
 	Из неравенства Минковского при всех достаточно больших $m:\|f_m-f\|_p\leqslant \|f_m-f_{n_k}\|_p+\|f_{n_k}-f\|_p<2\varepsilon$, то есть доказали, что вся последовательность $f_n$ сходится к $f$ в $L_p$.
 \end{proof}
