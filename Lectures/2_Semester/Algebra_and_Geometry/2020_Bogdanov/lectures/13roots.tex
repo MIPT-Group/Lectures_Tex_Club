@@ -1,0 +1,139 @@
+\subsection{Корни многочленов}
+
+\begin{definition}
+	Пусть $P \in F[x]$. Скаляр $a \in F$ называется \textit{корнем} многочлена $P$, если $P(a) = 0$.
+\end{definition}
+
+\begin{theorem}[Безу]
+	$a \in F$ "--- корень $P \in F[x]$ $\Leftrightarrow$ $(x - a)\mid P$.
+\end{theorem}
+
+\begin{proof}
+	Разделим $P$ с остатком на $(x - a)$: $P = Q(x - a) 
+	\hm{+} R$, $\deg{R} \le 0$. Заметим, что $P(a) = R$, тогда $P(a) = 0 \Leftrightarrow R = 0 \hm{\Leftrightarrow} (x - a)\mid P$.
+\end{proof}
+
+\begin{definition}
+	Пусть $a \in F$ "--- корень $P \in F[x]$. \textit{Кратностью} корня $a$ называется наибольшее $\gamma \in \mathbb{N}$ такое, что $(x - a)^\gamma\mid P$. Если $\gamma > 1$, то корень $a$ называется \textit{кратным}, иначе "--- \textit{простым}.
+\end{definition}
+
+\begin{theorem}
+	Пусть $P \in F[x]$ "--- ненулевой многочлен, $a_1, \dots, a_k$ "--- его корни кратности $\gamma_1, \dots, \gamma_k$. Тогда $\gamma_1 + \dots + \gamma_k \le \deg{P}$.
+\end{theorem}
+
+\begin{proof}
+	Заметим, что по условию $\forall i \in \{1, \dots, k\}: (x - a_i)^{\gamma_i}\mid P$. Кроме того, $\forall i, j \hm{\in} \{1, \dots, k\}, i \ne j: \nd(x - a_i, x - a_j) = \nd(x - a_i, a_i - a_j) = 1$, значит, все многочлены вида $(x - a_i)^{\gamma_i}$ попарно неассоциированны, тогда все они входят в разложение $P$ на неприводимые сомножители, поэтому $\gamma_1 + \dots + \gamma_k \le \deg{P}$.
+\end{proof}
+
+\begin{note}
+	В нецелостном кольце данная теорема неверна, поскольку неверна единственность разложения на неприводимые сомножители. Например, в $\mathbb{Z}_4$ у многочлена $P = x^2 = (x - 2)^2$ есть корень $0$ кратности $2$ и корень $2$ кратности $2$, при этом $\deg{P} = 2$.
+\end{note}
+
+\begin{note}
+	Над полем $\mathbb{C}$ у каждого многочлена число корней с учетом кратности равно его степени. Это утверждение называется \textit{основной теоремой алгебры}.
+\end{note}
+
+\begin{definition}
+	Пусть $P \in F[x]$, $P(x) = p_0 + p_1x + \dots + p_nx^n$. \textit{Формальной производной} многочлена $P(x)$ называется многочлен $P'(x) \hm{:=} p_1 + 2p_2x + \dots + np_nx^{n - 1}$, где целочисленные скаляры понимаются как суммы соответствующего числа единиц.
+\end{definition}
+
+\begin{proposition}
+	Пусть $P, Q \in F[x]$. Тогда:
+	\begin{enumerate}
+		\item $\forall \alpha, \beta \in F: (\alpha P+ \beta Q)' \hm= \alpha P' + \beta Q'$ (то есть формальная производная "--- это линейное преобразование пространства многочленов)
+		\item $(PQ)' = P'Q + PQ'$
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}~
+	\begin{enumerate}
+		\item Пусть $n := \max{(\deg{P}, \deg{Q})}$, тогда $P = \sum_{i = 0}^np_ix^i$, $Q = \sum_{i = 0}^nq_ix^i$, $\alpha P + \beta Q \hm= \sum_{i = 0}^n(\alpha p_i + \beta q_i)x^i$. Проверим равенство непосредственной проверкой:
+		\[(\alpha P + \beta Q)' = \sum_{i = 1}^ni(\alpha p_i + \beta q_i)x^{i - 1} = \alpha\sum_{i = 1}^nip_ix^{i - 1} + \beta\sum_{i = 1}^niq_ix^{i - 1} = \alpha P' + \beta Q'\]
+		
+		\item Левая и правая части требуемого равенства линейны по $P$ и по $Q$, поэтому равенство достаточно проверить на некотором базисе пространства многочленов, например, в случае, когда $P(x) = x^i$, $Q(x) = x^j$:
+		\[(PQ)' = (i + j)x^{i + j - 1} = ix^{i - 1}x^j + jx^ix^{j - 1} = P'Q + PQ'\qedhere\]
+	\end{enumerate}
+\end{proof}
+
+\begin{note}
+	Формальная производная не обладает аналитическими свойствами. Над полем $\mathbb{Z}_p$, например, $(x^p)' = px^{p - 1} \equiv 0$.
+\end{note}
+
+\begin{corollary} Формальная производная обладает следующими свойствами:
+	\begin{enumerate}
+		\item $\forall P_1, \dotsc, P_n \in F[x]: (P_1P_2\dots P_n)' = P_1'P_2\dots P_n + P_1P_2'\dots P_n + \dots + P_1P_2\dots P_n'$
+		\item $\forall P \in F[x]: (P^n)' = nP^{n - 1}P'$
+		\item $\forall P, Q \in F[x]: (P(Q))' = P'(Q)Q'$
+	\end{enumerate}
+\end{corollary}
+
+\begin{proof}~
+	\begin{enumerate}
+		\item Тривиальная индукция по $n$.
+		\item Достаточно применить первое равенство к $P^n$.
+		\item Считая, что $P(x) = p_0 + p_1x + \dots + p_nx^n$, воспользуемся вторым равенством: $(P(Q))' \hm= (\sum_{i = 0}^mp_iQ^i)' = \sum_{i = 0}^mip_iQ^{i - 1}Q' = P'(Q)Q'$\qedhere
+	\end{enumerate}
+\end{proof}
+
+\begin{theorem}
+	Пусть $P \in F[x], c \in F$. Тогда следующие условия эквивалентны:
+	\begin{enumerate}
+		\item $c$ "--- кратный корень $P$
+		\item $P(c) = P'(c) = 0$
+		\item $(x - c)\mid \nd(P, P')$
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}~
+	\begin{itemize}
+		\item\implr{1}{2}Пусть $c \in F$ "--- корень многочлена $P$, тогда $P = (x - c)Q$ и $P' = Q + (x - c)Q'$, поэтому $c$ "--- кратный корень $P$ $\Leftrightarrow$ $Q(c) = 0$ $\Leftrightarrow$ $P'(c) = 0$.
+		\item\implr{2}{3}$P(c) = P'(c) = 0 \lra (x - c)\mid P, P'\lra (x - c)\mid \nd(P, P')$.\qedhere
+	\end{itemize}
+\end{proof}
+
+\begin{theorem}
+	Пусть $c \in F$ "--- корень $P \in F[x]$ кратности $k$. Тогда $c$ "--- корень $P'$ кратности хотя бы $k - 1$. Более того, если $\cha{F} > k$ или $\cha{F} = 0$, то $c$ "--- корень $P'$ кратности ровно $k - 1$.
+\end{theorem}
+
+\begin{proof}
+	$P$ имеет вид $(x - c)^kQ$, причем $(x - c)\nmid Q$. Тогда:
+	\[P' = k(x - c)^{k - 1}Q + (x - c)^kQ' = (x - c)^{k - 1}(kQ + (x-c)Q')\]
+	
+	Из данного равенства уже следует, что $c$ "--- корень $P'$ кратности хотя бы $k - 1$. Теперь поделим $P'$ на $(x - c)^{k-1}$ и получим $kQ \hm{+} (x - c)Q'$. Если $\cha{F} > k$ или $\cha{F} = 0$, то $kQ(c) \ne 0$, поэтому кратность корня $c$ у многочлена $P$ равна $k - 1$.
+\end{proof}
+
+\begin{corollary}
+	Пусть $c \in F$ "--- корень $P \in F[x]$ кратности $k$. Тогда выполнены равенства $P(c) = P'(c) \hm{=} \dots = P^{(k - 1)}(c) = 0$.
+\end{corollary}
+
+\begin{proof}
+	Заметим, что $(x - c)^k\mid P \Rightarrow (x - c)^{k - 1}\mid P' \hm\Rightarrow \dots \Rightarrow (x - c)\mid P^{(k - 1)}$.
+\end{proof}
+
+\begin{corollary}
+	Пусть $\cha{F} \ge k$ или $\cha{F} = 0$, $P \in F[x]$, и $P(c) = \dots = P^{(k - 1)}(c) = 0$. Тогда $c$ "--- корень многочлена $P$ кратности хотя бы $k$.
+\end{corollary}
+
+\begin{proof}
+	Пусть не так, тогда $c$ "--- корень кратности $l < k$ у $P$. Но тогда $c$ "--- простой корень у $P^{(l - 1)}$, и $P^{(l)}(c) \ne 0$ --- противоречие.
+\end{proof}
+
+\begin{corollary}[теорема Вильсона]
+	Если $p$ "--- простое, то $(p - 1)! \equiv_p -1$.
+\end{corollary}
+
+\begin{proof}
+	Рассмотрим многочлен $P = x^{p - 1} - \overline{1} \in \mathbb{Z}_p$. Его производная $P'$ равна $-x^{p - 2}$. Заметим, что $\nd(P, P') = 1$, так как все делители $P'$ имеют вид $x^k$, а $0$ не является корнем $P$. Значит, все корни $P$ простые, причем по малой теореме Ферма корнями являются $\overline{1}, \dots, \overline{p - 1}$. Тогда, поскольку степень многочлена $P$ равна $p - 1$:
+	\[x^{p - 1} - \overline{1} = (x - \overline{1})(x - \overline{2})\dots(x - \overline{p - 1})\]
+	
+	Поскольку левая и правая части "--- это один и тот же многочлен в $\mathbb{Z}_p$, то выполнено $\overline{(-1)^{p - 1}(p - 1)!}= -\overline{1}$. В $\Z_2$ выполнено $\overline{1} = \overline{-1}$, а остальные простые числа нечетны, поэтому $(p - 1)! \equiv_p -1$.
+\end{proof}
+
+\begin{corollary}
+	Если $p$ "--- простое, то $x^p - 1 \equiv_p (x - 1)^p$.
+\end{corollary}
+
+\begin{proof}
+	Рассмотрим многочлен $Q = x^p - \overline{1} \in \mathbb{Z}_p$. Все его производные тождественно равны нулю, поэтому $\overline{1}$ "--- корень кратности хотя бы $p$. Тогда, поскольку степень многочлена $Q$ равна $p$:
+	\[x^p - \overline{1} = (x - \overline{1})^p \Leftrightarrow x^p - 1 \equiv_p (x - 1)^p\qedhere\]
+\end{proof}
