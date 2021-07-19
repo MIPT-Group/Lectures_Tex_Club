@@ -1,0 +1,174 @@
+\subsection{Делимость многочленов}
+
+\begin{definition}
+	Пусть $K$ "--- коммутативное кольцо, $a, b \in K$. Говорят, что \textit{$a$ делит $b$} (или \textit{$b$ делится на $a$}), если $\exists c \in K: ac = b$. Обозначение "--- $a\mid b$ ($b\divby a$).
+\end{definition}
+\pagebreak
+
+\begin{definition}
+	Пусть $K$ "--- коммутативное кольцо, $a, b \in K$. Элемент $c \hm{\in} K$ называется \textit{наибольшим общим делителем} $a$ и $b$, если:
+	\begin{enumerate}
+		\item $c\mid a$, $c\mid b$
+		\item $\forall d \in K, d\mid a, d\mid b: d\mid c$
+	\end{enumerate}
+	
+	Обозначение "--- $c = \nd(a, b)$.
+\end{definition}
+
+\begin{note}
+	Наибольший общий делитель не всегда существует и не всегда единственен.
+\end{note}
+
+\begin{definition}
+	Пусть $K$ "--- коммутативное кольцо. Элементы $a, b \in K$ называются \textit{ассоциированными}, если $\exists \alpha \in K^*: a = \alpha b$.
+\end{definition}
+
+\begin{note}
+	Если $a$ и $b$ ассоциированны, то $\forall c \in K:$ $a\mid c \Leftrightarrow b\mid c$ и $c\mid a \Leftrightarrow c\mid b$.
+\end{note}
+
+\begin{example} Справедливы следующие утверждения о делимости:
+	\begin{itemize}
+		\item Если $K$ "--- коммутативное кольцо, $a \in K$ и $0\mid a$, то $a = 0$.
+		\item Если $K$ "--- коммутативное кольцо, то $\forall a \in K: a\mid 0$.
+		\item $2 \nmid 3$ в $\mathbb{Z}$, но $2\mid 3$ в $\mathbb{Q}$.
+		\item Если $K$ "--- коммутативное кольцо и $a, b \in K$, то $\nd(a, b) \hm{=} a \Leftrightarrow a\mid b$.
+	\end{itemize}
+\end{example}
+
+\begin{proposition}
+	Пусть $K$ "--- целостное кольцо, $a, b \in K$. Тогда любые два наибольших общих делителя $a$ и $b$ ассоциированны.
+\end{proposition}
+
+\begin{proof}
+	Пусть $c = \nd(a, b)$ и $d = \nd(a, b)$. Тогда, по определению наибольшего общего делителя, $c\mid d$ и $d\mid c$, то есть $\exists \alpha, \beta \in K: c = \alpha d, d = \beta c$, и, следовательно, $\alpha \beta c = c$. Если $c \ne 0$, то $\alpha \beta = 1$ и $\alpha, \beta \in K^*$. Если же $c = 0$, то $a = b = c = d = 0$.
+\end{proof}
+
+\begin{note}
+	Пусть $F$ "--- поле. Тогда так как $\deg{PQ} = \deg{P} + \deg{Q}$, то $F[x]^* = F^*$ (обратимы лишь многочлены, являющиеся ненулевыми скалярами). Значит, ассоциированные многочлены в $F[x]$ отличаются умножением на ненулевой скаляр.
+\end{note}
+
+\begin{theorem}
+	Пусть $A, B \in F[x], B \ne 0$. Тогда $\exists!\,Q, R \in F[x]: A \hm{=} QB + R$, $\deg{R} < \deg{B}$. $Q$ называется неполным частным при делении $A$ на $B$, а $R$ "--- остатком.
+\end{theorem}
+
+\begin{proof}~
+	\begin{enumerate}
+		\item Докажем существование индукцией по степени делимого, $n \hm{:=} \deg{A}$. База индукции тривиальна: если $n < k := \deg{B}$, то $A = 0B + A$. Теперь докажем переход, $n \ge k$. Перепишем $A$ в виде $ax^n + A'$, а $B$ --- в виде $bx^k + B'$ ($\deg{A'} < \deg{A}$, $\deg{B'} \hm{<} \deg{B}$). Определим многочлен $C$ следующим образом:
+		\[C := A - ab^{-1}x^{n - k}B = A' \hm{-} ab^{-1}x^{n - k}B' \in F[x]\]
+		
+		По предположению, $\exists Q', R' \in F[x]: C = Q'B + R'$, тогда $A = (Q' + ab^{-1}x^{n - k})B + R'$.
+		\item Покажем, что набор $(Q, R)$ единственен. Пусть $A = Q_1B \hm{+} R_1 \hm{=} Q_2B + R_2$ для некоторых двух наборов $(Q_1, R_1)$ и $(Q_2, R_2)$. Тогда $(Q_1 - Q_2)B = R_1 - R_2$. Поскольку $\deg{(R_1 - R_2)} < \deg{B}$, то равенство может выполняться, только если $Q_1 - Q_2 = 0 \Leftrightarrow Q_1 = Q_2$, но тогда и $R_1 = R_2$.\qedhere
+	\end{enumerate}
+\end{proof}
+
+\begin{theorem}[алгоритм Евклида]
+	Пусть $A, B \in F[x]$. Тогда $\exists C \hm{=} \nd(A, B) \in F[x]$, причем $\exists P, Q \in F[x]: C = AP + BQ$.
+\end{theorem}
+
+\begin{proof}
+	Проведем индукцию по величине $k \hm{:=} \min{(\deg{A}, \deg{B})}$. База, $k = -\infty$, тривиальна: если без ограничения общности $B = 0$, то $\nd(A, 0) = A$ и $A = 1A + 0B$. Теперь докажем переход. Пусть без ограничения общности $\deg{A} \ge \deg{B} \hm{=} k$. Уже доказано, что $A$ представим в виде $QB + R$, $\deg{R} < k$. Заметим, что $D\mid A, D\mid B \Leftrightarrow D\mid B, D\mid R$, тогда, по предположению индукции, $\exists C = \nd(A, B) = \nd(B, R)$ и $\exists P', Q' \in F[x]: C \hm{=} P'B + Q'R \hm{=} Q'A \hm{+} (P' - QQ')B$.
+\end{proof}
+
+\begin{corollary}
+	Если $A, B \in F[x]$, то их наибольший общий делитель можно вычислить следующим образом:
+	\[\nd(A, B) = \nd(B, R) = \nd(R, R_1) = \dots = \nd(R_k, 0) = R_k,\]
+	где $A = BQ + R$, $B = Q_1R + R_1$, \dots, $R_{k - 1} = Q_{k + 1}R_{k} + 0$.
+\end{corollary}
+
+\begin{definition}
+	Многочлен $P \in F[x]$ называется \textit{неприводимым над $F$}, если $\deg{P} > 0$ и $P$ не раскладывается в произведение двух многочленов ненулевой степени.
+\end{definition}
+
+\begin{example}
+	Многочлен $x^2 + 1$ неприводим над $\mathbb{R}$, но приводим над $\mathbb{C}$.
+\end{example}
+
+\begin{note}~
+	\begin{itemize}
+		\item Пусть $P, Q \in F[x]$ и $P$ неприводим. Тогда:
+		\[\nd(P, Q) = \left[\begin{aligned}
+			&P\\&1
+		\end{aligned}\right. \text{ (с точностью до ассоциированности)}\]
+		\item Если $P, Q \in F[x]$ неприводимы и $P\mid Q$, то $P$ и $Q$ ассоциированны.
+	\end{itemize}
+\end{note}
+
+\begin{proposition}
+	Пусть $Q \in F[x], \deg{Q} > 0$. Тогда $Q$ раскладывается в произведение неприводимых многочленов.
+\end{proposition}
+
+\begin{proof}
+	Докажем утверждение индукцией по $\deg{Q}$. База тривиальна: если $\deg{Q} = 1$, то $Q$ уже неприводим. Докажем переход. Если $Q$ неприводим, то утверждение доказано, иначе "--- $Q = Q_1Q_2$, причем $\deg{Q} > \deg{Q_1}, \deg{Q_2} > 0$, тогда $Q_1$ и $Q_2$ представляются в виде произведения неприводимых по предположению индукции.
+\end{proof}
+
+\begin{proposition}
+	Пусть $P, Q, R \in F[x]$ и $P$ неприводим. Тогда если $P\mid (QR)$, то $P\mid Q$ или $P\mid R$.
+\end{proposition}
+
+\begin{proof}
+	Предположим, что это неверно, то есть $P\nmid Q$ и $P\nmid R$. Тогда $\nd(P, Q) = \nd(P, R) = 1$, поэтому $\exists K, L, M, N \in F[x]:KP + LQ = MP \hm{+} NR = 1$. Остается заметить, что тогда $P\mid (KP \hm{+} LQ)(MP + NR) = 1$, а это невозможно.
+\end{proof}
+
+\begin{note}
+	Утверждение выше легко обобщить: если $P\mid (Q_1\dots Q_n)$ и $P$ неприводим, то $\exists i \in \{1, \dots, n\}: P\mid Q_i$. Достаточно провести индукцию по $n$.
+\end{note}
+
+\begin{theorem}[основная теорема арифметики для многочленов]
+	Пусть $Q \in F[x] \backslash \{0\}$. Тогда $\exists \alpha \in F^*: \exists P_1, \dots, P_k \hm{\in} F[x] \text{"--- неприводимые многочлены}: Q = \alpha P_1\dots P_k$, причем это разложение единственно с точностью до перестановки множителей и ассоциированности (если $Q = \alpha P_1\dots P_k = \beta R_1\dots R_l$, то $k = l$ и $\exists \sigma \in S_k: \forall i \in \{1, \dots, k\}: P_i$ и $R_{\sigma(i)}$ ассоциированны).
+\end{theorem}
+
+\begin{proof}
+	Существование для случая, когда $\deg{Q} > 0$ уже доказано. Если же $\deg{Q} = 0$, то $Q = \alpha$. Теперь докажем единственность (в указанном выше смысле) индукцией по $k$ "--- количеству сомножителей в первом разложении.
+	
+	База, $k = 0$, тривиальна: $\deg{Q} = 0$, $k = l = 0$, $Q = \alpha = \beta$. Теперь докажем переход. Пусть $k > 0$ и $Q = \alpha P_1\dots P_k = \beta R_1\dots R_l$. $P_k\mid (R_1\dots R_l)$, и уже доказано, что тогда $\exists i \in \{1, \dots, l\}: P_k\mid R_i$, то есть $\exists \gamma \in F^*: R_i = \gamma P_k$ в силу неприводимости $P_k$ и $R_i$. Можно считать, что $i = l$, тогда $\alpha P_1\dots P_{k - 1} = (\beta\gamma)Q_1\dots Q_{l - 1}$, и для завершения доказательства остается применить предположение индукции.
+\end{proof}
+
+\begin{corollary}
+	Если $A = \alpha P_1\dots P_k, B = \beta Q_1\dots Q_l$ "--- разложения многочленов $A, B$ на неприводимые сомножители, причем все многочлены $P_1, \dots, P_k, Q_1, \dots, Q_l$ попарно неассоциированы, то $\nd(A,B) = 1$.
+\end{corollary}
+
+\begin{proof}
+	Предположим, что это не так и $\nd(A, B) = C$, $\deg{C} > 0$, тогда $\exists P \in F[x] \text{"--- неприводимый} : P\mid C$. Но тогда $P\mid A$ и $P\mid B$, то есть $\exists i, j: P_i, Q_j$ ассоциированны с $P$ "--- противоречие.
+\end{proof}
+
+\begin{corollary}
+	НОД любых двух многочленов $A = \alpha P_1\dots P_k$, $B = \beta Q_1\dots Q_l$ можно определить рекурсивно: если $\exists i, j: P_i$ ассоциирован с $Q_j$, то $\nd(A, B) = \nd(\frac{A}{P_i}, \frac{B}{Q_j})P_i$.
+\end{corollary}
+
+\begin{proof}
+	Удалив описанным выше образом некоторое количество ассоциированных пар, мы придем к ситуации, в которой $\nd(A', B') = 1$, поэтому $\nd(A, B)$ содержит произведение всех удаленных сомножителей и при этом не может содержать ничего другого.
+\end{proof}
+
+\begin{definition}
+	Пусть $R$ "--- целостное кольцо. Элемент $p \in R$, $p \ne 0$ называется \textit{простым}, если $p$ необратим и не раскладывается в произведение двух необратимых.
+\end{definition}
+
+\begin{definition}
+	Кольцо $R$ называется \textit{факториальным}, если любой его необратимый элемент раскладывается в произведение простых единственным образом с точностью до перестановки и ассоциированности.
+\end{definition}
+
+\begin{definition}
+	\textit{Нормой} на кольце $R$ называется такая функция $N: R \rightarrow \mathbb{N}\cup\{0\}$, что:
+	\begin{enumerate}
+		\item $N(a) = 0 \Leftrightarrow a = 0$
+		\item $N(a + b) \le N(a) + N(b)$
+		\item $N(ab) = N(a)N(b)$
+	\end{enumerate}
+\end{definition}
+	
+\begin{definition}
+	Кольцо $R$ называется \textit{евклидовым} относительно нормы $N$, если $\forall a, b \in R, b \ne 0: \exists q, r \in R: a = qb + r$, причем $N(r) < N(b)$.
+\end{definition}
+	
+\begin{example}
+	Евклидовыми являются следующие кольца:
+	\begin{itemize}
+		\item $\mathbb{Z}$ относительно нормы $N(a) := |a|~\forall a \in \mathbb{Z}$
+		\item $F[x]$ относительно нормы $N(P) := 2^{\deg{P}}~\forall P \in F[x]$
+	\end{itemize}
+\end{example}
+	
+\begin{note}
+	Рассуждения, приведенные в данном разделе, позволяют аналогично доказать, что любое евклидово кольцо является факториальным.
+\end{note}

@@ -1,0 +1,73 @@
+\subsection{Теорема Гамильтона-Кэли}
+
+В следующих разделах на рассматриваемые операторы $\phi \hm{\in} \mathcal{L}(V)$ часто будет налагаться требование, что $\chi_\phi$ раскладывается в произведение линейных сомножителей:
+\begin{equation}\tag{$\star$}\label{charpol}
+	\chi_\phi(\lambda) = \prod_{i = 1}^k(\lambda_i - \lambda)^{\alpha_i},~\sum_{i = 1}^k\alpha_i = n
+\end{equation}
+
+\begin{definition}
+	Пусть $\phi \in \mathcal{L}(V)$, $\mu \in F$. Положим $\phi_\mu := \phi - \mu$. Аналогичным образом для $A \in M_n(F)$ положим $A_\mu \hm{:=} A - \mu E$.
+\end{definition}
+
+\begin{proposition}
+	Пусть $\phi \in \mathcal{L}(V)$. Тогда $U \le V$ инвариантно относительно $\phi$ $\Leftrightarrow$ $U$ инвариантно относительно $\phi_\mu$.
+\end{proposition}
+
+\begin{proof}
+	Если $U$ инвариантно относительно $\phi$, то $\phi_\mu(U) \le \phi(U) + \mu U \le U$. Наоборот, если $U$ инвариантно относительно $\phi_\mu$, то $\phi(U) = (\phi_\mu + \mu)(U) \le \phi_\mu(U) + \mu U \le U$.
+\end{proof}
+
+\begin{proposition}
+	Пусть $\dim{V} = n$, и $\phi \in \mathcal{L}(V)$ имеет собственное значение. Тогда существует $U \le V$ "--- инвариантное относительно $\phi$ подпространство такое, что $\dim{U} = n - 1$.
+\end{proposition}
+
+\begin{proof}
+	Пусть $\mu \in F$ "--- собственное значение $\phi$. Тогда оператор $\phi_\mu$ "--- вырожденный, то есть $\dim{\im{\phi_\mu}} \le n - 1$. Дополним базис в $\im{\phi_\mu}$ до базиса в $U \le V$, $\dim{U} = n - 1$. Тогда $U$ инвариантно относительно $\phi_\mu$ $\Leftrightarrow$ $U$ инвариантно относительно $\phi$.
+\end{proof}
+
+\begin{theorem}
+	Пусть $\phi \in \mathcal{L}(V)$, $\chi_\phi$ имеет вид $\eqref*{charpol}$. Тогда в $V$ существует такой базис $e = (\overline{e_1}, \dots, \overline{e_n})$, что $\forall i \in \{1, \dots, n\}: \langle\overline{e_1}, \dots, \overline{e_i}\rangle$ инвариантно относительно $\phi$.
+\end{theorem}
+
+\begin{proof}
+	Докажем данное утверждение индукцией по $n$. База, $n = 1$, тривиальна. Докажем переход, $n > 1$. У $\chi_\phi$ есть корни, поэтому $\exists U \le V$ "--- инвариантное относительно $\phi$, $\dim{U} = n - 1$. Тогда $\psi := \phi|_U \hm{\in} \mathcal{L}(U)$ и $\chi_\psi\mid \chi_\phi$. Значит, $\chi_\psi$ также имеет вид $\eqref*{charpol}$, и к нему применимо предположение индукции. Выберем подходящий базис $e'$ в $U$ и дополним его до базиса в $V$, тогда полученный базис и будет искомым в $V$.
+\end{proof}
+
+\begin{corollary}
+	Пусть $\phi \in \mathcal{L}(V)$, $\chi_\phi$ имеет вид $\eqref*{charpol}$. Тогда в $V$ существует такой базис $e$, в котором матрица преобразования $\phi$ имеет верхнетреугольный вид.
+\end{corollary}
+
+\begin{proof}
+	В найденном базисе $e$ в $V$ из предыдущей теоремы $\phi \leftrightarrow_e A \in M_n(F)$, где $A$ имеет следующий вид:
+	\[A = \begin{pmatrix}
+		\lambda_1 & * & \dots & *\\
+		0 & \lambda_2 & \dots & *\\
+		\vdots & \vdots & \ddots & \vdots\\
+		0 & 0 & \dots & \lambda_n
+	\end{pmatrix}\]
+
+	Матрица $A$ "--- верхнетреугольная, что и требовалось.
+\end{proof}
+
+\begin{theorem}[Гамильтона-Кэли]
+	$\forall \phi \in \mathcal{L}(V): \chi_\phi(\phi) = 0$.
+\end{theorem}
+
+\begin{proof}
+	Докажем данное утверждение для случая, когда $\chi_\phi$ имеет вид $\eqref*{charpol}$. Выберем базис $e$ в $V$, в котором $\forall i \in \{1, \dots, n\}: V_i := \langle\overline{e_1}, \dots, \overline{e_i}\rangle$ инвариантно относительно $\phi$, тогда $\phi \leftrightarrow_e A \in M_n(F)$, где $A$ "--- верхнетреугольная матрица. Покажем, что тогда $\phi_{\lambda_i}(V_i) \le V_{i - 1}$. Действительно, так как все $V_i$ инвариантны относительно $\phi$, то они инвариантны и относительно $\phi_{\lambda_i}$, значит, $\psi := \phi_{\lambda_i}|_{V_i} \in \mathcal{L}(V_i)$, причем матрица этого сужения имеет следующий вид:
+	\[\psi \xleftrightarrow[(\overline{e_1}, \dots, \overline{e_i})]{} A' = \begin{pmatrix}
+		\lambda_1 - \lambda_i & * & \dots & *\\
+		0 & \lambda_2 - \lambda _i & \dots & *\\
+		\vdots & \vdots & \ddots & \vdots\\
+		0 & 0 & \dots & \lambda_i - \lambda_i
+	\end{pmatrix}\]
+	
+	Последняя координата у образов всех базисных векторов нулевая, поэтому $\psi(V_i) \le V_{i - 1}$. Тогда выполнены следующие включения:
+	\[\chi_\phi(\phi)(V) = (\phi_{\lambda_1}\dots\phi_{\lambda_n})(V) \le (\phi_{\lambda_1}\dots\phi_{\lambda_{n - 1}})(V_{n - 1}) \le \phi_{\lambda_1}(V_1) \le V_0 = \{\overline{0}\}\]
+	
+	Таким образом, $\chi_\phi(\phi) = 0$.
+\end{proof}
+
+\begin{note}
+	Теорема Гамильтона-Кэли справедлива и в общем случае. Это можно доказать, воспользовавшись фактом, который будет доказан позднее: если $F$ "--- поле и $P \in F[x]$, то $\exists K \supset F$ "--- надполе такое, что $P$ раскладывается на линейные сомножители над $K$. Тогда можно рассматривать $A \in M_n(F)$ как $A \in M_n(K)$, и над $K$ теорема верна. Но поскольку все дейстия в вычислении $\chi_A(A)$ происходят в $F$, то и над $F$ теорема верна.
+\end{note}

@@ -1,0 +1,77 @@
+\subsection{Аннулирующие многочлены}
+
+\begin{definition}
+	Пусть $\phi \in \mathcal{L}(V)$, $P \in F[x]$, $P \ne 0$. Многочлен $P$ называется \textit{аннулирующим многочленом} оператора $\phi$, если $P(\phi) = 0$. Аннулирующий многочлен оператора $\phi$ называется \textit{минимальным многочленом} оператора $\phi$, если он имеет наименьшую степень среди всех аннулирующих многочленов для $\phi$. Обозначение "--- $\mu_\phi$.
+\end{definition}
+
+\begin{note}
+	Из теоремы Гамильтона-Кэли следует, что $\chi_\phi$ "--- аннулирующий для $\phi$. Но и без этой теоремы можно установить существование аннулирующего многочлена у любого оператора: система $(1, \phi, \dots, \phi^{n^2})$ линейно зависима в $\mathcal{L}(V)$, поскольку $\dim{\mathcal{L}(V)} = n^2$, значит, у нее есть нетривиальная линейная комбинация, равная нулю, которая и является искомым многочленом.
+\end{note}
+
+\begin{proposition}
+	Пусть $\phi \in \mathcal{L}(V)$, $\mu_\phi$ "--- минимальный многочлен для $\phi$. Тогда многочлен $P \in F[x]$ "--- аннулирующий для $\phi$ $\Leftrightarrow$ $\mu_\phi\mid P$.
+\end{proposition}
+
+\begin{proof}
+	Разделим $P$ на $\mu_\phi$ с остатком: $P = Q\mu_\phi + R$, $\deg{R} < \deg{\mu_\phi}$, тогда $P(\phi) = R(\phi)$. так как $\mu_\phi$ "--- минимальный, то $P(\phi) = 0 \Leftrightarrow R(\phi) = 0 \Leftrightarrow R = 0 \Leftrightarrow \mu_\phi\mid P$.
+\end{proof}
+
+\begin{corollary}
+	Минимальный многочлен для $\phi$ определен однозначно с точностью до ассоциированности.
+\end{corollary}
+
+\begin{proof}
+	Пусть $\mu_1, \mu_2$ "--- различные минимальные многочлены для $\phi$. Тогда, поскольку $\mu_1, \mu_2 \ne 0$:
+	\[\left\{\begin{aligned}
+		\mu_1\mid \mu_2\\
+		\mu_2\mid \mu_1\\
+	\end{aligned}\right. \Rightarrow
+	\left\{\begin{aligned}
+		\deg{\mu_1} \le \deg{\mu_2}\\
+		\deg{\mu_2} \le \deg{\mu_1}\\
+	\end{aligned}\right. \Rightarrow \deg{\mu_1} = \deg{\mu_2}\]
+	
+	Итак, $\mu_1\mid \mu_2$ и $\deg{\mu_1} = \deg{\mu_2}$, значит, $\mu_2 = \alpha\mu_1$ для некоторого скаляра $\alpha \in F^*$.
+\end{proof}
+
+\begin{corollary}
+	Из теоремы Гамильтона-Кэли следует, что $\mu_\phi\mid \chi_\phi$. В частности, если $\chi_\phi$ имеет вид $\eqref*{charpol}$, то:
+	\[\mu_\phi(\lambda) = \prod_{i = 1}^k(\lambda_i - \lambda)^{\beta_i},~\forall i \in \{1, \dots, k\}: \beta_i \le \alpha_i\]
+\end{corollary}
+
+\begin{proposition}
+	Пусть $\phi \in \mathcal{L}(V)$, $\lambda_0 \in F$ "--- собственное значение оператора $\phi$. Тогда $(\lambda - \lambda_0)\mid \mu_\phi$.
+\end{proposition}
+
+\begin{proof}
+	Данное утверждение равносильно тому, что $\lambda_0$ "--- корень многочлена $\mu_\phi$. Рассмотрим $\overline{v} \in V$ "--- собственный вектор, соответствующий $\lambda_0$, тогда $\forall k \in \mathbb{N}: \phi^k(\overline{v}) = \lambda_0^k\overline{v}$. Значит, $\forall P \in F[x]: P(\phi)(\overline{v}) = P(\lambda_0)\overline{v}$. В частности, $\mu_\phi(\phi)(\overline{v}) = \mu_\phi(\lambda_0)\overline{v} = \overline{0}$, тогда, так как $\overline{v} \ne \overline{0}$, $\mu_\phi(\lambda_0) = 0$.
+\end{proof}
+
+\begin{note}
+	Можно показать, что любой неприводимый делитель $\chi_\phi$ делит $\mu_\phi$.
+\end{note}
+
+\begin{theorem}
+	Пусть $\phi \in \mathcal{L}(V)$, $P \in F[x]$ "--- аннулирующий многочлен $\phi$ и $P = P_1P_2$, $\nd(P_1, P_2) = 1$. Тогда $V = V_1 \oplus V_2$, где $\forall i \in \{1, 2\}: V_i := \ke{P_i(\phi)}$ "---  инвариантное относительно $\phi$ подпространство.
+\end{theorem}
+
+\begin{proof}
+	Заметим, что $\forall i \in \{1, 2\}: V_i = \ke{P_i(\phi)}$ инвариантно относительно $\phi$, поскольку $P_i(\phi)$ коммутирует с $\phi$. Покажем, что $\im{P_1(\phi)} \le V_2$. Действительно, $P_2(\phi)(P_1(\phi)(V)) \hm{=} P(\phi)(V) = \{\overline{0}\}$, то есть $\im{P_1(\phi)} \le \ke{P_2(\phi)} = V_2$. Аналогично показывается, что $\im{P_2(\phi)} \le V_1$. Так как $\nd(P_1, P_2) = 1$, то $\exists Q_1, Q_2 \in F[x]: P_1Q_1 + P_2Q_2 = 1$. Подставим $\phi$ в равенство: $P_1(\phi)Q_1(\phi) + P_2(\phi)Q_2(\phi) = \id$.
+	
+	$V_1 + V_2 = V$, так как для произвольного $\overline{v} \in V$ выполнены следующие равенства:
+	\[\overline{v} = \id(\overline{v}) \hm{=} Q_1(\phi)(P_1(\phi)(\overline{v})) + Q_2(\phi)(P_2(\phi)(\overline{v})) = Q_1(\phi)(\overline{v_2}) + Q_2(\phi)(\overline{v_1}) \hm{=} \overline{u_1} + \overline{u_2}\]
+	
+	Здесь $\overline{v_1}, \overline{u_1} \in V_1$, $\overline{v_2}, \overline{u_2} \in V_2$, причем мы пользуемся тем, что $V_1, V_2$ инвариантны относительно $\phi$. Наконец, сумма $V_1 + V_2$ "--- прямая, поскольку $\forall \overline{v} \in V_1 \cap V_2: \overline{v} = \id(\overline{v}) \hm{=} Q_1(\phi)(P_1(\phi)(\overline{v})) + Q_2(\phi)(P_2(\phi)(\overline{v})) = Q_1(\phi)(\overline{0}) + Q_2(\phi)(\overline{0}) = \overline{0}$.
+\end{proof}
+
+\begin{note}
+	Одно из промежуточных утверждений данной теоремы можно усилить: на самом деле, $\im{P_1(\phi)} = V_2$ и $\im{P_2(\phi)} = V_1$. Согласно теореме выше, $V_1 \oplus V_2 = V$, то есть $\dim{V_1} \hm{+} \dim{V_2} = \dim{V} = \dim{\im{P_1(\phi)}} + \dim{\ke{P_1(\phi)}}$, тогда, пользуясь тем, что $\ke{P_1(\phi)} = V_1$ и $\im{P_1(\phi)} \le V_2$, получим, что $\dim{V_2} \hm{=} \dim{\im{P_1(\phi)}}$ $\Rightarrow$ $\im{P_1(\phi)} = V_2$. Аналогичное рассуждение показывает, что $\im{P_2(\phi)} = V_1$.
+\end{note}
+
+\begin{corollary}
+	Пусть $\phi \in \mathcal{L}(V)$, $P \in F[x]$ "--- аннулирующий многочлен оператора $\phi$, представленный в виде $P = P_1\dots P_n$, где $\forall i, j \in \{1, \dots, n\}, i \ne j: \nd(P_i, P_j) = 1$. Тогда $V = V_1 \oplus \dots \oplus V_n$, где $\forall i \in \{1, \dots, n\}: V_i := \ke{P_i(\phi)}$ инвариантно относительно $\phi$.
+\end{corollary}
+
+\begin{proof}
+	Проведем индукцию по $n$. Для $n = 2$ утверждение верно. Докажем переход. Пусть $n > 2$, тогда $P = P_1\dots P_n = (P_1\dots P_{n - 1})P_n$, причем $(P_1\dots P_{n-1})$ и $P_n$ взаимно просты, тогда по уже доказанной теореме $V = \widetilde{V} \oplus V_n$, где $\widetilde{V} = \ke{(P_1\dots P_{n-1})(\phi)}$, $V_n = \ke{P_n(\phi)}$. Применим предположение индукции к оператору $\psi := \phi|_{\widetilde{V}}$ и $P_1\dots P_{n-1}$: $\widetilde{V} = V_1' \oplus \dots \oplus V_{n-1}'$, где $V_i' = \ke{P_i(\psi)}$. Остается заметить, что для всех $i \in \{1, \dotsc, n - 1\}$ выполнено $V_i \hm{\le} \ke{(P_1\dots P_{n-1})(\phi)} \hm{=} \widetilde{V}$ и $V_i' = V_i \cap \widetilde{V}$, поэтому $V_i' = V_i$, Таким образом, $V = V_1 \oplus \dots \oplus V_n$, и переход доказан.
+\end{proof}
