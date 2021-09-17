@@ -202,11 +202,11 @@
 \end{definition}
 
 \begin{proposition}
-	$\forall z = re^{i\phi} \in \Cm \bs \{0\} : \Ln{z} = \{ \ln{r} + \phi i + 2\pi ki : k \in \Z\}$.
+	$\forall z = re^{i\phi} \in \Cm \bs \{0\} : \Ln{z} = \{ \ln{r} + i(\phi + 2\pi k) : k \in \Z\}$.
 \end{proposition}
 
 \begin{proof}
-	С одной стороны, для любого $k \in \Z$ выполнены следующие равенства: \[e^{\ln{r} + \phi i + 2\pi k i} = re^{i\phi} = z\]
+	С одной стороны, для любого $k \in \Z$ выполнены следующие равенства: \[e^{\ln{r} + i(\phi + 2\pi k)} = re^{i\phi} = z\]
 	
 	С другой стороны, если $w = u + iv \in \Ln{z}$, то $e^{u + iv} = z$, откуда $e^u = r \lra u = \ln{r}$ и $v = 2\pi k$ для некоторого $k \in \Z$.
 \end{proof}
@@ -223,11 +223,11 @@
 \end{definition}
 
 \begin{note}
-	Легко видеть, что $\forall n \in \N, n > 1: \Root{n}{0} = \{0\}$.
+	Легко видеть, что $\forall n \in \N$, $n > 1: \Root{n}{0} = \{0\}$.
 \end{note}
 
 \begin{proposition}
-	$\forall z = re^{i\phi} \in \Cm \bs \{0\}: \forall n \in \N, n > 1: \Root{n}{z} = \left\{\!\sqrt[n]{r}e^{i\frac{\phi + 2\pi k}{n}} : k \in \Z\right\}$.
+	$\forall z = re^{i\phi} \in \Cm \bs \{0\}: \forall n \in \N$, $n > 1: \Root{n}{z} = \left\{\!\sqrt[n]{r}e^{i\frac{\phi + 2\pi k}{n}} : k \in \Z\right\}$.
 \end{proposition}
 
 \begin{proof}
@@ -242,6 +242,160 @@
 \end{note}
 
 \begin{definition}
-	\textit{Главным значением корня степени $n \in \N, n > 1$} из числа $z \in \Cm \bs \{0\}$ называется следующее число:
+	\textit{Главным значением корня степени} $n \in \N$, $n > 1$, из числа $z \in \Cm \bs \{0\}$ называется следующее число:
 	\[\left(\!\sqrt[n]{z}\right)_0 := \sqrt[n]{|z|}e^{i\frac{\arg_0z}n}\]
+\end{definition}
+
+\subsection{Комплекснозначные функции вещественного переменного}
+
+\begin{note}
+	Зафиксируем функцию $f : \R \to \Cm$ и представим ее в виде $f = g + ih$, $g, h : \R \to \R$. Тогда для любого $t \in \R$ выполнено $f(t) = (g(t), h(t))$. Из этого равенства следуют такие свойства, ранее полученные для вектор-функций:
+	\begin{enumerate}
+		\item Функция $f$ непрерывна в точке $t_0 \in \R$ $\lra$ функции $g, h$ непрерывны в $t_0$
+		\item Функция $f$ дифференцируема в точке $t_0 \in \R$ $\lra$ функции $g, h$ дифференцируемы в $t_0$, причем $f'(t_0) = g'(t_0) + ih'(t_0)$
+		\item Функция $f$ интегрируема на отрезке $[a, b] \subset \R$ $\lra$ функции $g, h$ интегрируемы на $[a, b]$, причем $\int_a^bf(t)dt = \int_a^bg(t)dt + i\int_a^bh(t)dt$
+		\item Функция $F = G + iH$ является первообразной функции $f$ на отрезке $[a, b] \subset \R \hm\lra$~функции $G, H$ являются первообразными функций $g, h$ на $[a, b]$
+	\end{enumerate}
+\end{note}
+
+\begin{example}
+	Вычислим производную функции $f(t) = e^{i\omega t} = \cos(\omega t) + i\sin(\omega t)$, $\omega \in \R$:
+	\[f'(t) = \left(e^{i\omega t}\right)' = \left(\cos(\omega t)\right)' + i \left(\sin(\omega t)\right)' = i\omega(\cos(\omega t) + i\sin(\omega t)) = i\omega e^{i \omega t}\]
+	
+	Аналогичным образом можно убедиться, что для функции $g(t) = e^{at}$ при любом $a \in \Cm$ выполнено $g'(t) = ae^{at}$. Следовательно, если $a \ne 0$, то $\int e^{at}dt = \frac{e^{at}}{a} + C$, где $C \in \Cm$.
+\end{example}
+
+\subsection{Кривые и множества на комплексной плоскости}
+
+\begin{definition}
+	Пусть $\epsilon > 0$, $z_0 \in \Cm$. Множество $B_\epsilon(z_0) := \{z \in \Cm: |z - z_0| < \epsilon\}$ называется \textit{$\epsilon$-окрестностью} точки $z_0$.
+\end{definition}
+
+\begin{definition}
+	\textit{Расширенной комплексной плоскостью} называется множество вида $\overline{\Cm} := \Cm \cup \{\infty\}$, где $\infty$ "--- объект, называемый \textit{бесконечно удаленной точкой}. Считается также, то $B_\epsilon(\infty) := \{z \in \Cm: |z| > \epsilon\} \cup \{\infty\}$ для любого $\epsilon > 0$
+\end{definition}
+
+\begin{definition}
+	Пусть $\epsilon > 0$, $z_0 \in \overline{\Cm}$. Множество $\dot B_\epsilon(z_0) := B_\epsilon(z_0) \backslash \{z_0\}$ называется \textit{проколотой $\epsilon$-окрестностью} точки $z_0$.
+\end{definition}
+
+\begin{definition}
+	\textit{Кривой} $\gamma$ на комплексной плоскости называется непрерывное отображение отрезка $[a, b] \subset \R$, $a < b$, в $\Cm$. \textit{Параметризацией} кривой $\gamma$ называется соответствующая 	функция $\sigma(t) = \xi(t) + i\eta(t)$, $t \in [a, b]$. \textit{Носителем} кривой $\gamma$ называется множество $M(\gamma) := \sigma([a, b])$. 
+\end{definition}
+
+\begin{note}
+	Рассмотрим кривые $\gamma_1$ и $\gamma_2$ с параметризациями $z = \sigma_1(t_1)$, $t \in [a_1, b_1]$ и $z \hm= \sigma_2(t)$, $t \in [a_1, b_1]$. Пусть существует $f : [a_1, b_1] \to [a_2, b_2]$ "--- непрерывная строго монотонная функция такая, что $\sigma_2(f(t)) \equiv \sigma(t)$ на $[a_1, b_1]$. Тогда естественно считать, что кривые $\gamma_1, \gamma_2$ совпадают, то есть $\gamma_1 = \gamma_2$.
+\end{note}
+\pagebreak
+
+\begin{definition}
+	Пусть $\gamma$ "--- кривая с параметризацией $z = \sigma(t)$, $t \in [a, b]$. Кривая называется:
+	\begin{itemize}
+		\item \textit{Простой}, если параметризация $\sigma$ инъективна
+		\item \textit{Замкнутой}, если $\sigma(a) = \sigma(b)$
+		\item \textit{Простой замкнутой}, или \textit{контуром}, если она замкнута и сужение $\sigma|_{[a, b)}$ инъективно
+	\end{itemize}
+\end{definition}
+
+\begin{example}
+	Зафиксируем кривую $\gamma$ и рассмотрим кривую $\gamma^{-1}$ с параметризацией $z = \sigma(-t)$, $t \in [-b, -a]$. Тогда \textit{конкатенация} этих кривых $\gamma\gamma^{-1}$ "--- замкнутая, но не простая.
+\end{example}
+
+\begin{definition}
+	Пусть $\gamma$ "--- кривая с параметризацией $z = \sigma(t)$, $t \in [a, b]$, и зафиксировано $\{t_k\}_{k = 0}^n$ "--- \textit{разбиение отрезка} $[a, b]$, то есть $a = t_0 < t_1 < \dotsb < t_n = b$. Кривая, заданная сужением $\sigma|_{[t_{k-1}, t_k]}$, $k \in \{1, \dotsc, n\}$, называется \textit{дугой} кривой $\gamma$ и обозначается через $\gamma_k$. Говорят, что $\gamma$ \textit{разбита} на дуги $\gamma_1, \dotsc, \gamma_n$, или \textit{составлена} из этих дуг.
+\end{definition}
+
+\begin{definition}
+	Кривая $\gamma$ называется \textit{гладкой}, если она имеет параметризацию вида $z = \sigma(t) = \xi(t) + i\eta(t)$, $t \in [a, b]$, где $\xi, \eta \in C^{1}[a, b]$ и для всех $t \in [a, b]$ выполнено $\sigma'(t) \ne 0$, \textit{кусочно-гладкой}, если ее можно разбить на конечное число гладких дуг.
+\end{definition}
+
+\begin{note}
+	В предыдущих курсах было доказано, что если $\gamma$ "--- кусочно-гладкая кривая, то она \textit{спрямляема}, то есть имеет конечную длину $L(\gamma)$, которую можно вычислить по следующей формуле:
+	\[L(\gamma) = \int_a^b|\sigma'(t)|dt\]
+\end{note}
+
+\begin{note}
+	Множество $E \subset \overline\Cm$ называется \textit{открытым}, если каждая точка $z \in E$ содержится в нем вместе с некоторой окрестностью $B_\epsilon(z)$.
+\end{note}
+
+\begin{definition}
+	Пусть $z_0 \in \overline\Cm$, $E \subset \overline{\Cm}$. Точка $z_0$ называется \textit{предельной точкой} множества $E$, если любая ее окрестность $B_\epsilon(z)$ содержит точку из множества $E$, \textit{граничной точкой} множества $E$, если любая ее окрестность $B_\epsilon(z)$ содержит и точку из $E$, и точку не из $E$. \textit{Границей} множества $E$ называется множество $\partial E$ всех ее граничных точек.
+\end{definition}
+
+\begin{definition}
+	Множество $E \subset \Cm$ называется \textit{линейно связным}, если для любых точек $z_1, z_2 \in E$ существует кривая $\gamma$ с параметризацией $z = \sigma(t)$, $t \in [a, b]$, такая, что $\sigma(a) = z_1$, $\sigma(b) = z_2$ и $M(\gamma) \subset E$.
+\end{definition}
+
+\begin{definition}
+	Множество $G \subset \Cm$ называется областью, если выполнены следующие условия:
+	\begin{enumerate}
+		\item Множество $G$ открыто
+		\item Множество $G \bs \{\infty\}$ линейно связно
+	\end{enumerate}
+\end{definition}
+
+\begin{note}
+	Из предыдущих курсов известно, что, например, множества $B_\epsilon(z)$ и $\dot B_\epsilon(z)$ являются областями для любых $z \in \overline\Cm$ и $\epsilon > 0$.
+\end{note}
+
+\begin{definition}
+	Множество $E \subset \Cm$ называется \textit{ограниченным}, если существует $C > 0$ такое, что для любого $z \in E$ выполнено $|z| < E$.
+\end{definition}
+
+\begin{note}
+	Пусть $D \subset \Cm$ "--- ограниченная область. Если для некоторого кусочно-гладкого контура $\gamma$ выполнено равенство $M(\gamma) = \partial D$, то естественно считать этот контур границей области $D$.
+\end{note}
+\pagebreak
+
+\begin{definition}
+	Область $G \subset \overline\Cm$ называется \textit{односвязной}, если для любой ограниченной области $D \subset \Cm$, границей которой является кусочно-гладкий контур $\gamma$, такой, что $\partial D \subset G$, выполнено либо $D \subset G$, либо $(\overline\Cm \bs D) \subset G$.
+\end{definition}
+
+\subsection{Последовательности и ряды комплексных чисел}
+
+\begin{definition}
+	\textit{Последовательностью} в $\overline\Cm$ называется отображение $\N \to \overline\Cm$. Обозначение "--- $\{z_n\}$. \textit{Элементом} последовательности называется пара $(n, z_n)$ такая, что $n \mapsto z_n$, \textit{значением элемента} называется число $z_n \in \overline\Cm$.
+\end{definition}
+
+\begin{definition}
+	Число $a \in \overline\Cm$ называется \textit{пределом последовательности} $\{z_n\}$, если выполнено $\forall \epsilon > 0 : \exists N \in \N: \forall n \ge N: z_n \in B_{\epsilon}(a)$. Обозначение "--- $\lim_{n \to \infty}z_n = a$.
+\end{definition}
+
+\begin{note}
+	Легко видеть, что если $\lim_{n \to \infty}z_n = a \in \Cm$, то, начиная с некоторого номера, все значения элементов $z_n$ конечны, тогда $\lim_{n \to \infty}|z_n - a| = 0$. Кроме того, положим $|\infty| := \infty$ и заметим, что выполнены следующие эквивалентности:
+	\begin{itemize}
+		\item $\lim_{n \to \infty}z_n = \infty \lra \lim_{n \to \infty}|z_n| = \infty$
+		\item $\lim_{n \to \infty}z_n = 0 \lra \lim_{n \to \infty}|z_n| = 0$
+	\end{itemize}
+\end{note}
+
+\begin{note}
+	Пусть $\{z_n\}, \{w_n\} \subset \Cm$, $\lim_{n \to \infty}z_n = a \in \Cm$, $\lim_{n \to \infty}z_n = b \in \Cm$. Аналогично вещественному случаю, можно доказать следующие факты:
+	\begin{itemize}
+		\item $\lim_{n \to \infty}|z_n| = a$
+		\item $\lim_{n \to \infty}(z_n+w_n) = a+b$
+		\item $\lim_{n \to \infty}z_nw_n = ab$
+		\item Если $\forall n \in \N: w_n \ne 0$ и $b \ne 0$, то $\lim_{n \to \infty}\frac{z_n}{w_n} = \frac ab$
+	\end{itemize}
+\end{note}
+
+\begin{proposition}
+	Пусть $\{z_n\} = \{x_n + iy_n\} \subset \Cm$, $a = b+ic \in \Cm$. Тогда:
+	\[\lim_{n \to \infty}z_n = a \lra \System{
+		\lim_{n \to \infty}x_n = a\\
+		\lim_{n \to \infty}y_n = b
+	}\]
+\end{proposition}
+
+\begin{proof}
+	Достаточно заметить, что выполнены следующие неравенства:
+	\[\max\{|x_n - b|, |y_n - b|\} \le |z_n - a| \le |x_n - b| + |y_n - c|\qedhere\]
+\end{proof}
+
+\begin{definition}
+	\textit{Числовым рядом} в $\Cm$ называется выражение вида $\sum_{n = 0}^\infty z_n$, где $z_n \in \Cm$ при всех $n \in \N$. \textit{Частной суммой} числового ряда называется число $S_n := \sum_{k = 0}^nz_k$, $k \in \N$. Если $\lim_{n \to \infty}S_n = S \in \Cm$, то ряд $\sum_{n = 0}^\infty z_n$ называется \textit{сходящимся}, а число $S$ называется его \textit{суммой}.
+\end{definition}
+
+\begin{definition}
+	Числовой ряд $\sum_{n = 0}^\infty z_n$ называется \textit{сходящимся абсолютно}, если сходится ряд $\sum_{n = 0}^\infty|z_n|$.
 \end{definition}
