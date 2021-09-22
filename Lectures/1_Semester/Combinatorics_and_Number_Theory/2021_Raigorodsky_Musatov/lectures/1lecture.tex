@@ -33,22 +33,22 @@
 \begin{definition}
     Выражение $X \subset Y$ означает, что множество $X$ является \textit{подмножеством} $Y$. Формально:
     $$
-        X \subset Y \ra (\forall x \in X \ra x \in Y)
+        X \subset Y \Ra (\forall x \in X \Ra x \in Y)
     $$
 \end{definition}
  
 \subsection{Равенство множеств}
  
 \begin{definition}
-    $X = Y$, если $(X \subset Y) \wedge (Y \subset X)$, или же $\forall z \in X \ra z \in Y$ и $\forall z \in Y \ra z \in X$
+    $X = Y$, если $(X \subset Y) \wedge (Y \subset X)$, или же $\forall z \in X \Ra z \in Y$ и $\forall z \in Y \Ra z \in X$
 \end{definition}
  
 \subsubsection{Свойства равенства множеств}
  
 \begin{enumerate}
      \item $X \subset X$ (Рефлексивность)
-     \item $(X \subset Y) \wedge (Y \subset X) \ra (X = Y)$ (Антисимметричность)
-     \item $(X \subset Y) \wedge (Y \subset Z) \ra (X \subset Z)$ (Транзитивность)
+     \item $(X \subset Y) \wedge (Y \subset X) \Ra (X = Y)$ (Антисимметричность)
+     \item $(X \subset Y) \wedge (Y \subset Z) \Ra (X \subset Z)$ (Транзитивность)
 \end{enumerate}
  
 \begin{definition}
@@ -78,8 +78,8 @@
     Имеем 2 случая:
     
     \begin{enumerate}
-        \item $M \in M$. Но из определения $\forall x \in M \ra x \notin x$ мы получаем противоречие.
-        \item $M \notin M$. Но из определения $x \notin x \ra x \in M$. Снова противоречие.
+        \item $M \in M$. Но из определения $\forall x \in M \Ra x \notin x$ мы получаем противоречие.
+        \item $M \notin M$. Но из определения $x \notin x \Ra x \in M$. Снова противоречие.
     \end{enumerate}
     
     Таким образом, множества всех множеств не существует.
@@ -99,7 +99,7 @@
  
 \begin{enumerate}
      \item Пустое множество единственно
-     \item Пустое множество вложено в любое другое множество $\forall X \ra \emptyset \subset X$
+     \item Пустое множество вложено в любое другое множество $\forall X \Ra \emptyset \subset X$
 \end{enumerate}
  
 \subsection{Различие между принадлежностью и подмножеством}
@@ -109,9 +109,9 @@
 Сколько подмножеств у такого множества? $2^n$
  
 \begin{itemize}
-     \item $n = 0 \ra \emptyset$ - 1 подмножество, 0 элементов
-     \item $n = 1 \ra \emptyset, \{a\}$ - 2 подмножества, 1 элемент
-     \item $n = 2 \ra \emptyset, \{a\}, \{b\}, \{a, b\}$ - 4 подмножества, 2 элемента
+     \item $n = 0 \Ra \emptyset$ - 1 подмножество, 0 элементов
+     \item $n = 1 \Ra \emptyset, \{a\}$ - 2 подмножества, 1 элемент
+     \item $n = 2 \Ra \emptyset, \{a\}, \{b\}, \{a, b\}$ - 4 подмножества, 2 элемента
 \end{itemize}
  
 \subsection{Универсальное множество}
@@ -157,16 +157,16 @@
 	$$
 	Имеем 2 случая:
 	\begin{enumerate}
-		\item $(x \in A) \wedge (x \in B) \ra x \in (A \cap B)$
-		\item $(x \in A) \wedge (x \in C) \ra x \in (A \cap C)$
+		\item $(x \in A) \wedge (x \in B) \Ra x \in (A \cap B)$
+		\item $(x \in A) \wedge (x \in C) \Ra x \in (A \cap C)$
 	\end{enumerate}
-	Это даёт нам факт, что $x \in (A \cap B) \cup (A \cap C) \ra A \cap (B \cup C) \subset (A \cap B) \cup (A \cap C)$
+	Это даёт нам факт, что $x \in (A \cap B) \cup (A \cap C) \Ra A \cap (B \cup C) \subset (A \cap B) \cup (A \cap C)$
 	Теперь покажем обратное, рассмотрим $x \in (A \cap B) \cup (A \cap C)$.
 	
 	Снова 2 случая:
 	\begin{enumerate}
-		\item $x \in (A \cap B) \ra (x \in A) \wedge (x \in B) \ra (x \in A) \wedge (x \in (B \cup C)) \ra x \in A \cap (B \cup C)$
-		\item $x \in (A \cap C) \ra (x \in A) \wedge (x \in C) \ra (x \in A) \wedge (x \in (B \cup C)) \ra x \in A \cap (B \cup C)$
+		\item $x \in (A \cap B) \Ra (x \in A) \wedge (x \in B) \Ra (x \in A) \wedge (x \in (B \cup C)) \Ra x \in A \cap (B \cup C)$
+		\item $x \in (A \cap C) \Ra (x \in A) \wedge (x \in C) \Ra (x \in A) \wedge (x \in (B \cup C)) \Ra x \in A \cap (B \cup C)$
 	\end{enumerate}
 
 	Отсюда по определению равенства $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$.
