@@ -1,7 +1,5 @@
 \section{Комплексные числа}
 
-\subsection{Алгебраическая форма записи комплексных чисел}
-
 \begin{definition}
 	\textit{Множеством комплексных чисел} $\Cm$ называется множество $\R^2$ с арифметическими операциями, введенными следующим образом:
 	\begin{itemize}
@@ -78,9 +76,9 @@
 	\begin{center}
 		\scalebox{1}{
 			\begin{tikzpicture}
-				\clip (-3.4, -3.3) rectangle (3.4, 3.3);
+				\clip (-3.4, -3) rectangle (3.4, 3);
 				\draw [->] (-3, 0) -- (3, 0) node [above, black] {$\re z$};
-				\draw [->] (0, -3) -- (0, 3) node [right, black] {$\im z$};
+				\draw [->] (0, -2.7) -- (0, 2.7) node [right, black] {$\im z$};
 				
 				\draw [line width = 1pt, black!15!blue] (1.4,3pt) -- (1.4,-3pt) node [below, black] {$1$};
 				\draw [line width = 1pt, black!15!blue] (3pt,1.4) -- (-3pt,1.4) node [left, black] {$i$};
@@ -112,7 +110,7 @@
 	\end{center}
 \end{note}
 
-\subsection{Тригонометрическая форма записи комплексных чисел}
+\section{Тригонометрическая форма записи комплексного числа}
 
 \begin{definition}
 	\textit{Аргументом} числа $z \in \Cm \backslash \{0\}$ называется следующий набор чисел:
@@ -140,7 +138,7 @@
 	\[z_1 = z_2 \lra \System{x_1 = x_2 \\ y_1 = y_2} \lra \System{&r_1 = r_2 \\ &\exists k \in \Z: \phi_1 = \phi_2 + 2\pi k}\]
 \end{note}
 
-\subsection{Комплексная экспонента}
+\section{Комплексная экспонента}
 
 \begin{definition}
 	\textit{Комплексной экспонентой} называется функция $f : \Cm \to \Cm$, сопоставляющая каждому числу $z = x + iy \in \Cm$ число следующего вида:
@@ -149,7 +147,7 @@
 
 \begin{proposition}[свойства комплексной экспоненты]~
 	\begin{enumerate}
-		\item Определение комплексной экспоненты от действительного числа согласовано со стандартным определением экспоненты.
+		\item Определение комплексной экспоненты от действительного числа согласованно со стандартным определением экспоненты.
 		\item $\forall z \in \Cm: e^z \ne 0$.
 		\item $\forall z_1, z_2 \in \Cm: e^{z_1}e^{z_2} = e^{z_1 + z_2}$.
 		\item $\forall z \in \Cm: e^{-z} = \frac{1}{e^z}$.
@@ -167,7 +165,7 @@
 			= e^{x_1 + x_2}(\cos(y_1 + y_2) + i\sin(y_1 + y_2)) = e^{z_1 + z_2}
 		\end{multline*}
 		\item Следует непосредственно из свойства $(3)$.
-		\item Проведем индукцию по $n$. База, $n = 1$, тривиальна, докажем переход, пользуясь свойством $(3)$:
+		\item Проведем индукцию по $n$. База, $n = 1$, тривиальна. Докажем переход, пользуясь свойством $(3)$:
 		\[\left(e^z\right)^n = \left(e^z\right)^{n-1}e^z = e^{z(n-1)}e^z = e^{z(n-1) + z} = e^{zn}\qedhere\]
 	\end{enumerate}
 \end{proof}
@@ -192,7 +190,7 @@
 	\textit{Показательной формой записи} комплексного числа $z \in \Cm \bs \{0\}$ с модулем $r$ и значением аргумента $\phi$ называется выражение $re^{i\phi}$.
 \end{definition}
 
-\subsection{Логарифм комплексного числа}
+\section{Логарифм комплексного числа}
 
 \begin{definition}
 	\textit{Логарифмом} числа $z \in \Cm \bs \{0\}$ называется следующий набор чисел:
@@ -215,7 +213,7 @@
 	\textit{Главным значением логарифма} числа $z \in \Cm \bs \{0\}$ называется число $\ln_0{z} := \ln|z| + i\arg_0{z}$.
 \end{definition}
 
-\subsection{Корень из комплексного числа}
+\section{Корень из комплексного числа}
 
 \begin{definition}
 	\textit{Множеством корней степени $n \in \N$, $n > 1$}, из числа $z \in \Cm$ называется следующий набор чисел:
@@ -246,7 +244,7 @@
 	\[\left(\!\sqrt[n]{z}\right)_0 := \sqrt[n]{|z|}e^{i\frac{\arg_0z}n}\]
 \end{definition}
 
-\subsection{Комплекснозначные функции вещественного переменного}
+\section{Комплекснозначные функции вещественного переменного}
 
 \begin{note}
 	Зафиксируем функцию $f : \R \to \Cm$ и представим ее в виде $f = g + ih$, $g, h : \R \to \R$. Тогда для любого $t \in \R$ выполнено $f(t) = (g(t), h(t))$. Из этого равенства следуют такие свойства, ранее полученные для вектор-функций:
@@ -265,7 +263,7 @@
 	Аналогичным образом можно убедиться, что для функции $g(t) = e^{at}$ при любом $a \in \Cm$ выполнено $g'(t) = ae^{at}$. Следовательно, если $a \ne 0$, то $\int e^{at}dt = \frac{e^{at}}{a} + C$, где $C \in \Cm$.
 \end{example}
 
-\subsection{Кривые и множества на комплексной плоскости}
+\section{Кривые и множества на комплексной плоскости}
 
 \begin{definition}
 	Пусть $\epsilon > 0$, $z_0 \in \Cm$. Множество $B_\epsilon(z_0) := \{z \in \Cm: |z - z_0| < \epsilon\}$ называется \textit{$\epsilon$-окрестностью} точки $z_0$.
@@ -286,7 +284,6 @@
 \begin{note}
 	Рассмотрим кривые $\gamma_1$ и $\gamma_2$ с параметризациями $z = \sigma_1(t_1)$, $t \in [a_1, b_1]$ и $z \hm= \sigma_2(t)$, $t \in [a_1, b_1]$. Пусть существует $f : [a_1, b_1] \to [a_2, b_2]$ "--- непрерывная строго монотонная функция такая, что $\sigma_2(f(t)) \equiv \sigma(t)$ на $[a_1, b_1]$. Тогда естественно считать, что кривые $\gamma_1, \gamma_2$ совпадают, то есть $\gamma_1 = \gamma_2$.
 \end{note}
-\pagebreak
 
 \begin{definition}
 	Пусть $\gamma$ "--- кривая с параметризацией $z = \sigma(t)$, $t \in [a, b]$. Кривая называется:
@@ -298,7 +295,7 @@
 \end{definition}
 
 \begin{example}
-	Зафиксируем кривую $\gamma$ и рассмотрим кривую $\gamma^{-1}$ с параметризацией $z = \sigma(-t)$, $t \in [-b, -a]$. Тогда \textit{конкатенация} этих кривых $\gamma\gamma^{-1}$ "--- замкнутая, но не простая.
+	Зафиксируем кривую $\gamma$ и рассмотрим кривую $\gamma^{-1}$ с параметризацией $z = \sigma(-t)$, $t \in [-b, -a]$. Тогда <<конкатенация>> этих кривых $\gamma\gamma^{-1}$ "--- замкнутая, но не простая.
 \end{example}
 
 \begin{definition}
@@ -310,8 +307,8 @@
 \end{definition}
 
 \begin{note}
-	В предыдущих курсах было доказано, что если $\gamma$ "--- кусочно-гладкая кривая, то она \textit{спрямляема}, то есть имеет конечную длину $L(\gamma)$, которую можно вычислить по следующей формуле:
-	\[L(\gamma) = \int_a^b|\sigma'(t)|dt\]
+	В предыдущих курсах было доказано, что если $\gamma$ "--- кусочно-гладкая кривая, то она \textit{спрямляема}, то есть имеет конечную длину $|\gamma|$, которую можно вычислить по следующей формуле:
+	\[|\gamma| = \int_a^b|\sigma'(t)|dt\]
 \end{note}
 
 \begin{note}
@@ -327,7 +324,7 @@
 \end{definition}
 
 \begin{definition}
-	Множество $G \subset \Cm$ называется областью, если выполнены следующие условия:
+	Множество $G \subset \Cm$ называется \textit{областью}, если выполнены следующие условия:
 	\begin{enumerate}
 		\item Множество $G$ открыто
 		\item Множество $G \bs \{\infty\}$ линейно связно
@@ -345,20 +342,19 @@
 \begin{note}
 	Пусть $D \subset \Cm$ "--- ограниченная область. Если для некоторого кусочно-гладкого контура $\gamma$ выполнено равенство $M(\gamma) = \partial D$, то естественно считать этот контур границей области $D$.
 \end{note}
-\pagebreak
 
 \begin{definition}
 	Область $G \subset \overline\Cm$ называется \textit{односвязной}, если для любой ограниченной области $D \subset \Cm$, границей которой является кусочно-гладкий контур $\gamma$, такой, что $\partial D \subset G$, выполнено либо $D \subset G$, либо $(\overline\Cm \bs D) \subset G$.
 \end{definition}
 
-\subsection{Последовательности и ряды комплексных чисел}
+\section{Последовательности и ряды комплексных чисел}
 
 \begin{definition}
 	\textit{Последовательностью} в $\overline\Cm$ называется отображение $\N \to \overline\Cm$. Обозначение "--- $\{z_n\}$. \textit{Элементом} последовательности называется пара $(n, z_n)$ такая, что $n \mapsto z_n$, \textit{значением элемента} называется число $z_n \in \overline\Cm$.
 \end{definition}
 
 \begin{definition}
-	Число $a \in \overline\Cm$ называется \textit{пределом последовательности} $\{z_n\}$, если выполнено $\forall \epsilon > 0 : \exists N \in \N: \forall n \ge N: z_n \in B_{\epsilon}(a)$. Обозначение "--- $\lim_{n \to \infty}z_n = a$.
+	Число $a \in \overline\Cm$ называется \textit{пределом последовательности} $\{z_n\}$, если выполнено условие $\forall \epsilon > 0 : \exists N \in \N: \forall n \ge N: z_n \in B_{\epsilon}(a)$. Обозначение "--- $\lim_{n \to \infty}z_n = a$.
 \end{definition}
 
 \begin{note}
@@ -370,9 +366,9 @@
 \end{note}
 
 \begin{note}
-	Пусть $\{z_n\}, \{w_n\} \subset \Cm$, $\lim_{n \to \infty}z_n = a \in \Cm$, $\lim_{n \to \infty}z_n = b \in \Cm$. Аналогично вещественному случаю, можно доказать следующие факты:
+	Пусть $\{z_n\}, \{w_n\} \subset \Cm$, $\lim_{n \to \infty}z_n = a \in \Cm$, $\lim_{n \to \infty}w_n = b \in \Cm$. Аналогично вещественному случаю, можно доказать следующие факты:
 	\begin{itemize}
-		\item $\lim_{n \to \infty}|z_n| = a$
+		\item $\lim_{n \to \infty}|z_n| = |a|$
 		\item $\lim_{n \to \infty}(z_n+w_n) = a+b$
 		\item $\lim_{n \to \infty}z_nw_n = ab$
 		\item Если $\forall n \in \N: w_n \ne 0$ и $b \ne 0$, то $\lim_{n \to \infty}\frac{z_n}{w_n} = \frac ab$
@@ -399,3 +395,96 @@
 \begin{definition}
 	Числовой ряд $\sum_{n = 0}^\infty z_n$ называется \textit{сходящимся абсолютно}, если сходится ряд $\sum_{n = 0}^\infty|z_n|$.
 \end{definition}
+
+\begin{note}
+	Для комплексных числовых рядов выполнен аналог \textit{критерия Коши} сходимости вещественных числовых рядов. В частности, из него легко вывести, что любой абсолютно сходящийся ряд сходится.
+\end{note}
+
+\begin{example}
+	Ряд $\sum_{n=0}^\infty z^n$ сходится при любом $z \in \Cm$, $|z| < 1$, поскольку сходится ряд $\sum_{n=0}^\infty |z|^n = \frac1{1-|z|}$. Вычислим его сумму:
+	\[S_n = 1 + z + \dotsb + z^n = \frac{1-z^{n+1}}{1-z} \xrightarrow{n \to \infty} \frac1{1-z} \ra \sum_{n=0}^\infty z^n = \frac1{1-z}\]
+\end{example}
+
+\section{Предел и непрерывность функции в точке}
+
+\begin{definition}
+	Пусть функция $f$ определена в некоторой окрестности $\dot B_{\delta_0}(z_0)$ точки $z_0 \in \overline\Cm$. Число $A \in \CM$ называется \textit{пределом функции $f$ в точке $z_0$}, если выполнено одно из следующих условий:
+	\begin{enumerate}
+		\item $\forall \epsilon > 0: \exists 0 < \delta \le \delta_0: f(\dot B_\delta(z_0)) \subset B_\epsilon(A)$
+		\item Для любой последовательности $\{z_n\} \subset \dot B_{\delta_0}(z_0)$ такой, что $\lim_{n \to \infty}z_n = z_0$, выполнено $\lim_{n \to \infty}f(z_n) = A$
+	\end{enumerate}
+	
+	Обозначение "--- $\lim_{z \to z_0}f(z) = A$.
+\end{definition}
+
+\begin{note}
+	Аналогично вещественному случаю, можно доказать эквивалентность условий в определении предела функции в точке. Из второго условия и свойств предела последовательности легко вывести, что если $a = b + ic, z_0 = x_0 + iy_0 \in \Cm$, $f(z) = f(x + iy) \hm= u(x, y) + iv(x, y)$, то:
+	\[\lim_{z \to z_0}f(z) = a \lra \System{
+		\lim_{(x, y) \to (x_0, y_0)}u(x, y) = b\\
+		\lim_{(x, y) \to (x_0, y_0)}v(x, y) = c
+	}\]
+\end{note}
+
+\begin{note}
+	Пусть $z_0 \in \CM$, функции $f, g$ таковы, что $\lim_{z \to z_0}f(z) = a \in \Cm$, $\lim_{z \to z_0}g(z) \hm= b \in \Cm$. Аналогично вещественному случаю, можно доказать следующие факты:
+	\begin{itemize}
+		\item $\lim_{z \to z_0}(f(z) + g(z)) = a+b$
+		\item $\lim_{z \to z_0}f(z)g(z) = ab$
+		\item Если $\exists \delta > 0: \forall z \in \dot B_\delta(z_0) : g(z) \ne 0$ и $b \ne 0$, то $\lim_{z \to z_0}\frac{f(z)}{g(z)} = \frac ab$
+	\end{itemize}
+\end{note}
+
+\begin{definition}
+	Пусть функция $f$ определена в некоторой окрестности $B_{\delta_0}(z_0)$ точки $z_0 \in \CM$. Функция $f$ называется \textit{непрерывной в точке $z_0$}, если $\lim_{z \to z_0}f(z) = f(z_0)$.
+\end{definition}
+
+\begin{note}
+	Легко заметить, что если $f(z) = f(x + iy) \hm= u(x, y) + iv(x, y)$, то $f$ непрерывна в точке $z_0 = x_0 + iy_0 \in \Cm$ $\lra$ $u, v$ непрерывны в точке $(x_0, y_0)$, поскольку аналогичная эквивалентность выполнена для предела функции в точке.
+\end{note}
+
+\begin{example}
+	Рассмотрим функцию $f : \overline{\Cm} \to \CM$ следующего вида:
+	\[f(z) = \System{
+		&\frac1{z-i}, \text{ если } z \in \CM \bs \{i, \infty\}\\
+		&0, \text{ если } z  = \infty\\
+		&\infty, \text{ если } z = i
+	}\]
+
+	Согласно определению выше, $f$ непрерывна в каждой точке из $\CM$.
+\end{example}
+
+\begin{note}
+	Пусть функции $f, g$ непрерывны и конечны в точке $z_0 \in \Cm$. Аналогично вещественному случаю, можно доказать, что тогда непрерывны функции $f + g$, $fg$ и $\frac fg$ (последняя --- если $g(z_0) \ne 0$).
+\end{note}
+
+\begin{proposition}
+	Пусть функция $f$ непрерывна в точке $z_0 \in \CM$, $w_0 := f(z_0) \in \CM$, функция $g$ непрерывна в точке $w_0$. Тогда функция $g \circ f$ непрерывна в точке $z_0$.
+\end{proposition}
+
+\begin{proof}
+	Рассмотрим произвольную последовательность $\{z_n\} \subset B_{\delta_0}(z_0)$ такую, что $\lim_{n \to \infty}z_n = z_0$. Тогда, в силу непрерывности функции $f$, $\lim_{n \to \infty}f(z_n) = f(z_0) = w_0$. Но тогда, в силу непрерывности функции $g$, $\lim_{n \to \infty}g(f(z_n)) = g(w_0) = f(g(z_0))$. Получено требуемое в силу произвольности выбора $\{z_n\}$.
+\end{proof}
+
+\section{Основные элементарные функции}
+
+\begin{definition}
+	\textit{Косинусом} и \textit{синусом} комплексного аргумента называются следующие функции:
+	\begin{align*}
+		\cos{z} := \frac{e^{iz} + e^{-iz}}2,~z \in \Cm
+		\\
+		\sin{z} := \frac{e^{iz} - e^{-iz}}{2i},~z \in \Cm
+	\end{align*}
+\end{definition}
+
+\begin{definition}
+	\textit{Гиперболическим косинусом} и \textit{гиперболическим синусом} комплексного аргумента называются следующие функции:
+	\begin{align*}
+		\ch{z} := \frac{e^{z} + e^{-z}}2,~z \in \Cm
+		\\
+		\sh{z} := \frac{e^{z} - e^{-z}}{2},~z \in \Cm
+	\end{align*}
+\end{definition}
+
+\begin{note}
+	Комплексная экспонента, многочлены, а также тригонометрические и гиперболические синус и косинус считаются основными элементарными функциями. По уже доказанным свойствам, они непрерывны в каждой точке из $\Cm$.
+\end{note}
