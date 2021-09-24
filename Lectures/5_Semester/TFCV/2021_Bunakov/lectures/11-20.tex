@@ -1,0 +1,150 @@
+\section{Дифференцируемость и регулярные функции}
+
+\begin{definition}
+	Пусть функция $f$ определена в некоторой окрестности $B_{\delta_0}(z_0)$ точки  $z_0 \in \Cm$. Функция $f$ называется \textit{дифференцируемой в точке $z_0$}, если в окрестности $\dot B_{\delta_0}{(0)}$ определена функция $\alpha$ такая, что $\lim_{\Delta z \to 0}\alpha(\Delta z) = 0$, и для некоторого $A \in \Cm$ выполнено условие $\forall \Delta z \in \dot B_{\delta_0}{(0)}: f(z_0 + \Delta z) - f(z_0) = A\Delta z + |\Delta z|\alpha(\Delta z)$
+\end{definition}
+
+\begin{theorem}
+	Пусть $f(z) = f(x + iy) = u(x, y) + iv(x, y)$. Тогда $f$ дифференцируема в точке $z_0 = x + iy_0 \in \Cm \lra$ $u, v$ дифференцируемы в точке $(x_0, y_0)$ и выполнены следующие равенства, называемые условиями Коши-Римана:
+	\[\System{u'_x(y_0, x_0) &= v'_y(y_0, x_0) \\ u'_y(u_0, y_0) &= -v'_x(y_0, x_0)}\]
+\end{theorem}
+
+\begin{proof}~
+	\begin{itemize}
+		\item[$\ra$] Пусть $\Delta z = \Delta x + i \Delta y$, $\alpha(\Delta z) = \beta(\Delta x, \Delta y) + i\gamma(\Delta x, \Delta y)$, $A = B + iC$. По определению дифференцируемости, $\lim_{(\Delta x, \Delta y) \to (0, 0)}\beta(\Delta x, \Delta y) = 0$ и $\lim_{(\Delta x, \Delta y) \to (0, 0)}\gamma(\Delta x, \Delta y) = 0$. Тогда:
+		\begin{multline*}
+			u(x + \Delta x, y + \Delta y) + iv(x + \Delta x, y + \Delta y) - u(x, y) - iv(x, y) =  A\Delta z + |\Delta z|\alpha(\Delta z) =
+			\\
+			= (B + iC)(\Delta x + i\Delta y) + \sqrt{(\Delta x)^2 + (\Delta y)^2}(\beta(\Delta x, \Delta y) + i\gamma(\Delta x, \Delta y))
+		\end{multline*}
+		
+		Приравнивая действительную и мнимую части по отдельности, получим следующее:
+		\[\System{
+			u(x + \Delta x, y + \Delta y) - u(x, y) &=  B\Delta x - C\Delta y + \sqrt{(\Delta x)^2 + (\Delta y)^2}\beta(\Delta x, \Delta y)
+			\\
+			v(x + \Delta x, y + \Delta y) - v(x, y) &= C\Delta x + B\Delta y + \sqrt{(\Delta x)^2 + (\Delta y)^2}\gamma(\Delta x, \Delta y)
+		}\]
+	
+		Значит, $u, v$ дифференцируемы в точке $(x_0, y_0)$. Кроме того, $B = u'_x(x_0, y_0) = v'_y(x_0, y_0)$ и $C = u'_y(x_0, y_0) = -v'_x(x_0, y_0)$.
+		
+		\item[$\la$] Положим $B := u'_x(x_0, y_0) = v'_y(x_0, y_0)$, $C := u'_y(x_0, y_0) = -v'_x(x_0, y_0)$, тогда снова выполнена следующая система из доказательства $\ra$. Умножая второе равенство системы на $i$ и складывая с первым, получим требуемое.\qedhere
+	\end{itemize}
+\end{proof}
+
+\begin{note}
+	Легко видеть, что дифференцируемость функции $f$ в точке $z_0 \in \Cm$ равносильна существованию следующего предела:
+	\[\lim_{\Delta z \to 0}\frac{f(z + \Delta z) - f(z)}{\Delta z} = A \in \Cm\]
+	
+	Число $A$ "--- это в точности число из определения дифференцируемости.
+\end{note}
+
+\begin{definition}
+	Пусть функция $f$ дифференцируема в точке $z_0 \in \Cm$. Значение предела $\lim_{\Delta z \to 0}\frac{f(z + \Delta z) - f(z)}{\Delta z}$ называется \textit{производной} функции $f$ в точке $z_0$ и обозначается через $f'(z_0)$.
+\end{definition}
+
+\begin{note}
+	Из определения производной и теоремы выше легко видеть, что если $f$ дифференцируема в точке $z_0 = x_0 + iy_0 \in \Cm$ и $f(z) = f(x + iy) = u(x, y) + iv(x, y)$, то:
+	\begin{multline*}
+		f'(z_0) = u'_x(x_0, y_0) + iv'_x(x_0, y_0) = v'_y(x_0, y_0) + iv'_x(x_0, y_0) =
+		\\
+		= v'_y(x_0, y_0) - iu'_y(x_0, y_0) = u'_x(x_0, y_0) - iu'_x(x_0, y_0)
+	\end{multline*}
+\end{note}
+
+\begin{note}
+	Пусть функции $f, g$ дифференцируемы в точке $z_0 \in \Cm$. Аналогично вещественному случаю, можно доказать, что тогда функции $f + g$, $fg$ тоже дифференцируемы в точке $z_0$, причем выполнены следующие равенства:
+	\begin{align*}
+		(f + g)'(z_0) &= f'(z_0) + g'(z_0)\\
+		(fg)'(z_0) &= f'(z_0)g(z_0) + f(z_0)g'(z_0)
+	\end{align*}
+	
+	Если при этом $g(z_0) \ne 0$, то и функция $\frac fg$ дифференцируема в точке $z_0$, причем выполнено следующее равенство:
+	\[
+	\left(\frac fg\right)'(z_0) = \frac{f'(z_0)g(z_0) - f(z_0)g'(z_0)}{g(z_0)^2}\]
+\end{note}
+
+\begin{note}
+	Пусть функция $f$ дифференцируема в точке $z_0 \in \Cm$, $f(z_0) := w_0 \in \Cm$, функция $g$ дифференцируема в точке $w_0$. Аналогично вещественному случаю, можно доказать, что тогда функция $h := g \circ f$ дифференцируема в точке $z_0$, причем выполнено следующее равенство:
+	\[h'(z_0) = g'(w_0)f'(z_0)\]
+	
+	Наконец, упомянутые свойства позволяют заключить, что элементарные функции дифференцируемы в любой точке из $\Cm$.
+\end{note}
+
+\begin{example}
+	Проверка условий Коши-Римана для функций ниже дает следующее:
+	\begin{enumerate}
+		\item $f(z) =\overline{z}$ не дифференцируема ни в одной точке из $\Cm$
+		\item $f(z) = |z|^2 = z\overline{z}$ дифференцируема только в точке $0$
+		\item $f(z) = e^z$ дифференцируема в любой точке из $\Cm$
+	\end{enumerate}
+\end{example}
+
+\begin{definition}
+	Функция $f$ называется \textit{регулярной} на открытом множестве $G \subset \Cm$, если выполнены следующие условия:
+	\begin{enumerate}
+		\item $f$ дифференцируема в любой точке из $G$
+		\item $f'$ непрерывна в любой точке из $G$
+	\end{enumerate}
+
+	Обозначение "--- $f \in C^1(G)$.
+\end{definition}
+
+\begin{definition}
+	Функция $f$ называется \textit{регулярной} на множестве $A \subset \Cm$, если $A$ вложено в открытое множество $G \subset \Cm$ такое, что $f \in C^1(G)$. Обозначение "--- $f \in C^1(A)$.
+\end{definition}
+
+\begin{note}
+	В частности, функция $f$ регулярна в точке $z_0 \in \Cm$, если $f$ регулярна в достаточно малой окрестности $B_{\delta_0}(z_0)$ этой точки.
+\end{note}
+
+\begin{note}
+	В силу уже полученных свойств дифференцируемости и непрерывности, справедливы утверждения, аналогичные утверждениям о дифференцируемости:
+	\begin{itemize}
+		\item Если $f, g$ регулярны в точке $z_0 \in \Cm$, то $f + g$, $fg$ тоже регулярны в $z_0$
+		\item Если $f, g$ регулярны в точке $z_0 \in \Cm$ и $g(z_0) \ne 0$, то $\frac fg$ тоже регулярна в $z_0$
+		\item Если $f$ регулярна в точке $z_0 \in \Cm$, $g$ регулярна в точке $w_0 := f(z_0) \in \Cm$, то $g \circ f$ тоже регулярна в $z_0$
+	\end{itemize}
+\end{note}
+
+\section{Интеграл вдоль кривой}
+
+\begin{definition}
+	Пусть $\gamma$ "--- кусочно-гладкая кривая, $z = \sigma(t)$, $t \in [a, b]$ "--- ее параметризация, функция $f$ такова, что композиция $f\circ\sigma$ непрерывна на $[a, b]$.
+	\begin{itemize}
+		\item \textit{Интегралом первого рода} функции $f$ по кривой $\gamma$ называется следующая величина:
+		\[\int_{\gamma}f(z)|dz| := \int_a^bf(\sigma(t))|\sigma'(t)|dt\]
+		\item \textit{Интегралом второго рода} функции $f$ по кривой $\gamma$ называется следующая величина:
+		\[\int_{\gamma}f(z)dz := \int_a^bf(\sigma(t))\sigma'(t)dt\]
+	\end{itemize}
+\end{definition}
+
+\begin{note}
+	Если $f(z) = f(x + iy) = u(x, y) + iv(x, y)$, $\sigma = \xi + i\eta$, то, как нетрудно убедиться, выполнены следующие равенства:
+	\begin{align*}
+		\int_{\gamma}f(z)|dz| &= \int_\gamma u(x, y)ds + i\int_\gamma v(x, y)ds
+		\\
+		\int_{\gamma}f(z)dz &= \int_\gamma (udx - vdy) + i\int_\gamma (vdx - udy)
+	\end{align*}
+\end{note}
+
+\begin{theorem}
+	Пусть для кривой $\gamma$ и функций $f, g$ выполнены условия в определении интеграла первого и второго рода. Тогда выполнены следующие свойства:
+	\begin{enumerate}
+		\item (\textit{Линейность}) Если $\alpha, \beta \in \Cm$, то:
+		\[\int_{\gamma}(\alpha f+\beta g)dz = \alpha\int_\gamma fdz + \beta\int_\gamma gdz\]
+		
+		\item (\textit{Аддитивность}) Если $\gamma = \gamma_1\gamma_2$, то:
+		\[\int_{\gamma}fdz = \int_{\gamma_1}fdz + \int_{\gamma_2}fdz\]
+		
+		\item (\textit{Независимость от параметризации}) Если $\phi : [\alpha, \beta] \to [a, b]$ "--- кусочно-гладкая строго возрастающая функция, то:
+		\[\int_{\gamma}f(z)dz := \int_a^bf(\sigma(t))\sigma'(t)dt = \int_\alpha^\beta f(\sigma(\phi(u)))\sigma'(\phi(u))\phi'(u)du\]
+		
+		\item Аналогичные пунктам $(1), (2), (3)$ свойства выполнены для интегралов первого рода
+		
+		\item Если $\gamma^{-1}$ "--- кривая с параметризацией $z = \sigma(-t)$, $t \in [-b, -a]$, то:
+		\[\int_{\gamma^{-1}}f|dz| = \int_\gamma f|dz|,\text{ но }\int_{\gamma^{-1}}fdz = -\int_\gamma fdz\]
+		
+		\item Если $M := \max_{z \in M(\gamma)}|f(z)|$, $|\gamma|$ "--- длина кривой $\gamma$, то:
+		\[\left|\int_\gamma fdz\right| \le \int_\gamma|f||dz| \le M|\gamma|\]
+	\end{enumerate}
+\end{theorem}
