@@ -1,0 +1,6 @@
+# Ignore all TexStudio created files:
+*
+!main.tex
+!images/
+!lectures/
+!preamble_ltc/
