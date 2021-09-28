@@ -78,7 +78,7 @@
 	Рассмотрим последовательность $y_n := (1 + \frac{1}{n})^{n + 1}$. Докажем, что $y_n$ убывает.
 	\begin{multline*}
 		\frac{y_{n - 1}}{y_n} = \frac{(1 + \frac{1}{n - 1})^n}{(1 + \frac{1}{n})^{n + 1}} = \left(\frac{\frac{n}{n - 1}}{\frac{n + 1}{n}}\right)^n \cdot \frac{1}{1 + \frac{1}{n}} = \left(\frac{n^2}{n^2 - 1}\right)^n \cdot \frac{1}{1 + \frac{1}{n}} = \\
-		(1 + \frac{1}{n^2 - 1})^n \cdot \frac{n}{n + 1} \ge (1 + \frac{n}{n^2 - 1}) \cdot \frac{n}{n + 1} = \\
+		\left(1 + \frac{1}{n^2 - 1}\right)^n \cdot \frac{n}{n + 1} \ge \left(1 + \frac{n}{n^2 - 1}\right) \cdot \frac{n}{n + 1} = \\
 		\frac{(n^2 + n - 1)n}{(n^2 - 1)(n + 1)} = \frac{n^3 + n^2 - n}{n^3 + n^2 - n - 1} > 1, n > 1
 	\end{multline*}
 \end{proof}

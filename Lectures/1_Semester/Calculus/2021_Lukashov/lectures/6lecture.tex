@@ -1,4 +1,3 @@
-% ЗАМЕНИТЬ \ra НА \Ra
 \subsection{Предел последовательности}
 
 \begin{definition}
@@ -16,7 +15,7 @@
     $$
         \liml_{n \xrightarrow{} \infty} \frac{1}{n} = 0 \lra \forall \eps > 0\ \exists N \in \N\ |\ n > N\ |\frac{1}{n} - 0| < \eps
     $$
-    Положим $N := \left[\frac{1}{\eps}\right] + 1$. Тогда $\forall n > N \ra n > \frac{1}{\eps} \ra |\frac{1}{n} - 0| < \eps \ra$ предел доказан.
+    Положим $N := \left[\frac{1}{\eps}\right] + 1$. Тогда $\forall n > N \Ra n > \frac{1}{\eps} \Ra |\frac{1}{n} - 0| < \eps \Ra$ предел доказан.
 \end{example}
 
 \begin{theorem}
@@ -51,9 +50,9 @@
     
     Положим $\eps := 1 > 0$. Тогда $\forall n > N\ l - 1 < x_n < l + 1$. Отсюда следует, что
     \begin{align*}
-        x_n \le \max(x_1, x_2, \dots, x_N, l + 1) \ra \{x_n\}_{n = 1}^\infty - \text{ ограничена сверху}
+        x_n \le \max(x_1, x_2, \dots, x_N, l + 1) \Ra \{x_n\}_{n = 1}^\infty - \text{ ограничена сверху}
         \\
-        x_n \ge \min(x_1, x_2, \dots, x_N, l - 1) \ra \{x_n\}_{n = 1}^\infty - \text{ ограничена снизу}
+        x_n \ge \min(x_1, x_2, \dots, x_N, l - 1) \Ra \{x_n\}_{n = 1}^\infty - \text{ ограничена снизу}
     \end{align*}
 \end{proof}
 
@@ -66,9 +65,9 @@
     
     Тогда, рассмотрим $\eps := \frac{|l|}{2} > 0$.
     \begin{align}
-        l > 0 \ra x_n > l - \eps = \frac{l}{2} > 0
+        l > 0 \Ra x_n > l - \eps = \frac{l}{2} > 0
         \\
-        l < 0 \ra x_n < l + \eps = \frac{l}{2} < 0
+        l < 0 \Ra x_n < l + \eps = \frac{l}{2} < 0
     \end{align}
 \end{proof}
 
@@ -100,7 +99,7 @@
         \liml_{n \xrightarrow{} \infty} y_n = l \lra \forall \eps > 0\ \exists N_2 \in \N\ |\ \forall n > N_2\ |y_n - l| < \eps
         }
     $$
-    Отсюда следует: $l - \eps < x_n \le y_n \le z_n < l + \eps \ra |y_n - l| < \eps$, то есть $\liml_{n \xrightarrow{} \infty} y_n = l$
+    Отсюда следует: $l - \eps < x_n \le y_n \le z_n < l + \eps \Ra |y_n - l| < \eps$, то есть $\liml_{n \xrightarrow{} \infty} y_n = l$
 \end{proof}
 
 \subsubsection{Арифметические операции со сходящимися последовательностями}
@@ -130,10 +129,10 @@
     $$
         |(x_n \pm y_n) - (x_0 \pm y_0)| \le |x_n - x_0| + |y_n - y_0| < \frac{\eps}{2} + \frac{\eps}{2} = \eps
     $$
-    \item[3] 
+    \item[3.] 
     $\forall \eps > 0\ \exists N_1 \in \N\ |\ \forall n > N_1\ |x_n - x_0| < \frac{\eps}{2}$
     
-    Из теоремы выше, $\exists C > 0\ |\ \forall n \in \N |x_n| \le C$
+    Из теоремы выше, $\exists C > 0\ |\ \forall n \in \N\ |x_n| \le C$
     
     $\liml_{n \xrightarrow{} \infty} y_n = y_0 \lra \forall \eps > 0\ \exists N_2 \in \N\ |\ \forall n > N_2\ |y_n - y_0| < \frac{\eps}{2C}$
     
@@ -141,7 +140,7 @@
     $$
         |x_n y_n - x_0 y_0| \le |x_n y_n - x_n y_0| + |x_n y_0 - x_0 y_0| = |x_n| \cdot |y_n - y0| + |y_0| \cdot |x_n - x_0| < C \cdot \frac{\eps}{2C} + \frac{\eps}{2} = \eps
     $$
-    \item 
+    \item[4.]
     По условию, $\forall \eps > 0\ \exists N_2 \in \N\ |\ \forall n > N_2\ |x_n - x_0| < $
     
     Рассмотрим $\forall n > \max(N_1, N_2)$

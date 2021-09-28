@@ -42,7 +42,14 @@
 \end{definition}
 
 \begin{definition}
-	$\eps$-окрестностью 
+	$\eps$-окрестность для бесконечностей определяется как
+	\begin{align*}
+		U_{\eps}(+\infty) := \left(\frac{1}{\eps}; +\infty\right)
+		\\
+		U_{\eps}(-\infty) := \left(-\infty; -\frac{1}{\eps}\right)
+		\\
+		U_{\eps}(\infty) := U_{\eps}(-\infty) \cup U_{\eps}(+\infty)
+	\end{align*}
 \end{definition}
 
 \begin{definition}
@@ -182,7 +189,7 @@
 \end{proof}
 
 \begin{addition}
-	$\forall \{x_n\}_{n = 1}^\infty\ \exists \{x_{n_k}\}_{k = 1}^\infty\ \liml_{x \ra \infty} x_{n_k} = l \in \bar{\R}$
+	$\forall \{x_n\}_{n = 1}^\infty\ \exists \{x_{n_k}\}_{k = 1}^\infty\ \liml_{k \ra \infty} x_{n_k} = l \in \bar{\R}$
 \end{addition}
 
 \begin{proof}
