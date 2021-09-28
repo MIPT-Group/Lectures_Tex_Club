@@ -130,3 +130,30 @@ $\displaystyle \{N( \theta ,1) ,\theta \in \mathbb{R}\} ,\overline{X}$ явля�
 \begin{exercise}
 Верно ли, что квадрат несмещенной оценки несмещен?
 \end{exercise}
+
+\begin{proposition}
+Пусть $\displaystyle \theta _{n}^{*}( X)$ -- (сильно) состоятельная оценка $\displaystyle \theta $, $\displaystyle \tau ( \theta ) :\mathbb{R}^{k}\rightarrow \mathbb{R}^{s}$ -- непрерывная функция. Тогда $\displaystyle \tau \left( \theta ^{*}\right)$ -- (сильно) состоятельная оценка $\displaystyle \tau ( \theta )$.
+\end{proposition}
+\textit{Доказательство}
+
+$\displaystyle \theta _{n}^{*}\xrightarrow{P_{\theta } -п.н.} \theta $. По теореме о наследовании сходимостей $\displaystyle \tau \left( \theta _{n}^{*}\right)\xrightarrow{P_{\theta } -п.н.} \tau ( \theta )$.
+
+$\displaystyle \theta _{n}^{*}\xrightarrow{P_{\theta }} \theta $. По теореме о наследовании сходимостей $\displaystyle \tau \left( \theta _{n}^{*}\right)\xrightarrow{P_{\theta }} \tau ( \theta )$.\qed 
+\begin{lemma}
+(о наследовании асимптотической нормальности) Пусть $\displaystyle \theta _{n}^{*}$ -- асимптотически нормальная оценка $\displaystyle \theta \in \Theta \subset \mathbb{R}$ с асимптотической дисперсией $\displaystyle \sigma ^{2}( \theta )$, $\displaystyle \tau ( \theta ) :\mathbb{R}\rightarrow \mathbb{R}$ дифференцируема $\displaystyle \forall \theta \in \Theta $. Тогда $\displaystyle \tau \left( \theta _{n}^{*}( X)\right)$ -- асимптотически нормальная оценка для $\displaystyle \tau ( \theta )$ с асимптотической дисперсией $\displaystyle \sigma ^{2}( \theta ) \cdotp ( \tau '( \theta ))^{2}$.
+\end{lemma}
+\textit{Доказательство}
+
+Из определения асимптотической нормальности $\displaystyle \sqrt{n}\left( \theta _{n}^{*}( X) -\theta \right)\xrightarrow{d_{\theta }} \xi \ \sim \ N\left( 0,\sigma ^{2}( \theta )\right)$. Обозначим $\displaystyle \xi _{n} =\sqrt{n}\left( \theta _{n}^{*}( X) -\theta \right) ,b_{n} =\frac{1}{\sqrt{n}}$. Тогда по следствию из леммы Слуцкого
+
+
+\begin{equation*}
+\frac{\tau ( \theta +\xi _{n} b_{n}) -\tau ( \theta )}{b_{n}} =\sqrt{n}\left( \tau \left( \theta _{n}^{*}\right) -\tau ( \theta )\right)\xrightarrow{d_{\theta }} \xi \cdotp \tau '( \theta ) .
+\end{equation*}
+\qed 
+\begin{exercise}
+Показать, что несмещенность оценки не наследуется.
+\end{exercise}
+\begin{proposition}
+(о наследовании асимптотической нормальности в многомерном случае, б/д) Пусть $\displaystyle \Theta \subset \mathbb{R}^{k} ,\tau :\mathbb{R}^{k}\rightarrow \mathbb{R}^{s}$ -- дифференцируема в точках $\displaystyle \Theta $, $\displaystyle \theta _{n}^{*}$ -- асимптотически нормальная оценка для $\displaystyle \theta $ с асимптотической ковариационной матрицей $\displaystyle \Sigma ( \theta )$. Тогда $\displaystyle \tau \left( \theta _{n}^{*}\right)$ -- асимптотически нормальная оценка для $\displaystyle \tau ( \theta )$ с асимптотической ковариационной матрицей $\displaystyle \left(\frac{\partial \tau }{\partial \theta }\right) \cdotp \Sigma ( \theta ) \cdotp \left(\frac{\partial \tau }{\partial \theta }\right)^{T}$.
+\end{proposition}

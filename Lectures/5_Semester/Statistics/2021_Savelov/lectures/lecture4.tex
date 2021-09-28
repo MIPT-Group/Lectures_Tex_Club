@@ -1,0 +1,108 @@
+\section{Методы нахождения оценок}
+\subsection{Метод подстановки}
+\begin{definition}
+Пусть в параметрическом семействе $\displaystyle \{P_{\theta } :\theta \in \Theta \}$ для некоторого функционала $\displaystyle G$ выполнено $\displaystyle \forall \theta \in \Theta \hookrightarrow \ \theta =G( P_{\theta })$. Тогда оценкой по методу подстановки называется $\displaystyle \theta ^{*}( X_{1} ,\dotsc ,X_{n}) =G\left( P_{n}^{*}\right)$, где $\displaystyle P_{n}^{*}$ -- эмпирическое распределение по выборке.
+\end{definition}
+\begin{example}
+$\displaystyle Bern( \theta ) ,N( \theta ,1)$. Пусть $\displaystyle G=\int _{\mathbb{R}} xdP,\theta ^{*} =\int _{\mathbb{R}} xdF_{n}^{*} =\frac{\sum _{i=1}^{n} X_{i}}{n} =\overline{X}$.
+\end{example}
+\subsection{Метод моментов}
+
+Пусть $\displaystyle X_{1} ,\dotsc ,X_{n}$ -- выборка из распределения $\displaystyle P\in \{P_{\theta } :\theta \in \Theta \} ,\Theta \subset \mathbb{R}^{k}$. Рассмотрим борелевские функции $\displaystyle g_{1}( X) ,\ \dotsc ,\ g_{k}( X)$ со значениями в $\displaystyle \mathbb{R}$. Положим $\displaystyle m_{i}( \theta ) =E_{\theta } g_{i}( X_{1})$, где $\displaystyle m_{i}( \theta )$ конечны $\displaystyle \forall i:1\leqslant i\leqslant k\ ,\forall \theta \in \Theta $. Также, обозначим
+
+
+\begin{equation*}
+m( \theta ) =\begin{pmatrix}
+m_{1}( \theta )\\
+\dotsc \\
+m_{k}( \theta )
+\end{pmatrix} ,\ \overline{g} =\begin{pmatrix}
+\frac{1}{n}\sum _{i=1}^{n} g_{1}( X_{i})\\
+\dotsc \\
+\frac{1}{n}\sum _{i=1}^{n} g_{k}( X_{i})
+\end{pmatrix} .
+\end{equation*}
+
+\begin{definition}
+Если существует и притом единственное решение системы
+
+
+\begin{equation*}
+\begin{cases}
+m_{1}( \theta ) =\overline{g_{1}( X)}\\
+\dotsc \\
+m_{k}( \theta ) =\overline{g_{k}( X)}
+\end{cases} ,
+\end{equation*}
+
+
+то его решение $\displaystyle \theta ^{*} =m^{-1}(\overline{g})$ называется оценкой по методу моментов.
+\end{definition}
+\begin{definition}
+Функции $\displaystyle g_{i}( x) =X^{i}$ называются пробными.
+\end{definition}
+\begin{note}
+В случае, когда $\displaystyle \overline{g} \notin m( \Theta )$, можно для нахождения $\displaystyle m^{-1}( g)$ взять ближайшую к $\displaystyle \overline{g}$ точку из $\displaystyle m( \theta )$.
+\end{note}
+\begin{theorem}
+(сильная состоятельности оценки по методу моментов) Пусть $\displaystyle m:\Theta \rightarrow m( \Theta )$ -- биекция, и функцию $\displaystyle m^{-1}$ можно доопределить до функции, заданной на всем $\displaystyle \mathbb{R}^{k}$, и непрерывной в каждой точке множества $\displaystyle m( \Theta )$. Также, $\displaystyle E_{\theta } g_{i}( X_{1}) < \infty \ \forall i:1\leqslant i\leqslant k,\forall \theta \in \Theta $. Тогда оценка по методу моментов является сильно состоятельной оценкой параметра $\displaystyle \theta $.
+\end{theorem}
+\textit{Доказательство}
+
+По усиленному закону больших чисел $\displaystyle \overline{g}\xrightarrow{P_{\theta } -п.н.} m( \theta )$. Тогда, по теореме о наследовании сходимостей $\displaystyle \theta _{n}^{*} =m^{-1}(\overline{g})\xrightarrow{P_{\theta } -п.н.} m^{-1}( m( \theta )) =\theta $.\qed 
+\begin{theorem}
+(асимптотическая нормальность оценки по методу моментов) Если в условиях предыдущей теоремы функция $\displaystyle m^{-1}$, доопределенная на $\displaystyle \mathbb{R}^{k}$, дифференцируема на $\displaystyle m( \Theta )$, и $\displaystyle E_{\theta } g_{i}^{2}( X_{1}) < \infty \ \forall i:1\leqslant i\leqslant k$, то оценка, полученная по методу моментов, асимптотически нормальна.
+\end{theorem}
+\textit{Доказательство}
+
+$\displaystyle \sqrt{n}(\overline{g} -m( \theta ))\xrightarrow{d_{\theta }} N( 0,\Sigma ( \theta ))$, где $\displaystyle \Sigma ( \theta )$ -- матрица ковариаций вектора $\displaystyle ( g_{1}( X_{1}) ,\dotsc ,g_{k}( X_{1}))^{T}$. Далее, применяем утверждение о наследовании асимптотической нормальности.\qed 
+\begin{note}
+Метод моментов -- частный случай метода подстановки:
+
+
+\begin{equation*}
+\theta =m^{-1}\begin{pmatrix}
+\int _{\mathcal{X}^{n}} g_{1}( x) dP_{\theta }( x)\\
+\dotsc \\
+\int _{\mathcal{X}^{n}} g_{k}( x) dP_{\theta }( x)
+\end{pmatrix} \Rightarrow \theta _{n}^{*} =m^{-1}\begin{pmatrix}
+\int _{\mathcal{X}^{n}} g_{1}( x) dP^{*}( x)\\
+\dotsc \\
+\int _{\mathcal{X}^{n}} g_{k}( x) dP^{*}( x)
+\end{pmatrix} =G\left( P_{n}^{*}\right) .
+\end{equation*}
+\end{note}
+\subsection{Метод максимального правдоподобия}
+
+(Будет позже)
+\subsection{Метод выборочных квантилей}
+
+Пусть $\displaystyle P$ -- распределение вероятностей на $\displaystyle \mathbb{R}$, $\displaystyle F( x)$ -- его функция распределения.
+\begin{definition}
+$\displaystyle p$-квантилью распределения $\displaystyle P$ называется $\displaystyle z_{p} =\inf\{x:F( x) \geqslant p\},\\ p \in (0,1)$.
+\end{definition}
+\begin{note}
+Если $\displaystyle F$ непрерывна, то существует точное решение $\displaystyle F( z_{p}) =p$. Если к тому же $\displaystyle F$ строго монотонна, то решение единственно.
+\end{note}
+\begin{definition}
+Пусть $\displaystyle X_{1} ,\dotsc ,X_{n}$ -- выборка. Статистика $\displaystyle z_{n,p} =\begin{cases}
+X_{([ np] +1)}, & np\notin \mathbb{Z}\\
+X_{( np)}, & np\in \mathbb{Z}
+\end{cases}$ называется выборочным $\displaystyle p$-квантилем.
+\end{definition}
+\begin{note}
+$\displaystyle z_{n,p}$ -- это, по сути, $\displaystyle p$-квантиль эмпирического распределения $\displaystyle P_{n}^{*}$.
+\end{note}
+\begin{theorem}
+(о выборочном квантиле) Пусть $\displaystyle X_{1} ,\dotsc ,X_{n}$ -- выборка из распределения $\displaystyle P$ с плотностью $\displaystyle f( x)$. Пусть $\displaystyle z_{p}$ -- $\displaystyle p$-квантиль распределения $\displaystyle P$, причем $\displaystyle f( x)$ непрерывно дифференцируема в окрестности $\displaystyle z_{p}$ и $\displaystyle f( z_{p})  >0$. Тогда
+
+
+\begin{equation*}
+\sqrt{n}( z_{n,p} -z_{p})\xrightarrow{d_{\theta }} N\left( 0,\ \frac{p( 1-p)}{f^{2}( z_{p})}\right) .
+\end{equation*}
+\end{theorem}
+\textit{Доказательство}
+
+$\displaystyle F_{X_{( k)}}( x) =P( X_{( k)} \leqslant x) =\sum _{m=k}^{n} C_{n}^{m} F^{m}( x)( 1-F( x))^{n-m} \Rightarrow p_{X_{( k)}}( x) =nC_{n-1}^{k-1} F^{k-1}( x)( 1-F( x))^{n-k} f( x)$.
+
+To be continued...
