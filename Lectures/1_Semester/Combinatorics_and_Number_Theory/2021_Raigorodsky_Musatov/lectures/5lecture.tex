@@ -47,10 +47,12 @@
 \subsection{Фактормножество}
 
 \begin{definition}
-	\textit{Фактормножеством} $A/\sim$ называется множество классов $f : A \ra A/\sim, f(x) = K_x$ эквивалентности по отношению $\sim$. То есть
-	$$
-		x \sim y \lra f(x) = f(y)
-	$$
+	\textit{Фактормножеством} $A/\sim$ называется множество классов эквивалентности по отношению $\sim$. То есть
+	\begin{align*}
+		&f : A \ra A/\sim, f(x) = K_x
+		\\
+		&x \sim y \lra f(x) = f(y)
+	\end{align*}
 \end{definition}
 
 \subsection{Отношения (частичного) порядка}
@@ -71,6 +73,10 @@
 	$(A, \le_A)$
 \end{example}
 
+%%%%%%%%%%% Сюда бы диаграммы Хассе
+
+\subsection{Изоморфизм}
+
 \begin{definition}
 	$(A, \le_A)$ изоморфно $(B, \le_B)$, если существует биекция $f : A \ra B$ такая, что $x \le_A y \lra f(x) \le_B f(y)$. Обозначается как $A \simeq B$.
 \end{definition}
@@ -78,7 +84,9 @@
 \subsection{Операции над упорядоченными множествами}
 
 \begin{itemize}
-	\item Сумма $(A, \le_A) + (B, \le_B) = (C, \le_C)$. $C = A \sqcup B$, $x \le_C y \lra \Unity{&{x, y \in A, x \le_A y} \\ &{x, y \in B, x \le_B y} \\ &{x \in A, y \in B}}$ %% пояснить $\sqcup$
+	\item Сумма \\
+	$(A, \le_A) + (B, \le_B) = (C, \le_C)$. $C = A \sqcup B$, $x \le_C y \lra \Unity{&{x, y \in A, x \le_A y} \\ &{x, y \in B, x \le_B y} \\ &{x \in A, y \in B}}$ %% пояснить $\sqcup$
 	
-	\item Произведение (используется обратный лексикографический порядок) $(A, \le_A) \cdot (B, \le_B) = (C, \le_C)$, где $C = A \times B$. $(a_1, b_1) \le_C (a_2, b_2)$, если $\Unity{&{b_1 <_B b_2} \\ &{b_1 = b_2, a_1 \le_A a_2}}$
+	\item Произведение (используется обратный лексикографический порядок) \\
+	$(A, \le_A) \cdot (B, \le_B) = (C, \le_C)$, где $C = A \times B$. $(a_1, b_1) \le_C (a_2, b_2)$, если $\Unity{&{b_1 <_B b_2} \\ &{b_1 = b_2, a_1 \le_A a_2}}$
 \end{itemize}
