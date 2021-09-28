@@ -111,15 +111,56 @@ $\displaystyle \mathbb{I}_{x_{i} \in B}$ -- независимые (потому
 \begin{corollary}
 	$\displaystyle F_{n}^{*}( x)\xrightarrow{п.н.} F_{X_{1}}( x)$. Достаточно взять в утверждении $\displaystyle B=( -\infty ,x]$.
 \end{corollary}
-\begin{thm}
+\begin{theorem}
 	(Гливенко-Кантелли) Пусть $\displaystyle X_{1} ,\dotsc ,X_{n}$ -- независимые одинаково распределенные случайные величины с функцией распределения $\displaystyle F( x)$. Тогда $\displaystyle D_{n}( \omega ) :=\sup _{x\in \mathbb{R}}\left| F_{n}^{*}( x) -F( x)\right| \xrightarrow{п.н.} 0$.
-\end{thm}
-\textit{Доказательство}
+\end{theorem}
+\begin{proof}
+    Так как обе функции $\displaystyle F_{n}^{*}$ и $\displaystyle F$ непрерывны справа, то
+    
+    
+    \begin{equation*}
+    	D_{n} =\sup _{x\in \mathbb{R}}\left| F_{n}^{*}( x) -F( x)\right| =\sup _{x\in \mathbb{Q}}\left| F_{n}^{*}( x) -F( x)\right| .
+    \end{equation*}
+    Так как объединение счетного числа измеримых функций измеримо, то $\displaystyle D_{n}$ -- случайная величина. Зафиксируем $\displaystyle N\in \mathbb{N}$ и положим $\displaystyle x_{N,k} =\inf\left\{x\in \mathbb{R} :F( x) \geqslant \frac{k}{N}\right\}$. Рассмотрим произвольный $\displaystyle x\in [ x_{N,k} ,x_{N,k+1})$:
+    
+    
+    \begin{gather*}
+    F_{n}^{*}( x) -F( x) \leqslant F_{n}^{*}( x_{N,k+1} -0) -F( x_{N,k}) =F_{n}^{*}( x_{N,k+1} -0) -F( x_{N,k+1} -0) +\\
+    +\ F( x_{N,k+1} -0) -F( x_{N,k}) \leqslant F_{n}^{*}( x_{N,k+1} -0) -F( x_{N,k+1} -0) +\frac{k+1}{N} -\frac{k}{N} =\\
+    =\ F_{n}^{*}( x_{N,k+1} -0) -F( x_{N,k+1} -0) +\frac{1}{N} .
+    \end{gather*}
+    С другой стороны,
+    
+    
+    \begin{gather*}
+    F_{n}^{*}( x) -F( x) \geqslant F^{*}( x_{N,k}) -F( x_{N,k+1} -0) =F^{*}( x_{N,k}) -F( x_{N,k}) +F( x_{N,k}) -\\
+    -F( x_{N,k+1} -0) \geqslant F^{*}( x_{N,k}) -F( x_{N,k}) +\frac{k}{N} -\frac{k+1}{N} =F^{*}( x_{N,k}) -F( x_{N,k}) -\frac{1}{N} .
+    \end{gather*}
+    
+    
+    Получили, что
+    
+    
+    \begin{gather*}
+    \left| F_{n}^{*}( x) -F( x)\right| \leqslant \max\left(\left| F_{n}^{*}( x_{N,k+1} -0) -F( x_{N,k+1} -0)\right| ,\left| F^{*}( x_{N,k}) -F( x_{N,k})\right| \right) +\\
+    +\frac{1}{N} .
+    \end{gather*}
+    
+    
+    В итоге
+    
+    
+    \begin{equation*}
+    \sup _{x\in \mathbb{R}}| F_{n}( x) -F( x)| \leqslant \max_{1\leqslant k\leqslant N-1}\max\left(\left| F_{n}^{*}( x_{N,k+1} -0) -F( x_{N,k+1} -0)\right| ,\left| F^{*}( x_{N,k}) -F( x_{N,k})\right| \right) +\frac{1}{N} .
+    \end{equation*}
+    Так как $\displaystyle F_{n}^{*}( x)\xrightarrow{п.н.} F( x)$, $\displaystyle F^{*}( x-0) =P^{*}(( -\infty ,x))\xrightarrow{п.н.} P_{X}(( -\infty ,x)) =F( x-0)$, то для достаточно большого $\displaystyle N\in \mathbb{N}$ и фиксированного $\displaystyle \omega \in \mathcal{X}$ выполняется
+    
+    
+    \begin{equation*}
+    D_{n}( \omega ) =\sup _{x\in \mathbb{R}}\left| F_{n}^{*}( x) -F( x)\right| < \varepsilon \Rightarrow P\left( \omega :D_{n}( \omega )\rightarrow 0\right) =1.
+    \end{equation*}
+\end{proof}
 
-Так как обе функции $\displaystyle F_{n}^{*}$ и $\displaystyle F$ непрерывны справа, то
-
-
-\begin{equation*}
-	D_{n} =\sup _{x\in \mathbb{R}}\left| F_{n}^{*}( x) -F( x)\right| =\sup _{x\in \mathbb{Q}}\left| F_{n}^{*}( x) -F( x)\right| .
-\end{equation*}
-To be continued...
+\begin{exercise}
+Можно ли говорить, что $\displaystyle \forall B\in \mathcal{B}_{\mathcal{X}} \ \sup _{x\in \mathbb{R}}\left| P_{n}^{*}( x\in B) -P( x\in B)\right| \xrightarrow{п.н.} 0\ ?$
+\end{exercise}
