@@ -123,8 +123,17 @@ $F \subset A \times \emptyset = \emptyset$, но если $A \neq \emptyset$, т
 
 \subsubsection*{Порядок на равномощности}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Сделать символ, написать %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{definition}
+	Говорят, что $A \leqsim B$, если $\exists B' \subset B\ |\ A \cong B$.
+\end{definition}
 
 \begin{definition}
-	
+	$A \lesssim B$, если $A \leqsim B$ и при этом $A \not\cong B$
 \end{definition}
+
+\begin{theorem} (Кантора-Бернштейна)
+	Отношение порядка на равномощности антисимметрично, то есть
+	$$
+		(A \leqsim B) \wedge (B \leqsim A) \Ra A \cong B
+	$$
+\end{theorem}
