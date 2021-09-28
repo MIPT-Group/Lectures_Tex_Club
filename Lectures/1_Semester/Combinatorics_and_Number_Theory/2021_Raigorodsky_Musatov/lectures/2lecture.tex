@@ -121,6 +121,26 @@
 	Пусть $T \subset B$. Тогда, $F^{-1}(T) := \bigcup\limits_{b \in T} F^{-1}(b)$ называется \textit{прообразом} множества $T$.
 \end{definition}
 
+\begin{definition}
+	\textit{Областью определения} $F$ называется прообраз множества $B$. Обозначается как $Dom\ F$ (от слова $domain$).
+\end{definition}
+
+\begin{definition}
+	\textit{Областью значений} $F$ называется образ множества $A$. Обозначается как $Ran\ F$ (от слова $range$).
+\end{definition}
+
+\begin{definition}
+	Пусть $S \subset A$. Тогда $F|_S : S \ra B$ называется \textit{сужением} $F : A \ra B$.
+	
+	$x \in S \Ra F|_S(x) = F(x)$
+	
+	При этом $F$ по отношению к $F|_S$ называется \textit{продолжением}
+\end{definition}
+
+\begin{proposition}
+	Если $F$ - частично определенная функция, то $F|_{Dom\ F}$ - отображение.
+\end{proposition}
+
 \subsection{Композиция}
 
 \begin{definition}
