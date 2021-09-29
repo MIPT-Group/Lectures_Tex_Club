@@ -9,7 +9,7 @@
 \begin{proof}
 	$\{y_n\}_{n = 1}^\infty$ - ограниченная $\Ra \exists M > 0\ |\ \forall n \in \N\ |y_n| \le M$
 	
-	$\{x_n\}_{n = 1}^\infty$ - бесконечно малая $\Ra \forall \eps > 0\ \exists N \in \N\ |\ \forall n > N\ |x_n| < \frac{\eps}{M}
+	$\{x_n\}_{n = 1}^\infty$ - бесконечно малая $\Ra \forall \eps > 0\ \exists N \in \N\ |\ \forall n > N\ |x_n| < \frac{\eps}{M}$
 \end{proof}
 
 \begin{definition}
@@ -42,7 +42,14 @@
 \end{definition}
 
 \begin{definition}
-	$\eps$-окрестностью 
+	$\eps$-окрестность для бесконечностей определяется как
+	\begin{align*}
+		U_{\eps}(+\infty) := \left(\frac{1}{\eps}; +\infty\right)
+		\\
+		U_{\eps}(-\infty) := \left(-\infty; -\frac{1}{\eps}\right)
+		\\
+		U_{\eps}(\infty) := U_{\eps}(-\infty) \cup U_{\eps}(+\infty)
+	\end{align*}
 \end{definition}
 
 \begin{definition}
@@ -97,9 +104,10 @@
 \end{theorem}
 
 \begin{proof}
-	$l := \sup \{x_n\} \lra \System{\forall n \in \N\ x_n \le l \\ \forall \eps > 0\ \exists N \in \N\ l - \eps < x_N \le l}$
+	$l := \sup \{x_n\} \lra \System{&\forall n \in \N\ x_n \le l \\ &\forall \eps > 0\ \exists N \in \N\ l - \eps < x_N \le l}$
 	
 	Тогда, $\forall n > N \Ra l \ge x_n \ge x_{n - 1} \ge \dots \ge x_N > l - \eps \Ra |x_n - l| < \eps$
+%%%%%%%%%%%%%%%%%%%%%%%%% ДОПИСАТЬ
 \end{proof}
 
 \begin{addition}
@@ -112,7 +120,7 @@
 
 \begin{definition}
 	Последовательность вложенных отрезков - это $\{[a_n; b_n]\}_{n = 1}^\infty$, $a_n \le b_n\ \forall n \in \N$ такая, что $\forall n \in \N\ [a_{n + 1}; b_{n + 1}] \subset [a_n; b_n]$
-\end{defintion}
+\end{definition}
 
 \begin{theorem} (Принцип Кантора вложенных отрезков)
 	Каждая система вложенных отрезков имеет непустое пересечение.
@@ -181,7 +189,7 @@
 \end{proof}
 
 \begin{addition}
-	$\forall \{x_n\}_{n = 1}^\infty\ \exists \{x_{n_k}\}_{k = 1}^\infty\ \liml_{x \ra \infty} x_{n_k} = l \in \bar{\R}$
+	$\forall \{x_n\}_{n = 1}^\infty\ \exists \{x_{n_k}\}_{k = 1}^\infty\ \liml_{k \ra \infty} x_{n_k} = l \in \bar{\R}$
 \end{addition}
 
 \begin{proof}

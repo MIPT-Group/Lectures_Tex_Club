@@ -1,0 +1,84 @@
+\begin{definition}
+	\textit{Верхним пределом последовательности} $\{x_n\}_{n = 1}^\infty \subset R$ называется наибольший из её частичных пределов $\overline{\liml_{n \ra \infty}} x_n$.
+\end{definition}
+
+\begin{definition}
+	\textit{Нижним пределом последовательности} $\{x_n\}_{n = 1}^\infty \subset R$ называется наименьший из её частичных пределов $\dlim\limits_{n \ra \infty} x_n$.
+\end{definition}
+
+\begin{theorem} (3 определения верхнего и нижнего пределов)
+	Для любой ограниченной последовательности $\{x_n\}_{n = 1}^\infty$ существуют $L = \overline{\liml_{n \to \infty}} x_n$, $l = \varliminf\limits_{n \to \infty} x_n$. Для них справедливы следующие утверждения:
+	\begin{enumerate}
+		\item $(\forall \eps > 0\ \exists N \in \N\ |\ \forall n > N\ x_n < L + \eps) \wedge (\forall \eps > 0\ \forall N \in \N\ \exists n > N\ x_n > L - \eps)$
+		
+		$(\forall \eps > 0\ \exists N \in \N\ |\ \forall n > N\ x_n > l - \eps) \wedge (\forall \eps > 0\ \forall N \in \N\ \exists n > N\ |\ x_n < l + \eps)$
+		
+		\item $L = \liml_{n \ra \infty} \sup \{x_n, x_{n + 1}, \dots\};\ l = \liml_{n \ra \infty} \inf \{x_n, x_{n + 1}, \dots\}$
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	$s_n := \sup \{x_n, x_{n + 1}, \dots\} \ge s_{n + 1} = \sup \{x_{n + 1}, x_{n + 2}, \dots\}$
+	
+	$\{x_{n + 1}, x_{n + 2}\} \subset \{x_n, x_{n + 1}, \dots\}$
+	
+	$\{s_n\}_{n = 1}^\infty$ - невозрастающая последовательность $m \le x_n \le M \Ra m \le s_n \le M$
+	
+	$L = \liml_{n \ra \infty} s_n \Ra \forall \eps > 0\ \exists N_1 \in \N\ |\ \forall n > N_1\ |L - s_n| < \eps \Ra s_n < L + \eps \Ra x_n < L + \eps$
+	
+	Рассмотрим $\forall \eps > 0, N \in \N$. Выберем $N_2 > \max(N, N_1)$. Тогда
+	
+	$s_{N_2 + 1} > L - \eps$. $\exists n > N_2\ |\ x_n > L - \eps$.
+	$s_{N_2 + 1} = \sup \{x_{N_2 + 1}, x_{N_2 + 2}, \dots\}$
+	
+	Из $1.$ следует, что $L = \overline{\liml_{n \ra \infty}} x_n \Ra \forall \eps > 0, N \in \N\ \exists n > N\ |\ |x_n - L| < \eps \lra L - \eps < x_n < L + \eps$
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% ДОПИСАТЬ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{proof}
+
+\begin{definition}
+	Последовательность $\{x_n\}_{n = 1}^\infty$ называется \textit{фундаментальной}, или же \textit{последовательностью Коши}, если $\forall \eps > 0\ \exists N \in \N\ |\ \forall n > N, p \in \N |x_{n + p} - x_n| < \eps$
+\end{definition}
+
+\begin{theorem} (Критерий Коши)
+	Последовательность $\{x_n\}_{n = 1}^\infty$ сходится тогда и только тогда, когда она фундаментальна. 
+\end{theorem}
+
+\begin{proof}
+	\begin{enumerate}
+		\item Сходимость $\Ra$ фундаментальность
+		
+		Пусть $\liml_{n \ra \infty} x_n = l \Ra \forall \eps > 0\ \exists N \in \N\ |\ \forall n > N\ |x_n - l| < \frac{\eps}{2}$
+		
+		Тогда, $\forall p \in \N\ n + p > N \Ra |x_{n + p} - l| < \frac{\eps}{2}$
+		
+		$|x_{n + p} - x_n| = |x_{n + p} - l + l - x_n| \le |x_{n + p} - l| + |l - x_n| < \frac{\eps}{2} + \frac{\eps}{2} = \eps$
+		
+		\item Фундаментальность $\Ra$ ограниченность
+		
+		Согласно свойству фундаментальности, положим $\eps := 1 \Ra n := N + 1$. Теперь, $\forall p \in \N\ |x_{N + 1 + p} - x_{N + 1}| < 1 \Ra x_{N + 1} - 1 < x_{N + 1 + p} < x_{N + 1} + 1$. А для $n \le N$ имеем
+		$$
+			\min(x_1, \dots, x_{N + 1}) - 1 < x_n < \max(x_1, \dots, x_{N + 1}) + 1
+ 		$$
+ 		
+ 		\item Фундаментальность $\Ra$ ограниченность $\Ra$ $\{x_{n_k}\}_{k = 1}^\infty\ |\ \liml_{k \ra \infty} x_{n_k} = l$. Если фундаментальная последовательность имеет сходящуюся подпоследовательность, то она сходится.
+ 		
+ 		По определению предела $\forall \eps > 0\ \exists K \in \N\ |\ \forall k > K\ |x_{n_k} - l| < \eps$
+ 		
+ 		Выберем $N_1 := \max(N, n_{K + 1})$, тогда $\forall n > N_1 \ |x_n - l| \le |x_n - x_{n_k}| + |x_{n_k} - l| < \eps + \eps = 2\eps$
+ %%%%%%%%%%%%%%%%%%%%% ДОПИСАТЬ
+	\end{enumerate}
+\end{proof}
+
+\begin{theorem} (Число Эйлера)
+	Последовательность $\{x_n = (1 + \frac{1}{n})^n\}_{n = 1}^\infty$ сходится. Её предел называется числом $e$.
+\end{theorem}
+
+\begin{proof}
+	Рассмотрим последовательность $y_n := (1 + \frac{1}{n})^{n + 1}$. Докажем, что $y_n$ убывает.
+	\begin{multline*}
+		\frac{y_{n - 1}}{y_n} = \frac{(1 + \frac{1}{n - 1})^n}{(1 + \frac{1}{n})^{n + 1}} = \left(\frac{\frac{n}{n - 1}}{\frac{n + 1}{n}}\right)^n \cdot \frac{1}{1 + \frac{1}{n}} = \left(\frac{n^2}{n^2 - 1}\right)^n \cdot \frac{1}{1 + \frac{1}{n}} = \\
+		\left(1 + \frac{1}{n^2 - 1}\right)^n \cdot \frac{n}{n + 1} \ge \left(1 + \frac{n}{n^2 - 1}\right) \cdot \frac{n}{n + 1} = \\
+		\frac{(n^2 + n - 1)n}{(n^2 - 1)(n + 1)} = \frac{n^3 + n^2 - n}{n^3 + n^2 - n - 1} > 1, n > 1
+	\end{multline*}
+\end{proof}

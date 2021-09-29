@@ -44,10 +44,10 @@
     $$
     Так как одновременно из одного неравенства оказаться верной может только одна скобка, то рассморим все случаи:
     \begin{enumerate}
-        \item $(a = b) \wedge (b = c) \ra a = c$
-        \item $(a = b) \wedge (c - b > 0) \ra c - a > 0$
-        \item $(b - a > 0) \wedge (b = c) \ra c - a > 0$
-        \item $(b - a > 0) \wedge (c - b > 0) \ra (c - b) + (b - a) = c - a > 0$
+        \item $(a = b) \wedge (b = c) \Ra a = c$
+        \item $(a = b) \wedge (c - b > 0) \Ra c - a > 0$
+        \item $(b - a > 0) \wedge (b = c) \Ra c - a > 0$
+        \item $(b - a > 0) \wedge (c - b > 0) \Ra (c - b) + (b - a) = c - a > 0$
     \end{enumerate}
 \end{proof}
 
@@ -156,7 +156,7 @@ $a \cdot b :=$
     $$
         \System{\{[p_n; q_n]_\Q\}_{n = 1}^\infty \sim \{[p'_n; q'_n]_\Q\}_{n = 1}^\infty \\ 
             \{[r_n; s_n]_\Q\}_{n = 1}^\infty \sim \{[r'_n; s'_n]_\Q\}_{n = 1}^\infty}
-    \ra
+    \Ra
     \{[p_n \cdot r_n; q_n \cdot s_n]_\Q\}_{n = 1}^\infty \sim \{[p'_n \cdot r'_n; q'_n \cdot s'_n]_\Q\}_{n = 1}^\infty
     $$
 \end{proposition}
@@ -172,20 +172,20 @@ $a \cdot b :=$
         &p_n r_n \le q_n s_n \\ 
         &p_n \le q_n
         } 
-        \ra p_n r_n \le q_n r_n \le q_n s_n \\
+        \Ra p_n r_n \le q_n r_n \le q_n s_n \\
         &q_n s_n - p_n r_n \le q_n (s_n - r_n) + r_n (q_n - p_n) \le q_1 (s_n - r_n) + r_1 (q_n - p_n)
     \end{align*}
     $\{[p_n; q_n]_\Q\}_{n = 1}^\infty$ - система стягивающихся рациональных отрезков
     $$
-    \ra \forall \veps \in \Q_+\ \exists N_1 \in \N\ |\ \forall n > N_1\ q_n - p_n < \frac{\veps}{2s_1}
+    \Ra \forall \veps \in \Q_+\ \exists N_1 \in \N\ |\ \forall n > N_1\ q_n - p_n < \frac{\veps}{2s_1}
     $$
     
     Аналогично для $\{[r_n; s_n]_\Q\}_{n = 1}^\infty$
     $$
-    \ra \forall \veps \in \Q_+\ \exists N_2 \in \N\ |\ \forall n > N_2\ s_n - r_n < \frac{\veps}{2q_1}
+    \Ra \forall \veps \in \Q_+\ \exists N_2 \in \N\ |\ \forall n > N_2\ s_n - r_n < \frac{\veps}{2q_1}
     $$
     
-    $\ra q_n s_n - p_n r_n \le q_1 (s_n - r_n) + r_1 (q_n - p_n) < q_1 \cdot \frac{\veps}{2q_1} + r_1 \cdot \frac{\veps}{2r_1} = \veps$, что и требовалось доказать.
+    $\Ra q_n s_n - p_n r_n \le q_1 (s_n - r_n) + r_1 (q_n - p_n) < q_1 \cdot \frac{\veps}{2q_1} + r_1 \cdot \frac{\veps}{2r_1} = \veps$, что и требовалось доказать.
     
     Далее покажем, что произведения разных представителей классов эквивалентны:
     \begin{multline}
@@ -231,13 +231,13 @@ $\forall x, y, z \in \R$
 
 Данное определение дополняется для всех ненулевых действительных чисел как
 $$
-    a < 0 \ra \frac{1}{a} = \frac{1}{(-a)}
+    a < 0 \Ra \frac{1}{a} = \frac{1}{(-a)}
 $$
 
 \begin{proposition}
     Определение обратного действительного числа по произведению корректно.
     $$
-        \{[p_n; q_n]_\Q\}_{n = 1}^\infty \sim \{[p'_n; q'_n]_\Q\}_{n = 1}^\infty \ra \{[\frac{1}{q_n}; \frac{1}{p_n}]_\Q\}_{n = 1}^\infty \sim \{[\frac{1}{s_n}; \frac{1}{r_n}]_\Q\}_{n = 1}^\infty
+        \{[p_n; q_n]_\Q\}_{n = 1}^\infty \sim \{[p'_n; q'_n]_\Q\}_{n = 1}^\infty \Ra \{[\frac{1}{q_n}; \frac{1}{p_n}]_\Q\}_{n = 1}^\infty \sim \{[\frac{1}{s_n}; \frac{1}{r_n}]_\Q\}_{n = 1}^\infty
     $$
 \end{proposition}
 
@@ -251,7 +251,7 @@ $$
         \forall \veps \in \Q_+\ \exists N \in \N\ |\ \forall n > N\ q_n - p_n < \veps * p^2_1
     $$
     $$
-        \ra \frac{1}{p_n} - \frac{1}{q_n} \le \frac{q_n - p_n}{p^2_1} < \frac{\veps \cdot p^2_1}{p^2_1} = \veps
+        \Ra \frac{1}{p_n} - \frac{1}{q_n} \le \frac{q_n - p_n}{p^2_1} < \frac{\veps \cdot p^2_1}{p^2_1} = \veps
     $$
     
     Теперь докажем, что определение не зависит от представителя класса:

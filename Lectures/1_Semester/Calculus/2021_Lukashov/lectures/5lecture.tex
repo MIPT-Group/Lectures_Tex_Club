@@ -15,10 +15,10 @@
         p_n - \text{ наибольшее } \frac{1}{10^{n - 1}}\Z \cap A,\ q_n - \text{ наименьшее } \frac{1}{10^{n - 1}}\Z \cap B
     $$
     
-    Предположим, что $\exists b \in B\ |\ c > b \ra c + (-b) > 0$
+    Предположим, что $\exists b \in B\ |\ c > b \Ra c + (-b) > 0$
     \begin{align*}
         \frac{1}{10^{n - 1}} < c - b \\
-        c - p_n \le q_n - p_n < c - b \ra p_n > b
+        c - p_n \le q_n - p_n < c - b \Ra p_n > b
     \end{align*}
     А так как $p_n \in A,\ b \in B$, то мы получили противоречие.
 \end{proof}
@@ -166,8 +166,8 @@
         \\
         &cx - dy + (cy + dx)i = a + bi
         \\
-        &\ra \System{a = cx - dy \\ b = cy + dx}
-        \ra \System{x = \frac{\dse ac + bd}{\dse c^2 + d^2} \\ y = \frac{\dse bc - ad}{\dse c^2 + d^2}}
+        &\Ra \System{a = cx - dy \\ b = cy + dx}
+        \Ra \System{x = \frac{\dse ac + bd}{\dse c^2 + d^2} \\ y = \frac{\dse bc - ad}{\dse c^2 + d^2}}
     \end{align*}
 \end{corollary}
 
@@ -176,7 +176,7 @@
 \begin{definition}
     Число $\bar{z}$ называется \textit{комплексно сопряжённым} к числу $z$, если
     $$
-        z = a + bi \ra \bar{z} = a - bi
+        z = a + bi \Ra \bar{z} = a - bi
     $$
 \end{definition}
 
@@ -214,7 +214,7 @@
         b = |z| \cdot \sin \phi
     \end{align*}
     $$
-        \ra z = |z|(\cos \phi + i \sin \phi)
+        \Ra z = |z|(\cos \phi + i \sin \phi)
     $$
 \end{definition}
 
@@ -269,7 +269,7 @@ $$
     \\
     e^{-i\phi} &= \cos\phi - i \sin\phi
     \\
-    \ra \cos\phi &= \frac{\dse e^{i\phi} + e^{-i\phi}}{2}
+    \Ra \cos\phi &= \frac{\dse e^{i\phi} + e^{-i\phi}}{2}
     \\
     \sin\phi &= \frac{\dse e^{i\phi} - e^{-i\phi}}{2}
     \\
@@ -297,15 +297,15 @@ $$
 Решим уравнение $z^n = w$
 
 \begin{enumerate}
-    \item $w = 0 \ra z = 0$
+    \item $w = 0 \Ra z = 0$
     \item \begin{align*}
-    &w \neq 0 \ra w = |w|(\cos \psi + i \sin \psi)
+    &w \neq 0 \Ra w = |w|(\cos \psi + i \sin \psi)
     \\
     &z = |z|(\cos \phi + i \sin \phi)
     \\
     &z^n = |z|^n(\cos n\phi + i \sin n\phi)
     \\
-    &\ra |z| = \sqrt[n]{|w|},\ n\phi = \psi + 2\pi k,\ k \in \Z
+    &\Ra |z| = \sqrt[n]{|w|},\ n\phi = \psi + 2\pi k,\ k \in \Z
     \\
     &\phi = \frac{\psi + 2\pi k}{n},\ k = \{0, 1, \dots n - 1\}
     \end{align*}
@@ -329,7 +329,7 @@ $$
     $$
     a := \{[p_n; q_n]_\Q\}_{n = 1}^\infty,\ b := \{[r_n; s_n]_\Q\}_{n = 1}^\infty
     $$
-    $q_n - p_n = s_n - r_n = \frac{1}{10^{n - 1}} \text{ (такое } $n$ \text{ найдётся) } < \frac{b - a}{2} \ra q_n < r_n$
+    $q_n - p_n = s_n - r_n = \frac{1}{10^{n - 1}} \text{ (такое } $n$ \text{ найдётся) } < \frac{b - a}{2} \Ra q_n < r_n$
     
     $r := \frac{q_n + r_n}{2}$, так как $a \in [p_n; q_n]$ и $b \in [r_n; s_n]$
 \end{proof}
@@ -388,22 +388,22 @@ $$
     Пусть $E \subset R$ - ограниченное сверху множество. Обозначим через $B$ множество всех верхних граней множества $E$. Тогда $A := \R \backslash B$.
     
     \begin{align*}
-        x \in E,\ \forall a \in \R,\ a < x, a \in A \ra A \neq \emptyset, B \neq \emptyset, A \cup B = \R
+        &x \in E,\ \forall a \in \R,\ a < x, a \in A \Ra A \neq \emptyset, B \neq \emptyset, A \cup B = \R
         \\
-        A \cap B = \emptyset,\ \forall a \in A, b \in B\ a < b
+        &A \cap B = \emptyset,\ \forall a \in A, b \in B\ a < b
         \\
-        \forall b \in B, x > b\ x \in B \ra \exists c \in R\ |\ \forall a \in A, b \in B\ a \le c \le b
+        &\forall b \in B, x > b\ x \in B \Ra \exists c \in R\ |\ \forall a \in A, b \in B\ a \le c \le b
     \end{align*}
     Предположим, что
     $$
-        c \in B \ra c = \sup E
+        c \in B \Ra c = \sup E
     $$
     А если предположить обратное, то
     $$
-        c \notin B \ra \exists x \in E\ |\ x > c
+        c \notin B \Ra \exists x \in E\ |\ x > c
     $$
     Рассмотрим
     $$
-        \frac{x + c}{2} < x \ra \frac{x + c}{2} \in A \ra \frac{x + c}{2} > c, \text{ противоречие}
+        \frac{x + c}{2} < x \Ra \frac{x + c}{2} \in A \Ra \frac{x + c}{2} > c, \text{ противоречие}
     $$
 \end{proof}

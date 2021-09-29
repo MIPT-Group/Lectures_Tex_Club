@@ -121,7 +121,7 @@
 \subsection{Отображения и функции}
 
 \begin{definition}
-    $(f\ |\ X \xrightarrow{} Y) \lra (\forall x \in X)(\exists! y \in Y) y = f(x)$ - отображение (функция) из $X$ в $Y$
+    $(f\ |\ X \ra Y) \lra (\forall x \in X)(\exists! y \in Y) y = f(x)$ - отображение (функция) из $X$ в $Y$
 \end{definition}
 
 \begin{definition}
@@ -141,7 +141,7 @@
 
 \begin{itemize}
     \item Инъекция \\
-    $(f(x_1) = f(x_2)) \ra (x_1 = x_2)$, то есть функция однозначна
+    $(f(x_1) = f(x_2)) \Ra (x_1 = x_2)$, то есть функция однозначна
     \item Сюръекция \\
     $f(X) = Y$, то есть $f(x)$ принимает все возможные значения из множества $Y$
     \item Биекция \\
@@ -178,29 +178,29 @@
 \begin{definition}
     Бинарное отношение $R$ называется \textit{отношением эквивалентности}, если выполнены условия:
     \begin{enumerate}
-        \item Рефлексивность $\forall x \in X \ra xRx$
-        \item Симметричность $\forall x, y \in X (xRy) \ra (yRx)$
-        \item Транзитивность $\forall x, y, z \in X (xRy) \wedge (yRz) \ra (xRz)$
+        \item Рефлексивность $\forall x \in X \Ra xRx$
+        \item Симметричность $\forall x, y \in X (xRy) \Ra (yRx)$
+        \item Транзитивность $\forall x, y, z \in X (xRy) \wedge (yRz) \Ra (xRz)$
     \end{enumerate}
 \end{definition}
 
 \begin{definition}
     Бинарное отношение $R$ называется \textit{отношением порядка}, если выполнены условия:
     \begin{enumerate}
-        \item Рефлексивность $\forall x \in X \ra xRx$
-        \item Антисимметричность $\forall x, y \in X\ (xRy) \wedge (yRx) \ra (x = y)$
+        \item Рефлексивность $\forall x \in X \Ra xRx$
+        \item Антисимметричность $\forall x, y \in X\ (xRy) \wedge (yRx) \Ra (x = y)$
         \item Транзитивность
-        $\forall x, y, z \in X\ (xRy) \wedge (yRz) \ra (xRz)$
+        $\forall x, y, z \in X\ (xRy) \wedge (yRz) \Ra (xRz)$
     \end{enumerate}
 \end{definition}
 
 \begin{adefinition}
     Бинарное отношение $R$ называется \textit{отношением строгого порядка}, если выполнены условия:
     \begin{enumerate}
-        \item Антирефлексивность $\forall x \in X \ra \neg xRx$
-        \item Антисимметричность $\forall x, y \in X\ (xRy) \wedge (yRx) \ra (x = y)$
+        \item Антирефлексивность $\forall x \in X \Ra \neg xRx$
+        \item Антисимметричность $\forall x, y \in X\ (xRy) \wedge (yRx) \Ra (x = y)$
         \item Транзитивность
-        $\forall x, y, z \in X\ (xRy) \wedge (yRz) \ra (xRz)$
+        $\forall x, y, z \in X\ (xRy) \wedge (yRz) \Ra (xRz)$
     \end{enumerate}
 \end{adefinition}
 
