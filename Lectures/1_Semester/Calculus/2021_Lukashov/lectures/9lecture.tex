@@ -31,9 +31,15 @@
 	\begin{enumerate}
 		\item (К $\Ra$ Г)
 		
-		Распишем определение Коши для каждого члена последовательности: $\forall \{x_n\} \subset X \bs \{a\}\ |\  \liml_{n \ra \infty} x_n = a$
+		Распишем определение Коши для каждого члена последовательности: 
+		$$
+			\forall \{x_n\} \subset X \bs \{a\}\ |\  \liml_{n \ra \infty} x_n = a
+		$$
 		
-		Из предел равносилен утверждению: $\forall \delta > 0\ \exists N \in \N\ |\ \forall n > N\ x_n \in U_{\delta}(a)$
+		Из предел равносилен утверждению: 
+		$$
+			\forall \delta > 0\ \exists N \in \N\ |\ \forall n > N\ x_n \in U_{\delta}(a)
+		$$
 		
 		Отсюда напрямую следует, что $f(x_n) \in U_{\eps}(A)$
 		
@@ -45,16 +51,16 @@
 		
 		Подставим разные $\delta$:
 		\begin{align*}
-			\delta := 1 & x_1 \in U_{1}(a) & f(x_1) \notin U_{\eps}(A)
+			&\delta := 1 & &{x_1 \in U_{1}(a)} & &{f(x_1) \notin U_{\eps}(A)}
 			\\
-			\delta := 1/2 & x_1 \in U_{1/2}(a) & f(x_2) \notin U_{\eps}(A)
+			&\delta := 1/2 & &{x_1 \in U_{1/2}(a)} & &{f(x_2) \notin U_{\eps}(A)}
 			\\
-			\dots & \dots & \dots
+			&\dots & &\dots & &\dots
 			\\
-			\delta := 1/n & x_1 \in U_{1/n}(a) & f(x_n) \notin U_{\eps}(A)
+			&\delta := 1/n & &{x_1 \in U_{1/n}(a)} & &{f(x_n) \notin U_{\eps}(A)}
 		\end{align*}
 		
-		Получили последовательность $\{x_n\}_{n = 1}^\infty\ |\ \forall \eps > 0\ \exists N = [\frac{1}{\eps}] + 1\ |\ \forall n > N\ x_n \in U_{\eps}(a)$
+		Получили последовательность $\{x_n\}_{n = 1}^\infty\ |\ \forall \eps > 0\ \exists N = \left\lceil\frac{\dse 1}{\dse \eps}\right\rceil + 1\ |\ \forall n > N\ x_n \in U_{\eps}(a)$
 		
 		То есть $\liml_{n \ra \infty} x_n = a$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% ДОПИСАТЬ
