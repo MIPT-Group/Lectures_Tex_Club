@@ -15,8 +15,8 @@
 	Известно также, что для любого билинейного отображения $b: V_1 \times V_2 \rightarrow V$ существует единственное линейное отображение $\phi_b: V_1 \otimes V_2 \rightarrow V$ такое, что $\phi_b \circ f = b$, то есть имеет место следующая коммутативная диаграмма:
 	\[
 	\begin{tikzcd}[row sep = large]
-		V_1 \arrow[]{dr}{f} \times V_2 \arrow[]{rr}{b} && V\\
-		& V_1 \otimes V_2 \arrow[]{ur}{\phi_b}&
+		V_1 \arrow[swap]{dr}{f} \times V_2 \arrow[]{rr}{b} && V\\
+		& V_1 \otimes V_2 \arrow[swap]{ur}{\phi_b}&
 	\end{tikzcd}
 	\]
 	
@@ -93,7 +93,7 @@
 	Как известно, сопоставление $\psi$ вида $x_1 + \ke\phi \mapsto \phi(x_1)$ осуществляет изоморфизм линейных пространств $V_1 / \ke\phi \cong \im\phi$. Остается проверить, что $\psi \circ g = g \circ \psi$ для любого $g \in G$. Зафиксируем $v_1 \in V_1$ и рассмотрим следующую диаграмму:
 	\[
 	\begin{tikzcd}[row sep = large]
-		v_1 + \ke\phi \arrow{d}{g} \arrow{r}{\phi} & \phi(v_1) \arrow{d}{g}\\
+		v_1 + \ke\phi \arrow[swap]{d}{g} \arrow{r}{\phi} & \phi(v_1) \arrow{d}{g}\\
 		gv_1 + \ke\phi \arrow{r}{\phi} & g(\phi(v_1)) = \phi(gv_1)
 	\end{tikzcd}
 	\]
