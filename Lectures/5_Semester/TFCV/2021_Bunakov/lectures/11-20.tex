@@ -90,7 +90,7 @@
 \end{definition}
 
 \begin{definition}
-	Функция $f$ называется \textit{регулярной} на множестве $A \subset \Cm$, если $A$ вложено в открытое множество $G \subset \Cm$ такое, что $f \in C^1(G)$. Обозначение "--- $f \in C^1(A)$.
+	Функция $f$ называется \textit{регулярной} на множестве $A \subset \Cm$, если $A$ включено в открытое множество $G \subset \Cm$ такое, что $f \in C^1(G)$. Обозначение "--- $f \in C^1(A)$.
 \end{definition}
 
 \begin{note}
@@ -123,7 +123,7 @@
 	\begin{align*}
 		\int_{\gamma}f(z)|dz| &= \int_\gamma u(x, y)ds + i\int_\gamma v(x, y)ds
 		\\
-		\int_{\gamma}f(z)dz &= \int_\gamma (udx - vdy) + i\int_\gamma (vdx - udy)
+		\int_{\gamma}f(z)dz &= \int_\gamma udx - vdy + i\int_\gamma vdx + udy
 	\end{align*}
 \end{note}
 
@@ -148,3 +148,195 @@
 		\[\left|\int_\gamma fdz\right| \le \int_\gamma|f||dz| \le M|\gamma|\]
 	\end{enumerate}
 \end{theorem}
+
+\begin{proof}
+	Справедливость всех свойств, кроме последнего, непосредственно следует из справедливости соответствующих свойств вещественных интегралов. Докажем последнее свойство. Если $I := \int_\gamma fdz = 0$, то утверждение тривиально. Пусть теперь это не так, тогда $I = |I|e^{i\theta}$ для некоторого $\theta \in \R$, откуда $|I| = Ie^{-i\theta}$. Зафиксируем параметризацию $z = \sigma(t)$, $t \in [a, b]$, тогда:
+	\begin{multline*}
+		|I| = \int_{a}^be^{-i\theta} f(\sigma(t))\sigma'(t)dt = \int_{a}^b\re\left(e^{-i\theta} f(\sigma(t))\sigma'(t)\right)dt \le \\
+		\le \int_{a}^b\left|e^{-i\theta} f(\sigma(t))\sigma'(t)\right|dt = \int_{a}^b|f(\sigma(t))||\sigma'(t)|dt = \int_\gamma |f||dz|
+	\end{multline*}
+
+	Таким образом, первое неравенство уже получено, а второе следует из свойств вещественных интегралов.
+\end{proof}
+
+\begin{example}
+	Пусть $n \in \Z$, $z_0 \in \Cm$, $R > 0$. Вычислим следующий интеграл:
+	\[I_n := \int_{\{z \in \Cm: |z - z_0| = R\}}(z - z_0)^ndz\]
+	
+	Будем считать, что окружность $\{z \in \Cm: |z - z_0| = R\}$ ориентирована против часовой стрелки, и параметризуем ее как $z(t) = z_0 + Re^{it}$, $t \in [0, 2\pi]$. Тогда:
+	\[I_n = \int_0^{2\pi}\left(Re^{it}\right)^n(iRe^{it})dt = iR^{n+1}\int_0^{2\pi}e^{it(n+1)}dt = \System{
+	&2i\pi,\text{ если }n = -1
+	\\
+	&0,\text{ если }n \ne -1
+	}\]
+\end{example}
+
+\begin{note}
+	Если $z = \sigma(t)$, $t \in [a, b]$ "--- абсолютно непрерывная функция, а композиция $f \circ \sigma$ измерима и ограниченна на $[a, b]$, то формула интеграла второго рода остается применимой.
+\end{note}
+
+\section{Интегральная теорема Коши}
+
+\begin{theorem}[\textit{без доказательства}]
+	Пусть выполнены следующие условия:
+	\begin{enumerate}
+		\item $G \subset \R^2$ "--- односвязная область
+		
+		\item $P, Q \in C^1(G)$
+		
+		\item $\D{P}{y} \equiv \D{Q}{x}$ на $G$
+		
+		\item $\gamma$ "--- кусочно-гладкая замкнутая кривая такая, что $M(\gamma) \subset G$
+	\end{enumerate}
+
+	Тогда верно следующее равенство:
+	\[\int_\gamma Pdx + Qdy = 0\]
+\end{theorem}
+
+\begin{theorem}[интегральная теорема Коши для односвязной области]
+	Пусть выполнены следующие условия:
+	\begin{enumerate}
+		\item $G \subset \Cm$ "--- односвязная область
+		\item $f \in C^1(G)$
+		\item $\gamma$ "--- кусочно-гладкая замкнутая кривая такая, что $M(\gamma) \subset G$
+	\end{enumerate}
+	
+	Тогда верно следующее равенство:
+	\[\int_\gamma f(z)dz = 0\]
+\end{theorem}
+
+\begin{proof}
+	Пусть $f(z) = f(x + iy) = u(x, y) + iv(x, y)$, тогда:
+	\[\int_\gamma fdz = \int_\gamma udx - vdy + i\int_\gamma vdx + udy\]
+	
+	Проверим, что первый интеграл в сумме выше равен нулю, поскольку равенство нулю второго интеграла проверяется аналогично. В силу регулярности функции $f$, $u, v \in C^1(G)$, причем $\D{u}{y} \equiv -\D{v}{x}$ на $G$ по условиям Коши-Римана, тогда $\int_\gamma udx - vdy = 0$ по предыдущей теореме.
+\end{proof}
+
+\begin{note}
+	Условие односвязности области $G$ существенно. Рассмотрив неодносвязную область $G := \{z \in \Cm : \frac12 < |z| < 2\}$, кривую $\gamma := \{z \in \Cm : |z| = 1\}$, ориентированную против часовой стрелки, и функцию $f(z) := \frac 1z \in C^1(G)$, тогда:
+	\[\int_\gamma fdz = 2\pi i  \ne 0\]
+\end{note}
+
+\begin{definition}
+	Область $G \subset \CM$ называется \textit{областью с простой границей}, если $\partial{G} = M(\gamma_1) \sqcup \dotsb \sqcup M(\gamma_n)$ для некоторых кусочно-гладких контуров $\gamma_1, \dotsc, \gamma_n$. Граничные кривые $\gamma_1, \dotsc, \gamma_n$ называются \textit{положительно ориентированными} относительно $G$, если при обходе каждой из них область всегда остается слева.
+\end{definition}
+
+\begin{example}
+	На рисунке ниже слева приведен пример области $G_1$ с простой положительно ориентированной границей, а справа --- пример области $G_2$, не являющейся областью с простой границей.
+		\begin{center}
+			\begin{tikzpicture}
+				\clip (-6, -2.2) rectangle (6, 2.2);
+				
+				\fill [opacity=0.1] (-3,0) circle [radius=2];
+				\draw[
+					black,
+					decoration={markings, mark=at position 0.1 with {\arrow{>}}},
+					decoration={markings, mark=at position 0.6 with {\arrow{>}}},
+					postaction={decorate}
+				] (-3,0) circle[radius=2];
+				\node[] at (-1, 1.2) {$\gamma_1$};
+				
+				\fill [white] (-3.9,0) circle [radius=0.7];
+				\draw[
+				black,
+				decoration={markings, mark=at position 0.1 with {\arrow{<}}},
+				decoration={markings, mark=at position 0.6 with {\arrow{<}}},
+				postaction={decorate}
+				] (-3.9,0) circle[radius=0.7];
+				\node[] at (-3.8, 0.9) {$\gamma_2$};
+				\node[] at (-3, -1) {$G_1$};
+				
+				\fill [white] (-2.1,0) circle [radius=0.7];
+				\draw[
+				black,
+				decoration={markings, mark=at position 0.1 with {\arrow{<}}},
+				decoration={markings, mark=at position 0.6 with {\arrow{<}}},
+				postaction={decorate}
+				] (-2.1,0) circle[radius=0.7];
+				\node[] at (-2.2, 0.9) {$\gamma_3$};
+				
+				\fill [opacity=0.1] (3,0) circle [radius=2];
+				\draw[black] (3,0) circle[radius=2];
+				\node[] at (1.03, 1.2) {$\gamma$};
+				\node[] at (3, -0.67) {$G_2 = \dot B_\epsilon(z_0)$};
+				
+				\node[] at (3.2, 0.2) {$z_0$};
+				
+				\fill [white] (3,0) circle [radius=0.06];
+				\draw[black,=] (3,0) circle[radius=0.06];
+			\end{tikzpicture}
+	\end{center}
+	
+	Кроме того, не являются областями с простой границей, например, область $\Cm$ и область $\{z \in \Cm: \im{z} > 0\}$.
+\end{example}
+
+\begin{definition}
+	\textit{Замыканием} множества $A \subset \Cm$ называется множество $\overline{A} := A \cup \partial A$.
+\end{definition}
+
+\begin{theorem}[\textit{без доказательства}, формула Грина для области с простой границей]
+	Пусть выполнены следующие условия:
+	\begin{enumerate}
+		\item $G \subset \R^2$ "--- ограниченная область с простой границей $M(\gamma_1) \sqcup \dotsb \sqcup M(\gamma_n)$
+		
+		\item Граничные кривые $\gamma_1, \dotsc, \gamma_n$ положительно ориентированы относительно $G$
+		
+		\item $P, Q \in C(\overline{G})$ и $\D{P}{y}, \D{Q}{x} \in C(\overline{G})$, то есть функции $\D{P}{y}, \D{Q}{x}$ можно непрерывным образом продолжить на $\partial G$
+	\end{enumerate}
+	
+	Тогда верно следующее равенство:
+	\[\iint_G\left(\D{Q}{x} - \D{P}{y}\right)dxdy = \int_{\partial G} Pdx + Qdy = \sum_{k = 1}^n\int_{\gamma_k}Pdx + Qdy\]
+\end{theorem}
+
+\begin{theorem}[интегральная теорема Коши для ограниченной области с простой границей]
+	Пусть $G \subset \Cm$ "--- ограниченная область с простой границей, $f \in C^1(\overline{G})$. Тогда верно следующее равенство:
+	\[\int_{\partial G} fdz = \sum_{k = 1}^n\int_{\gamma_k}Pdx + Qdy = 0\]
+\end{theorem}
+
+\begin{proof}
+	В силу регулярности функции $f$, можно выбрать открытое множество $A \subset \Cm$ такое, что $A \supset \overline{G}$ и $f \in C^1(A)$. Пусть $f(z) = f(x + iy) = u(x, y) + iv(x, y)$, тогда:
+	\[\int_{\partial G} fdz = \int_\gamma udx - vdy + i\int_\gamma vdx + udy\]
+	
+	Применяя предыдущую теорему к парам функций $u, -v$ и $v, u$, а также пользуясь условиями Коши-Римана, получим:
+	\begin{align*}
+		\int_{\partial G} udx - vdy  &= \iint_G \left(-\D{v}{x} - \D{u}{y}\right)dxdy = 0
+		\\
+		\int_{\partial G} vdx + udy  &= \iint_G \left(\D{u}{x} - \D{v}{y}\right)dxdy = 0
+	\end{align*}
+
+	Таким образом, $\int_{\partial G} fdz = 0$.
+\end{proof}
+
+\section{Интегральная формула Коши}
+
+\begin{theorem}
+	Пусть выполнены следующие условия:
+	\begin{enumerate}
+		\item $G \subset \Cm$ "--- ограниченная область с простой границей $M(\gamma_1) \sqcup \dotsb \sqcup M(\gamma_n)$
+		
+		\item Граничные кривые $\gamma_1, \dotsc, \gamma_n$ положительно ориентированы относительно $G$
+		
+		\item $f \in C^1(\overline{G})$
+		
+		\item $z_0 \in G$
+	\end{enumerate}
+	
+	Тогда верно следующее равенство:
+	\[f(z_0) = \frac{1}{2\pi i}\int_{\partial G}\frac{f(z)}{z - z_0}dz\]
+\end{theorem}
+
+\begin{proof}
+	Зафиксируем произвольное $\epsilon > 0$. Достаточно доказать, что выполнено следующее неравенство:
+	\[\left|\int_{\partial G}\frac{f(z)}{z - z_0}dz - 2\pi if(z_0)\right| \le 2\pi\epsilon\]
+	
+	Так как $f$ непрерывна в точке $z_0$, а множество $G$ "--- открытое, то существует $\delta > 0$ такое, что $\overline{B_\delta(z_0)} \subset G$ и для всех $z \in \overline{B_\delta(z_0)}$ выполнено $|f(z) - f(z_0)| \le \epsilon$. Рассмотрим область с простой границей $D := G \bs \overline{B_\delta(z_0)}$, тогда $\partial D = \partial G \cup \omega$, где $\omega$ "--- это окружность $\{z \in \Cm: |z - z_0| = \delta\}$, ориентированная по часовой стрелке. Применим к $\frac{f(z)}{z - z_0}$ интегральную теорему Коши для области $D$ и получим следующее:
+	\[\int_{\partial D}\frac{f(z)}{z - z_0}dz = \int_{\partial G}\frac{f(z)}{z - z_0}dz + \int_{\omega}\frac{f(z)}{z - z_0}dz = 0 \ra \int_{\partial G}\frac{f(z)}{z - z_0}dz = -\int_{\omega}\frac{f(z)}{z - z_0}dz\]
+	
+	Заметим теперь, что верно следующее равенство:
+	\[\int_{\omega}\frac{dz}{z - z_0} = -2\pi i\]
+	
+	C учетом полученных равенств, имеем:
+	\[\left|\int_{\partial G}\frac{f(z)}{z - z_0}dz - 2\pi if(z_0)\right| = \left|\int_{\omega}\frac{f(z) - f(z_0)}{z - z_0}dz\right| \le \max_{z \in \omega}\frac{|f(z) - f(z_0)|}{|z - z_0|}|\omega| \le 2\pi\epsilon\]
+	
+	Таким образом, получено требуемое.
+\end{proof}
