@@ -180,11 +180,30 @@
 
 \begin{proof}
 \begin{enumerate}
-	\item $l$ - частичный предел. То есть $l = \liml_{n \ra +\infty} x_{n_k} \lra \forall \eps > 0\ \exists K \in \N\ |\ \forall k > K\ |x_{n_k} - l| < \eps$
+	\item $l$ - частичный предел. То есть 
+	$$
+		l = \liml_{k \to \infty} x_{n_k} \lra \forall \eps > 0\ \exists K \in \N\ |\ \forall k > K\ |x_{n_k} - l| < \eps
+	$$
+	При этом помним, что $\{n_k\}$ - возрастающая последовательность натуральных чисел
 	
-	$\forall N \in \N\ \exists K_1 \in \N\ |\ n_{K_1} > N \Ra \forall k > \max(K, K_1), $
+	Следовательно, для $\forall N \in \N$ найдётся $K_1 \in \N\ |\ n_{K_1} > N$, а значит и $n := n_{K_1 + 1} \Ra n > n_{K_1} > N,\ |x_n - l| < \eps$
 	
-%%%%%%%%%%%%%%%%%%%%%	ДОПИСАТЬ
+	В итоге имеем:
+	$$
+		\forall \eps > 0\ \forall N \in \N\ \exists n > N\ |\ |x_n - l| < \eps
+	$$
+	\item Пусть для $l$ верно, что $\forall \eps > 0\ \forall N \in \N\ \exists n > N\ |\ |x_n - l| < \eps$
+	
+	Построим сходящуюся подпоследовательность:
+	\begin{align*}
+		&\eps := 1 & &N := 1 & &\exists n_1 \in \N\ |\ n_1 > 1,\ |x_{n_1} - l| < 1
+		\\
+		&\eps := 1/2 & &N := n_1 & &\exists n_2 \in \N\ |\ n_2 > n_1,\ |x_{n_2} - l| < 1/2
+		\\
+		&\dots
+	\end{align*}
+	По построению $\{x_{n_k}\}_{k = 1}^\infty$ такова, что
+	$\forall \eps > 0\ \exists K \in \N\ |\ \forall k > K\ |x_{n_k} - l| < \eps$
 \end{enumerate}
 \end{proof}
 
@@ -205,11 +224,22 @@
 \end{proof}
 
 \begin{addition}
-	$\forall \{x_n\}_{n = 1}^\infty\ \exists \{x_{n_k}\}_{k = 1}^\infty\ \liml_{k \ra \infty} x_{n_k} = l \in \bar{\R}$
+	Каждая числовая последовательность $\forall \{x_n\}_{n = 1}^\infty$ имеет хотя бы 1 частичный предел, то есть $\exists \{x_{n_k}\}_{k = 1}^\infty\ |\ \liml_{k \ra \infty} x_{n_k} = l \in \bar{\R}$
 \end{addition}
 
 \begin{proof}
-	Предположим, $\{x_n\}_{n = 1}^\infty$ неограничена сверху. (Если ограничено, то смотрим теорему Больцано-Вейерштрасса)
-%%%%%%%%%%%%%%%%%%%%%	ДОПИСАТЬ
+	Если последовательность ограничена, смотрим теорему Больцано-Вейерштрасса.
+	
+	Если последовательность неограничена сверху, то построим подпоследовательность:
+	\begin{align*}
+		&M := 1 & &\Ra \exists n_1 \in \N\ |\ x_{n_1} > 1
+		\\
+		&M := \max(2, x_1, x_2, \dots, x_{n_1}) & &\Ra \exists n_2 \in \N\ |\ x_{n_2} > \max(2, x_{n_2}) \ge 2,\ n_2 > n_1
+		\\
+		&\dots
+	\end{align*}
+	Получили $\{x_{n_k}\}_{k = 1}^\infty$ такую, что $\forall k \in \N\ x_{n_k} > k$. Несложно показать, что данная последовательность - бесконечно большая.
+	
+	Аналогично доказывается случай, когда последовательность неограничена снизу.
 \end{proof}
 

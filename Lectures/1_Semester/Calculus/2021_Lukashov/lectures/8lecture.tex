@@ -13,31 +13,58 @@
 		
 		$(\forall \eps > 0\ \exists N \in \N\ |\ \forall n > N\ x_n > l - \eps) \wedge (\forall \eps > 0\ \forall N \in \N\ \exists n > N\ |\ x_n < l + \eps)$
 		
-		\item $L = \liml_{n \ra \infty} \sup \{x_n, x_{n + 1}, \dots\};\ l = \liml_{n \ra \infty} \inf \{x_n, x_{n + 1}, \dots\}$
+		\item $L = \liml_{n \to \infty} \sup \{x_n, x_{n + 1}, \dots\};\ l = \liml_{n \to \infty} \inf \{x_n, x_{n + 1}, \dots\}$
 	\end{enumerate}
+	Причём определения равносильны (стандартное и эти 2 пункта).
 \end{theorem}
 
 \begin{proof}
-	$s_n := \sup \{x_n, x_{n + 1}, \dots\} \ge s_{n + 1} = \sup \{x_{n + 1}, x_{n + 2}, \dots\}$
+	Доказательство приводится только для верхнего предела. Для нижнего просто аналогично.
 	
-	$\{x_{n + 1}, x_{n + 2}\} \subset \{x_n, x_{n + 1}, \dots\}$
+	Рассмотрим последовательность $s_n := \sup \{x_n, x_{n + 1}, \dots\} = \sup\limits_{m \ge n} x_m$. Несложно заметить 2 утверждения из данного определения:
+	\begin{align*}
+		&s_n \ge s_{n + 1}
+		\\
+		&s_n \ge \inf \{x_n\}
+	\end{align*}
+	А значит по теореме Вейерштрасса, данная последовательность сходится и имеет предел $L := \liml_{n \to \infty} s_n = \inf \{s_n\}$. 
 	
-	$\{s_n\}_{n = 1}^\infty$ - невозрастающая последовательность $m \le x_n \le M \Ra m \le s_n \le M$
+	лПокажем, что для этой последовательности верен первый пункт.
 	
-	$L = \liml_{n \ra \infty} s_n \Ra \forall \eps > 0\ \exists N_1 \in \N\ |\ \forall n > N_1\ |L - s_n| < \eps \Ra s_n < L + \eps \Ra x_n < L + \eps$
+	По определению предела 
+	$$
+		\forall \eps > 0\ \exists N \in \N\ |\ \forall n > N\ |s_n - L| < \eps
+	$$
+	Так как $s_n := \sup \{x_n, x_{n + 1}, \dots\}$, то $x_n \le s_n < L + \eps$ (доказано следствие первой части п.1. из п.2.).
 	
-	Рассмотрим $\forall \eps > 0, N \in \N$. Выберем $N_2 > \max(N, N_1)$. Тогда
+	Рассмотрим $N \in \N$ и $s_{N + 1} = \sup \{x_{N + 1}, x_{N + 2}, \dots\} \ge L$. Так как $L = \inf \{s_n\}$, то $\forall \eps > 0\ \exists n > N\ |\ x_n > s_{N + 1} - \eps \ge L - \eps$ (доказано следствие второй части п.1. из п.2.)
 	
-	$s_{N_2 + 1} > L - \eps$. $\exists n > N_2\ |\ x_n > L - \eps$.
-	$s_{N_2 + 1} = \sup \{x_{N_2 + 1}, x_{N_2 + 2}, \dots\}$
+	Теперь докажем, что из пункта 1. $L$ - наибольший частичный предел $\{x_n\}$. Построим подпоследовательность:
+	\begin{align*}
+		&\eps := 1 & &\Ra \exists n_1 \in \N\ |\ |x_{n_1} - L| < 1
+		\\
+		&\eps := 1/2 & &\Ra N'_2 := \max(N_2, n_1)\ \exists n_2 > N'_2\ |\ |x_{n_2} - L| < 1/2
+		\\
+		&\dots		
+	\end{align*}
+	Существование номера обусловлено тем, что мы вначале применяем первую часть пункта 1., а затем подставляем во вторую часть пункта 1. $N'_i := \max(N_i, n_{i - 1})$ и находим такое $n > N'_i$, что для него верны оба неравенства сразу.
 	
-	Из $1.$ следует, что $L = \overline{\liml_{n \ra \infty}} x_n \Ra \forall \eps > 0, N \in \N\ \exists n > N\ |\ |x_n - L| < \eps \lra L - \eps < x_n < L + \eps$
+	Получили $\{x_{n_k}\}_{k = 1}^\infty$ такую, что $\liml_{k \to \infty} x_{n_k} = L$
 	
-%%%%%%%%%%%%%%%%%%%%%%%%%%%% ДОПИСАТЬ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	Рассмотрим произвольную $\{x_{m_i}\}_{i = 1}^\infty$ такую, что $\exists \liml_{i \to \infty} x_{m_i} = t$ Из уже доказанного пункта 1. следует, что
+	$$
+		\forall \eps > 0\ \exists I \in \N\ |\ \forall i > I x_{m_i} < L + \eps
+	$$
+	
+	Совершая предельный переход в неравенстве, получим
+	$$
+		\forall \eps > 0\ t \le L + \eps
+	$$
+	Отсюда понятно, что $t \le L$, то есть $L$ действительно наибольший частичный предел.
 \end{proof}
 
 \begin{definition}
-	Последовательность $\{x_n\}_{n = 1}^\infty$ называется \textit{фундаментальной}, или же \textit{последовательностью Коши}, если $\forall \eps > 0\ \exists N \in \N\ |\ \forall n > N, p \in \N |x_{n + p} - x_n| < \eps$
+	Последовательность $\{x_n\}_{n = 1}^\infty$ называется \textit{фундаментальной}, или же \textit{последовательностью Коши}, если $\forall \eps > 0\ \exists N \in \N\ |\ \forall n > N, p \in \N\ |x_{n + p} - x_n| < \eps$
 \end{definition}
 
 \begin{theorem} (Критерий Коши)
