@@ -3,23 +3,23 @@
 \begin{definition}
 	\textit{Проколотой $\delta$-окрестностью} точки $a \in \R$ называется множество
 	$$
-		U_{\delta}(a) := (a - \delta; a) \cup (a; a + \delta)
+		\mc{U}_{\delta}(a) := (a - \delta; a) \cup (a; a + \delta)
 	$$
 \end{definition}
 
 \begin{note}
-	Будем считать, что $f : X \ra \R$, $X \subset \R$ определена в некоторой $U_{\delta}(a) \subset X$, $\delta > 0$
+	Далее, если не оговорено иного, будем считать, что $f : X \ra \R$, $X \subset \R$ определена в некоторой $\mc{U}_{\delta_0}(a) \subset X$, $\delta_0 > 0$
 \end{note}
 
 \begin{definition} (Предел по Коши)
 	$$
-		\liml_{x \ra a} f(x) = A \lra \forall \eps > 0\ \exists \delta > 0\ |\ \forall x \in U_{\delta}(a)\ f(x) \in U_{\eps}(A)
+		\liml_{x \to a} f(x) = A \lra \forall \eps > 0\ \exists \delta > 0\ |\ \forall x \in \mc{U}_{\delta}(a)\ f(x) \in U_{\eps}(A)
 	$$
 \end{definition}
 
 \begin{definition} (Предел по Гейне)
 	$$
-		\liml_{x \ra a} f(x) = A \lra \forall \{x_n\} \subset X \bs \{a\}\ |\  \liml_{n \ra \infty} x_n = a \Ra \liml_{n \ra \infty} f(x_n) = A
+		\liml_{x \to a} f(x) = A \lra \forall \{x_n\} \subset X \bs \{a\}\ \liml_{n \to \infty} x_n = a \Ra \liml_{n \to \infty} f(x_n) = A
 	$$
 \end{definition}
 
@@ -38,7 +38,7 @@
 		
 		Из предел равносилен утверждению: 
 		$$
-			\forall \delta > 0\ \exists N \in \N\ |\ \forall n > N\ x_n \in U_{\delta}(a)
+			\forall \delta > 0\ \exists N \in \N\ |\ \forall n > N\ x_n \in \mc{U}_{\delta}(a)
 		$$
 		
 		Отсюда напрямую следует, что $f(x_n) \in U_{\eps}(A)$
@@ -47,7 +47,7 @@
 		
 		Докажем от противного:
 		
-		$\exists \eps > 0\ |\ \forall \delta > 0\ \exists x \in U_{\delta}(a)\ |\ f(x) \notin U_{\eps}(A)$
+		$\exists \eps > 0\ |\ \forall \delta > 0\ \exists x \in \mc{U}_{\delta}(a)\ |\ f(x) \notin U_{\eps}(A)$
 		
 		Подставим разные $\delta$:
 		\begin{align*}
@@ -114,18 +114,26 @@ $$
 	
 	\item (Отделимость от 0 и сохранение знака) Если $\liml_{x \ra a} f(x) = A \in \bar{\R}$, то $\exists C > 0$ такое, что в некоторой проколотой окрестности точки $a$ $|f(x)| \ge C$ и знак $f(x)$ тот же, что и у $A$.
 	
-	\item (Переход к пределу в неравенствах) Если $\exists \delta > 0\ |\ \forall x \in U_{\delta}(a)\ f(x) \le g(x)$ и $\exists \liml_{x \ra a} f(x), \liml_{x \ra a} g(x) \in \bar{\R}$, то $A \le B$.
+	\item (Переход к пределу в неравенствах) Если 
+	$$
+	\System{
+		&{\exists \delta > 0\ |\ \forall x \in \mc{U}_{\delta}(a)\ f(x) \le g(x)}
+		\\
+		&{\exists \liml_{x \ra a} f(x), \liml_{x \ra a} g(x) \in \bar{\R}}
+	}
+	$$
+	то $A \le B$.
 	
-	\item (Теорема о трёх функциях) Если $\exists \delta > 0\ |\ \forall x \in U_{\delta}(a),\ f(x) \le g(x) \le h(x)$ и $\liml_{x \ra a} f(x) = \liml_{x \ra a} h(x) = A \in \bar{\R}$, то $\liml_{x \ra a} g(x) = A$.
+	\item (Теорема о трёх функциях) Если $\exists \delta > 0\ |\ \forall x \in \mc{U}_{\delta}(a),\ f(x) \le g(x) \le h(x)$ и $\liml_{x \ra a} f(x) = \liml_{x \ra a} h(x) = A \in \bar{\R}$, то $\liml_{x \ra a} g(x) = A$.
 \end{enumerate}
 
 \begin{proof}
 \begin{enumerate}
-	\item $\forall \eps > 0\ \exists \delta > 0\ |\ \forall x \in U_{\delta}(a)\ |f(x) - A| < \eps$
+	\item $\forall \eps > 0\ \exists \delta > 0\ |\ \forall x \in \mc{U}_{\delta}(a)\ |f(x) - A| < \eps$
 	
-	Рассмотрим $\eps := 1$: $\exists \delta > 0\ |\ \forall x \in U_{\delta}(a)\ A - 1 < f(x) < A + 1$
+	Рассмотрим $\eps := 1$: $\exists \delta > 0\ |\ \forall x \in \mc{U}_{\delta}(a)\ A - 1 < f(x) < A + 1$
 	
-	\item $\forall \eps > 0\ \exists \delta > 0\ |\ \forall x \in U_{\delta}(a)\ f(x) \in U_{\eps}(A)$
+	\item $\forall \eps > 0\ \exists \delta > 0\ |\ \forall x \in \mc{U}_{\delta}(a)\ f(x) \in U_{\eps}(A)$
 	
 	Первый случай $A = \pm \infty,\ \eps := 1 \Ra f(x) \in U_1 (\pm \infty) \Ra \sgn f(x) = \pm 1$
 	
@@ -155,7 +163,7 @@ $$
 \begin{proof}
 	Доказательство сводится к свойствам последовательностей. Небольшое отличие есть только в доказательстве третьего пункта:
 	
-	$B \neq 0 \Ra \exists \delta > 0\ |\ \forall x \in U_{\delta}(a)\ g(x) \neq 0$
+	$B \neq 0 \Ra \exists \delta > 0\ |\ \forall x \in \mc{U}_{\delta}(a)\ g(x) \neq 0$
 	
 	Рассмотрим $\forall \{x_n\}_{n = 1}^\infty, x_n \neq a, \liml_{n \ra \infty} x_n = a$
 	
@@ -165,19 +173,19 @@ $$
 \subsection{Критерий Коши существования предела функции}
 
 \begin{theorem}
-	$\exists \liml_{x \ra a} f(x) \in \R \lra \forall \eps > 0\ \exists \delta > 0\ |\ \forall x \in U_{\delta}(a)\ |f(x_1) - f(x_2)| < \eps$
+	$\exists \liml_{x \ra a} f(x) \in \R \lra \forall \eps > 0\ \exists \delta > 0\ |\ \forall x \in \mc{U}_{\delta}(a)\ |f(x_1) - f(x_2)| < \eps$
 	
 	Всё кванторное высказывание называется \textit{условием Коши}.
 \end{theorem}
 
 \begin{proof}
-	Докажем необходимость: $\liml_{x \ra a} f(x) = A \in \R \lra \forall \eps > 0\ \exists \delta > 0\ |\ \forall x \in U_{\delta}(a)\ |f(x) - A| < \frac{\eps}{2}$
+	Докажем необходимость: $\liml_{x \ra a} f(x) = A \in \R \lra \forall \eps > 0\ \exists \delta > 0\ |\ \forall x \in \mc{U}_{\delta}(a)\ |f(x) - A| < \frac{\eps}{2}$
 	
 	Из неравенства треугольника: $|f(x_1) - f(x_2)| \le |f(x_1) - A| + |A - f(x_2)| < \eps$
 	
 	Докажем достаточность: $\forall \{x_n\}_{n = 1}^\infty \subset X \bs \{a\}, \liml_{n \ra \infty} x_n = a \Ra \liml_{n \ra \infty} f(x_n) = A \in \R$
 	
-	$\exists N \in \N\ |\ \forall n > N\ x_n \in U_{\delta}(a)$
+	$\exists N \in \N\ |\ \forall n > N\ x_n \in \mc{U}_{\delta}(a)$
 	
 	$\forall p \in \N \Ra |f(x_{n + p}) - f(x_n)| < \eps \Ra f(x_n)$ - фундаментальна $\Ra$ она сходится.
 	
