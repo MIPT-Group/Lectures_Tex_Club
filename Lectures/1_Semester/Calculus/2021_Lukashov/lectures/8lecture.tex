@@ -3,7 +3,7 @@
 \end{definition}
 
 \begin{definition}
-	\textit{Нижним пределом последовательности} $\{x_n\}_{n = 1}^\infty \subset R$ называется наименьший из её частичных пределов $\dlim\limits_{n \ra \infty} x_n$.
+	\textit{Нижним пределом последовательности} $\{x_n\}_{n = 1}^\infty \subset R$ называется наименьший из её частичных пределов $\varliminf\limits_{n \ra \infty} x_n$.
 \end{definition}
 
 \begin{theorem} (3 определения верхнего и нижнего пределов)
@@ -13,31 +13,58 @@
 		
 		$(\forall \eps > 0\ \exists N \in \N\ |\ \forall n > N\ x_n > l - \eps) \wedge (\forall \eps > 0\ \forall N \in \N\ \exists n > N\ |\ x_n < l + \eps)$
 		
-		\item $L = \liml_{n \ra \infty} \sup \{x_n, x_{n + 1}, \dots\};\ l = \liml_{n \ra \infty} \inf \{x_n, x_{n + 1}, \dots\}$
+		\item $L = \liml_{n \to \infty} \sup \{x_n, x_{n + 1}, \dots\};\ l = \liml_{n \to \infty} \inf \{x_n, x_{n + 1}, \dots\}$
 	\end{enumerate}
+	Причём определения равносильны (стандартное и эти 2 пункта).
 \end{theorem}
 
 \begin{proof}
-	$s_n := \sup \{x_n, x_{n + 1}, \dots\} \ge s_{n + 1} = \sup \{x_{n + 1}, x_{n + 2}, \dots\}$
+	Доказательство приводится только для верхнего предела. Для нижнего просто аналогично.
 	
-	$\{x_{n + 1}, x_{n + 2}\} \subset \{x_n, x_{n + 1}, \dots\}$
+	Рассмотрим последовательность $s_n := \sup \{x_n, x_{n + 1}, \dots\} = \sup\limits_{m \ge n} x_m$. Несложно заметить 2 утверждения из данного определения:
+	\begin{align*}
+		&s_n \ge s_{n + 1}
+		\\
+		&s_n \ge \inf \{x_n\}
+	\end{align*}
+	А значит по теореме Вейерштрасса, данная последовательность сходится и имеет предел $L := \liml_{n \to \infty} s_n = \inf \{s_n\}$. 
 	
-	$\{s_n\}_{n = 1}^\infty$ - невозрастающая последовательность $m \le x_n \le M \Ra m \le s_n \le M$
+	Покажем, что для этой последовательности верен первый пункт.
 	
-	$L = \liml_{n \ra \infty} s_n \Ra \forall \eps > 0\ \exists N_1 \in \N\ |\ \forall n > N_1\ |L - s_n| < \eps \Ra s_n < L + \eps \Ra x_n < L + \eps$
+	По определению предела 
+	$$
+		\forall \eps > 0\ \exists N \in \N\ |\ \forall n > N\ |s_n - L| < \eps
+	$$
+	Так как $s_n := \sup \{x_n, x_{n + 1}, \dots\}$, то $x_n \le s_n < L + \eps$ (доказано следствие первой части п.1. из п.2.).
 	
-	Рассмотрим $\forall \eps > 0, N \in \N$. Выберем $N_2 > \max(N, N_1)$. Тогда
+	Рассмотрим $N \in \N$ и $s_{N + 1} = \sup \{x_{N + 1}, x_{N + 2}, \dots\} \ge L$. Так как $L = \inf \{s_n\}$, то $\forall \eps > 0\ \exists n > N\ |\ x_n > s_{N + 1} - \eps \ge L - \eps$ (доказано следствие второй части п.1. из п.2.)
 	
-	$s_{N_2 + 1} > L - \eps$. $\exists n > N_2\ |\ x_n > L - \eps$.
-	$s_{N_2 + 1} = \sup \{x_{N_2 + 1}, x_{N_2 + 2}, \dots\}$
+	Теперь докажем, что из пункта 1. $L$ - наибольший частичный предел $\{x_n\}$. Построим подпоследовательность:
+	\begin{align*}
+		&\eps := 1 & &\Ra \exists n_1 \in \N\ |\ |x_{n_1} - L| < 1
+		\\
+		&\eps := 1/2 & &\Ra N'_2 := \max(N_2, n_1)\ \exists n_2 > N'_2\ |\ |x_{n_2} - L| < 1/2
+		\\
+		&\dots		
+	\end{align*}
+	Существование номера обусловлено тем, что мы вначале применяем первую часть пункта 1., а затем подставляем во вторую часть пункта 1. $N'_i := \max(N_i, n_{i - 1})$ и находим такое $n > N'_i$, что для него верны оба неравенства сразу.
 	
-	Из $1.$ следует, что $L = \overline{\liml_{n \ra \infty}} x_n \Ra \forall \eps > 0, N \in \N\ \exists n > N\ |\ |x_n - L| < \eps \lra L - \eps < x_n < L + \eps$
+	Получили $\{x_{n_k}\}_{k = 1}^\infty$ такую, что $\liml_{k \to \infty} x_{n_k} = L$
 	
-%%%%%%%%%%%%%%%%%%%%%%%%%%%% ДОПИСАТЬ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	Рассмотрим произвольную $\{x_{m_i}\}_{i = 1}^\infty$ такую, что $\exists \liml_{i \to \infty} x_{m_i} = t$ Из уже доказанного пункта 1. следует, что
+	$$
+		\forall \eps > 0\ \exists I \in \N\ |\ \forall i > I x_{m_i} < L + \eps
+	$$
+	
+	Совершая предельный переход в неравенстве, получим
+	$$
+		\forall \eps > 0\ t \le L + \eps
+	$$
+	Отсюда понятно, что $t \le L$, то есть $L$ действительно наибольший частичный предел.
 \end{proof}
 
 \begin{definition}
-	Последовательность $\{x_n\}_{n = 1}^\infty$ называется \textit{фундаментальной}, или же \textit{последовательностью Коши}, если $\forall \eps > 0\ \exists N \in \N\ |\ \forall n > N, p \in \N |x_{n + p} - x_n| < \eps$
+	Последовательность $\{x_n\}_{n = 1}^\infty$ называется \textit{фундаментальной}, или же \textit{последовательностью Коши}, если $\forall \eps > 0\ \exists N \in \N\ |\ \forall n > N, p \in \N\ |x_{n + p} - x_n| < \eps$
 \end{definition}
 
 \begin{theorem} (Критерий Коши)
@@ -56,29 +83,53 @@
 		
 		\item Фундаментальность $\Ra$ ограниченность
 		
-		Согласно свойству фундаментальности, положим $\eps := 1 \Ra n := N + 1$. Теперь, $\forall p \in \N\ |x_{N + 1 + p} - x_{N + 1}| < 1 \Ra x_{N + 1} - 1 < x_{N + 1 + p} < x_{N + 1} + 1$. А для $n \le N$ имеем
+		Согласно свойству фундаментальности, положим $\eps := 1 \Ra n := N + 1$. Теперь, 
+		$$
+			\forall p \in \N\ |x_{N + 1 + p} - x_{N + 1}| < 1 \Ra x_{N + 1} - 1 < x_{N + 1 + p} < x_{N + 1} + 1
+		$$
+		Отсюда для $\forall n \in \N$
 		$$
 			\min(x_1, \dots, x_{N + 1}) - 1 < x_n < \max(x_1, \dots, x_{N + 1}) + 1
  		$$
  		
- 		\item Фундаментальность $\Ra$ ограниченность $\Ra$ $\{x_{n_k}\}_{k = 1}^\infty\ |\ \liml_{k \ra \infty} x_{n_k} = l$. Если фундаментальная последовательность имеет сходящуюся подпоследовательность, то она сходится.
+ 		\item Фундаментальность $\Ra$ ограниченность $\Ra$ сходимость. 
  		
- 		По определению предела $\forall \eps > 0\ \exists K \in \N\ |\ \forall k > K\ |x_{n_k} - l| < \eps$
- 		
- 		Выберем $N_1 := \max(N, n_{K + 1})$, тогда $\forall n > N_1 \ |x_n - l| \le |x_n - x_{n_k}| + |x_{n_k} - l| < \eps + \eps = 2\eps$
- %%%%%%%%%%%%%%%%%%%%% ДОПИСАТЬ
+		Так как последовательность ограничена, то по теореме Больцано-Вейерштрасса можно выделить сходящуюся подпоследовательность.
+		$$
+			\exists \{x_{n_k}\}_{k = 1}^\infty\ |\ \liml_{k \to \infty} x_{n_k} = l
+		$$
+		По определению предела,
+		$$
+			\forall \eps > 0\ \exists K \in \N\ |\ \forall k > K\ |x_{n_k} - l| < \frac{\eps}{2}
+		$$
+		При этом исходная последовательность фундаментальна. То есть
+		$$
+			\forall \eps > 0\ \exists N \in \N\ |\ \forall n > N, p \in \N\ |x_{n + p} - x_n| < \frac{\eps}{2}
+		$$
+		Рассмотрим $\forall                                                                                                                                                                                                                                                                                                                                                                                                                                                       m > \max(N, n_{K + 1})$, тогда
+		$$
+			|x_m - l| \le |x_m - x_{n_{K + 1}}| + |x_{n_{K + 1}} - l| < \frac{\eps}{2} + \frac{\eps}{2} = \eps
+		$$
 	\end{enumerate}
 \end{proof}
 
 \begin{theorem} (Число Эйлера)
-	Последовательность $\{x_n = (1 + \frac{1}{n})^n\}_{n = 1}^\infty$ сходится. Её предел называется числом $e$.
+	Последовательность $\{x_n = \left(1 + \frac{1}{n}\right)^n\}_{n = 1}^\infty$ сходится. Её предел называется числом $e$.
 \end{theorem}
 
 \begin{proof}
-	Рассмотрим последовательность $y_n := (1 + \frac{1}{n})^{n + 1}$. Докажем, что $y_n$ убывает.
+	Рассмотрим последовательность $y_n := \left(1 + \frac{1}{n}\right)^{n + 1}$. Докажем, что $y_n$ убывает.
 	\begin{multline*}
-		\frac{y_{n - 1}}{y_n} = \frac{(1 + \frac{1}{n - 1})^n}{(1 + \frac{1}{n})^{n + 1}} = \left(\frac{\frac{n}{n - 1}}{\frac{n + 1}{n}}\right)^n \cdot \frac{1}{1 + \frac{1}{n}} = \left(\frac{n^2}{n^2 - 1}\right)^n \cdot \frac{1}{1 + \frac{1}{n}} = \\
-		\left(1 + \frac{1}{n^2 - 1}\right)^n \cdot \frac{n}{n + 1} \ge \left(1 + \frac{n}{n^2 - 1}\right) \cdot \frac{n}{n + 1} = \\
-		\frac{(n^2 + n - 1)n}{(n^2 - 1)(n + 1)} = \frac{n^3 + n^2 - n}{n^3 + n^2 - n - 1} > 1, n > 1
+		\frac{y_{n - 1}}{y_n} = \frac{(1 + \frac{1}{n - 1})^n}{(1 + \frac{1}{n})^{n + 1}} = \left(\frac{\frac{n}{n - 1}}{\frac{n + 1}{n}}\right)^{n+1} \cdot \frac{1}{1 + \frac{1}{n - 1}} = \left(\frac{n^2}{n^2 - 1}\right)^{n+1} \cdot \frac{1}{1 + \frac{1}{n - 1}} = \\
+		\left(1 + \frac{1}{n^2 - 1}\right)^{n+1} \cdot \frac{1}{1 + \frac{1}{n - 1}} \ge \left(1 + \frac{n + 1}{n^2 - 1}\right) \cdot \frac{1}{1 + \frac{1}{n - 1}} = \\
+		\left(1 + \frac{1}{n - 1}\right) \cdot \frac{1}{1 + \frac{1}{n - 1}} = 1, n > 1
 	\end{multline*}
+	При этом $\{y_n\}$ - ограниченная снизу последовательность, так как $\forall n \in \N\ y_n \ge 0$
+	
+	Следовательно, по теореме Вейерштрасса $\{y_n\}$ сходится. Её предел равен $e$.
+	
+	Покажем, что к тому же пределу сходится и $x_n$:
+	$$
+		\liml_{n \to \infty} x_n = \liml_{n \to \infty} y_n \cdot \left(1 + \frac{1}{n}\right) = e \cdot (1 + 0) = e
+	$$
 \end{proof}

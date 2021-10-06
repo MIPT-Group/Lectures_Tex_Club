@@ -8,14 +8,14 @@
 \end{definition}
 
 \begin{definition}
-    Говорят, что последовательность $\{x_n\}_{n = 1}^\infty$ \textit{сходящаяся}, или \textit{сходится} к $l$, если $\exists l \in \R\ |\ \liml_{n \xrightarrow{} \infty} x_n = l$
+    Говорят, что последовательность $\{x_n\}_{n = 1}^\infty$ \textit{сходящаяся}, или \textit{сходится} к $l$, если $\exists l \in \R\ |\ \liml_{n \to \infty} x_n = l$
 \end{definition}
 
 \begin{example}
     $$
-        \liml_{n \xrightarrow{} \infty} \frac{1}{n} = 0 \lra \forall \eps > 0\ \exists N \in \N\ |\ n > N\ |\frac{1}{n} - 0| < \eps
+        \liml_{n \to \infty} \frac{1}{n} = 0 \lra \forall \eps > 0\ \exists N \in \N\ |\ n > N\ |\frac{1}{n} - 0| < \eps
     $$
-    Положим $N := \left[\frac{1}{\eps}\right] + 1$. Тогда $\forall n > N \Ra n > \frac{1}{\eps} \Ra |\frac{1}{n} - 0| < \eps \Ra$ предел доказан.
+    Положим $N := \left\lceil\frac{1}{\eps}\right\rceil + 1$. Тогда $\forall n > N \Ra n > \frac{1}{\eps} \Ra |\frac{1}{n} - 0| < \eps \Ra$ предел доказан.
 \end{example}
 
 \begin{theorem}
@@ -23,12 +23,12 @@
 \end{theorem}
 
 \begin{proof}
-    Предположим, что $\exists l_1, l_2 \in \R\ |\ \liml_{n \xrightarrow{} \infty} x_n = l_1, \liml_{n \xrightarrow{} \infty} x_n = l_2$. Тогда:
+    Предположим, что $\exists l_1, l_2 \in \R\ |\ \liml_{n \to \infty} x_n = l_1, \liml_{n \to \infty} x_n = l_2$. Тогда:
     $$
         \System{
-        \liml_{n \xrightarrow{} \infty} x_n = l_1 \lra \forall \eps > 0\ \exists N_1 \in \N\ |\ \forall n > N_1\ |x_n - l_1| < \eps \lra l_1 - \eps < x_n < l_1 + \eps
+        \liml_{n \to \infty} x_n = l_1 \lra \forall \eps > 0\ \exists N_1 \in \N\ |\ \forall n > N_1\ |x_n - l_1| < \eps \lra l_1 - \eps < x_n < l_1 + \eps
         \\
-        \liml_{n \xrightarrow{} \infty} x_n = l_2 \lra \forall \eps > 0\ \exists N_2 \in \N\ |\ \forall n > N_2\ |x_n - l_2| < \eps \lra l_2 - \eps < x_n < l_2 + \eps
+        \liml_{n \to \infty} x_n = l_2 \lra \forall \eps > 0\ \exists N_2 \in \N\ |\ \forall n > N_2\ |x_n - l_2| < \eps \lra l_2 - \eps < x_n < l_2 + \eps
         }
     $$
     Рассмотрим $\eps = \frac{l_2 - l_1}{2} > 0$, $\forall n > max(N_1, N_2)$:
@@ -72,49 +72,46 @@
 \end{proof}
 
 \begin{theorem} (Переход к пределу в неравенстве)\\
-    Если $\liml_{n \xrightarrow{} \infty} x = x_0$, $\liml_{n \xrightarrow{} \infty} y = y_0$ и $\exists N \in \N\ |\ n \ge N\ \ x_n \le y_n$, то $x_0 \le y_0$
+    Если $\liml_{n \to \infty} x = x_0$, $\liml_{n \to \infty} y = y_0$ и $\exists N \in \N\ |\ n \ge N\ \ x_n \le y_n$, то $x_0 \le y_0$
 \end{theorem}
 
 \begin{proof}
     От противного. Пусть $x_0 > y_0$. Тогда, по условию:
     \begin{align*}
-        \liml_{n \xrightarrow{} \infty} x_n = x_0 \lra \forall \eps > 0\ \exists N_1 \in \N\ |\ \forall n > N_1\ x_0 - \eps < x_n < x_0 + \eps
+        \liml_{n \to \infty} x_n = x_0 \lra \forall \eps > 0\ \exists N_1 \in \N\ |\ \forall n > N_1\ x_0 - \eps < x_n < x_0 + \eps
         \\
-        \liml_{n \xrightarrow{} \infty} y_n = y_0 \lra \forall \eps > 0\ \exists N_2 \in \N\ |\ \forall n > N_2\ y_0 - \eps < y_n < y_0 + \eps
+        \liml_{n \to \infty} y_n = y_0 \lra \forall \eps > 0\ \exists N_2 \in \N\ |\ \forall n > N_2\ y_0 - \eps < y_n < y_0 + \eps
     \end{align*}
     Рассмотрим $\eps := \frac{x_0 - y_0}{2} > 0$, $\forall n > \max(N_1, N_2)$:
     $y_n < y_0 + \eps = \frac{x_0 + y_0}{2} = x_0 + \eps < x_n$, противоречие
 \end{proof}
 
 \begin{theorem} (Теорема о промежуточной последовательности)\\
-    Если $\liml_{n \xrightarrow{} \infty} x_n = \liml_{n \xrightarrow{} \infty} z_n = l$ и $\exists N \in \N\ |\ \forall n > N\ \ x_n \le y_n \le z_n$, то $\liml_{n \xrightarrow{} \infty} y_n = l$
+    Если $\liml_{n \to \infty} x_n = \liml_{n \to \infty} z_n = l$ и $\exists N \in \N\ |\ \forall n > N\ \ x_n \le y_n \le z_n$, то $\liml_{n \to \infty} y_n = l$
 \end{theorem}
 
 \begin{proof}
     По условию,
     $$
         \System{
-        \liml_{n \xrightarrow{} \infty} x_n = l \lra \forall \eps > 0\ \exists N_1 \in \N\ |\ \forall n > N_1\ |x_n - l| < \eps
+        \liml_{n \to \infty} x_n = l \lra \forall \eps > 0\ \exists N_1 \in \N\ |\ \forall n > N_1\ |x_n - l| < \eps
         \\
-        \liml_{n \xrightarrow{} \infty} y_n = l \lra \forall \eps > 0\ \exists N_2 \in \N\ |\ \forall n > N_2\ |y_n - l| < \eps
+        \liml_{n \to \infty} y_n = l \lra \forall \eps > 0\ \exists N_2 \in \N\ |\ \forall n > N_2\ |y_n - l| < \eps
         }
     $$
-    Отсюда следует: $l - \eps < x_n \le y_n \le z_n < l + \eps \Ra |y_n - l| < \eps$, то есть $\liml_{n \xrightarrow{} \infty} y_n = l$
+    Отсюда следует: $l - \eps < x_n \le y_n \le z_n < l + \eps \Ra |y_n - l| < \eps$, то есть $\liml_{n \to \infty} y_n = l$
 \end{proof}
 
 \subsubsection{Арифметические операции со сходящимися последовательностями}
 
-Пусть $\liml_{n \xrightarrow{} \infty} x_n = x_0$, $\liml_{n \xrightarrow{} \infty} y_n = y_0$. Тогда
+Пусть $\liml_{n \to \infty} x_n = x_0$, $\liml_{n \to \infty} y_n = y_0$. Тогда
 
-\begin{align}
-    \liml_{n \xrightarrow{} \infty} (x_n + y_n) = x_0 + y_0
-    \\
-    \liml_{n \xrightarrow{} \infty} (x_n - y_n) = x_0 - y_0
-    \\
-    \liml_{n \xrightarrow{} \infty} (x_n \cdot y_n) = x_0 \cdot y_0
-    \\
-    \text{Если } \forall n \in \N\ y_n \neq 0 \text{ и } y_0 \neq 0, \text{ то } \liml_{n \xrightarrow{} \infty} \frac{x_n}{y_n} = \frac{x_0}{y_0}
-\end{align}
+\begin{enumerate}
+	\item $\liml_{n \to \infty} (x_n + y_n) = x_0 + y_0$
+	\item $\liml_{n \to \infty} (x_n - y_n) = x_0 - y_0$
+	\item $\liml_{n \to \infty} (x_n \cdot y_n) = x_0 \cdot y_0$
+	\item Если $\forall n \in \N\ y_n \neq 0$ и $y_0 \neq 0$, то $\liml_{n \to \infty} \frac{x_n}{y_n} = \frac{x_0}{y_0}$
+\end{enumerate}
 
 \begin{proof}
 \begin{enumerate}
@@ -134,18 +131,28 @@
     
     Из теоремы выше, $\exists C > 0\ |\ \forall n \in \N\ |x_n| \le C$
     
-    $\liml_{n \xrightarrow{} \infty} y_n = y_0 \lra \forall \eps > 0\ \exists N_2 \in \N\ |\ \forall n > N_2\ |y_n - y_0| < \frac{\eps}{2C}$
+    $\liml_{n \to \infty} y_n = y_0 \lra \forall \eps > 0\ \exists N_2 \in \N\ |\ \forall n > N_2\ |y_n - y_0| < \frac{\eps}{2C}$
     
     Рассмотрим $\forall n > \max(N_1, N_2)$:
     $$
         |x_n y_n - x_0 y_0| \le |x_n y_n - x_n y_0| + |x_n y_0 - x_0 y_0| = |x_n| \cdot |y_n - y0| + |y_0| \cdot |x_n - x_0| < C \cdot \frac{\eps}{2C} + \frac{\eps}{2} = \eps
     $$
     \item[4.]
-    По условию, $\forall \eps > 0\ \exists N_2 \in \N\ |\ \forall n > N_2\ |x_n - x_0| < $
-    
+    По условию,
+    \begin{align*}
+    	\forall \eps > 0\ \exists N_1 \in \N\ |\ \forall n > N_1\ |x_n - x_0| < \frac{|y_0|}{2} \cdot \frac{\eps}{2}
+    	\\
+    	\forall \eps > 0\ \exists N_2 \in \N\ |\ \forall n > N_2\ |y_n - y_0| < \frac{|y_0|^2}{2(|x_0| + 1)} \cdot \frac{\eps}{2}
+    \end{align*}
+    Так как $\liml_{n \to \infty} y_n = y_0 \neq 0$, то начиная с некоторого номера $|y_n| > \frac{|y_0|}{2}$. Будем считать, что это верно $\forall n > N_2$ (иначе можно \textit{подвинуть} наше значение $N_2$ вправо настолько, что это станет верно).
+   	
     Рассмотрим $\forall n > \max(N_1, N_2)$
-    $$
-        \left|\frac{x_n}{y_n} - \frac{x_0}{y_0}\right| = \frac{x_n y_0 - y_n x_0}{y_n y_0}
-    $$
+    \begin{multline*}
+        \left|\frac{x_n}{y_n} - \frac{x_0}{y_0}\right| = \left|\frac{x_n y_0 - y_n x_0}{y_n y_0}\right| \le \frac{|x_n y_0 - x_0 y_0|}{|y_n| \cdot |y_0|} + \frac{|x_0 y_0 - y_n x_0|}{|y_n| \cdot |y_0|} =
+        \\
+        = \frac{|x_n - x_0|}{|y_n|} + \frac{|x_0| \cdot |y_0 - y_n|}{|y_n| \cdot |y_0|} < |x_n - x_0|\cdot \frac{2}{|y_0|} + |y_0 - y_n| \cdot \frac{2|x_0|}{|y_0|^2} <
+        \\
+        < \frac{\eps}{2} + \frac{\eps}{2} \cdot \frac{|x_0|}{|x_0| + 1} < \eps
+    \end{multline*}
 \end{enumerate}
 \end{proof}
