@@ -19,7 +19,7 @@
 
 \begin{definition} (Предел по Гейне)
 	$$
-		\liml_{x \to a} f(x) = A \lra \forall \{x_n\} \subset X \bs \{a\}\ \liml_{n \to \infty} x_n = a \Ra \liml_{n \to \infty} f(x_n) = A
+		\liml_{x \to a} f(x) = A \lra \left(\forall \{x_n\} \subset X \bs \{a\}\ \liml_{n \to \infty} x_n = a\right)\ \liml_{n \to \infty} f(x_n) = A
 	$$
 \end{definition}
 
@@ -31,39 +31,61 @@
 	\begin{enumerate}
 		\item (К $\Ra$ Г)
 		
-		Распишем определение Коши для каждого члена последовательности: 
+		Рассмотрим $\forall \{x_n\}\ |\ \liml_{n \to \infty} x_n = a$. По определению предела
 		$$
-			\forall \{x_n\} \subset X \bs \{a\}\ |\  \liml_{n \ra \infty} x_n = a
+			\forall \delta > 0\ \exists N \in \N\ \big|\ \forall n > N\ |x_n - a| < \delta
 		$$
-		
-		Из предел равносилен утверждению: 
+		Так как $\forall n \in \N\ x_n \in X \bs \{a\}$, то отсюда следует
 		$$
-			\forall \delta > 0\ \exists N \in \N\ |\ \forall n > N\ x_n \in \mc{U}_{\delta}(a)
+			\forall \delta > 0\ \exists N \in \N\ \big|\ \forall n > N\ x_n \in \mc{U}_{\delta}(a)
 		$$
-		
-		Отсюда напрямую следует, что $f(x_n) \in U_{\eps}(A)$
+		По условию выполнено утверждение:
+		$$
+			\liml_{x \to a} f(x) = A \lra \forall \eps > 0\ \exists \delta > 0\ \big|\ \forall x \in \mc{U}_{\delta}(a)\ f(x) \in U_{\eps}(A)
+		$$
+		То есть для любого $\eps > 0$ найдётся $\delta > 0$, для которого верно 2 условия:
+		$$
+		\System{
+			&{\exists N \in \N\ \big|\ \forall n > N\ x_n \in \mc{U}_{\delta}(a)}
+			\\
+			&{\forall x \in \mc{U}_{\delta}(a)\ f(x) \in U_{\eps}(A)}
+		}
+		$$
+		В итоге имеем:
+		$$
+			\forall \eps > 0\ \exists N \in \N\ \big|\ \forall n > N\ f(x_n) \in U_{\eps}(A) \lra \liml_{n \to \infty} f(x_n) = A
+		$$
 		
 		\item (Г $\Ra$ К)
 		
-		Докажем от противного:
+		Докажем от противного, то есть при выполненности определения Гейне неверно определение Коши:
 		
 		$\exists \eps > 0\ |\ \forall \delta > 0\ \exists x \in \mc{U}_{\delta}(a)\ |\ f(x) \notin U_{\eps}(A)$
 		
-		Подставим разные $\delta$:
+		Зафиксируем $\eps$ и подставим разные $\delta$:
 		\begin{align*}
-			&\delta := 1 & &{x_1 \in U_{1}(a)} & &{f(x_1) \notin U_{\eps}(A)}
+			&\delta := 1 & &{\exists x_1 \in \mc{U}_{1}(a)} & &{f(x_1) \notin U_{\eps}(A)}
 			\\
-			&\delta := 1/2 & &{x_1 \in U_{1/2}(a)} & &{f(x_2) \notin U_{\eps}(A)}
+			&\delta := 1/2 & &{\exists x_2 \in \mc{U}_{1/2}(a)} & &{f(x_2) \notin U_{\eps}(A)}
 			\\
 			&\dots & &\dots & &\dots
 			\\
-			&\delta := 1/n & &{x_1 \in U_{1/n}(a)} & &{f(x_n) \notin U_{\eps}(A)}
+			&\delta := 1/n & &{\exists x_n \in \mc{U}_{1/n}(a)} & &{f(x_n) \notin U_{\eps}(A)}
+			\\
+			&\dots & &\dots & &\dots
 		\end{align*}
 		
-		Получили последовательность $\{x_n\}_{n = 1}^\infty\ |\ \forall \eps > 0\ \exists N = \left\lceil\frac{\dse 1}{\dse \eps}\right\rceil + 1\ |\ \forall n > N\ x_n \in U_{\eps}(a)$
+		Получили последовательность $\{x_n\}_{n = 1}^\infty\ \big|\ \forall n \in \N\ x_n \in \mc{U}_{1/n}(a),\ f(x_n) \notin U_{\eps}(A)$
 		
-		То есть $\liml_{n \ra \infty} x_n = a$
-%%%%%%%%%%%%%%%%%%%%%%%%%%%% ДОПИСАТЬ
+		Но при этом, для этой последовательности верно утверждение:
+		$$
+			\forall \eps > 0\ \exists N \in \N\ \big|\ \forall n > N\ x_n \in \mc{U}_{\eps}(a) \lra \liml_{n \to \infty} x_n = a
+		$$
+		А из определения предела по Гейне это будет означать, что
+		$$
+			\liml_{n \to \infty} f(x_n) = A \lra \forall \eps > 0\ \exists N \in \N\ \big|\ \forall n > N\ f(x_n) \in U_{\eps} (A)
+		$$
+		Получили противоречие. (Потому что хотя бы для одного $\eps$ это выполнено не будет)
 	\end{enumerate}
 \end{proof}
 
@@ -173,25 +195,28 @@ $$
 \subsection{Критерий Коши существования предела функции}
 
 \begin{theorem}
-	$\exists \liml_{x \ra a} f(x) \in \R \lra \forall \eps > 0\ \exists \delta > 0\ |\ \forall x \in \mc{U}_{\delta}(a)\ |f(x_1) - f(x_2)| < \eps$
-	
-	Всё кванторное высказывание называется \textit{условием Коши}.
+	$\exists \liml_{x \ra a} f(x) \in \R \lra \underbrace{\forall \eps > 0\ \exists \delta > 0\ |\ \forall x_1, x_2 \in \mc{U}_{\delta}(a)\ |f(x_1) - f(x_2)| < \eps}_{\text{\normalfont Условие Коши}}$
 \end{theorem}
 
 \begin{proof}
-	Докажем необходимость: $\liml_{x \ra a} f(x) = A \in \R \lra \forall \eps > 0\ \exists \delta > 0\ |\ \forall x \in \mc{U}_{\delta}(a)\ |f(x) - A| < \frac{\eps}{2}$
+	Докажем необходимость: 
 	
-	Из неравенства треугольника: $|f(x_1) - f(x_2)| \le |f(x_1) - A| + |A - f(x_2)| < \eps$
+	Из определения предела:
+	$$
+		\liml_{x \ra a} f(x) = A \in \R \lra \forall \eps > 0\ \exists \delta > 0\ |\ \forall x \in \mc{U}_{\delta}(a)\ |f(x) - A| < \frac{\eps}{2}
+	$$
 	
-	Докажем достаточность: $\forall \{x_n\}_{n = 1}^\infty \subset X \bs \{a\}, \liml_{n \ra \infty} x_n = a \Ra \liml_{n \ra \infty} f(x_n) = A \in \R$
+	По неравенству треугольника: $\forall x_1, x_2 \in \mc{U}_{\delta}(a)\ |f(x_1) - f(x_2)| \le |f(x_1) - A| + |A - f(x_2)| < \eps$
 	
-	$\exists N \in \N\ |\ \forall n > N\ x_n \in \mc{U}_{\delta}(a)$
+	Докажем достаточность: 
 	
-	$\forall p \in \N \Ra |f(x_{n + p}) - f(x_n)| < \eps \Ra f(x_n)$ - фундаментальна $\Ra$ она сходится.
-	
-	Докажем, что пределы всех последовательностей будут одинаковы: $\{x'_n\} \subset X \bs \{a\},\ \liml_{n \ra \infty} x'_n = a$ и $\{x''_n\} \subset X \bs \{a\},\ \liml_{n \ra \infty} x''_n = a$.
-	
-	Положим $\liml_{n \ra \infty} f(x'_n) = A',\ \liml_{n \ra \infty} f(x''_n) = A''$, но при этом $A' \neq A''$
-	
-	Рассмотрим $\{x_n\}_{n = 1}^\infty := \{x'_1, x''_1, x'_2, x''_2, \dots\}$. Последовательность $\{x_n\}$ сходится к $a$, но при этом её $f(x_n)$ расходится $\Ra$ противоречие, предел единственен.
+	Рассмотрим $\forall \{x_n\} \subset X \bs \{a\} \such \liml_{n \to \infty} x_n = a$. Из определения предела:
+	$$
+		\liml_{n \to \infty} x_n = a \lra \forall \delta > 0\ \exists N \in \N \such \forall n > N\ x_n \in \mc{U}_{\delta}(a)
+	$$
+	Согласно этому утверждению и условию Коши, мы получаем
+	$$
+		\forall \eps > 0\ \exists N \in \N \such \forall n, m > N\ |f(x_n) - f(x_m)| < \eps
+	$$
+	Что в точности означает фундаментальность последовательности $f(x_n)$, то есть она сходящаяся.
 \end{proof}

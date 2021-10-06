@@ -145,12 +145,24 @@
 	Если хотя бы 1 из односторонних пределов бесконечен, то $x_0$ называется \textit{точкой бесконечного разрыва}.
 \end{definition}
 
+\begin{note}
+	Для простоты вводят обозначения:
+	\begin{align*}
+		f(x_0 - 0) := \liml_{x \to x_0-0} f(x)
+		\\
+		f(x_0 + 0) := \liml_{x \to x_0+0} f(x)
+	\end{align*}
+\end{note}
+
 \begin{definition}
-	Величину $\liml_{x \to x_0+0} f(x) - \liml_{x \to x_0-0}$ называется \textit{скачком функции} в точке $x_0$.
+	Величину $\liml_{x \to x_0+0} f(x) - \liml_{x \to x_0-0} f(x)$ называется \textit{скачком функции} в точке $x_0$.
 \end{definition}
 
 \begin{example}
 	$f(x) = \sgn x = \System{&{1,\ x > 0} \\ &{0,\ x = 0} \\ &{-1,\ x < 0}}$
+	$$
+		\liml_{x \to 0+0} f(x) - \liml_{x \to 0-0} f(x) = 1 - (- 1) = 2
+	$$
 \end{example}
 
 \begin{example}
@@ -164,21 +176,25 @@
 \begin{example}
 	$f(x) = \sin \frac{\dse 1}{\dse x}$
 	
-	Рассмотрим $x'_n = \frac{\dse 1}{\dse \frac{\pi}{2} + 2\pi n},\ n \in \N$ и
+	Рассмотрим $x'_n = \frac{1}{\frac{\pi}{2} + 2\pi n},\ n \in \N$ и
 	
-	$x''_n = \frac{\dse 1}{\dse -\frac{\pi}{2} + 2\pi n}$
+	$x''_n = \frac{1}{-\frac{\pi}{2} + 2\pi n}$
 	
 %%%%%%%%%%%%%%%%%%%%%%%%% ДОПИСАТЬ
 \end{example}
 
 \begin{theorem} (О точках разрыва монотонной функции)
-	Если $f(x)$ монотонна на $(a; b),\ -\infty \le a < b \le +\infty$, то она может иметь на $(a; b)$ лишь точки разрыва 1го рода, причём не устранимого разрыва, и число таких точек разрыва не более чем счётно.
+	Если $f(x)$ монотонна на $(a; b),\ -\infty \le a < b \le +\infty$, то она может иметь на $(a; b)$ лишь точки разрыва 1го рода, причём неустранимого разрыва, и число таких точек разрыва не более чем счётно.
 \end{theorem}
 
 \begin{proof}
 	$\forall x_0 \in (a; b)\ \exists \liml_{x \to x_0-0} f(x),\ \liml_{x \to x_0+0} f(x) \in \R$
 	
-	Считая $f$ неубывающей функцией, то $\forall x < x_0 \Ra f(x) \le f(x_0) \Ra f(x_0 - 0) \le f(x_0) \le f(x_0 + 0)$. $f(x_0 - 0) \neq f(x_0 + 0)$, иначе бы точки разрыва не было.
+	Считая $f$ неубывающей функцией, то 
+	$$
+		\forall x < x_0 \Ra f(x) \le f(x_0) \Ra f(x_0 - 0) \le f(x_0) \le f(x_0 + 0)
+	$$
+	$f(x_0 - 0) \neq f(x_0 + 0)$, иначе бы точки разрыва не было.
 	
 	$x_1 < x_2 \Ra f(x_1 - 0) < f(x_1 + 0) \le f(x_2 - 0) < f(x_2 + 0)$
 	
@@ -202,7 +218,7 @@
 \subsection{Непрерывность на множестве}
 
 \begin{definition}
-	Функция называется \textit{непрерывной на множестве} $X$, если $\forall x \in X\ \ \forall \{x_n\} \subset X, \liml_{x \to \infty} x_n = x_0 \Ra \liml_{n \to \infty} f(x_n) = f(x_0)$
+	Функция называется \textit{непрерывной на множестве} $X$, если $\forall x_0 \in X\ \ \forall \{x_n\} \subset X, \liml_{x \to \infty} x_n = x_0 \Ra \liml_{n \to \infty} f(x_n) = f(x_0)$
 \end{definition}
 
 \begin{theorem} (Первая теорема Вейерштрасса о непрерывных на отрезке функциях)
