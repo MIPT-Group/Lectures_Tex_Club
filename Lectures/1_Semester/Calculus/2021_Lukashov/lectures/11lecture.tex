@@ -51,7 +51,7 @@
 	
 \end{proof}
 
-\subsection{Следствия свойств предела функции}
+\subsubsection*{Следствия свойств предела функции}
 
 \begin{enumerate}
 	\item (Ограниченность непрерывной функции) Если $f$ непрерывна в $x_0$, то она ограничена в некоторой окрестности точки $x_0$.
@@ -89,22 +89,31 @@
 	Для того, чтобы из $\liml_{x \to a} f(x) = b$ и $\liml_{y \to b} g(y) = l$ следовало $\liml_{x \to a} (g \circ f)(x) = l$, достаточно потребовать, чтобы $f(x) \neq b$ в некоторой проколотой окрестности точки $a$.
 \end{note}
 
-\subsection{Промежутки}
+\subsubsection*{Промежутки}
 
 \begin{definition}
-	Множество $I \subset \R$ называется \textit{промежутком}, если $\forall x_1 < x_2,\ \{x_1, x_2\} \subset I \Ra [x_1; x_2] \subset I$. Если таких $x_1, x_2$ не существует (то есть $I = \emptyset$ либо один элемент), то $I$ называется вырожденным промежутком
+	Множество $I \subset \R$ называется \textit{промежутком}, если $\forall x_1 < x_2,\ \{x_1, x_2\} \subset I \Ra [x_1; x_2] \subset I$. Если таких $x_1, x_2$ не существует (то есть $I = \emptyset$ либо один элемент), то $I$ называется \textit{вырожденным} промежутком
 \end{definition}
 
 \begin{lemma}
-	$I$ - невырожденный промежуток $\lra$ $\left(\exists a < b,\ \{a, b\} \subset R\right) \such (I = (-\infty; +\infty)) \vee (I = (-\infty; a)) \vee (I = (b; +\infty)) \vee (I = (b; +\infty]) \vee (I = [a; b]) \vee (I = (a; b]) \vee (I = [a; b)) \vee (I = (a; b))$
+	$I$ - невырожденный промежуток $\lra$ $\left(\exists a < b,\ \{a, b\} \subset \R\right) \such (I = (-\infty; +\infty)) \vee (I = (-\infty; a)) \vee (I = (b; +\infty)) \vee (I = (-\infty; a]) \vee (I = [b; +\infty)) \vee (I = [a; b]) \vee (I = (a; b]) \vee (I = [a; b)) \vee (I = (a; b))$
 \end{lemma}
 
 \begin{proof}
-	Пусть $I$ - неограничено сверху, ограничено снизу. Положим $a := \inf I$. Тогда $I \supset (a; +\infty)$
+	Пусть $I$ - невырожденный промежуток, который неограничен сверху и ограничен снизу. Тогда $\exists a := \inf I$
+	
+	$I$ может оказаться каким угодно, но точно верно, что (так как $I \subset \R$)
 	$$
-		\forall x_0 \in (a; +\infty)\ x
+		I \subset [a; +\infty)
 	$$
-	%%% Дописать, глина какая-то
+	Выберем $\forall x_0 \in (a; +\infty)$. Из этого следует, что
+	\begin{align*}
+		\exists x_2 \in I \cap (x_0; +\infty) \text{, иначе } I \text{ ограничено сверху}
+		\\
+		\exists x_1 \in I \cap (a; x_0) \text{, иначе } \inf I \text{ определен неверно}
+	\end{align*}
+	А значит и $[x_1; x_2] \subset I$, то есть $x_0 \in I$. Следовательно,
+	$(a;+\infty) \subset I$. Ну а из этого уже либо $I = (a; +\infty)$, либо $I = [a; +\infty)$, в зависимости от достижимости инфинума.
 \end{proof}
 
 \begin{lemma}
@@ -177,7 +186,7 @@
 	%%%%%%%Дописать непрерывность
 \end{proof}
 
-\section{Непрерывность элементарных функций}
+\subsection{Непрерывность элементарных функций}
 
 \begin{enumerate}
 	\item $y = x^n,\ n \in \N,\ n$ - нечётное
@@ -197,7 +206,7 @@
 	Определена и непрерывна на $(0; +\infty)$
 \end{enumerate}
 
-\subsection{Тригонометрические функции}
+\subsubsection*{Тригонометрические функции}
 
 \begin{lemma}
 	$\forall x \in (0; \frac{\pi}{2}) \Ra \sin x < x < \tg x$

@@ -1,4 +1,4 @@
-\section{Предел функции}
+\subsection{Предел функции}
 
 \begin{definition}
 	\textit{Проколотой $\delta$-окрестностью} точки $a \in \R$ называется множество
@@ -89,7 +89,7 @@
 	\end{enumerate}
 \end{proof}
 
-\subsection{Геометрический смысл предела функции}
+\subsubsection*{Геометрический смысл предела функции}
 
 $$
 	\liml_{x \ra a} f(x) = A \lra \forall \eps > 0\ \exists \delta > 0\ |\ \forall x\ 0 < |x - a| < \delta \Ra |f(x) - A| < \eps
@@ -129,7 +129,7 @@ $$
 	\end{enumerate}
 \end{example}
 
-\subsection{Свойства предела функции, связанные с неравенствами}
+\subsubsection*{Свойства предела функции, связанные с неравенствами}
 
 \begin{enumerate}
 	\item (Ограниченность) Если $\liml_{x \ra a} f(x) = A \in \R$, то $f(x)$ ограничена в некоторой проколотой окрестности точки $a$.
@@ -173,7 +173,7 @@ $$
 \end{enumerate}
 \end{proof}
 
-\subsection{Свойства предела функции, связанные с арифметическими операциями}
+\subsubsection*{Свойства предела функции, связанные с арифметическими операциями}
 
 Пусть $\liml_{x \ra a} f(x) = A,\ \liml_{x \ra a} g(x) = B,\ A, B \in \R$. Тогда
 \begin{enumerate}
@@ -192,7 +192,7 @@ $$
 	Мы знаем, что $\System{&{\liml_{n \ra \infty} f(x_n) = A} \\ &{\liml_{n \ra \infty} g(x_n) = B}} \Ra \liml_{n \ra \infty} \frac{f(x_n)}{g(x_n)} = \frac{A}{B}$
 \end{proof}
 
-\subsection{Критерий Коши существования предела функции}
+\subsubsection*{Критерий Коши существования предела функции}
 
 \begin{theorem}
 	$\exists \liml_{x \ra a} f(x) \in \R \lra \underbrace{\forall \eps > 0\ \exists \delta > 0\ |\ \forall x_1, x_2 \in \mc{U}_{\delta}(a)\ |f(x_1) - f(x_2)| < \eps}_{\text{\normalfont Условие Коши}}$
