@@ -109,15 +109,19 @@
 \end{definition}
 
 \begin{definition}
-	Если $f$ определена на $[x_0; x_0 + \delta_0]$, где $\delta_0 > 0$ и $\liml_{x \to x_0 + 0} f(x) = f(x_0)$, то $f$ называется \textit{непрерывной справа} в точке $x_0$.
+	Если $f$ определена на $[x_0; x_0 + \delta_0]$, где $\delta_0 > 0$ и $\liml_{x \to x_0 + 0} f(x) = f(x_0)$, то $f$ называется \textit{непрерывной справа} в точке $x_0$. Ещё обозначается как $f(x_0 + 0)$
+\end{definition}
+
+\begin{definition}
+	Если $f$ определена на $[x_0 - \delta_0; x_0]$, где $\delta_0 > 0$ и $\liml_{x \to x_0 - 0} f(x) = f(x_0)$, то $f$ называется \textit{непрерывной слева} в точке $x_0$. Ещё обозначается как $f(x_0 - 0)$
 \end{definition}
 
 \begin{theorem}
 	Пусть $f$ определена в некоторой окрестности точки $x_0$. Тогда, следующие утверждения эквивалентны:
 	\begin{enumerate}
 		\item $f$ непрерывна в т. $x_0$
-		\item $\forall \eps > 0\ \exists \delta > 0\ |\ \forall x, |x - x_0| < \delta \Ra |f(x) - f(x_0)| < \eps$
-		\item $\forall \{x_n\}_{n = 1}^\infty\ |\ \liml_{x \to \infty} f(x_n) = f(x_0)$
+		\item $\forall \eps > 0\ \exists \delta > 0 \such \forall x, |x - x_0| < \delta \Ra |f(x) - f(x_0)| < \eps$
+		\item $\forall \{x_n\}_{n = 1}^\infty \such \liml_{x \to \infty} f(x_n) = f(x_0)$
 	\end{enumerate}
 \end{theorem}
 
@@ -145,42 +149,52 @@
 	Если хотя бы 1 из односторонних пределов бесконечен, то $x_0$ называется \textit{точкой бесконечного разрыва}.
 \end{definition}
 
-\begin{note}
-	Для простоты вводят обозначения:
-	\begin{align*}
-		f(x_0 - 0) := \liml_{x \to x_0-0} f(x)
-		\\
-		f(x_0 + 0) := \liml_{x \to x_0+0} f(x)
-	\end{align*}
-\end{note}
-
 \begin{definition}
 	Величину $\liml_{x \to x_0+0} f(x) - \liml_{x \to x_0-0} f(x)$ называется \textit{скачком функции} в точке $x_0$.
 \end{definition}
 
 \begin{example}
 	$f(x) = \sgn x = \System{&{1,\ x > 0} \\ &{0,\ x = 0} \\ &{-1,\ x < 0}}$
+	\begin{align*}
+		&\liml_{x \to 0 + 0} f(x) = 1
+		\\
+		&\liml_{x \to 0 - 0} f(x) = -1
+	\end{align*}
+\end{example}
+
+\begin{example}
+	$f(x) = \sgn^2 x$
 	$$
-		\liml_{x \to 0+0} f(x) - \liml_{x \to 0-0} f(x) = 1 - (- 1) = 2
+		\liml_{x \to 0} \sgn^2 x = 1 \neq \sgn^2 0 = 0
 	$$
 \end{example}
 
 \begin{example}
-	$f(x) = \sgn^2 x\ \liml_{x \to 0} \sgn^2 x = 1 \neq \sgn^2 0 = 0$
-\end{example}
-
-\begin{example}
-	$f(x) = \liml_{x \to -0} \frac{\dse 1}{\dse x} = -\infty$, но $f(x) = \liml_{x \to +0} \frac{\dse 1}{\dse x} = +\infty$
+	$f(x) = \frac{1}{x}$
+	\begin{align*}
+		\liml_{x \to -0} \frac{\dse 1}{\dse x} = -\infty
+		\\
+		\liml_{x \to +0} \frac{\dse 1}{\dse x} = +\infty
+	\end{align*}
 \end{example}
 
 \begin{example}
 	$f(x) = \sin \frac{\dse 1}{\dse x}$
 	
-	Рассмотрим $x'_n = \frac{1}{\frac{\pi}{2} + 2\pi n},\ n \in \N$ и
-	
-	$x''_n = \frac{1}{-\frac{\pi}{2} + 2\pi n}$
-	
-%%%%%%%%%%%%%%%%%%%%%%%%% ДОПИСАТЬ
+	Рассмотрим
+	$$
+		\System{
+		&{x'_n = \frac{1}{\frac{\pi}{2} + 2\pi n},\ n \in \N}
+		\\
+		&{x''_n = \frac{1}{-\frac{\pi}{2} + 2\pi n}}
+		}
+		\Ra
+		\System{
+		&{\liml_{n \to \infty} f(x'_n) = 1}
+		\\
+		&{\liml_{n \to \infty} f(x''_n) = -1}
+		}
+	$$
 \end{example}
 
 \begin{theorem} (О точках разрыва монотонной функции)
