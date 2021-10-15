@@ -122,8 +122,8 @@
 \begin{note}
 	Легко видеть, что $\forall z \in \Cm \bs \{0\}: \Arg{z} = \{\arg_0{z} + 2\pi k: k \in \Z\}$. Отметим также, что для любых $z_1, z_2 \in \Cm$ выполнены следующие равенства:
 	\begin{align*}
-		|z_1z_2| &= |z_1||z_2|\\
-		\arg{z_1z_2} &= \arg{z_1} + \arg{z_2}
+		|z_1z_2| = |z_1||z_2|\\
+		\arg{z_1z_2} = \arg{z_1} + \arg{z_2}
 	\end{align*}
 	
 	Первое равенство выполнено в силу мультипликативности модуля, второе же легко проверить, используя формулы тригонометрии.
@@ -344,7 +344,7 @@
 \end{note}
 
 \begin{definition}
-	Область $G \subset \overline\Cm$ называется \textit{односвязной}, если для любой ограниченной области $D \subset \Cm$, границей которой является кусочно-гладкий контур $\gamma$, такой, что $\partial D \subset G$, выполнено либо $D \subset G$, либо $(\overline\Cm \bs D) \subset G$.
+	Область $G \subset \overline\Cm$ называется \textit{односвязной}, если для любой ограниченной области $D \subset \Cm$, границей которой является кусочно-гладкий контур $\gamma$, такой, что $M(\gamma) \subset G$, выполнено либо $D \subset G$, либо $(\overline\Cm \bs D) \subset G$.
 \end{definition}
 
 \section{Последовательности и ряды комплексных чисел}
@@ -389,7 +389,7 @@
 \end{proof}
 
 \begin{definition}
-	\textit{Числовым рядом} в $\Cm$ называется выражение вида $\sum_{n = 0}^\infty z_n$, где $z_n \in \Cm$ при всех $n \in \N$. \textit{Частной суммой} числового ряда называется число $S_n := \sum_{k = 0}^nz_k$, $k \in \N$. Если $\lim_{n \to \infty}S_n = S \in \Cm$, то ряд $\sum_{n = 0}^\infty z_n$ называется \textit{сходящимся}, а число $S$ называется его \textit{суммой}.
+	\textit{Числовым рядом} в $\Cm$ называется выражение вида $\sum_{n = 0}^\infty z_n$, где $z_n \in \Cm$ при всех $n \in \N$. \textit{Частной суммой} числового ряда называется число $S_n := \sum_{k = 0}^nz_k$, $n \in \N$. Если $\lim_{n \to \infty}S_n = S \in \Cm$, то ряд $\sum_{n = 0}^\infty z_n$ называется \textit{сходящимся}, а число $S$ называется его \textit{суммой}.
 \end{definition}
 
 \begin{definition}
@@ -401,7 +401,7 @@
 \end{note}
 
 \begin{example}
-	Ряд $\sum_{n=0}^\infty z^n$ сходится при любом $z \in \Cm$, $|z| < 1$, поскольку сходится ряд $\sum_{n=0}^\infty |z|^n = \frac1{1-|z|}$. Вычислим его сумму:
+	Ряд $\sum_{n=0}^\infty z^n$ сходится при любом $z \in \Cm$, $|z| < 1$, поскольку при таком $z$ сходится ряд $\sum_{n=0}^\infty |z|^n = \frac1{1-|z|}$. Вычислим его сумму:
 	\[S_n = 1 + z + \dotsb + z^n = \frac{1-z^{n+1}}{1-z} \xrightarrow{n \to \infty} \frac1{1-z} \ra \sum_{n=0}^\infty z^n = \frac1{1-z}\]
 \end{example}
 

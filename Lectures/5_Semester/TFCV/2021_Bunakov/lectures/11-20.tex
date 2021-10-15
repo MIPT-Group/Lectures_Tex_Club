@@ -6,7 +6,7 @@
 
 \begin{theorem}
 	Пусть $f(z) = f(x + iy) = u(x, y) + iv(x, y)$. Тогда $f$ дифференцируема в точке $z_0 = x + iy_0 \in \Cm \lra$ $u, v$ дифференцируемы в точке $(x_0, y_0)$ и выполнены следующие равенства, называемые условиями Коши-Римана:
-	\[\System{u'_x(y_0, x_0) &= v'_y(y_0, x_0) \\ u'_y(u_0, y_0) &= -v'_x(y_0, x_0)}\]
+	\[\System{u'_x(x_0, y_0) &= v'_y(x_0, y_0) \\ u'_y(x_0, y_0) &= -v'_x(x_0, y_0)}\]
 \end{theorem}
 
 \begin{proof}~
@@ -25,38 +25,38 @@
 			v(x + \Delta x, y + \Delta y) - v(x, y) &= C\Delta x + B\Delta y + \sqrt{(\Delta x)^2 + (\Delta y)^2}\gamma(\Delta x, \Delta y)
 		}\]
 	
-		Значит, $u, v$ дифференцируемы в точке $(x_0, y_0)$. Кроме того, $B = u'_x(x_0, y_0) = v'_y(x_0, y_0)$ и $C = u'_y(x_0, y_0) = -v'_x(x_0, y_0)$.
+		Значит, $u, v$ дифференцируемы в точке $(x_0, y_0)$. Кроме того, $B = u'_x(x_0, y_0) = v'_y(x_0, y_0)$ и $C = v'_x(x_0, y_0) = -u'_y(x_0, y_0)$.
 		
-		\item[$\la$] Положим $B := u'_x(x_0, y_0) = v'_y(x_0, y_0)$, $C := u'_y(x_0, y_0) = -v'_x(x_0, y_0)$, тогда снова выполнена следующая система из доказательства $\ra$. Умножая второе равенство системы на $i$ и складывая с первым, получим требуемое.\qedhere
+		\item[$\la$] Положим $B := u'_x(x_0, y_0) = v'_y(x_0, y_0)$, $C := v'_x(x_0, y_0) = -u'_y(x_0, y_0)$, тогда снова выполнена система из доказательства $\ra$. Умножая второе равенство системы на $i$ и складывая с первым, получим требуемое.\qedhere
 	\end{itemize}
 \end{proof}
 
 \begin{note}
 	Легко видеть, что дифференцируемость функции $f$ в точке $z_0 \in \Cm$ равносильна существованию следующего предела:
-	\[\lim_{\Delta z \to 0}\frac{f(z + \Delta z) - f(z)}{\Delta z} = A \in \Cm\]
+	\[\lim_{\Delta z \to 0}\frac{f(z_0 + \Delta z) - f(z_0)}{\Delta z} = A \in \Cm\]
 	
 	Число $A$ "--- это в точности число из определения дифференцируемости.
 \end{note}
 
 \begin{definition}
-	Пусть функция $f$ дифференцируема в точке $z_0 \in \Cm$. Значение предела $\lim_{\Delta z \to 0}\frac{f(z + \Delta z) - f(z)}{\Delta z}$ называется \textit{производной} функции $f$ в точке $z_0$ и обозначается через $f'(z_0)$.
+	Пусть функция $f$ дифференцируема в точке $z_0 \in \Cm$. Значение предела $\lim_{\Delta z \to 0}\frac{f(z_0 + \Delta z) - f(z_0)}{\Delta z}$ называется \textit{производной} функции $f$ в $z_0$ и обозначается через $f'(z_0)$.
 \end{definition}
 
 \begin{note}
-	Из определения производной и теоремы выше легко видеть, что если $f$ дифференцируема в точке $z_0 = x_0 + iy_0 \in \Cm$ и $f(z) = f(x + iy) = u(x, y) + iv(x, y)$, то:
+	Из определения производной и теоремы выше легко видеть, что если $f$ дифференцируема в точке $z_0 = x_0 + iy_0 \in \Cm$ и $f(z) = f(x + iy) = u(x, y) + iv(x, y)$, то выполнены следующие равенства:
 	\begin{multline*}
 		f'(z_0) = u'_x(x_0, y_0) + iv'_x(x_0, y_0) = v'_y(x_0, y_0) + iv'_x(x_0, y_0) =
 		\\
-		= v'_y(x_0, y_0) - iu'_y(x_0, y_0) = u'_x(x_0, y_0) - iu'_x(x_0, y_0)
+		= v'_y(x_0, y_0) - iu'_y(x_0, y_0) = u'_x(x_0, y_0) - iu'_y(x_0, y_0)
 	\end{multline*}
 \end{note}
 
 \begin{note}
-	Пусть функции $f, g$ дифференцируемы в точке $z_0 \in \Cm$. Аналогично вещественному случаю, можно доказать, что тогда функции $f + g$, $fg$ тоже дифференцируемы в точке $z_0$, причем выполнены следующие равенства:
-	\begin{align*}
-		(f + g)'(z_0) &= f'(z_0) + g'(z_0)\\
-		(fg)'(z_0) &= f'(z_0)g(z_0) + f(z_0)g'(z_0)
-	\end{align*}
+	Пусть функции $f, g$ дифференцируемы в точке $z_0 \in \Cm$. Аналогично вещественному случаю, можно доказать, что тогда функции $f + g$ и $fg$ тоже дифференцируемы в точке $z_0$, причем выполнены следующие равенства:
+	\begin{gather*}
+		(f + g)'(z_0) = f'(z_0) + g'(z_0)\\
+		(fg)'(z_0) = f'(z_0)g(z_0) + f(z_0)g'(z_0)
+	\end{gather*}
 	
 	Если при этом $g(z_0) \ne 0$, то и функция $\frac fg$ дифференцируема в точке $z_0$, причем выполнено следующее равенство:
 	\[
@@ -109,7 +109,7 @@
 \section{Интеграл вдоль кривой}
 
 \begin{definition}
-	Пусть $\gamma$ "--- кусочно-гладкая кривая, $z = \sigma(t)$, $t \in [a, b]$ "--- ее параметризация, функция $f$ такова, что композиция $f\circ\sigma$ непрерывна на $[a, b]$.
+	Пусть $\gamma$ "--- кусочно-гладкая кривая, $z = \sigma(t)$, $t \in [a, b]$, "--- ее параметризация, функция $f$ такова, что композиция $f\circ\sigma$ непрерывна на $[a, b]$.
 	\begin{itemize}
 		\item \textit{Интегралом первого рода} функции $f$ по кривой $\gamma$ называется следующая величина:
 		\[\int_{\gamma}f(z)|dz| := \int_a^bf(\sigma(t))|\sigma'(t)|dt\]
@@ -120,11 +120,11 @@
 
 \begin{note}
 	Если $f(z) = f(x + iy) = u(x, y) + iv(x, y)$, $\sigma = \xi + i\eta$, то, как нетрудно убедиться, выполнены следующие равенства:
-	\begin{align*}
-		\int_{\gamma}f(z)|dz| &= \int_\gamma u(x, y)ds + i\int_\gamma v(x, y)ds
+	\begin{gather*}
+		\int_{\gamma}f(z)|dz| = \int_\gamma u(x, y)ds + i\int_\gamma v(x, y)ds
 		\\
-		\int_{\gamma}f(z)dz &= \int_\gamma udx - vdy + i\int_\gamma vdx + udy
-	\end{align*}
+		\int_{\gamma}f(z)dz = \int_\gamma udx - vdy + i\int_\gamma vdx + udy
+	\end{gather*}
 \end{note}
 
 \begin{theorem}
@@ -165,7 +165,7 @@
 	
 	Будем считать, что окружность $\{z \in \Cm: |z - z_0| = R\}$ ориентирована против часовой стрелки, и параметризуем ее как $z(t) = z_0 + Re^{it}$, $t \in [0, 2\pi]$. Тогда:
 	\[I_n = \int_0^{2\pi}\left(Re^{it}\right)^n(iRe^{it})dt = iR^{n+1}\int_0^{2\pi}e^{it(n+1)}dt = \System{
-	&2i\pi,\text{ если }n = -1
+	&2\pi i,\text{ если }n = -1
 	\\
 	&0,\text{ если }n \ne -1
 	}\]
@@ -227,7 +227,7 @@
 			\begin{tikzpicture}
 				\clip (-6, -2.2) rectangle (6, 2.2);
 				
-				\fill [opacity=0.1] (-3,0) circle [radius=2];
+				\fill [opacity=0.05] (-3,0) circle [radius=2];
 				\draw[
 					black,
 					decoration={markings, mark=at position 0.1 with {\arrow{>}}},
@@ -255,7 +255,7 @@
 				] (-2.1,0) circle[radius=0.7];
 				\node[] at (-2.2, 0.9) {$\gamma_3$};
 				
-				\fill [opacity=0.1] (3,0) circle [radius=2];
+				\fill [opacity=0.05] (3,0) circle [radius=2];
 				\draw[black] (3,0) circle[radius=2];
 				\node[] at (1.03, 1.2) {$\gamma$};
 				\node[] at (3, -0.67) {$G_2 = \dot B_\epsilon(z_0)$};
@@ -269,6 +269,11 @@
 	
 	Кроме того, не являются областями с простой границей, например, область $\Cm$ и область $\{z \in \Cm: \im{z} > 0\}$.
 \end{example}
+
+\begin{note}
+	Пусть $G \subset \CM$ "--- область с простой границей $M(\gamma_1) \sqcup \dotsb \sqcup M(\gamma_n)$. Под интегралом функции $f \in C^1(G)$ по границе $\partial G$ этой области понимается следующая величина:
+	\[\int_{\partial G}fdz := \sum_{k = 1}^n\int_{\gamma_k}fdz\]
+\end{note}
 
 \begin{definition}
 	\textit{Замыканием} множества $A \subset \Cm$ называется множество $\overline{A} := A \cup \partial A$.
@@ -285,12 +290,21 @@
 	\end{enumerate}
 	
 	Тогда верно следующее равенство:
-	\[\iint_G\left(\D{Q}{x} - \D{P}{y}\right)dxdy = \int_{\partial G} Pdx + Qdy = \sum_{k = 1}^n\int_{\gamma_k}Pdx + Qdy\]
+	\[\iint_G\left(\D{Q}{x} - \D{P}{y}\right)dxdy = \int_{\partial G} Pdx + Qdy\]
 \end{theorem}
 
 \begin{theorem}[интегральная теорема Коши для ограниченной области с простой границей]
-	Пусть $G \subset \Cm$ "--- ограниченная область с простой границей, $f \in C^1(\overline{G})$. Тогда верно следующее равенство:
-	\[\int_{\partial G} fdz = \sum_{k = 1}^n\int_{\gamma_k}Pdx + Qdy = 0\]
+	Пусть выполнены следующие условия:
+	\begin{enumerate}
+		\item $G \subset \Cm$ "--- ограниченная область с простой границей $M(\gamma_1) \sqcup \dotsb \sqcup M(\gamma_n)$
+		
+		\item Граничные кривые $\gamma_1, \dotsc, \gamma_n$ положительно ориентированы относительно $G$
+		
+		\item $f \in C^1(\overline{G})$
+	\end{enumerate}
+
+	Тогда верно следующее равенство:
+	\[\int_{\partial G} fdz = 0\]
 \end{theorem}
 
 \begin{proof}
@@ -298,11 +312,11 @@
 	\[\int_{\partial G} fdz = \int_\gamma udx - vdy + i\int_\gamma vdx + udy\]
 	
 	Применяя предыдущую теорему к парам функций $u, -v$ и $v, u$, а также пользуясь условиями Коши-Римана, получим:
-	\begin{align*}
-		\int_{\partial G} udx - vdy  &= \iint_G \left(-\D{v}{x} - \D{u}{y}\right)dxdy = 0
+	\begin{gather*}
+		\int_{\partial G} udx - vdy  = \iint_G \left(-\D{v}{x} - \D{u}{y}\right)dxdy = 0
 		\\
-		\int_{\partial G} vdx + udy  &= \iint_G \left(\D{u}{x} - \D{v}{y}\right)dxdy = 0
-	\end{align*}
+		\int_{\partial G} vdx + udy  = \iint_G \left(\D{u}{x} - \D{v}{y}\right)dxdy = 0
+	\end{gather*}
 
 	Таким образом, $\int_{\partial G} fdz = 0$.
 \end{proof}
@@ -340,3 +354,402 @@
 	
 	Таким образом, получено требуемое.
 \end{proof}
+
+\section{Первообразная}
+
+\begin{definition}
+	Функция $F$ назвывается \textit{первообразной} функции $f$ на области $G \subset \Cm$, если $F$ дифференцируема на $G$ и $F' \equiv f$ на $G$.
+\end{definition}
+
+\begin{note}
+	Если $F$ "--- первообразная функции $f$ на области $G$, то для любого $C \in \Cm$ функция $F + C$ "--- тоже первообразная.
+\end{note}
+
+\begin{proof}
+	Тривиально, поскольку $C' \equiv 0$ на $\Cm$.
+\end{proof}
+
+\begin{proposition}
+	Если $F_1, F_2$ "--- первообразные функции $f$ на области $G$, то для некоторого $C \in \Cm$ выполнено $F_1 - F_2 \equiv C$ на $G$.
+\end{proposition}
+
+\begin{proof}
+	Положим $F := F_2 - F_1$, тогда $F$ тоже дифференцируема на $G$, причем $F' = F_2 - F_1 \equiv 0$ на $G$, откуда $F' \in C^1(G)$. Пусть $F(z) = U(x, y) + iV(x, y)$, тогда выполнено равенство $F' = U'_x +iV'_x$, и, по условиям Коши-Римана, $U'_x, U'_y, V'_x, V'_y \equiv 0$ на $G$. Значит, функции $U$ и $V$ постоянны на $G$, что и требовалось.
+\end{proof}
+
+\begin{proposition}[формула Ньютона-Лейбница]
+	Пусть выполнены следующие условия:
+	\begin{enumerate}
+		\item Функция $f$ непрерывна на области $G \subset \Cm$
+		\item $F$ "--- первообразная функции $f$ на $G$
+		\item $\gamma$ "--- кусочно гладкая-кривая, соединяющая точки $z_1, z_2 \in G$, такая, что $M(\gamma) \subset G$
+	\end{enumerate}
+	
+	Тогда верно следующее равенство:
+	\[\int_{\gamma}fdz = F(z_2) - F(z_1)\]
+\end{proposition}
+
+\begin{proof}
+	Пусть $z = \sigma(t)$, $t \in [a, b]$ "--- параметризация кривой $\gamma$, тогда $\sigma(a) = z_1$, $\sigma(b) = z_2$. Поскольку $F' \equiv f$ на $G$, то:
+	\[F(\sigma(t))'_t = F'(\sigma(t))\sigma'(t) = f(\sigma(t))\sigma'(t),~t \in [a, b]\]
+	
+	Значит, выполнено следующее:
+	\[\int_\gamma fdz = \int_a^b f(\sigma(t))\sigma'(t)dt = \int_a^b F(\sigma(t))'_t dt = F(\sigma(b)) - F(\sigma(a)) = F(z_2) - F(z_1)\]
+	
+	Получено требуемое.
+\end{proof}
+
+\begin{corollary}
+	Пусть функция $f$ непрерывна и имеет первообразную на области $G \subset \Cm$. Тогда для любой замкнутой кусочно-гладкой кривой $\gamma$ такой, что $M(\gamma) \subset G$, выполнено равенство:
+	\[\int_\gamma fdz = 0\]
+\end{corollary}
+
+\begin{example}
+	Пусть $n \in \N$. Тогда для любых чисел $z_1, z_2 \in \Cm$ и для любой соединяющей их кусочно-гладкой кривой выполнено следующее:
+	\[\int_{z_1}^{z_2}z^ndz := \int_\gamma z^ndz = \frac{z_2^{n+1} - z_1^{n+1}}{n+1}\]
+\end{example}
+
+\begin{proposition}
+	Пусть выполнены следующие условия:
+	\begin{enumerate}
+		\item Функция $f$ непрерывна на области $G \subset \Cm$
+		\item Для любой замкнутой кусочно-гладкой кривой $\gamma$ такой, что $M(\gamma) \subset G$, выполнено равенство $\int_\gamma fdz = 0$
+	\end{enumerate}
+
+	Тогда $f$ имеет первообразную на $G$.
+\end{proposition}
+\pagebreak
+
+\begin{proof}
+	Из условия следует, что для любых $z_1, z_2 \in G$ интеграл $\int_{z_1}^{z_2} fdz$ не зависит от выбора лежащей в $G$ кусочно-гладкой кривой, соединяющей $z_1$ и $z_2$. Действительно, если $\gamma_1, \gamma_2$ "--- две такие кривые, то:
+	\[0 = \int_{\gamma_1\gamma_2^{-1}}fdz = \int_{\gamma_1}fdz + \int_{\gamma_2^{-1}}fdz = \int_{\gamma_1}fdz - \int_{\gamma_2}fdz \ra \int_{\gamma_1}fdz = \int_{\gamma_2}fdz\]
+	
+	Зафиксируем $z_0 \in G$ и проверим, что первообразной функции $f$ является функция следующего вида:
+	\[F(z) := \int_{z_0}^zfdw,~z \in G\]
+	
+	Выберем произвольные $z \in G$ и $\epsilon > 0$. Достаточно доказать, что существует $\delta > 0$ такое, что для всех $0 < |\Delta z| \le \delta$ выполнено следующее неравенство:
+	\[\left|\frac{F(z + \Delta z) - F(z)}{\Delta z} - f(z)\right| \le \epsilon\]
+	
+	Поскольку $f$ непрерывна в точке $z$, то существует $\delta > 0$ такое, что для всех $w \in \Cm$, $|w - z| \le \delta$ выполнено неравенство $|f(w) - f(z)| < \epsilon$. Тогда, выбирая в качестве кривой, соединяющей $z$ и $z + \Delta z$, отрезок, получим:
+	\[\frac{F(z + \Delta z) - F(z)}{\Delta z} = \frac{1}{\Delta z}\left(\int_{z_0}^{z + \Delta z}fdw - \int_{z_0}^{z}fdw\right) = \frac{1}{\Delta z}\int_{z}^{z + \Delta z}fdw\]
+	
+	Таким образом, выполнено следующее:
+	\[\left|\frac{F(z + \Delta z) - F(z)}{\Delta z} - f(z)\right| = \frac1{|\Delta z|}\left|\int_z^{z + \Delta z}\left(f(w) - f(z)\right)dw\right| \le \frac1{|\Delta z|}(\epsilon\Delta z) = \epsilon\]
+	
+	В силу произвольности выбора $z$ и $\epsilon$, получено требуемое.
+\end{proof}
+
+\begin{corollary}
+	Пусть $G \subset \Cm$ "--- односвязная область, $f \in C^1(G)$. Тогда $f$ имеет первообразную на $G$.
+\end{corollary}
+
+\begin{proof}
+	Воспользуемся утверждением выше и интегральной теоремой Коши для односвязной области.
+\end{proof}
+
+\begin{note}
+	Условие односвязности в последнем утверждении существенно. Рассмотрим, например, область $G := \{z \in \Cm: \frac12 < |z| < 2\}$, функцию $f(z) := \frac1z$ и кривую $\gamma$, обходящую окружность $\{z \in \Cm: |z| = 1\}$ против часовой стрелки. Тогда:
+	\[\int_\gamma\frac1{z} = 2\pi i \ne 0\]
+	
+	Значит, функция $f$ не может иметь первообразную на $G$.
+\end{note}
+
+\begin{theorem}
+	Функция $f$, непрерывная на области $G \subset \Cm$, имеет первообразную $\lra$ для любой замкнутой кусочно-гладкой кривой $\gamma$ такой, что $M(\gamma) \subset G$, выполнено равенство $\int_\gamma fdz = 0$.
+\end{theorem}
+
+\begin{proof}
+	Воспользуемся утверждениями выше.
+\end{proof}
+
+\section{Функциональные последовательности и ряды}
+
+\begin{definition}
+	Пусть $\{f_n\}_{n = 0}^\infty$ "--- последовательность функций, определенных на области $G \subset \Cm$, функция $f$ определена на $G$. Последовательность $\{f_n\}$ \textit{сходится локально равномерно} к $f$ на области $G$, если $\forall z_0 \in G: \exists \epsilon > 0: f_n \convu_{B_\epsilon(z_0)} f$. Обозначение "--- $f_n \convlr f$.
+\end{definition}
+
+\begin{proposition}
+	Пусть выполнены следующие условия:
+	\begin{enumerate}
+		\item Функции $f_0, f_1, \dotsc$ непрерывны на области $G \subset \Cm$
+		\item $f_n \convlr f$
+	\end{enumerate}
+	
+	Тогда $f$ непрерывна на $G$.
+\end{proposition}
+
+\begin{proof}
+	Аналогично вещественному случаю.
+\end{proof}
+
+\begin{definition}
+	Пусть $\{f_n\}_{n = 0}^\infty$ "--- последовательность функций, определенных на области $G \subset \Cm$. Ряд $\sum_{k = 0}^\infty f_k$ \textit{сходится локально равномерно} на $G$, если последовательность его \textit{частных сумм} $S_n := \sum_{k = 0}^nf_k$ локально равномерно сходится к некоторой определенной на $G$ функции $S$, называемой \textit{суммой} ряда.
+\end{definition}
+
+\begin{proposition}
+	Пусть выполнены следующие условия:
+	\begin{enumerate}
+		\item Функции $f_0, f_1, \dotsc$ непрерывны на области $G \subset \Cm$
+		\item Ряд $\sum_{k = 0}^\infty f_k$ локально равномерно сходится к сумме $S$
+	\end{enumerate}
+	
+	Тогда $S$ непрерывна на $G$.
+\end{proposition}
+
+\begin{proof}
+	Воспользуемся утверждением о функциональных последовательностях для последовательности $\{S_n\}_{n=0}^\infty$.
+\end{proof}
+
+\begin{proposition}
+	Пусть $\{f_n\}_{n = 0}^\infty$ "--- последовательность функций, определенных на области $G \subset \Cm$, функция $f$ определена на $G$. Тогда $f_n \convlr f$ $\lra$ для любого компакта $K \subset G$ выполнено $f_n \convu_K f$.
+\end{proposition}
+
+\begin{proof}~
+	\begin{itemize}
+		\item[$\ra$]Для произвольной точки $z \in K$ выберем окрестность $B(z)$ такую, что $f_n \convu_{B(z)} f$. Тогда $K \subset \bigcup_{z \in K}B(z)$, и, в силу компактности, можно выбрать конечный набор $z_1, \dotsc, z_m$ такой, что $K \subset \bigcup_{k=1}^mB(z_k)$. Поскольку для любого $k \in \{1, \dotsc, m\}$ выполнено $f_n \convu_{B_k(z)} f$, то $f_n \convu_K f$.
+		
+		\item[$\la$]Зафиксируем произвольную точку $z_0 \in G$ и выберем $\delta > 0$ такое, что $\overline{B_\delta(z_0)} \subset G$, тогда $f_n \convu_{\overline{B_\delta(z_0)}} f$.\qedhere
+	\end{itemize}
+\end{proof}
+
+\begin{proposition}
+	Пусть выполнены следующие условия:
+	\begin{enumerate}
+		\item Функции $f_0, f_1, \dotsc$ непрерывны на области $G \subset \Cm$
+		\item $f_n \convlr f$
+		\item $\gamma$ "--- кусочно-гладкая кривая такая, что $M(\gamma) \subset G$
+	\end{enumerate}
+	
+	Тогда верно следующее равенство:
+	\[\int_\gamma f_ndz \xrightarrow{n \to \infty} \int_\gamma fdz\]
+\end{proposition}
+
+\begin{proof}
+	Из условия следует, что $f$ непрерывна на $G$, а $M(\gamma)$ "--- компакт, поскольку $M(\gamma)$ является непрерывным образом отрезка. Тогда $f_n \convu_{M(\gamma)} f$, и выполнено следующее:
+	\[\left|\int_\gamma fndz - \int_\gamma fdz\right| = \left|\int_\gamma (f_n - f)dz\right| \le \left(\max_{z \in M(\gamma)}|f_n(z) - f(z)|\right)|\gamma| \xrightarrow{n \to \infty} 0\]
+	
+	Получено требуемое.
+\end{proof}
+
+\begin{note}
+	Переформулируем утверждение выше для случая функциональных рядов. Пусть выполнены следующие условия:
+	\begin{enumerate}
+		\item Функции $f_0, f_1, \dotsc$ непрерывны на области $G \subset \Cm$
+		\item $\sum_{n=0}^\infty f_n$ сходится локально равномерно на $G$
+		\item $\gamma$ "--- кусочно-гладкая кривая такая, что $M(\gamma) \subset G$
+	\end{enumerate}
+	
+	Тогда верно следующее равенство:
+	\[\int_\gamma \left(\sum_{n=0}^\infty f_n\right)dz = \sum_{n=0}^\infty \left(\int_\gamma f_ndz\right)\]
+\end{note}
+
+\begin{definition}
+	Пусть $\{f_n\}_{n = 0}^\infty$ "--- последовательность функций, определенных на множестве $G \subset \Cm$. Ряд $\sum_{n=0}^\infty f_n$ \textit{сходится регулярно} на $E$, если ряд $\sum_{n=0}^\infty |f_n|$ сходится равномерно на $E$.
+\end{definition}
+
+\begin{note}
+	Из регулярной сходимости следует равномерная сходимость в силу критерия Коши и неравенства треугольника.
+\end{note}
+
+\begin{theorem}[признак Вейерштрасса]
+	Пусть выполнены следующие условия:
+	\begin{enumerate}
+		\item Пусть $f_0, f_1, \dotsc$ определены на множестве $E \subset \Cm$
+		\item $\forall n \in \mathbb{N}_0 : \exists a_n > 0 \forall z \in E: |f_n(z)| \le a_n$
+		\item Ряд $\sum_{n=0}^\infty a_n$
+	\end{enumerate}
+	
+	Тогда ряд $\sum_{n=0}^\infty f_n$ сходится регулярно на $E$.
+\end{theorem}
+
+\begin{proof}
+	Аналогично вещественному случаю.
+\end{proof}
+
+\section{Cтепенные ряды}
+
+\begin{definition}
+	Пусть $c_0, c_1, \dotsc \in \Cm$, $z_0 \in \Cm$. \textit{Степенным рядом} называется выражение вида $\sum_{n=0}^\infty c_n(z - z_0)^n$. Точка $z_0$ называется \textit{центром разложения}.
+\end{definition}
+
+\begin{note}
+	Для удобства обозначений, в дальнейшем мы будем рассматривать только степенные ряды с центром в нуле, то есть выражения вида $\sum_{n=0}^\infty c_nz^n$. Любой степенной ряд можно привести к такому виду заменой.
+\end{note}
+
+\pagebreak
+
+\begin{definition}
+	\textit{Радиусом сходимости} степенного ряда $\sum_{n=0}^\infty c_nz^n$ называется величина $R := \sup\{|z| : \text{ряд }\sum_{n=0}^\infty c_nz^n\text{ сходится}\}$. \textit{Кругом сходимости} ряда называется множество $K := \{z \in \Cm : |z| < R\}$.
+\end{definition}
+
+\begin{theorem}[Абеля]
+	Пусть степенной ряд $\sum_{n=0}^\infty c_nz^n$ имеет радиус сходимости $R > 0$ и круг сходимости $K$. Тогда:
+	\begin{enumerate}
+		\item Ряд $\sum_{n=0}^\infty c_nz^n$ сходится абсолютно для любого $z \in K$
+		\item Ряд $\sum_{n=0}^\infty c_nz^n$ сходится регулярно в круге $K_r := \{z \in \Cm: |z| \le r\}$ при любом $r < R$
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	Достаточно доказать вторую часть. Зафиксируем $r < R$, тогда, по определению, $\exists z_1 \in \Cm$ такое, что $|z_1| > r$ и ряд $\sum_{n=0}^\infty c_nz_1^n$ сходится. Следовательно, $c_nz_1^n \xrightarrow{n \to \infty} 0$, тогда существует $M > 0$ такое, что для любого $n \in \N_0$ выполнено $|c_nz_1^n| \le M$. Тогда для любых $n \in \N_0$ и $z \in K_r$ имеем:
+	\[|c_nz^n| = \left|c_nz_1^n\right|\left|\frac{z}{z_1}\right|^n \le M\left(\frac{r}{|z_1|}\right)^n\]
+	
+	По признаку Вейерштрасса, получено требуемое.
+\end{proof}
+
+\begin{note}
+	Если радиус сходимости $R$ ряда $\sum_{n=0}^\infty c_nz^n$ конечен, то при $z \in \Cm$ таких, что $|z| > R$, ряд расходится по определению радиуса сходимости. Поведение ряда на границе круга сходимости может быть разным.
+\end{note}
+
+\begin{proposition}
+	Пусть степенной ряд $\sum_{n=0}^\infty c_nz^n$ имеет радиус сходимости $R > 0$ и круг сходимости $K$. Тогда:
+	\begin{enumerate}
+		\item Ряд $\sum_{n = 1}^\infty nc_nz^{n-1}$ сходится абсолютно для любого $z \in K$
+		\item Ряд $\sum_{n = 1}^\infty nc_nz^{n-1}$ сходится регулярно в круге $K_r$ при любом $r < R$
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	Снова достаточно доказать вторую часть. Зафиксируем $r < R$ и число $z_1 \in K$ такое, что $|z_1| > r$. Аналогично теореме выше, выберем $M > 0$ такое, что для любого $n \in \N_0$ выполнено $|c_nz_1^n| \le M$. Тогда для любого $z \in K_r$ имеем:
+	\[|nc_nz^{n-1}| = |c_nz_1^{n-1}|\left|n\frac{z}{z_1}\right|^{n-1} \le \frac{Mn}{|z_1|}\left(\frac{r}{|z_1|}\right)^{n-1}\]
+	
+	По признаку Вейерштрасса, получено требуемое.
+\end{proof}
+
+\begin{corollary}
+	Ряды $\sum_{n=0}^\infty c_nz^n$ и $\sum_{n = 1}^\infty nc_nz^{n-1}$ сходятся локально равномерно на круге сходимости $K$ первого ряда.
+\end{corollary}
+
+\begin{proof}
+	Для произвольной точки $z \in K$ можно выбрать такой круг $K_r \supset B(z)$, на котором ряды сходятся регулярно.
+\end{proof}
+
+\begin{corollary}
+	Функции $f(z) := \sum_{n = 0}^\infty c_nz^n$, $g(z) := \sum_{n = 0}^\infty nc_nz^{n-1}$ непрерывны на круге сходмиости $K$ первого ряда.
+\end{corollary}
+
+\begin{corollary}
+	Пусть степенной ряд $\sum_{n=0}^\infty c_nz^n$ имеет радиус сходимости $R > 0$. Тогда и ряд $\sum_{n = 1}^\infty nc_nz^{n-1}$ имеет радиус сходимости $R$.
+\end{corollary}
+
+\begin{proof}
+	Пусть $\sum_{n = 1}^\infty nc_nz^{n-1}$ имеет радиус сходимости $R_1$. Тогда, по доказанному выше, $R_1 \ge R$. C другой стороны, если при некотором $z \in \Cm$ ряд $\sum_{n = 1}^\infty nc_nz^{n-1}$ сходится, то сходится и ряд $\sum_{n = 1}^\infty nc_nz^n$, и ряд $\sum_{n = 0}^\infty c_nz^n$. Значит, $R_1 \le R$.
+\end{proof}
+
+\begin{corollary}
+	Пусть степенной ряд $\sum_{n=0}^\infty c_nz^n$ имеет радиус сходимости $R > 0$ и круг сходимости $K$. Тогда функция $g(z) := \sum_{n = 1}^\infty nc_nz^{n-1}$ имеет первообразную на $K$.
+\end{corollary}
+
+\begin{proof}
+	Пусть $\gamma$ "--- замкнутая кусочно-гладкая кривая такая, что $M(\gamma) \subset K$. Поскольку ряд $\sum_{n = 1}^\infty c_nnz^{n-1}$ сходится равномерно на $M(\gamma)$, то, интегрируя почленно, имеем:
+	\[\int_\gamma gdz = \sum_{n = 1}^\infty \int_\gamma nc_nz^{n-1}dz = 0\]
+	
+	Значит, в силу произвольности выбора кривой $\gamma$, $g$ имеет первообразную на $K$.
+\end{proof}
+
+\begin{note}
+	В частности, одной из первообразных функции $g(z)$ является следующая функция:
+	\[h(z) := \int_0^zgdw = \sum_{n=1}^\infty \int_0^znc_nw^{n-1}dw = \sum_{n=1}^\infty c_nz^n\]
+	
+	Почленное интегрирование возможно в силу равномерной сходимости ряда $\sum_{n = 1}^\infty n c_nw^{n-1}$ на любом отрезке вида $[0, z] \subset K$.
+\end{note}
+
+\begin{proposition}
+	Пусть степенной ряд $\sum_{n=0}^\infty c_nz^n$ имеет радиус сходимости $R > 0$ и круг сходимости $K$. Тогда функция $f(z) := \sum_{n = 0}^\infty c_nz^{n}$ регулярна на $K$, причем для любого $z \in K$ выполнено $f'(z) = \sum_n^\infty nc_nz^{n-1}$ на $K$.
+\end{proposition}
+
+\begin{proof}
+	Функция $g(z) := \sum_{n = 1}^\infty nc_nz^{n-1}$ имеет первообразную $h(z) = \sum_{n=1}^\infty c_nz^n \hm= f(z) - c_0$ на $K$, поэтому $f$ "--- тоже первообразная функции $g$ на $K$. Кроме того, $g$ непрерывна на $K$ в силу равномерной сходимости ряда $nc_nz^{n-1}$.
+\end{proof}
+
+\begin{corollary}
+	Пусть степенной ряд $\sum_{n=0}^\infty c_nz^n$ имеет радиус сходимости $R > 0$ и круг сходимости $K$. Тогда функция $f(z) := \sum_{n = 0}^\infty c_nz^{n}$ бесконечно дифференцируема на $K$.
+\end{corollary}
+
+\begin{proof}
+	Последовательно применим утверждение выше к рядам, получаемым из $\sum_{n=0}^\infty c_nz^n$ многократным почленным дифференцированием.
+\end{proof}
+
+\begin{note}
+	В частности, $f^{(n)}(0) = c_n$ для любого $n \in \N$. Тогда:
+	\[f(z) = \sum_{n=0}^\infty \frac{f^{(n)}(0)}{n!}z^n,~|z| < R\]
+		
+	Значит, степенной ряд $\sum_{n=0}^\infty c_nz^n$ является рядом Тейлора своей суммы. В случае произвольного центра $z_0 \in \Cm$ у степенного ряда, равенство выше принимает следующий вид:
+	\[f(z) = \sum_{n=0}^\infty \frac{f^{(n)}(z_0)}{n!}(z - z_0)^n,~|z - z_0| < R\]
+\end{note}
+
+\begin{note}
+	Пусть функция $f$ может быть представлена в виде степенного ряда в круге $\{z \in \Cm : |z - z_0| < R\}$, где $z_0 \in \Cm$, $R > 0$. Тогда это представление единственно, поскольку оно совпадает с рядом Тейлора функции $f$.
+\end{note}
+
+\section{Интеграл Коши и бесконечная дифференцируемость}
+
+\begin{definition}
+	Пусть $\gamma$ "--- кусочно-гладкая кривая, $z = \sigma(t)$, $t \in [a, b]$, "--- ее параметризация, функция $f$ такова, что композиция $f\circ\sigma$ непрерывна на $[a, b]$. \textit{Интегралом Коши} называется функция, определенная вне множества $M(\gamma)$, следующего вида:
+	\[F(z) := \frac1{2\pi i}\int_\gamma \frac{f(w)}{w - z}dz\]
+\end{definition}
+
+\begin{theorem}
+	Пусть $F$ "--- интеграл Коши для кривой $\gamma$ и функции $f$, числа $z_0 \in \Cm$, $R > 0$ таковы, что круг $K := \{z \in \Cm: |z - z_0| < R\}$ не пересекается с $M(\gamma)$. Тогда на $K$ интеграл Коши $F$ может быть представлен степенным рядом с центром $z_0$.
+\end{theorem}
+
+\begin{proof}
+	По условию, $R \le d := \inf\{|z_0 - w| : w \in M(\gamma)\}$. Зафиксируем $z \in K$, тогда $|z - z_0| < R \le d$, и для любого $w \in M(\gamma)$ имеем:
+	\[\frac1{w - z} = \frac1{(w-z_0) - (z - z_0)} = \frac1{w-z_0}\cdot \frac1{1 - \frac{z-z_0}{w - z_0}} = \sum_{n=0}^\infty\frac{(z-z_0)^n}{(w-z_0)^{n + 1}}\]
+	
+	При любом $w \in M(\gamma)$ выполнено следующее неравенство:
+	\[\left|\frac{(z-z_0)^n}{(w-z_0)^{n + 1}}\right| \le \frac{1}{|z - z_0|}\left(\frac{|z - z_0|}{d}\right)^n\]
+	
+	По признаку Вейерштрасса, ряд, представляющий функцию $\frac1{w - z}$, сходится равномерно на $M(\gamma)$, тогда на $M(\gamma)$ равномерно сходится и ряд следующего вида:
+	\[\frac1{2\pi i} \cdot\frac{f(w)}{w-z} = \sum_{n=0}^\infty\frac1{2\pi i}\cdot \frac{f(w)}{(w-z_0)^{n + 1}}(z-z_0)^n\]
+	
+	Интегрируя обе части равенства выше, получим требуемое:
+	\[F(z) = \frac1{2\pi i} \int_\gamma \frac{f(w)}{w-z} = \sum_{n=0}^\infty\left(\frac1{2\pi i} \int_\gamma\frac{f(w)}{(w-z_0)^{n + 1}}dw\right)(z-z_0)^n \qedhere\]
+\end{proof}
+
+\begin{corollary}
+	Интеграл Коши $F(z)$ бесконечно дифференцируем на $\Cm \bs M(\gamma)$, причем для любых $z \in \Cm$ и $n \in \N$ выполнено равенство:
+	\[F^{(n)}(z) = \frac{n!}{2\pi i} \int_\gamma\frac{f(w)}{(w-z)^{n + 1}}dw\]
+\end{corollary}
+
+\begin{definition}
+	Множество функций, бесконечно дифференцируемых на области $G \subset \Cm$, обозначается через $C^\infty(G)$.
+\end{definition}
+
+\begin{theorem}
+	Пусть $z_0 \in \Cm$, $R > 0$, функция $f$ регулярна на $K := \{z \in \Cm : |z - z_0| < R\}$. Тогда $f \in C^\infty(K)$, и $f$ представима рядом Тейлора на в любой точке $z \in K$:
+	\[f(z) = \sum_{n = 0}^\infty \frac{f^{(n)}(z_0)}{n!}(z - z_0)^n\]
+\end{theorem}
+
+\begin{proof}
+	Зафиксируем $R_1 < R$ и положим $K_1 := \{z \in \Cm: |z - z_0| < R_1\}$. Тогда $f \in C^1(\overline{K_1})$, и по интегральной формуле Коши для любого $z \in K_1$ выполнено следующее:
+	\[f(z) = \frac{1}{2\pi i}\int_{\partial K_1}\frac{f(w)}{w - z}dw\]
+	
+	Значит, $f$ является интегралом Коши на $K_1$, поэтому на $K_1$ функция $f$ бесконечно дифференцируема и представима рядом Тейлора. В силу произвольности выбора $R_1$, получено требуемое.
+\end{proof}
+
+\begin{note}
+	Анализируя доказательство теоремы выше, получим следующее равенство для любых чисел $z \in K_1$ и $n \in \N$:
+	\[f^{(n)}(z) = \frac{n!}{2\pi i}\int_{\partial K_1}\frac{f(w)}{(w - z)^{n+1}}dw\]
+	
+	Это равенство называется \textit{интегральной формулой Коши для производной порядка $n$}.
+\end{note}
+
+\begin{theorem}[Мореры]
+	Пусть функция $f$ непрерывна на области $G \subset \Cm$ и для любой замкнутой кусочно-гладкой кривой $\gamma$ такой, что $M(\gamma) \subset G$, выполнено равенство:
+	\[\int_\gamma fdz = 0\]
+	
+	Тогда $f$ регулярна на $G$.
+\end{theorem}
+
+\begin{proof}
+	По условию, функция $f$ имеет первообразную на $G$, причем ее первообразная $F$ регулярна на $G$ в силу непрерывности функции $f$. К каждой точке из $G$ применима предыдущая теорема, откуда $F \in C^\infty(G)$. Но тогда и $f = F' \in C^\infty(G)$.
+\end{proof}
+
+\begin{example}
+	Пусть $K_1 = \{z \in \Cm: |z| < 1\}$, тогда граница круга $\partial K_1$ задает кривую $\gamma$ с параметризацией $w = e^{it}$, $t \in [-\pi, \pi]$. Тогда для функции $f(z) = e^z$ и любого $n \in \N$ выполнено следующее равенство:
+	\[1 = f^{(n)}(0) = \frac{n!}{2\pi i} \int_\gamma \frac{e^w}{w^{n+1}}dw = \frac{n!}{2\pi i} \int_{-\pi}^\pi \frac{e^{e^{it}}\cdot ie^{it}}{e^{it(n+1)}}dt = \frac{n!}{2\pi} \int_{-\pi}^\pi e^{\cos{t} + i(\sin{t} - tn)}dt\]
+	
+	Отсюда получаем следующее:
+	\[\int_{0}^\pi e^{\cos{t}}\cos{(\sin{t} - tn)}dt = \frac\pi{n!}\]
+\end{example}
