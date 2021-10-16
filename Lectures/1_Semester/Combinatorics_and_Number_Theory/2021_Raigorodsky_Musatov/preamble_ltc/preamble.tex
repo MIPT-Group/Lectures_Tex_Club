@@ -43,9 +43,14 @@
 \newcommand{\veps}{\epsilon}
 \newcommand{\liml}{\lim\limits}
 \newcommand{\simm}{\triangle}
+\newcommand{\leqsim}{\,\raisebox{-0.6ex}{\scalebox{0.8}{$\buildrel \scalebox{1}{\leq} \over \sim$}}\,}
+\newcommand{\geqsim}{\,\raisebox{-0.6ex}{\scalebox{0.8}{$\buildrel \scalebox{1}{\geq} \over \sim$}}\,}
 
 \newcommand{\System}[1]{
 	\left\{\begin{aligned}#1\end{aligned}\right.
+}
+\newcommand{\Unity}[1]{
+	\left[\begin{aligned}#1\end{aligned}\right.
 }
 \newcommand{\Root}[2]{
 	\left\{\!\sqrt[#1]{#2}\right\}
@@ -55,9 +60,11 @@
 
 \let\bs\backslash
 \let\lra\Leftrightarrow
-\let\ra\Rightarrow
+\let\Ra\Rightarrow
 \let\la\Leftarrow
 \let\emb\hookrightarrow
+\let\ra\rightarrow
+\let\rra\rightrightarrows
 
 \newcommand{\dse}{\displaystyle}
 
