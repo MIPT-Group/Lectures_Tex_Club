@@ -222,7 +222,7 @@
 \end{proof}
 
 \begin{theorem} (Производная обратной функции)
-	Если $f(x)$ непрерывна и строго монотонна на $U_{\delta}(a)$ и $\exists f'(a) \neq 0$, то обратная функция $f^{-1}$ имеет производную в точке $f(a)$, равную
+	Если $f(x)$ непрерывна и строго монотонна на $U_{\delta}(a),\ \delta > 0$ и $\exists f'(a) \neq 0$, то обратная функция $f^{-1}$ имеет производную в точке $f(a)$, равную
 	$$
 		(f^{-1})'(f(a)) = \frac{1}{f'(a)}
 	$$
@@ -230,20 +230,27 @@
 
 \begin{proof}
 	Во первых, обратная функция определена, непрерывна и строго монотонна на интервале $f(U_{\delta}(a))$. Для краткости обозначим $\varphi = f^{-1}$. Рассмотрим $[a - \delta; a + \delta]$. Для определённости будем считать $f$ - возрастающей функцией. Тогда, $\varphi$ определена на $y \in [f(a - \delta); f(a + \delta)]$. По определению производной, нам надо найти предел
-	$$
+	\[
 		\liml_{\Delta y \to 0} \frac{\varphi(f(a) + \Delta y) - \varphi(f(a))}{\Delta y}
-	$$
+	\]
 	Обозначим
-	$$
+	\[
 		\Delta x := \varphi(f(a) + \Delta y) - \varphi(f(a))
-	$$
+	\]
 	Тогда
-	$$
+	\[
+		\liml_{\Delta y \to 0} \Delta x = 0
+	\]
+	В силу непрерывности $\varphi(y)$. Дополнительно имеем, что
+	\[
 		a + \Delta x = \varphi(f(a) + \Delta y)
-	$$
+	\]
 	То есть
-	$$
+	\[
 		f(a + \Delta x) - f(a) = f(a) + \Delta y - f(a) = \Delta y
-	$$
-	%%%%%% Дописать!!!
+	\]
+	Отсюда исходный предел выражается как
+	\[
+		\liml_{\Delta y \to 0} \frac{\varphi(f(a) + \Delta y) - \varphi(f(a))}{\Delta y} = \liml_{\Delta y \to 0} \frac{\Delta x}{\Delta y} = \liml_{\Delta y \to 0} \frac{1}{\frac{\Delta y}{\Delta x}} = \frac{1}{\liml_{\Delta x \to 0} \frac{\Delta y}{\Delta x}} = \frac{1}{f'(a)}
+	\]
 \end{proof}

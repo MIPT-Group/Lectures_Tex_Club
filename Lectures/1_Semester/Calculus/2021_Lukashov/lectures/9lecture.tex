@@ -155,7 +155,7 @@ $$
 \begin{proof}
 \begin{enumerate}
 	\item $\forall \eps > 0\ \exists \delta > 0\ |\ \forall x \in \mc{U}_{\delta}(a)\ |f(x) - A| < \eps$
-	
+
 	Рассмотрим $\eps := 1$: $\exists \delta > 0\ |\ \forall x \in \mc{U}_{\delta}(a)\ A - 1 < f(x) < A + 1$
 	
 	\item $\forall \eps > 0\ \exists \delta > 0\ |\ \forall x \in \mc{U}_{\delta}(a)\ f(x) \in U_{\eps}(A)$
@@ -170,8 +170,16 @@ $$
 	
 	\item Рассмотрим $\{x_n\}_{n = 1}^\infty\ |\ x_n \neq a, \liml_{n \ra \infty} x_n = a \text{ и } \liml_{n \ra \infty} f(x_n) = A,\ \liml_{n \ra \infty} g(x_n) = B$
 	
-	Из анализа последовательностей $f(x_n) \le g(x_n) \Ra A \le B$.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ДОПИСАТЬ
+	Так как последовательность сходится к $a$, то с какого-то номера $N \in \N$ она будет полностью в проколотой $\delta$-окрестности $a$. А для элементов из неё будет выполняться
+	\[
+		f(x_n) \le g(x_n)
+	\]
+	
+	А значит, мы можем сделать предельный переход в неравенстве для последовательностей и получить
+	\[
+		\liml_{n \to \infty} f(x_n) \le \liml_{n \to \infty} g(x_n) \Ra A \le B
+	\]
+	
 	\item Доказательство аналогично третьему, через предел по Гейне и теорему о трёх последовательностях
 \end{enumerate}
 \end{proof}

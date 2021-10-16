@@ -1,22 +1,48 @@
 \begin{corollary}
 	$|\sin x| \le |x|\ \forall x \in \R$
-	
-	Если мы положим $x \in (-\frac{\pi}{2}; 0]$, получим
-	
 \end{corollary}
+
+\begin{proof}
+	Если мы положим $x \in (-\frac{\pi}{2}; 0]$, то получим
+	\begin{align*}
+		&(-x) \in [0; \frac{\pi}{2})
+		\\
+		&\sin x = -\sin (-x)
+		\\
+		&x = -(-x)
+	\end{align*}
+	По уже доказанной лемме \ref{for_trig} имеем
+	\[
+		\sin (-x) \le (-x) \Ra -\sin (-x) \ge -(-x) \lra \sin(x) \ge x
+	\]
+	Но при этом мы имеем дело с отрицательными числами. А стало быть
+	\[
+		|\sin x| \le |x|,\ x \in \left(-\frac{\pi}{2},\ \frac{\pi}{2}\right)
+	\]
+	За рамками данного интервала $x$ уже точно по модулю за областью значений $\sin x$. Поэтому утверждение верно $\forall x \in \R$.
+\end{proof}
 
 \subsubsection*{Непрерывность $\sin$, $\cos$}
 
-\begin{align*}
-	|\sin x - \sin a| = |2 \sin \frac{x - a}{2} \cos \frac{x + a}{2}| \le 
-\end{align*}
+Докажем, что $\liml_{x \to a} \sin x = \sin a$ при $\forall a \in \R$
+\begin{multline*}
+	|\sin x - \sin a| = \left|2 \sin \frac{x - a}{2} \cos \frac{x + a}{2}\right| \le 2 \cdot \left|\sin \frac{x - a}{2}\right| \cdot \left|\cos \frac{x + a}{2}\right| \le \\
+	2 \cdot \left|\frac{x - a}{2}\right| \cdot 1 = |x - a|
+\end{multline*}
+Для доказательства предела достаточно взять $\delta := \eps / 2$. Следовательно, $\sin x$ - непрерывная на всей области определения.
 
-\begin{theorem} (Первый замечательный предел) \\
-	Предел $\liml_{x \to 0} \frac{\sin x}{x}$ существует и равен $1$.
+Теперь докажем, что $\liml_{x \to a} \cos x = \cos a$ при $\forall a \in \R$
+\[
+	|\cos x - \cos a| = \left|-2 \cdot \sin \frac{x + a}{2} \cdot \sin \frac{x - a}{2} \right| \le 2 \cdot 1 \cdot \left|\frac{x - a}{2}\right| = |x - a|
+\]
+Снова достаточно взять $\delta := \eps / 2$ и доказательство получено.
+
+
+\begin{theorem} (Первый замечательный предел) Предел $\liml_{x \to 0} \frac{\sin x}{x}$ существует и равен $1$.
 \end{theorem}
 
 \begin{proof}
-	Рассмотрим $x \in (0; \frac{\pi}{2})$. Тогда, по лемме 6.1. получим:
+	Рассмотрим $x \in (0; \frac{\pi}{2})$. Тогда, по лемме \ref{for_trig} получим:
 	$$
 		1 < \frac{x}{\sin x} < \frac{1}{\cos x}
 	$$
@@ -29,28 +55,18 @@
 
 \subsubsection*{Непрерывность показательной функции}
 
-Считаем, что все рациональные степени уже определены.
+Считая, что все рациональные степени уже определены, дадим определение $a^x$ в общем случае
 
-\begin{enumerate}
-	\item $a > 1$
-	
-	При $x > 0,\ x \in \R \bs \Q$ $(x)_n = \frac{[10^n x]}{10^n}$
-	
-	$a^x := \liml_{n \to \infty} a^{(x)_n}$
-	
-	Для $0 < x_1 < x_2$ существуют $r_1, r_2 \in \Q$ такие, что
-	$$
-		x_1 < r_1 < r_2 < x_2
-	$$
-	$x_2 - r_2 > 0 \Ra \liml_{n \to \infty} \left((x_2)_n - r_2\right) = x_2 - r_2$
-	
-	При $x < 0$ определим $a^x$ так:
-	$$
-		a^x := \frac{1}{a^{-x}}
-	$$
-\end{enumerate}
+\begin{definition}
+	$a^x$ при $\forall x \in \R$ определяется как
+	\begin{enumerate}
+		\item $a > 1$
+		\item $a = 1 \Ra a^1 = a$
+		\item $0 < a < 1$
+	\end{enumerate}
+\end{definition}
 
-\begin{lemma}(
+\begin{lemma}
 	$(\forall x \in \R)\ (\forall \{r_n\} \subset \Q,\ \liml_{n \to \infty} r_n = x) \Ra \liml_{n \to \infty} a^{r_n} = a^x$
 \end{lemma}
 
@@ -70,7 +86,7 @@
 	$$
 		a^{r_{n + p}} - a^{r_n} = a^{r_n} \cdot (a^{r_{n + p} - r_n} - 1)
 	$$
-	Так как $\{r_n\}$ сходится, то $\exists M \such \forall n \in \N r_n \le M$. Отсюда
+	Так как $\{r_n\}$ сходится, то $\exists M \such \forall n \in \N\ r_n \le M$. Отсюда
 	$$
 		a^{r_n} \le a^M
 	$$
@@ -207,9 +223,11 @@
 		f\left(\frac{1}{n}\right) = \left(1 + \frac{1}{n}\right)^n \Ra \liml_{n \to \infty} f(1/n) = e
 	$$
 	Напишем цепочку неравенств:
-	$$
-		(1 + \frac{1}{n_x + 1})^{- 2} \cdot (1 + \frac{1}{n_x + 1})^{n_x + 2} \le (1 + x)^{1/x} \le (1 + \frac{1}{n_x})^{1/x} < (1 + \frac{1}{n_x})^{n_x + 1}
-	$$
+	\begin{align*}
+		&(1 + x)^{1 / x} \ge (1 + x)^{n_x} > \left(1 + \frac{1}{n_x + 1}\right)^{n_x}
+		\\
+		&(1 + x)^{1 / x} \le \left(1 + \frac{1}{n_x}\right)^{1 / x} < \left(1 + \frac{1}{n_x}\right)^{n_x + 1}
+	\end{align*}
 	Крайняя левая и крайняя правая оценки стремятся к $e$. А значит
 	$$
 		\liml_{x \to 0+} f(x) = e
@@ -218,15 +236,19 @@
 	\begin{multline*}
 		\liml_{x \to 0-} (1 + x)^{1 / x} = \liml_{y \to 0+} (1 - y)^{-1/y} = \\
 		\liml_{y \to 0+} \frac{1}{(1 - y)^{1/y}} = \liml_{y \to 0+} \left(\frac{1}{1 - y}\right)^{1 / y} = \\
-		\liml_{y \to 0+} \left(1 + \frac{y}{1 - y}\right)^{1 / y} = \liml_{t \to 0+} (1 + t)^{\frac{1 - t}{t}} = \liml_{t \to 0+} (1 + t)^{1 / t} \cdot 
+		\liml_{y \to 0+} \left(1 + \frac{y}{1 - y}\right)^{1 / y} = \liml_{t \to 0+} (1 + t)^{\frac{1 - t}{t}} = \\
+		\liml_{t \to 0+} (1 + t)^{1 / t} \cdot \frac{1}{1 + t} = e \cdot 1 = e
 	\end{multline*}
-	%%%%%%%%%%%%%%%%%%% ДОПИСАТЬ
+	По теореме о связи предела с односторонними пределами, в итоге получаем
+	\[
+		\liml_{x \to 0} (1 + x)^{1 / x} = e
+	\]
 \end{proof}
 
 \begin{lemma}
 	$\forall a \in (0; 1) \cup (1; +\infty)$
 	\begin{enumerate}
-		\item $\liml{x \to \infty} \left(1 + \frac{1}{x}\right)^x = e$
+		\item $\liml_{x \to \infty} \left(1 + \frac{1}{x}\right)^x = e$
 		\item $\liml_{x \to 0} \frac{\log_a (1 + x)}{x} = \frac{1}{\ln_a}$
 		\item $\liml_{x \to 0} \frac{a^x - 1}{x} = \ln a$
 	\end{enumerate}
@@ -234,7 +256,7 @@
 
 \begin{proof}
 	\begin{enumerate}
-		\item Введём $g(y)$: $\liml_{y \to 0} (1 + y)^{1 / y} = e$
+		\item Введём $g(y)$:
 		$$
 			g(y) = \System{
 			&{(1 + y)^{1 / y},\ y \neq 0}
@@ -242,30 +264,66 @@
 			&{e, y = 0}
 			}
 		$$
-		Короче через комбинацию двух функций $f(x) = 1/x$ и выше. У нас есть теорема о сложной
+		В силу второго замечательного предела
+		\[
+			\liml_{y \to 0} (1 + y)^{1 / y} = e = g(0)
+		\]
+		То есть, $g(y)$ непрерывна в 0. Дополнительно введём $y = f(x) = 1 / x$. Для этой функции есть предел
+		\[
+			\liml_{x \to \infty} f(x) = 0
+		\]
+		По теореме о пределе композиции функций получим
+		\[
+			\liml_{x \to \infty} \left(1 + \frac{1}{x}\right)^x = \liml_{x \to \infty} g(f(x)) = g(0) = e
+		\]
 		
-		\item В силу непрерывности логарифма применим
+		\item В силу непрерывности логарифма в 0 применим композицию:
 		$$
 			\liml_{x \to 0} \frac{\log_a (1 + x)}{x} = \liml_{x \to 0} \log_a((1 + x)^{1 / x}) = \log_a(\liml_{x \to 0} (1 + x)^{1 / x}) = \log_a e = \frac{1}{\ln a}
 		$$
 		
-		\item Положим $a^x - 1 = f(x)$ 
-		
+		\item Положим $f(x) = a^x - 1$. Если выразить $x$ через $y = f(x)$, то получится
+		\[
+			x = \log_a (y + 1)
+		\]
+		А выражение предела получает вид
+		\[
+			\frac{a^x - 1}{x} = \frac{y}{\log_a (y + 1)}
+		\]
+		Если подставить в такое выражение $y = 0$, то мы получим неопределённость. Это можно исправить, определив $g(y)$ как
+		\[
+			g(y) := \System{
+				&{\frac{y}{\log_a (y + 1)},\ y \neq 0}
+				\\
+				&{\ln a,\ y = 0}
+			}
+		\]
+		Посчитаем предел
+		\[
+			\liml_{y \to 0} g(y) = \liml_{y \to 0} \frac{1}{\frac{1}{g(y)}} = \liml_{y \to 0} \frac{1}{\frac{\log_a (y + 1)}{y}} = \frac{1}{\frac{1}{\ln a}} = \ln a
+		\]
+		То есть $g(y)$ непрерывно в 0. При этом
+		\[
+			\liml_{x \to 0} f(x) = 1 - 1 = 0
+		\]
+		По теореме о композиции функций получим
+		\[
+			\liml_{x \to 0} \frac{a^x - 1}{x} = \liml_{x \to 0} g(f(x)) = g(0) = \ln a
+		\]
 	\end{enumerate}
-	%%%%%%%%%%%%%%%%%%%%%%%%%% ДОПИСАТЬ
 \end{proof}
 
 \subsubsection*{Гиперболические функции}
 
 \begin{definition}
 	\begin{align*}
-		&{sh x := \frac{e^x - e^{-x}}{2} - \text{ гиперболический синус}}
+		&{\sh x := \frac{e^x - e^{-x}}{2} - \text{ гиперболический синус}}
 		\\
-		&{ch x := \frac{e^x + e^{-x}}{2} - \text{ гиперболический косинус}}
+		&{\ch x := \frac{e^x + e^{-x}}{2} - \text{ гиперболический косинус}}
 		\\
-		&{th x := \frac{sh x}{ch x}}
+		&{\th x := \frac{\sh x}{\ch x}}
 		\\
-		&{cth x := \frac{ch x}{sh x}}
+		&{\cth x := \frac{\ch x}{\sh x}}
 	\end{align*}
 \end{definition}
 
@@ -274,15 +332,15 @@
 \subsubsection*{Свойства гиперболических функций}
 
 \begin{enumerate}
-	\item $ch^2 x - sh^2 x = 1$ - основное гиперболическое тождество
-	\item $ch^2 x + sh^2 x = ch 2x$
-	\item $2 \cdot sh x \cdot ch x = sh 2x$
+	\item $\ch^2 x - \sh^2 x = 1$ - основное гиперболическое тождество
+	\item $\ch^2 x + \sh^2 x = \ch 2x$
+	\item $2 \cdot \sh x \cdot \ch x = \sh 2x$
 \end{enumerate}
 
 \subsubsection*{Обратные функции}
 
 $$
-	y = sh x \lra x = Arsh y
+	y = \sh x \lra x = \Arsh y
 $$
 В этом нет смысла, так как можно решить уравнение явно
 $$
@@ -290,5 +348,5 @@ $$
 $$
 
 \begin{addition}
-	$\liml_{x \to 0} \frac{sh x}{x} = \liml_{x \to 0} \frac{e^x - e^{-x}}{2x} = \liml_{x \to 0} \frac{e^x - 1}{2x} - \frac{e^{-x} - 1}{2z} = \frac{1}{2} + \liml_{t \to 0} \frac{e^t - 1}{2t} = 1$
+	$\liml_{x \to 0} \frac{\sh x}{x} = \liml_{x \to 0} \frac{e^x - e^{-x}}{2x} = \liml_{x \to 0} \frac{e^x - 1}{2x} - \frac{e^{-x} - 1}{2z} = \frac{1}{2} + \liml_{t \to 0} \frac{e^t - 1}{2t} = 1$
 \end{addition}
