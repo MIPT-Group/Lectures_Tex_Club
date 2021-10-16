@@ -3,17 +3,25 @@
 	
 	\textit{Левосторонним пределом} в точке $b$ называется $B \in \bar{\R} \cup \{\infty\}$ такое, что
 	\begin{enumerate}
-		\item $\forall \eps > 0\ \exists \delta > 0\ |\ \forall x\ b - \delta < x < b,\ f(x) \in U_{\eps}(B)$
+		\item $\forall \eps > 0\ \exists \delta > 0\ |\ \forall x,\ b - \delta < x < b\ \ f(x) \in U_{\eps}(B)$
 		
 		\item $\forall \{x_n\}_{n = 1}^\infty \subset (a; b),\ \liml_{n \to \infty} x_n = b\ \ \liml_{n \to \infty} f(x_n) = B$
 	\end{enumerate}
+	Обозначается как
+	\[
+		f(b - 0) := \liml_{x \to b-0} f(x) = B
+	\]
 
 	\textit{Правосторонним пределом} в точке $a$ называется $A \in \bar{\R} \cup \{\infty\}$ такое, что
 	\begin{enumerate}
-		\item $\forall \eps > 0\ \exists \delta > 0\ |\ \forall x\ a < x < a + \delta,\ f(x) \in U_{\eps}(A)$
+		\item $\forall \eps > 0\ \exists \delta > 0\ |\ \forall x,\ a < x < a + \delta\ \ f(x) \in U_{\eps}(A)$
 		
 		\item $\forall \{x_n\}_{n = 1}^\infty \subset (a; b),\ \liml_{n \to \infty} x_n = a\ \ \liml_{n \to \infty} f(x_n) = A$
 	\end{enumerate}
+	Обозначается как
+	\[
+	f(b + 0) := \liml_{x \to a+0} f(x) = A
+	\]	
 \end{definition}
 
 \begin{definition}
@@ -37,13 +45,29 @@
 	$$
 	Отсюда следует, что $\forall x\ |\ a < x < a + \delta,\ f(x) \in U_{\eps}(A)$ и $\forall x\ |\ a - \delta < x < a,\ f(x) \in U_{\eps}(A)$, что равносильно утверждению справа.
 	
-	\item Пусть $\exists \liml_{x \to a-0} f(x) = \liml_{x \to a+0} f(x)$. Тогда
-	$$
-		\forall \eps > 0\ \exists \delta_1 > 0\ |\ \forall x,\ a - \delta < x < a \Ra f(x) \in U_{\eps}(A)
-		\forall \eps > 0\ \exists \delta_2 > 0\ |\ \forall x,\ a < x < a + \delta \Ra f(x) \in U_{\eps}(A)
-	$$
-	Выберем $\delta := \min(\delta_1, \delta_2)$
-%%%%%%%%%%%%%%%%%%%%%%%%%%% ДОПИСАТЬ
+	\item Пусть $\exists \liml_{x \to a-0} f(x) = \liml_{x \to a+0} f(x) = A$. Тогда
+	\begin{align*}
+		\forall \eps > 0\ \exists \delta_1 > 0 \such \forall x,\ a - \delta_1 < x < a\ \ f(x) \in U_{\eps}(A)
+		\\
+		\forall \eps > 0\ \exists \delta_2 > 0 \such \forall x,\ a < x < a + \delta_2\ \ f(x) \in U_{\eps}(A)
+	\end{align*}
+	Выберем $\delta := \min(\delta_1, \delta_2)$, получим
+	\begin{align*}
+		\delta_1 \ge \delta \Ra a - \delta_1 \le a - \delta
+		\\
+		\delta_2 \ge \delta \Ra a + \delta_2 \ge a + \delta
+	\end{align*}
+	Рассмотрим $\forall x \in \mc{U}_\delta(a)$:
+	\begin{align*}
+		a < x < a + \delta \Ra a < x < a + \delta_2
+		\\
+		a - \delta < x < a \Ra a - \delta_1 < x < a
+	\end{align*}
+	Любой из этих случаев ведёт к тому, что $f(x) \in U_{\eps}(A)$. А значит
+	\[
+		\forall \eps > 0 \exists \delta > 0 \such \forall x,\ x \in \mc{U}_{\delta}(a)\ \ f(x) \in U_{\eps}(A)
+	\]
+	Что равносильно левой стороне утверждения.
 \end{enumerate}
 
 \end{proof}
@@ -108,11 +132,11 @@
 \end{definition}
 
 \begin{definition}
-	Если $f$ определена на $[x_0; x_0 + \delta_0]$, где $\delta_0 > 0$ и $\liml_{x \to x_0 + 0} f(x) = f(x_0)$, то $f$ называется \textit{непрерывной справа} в точке $x_0$. Ещё обозначается как $f(x_0 + 0)$
+	Если $f$ определена на $[x_0; x_0 + \delta_0]$, где $\delta_0 > 0$ и $\liml_{x \to x_0 + 0} f(x) = f(x_0)$, то $f$ называется \textit{непрерывной справа} в точке $x_0$.
 \end{definition}
 
 \begin{definition}
-	Если $f$ определена на $[x_0 - \delta_0; x_0]$, где $\delta_0 > 0$ и $\liml_{x \to x_0 - 0} f(x) = f(x_0)$, то $f$ называется \textit{непрерывной слева} в точке $x_0$. Ещё обозначается как $f(x_0 - 0)$
+	Если $f$ определена на $[x_0 - \delta_0; x_0]$, где $\delta_0 > 0$ и $\liml_{x \to x_0 - 0} f(x) = f(x_0)$, то $f$ называется \textit{непрерывной слева} в точке $x_0$.
 \end{definition}
 
 \begin{theorem}
