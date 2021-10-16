@@ -265,7 +265,37 @@
 	$\forall x \in (0; \frac{\pi}{2}) \Ra \sin x < x < \tg x$
 \end{lemma}
 
-%%%%%%%%% Здесь нужна картинка, я её сфоткал
+\begin{center}
+	\begin{tikzpicture}[scale=1]
+		% Axis
+		\coordinate (y) at (0,3);
+		\coordinate (x) at (3.6,0);
+		\draw[<->] (y) -- (0,0) --  (x);
+		\draw (-3,0) -- (0,0) --  (0,-3);
+		
+		\path
+		coordinate (c1) at +(2.5, 3)
+		coordinate (c2) at +(2.5, -3)
+		coordinate (top) at (4.8,3.6);
+		
+		\draw (c1) -- (c2);
+		\draw (2.1, 1.35) -- (2.1, 0) node[below] {$A$};
+		\draw (0,0) node[above left] {$O$} -- (2.5, 1.6) node[above right] {$B$};
+		
+		\filldraw[black] (2.5, 0) circle (1.2pt) node[below right] {$C$};
+		\filldraw[black] (2.5, 1.6) circle (1.2pt);
+		\filldraw[black] (0, 0) circle (1.2pt);
+		\filldraw[black] (2.1, 0) circle (1.2pt);
+		\filldraw[black] (2.1, 1.35) circle (1.2pt) node[yshift=10, xshift=3] {$M$};
+		\draw[black] circle(2.5);
+		
+		\coordinate (a) at (1, 0);
+		\coordinate (z) at (0, 0);
+		\coordinate (m) at (2.1, 1.35);
+		\draw (1, 0.3) node {$x$};
+		\pic [draw, ->, angle radius = 0.7cm] {angle = a--z--m};
+	\end{tikzpicture}
+\end{center}
 
 \begin{proof}
 	$\sin x = MA,\ \tg x = BC$
