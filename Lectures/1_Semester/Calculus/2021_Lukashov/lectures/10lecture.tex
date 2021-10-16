@@ -3,17 +3,25 @@
 	
 	\textit{Левосторонним пределом} в точке $b$ называется $B \in \bar{\R} \cup \{\infty\}$ такое, что
 	\begin{enumerate}
-		\item $\forall \eps > 0\ \exists \delta > 0\ |\ \forall x\ b - \delta < x < b,\ f(x) \in U_{\eps}(B)$
+		\item $\forall \eps > 0\ \exists \delta > 0\ |\ \forall x,\ b - \delta < x < b\ \ f(x) \in U_{\eps}(B)$
 		
 		\item $\forall \{x_n\}_{n = 1}^\infty \subset (a; b),\ \liml_{n \to \infty} x_n = b\ \ \liml_{n \to \infty} f(x_n) = B$
 	\end{enumerate}
+	Обозначается как
+	\[
+		f(b - 0) := \liml_{x \to b-0} f(x) = B
+	\]
 
 	\textit{Правосторонним пределом} в точке $a$ называется $A \in \bar{\R} \cup \{\infty\}$ такое, что
 	\begin{enumerate}
-		\item $\forall \eps > 0\ \exists \delta > 0\ |\ \forall x\ a < x < a + \delta,\ f(x) \in U_{\eps}(A)$
+		\item $\forall \eps > 0\ \exists \delta > 0\ |\ \forall x,\ a < x < a + \delta\ \ f(x) \in U_{\eps}(A)$
 		
 		\item $\forall \{x_n\}_{n = 1}^\infty \subset (a; b),\ \liml_{n \to \infty} x_n = a\ \ \liml_{n \to \infty} f(x_n) = A$
 	\end{enumerate}
+	Обозначается как
+	\[
+	f(b + 0) := \liml_{x \to a+0} f(x) = A
+	\]	
 \end{definition}
 
 \begin{definition}
@@ -37,15 +45,31 @@
 	$$
 	Отсюда следует, что $\forall x\ |\ a < x < a + \delta,\ f(x) \in U_{\eps}(A)$ и $\forall x\ |\ a - \delta < x < a,\ f(x) \in U_{\eps}(A)$, что равносильно утверждению справа.
 	
-	\item Пусть $\exists \liml_{x \to a-0} f(x) = \liml_{x \to a+0} f(x)$. Тогда
-	$$
-		\forall \eps > 0\ \exists \delta_1 > 0\ |\ \forall x,\ a - \delta < x < a \Ra f(x) \in U_{\eps}(A)
-		\forall \eps > 0\ \exists \delta_2 > 0\ |\ \forall x,\ a < x < a + \delta \Ra f(x) \in U_{\eps}(A)
-	$$
-	Выберем $\delta := \min(\delta_1, \delta_2)$
+	\item Пусть $\exists \liml_{x \to a-0} f(x) = \liml_{x \to a+0} f(x) = A$. Тогда
+	\begin{align*}
+		\forall \eps > 0\ \exists \delta_1 > 0 \such \forall x,\ a - \delta_1 < x < a\ \ f(x) \in U_{\eps}(A)
+		\\
+		\forall \eps > 0\ \exists \delta_2 > 0 \such \forall x,\ a < x < a + \delta_2\ \ f(x) \in U_{\eps}(A)
+	\end{align*}
+	Выберем $\delta := \min(\delta_1, \delta_2)$, получим
+	\begin{align*}
+		\delta_1 \ge \delta \Ra a - \delta_1 \le a - \delta
+		\\
+		\delta_2 \ge \delta \Ra a + \delta_2 \ge a + \delta
+	\end{align*}
+	Рассмотрим $\forall x \in \mc{U}_\delta(a)$:
+	\begin{align*}
+		a < x < a + \delta \Ra a < x < a + \delta_2
+		\\
+		a - \delta < x < a \Ra a - \delta_1 < x < a
+	\end{align*}
+	Любой из этих случаев ведёт к тому, что $f(x) \in U_{\eps}(A)$. А значит
+	\[
+		\forall \eps > 0 \exists \delta > 0 \such \forall x,\ x \in \mc{U}_{\delta}(a)\ \ f(x) \in U_{\eps}(A)
+	\]
+	Что равносильно левой стороне утверждения.
 \end{enumerate}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%% ДОПИСАТЬ
 \end{proof}
 
 \begin{definition}
@@ -70,9 +94,8 @@
 	$$
 	если $f$ невозрастающая, то
 	$$
-		\liml_{x \to a+0} f(x) = \inf\limits_{x \in (a; b)} f(x),\ \liml_{x \to b-0} f(x) = \sup\limits_{x \in (a; b)} f(x)
+		\liml_{x \to a+0} f(x) = \sup\limits_{x \in (a; b)} f(x),\ \liml_{x \to b-0} f(x) = \inf\limits_{x \in (a; b)} f(x)
 	$$
-	Если 
 \end{theorem}
 
 \begin{proof}
@@ -100,9 +123,9 @@
 	\end{enumerate}
 \end{proof}
 
-\section{Непрерывность}
+\subsection{Непрерывность}
 
-\subsection{Непрерывность в точке}
+\subsubsection*{Непрерывность в точке}
 
 \begin{definition}
 	Если $f$ определена в некоторой окрестности точки $x_0$ и $\liml_{x \to x_0} f(x) = f(x_0)$, то функция называется \textit{непрерывной} в точке $x_0$.
@@ -112,16 +135,20 @@
 	Если $f$ определена на $[x_0; x_0 + \delta_0]$, где $\delta_0 > 0$ и $\liml_{x \to x_0 + 0} f(x) = f(x_0)$, то $f$ называется \textit{непрерывной справа} в точке $x_0$.
 \end{definition}
 
+\begin{definition}
+	Если $f$ определена на $[x_0 - \delta_0; x_0]$, где $\delta_0 > 0$ и $\liml_{x \to x_0 - 0} f(x) = f(x_0)$, то $f$ называется \textit{непрерывной слева} в точке $x_0$.
+\end{definition}
+
 \begin{theorem}
 	Пусть $f$ определена в некоторой окрестности точки $x_0$. Тогда, следующие утверждения эквивалентны:
 	\begin{enumerate}
 		\item $f$ непрерывна в т. $x_0$
-		\item $\forall \eps > 0\ \exists \delta > 0\ |\ \forall x, |x - x_0| < \delta \Ra |f(x) - f(x_0)| < \eps$
-		\item $\forall \{x_n\}_{n = 1}^\infty\ |\ \liml_{x \to \infty} f(x_n) = f(x_0)$
+		\item $\forall \eps > 0\ \exists \delta > 0 \such \left(\forall x \such |x - x_0| < \delta\right) \Ra |f(x) - f(x_0)| < \eps$
+		\item $\left(\forall \{x_n\}_{n = 1}^\infty \such \liml_{n \to \infty} x_n = x_0\right) \liml_{n \to \infty} f(x_n) = f(x_0)$
 	\end{enumerate}
 \end{theorem}
 
-\subsection{Точки разрыва}
+\subsubsection*{Точки разрыва}
 
 \begin{definition}
 	Пусть $f$ определена в проколотой окрестности точки $x_0$. Если $\liml_{x \to x_0} f(x) \neq f(x_0)$, то $x_0$ называется \textit{точкой разрыва} функции $f(x)$.
@@ -145,42 +172,52 @@
 	Если хотя бы 1 из односторонних пределов бесконечен, то $x_0$ называется \textit{точкой бесконечного разрыва}.
 \end{definition}
 
-\begin{note}
-	Для простоты вводят обозначения:
-	\begin{align*}
-		f(x_0 - 0) := \liml_{x \to x_0-0} f(x)
-		\\
-		f(x_0 + 0) := \liml_{x \to x_0+0} f(x)
-	\end{align*}
-\end{note}
-
 \begin{definition}
 	Величину $\liml_{x \to x_0+0} f(x) - \liml_{x \to x_0-0} f(x)$ называется \textit{скачком функции} в точке $x_0$.
 \end{definition}
 
 \begin{example}
 	$f(x) = \sgn x = \System{&{1,\ x > 0} \\ &{0,\ x = 0} \\ &{-1,\ x < 0}}$
+	\begin{align*}
+		&\liml_{x \to 0 + 0} f(x) = 1
+		\\
+		&\liml_{x \to 0 - 0} f(x) = -1
+	\end{align*}
+\end{example}
+
+\begin{example}
+	$f(x) = \sgn^2 x$
 	$$
-		\liml_{x \to 0+0} f(x) - \liml_{x \to 0-0} f(x) = 1 - (- 1) = 2
+		\liml_{x \to 0} \sgn^2 x = 1 \neq \sgn^2 0 = 0
 	$$
 \end{example}
 
 \begin{example}
-	$f(x) = \sgn^2 x\ \liml_{x \to 0} \sgn^2 x = 1 \neq \sgn^2 0 = 0$
-\end{example}
-
-\begin{example}
-	$f(x) = \liml_{x \to -0} \frac{\dse 1}{\dse x} = -\infty$, но $f(x) = \liml_{x \to +0} \frac{\dse 1}{\dse x} = +\infty$
+	$f(x) = \frac{1}{x}$
+	\begin{align*}
+		\liml_{x \to -0} \frac{\dse 1}{\dse x} = -\infty
+		\\
+		\liml_{x \to +0} \frac{\dse 1}{\dse x} = +\infty
+	\end{align*}
 \end{example}
 
 \begin{example}
 	$f(x) = \sin \frac{\dse 1}{\dse x}$
 	
-	Рассмотрим $x'_n = \frac{1}{\frac{\pi}{2} + 2\pi n},\ n \in \N$ и
-	
-	$x''_n = \frac{1}{-\frac{\pi}{2} + 2\pi n}$
-	
-%%%%%%%%%%%%%%%%%%%%%%%%% ДОПИСАТЬ
+	Рассмотрим
+	$$
+		\System{
+		&{x'_n = \frac{1}{\frac{\pi}{2} + 2\pi n},\ n \in \N}
+		\\
+		&{x''_n = \frac{1}{-\frac{\pi}{2} + 2\pi n}}
+		}
+		\Ra
+		\System{
+		&{\liml_{n \to \infty} f(x'_n) = 1}
+		\\
+		&{\liml_{n \to \infty} f(x''_n) = -1}
+		}
+	$$
 \end{example}
 
 \begin{theorem} (О точках разрыва монотонной функции)
@@ -215,7 +252,7 @@
 	$$
 \end{example}
 
-\subsection{Непрерывность на множестве}
+\subsubsection*{Непрерывность на множестве}
 
 \begin{definition}
 	Функция называется \textit{непрерывной на множестве} $X$, если $\forall x_0 \in X\ \ \forall \{x_n\} \subset X, \liml_{x \to \infty} x_n = x_0 \Ra \liml_{n \to \infty} f(x_n) = f(x_0)$

@@ -1,4 +1,4 @@
-\section{Предел функции}
+\subsection{Предел функции}
 
 \begin{definition}
 	\textit{Проколотой $\delta$-окрестностью} точки $a \in \R$ называется множество
@@ -31,29 +31,29 @@
 	\begin{enumerate}
 		\item (К $\Ra$ Г)
 		
-		Рассмотрим $\forall \{x_n\}\ |\ \liml_{n \to \infty} x_n = a$. По определению предела
+		Рассмотрим $\forall \{x_n\} \subset X \bs \{a\} \such \liml_{n \to \infty} x_n = a$. По определению предела
 		$$
-			\forall \delta > 0\ \exists N \in \N\ \big|\ \forall n > N\ |x_n - a| < \delta
+			\forall \delta > 0\ \exists N \in \N \such \forall n > N\ |x_n - a| < \delta
 		$$
 		Так как $\forall n \in \N\ x_n \in X \bs \{a\}$, то отсюда следует
 		$$
-			\forall \delta > 0\ \exists N \in \N\ \big|\ \forall n > N\ x_n \in \mc{U}_{\delta}(a)
+			\forall \delta > 0\ \exists N \in \N \such \forall n > N\ x_n \in \mc{U}_{\delta}(a)
 		$$
 		По условию выполнено утверждение:
 		$$
-			\liml_{x \to a} f(x) = A \lra \forall \eps > 0\ \exists \delta > 0\ \big|\ \forall x \in \mc{U}_{\delta}(a)\ f(x) \in U_{\eps}(A)
+			\liml_{x \to a} f(x) = A \lra \forall \eps > 0\ \exists \delta > 0 \such \forall x \in \mc{U}_{\delta}(a)\ f(x) \in U_{\eps}(A)
 		$$
 		То есть для любого $\eps > 0$ найдётся $\delta > 0$, для которого верно 2 условия:
 		$$
 		\System{
-			&{\exists N \in \N\ \big|\ \forall n > N\ x_n \in \mc{U}_{\delta}(a)}
+			&{\exists N \in \N \such \forall n > N\ x_n \in \mc{U}_{\delta}(a)}
 			\\
 			&{\forall x \in \mc{U}_{\delta}(a)\ f(x) \in U_{\eps}(A)}
 		}
 		$$
 		В итоге имеем:
 		$$
-			\forall \eps > 0\ \exists N \in \N\ \big|\ \forall n > N\ f(x_n) \in U_{\eps}(A) \lra \liml_{n \to \infty} f(x_n) = A
+			\forall \eps > 0\ \exists N \in \N \such \forall n > N\ f(x_n) \in U_{\eps}(A) \lra \liml_{n \to \infty} f(x_n) = A
 		$$
 		
 		\item (Г $\Ra$ К)
@@ -75,24 +75,24 @@
 			&\dots & &\dots & &\dots
 		\end{align*}
 		
-		Получили последовательность $\{x_n\}_{n = 1}^\infty\ \big|\ \forall n \in \N\ x_n \in \mc{U}_{1/n}(a),\ f(x_n) \notin U_{\eps}(A)$
+		Получили последовательность $\{x_n\}_{n = 1}^\infty \such \forall n \in \N\ x_n \in \mc{U}_{1/n}(a),\ f(x_n) \notin U_{\eps}(A)$
 		
 		Но при этом, для этой последовательности верно утверждение:
 		$$
-			\forall \eps > 0\ \exists N \in \N\ \big|\ \forall n > N\ x_n \in \mc{U}_{\eps}(a) \lra \liml_{n \to \infty} x_n = a
+			\forall \eps > 0\ \exists N \in \N \such \forall n > N\ x_n \in \mc{U}_{\eps}(a) \lra \liml_{n \to \infty} x_n = a
 		$$
 		А из определения предела по Гейне это будет означать, что
 		$$
-			\liml_{n \to \infty} f(x_n) = A \lra \forall \eps > 0\ \exists N \in \N\ \big|\ \forall n > N\ f(x_n) \in U_{\eps} (A)
+			\liml_{n \to \infty} f(x_n) = A \lra \forall \eps > 0\ \exists N \in \N \such \forall n > N\ f(x_n) \in U_{\eps} (A)
 		$$
-		Получили противоречие. (Потому что хотя бы для одного $\eps$ это выполнено не будет)
+		Получили противоречие. (Потому что хотя бы для одного $\eps$, которое мы зафиксировали для последовательности, это выполнено не будет)
 	\end{enumerate}
 \end{proof}
 
-\subsection{Геометрический смысл предела функции}
+\subsubsection*{Геометрический смысл предела функции}
 
 $$
-	\liml_{x \ra a} f(x) = A \lra \forall \eps > 0\ \exists \delta > 0\ |\ \forall x\ 0 < |x - a| < \delta \Ra |f(x) - A| < \eps
+	\liml_{x \ra a} f(x) = A \lra \forall \eps > 0\ \exists \delta > 0\ |\ \forall x,\ 0 < |x - a| < \delta \Ra |f(x) - A| < \eps
 $$
 
 %%%%%%%%%%%%%% Тут нужна картиночка, я её сфоткал на телефон
@@ -102,17 +102,20 @@ $$
 	$$
 		\liml_{x \ra 1} \frac{x^2 - 1}{x - 1} = \liml_{x \ra 1} \frac{(x - 1)(x + 1)}{x - 1} = \liml_{x \ra 1} (x + 1) = 2
 	$$
+	
 	Проверка:
 	$\forall \eps > 0\ \exists \delta > 0\ |\ \forall x,\ 0 < |x - 1| < \delta\ \ \left|\frac{x^2 - 1}{x - 1} - 2\right| < \eps$
 	
-	Примем $\delta := \eps$: $0 < |x - 1| < \eps \Ra $ всё остальное верно
+	Примем $\delta := \eps$: $0 < |x - 1| < \eps \Ra \left|\frac{(x - 1)(x + 1)}{x - 1} - 2\right| = |x - 1| < \eps$
+	
+	Если мы бы допустили, что $a$ включено в $\delta$-окрестность, то никакое бы $\delta$ не подошло - для значения $x = a = 1$ было бы неверно, что $f(1) \in U_{\delta}(2)$
 \end{example}
 
 \begin{example} (Функция Дирихле)
-	$$
-		f(x) = \System{&{1, x \in \Q} \\ &{0, x \in \R \bs \Q}} = \mathbb{1}
-	$$
-	Докажем, что $\forall a \in R\ \not\exists x\ |\ \liml_{x \ra a} f(x) = a$:
+	\[
+		f(x) = \System{&{1, x \in \Q} \\ &{0, x \in \R \bs \Q}} = \mathbbm{1}
+	\]
+	Докажем, что $\forall a \in \R\ \not\exists x\ |\ \liml_{x \ra a} f(x) = A$:
 	
 	\begin{enumerate}
 		\item $a \in \Q$
@@ -123,13 +126,13 @@ $$
 		
 		\item $a \in \R \bs \Q$
 		
-		$x'_n = a - \frac{1}{n} \in \R \bs \Q \Ra f(x'_n) = 1$
+		$x'_n = a - \frac{1}{n} \in \R \bs \Q \Ra f(x'_n) = 0$
 		
 		$x''_n = (a)_n \in \Q \Ra f(x''_n) = 1$ (десятичное представление $a$ до $n$-го знака)
 	\end{enumerate}
 \end{example}
 
-\subsection{Свойства предела функции, связанные с неравенствами}
+\subsubsection*{Свойства предела функции, связанные с неравенствами}
 
 \begin{enumerate}
 	\item (Ограниченность) Если $\liml_{x \ra a} f(x) = A \in \R$, то $f(x)$ ограничена в некоторой проколотой окрестности точки $a$.
@@ -152,14 +155,14 @@ $$
 \begin{proof}
 \begin{enumerate}
 	\item $\forall \eps > 0\ \exists \delta > 0\ |\ \forall x \in \mc{U}_{\delta}(a)\ |f(x) - A| < \eps$
-	
+
 	Рассмотрим $\eps := 1$: $\exists \delta > 0\ |\ \forall x \in \mc{U}_{\delta}(a)\ A - 1 < f(x) < A + 1$
 	
 	\item $\forall \eps > 0\ \exists \delta > 0\ |\ \forall x \in \mc{U}_{\delta}(a)\ f(x) \in U_{\eps}(A)$
 	
 	Первый случай $A = \pm \infty,\ \eps := 1 \Ra f(x) \in U_1 (\pm \infty) \Ra \sgn f(x) = \pm 1$
 	
-	Если же $A \in R \bs \{0\}$, то $\eps := \frac{|A|}{2} > 0$, $f(x) \in U_{\eps}(A) \lra |f(x) - A| < \frac{|A|}{2}$
+	Если же $A \in \R \bs \{0\}$, то $\eps := \frac{|A|}{2} > 0$, $f(x) \in U_{\eps}(A) \lra |f(x) - A| < \frac{|A|}{2}$
 	
 	Раскроем модуль: $A - \frac{|A|}{2} < f(x) < A + \frac{|A|}{2}$
 	
@@ -167,13 +170,21 @@ $$
 	
 	\item Рассмотрим $\{x_n\}_{n = 1}^\infty\ |\ x_n \neq a, \liml_{n \ra \infty} x_n = a \text{ и } \liml_{n \ra \infty} f(x_n) = A,\ \liml_{n \ra \infty} g(x_n) = B$
 	
-	Из анализа последовательностей $f(x_n) \le g(x_n) \Ra A \le B$.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ДОПИСАТЬ
+	Так как последовательность сходится к $a$, то с какого-то номера $N \in \N$ она будет полностью в проколотой $\delta$-окрестности $a$. А для элементов из неё будет выполняться
+	\[
+		f(x_n) \le g(x_n)
+	\]
+	
+	А значит, мы можем сделать предельный переход в неравенстве для последовательностей и получить
+	\[
+		\liml_{n \to \infty} f(x_n) \le \liml_{n \to \infty} g(x_n) \Ra A \le B
+	\]
+	
 	\item Доказательство аналогично третьему, через предел по Гейне и теорему о трёх последовательностях
 \end{enumerate}
 \end{proof}
 
-\subsection{Свойства предела функции, связанные с арифметическими операциями}
+\subsubsection*{Свойства предела функции, связанные с арифметическими операциями}
 
 Пусть $\liml_{x \ra a} f(x) = A,\ \liml_{x \ra a} g(x) = B,\ A, B \in \R$. Тогда
 \begin{enumerate}
@@ -184,32 +195,28 @@ $$
 
 \begin{proof}
 	Доказательство сводится к свойствам последовательностей. Небольшое отличие есть только в доказательстве третьего пункта:
-	
-	$B \neq 0 \Ra \exists \delta > 0\ |\ \forall x \in \mc{U}_{\delta}(a)\ g(x) \neq 0$
-	
-	Рассмотрим $\forall \{x_n\}_{n = 1}^\infty, x_n \neq a, \liml_{n \ra \infty} x_n = a$
-	
+	\[
+		B \neq 0 \Ra \exists \delta > 0\ |\ \forall x \in \mc{U}_{\delta}(a)\ g(x) \neq 0
+	\]
+	Рассмотрим $\forall \{x_n\}_{n = 1}^\infty, x_n \neq a, \liml_{n \ra \infty} x_n = a$ \\
 	Мы знаем, что $\System{&{\liml_{n \ra \infty} f(x_n) = A} \\ &{\liml_{n \ra \infty} g(x_n) = B}} \Ra \liml_{n \ra \infty} \frac{f(x_n)}{g(x_n)} = \frac{A}{B}$
 \end{proof}
 
-\subsection{Критерий Коши существования предела функции}
+\subsubsection*{Критерий Коши существования предела функции}
 
 \begin{theorem}
 	$\exists \liml_{x \ra a} f(x) \in \R \lra \underbrace{\forall \eps > 0\ \exists \delta > 0\ |\ \forall x_1, x_2 \in \mc{U}_{\delta}(a)\ |f(x_1) - f(x_2)| < \eps}_{\text{\normalfont Условие Коши}}$
 \end{theorem}
 
 \begin{proof}
-	Докажем необходимость: 
-	
+	Докажем необходимость: \\
 	Из определения предела:
-	$$
+	\[
 		\liml_{x \ra a} f(x) = A \in \R \lra \forall \eps > 0\ \exists \delta > 0\ |\ \forall x \in \mc{U}_{\delta}(a)\ |f(x) - A| < \frac{\eps}{2}
-	$$
-	
+	\]
 	По неравенству треугольника: $\forall x_1, x_2 \in \mc{U}_{\delta}(a)\ |f(x_1) - f(x_2)| \le |f(x_1) - A| + |A - f(x_2)| < \eps$
 	
-	Докажем достаточность: 
-	
+	Докажем достаточность: \\
 	Рассмотрим $\forall \{x_n\} \subset X \bs \{a\} \such \liml_{n \to \infty} x_n = a$. Из определения предела:
 	$$
 		\liml_{n \to \infty} x_n = a \lra \forall \delta > 0\ \exists N \in \N \such \forall n > N\ x_n \in \mc{U}_{\delta}(a)

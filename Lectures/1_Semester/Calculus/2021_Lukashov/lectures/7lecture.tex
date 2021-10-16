@@ -103,14 +103,27 @@
 \end{definition}
 
 \begin{theorem} (Вейерштрасса о монотонных последовательностях)
-	Если $\{x_n\}_{n = 1}^\infty$ ограниченная и неубывающая последовательность, то $\exists \liml_{n \ra \infty} x_n = \sup \{x_n\}$. Если же невозрастающая, то $\liml_{n \ra \infty} x_n = \inf \{x_n\}$
+	Если $\{x_n\}_{n = 1}^\infty$ ограниченная сверху и неубывающая последовательность, то $\exists \liml_{n \ra \infty} x_n = \sup \{x_n\}$. Если же невозрастающая и ограниченная снизу, то $\liml_{n \ra \infty} x_n = \inf \{x_n\}$
 \end{theorem}
 
 \begin{proof}
-	$l := \sup \{x_n\} \lra \System{&\forall n \in \N\ x_n \le l \\ &\forall \eps > 0\ \exists N \in \N\ l - \eps < x_N \le l}$
-	
-	Тогда, $\forall n > N \Ra l \ge x_n \ge x_{n - 1} \ge \dots \ge x_N > l - \eps \Ra |x_n - l| < \eps$
-%%%%%%%%%%%%%%%%%%%%%%%%% ДОПИСАТЬ
+	Приведём доказательство только для ограниченной сверху и неубывающей последовательности.
+	\[
+		l := \sup \{x_n\} \lra \System{
+		&\forall n \in \N\ x_n \le l
+		\\
+		&\forall \eps > 0\ \exists N \in \N\ l - \eps < x_N \le l
+		}
+	\]
+	Рассмотрим $\forall n > N$. Тогда
+	\[
+		l + \eps > l \ge x_n \ge x_{n - 1} \ge \dots \ge x_N > l - \eps \Ra |x_n - l| < \eps
+	\]
+	То есть
+	\[
+		\forall \eps > 0\ \exists N \in \N \such \forall n > N |x_n - l| < \eps
+	\]
+	Что и доказывает наше утверждение.
 \end{proof}
 
 \begin{proposition}
@@ -150,8 +163,7 @@
 	\end{align*}
 	Так как $\forall n \in \N a_n \le b_n$, то предельный переход даёт неравенство $a \le b$
 	
-	Ну а учитывая равенства у пределов, получим $a_n \le a \le b \le b_n$, то есть $\forall n \in \N\ [a_n; b_n] \supset [a; b]$, что и доказывает принцип Кантора.
-%%%%%%%%%%%%%%%%%%%%%	ДОПИСАТЬ
+	Ну а учитывая равенства у пределов, получим $a_n \le a \le b \le b_n$, то есть $\forall n \in \N\ [a_n; b_n] \supset [a; b]$, что и доказывает непустоту пересечения.
 \end{proof}
 
 \begin{definition}
