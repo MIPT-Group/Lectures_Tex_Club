@@ -257,7 +257,47 @@
 	Дифференциал представляет приращение ординаты касательной, соответствующее приращению $\Delta x$.
 \end{theorem}
 
-%%%%%%%%%%%%%%%% Здесь нужен легендарный график производной
+\begin{center}
+	\begin{tikzpicture}[scale=1]
+		% Axis
+		\coordinate (y) at (0,5);
+		\coordinate (x) at (6,0);
+		\draw[<->] (y) node[above] {$y$} -- (0,0) --  (x) node[right] {$x$};
+		\draw (-0.4,0) -- (0,0) --  (0,-0.4);
+		
+		\path
+		coordinate (start) at (1,2)
+		coordinate (c) at +(2.8,1.1)
+		coordinate (top) at (4.2,3.9);
+		
+		\draw[style={thick}] plot [smooth, tension=0.9] coordinates {(start) (c) (top)};
+		
+		\draw[style={dotted}] (c) -- (2.8,0) node[circle, fill, inner sep = 1pt, label={below:$x_0$}] {};
+		\draw[style={dotted}] (5.2, 1.1) -- (0,1.1) node[circle, fill, inner sep = 1pt, label={left:$f(x_0)$}] {};
+		\draw[style={dotted}] (3.5, 2) -- (0,2) node[circle, fill, inner sep = 1pt, label={left:$f(x)$}] {};
+		\draw[style={dotted}] (3.5, 2) -- (3.5,0) node[circle, fill, inner sep = 1pt, label={below:$x$}] {};
+		
+		\filldraw [black] (3.5, 2) circle (1.2pt);
+		\filldraw [black] (c) circle (1.2pt);
+		
+		\draw (2.1, 0.2) -- (4.2, 2.9);
+		\draw[<->] (2.8, 0.4) -- (3.5, 0.4);
+		\draw[<->] (0.35, 1.1) -- (0.35, 2);
+		\draw[<->] (3.5, 1.1) -- (3.5, 1.45);
+		\draw (c) -- (5.2, 2.3);
+		\draw (c) -- (1.6, 0.5);
+		\draw (top) (3.15, 0.4) node[above] {$\Delta x$};
+		\draw (top) (0.35, 1.5) node[right] {$\Delta y$};
+		\draw (top) (3.5, 1.3) node[right] {$dy$};
+		
+		\draw (top) node[below right, black] {$y = f(x)$};
+		
+		\coordinate (a) at (5.2, 1.1);
+		\coordinate (m) at (5.2, 2.3);
+		\pic [draw, angle radius = 1.5cm] {angle = a--c--m};
+		\draw (4.6, 1.4) node {$\alpha$};
+	\end{tikzpicture}
+\end{center}
 
 \subsection{Производные и дифференциалы высших порядков}
 
