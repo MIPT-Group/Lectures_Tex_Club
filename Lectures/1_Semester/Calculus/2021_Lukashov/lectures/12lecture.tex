@@ -55,6 +55,53 @@
 
 \subsubsection*{Непрерывность показательной функции}
 
+\begin{lemma}
+	\[
+		\liml_{n \to \infty} \sqrt[n]{a} = 1,\ \forall a > 0
+	\]
+\end{lemma}
+
+\begin{proof}
+	Рассмотрим 3 случая:
+	\begin{enumerate}
+		\item $a = 1$ - тривиально
+		
+		\item $a > 1$. В таком случае, $\sqrt[n]{a} > 1$. А значит
+		\[
+			\sqrt[n]{a} = 1 + \alpha_n, \text{ где } \alpha_n \text{ - просто какая-то последовательность, причем } \alpha_n > 0
+		\]
+		Возведём все в $n$-ю степень и применим неравенство Бернулли:
+		\[
+			a = (1 + \alpha_n)^n \ge 1 + n\alpha_n
+		\]
+		Отсюда имеем
+		\[
+			0 < \alpha_n < \frac{a - 1}{n}
+		\]
+		Несложно увидеть, что $\liml_{n \to \infty} \frac{a - 1}{n} = 0$. Ну а значит
+		\[
+			\liml_{n \to \infty} \alpha_n = 0 \text{ - бесконечно малая последовательность}
+		\]
+		Используя предельный переход в равенстве, имеем
+		\[
+			\liml_{n \to \infty} \sqrt[n]{a} = \liml_{n \to \infty} (1 + \alpha_n) = 1 + 0 = 1
+		\]
+		
+		\item $a < 1$. Теперь $\sqrt[n]{a} < 1$. Но всё равно можно применить тот же трюк:
+		\[
+			\sqrt[n]{a} = \frac{1}{1 + \alpha_n}, \text{ где } \alpha_n > 0
+		\]
+		Тогда получим
+		\begin{align*}
+			&a = (1 + \alpha_n)^{-n} \ge 1 - n\alpha_n
+			\\
+			&0 < \alpha_n \le \frac{1 - a}{n} \Ra \liml_{n \to \infty} \alpha_n = 0
+			\\
+			&\Ra \liml_{n \to \infty} \sqrt[n]{a} = \liml_{n \to \infty} \frac{1}{1 + \alpha_n} = \frac{1}{1 + 0} = 1
+		\end{align*}
+	\end{enumerate}
+\end{proof}
+
 Считая, что все рациональные степени уже определены, дадим определение $a^x$ в общем случае
 
 \begin{definition}
