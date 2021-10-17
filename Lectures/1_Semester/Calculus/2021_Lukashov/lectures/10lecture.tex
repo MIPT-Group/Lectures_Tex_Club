@@ -102,19 +102,22 @@
 	Пусть $f$ неубывающая. Положим $\sup\limits_{x \in (a; b)} f(x) := M$
 	\begin{enumerate}
 		\item $M = +\infty$. Тогда
-		$$
+		\[
 			\forall \eps > 0\ \exists x_0 \in (a; b)\ |\ f(x_0) > \frac{\dse 1}{\dse \eps}
-		$$
-		Отсюда $\exists \delta := b - x_0 > 0\ |\ \forall x, b - \delta < x < b \Ra \frac{\dse 1}{\dse \eps} < f(x_0) \le f(x)$, то есть $f(x_0) \in U_{\eps}(+\infty)$.
-		Далее
-		$$
-			M - \eps < f(x_0) \le f(x) \le M < M + \eps \Ra f(x) \in U_{\eps}(M)
-		$$
+		\]
+		Отсюда $\exists \delta := b - x_0 > 0\ |\ \forall x, b - \delta < x < b \Ra \frac{\dse 1}{\dse \eps} < f(x) \le f(x)$, то есть $f(x_0) \in U_{\eps}(+\infty)$. В итоге
+		\[
+			\forall \eps > 0\ \exists \delta > 0 \such \forall x,\ b - \delta < x < b\ \ f(x) \in U_{\eps}(M) \lra \liml_{x \to b-0} f(x) = +\infty = M
+		\]
 		
 		\item $M < +\infty$. Тогда
-		$$
-			\forall \eps > 0\ \exists x_0 \in (a; b)\ |\ f(x_0) \in [M - \eps; M]
-		$$
+		\[
+			\forall \eps > 0\ \exists x_0 \in (a; b)\ |\ f(x_0) \in (M - \eps; M]
+		\]
+		Отсюда уже аналогично получим, что
+		\[
+			\forall \eps > 0\ \exists \delta > 0 \such \forall x,\ b - \delta < x < b\ f(x) \in U_{\eps}(M) \lra \liml_{x \to b-0} f(x) = M
+		\]
 		Если $a = -\infty$, то $\liml_{x \to -\infty} f(x)$ вместо $\liml_{x \to a+0} f(x)$
 		
 		Если $b = +\infty$, то $\liml_{x \to +\infty} f(x)$ вместо $\liml_{x \to b-0} f(x)$
