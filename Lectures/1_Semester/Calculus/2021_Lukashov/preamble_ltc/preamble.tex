@@ -11,13 +11,13 @@
 
 %%% Дополнительная работа с математикой
 \usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools} % пакеты AMS
+\usepackage{bbm} % Blackboard bold для цифр
 \usepackage{icomma}                                    % "Умная" запятая
 
-%%% Свои символы и команды
+%%% Свои символы и команды для математики, обозначений
 \usepackage{centernot} % центрированное зачеркивание символа
 \usepackage{stmaryrd}  % некоторые спецсимволы
 
-\renewcommand{\epsilon}{\ensuremath{\varepsilon}}
 \renewcommand{\phi}{\ensuremath{\varphi}}
 \renewcommand{\kappa}{\ensuremath{\varkappa}}
 \renewcommand{\le}{\ensuremath{\leqslant}}
@@ -27,51 +27,45 @@
 \renewcommand{\emptyset}{\ensuremath{\varnothing}}
 
 \DeclareMathOperator{\sgn}{sgn}
-\DeclareMathOperator{\ke}{Ker}
-\DeclareMathOperator{\im}{Im}
-\DeclareMathOperator{\re}{Re}
 \DeclareMathOperator{\Arg}{Arg}
 \DeclareMathOperator{\Ln}{Ln}
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\Arsh}{Arsh}
 
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Cm}{\mathbb{C}}
-\newcommand{\CM}{\overline{\mathbb{C}}}
 \newcommand{\F}{\mathbb{F}}
 \newcommand{\id}{\mathrm{id}}
+\newcommand{\goth}{\mathfrak}
+\newcommand{\mc}{\mathring}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\veps}{\epsilon}
+\newcommand{\liml}{\lim\limits}
+\newcommand{\such}{\ \big|\ }
 
-\newcommand{\divby}{
-	\mathrel{\vbox{\baselineskip.65ex\lineskiplimit0pt\hbox{.}\hbox{.}\hbox{.}}}
-}
-\newcommand{\notdivby}{\centernot\divby}
-\newcommand{\varnormal}{\mathbin{\reflectbox{$\normal$}}}
-\newcommand{\imp}[2]{(#1\,\,$\ra$\,\,#2)\,\,}
 \newcommand{\System}[1]{
 	\left\{\begin{aligned}#1\end{aligned}\right.
 }
 \newcommand{\Root}[2]{
 	\left\{\!\sqrt[#1]{#2}\right\}
 }
-\newcommand{\D}[2]{
-	\frac{\partial #1}{\partial #2}
-}
-\newcommand{\convlr}{\rightarrow_{\text{ЛР}}}
 
 \renewcommand\labelitemi{$\triangleright$}
 
 \let\bs\backslash
-\let\vect\overline
-\let\normal\trianglelefteqslant
 \let\lra\Leftrightarrow
-\let\ra\Rightarrow
-\let\la\Leftarrow
-\let\gl\langle
-\let\gr\rangle
-\let\sd\leftthreetimes
+\let\ra\rightarrow
+\let\rra\rightrightarrows
+\let\Ra\Rightarrow
+\let\La\Leftarrow
 \let\emb\hookrightarrow
-\let\convu\rightrightarrows
+\let\tr\triangle
+
+\newcommand{\dse}{\displaystyle}
 
 %%% Перенос знаков в формулах (по Львовскому)
 \newcommand*{\hm}[1]{#1\nobreak\discretionary{}{\hbox{$\mathsurround=0pt #1$}}{}}
@@ -96,10 +90,14 @@
 
 \theoremstyle{definition}
 \newtheorem{definition}{Определение}[section]
+\newtheorem*{adefinition}{Определение(не материал лектора)}
 \newtheorem*{corollary}{Следствие}
+\newtheorem*{addition}{Дополнение}
 \newtheorem*{note}{Замечание}
+\newtheorem*{anote}{Замечание автора}
 \newtheorem*{reminder}{Напоминание}
 \newtheorem*{example}{Пример}
+\newtheorem*{examples}{Примеры}
 
 \theoremstyle{remark}
 \newtheorem*{solution}{Решение}
@@ -125,13 +123,11 @@
 \usepackage{soulutf8}             % Модификаторы начертания
 
 %%% Шаблонная информация для титульного листа
-\newcommand{\CourseName}{Теория функций комплексного переменного}
-\newcommand{\FullCourseNameFirstPart}{{ТЕОРИЯ ФУНКЦИЙ КОМПЛЕКСНОГО ПЕРЕМЕННОГО}}
-\newcommand{\SemesterNumber}{V}
-\newcommand{\LecturerInitials}{Бунаков Андрей Эрикович}
+\newcommand{\CourseName}{Введение в математический анализ}
+\newcommand{\FullCourseNameFirstPart}{\so{ВВЕДЕНИЕ В МАТЕМАТИЧЕСКИЙ АНАЛИЗ}}
+\newcommand{\SemesterNumber}{I}
+\newcommand{\LecturerInitials}{Лукашов Алексей Леонидович}
 \newcommand{\CourseDate}{осень 2021}
-\newcommand{\AuthorInitials}{Даниил Дрябин}
-\newcommand{\VKLink}{https://vk.com/ax_equals_b}
 \newcommand{\GithubLink}{https://github.com/MIPT-Group/Lectures_Tex_Club}
 
 %%% Колонтитулы
