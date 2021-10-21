@@ -397,25 +397,32 @@ $$
 \end{proposition}
 
 \begin{proof}
-    Пусть $E \subset R$ - ограниченное сверху множество. Обозначим через $B$ множество всех верхних граней множества $E$. Тогда $A := \R \backslash B$.
-    
+    Пусть $E \subset \R$ - ограниченное сверху множество. Обозначим через $B$ множество всех верхних граней множества $E$. Тогда $A := \R \backslash B$. \\
+    Множество $E$ - непустое. А значит $\exists x \in E$. Это значит, что
+    \[
+    	\forall a \in \R \such a < x \Ra a \in A
+    \]
+    То есть и $A$ - непустое множество. При этом
+    \[
+    	(\forall b \in B) (\forall l \in \R \such l > b) \Ra l \in B
+    \]
+    Значит, $A$ и $B$ обладают свойством полноты. Из сказанного выше имеем
     \begin{align*}
-        &x \in E,\ \forall a \in \R,\ a < x, a \in A \Ra A \neq \emptyset, B \neq \emptyset, A \cup B = \R
-        \\
         &A \cap B = \emptyset,\ \forall a \in A, b \in B\ a < b
         \\
-        &\forall b \in B, x > b\ x \in B \Ra \exists c \in R\ |\ \forall a \in A, b \in B\ a \le c \le b
+        &\exists c \in \R\ |\ \forall a \in A, b \in B\ a \le c \le b
     \end{align*}
-    Предположим, что
-    $$
+    Утверждение в том, что
+    \[
         c \in B \Ra c = \sup E
-    $$
-    А если предположить обратное, то
-    $$
+    \]
+    Предположим обратное. Тогда
+    \[
         c \notin B \Ra \exists x \in E\ |\ x > c
-    $$
-    Рассмотрим
-    $$
-        \frac{x + c}{2} < x \Ra \frac{x + c}{2} \in A \Ra \frac{x + c}{2} > c, \text{ противоречие}
-    $$
+    \]
+    Рассмотрим число $\frac{c + x}{2}$
+    \[
+        c < \frac{c + x}{2} < x
+    \]
+    Так как $\frac{c + x}{2} < x$, то $\frac{c + x}{2} \in A \Ra$ $c$ не является $\sup E$. Противоречие.
 \end{proof}
