@@ -262,20 +262,20 @@
 		% Axis
 		\coordinate (y) at (0,5);
 		\coordinate (x) at (6,0);
-		\draw[<->] (y) node[above] {$y$} -- (0,0) --  (x) node[right] {$x$};
+		\draw[<->, style={thick}] (y) node[above] {$y$} -- (0,0) --  (x) node[right] {$x$};
 		\draw (-0.4,0) -- (0,0) --  (0,-0.4);
 		
 		\path
 		coordinate (start) at (1,2)
-		coordinate (c) at +(2.8,1.1)
+		coordinate (c) at (2.8,1.1)
 		coordinate (top) at (4.2,3.9);
 		
 		\draw[style={thick}] plot [smooth, tension=0.9] coordinates {(start) (c) (top)};
 		
-		\draw[style={dotted}] (c) -- (2.8,0) node[circle, fill, inner sep = 1pt, label={below:$x_0$}] {};
-		\draw[style={dotted}] (5.2, 1.1) -- (0,1.1) node[circle, fill, inner sep = 1pt, label={left:$f(x_0)$}] {};
-		\draw[style={dotted}] (3.5, 2) -- (0,2) node[circle, fill, inner sep = 1pt, label={left:$f(x)$}] {};
-		\draw[style={dotted}] (3.5, 2) -- (3.5,0) node[circle, fill, inner sep = 1pt, label={below:$x$}] {};
+		\draw[style={dashed}] (c) -- (2.8,0) node[circle, fill, inner sep = 1pt, label={below:$x_0$}] {};
+		\draw[style={dashed}] (5.2, 1.1) -- (0,1.1) node[circle, fill, inner sep = 1pt, label={left:$f(x_0)$}] {};
+		\draw[style={dashed}] (3.5, 2) -- (0,2) node[circle, fill, inner sep = 1pt, label={left:$f(x)$}] {};
+		\draw[style={dashed}] (3.5, 2) -- (3.5,0) node[circle, fill, inner sep = 1pt, label={below:$x$}] {};
 		
 		\filldraw [black] (3.5, 2) circle (1.2pt);
 		\filldraw [black] (c) circle (1.2pt);
