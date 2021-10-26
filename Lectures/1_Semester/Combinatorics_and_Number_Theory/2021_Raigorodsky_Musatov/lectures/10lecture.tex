@@ -1,0 +1,82 @@
+\subsection{Основная теорема арифметики}
+
+\begin{theorem}
+	Любое натуральное число единственным образом (с точностью до перестановки) представляется как
+	\[
+	n = p_1^{\alpha_1} \cdot \ldots \cdot p_s^{\alpha_s}
+	\]
+	где $p_i$ - простое число (1 не является таковым), а также $\forall i\ \alpha_i \ge 1$. Такой вид числа называется каноническим.
+\end{theorem}
+
+\begin{note}
+	Считается, что 1 не обладает каноническим видом.
+\end{note}
+
+\begin{proof}
+	
+\end{proof}
+
+\subsection{Функция Мёбиуса}
+
+\begin{definition}
+	\textit{Функцией Мёбиуса} $\mu : \N \ra \{-1, 0, 1\}$ называется функция
+	\[
+		\mu(n) = \System{
+			&{1,\ n = 1}
+			\\
+			&{0,\ \exists \alpha_i \ge 2,\ 1 \le i \le s}
+			\\
+			&{(-1)^s,\ n = p_1^1 \cdot \ldots \cdot p_s^1}
+		}
+	\]
+	где $n$ в каноническом виде выглядит как
+	\[
+		n = p_1^{\alpha_1} \cdot \ldots \cdot p_s^{\alpha_s}
+	\]
+\end{definition}
+
+\begin{lemma}
+	Сумма значений функции Мёбиуса от натурального числа равна 1 для единицы и 0 для всех остальных чисел.
+	\[
+		\suml_{d \mid n} \mu(d) = \System{
+			&{1,\ n = 1}
+			\\
+			&{0, n > 1}
+		}
+	\]
+\end{lemma}
+
+\begin{proof}
+	Пусть $n$ имеет канонический вид
+	\[
+		n = p_1^{\alpha_1} \cdot \ldots \cdot p_s^{\alpha_s}
+	\]
+	Тогда $d$ - делитель $n$, если
+	\[
+		d = p_1^{\beta_1} \cdot \ldots \cdot p_s^{\beta_s}
+	\]
+	где $0 \le \beta_i \le \alpha_i$
+	
+	Это значит, что нашу сумму по делителям можно переписать как сумму по всем возможным наборам $\beta_1, \ldots, \beta_s \such 0 \le \beta_i \le \alpha_i$:
+	\[
+		\suml_{d \mid n} \mu(d) = \suml_{\beta_1, \ldots, \beta_s \over 0 \le \beta_i \le \alpha_i} \mu(d) = \suml_{\beta_1, \ldots, \beta_s \over 0 \le \beta_i \le 1} \mu(d)
+	\]
+	Заметим, что теперь у нас только $2^s$ делителей, которые влияют на сумму в зависимости от того, сколько простых чисел они содержат. Следовательно,
+	\[
+		\suml_{\beta_1, \ldots, \beta_s \over 0 \le \beta_i \le 1} \mu(d) = 1 - C_s^1 + C_s^2 - \ldots + (-1)^s C_s^s = \\
+		C_s^0 - C_s^1 + C_s^2 - \ldots + (-1)^s C_s^s = (1 - 1)^s = 0
+	\]
+\end{proof}
+
+\begin{theorem} (Обращение Мёбиуса)
+	Пусть задана $f : \N \ra \R$. Определим $g$:
+	\[
+		g(n) := \suml_{d \mid n} f(d)
+	\]
+	Тогда
+	\[
+		f(n) = \suml_{d \mid n} \mu(d) \cdot g(n / d)
+	\]
+\end{theorem}
+
+\subsection{Циклические слова}
