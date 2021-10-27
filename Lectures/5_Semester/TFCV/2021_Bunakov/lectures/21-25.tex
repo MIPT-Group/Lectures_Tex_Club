@@ -1,0 +1,54 @@
+\section{Теоремы Вейерштрасса}
+
+\begin{theorem}[Первая теорема Вейерштрасса]
+	Пусть выполнены следующие условия:
+	\begin{enumerate}
+		\item Функции $f_0, f_1, \dotsc$ регулярны на области $G \subset \Cm$
+		\item $f_n \convlr f$ на $G$
+	\end{enumerate}
+	
+	Тогда $f$ регулярна на $G$.
+\end{theorem}
+
+\begin{proof}
+	Уже было доказано, что $f$ непрерывна на $G$. Достаточно проверить, что $f$ регулярна в произвольном круге $K \subset G$. Пусть $\gamma$ "--- кусочно-гладкая замкнутая кривая такая, что $M(\gamma) \subset K$. Тогда, по интегральной теореме Коши, $\forall n \in \N \cup \{0\}: \int_\gamma f_ndz = 0$, и $f_n \convu_{M(\gamma)} f$, поскольку $M(\gamma)$ "--- компакт. Следовательно:
+	\[\int_\gamma fdz = \lim_{n \to \infty}\int_\gamma f_ndz = 0\]
+	
+	Значит, по теореме Мореры, $f$ регулярна на $K$.
+\end{proof}
+
+\begin{theorem}[Вторая теорема Вейерштрасса]
+	Пусть выполнены следующие условия:
+	\begin{enumerate}
+		\item Функции $f_0, f_1, \dotsc$ регулярны на области $G \subset \Cm$
+		\item $f_n \convlr f$ на $G$
+	\end{enumerate}
+	
+	Тогда $\forall m \in \N: f_n^{(m)} \convlr f^{(m)}$ на $G$.
+\end{theorem}
+ 
+\begin{proof}
+	Зафиксируем точку $z_0 \in G$ и выберем $R > 0$ такое, что $\overline{B_R(z_0)} \subset G$. Поскольку $\overline{B_R(z_0)}$ "--- компакт, то $f_n \convu_{\overline{B_R(z_0)}} f$ на $G$. Достаточно для фиксированного числа $0 < R_1 < R$ доказать следующее:
+	\[\forall m \in \N: f_n^{(m)} \convu_{\overline{B_{R_1}(z_0)}} f^{(m)}\]
+	
+	Воспользуемся интегральной формулой Коши для производной порядка $m$:
+	\begin{gather*}
+		f_n^{(m)}(z) = \frac{m!}{2\pi i}\int_{\{w \in \Cm: |w - z| = R\}}\frac{f_n(w)}{(w - z)^{m+1}}dw,~|z - z_0| < R\\
+		f^{(m)}(z) = \frac{m!}{2\pi i}\int_{\{w \in \Cm: |w - z| = R\}}\frac{f(w)}{(w - z)^{m+1}}dw,~|z - z_0| < R
+	\end{gather*}
+	
+	При $|z - z_0| = R_1$ выражение $|w - z|$ отделено от нуля числом $R - R_1$, тогда, по свойству оценки интегралов:
+	\[|f_n^{(m)}(z) - f^{(m)}(z)| \le \frac{m!R}{(R - R_1)^m}\max\{|f_n(w) - f(w)| : w \in \Cm,~|w - z_0| = R\} \xrightarrow{n \to \infty} 0\]
+	
+	В силу произвольности выбора точки $z_0$, получено требуемое.
+\end{proof}
+
+\begin{note}
+	Для функциональных рядов верны аналогичные теоремы. Пусть выполнены следующие условия:
+	\begin{enumerate}
+		\item Функции $f_0, f_1, \dotsc$ регулярны на области $G \subset \Cm$
+		\item Ряд $\sum_{n=0}^\infty f_n$ сходится локально равномерно к сумме $S$ на $G$
+	\end{enumerate}
+	
+	Тогда $S$ регулярна на $G$, и при любом $m \in \N$ ряд $\sum_{n=0}^\infty f_n^{(m)}$ сходятся локально равномерно к $S^{(m)}$ на $G$.
+\end{note}
