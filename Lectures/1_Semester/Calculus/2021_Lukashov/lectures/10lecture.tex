@@ -145,7 +145,7 @@
 \begin{theorem}
 	Пусть $f$ определена в некоторой окрестности точки $x_0$. Тогда, следующие утверждения эквивалентны:
 	\begin{enumerate}
-		\item $f$ непрерывна в т. $x_0$
+		\item $f$ непрерывна в точке $x_0$
 		\item $\forall \eps > 0\ \exists \delta > 0 \such \left(\forall x,\ |x - x_0| < \delta\right) \Ra |f(x) - f(x_0)| < \eps$
 		\item $\left(\forall \{x_n\}_{n = 1}^\infty,\ \liml_{n \to \infty} x_n = x_0\right) \liml_{n \to \infty} f(x_n) = f(x_0)$
 	\end{enumerate}
@@ -258,7 +258,14 @@
 \subsubsection*{Непрерывность на множестве}
 
 \begin{definition}
-	Функция называется \textit{непрерывной на множестве} $X$, если $\forall x_0 \in X\ \ \forall \{x_n\} \subset X, \liml_{x \to \infty} x_n = x_0 \Ra \liml_{n \to \infty} f(x_n) = f(x_0)$
+	Функция называется \textit{непрерывной на множестве} $X$, если 
+	\[
+		\forall x_0 \in X\ \ \left(\forall \{x_n\} \subset X, \liml_{x \to \infty} x_n = x_0 \Ra \liml_{n \to \infty} f(x_n) = f(x_0)\right)
+	\]
+	или по Коши
+	\[
+		\forall x_0 \in X\ \ \left(\forall \eps > 0\ \exists \delta > 0 \such \forall x \in X \cap U_\delta(x_0)\ \left|f(x) - f(x_0)\right| < \eps\right)
+	\]
 \end{definition}
 
 \begin{theorem} (Первая теорема Вейерштрасса о непрерывных на отрезке функциях)
