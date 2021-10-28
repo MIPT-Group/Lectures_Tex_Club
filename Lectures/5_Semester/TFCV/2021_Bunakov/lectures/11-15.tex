@@ -1,7 +1,7 @@
 \section{Дифференцируемость и регулярные функции}
 
 \begin{definition}
-	Пусть функция $f$ определена в некоторой окрестности $B_{\delta_0}(z_0)$ точки  $z_0 \in \Cm$. Функция $f$ называется \textit{дифференцируемой в точке $z_0$}, если в окрестности $\dot B_{\delta_0}{(0)}$ определена функция $\alpha$ такая, что $\lim_{\Delta z \to 0}\alpha(\Delta z) = 0$, и для некоторого $A \in \Cm$ выполнено условие $\forall \Delta z \in \dot B_{\delta_0}{(0)}: f(z_0 + \Delta z) - f(z_0) = A\Delta z + |\Delta z|\alpha(\Delta z)$
+	Пусть функция $f$ определена в некоторой окрестности $B_{\delta_0}(z_0)$ точки  $z_0 \in \Cm$. Функция $f$ называется \textit{дифференцируемой в точке $z_0$}, если в окрестности $\mathring B_{\delta_0}{(0)}$ определена функция $\alpha$ такая, что $\lim_{\Delta z \to 0}\alpha(\Delta z) = 0$, и для некоторого $A \in \Cm$ выполнено условие $\forall \Delta z \in \mathring B_{\delta_0}{(0)}: f(z_0 + \Delta z) - f(z_0) = A\Delta z + |\Delta z|\alpha(\Delta z)$
 \end{definition}
 
 \begin{theorem}
@@ -258,7 +258,7 @@
 				\fill [opacity=0.05] (3,0) circle [radius=2];
 				\draw[black] (3,0) circle[radius=2];
 				\node[] at (1.03, 1.2) {$\gamma$};
-				\node[] at (3, -0.67) {$G_2 = \dot B_\epsilon(z_0)$};
+				\node[] at (3, -0.67) {$G_2 = \mathring B_\epsilon(z_0)$};
 				
 				\node[] at (3.2, 0.2) {$z_0$};
 				
@@ -455,7 +455,7 @@
 \end{note}
 
 \begin{theorem}
-	Функция $f$, непрерывная на области $G \subset \Cm$, имеет первообразную $\lra$ для любой замкнутой кусочно-гладкой кривой $\gamma$ такой, что $M(\gamma) \subset G$, выполнено равенство $\int_\gamma fdz = 0$.
+	Функция $f$, непрерывная на области $G \subset \Cm$, имеет первообразную $\lra$ для любой замкнутой кусочно-гладкой кривой $\gamma$ такой, что $M(\gamma) \subset G$, выполнено $\int_\gamma fdz = 0$.
 \end{theorem}
 
 \begin{proof}
