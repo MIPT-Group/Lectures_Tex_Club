@@ -28,10 +28,10 @@
 		
 		\item Утверждением примем нашу формулу из теоремы. Покажем, что она верна для $n + 1$:
 		\begin{multline*}
-			(fg)^{(n + 1)} = \left((fg)^{(n)}\right)' = \suml_{k = 0}^n C_n^k \left(f^{(k)} g^{(n - k)}\right)' = \\
-			\suml_{k = 0}^n C_n^k f^{(k + 1)} g^{(n - k)} + \suml_{k = 0}^n C_n^k f^{(k)} g^{(n + 1 - k)} = \\
-			\suml_{m = 1}^n C_n^{m - 1} f^{(m)} g^{(n - m + 1)} + C_n^n f^{(n + 1)} g^{(0)} + \suml_{m = 1}^n C_n^m f^{(m)} g^{(m + 1 - n)} + C_n^0 f^{(0)} g^{(n + 1)} = \\
-			asf
+			(fg)^{(n + 1)} = \left((fg)^{(n)}\right)' = \suml_{k = 0}^n C_n^k \left(f^{(k)} g^{(n - k)}\right)' = \suml_{k = 0}^n C_n^k f^{(k + 1)} g^{(n - k)} + \suml_{k = 0}^n C_n^k f^{(k)} g^{(n + 1 - k)} = \\
+			C_n^n f^{(n + 1)} g^{(0)} + \suml_{k = 0}^{n - 1} C_n^k f^{(k + 1)} g^{(n - k)} + C_n^0 f^{(0)} g^{(n + 1)} + \suml_{m = 0}^{n - 1} C_n^{m + 1} f^{(m + 1)} g^{(n - m)} = \\
+			C_n^n f^{(n + 1)} g^{(0)} + C_n^0 f^{(0)} g^{(n + 1)} + \suml_{j = 0}^{n - 1} \left(C_n^j + C_n^{j + 1}\right) f^{(j + 1)} g^{(n - j)} = \\
+			C_{n + 1}^0 f^{(0)} g^{(n + 1)} + \suml_{t = 1}^{n} C_n^t f^{(t)} g^{(n + 1 - t)} + C_{n + 1}^{n + 1} f^{(n + 1)} g^{(0)} = \suml_{t = 0}^{n + 1} C_{n + 1}^t f^{(t)} g^{(n + 1 - t)}
 		\end{multline*}
 	\end{itemize}
 \end{proof}
@@ -69,6 +69,9 @@
 	где 
 	\begin{itemize}
 		\item $\Pi_n$ обозначает множество всех разбиений $\{1, 2, \dots, n\}$ на непустые подмножества
+		
+		\item $\pi$ - разбиение множества $\{1, 2, \ldots, n\}$ на непустые подмножества. То есть элемент $B \in \pi$ - одно из множеств, на которые разбили исходное множество
+		
 		\item $|A|$ - число элементов множества $A$
 	\end{itemize}
 \end{theorem}
@@ -296,9 +299,41 @@
 	что противоречит условию. Отсюда следует, что мы можем смело поделить обе части на $(g(b) - g(a)) \cdot g'(c)$
 \end{proof}
 
-\subsubsection*{Геометрический смысл теорем о производной}
+\begin{note}
+	Смысл теоремы Коши тот же самый, что и у теоремы Лагранжа, но в предположении, что некоторая функция задана параметрически на осях: $x = g(t)$ и $y = f(t)$ соответственно.
+\end{note}
 
-\begin{table}[h!]
+\begin{example}
+	\[
+		f(x) = \System{
+			&{x^2 \sin \frac{1}{x},\ x \neq 0}
+			\\
+			&{0,\ x = 0}
+		}
+	\]
+	Функция $f$ - непрерывная. Но пример примечателен тем, что производная всё же разрывная в 0.
+	\begin{itemize}
+		\item $x \neq 0$. Тогда, просто посчитаем производную по свойствам:
+		\[
+			f'(x) = 2x \sin \frac{1}{x} - \cos \frac{1}{x}
+		\]
+		
+		\item $x = 0$. Посчитаем эту производную по определению:
+		\[
+			f'(0) = \liml_{\Delta x \to 0} \frac{f(\Delta x) - 0}{\Delta x} = \liml_{\Delta x \to 0} \frac{\Delta x^2 \sin \frac{1}{\Delta x}}{\Delta x} = \liml_{\Delta x} \Delta x \sin \frac{1}{\Delta x} = 0
+		\]
+		Но при этом $\not\exists \liml_{x \to 0} f'(x)$. Проверить это можно, взяв 2 последовательности Гейне:
+		\begin{align*}
+			&{x_n = \frac{1}{\frac{\pi}{2} + 2\pi n} \Ra f'(x_n) = \frac{2}{\frac{\pi}{2} + 2\pi n} \Ra \liml_{n \to \infty} f'(x_n) = 0}
+			\\
+			&{x_n = \frac{1}{\frac{\pi}{2} + 2\pi n} \Ra f'(x_n) = -1 \Ra \liml_{n \to \infty} f'(x_n) = -1}
+		\end{align*}
+		То есть $f'(x)$ разрывная в нуле.
+	\end{itemize}
+\end{example}
+
+\subsubsection*{Геометрический смысл теорем Ролля и Лагранжа}
+
 \begin{tabular}{cc}
 	\begin{tikzpicture}[scale = 1]
 		% Axis
@@ -365,5 +400,3 @@
 		\draw[style={dashed}] (start) node[circle, fill, inner sep=1pt]{} -- (end) node[circle, fill, inner sep=1pt]{};
 	\end{tikzpicture}
 \end{tabular}
-\caption{Теорема Ролля и теорема Лагранжа}
-\end{table}
