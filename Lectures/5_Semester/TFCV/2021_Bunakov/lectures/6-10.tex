@@ -28,7 +28,7 @@
 \end{definition}
 
 \begin{definition}
-	Пусть $\epsilon > 0$, $z_0 \in \overline{\Cm}$. Множество $\dot B_\epsilon(z_0) := B_\epsilon(z_0) \backslash \{z_0\}$ называется \textit{проколотой $\epsilon$-окрестностью} точки $z_0$.
+	Пусть $\epsilon > 0$, $z_0 \in \overline{\Cm}$. Множество $\mathring B_\epsilon(z_0) := B_\epsilon(z_0) \backslash \{z_0\}$ называется \textit{проколотой $\epsilon$-окрестностью} точки $z_0$.
 \end{definition}
 
 \begin{definition}
@@ -86,7 +86,7 @@
 \end{definition}
 
 \begin{note}
-	Из предыдущих курсов известно, что, например, множества $B_\epsilon(z)$ и $\dot B_\epsilon(z)$ являются областями для любых $z \in \overline\Cm$ и $\epsilon > 0$.
+	Из предыдущих курсов известно, что, например, множества $B_\epsilon(z)$ и $\mathring B_\epsilon(z)$ являются областями для любых $z \in \overline\Cm$ и $\epsilon > 0$.
 \end{note}
 
 \begin{definition}
@@ -162,10 +162,10 @@
 \section{Предел и непрерывность функции в точке}
 
 \begin{definition}
-	Пусть функция $f$ определена в некоторой окрестности $\dot B_{\delta_0}(z_0)$ точки $z_0 \in \overline\Cm$. Число $A \in \CM$ называется \textit{пределом функции $f$ в точке $z_0$}, если выполнено одно из следующих условий:
+	Пусть функция $f$ определена в некоторой окрестности $\mathring B_{\delta_0}(z_0)$ точки $z_0 \in \overline\Cm$. Число $A \in \CM$ называется \textit{пределом функции $f$ в точке $z_0$}, если выполнено одно из следующих условий:
 	\begin{enumerate}
-		\item $\forall \epsilon > 0: \exists 0 < \delta \le \delta_0: f(\dot B_\delta(z_0)) \subset B_\epsilon(A)$
-		\item Для любой последовательности $\{z_n\} \subset \dot B_{\delta_0}(z_0)$ такой, что $\lim_{n \to \infty}z_n = z_0$, выполнено $\lim_{n \to \infty}f(z_n) = A$
+		\item $\forall \epsilon > 0: \exists 0 < \delta \le \delta_0: f(\mathring B_\delta(z_0)) \subset B_\epsilon(A)$
+		\item Для любой последовательности $\{z_n\} \subset \mathring B_{\delta_0}(z_0)$ такой, что $\lim_{n \to \infty}z_n = z_0$, выполнено $\lim_{n \to \infty}f(z_n) = A$
 	\end{enumerate}
 	
 	Обозначение "--- $\lim_{z \to z_0}f(z) = A$.
@@ -184,7 +184,7 @@
 	\begin{itemize}
 		\item $\lim_{z \to z_0}(f(z) + g(z)) = a+b$
 		\item $\lim_{z \to z_0}f(z)g(z) = ab$
-		\item Если $\exists \delta > 0: \forall z \in \dot B_\delta(z_0) : g(z) \ne 0$ и $b \ne 0$, то $\lim_{z \to z_0}\frac{f(z)}{g(z)} = \frac ab$
+		\item Если $\exists \delta > 0: \forall z \in \mathring B_\delta(z_0) : g(z) \ne 0$ и $b \ne 0$, то $\lim_{z \to z_0}\frac{f(z)}{g(z)} = \frac ab$
 	\end{itemize}
 \end{note}
 
