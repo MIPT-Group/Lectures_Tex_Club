@@ -1,0 +1,40 @@
+\begin{theorem} (Необходимое и достаточное условия строгой выпуклости)
+	Пусть $f$ дважды дифференцируема на $(a; b)$. Тогда
+	\begin{enumerate}
+		\item $\forall x \in (a; b)\ f''(x) \ge 0 \lra$ $f$ выпукла вниз на $a; b$
+		
+		\item $\forall x \in (a; b)\ f''(x) \le 0 \lra$ $f$ выпукла вверх на $(a; b)$
+		
+		\item $\forall x \in (a; b)\ f''(x) > 0 \lra$ $f$ строго выпукла вниз на $a; b$
+		
+		\item $\forall x \in (a; b)\ f''(x) < 0 \lra$ $f$ строго вверх на $a; b$
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}~
+	\begin{enumerate}
+		\item Докажем достаточность. Для этого распишем функцию в точках $x_1$ и $x_2$ по формуле Тейлора:
+		\begin{align*}
+			&f(x_1) = f(x_0) + f'(x_0)(x_1 - x_0) + \frac{f''(\xi_1)}{2!}(x_1 - x_0)^2,\ x_1 < \xi_1 < x_0
+			\\
+			&f(x_2) = f(x_0) + f'(x_0)(x_2 - x_0) + \frac{f''(\xi_2)}{2!}(x_2 - x_0)^2,\ x_0 < \xi_2 < x_2
+		\end{align*}
+		Так как вторая производная в точках $\xi_1$ и $\xi_2$ неотрицательна, то
+		\begin{align*}
+			f(x_1) \ge f(x_0) + f'(x_0)(x_1 - x_0)
+			\\
+			f(x_2) \ge f(x_0) + f'(x_0)(x_2 - x_0)
+		\end{align*}
+		Домножим уравнения на $t > 0$ и $1 - t > 0$ соответственно и сложим. Получим
+		\[
+			t \cdot f(x_1) + (1 - t) \cdot f(x_2) \ge f(x_0) + f'(x_0)\left(tx_1 + (1 - t)x_2 - x_0\right) \ge f(x_0)
+		\]
+		
+		Теперь докажем необходимость.
+		\item 
+		
+		\item 
+		
+		\item 
+	\end{enumerate}
+\end{proof}
