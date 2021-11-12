@@ -41,6 +41,7 @@
 \DeclareMathOperator{\St}{St}
 \DeclareMathOperator{\Aut}{Aut}
 \DeclareMathOperator{\Inn}{Inn}
+\DeclareMathOperator{\End}{End}
 \DeclareMathOperator{\GL}{GL}
 \DeclareMathOperator{\SL}{SL}
 \DeclareMathOperator{\diag}{diag}
@@ -95,6 +96,7 @@
 \newtheorem{lemma}{Лемма}[section]
 \newtheorem{proposition}{Утверждение}[section]
 \newtheorem*{exercise}{Упражнение}
+\newtheorem*{problem}{Задача}
 
 \theoremstyle{definition}
 \newtheorem{definition}{Определение}[section]
@@ -129,6 +131,14 @@
 %\setcounter{section}{-1}         % Нумерация секций с нуля
 \usepackage{multicol}			  % Для текста в нескольких колонках
 \usepackage{soulutf8}             % Модификаторы начертания
+
+%%% Содержаниие
+\usepackage{tocloft}
+\tocloftpagestyle{main}
+\setlength{\cftsecnumwidth}{2.3em}
+\renewcommand{\cftsecdotsep}{1}
+\renewcommand{\cftsecpresnum}{\hfill}
+\renewcommand{\cftsecaftersnum}{\quad}
 
 %%% Шаблонная информация для титульного листа
 \newcommand{\CourseName}{Теория представлений}

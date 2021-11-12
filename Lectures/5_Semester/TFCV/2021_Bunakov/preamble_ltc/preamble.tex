@@ -32,6 +32,7 @@
 \DeclareMathOperator{\re}{Re}
 \DeclareMathOperator{\Arg}{Arg}
 \DeclareMathOperator{\Ln}{Ln}
+\DeclareMathOperator{\res}{res}
 
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
@@ -123,6 +124,14 @@
 %\setcounter{section}{-1}         % Нумерация секций с нуля
 \usepackage{multicol}			  % Для текста в нескольких колонках
 \usepackage{soulutf8}             % Модификаторы начертания
+
+%%% Содержаниие
+\usepackage{tocloft}
+\tocloftpagestyle{main}
+\setlength{\cftsecnumwidth}{2.3em}
+\renewcommand{\cftsecdotsep}{1}
+\renewcommand{\cftsecpresnum}{\hfill}
+\renewcommand{\cftsecaftersnum}{\quad}
 
 %%% Шаблонная информация для титульного листа
 \newcommand{\CourseName}{Теория функций комплексного переменного}
