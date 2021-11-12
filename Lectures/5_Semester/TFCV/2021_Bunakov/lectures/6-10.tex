@@ -23,8 +23,9 @@
 	Пусть $\epsilon > 0$, $z_0 \in \Cm$. Множество $B_\epsilon(z_0) := \{z \in \Cm: |z - z_0| < \epsilon\}$ называется \textit{$\epsilon$-окрестностью} точки $z_0$.
 \end{definition}
 
+
 \begin{definition}
-	\textit{Расширенной комплексной плоскостью} называется множество вида $\overline{\Cm} := \Cm \cup \{\infty\}$, где $\infty$ "--- объект, называемый \textit{бесконечно удаленной точкой}. Считается также, то $B_\epsilon(\infty) := \{z \in \Cm: |z| > \epsilon\} \cup \{\infty\}$ для любого $\epsilon > 0$
+	\textit{Расширенной комплексной плоскостью} называется множество вида $\overline{\Cm} := \Cm \cup \{\infty\}$, где $\infty$ "--- объект, называемый \textit{бесконечно удаленной точкой}. \pagebreak Считается также, что $B_\epsilon(\infty) := \{z \in \Cm: |z| > \epsilon\} \cup \{\infty\}$ для любого $\epsilon > 0$
 \end{definition}
 
 \begin{definition}
@@ -36,7 +37,7 @@
 \end{definition}
 
 \begin{note}
-	Рассмотрим кривые $\gamma_1$ и $\gamma_2$ с параметризациями $z = \sigma_1(t_1)$, $t \in [a_1, b_1]$ и $z \hm= \sigma_2(t)$, $t \in [a_1, b_1]$. Пусть существует $f : [a_1, b_1] \to [a_2, b_2]$ "--- непрерывная строго монотонная функция такая, что $\sigma_2(f(t)) \equiv \sigma(t)$ на $[a_1, b_1]$. Тогда естественно считать, что кривые $\gamma_1, \gamma_2$ совпадают, то есть $\gamma_1 = \gamma_2$.
+	Рассмотрим кривые $\gamma_1$ и $\gamma_2$ с параметризациями $z = \sigma_1(t)$, $t \in [a_1, b_1]$ и $z \hm= \sigma_2(t)$, $t \in [a_2, b_2]$. Пусть существует $f : [a_1, b_1] \to [a_2, b_2]$ "--- непрерывная строго монотонная функция такая, что $\sigma_2(f(t)) \equiv \sigma_1(t)$ на $[a_1, b_1]$. Тогда естественно считать, что кривые $\gamma_1, \gamma_2$ совпадают, то есть $\gamma_1 = \gamma_2$.
 \end{note}
 
 \begin{definition}
@@ -65,12 +66,12 @@
 	\[|\gamma| = \int_a^b|\sigma'(t)|dt\]
 \end{note}
 
-\begin{note}
+\begin{definition}
 	Множество $E \subset \overline\Cm$ называется \textit{открытым}, если каждая точка $z \in E$ содержится в нем вместе с некоторой окрестностью $B_\epsilon(z)$.
-\end{note}
+\end{definition}
 
 \begin{definition}
-	Пусть $z_0 \in \overline\Cm$, $E \subset \overline{\Cm}$. Точка $z_0$ называется \textit{предельной точкой} множества $E$, если любая ее окрестность $B_\epsilon(z)$ содержит точку из множества $E$, \textit{граничной точкой} множества $E$, если любая ее окрестность $B_\epsilon(z)$ содержит и точку из $E$, и точку не из $E$. \textit{Границей} множества $E$ называется множество $\partial E$ всех ее граничных точек.
+	Пусть $z_0 \in \overline\Cm$, $E \subset \overline{\Cm}$. Точка $z_0$ называется \textit{предельной точкой} множества $E$, если любая ее проколотая окрестность $\mathring B_\epsilon(z)$ содержит точку из $E$, и \textit{граничной точкой} множества $E$, если любая ее окрестность $B_\epsilon(z)$ содержит и точку из $E$, и точку не из $E$. \textit{Границей} множества $E$ называется множество $\partial E$ всех ее граничных точек.
 \end{definition}
 
 \begin{definition}
@@ -78,7 +79,7 @@
 \end{definition}
 
 \begin{definition}
-	Множество $G \subset \Cm$ называется \textit{областью}, если выполнены следующие условия:
+	Множество $G \subset \CM$ называется \textit{областью}, если выполнены следующие условия:
 	\begin{enumerate}
 		\item Множество $G$ открыто
 		\item Множество $G \bs \{\infty\}$ линейно связно
@@ -90,7 +91,7 @@
 \end{note}
 
 \begin{definition}
-	Множество $E \subset \Cm$ называется \textit{ограниченным}, если существует $C > 0$ такое, что для любого $z \in E$ выполнено $|z| < E$.
+	Множество $E \subset \Cm$ называется \textit{ограниченным}, если существует $C > 0$ такое, что для любого $z \in E$ выполнено $|z| < C$.
 \end{definition}
 
 \begin{note}
@@ -132,14 +133,14 @@
 \begin{proposition}
 	Пусть $\{z_n\} = \{x_n + iy_n\} \subset \Cm$, $a = b+ic \in \Cm$. Тогда:
 	\[\lim_{n \to \infty}z_n = a \lra \System{
-		\lim_{n \to \infty}x_n = a\\
-		\lim_{n \to \infty}y_n = b
+		\lim_{n \to \infty}x_n = b\\
+		\lim_{n \to \infty}y_n = c
 	}\]
 \end{proposition}
 
 \begin{proof}
 	Достаточно заметить, что выполнены следующие неравенства:
-	\[\max\{|x_n - b|, |y_n - b|\} \le |z_n - a| \le |x_n - b| + |y_n - c|\qedhere\]
+	\[\max\{|x_n - b|, |y_n - c|\} \le |z_n - a| \le |x_n - b| + |y_n - c|\qedhere\]
 \end{proof}
 
 \begin{definition}
@@ -172,7 +173,7 @@
 \end{definition}
 
 \begin{note}
-	Аналогично вещественному случаю, можно доказать эквивалентность условий в определении предела функции в точке. Из второго условия и свойств предела последовательности легко вывести, что если $a = b + ic, z_0 = x_0 + iy_0 \in \Cm$, $f(z) = f(x + iy) \hm= u(x, y) + iv(x, y)$, то:
+	Аналогично вещественному случаю, можно доказать эквивалентность условий в определении предела функции в точке. Из второго условия и свойств предела последовательности легко вывести, \pagebreak что если $a = b + ic, z_0 = x_0 + iy_0 \in \Cm$, $f(z) = f(x + iy) \hm= u(x, y) + iv(x, y)$, то:
 	\[\lim_{z \to z_0}f(z) = a \lra \System{
 		\lim_{(x, y) \to (x_0, y_0)}u(x, y) = b\\
 		\lim_{(x, y) \to (x_0, y_0)}v(x, y) = c
@@ -223,22 +224,18 @@
 
 \begin{definition}
 	\textit{Косинусом} и \textit{синусом} комплексного аргумента называются следующие функции:
-	\begin{align*}
-		\cos{z} := \frac{e^{iz} + e^{-iz}}2,~z \in \Cm
-		\\
-		\sin{z} := \frac{e^{iz} - e^{-iz}}{2i},~z \in \Cm
-	\end{align*}
+	\[\cos{z} := \frac{e^{iz} + e^{-iz}}2,~\sin{z} := \frac{e^{iz} - e^{-iz}}{2i},~z \in \Cm\]
 \end{definition}
+
+\pagebreak
 
 \begin{definition}
 	\textit{Гиперболическим косинусом} и \textit{гиперболическим синусом} комплексного аргумента называются следующие функции:
-	\begin{align*}
-		\ch{z} := \frac{e^{z} + e^{-z}}2,~z \in \Cm
-		\\
-		\sh{z} := \frac{e^{z} - e^{-z}}{2},~z \in \Cm
-	\end{align*}
+	\[
+		\ch{z} := \frac{e^{z} + e^{-z}}2,~\sh{z} := \frac{e^{z} - e^{-z}}{2},~z \in \Cm
+	\]
 \end{definition}
 
 \begin{note}
-	Комплексная экспонента, многочлены, а также тригонометрические и гиперболические синус и косинус считаются основными элементарными функциями. По уже доказанным свойствам, они непрерывны в каждой точке из $\Cm$.
+	Комплексная экспонента, многочлены, а также тригонометрические и гиперболические синус и косинус считаются \textit{основными элементарными функциями}. По уже доказанным свойствам, они непрерывны в каждой точке из $\Cm$.
 \end{note}
