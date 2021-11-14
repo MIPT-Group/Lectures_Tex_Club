@@ -80,9 +80,9 @@
 \end{theorem}
 
 \begin{proof}
-	Распишем функцию $f(n)$:
+	Распишем сумму:
 	\[
-		f(n) = \suml_{d \mid n} \mu(d) \cdot g(n / d) = \suml_{d \mid n} \mu(d) \cdot \suml_{d' \mid \frac{n}{d}} f(d')
+		\suml_{d \mid n} \mu(d) \cdot g(n / d) = \suml_{d \mid n} \mu(d) \cdot \suml_{d' \mid \frac{n}{d}} f(d')
 	\]
 	Выбрать $d$ такое, что $d \mid n$ и потом выбрать $d' \mid \frac{n}{d}$ - это то же самое, что выбрать пару $(d, d'): d \cdot d' \mid n$. Отсюда
 	\begin{multline*}
@@ -95,13 +95,24 @@
 
 \subsection{Циклические слова}
 
-Пусть $V$ - это множество всех линейных последовательностей длины $n$ над алфавитом $X,\ |X| = r$. Очевидно, что
+\begin{definition}
+	Пусть задан алфавит $X = \{b_1, \ldots, b_r\}$ и число $n \in \N$. Тогда \textit{линейным словом длины} $n$ называется последовательность букв из алфавита
+	\[
+		a_1, \ldots, a_n
+	\]
+\end{definition}
+
+Пусть $V$ - это множество всех линейных последовательностей длины $n \in \N$ над алфавитом $X,\ |X| = r$. Очевидно, что
 \[
 	|V| = r^n
 \]
 
 \begin{definition}
 	\textit{Сдвиг} - это операция, которая переводит линейное слово $a_1, \ldots, a_n$ в слово $a_2, \ldots, a_n, a_1$.
+\end{definition}
+
+\begin{definition}
+	Объединим слова, получающиеся из данного при помощи сдвига, в один класс эквивалентности. Тогда этот класс называется \textit{циклическим словом}.
 \end{definition}
 
 \begin{definition}
@@ -126,3 +137,21 @@
 		a_1, \ldots, a_d, a_1, \ldots, a_d, \ldots, a_1, \ldots, a_d
 	\]
 \end{lemma}
+
+\begin{proof}
+	Пусть мы сделали $kd < n$ сдвигов некоторого слова. Тогда, на его первых d позициях стоит слово
+	\[
+		a_{kd + 1}, \ldots, a_{kd + d}
+	\]
+	Раз полученное и текущее слова равны, то
+	\[
+		a_i = a_{kd + i},\ 1 \le i \le d
+	\]
+\end{proof}
+
+\begin{theorem}
+	Если $T_r(n)$ - это количество циклических слов длины $n$ над алфавитом $X,\ |X| = r$. Тогда
+	\[
+		T_r(n) = \suml_{d \mid n} \frac{1}{d} \left(\suml_{d' \mid d} \mu(d') r^{d / d'}\right)
+	\]
+\end{theorem}
