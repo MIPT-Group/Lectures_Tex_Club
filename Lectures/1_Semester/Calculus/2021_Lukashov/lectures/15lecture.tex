@@ -311,7 +311,7 @@
 			&{0,\ x = 0}
 		}
 	\]
-	Функция $f$ - непрерывная. Но пример примечателен тем, что производная всё же разрывная в 0.
+	Функция $f$ - непрерывная и дифференцируемая на $\R$. Но пример примечателен тем, что производная всё же разрывная в 0.
 	\begin{itemize}
 		\item $x \neq 0$. Тогда, просто посчитаем производную по свойствам:
 		\[
@@ -320,13 +320,13 @@
 		
 		\item $x = 0$. Посчитаем эту производную по определению:
 		\[
-			f'(0) = \liml_{\Delta x \to 0} \frac{f(\Delta x) - 0}{\Delta x} = \liml_{\Delta x \to 0} \frac{\Delta x^2 \sin \frac{1}{\Delta x}}{\Delta x} = \liml_{\Delta x} \Delta x \sin \frac{1}{\Delta x} = 0
+			f'(0) = \liml_{\Delta x \to 0} \frac{f(\Delta x) - 0}{\Delta x} = \liml_{\Delta x \to 0} \frac{\Delta x^2 \sin \frac{1}{\Delta x}}{\Delta x} = \liml_{\Delta x \to 0} \Delta x \sin \frac{1}{\Delta x} = 0
 		\]
 		Но при этом $\not\exists \liml_{x \to 0} f'(x)$. Проверить это можно, взяв 2 последовательности Гейне:
 		\begin{align*}
 			&{x_n = \frac{1}{\frac{\pi}{2} + 2\pi n} \Ra f'(x_n) = \frac{2}{\frac{\pi}{2} + 2\pi n} \Ra \liml_{n \to \infty} f'(x_n) = 0}
 			\\
-			&{x_n = \frac{1}{\frac{\pi}{2} + 2\pi n} \Ra f'(x_n) = -1 \Ra \liml_{n \to \infty} f'(x_n) = -1}
+			&{x_n = \frac{1}{2\pi n} \Ra f'(x_n) = -1 \Ra \liml_{n \to \infty} f'(x_n) = -1}
 		\end{align*}
 		То есть $f'(x)$ разрывная в нуле.
 	\end{itemize}
