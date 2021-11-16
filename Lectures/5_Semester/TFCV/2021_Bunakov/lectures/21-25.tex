@@ -1,6 +1,6 @@
 \section{Теоремы Вейерштрасса}
 
-\begin{theorem}[Первая теорема Вейерштрасса]
+\begin{theorem}[первая теорема Вейерштрасса]
 	Пусть выполнены следующие условия:
 	\begin{enumerate}
 		\item Функции $f_0, f_1, \dotsc$ регулярны на области $G \subset \Cm$
@@ -19,7 +19,7 @@
 	Значит, по теореме Мореры, $f$ регулярна на $K$.
 \end{proof}
 
-\begin{theorem}[Вторая теорема Вейерштрасса]
+\begin{theorem}[вторая теорема Вейерштрасса]
 	Пусть выполнены следующие условия:
 	\begin{enumerate}
 		\item Функции $f_0, f_1, \dotsc$ регулярны на области $G \subset \Cm$
@@ -35,8 +35,8 @@
 	
 	Воспользуемся интегральной формулой Коши для производной порядка $m$:
 	\begin{gather*}
-		f_n^{(m)}(z) = \frac{m!}{2\pi i}\int_{w \in \Cm: |w - z| = R}\frac{f_n(w)}{(w - z)^{m+1}}dw,~|z - z_0| < R\\
-		f^{(m)}(z) = \frac{m!}{2\pi i}\int_{w \in \Cm: |w - z| = R}\frac{f(w)}{(w - z)^{m+1}}dw,~|z - z_0| < R
+		f_n^{(m)}(z) = \frac{m!}{2\pi i}\int_{|w - z_0| = R}\frac{f_n(w)}{(w - z)^{m+1}}dw,~|z - z_0| < R\\
+		f^{(m)}(z) = \frac{m!}{2\pi i}\int_{|w - z_0| = R}\frac{f(w)}{(w - z)^{m+1}}dw,~|z - z_0| < R
 	\end{gather*}
 	
 	При $|z - z_0| = R_1$ выражение $|w - z|$ отделено от нуля числом $R - R_1$, тогда, по свойству оценки интегралов:
@@ -111,7 +111,6 @@
 			\clip (-2.8, -2.12) rectangle (2.8, 2.12);
 			
 			\fill [opacity=0.05] (0,0) circle [radius=2];
-			\draw[black, dashed] (0,0) circle[radius=2];
 			\draw[
 				black,
 				decoration={markings, mark=at position 0.1 with {\arrow{>}}},
@@ -120,7 +119,7 @@
 			] (0,0) circle[radius=2];
 			\node[] at (-1, 1.) {$K_1$};
 			
-			\fill [white] (0,0) (0, 0) circle[radius=0.9];
+			\fill [white] (0,0) circle[radius=0.9];
 			\draw[
 			black,
 			decoration={markings, mark=at position 0.1 with {\arrow{>}}},
@@ -233,12 +232,12 @@
 		Но функция $\frac1{h(z)}$ регулярна на $B_\delta(z_0)$, поэтому она представима степенным рядом на $B_\delta(z_0)$, то есть ее ряд Лорана не имеет главной части:
 		\[\frac{1}{h(z)} = \sum_{n=0}^{+\infty}a_n(z - z_0)^n\]
 		
-		Наконец, $\frac1{h(z_0)}$, поэтому $a_0 \ne 0$. Получено требуемое.
+		Наконец, $\frac1{h(z_0)} \ne 0$, поэтому $a_0 \ne 0$. Получено требуемое.
 		
 		\item[$\la$] Пусть ряд Лорана функции $f$ на $\mathring B_\epsilon(z_0)$ при некотором $m \in \N$ и $c_{-m} \in \Cm \bs \{0\}$ имеет следующий вид:
 		\[f(z) = \frac{c_{-m}}{(z-z_0)^m} + \dotsb + \frac{c_{-1}}{z-z_0} + \sum_{n = 0}^{+\infty}c_n(z - z_0)^n\]
 		
-		Тогда $f(z)(z-z_0)^m \equiv g(z)$ на $\mathring B_\epsilon(z_0)$, где функция $g$ представима степенным рядом. Тогда, по теореме Абеля, этот ряд cходится на $B_\epsilon(z_0)$, и его сумма регулярна на $B_\epsilon(z_0)$. Значит, $\exists\lim_{z \to z_0} g(z) = c_{-m} \ne 0$. Тогда:
+		Тогда функция $g(z) := f(z)(z-z_0)^m$ представима степенным рядом на $\mathring B_\epsilon(z_0)$. Но тогда, по теореме Абеля, этот ряд cходится на $B_\epsilon(z_0)$, и его сумма регулярна на $B_\epsilon(z_0)$. Значит, $\exists\lim_{z \to z_0} g(z) = c_{-m} \ne 0$. Тогда:
 		\[f(z) = \frac{g(z)}{(z - z_0)^m} \xrightarrow{z \to z_0} \infty\]
 		
 		Таким образом, точка $z_0$ является полюсом.\qedhere
@@ -350,7 +349,7 @@
 
 \begin{proposition}
 	Пусть $z_0 \in \Cm$, и функция $f$ регулярна на $\mathring B_\epsilon(z_0)$. Тогда для любого числа $0 < \rho < \epsilon$ выполнено следующее равенство:
-	\[\int_{|z - z_0| = \rho}fdz = (2\pi i)\res_{z_0}f\]
+	\[\int_{|z - z_0| = \rho}fdz = 2\pi i\res_{z_0}f\]
 \end{proposition}
 
 \begin{proof}
@@ -362,13 +361,8 @@
 
 \begin{note}
 	Если окружность $K_\rho$ ориентирована не против часовой стрелки, а по часовой, имеет место равенство с противоположным знаком:
-	\[\int_{K_\rho}fdz = -(2\pi i)\res_{z_0}f\]
+	\[\int_{K_\rho}fdz = -2\pi i\res_{z_0}f\]
 \end{note}
-
-\begin{proposition}
-	Пусть $z_0 \in \Cm$, и функция $f$ регулярна на $\mathring B_\epsilon(z_0)$. Тогда для любого числа $0 < \rho < \epsilon$ выполнено следующее равенство:
-	\[\int_{|z - z_0| = \rho}fdz = (2\pi i)\res_{z_0}f\]
-\end{proposition}
 
 \begin{note}
 	Пусть $z_0 \in \Cm$, и функция $f$ регулярна на $\mathring B_\epsilon(z_0)$. Тогда выполнено равенство $\res_{z_0}f(z) = \res_0f(w + z_0)$.
@@ -376,15 +370,15 @@
 
 \begin{proposition}
 	Пусть $z_0 \in \Cm$ "--- полюс порядка не выше $m \in \N$ функции $f$. Тогда верна следующая формула:
-	\[\res_{z_0}f = \frac{1}{(m-1)!}\lim_{z \to z_0}\left(f(z)(z - z_0)^m\right)^{(m-1)}\]
+	\[\res_{z_0}f = \frac{1}{(m-1)!}\lim_{z \to z_0}\big(f(z)(z - z_0)^m\big)^{(m-1)}\]
 \end{proposition}
 
 \begin{proof}
 	Функция $f$ представима рядом Лорана на $\mathring B_\epsilon(z_0)$:
 	\[f(z) = \frac{c_{-m}}{(z-z_0)^m} + \dotsb + \frac{c_{-1}}{z-z_0} + \sum_{n = 0}^{+\infty}c_n(z - z_0)^n\]
 	
-	Значит, $f(z)(z-z_0)^m \equiv g(z)$ на $\mathring B_\epsilon(z_0)$, где функция $g$ представима степенным рядом. Тогда, по теореме Абеля, этот ряд cходится на $B_\epsilon(z_0)$, и его сумма регулярна на $B_\epsilon(z_0)$. Следовательно, выполнено равенство:
-	\[c_{-1} = \frac{g^{(m-1)}(z_0)}{(m-1)!} = \frac1{{(m-1)!}}\lim_{z \to z_0}g^{(m-1)}(z) = \frac{1}{(m-1)!}\lim_{z \to z_0}\left(f(z)(z - z_0)^m\right)^{(m-1)}\]
+	Значит, функция $g(z) := f(z)(z-z_0)^m$ представима степенным рядом на $\mathring B_\epsilon(z_0)$. Тогда, по теореме Абеля, этот ряд cходится на $B_\epsilon(z_0)$, и его сумма регулярна на $B_\epsilon(z_0)$. Следовательно, выполнены следующие равенства:
+	\[c_{-1} = \frac{g^{(m-1)}(z_0)}{(m-1)!} = \frac1{{(m-1)!}}\lim_{z \to z_0}g^{(m-1)}(z) = \frac{1}{(m-1)!}\lim_{z \to z_0}\big(f(z)(z - z_0)^m\big)^{(m-1)}\]
 	
 	Получено требуемое.
 \end{proof}
@@ -406,7 +400,7 @@
 
 \begin{proposition}
 	Пусть функция $f$ регулярна на $\mathring B_\epsilon(\infty)$, и $R > \epsilon$. Тогда:
-	\[\int_{|z| = R}fdz = -(2\pi i)\res_\infty f\]
+	\[\int_{|z| = R}fdz = -2\pi i\res_\infty f\]
 \end{proposition}
 
 \begin{proof}
@@ -430,16 +424,14 @@
 	\[\res_\infty f = \res_0\left(-\frac1{z^2}f\left(\frac1z\right)\right)\]
 \end{proposition}
 
-\section{Теорема Коши о вычетах}
-
 \begin{theorem}[теорема Коши о вычетах]
 	Пусть выполнены следующие условия:
 	\begin{enumerate}
-		\item $G$ "--- область с простой границей $M(\gamma_1) \sqcup \dotsb \sqcup M(\gamma_n)$
+		\item $G$ "--- область с простой границей $M(\gamma_1) \sqcup \dotsb \sqcup M(\gamma_m)$
 		
-		\item Граничные кривые $\gamma_1, \dotsc, \gamma_n$ положительно ориентированы относительно $G$
+		\item Граничные кривые $\gamma_1, \dotsc, \gamma_m$ положительно ориентированы относительно $G$
 		
-		\item Функция $f$ регулярна на $\overline{G}\,\bs \{z_1, \dotsc, z_n\}$, где $z_1, \dotsc, z_k \in G$.
+		\item Функция $f$ регулярна на $\overline{G}\,\bs \{z_1, \dotsc, z_n\}$, где $z_1, \dotsc, z_n \in G$.
 	\end{enumerate}
 	
 	Тогда верна следующая формула:
@@ -447,5 +439,249 @@
 \end{theorem}
 
 \begin{proof}
-	Для удобства будем считать, что если одна из точек $z_1, \dotsc, z_n$ совпадает с $\infty$, то это именно последняя точка $z_n$.
+	Пусть сначала $G$ "--- ограниченная область с простой границей. Выберем $\rho_1, \dotsc, \rho_n > 0$ такие, что $\overline{B_{\rho_1}(z_1)}, \dotsc, \overline{B_{\rho_n}(z_n)} \subset G$, причем эти шары не пересекаются. Функция $f$ регулярна на области $D = G \bs \big(\bigcup_{k = 1}^n\overline{B_{\rho_k}(z_k)}\big)$ с простой границей, тогда, по интегральной теореме Коши:
+	\[\int_{\partial D} fdz = 0\]
+	
+	Для каждого $k \in \{1, \dotsc, n\}$ обозначим через $C_k$ окружность $\{z \in \Cm: |z - z_k| = \rho_k\}$, ориентированную \textit{по часовой стрелке}. Тогда:
+	\[0 = \int_{\partial D} fdz = \int_{\partial G} fdz + \sum_{k = 1}^n\left(\int_{C_k}fdz\right)\]
+	
+	Пользуясь утверждением об интеграле по окружности, получим:
+	\[\int_{\partial G} fdz = -\sum_{k = 1}^n\left(\int_{C_k}fdz\right) = 2 \pi i\sum_{k = 1}^n\res_{z_k}f\]
+	
+	Пусть теперь $G$ "--- неограниченная область с простой границей, тогда $\infty \in G$. Будем считать, что $z_n = \infty$. Поскольку $\partial G$ "--- компакт, то существует $R > 0$ такое, что $\partial G \subset B_R(0)$ и $z_1, \dotsc, z_{n-1} \in B_R(0)$. К области $D := B_R(0) \cap G$ применима доказанная часть теоремы. Пользуясь также утверждением об интеграле по окружности, получим:
+	\[\int_{\partial D} fdz = \int_{\partial G}fdz + \int_{|z| = R}fdz \ra \int_{\partial G}fdz = 2\pi i\left(\sum_{k = 1}^{n-1}\res_{z_k}f + \res_{\infty}f\right) = 2\pi i\sum_{k = 1}^{n}\res_{z_k}f\]
+	
+	Проведенное рассуждение проиллюстрировано ниже:
+	\begin{center}
+		\begin{tikzpicture}
+			\clip (-3.1, -3.1) rectangle (3.1, 3.1);
+			\fill [opacity=0.24, path fading=fade out] (0,0) circle [radius=3.1];
+			\fill [white] (0,0) circle [radius=2];
+			\fill [opacity=0.08] (0,0) circle [radius=2];
+			
+			\draw[
+			black,
+			decoration={markings, mark=at position 0.1 with {\arrow{>}}},
+			decoration={markings, mark=at position 0.6 with {\arrow{>}}},
+			postaction={decorate}
+			] (0,0) circle[radius=2];
+			
+			\node[draw, star, star points=8, star point ratio=2.2, inner sep=0.5pt, fill, black, label={left:$\infty$}] at (2.2, 2.1) {};
+			
+			\fill [white] (-0.85,0) circle [radius=0.7];
+			\draw[
+			black,
+			decoration={markings, mark=at position 0.1 with {\arrow{<}}},
+			decoration={markings, mark=at position 0.6 with {\arrow{<}}},
+			postaction={decorate}
+			] (-0.85,0) circle[radius=0.7];
+			
+			\fill [white] (0.85,0) circle [radius=0.7];
+			\draw[
+			black,
+			decoration={markings, mark=at position 0.1 with {\arrow{<}}},
+			decoration={markings, mark=at position 0.6 with {\arrow{<}}},
+			postaction={decorate}
+			] (0.85,0) circle[radius=0.7];
+			
+			\node[draw, star, star points=8, star point ratio=2.2, inner sep=0.5pt, fill, black, label={right, shift={(-3pt,-3pt)}:\scalebox{0.9}{$z_1$}}] at (1.1, 1) {};
+			\node[draw, star, star points=8, star point ratio=2.2, inner sep=0.5pt, fill, black, label={right, shift={(-3pt,-3pt)}:\scalebox{0.9}{$z_{n-1}$}}] at (-1.2, -1) {};
+			\node[draw, star, star points=8, star point ratio=2.2, inner sep=0.5pt, fill, black] at (-0.5, 1.4) {};
+			\node[draw, star, star points=8, star point ratio=2.2, inner sep=0.5pt, fill, black] at (0.45, -0.95) {};
+			
+			\node[] at (-1.45, 0.8) {$\gamma_1$};
+			\node[] at (0.2, 0.8) {$\gamma_2$};
+			\node[] at (0, -2.4) {$|z| = R$};
+			\node[] at (0.7, -1.5) {$D$};
+			
+			\node[] at (-2.4, 1) {$G$};
+		\end{tikzpicture}
+	\end{center}
+
+	Теорема доказана.
 \end{proof}
+
+\begin{corollary}
+	Если функция $f$ регулярна на $\CM\,\bs \{z_1, \dotsc, z_n\}$, то:
+	\[\sum_{k = 1}^n\res_{z_k}f = 0\]
+\end{corollary}
+
+\begin{proof}
+	Как и в теореме выше, будем считать, что $z_n = \infty$. Выберем $R > 0$ такое, что $z_1, \dotsc, z_n \in B_R(0)$, и применим теорему к областям $B_R(0)$ и $\overline{B_R(0)}$:
+	\[\int_{|z| = R}fdz = 2\pi i\sum_{k = 1}^{n-1}\res_{z_k}f = -2\pi i\res_{\infty}f = -2\pi i\res_{z_n}f \ra \sum_{k = 1}^n\res_{z_k}f = 0\]
+	
+	Получено требуемое.
+\end{proof}
+
+\begin{example}
+	Вычислим следующий интеграл:
+	\[I := \int_{|z| = \frac12} \tg\frac1z dz\]
+	
+	В области $\{z \in \Cm: |z| < \frac12\}$ функция $f(z) := \tg\frac1z$ имеет бесконечное число особых точек, а в области $\{z \in \Cm: |z| > \frac12\} \cup \{\infty\}$ особыми являются только точки $\pm \frac2\pi$. Значит, применить теорему можно только к внешней области.
+	\begin{itemize}
+		\item Поскольку $\tg\frac1z \sim \frac1z$, $z \to \infty$, то $\res_\infty{f} = -1$
+		
+		\item Точки $\pm\frac2\pi$ являются полюсами первого порядка, и применима следующая формула:
+		\[\res_{\pm\frac2\pi}{f} = \left.\frac{\sin\frac1z}{\left(\cos\frac1z\right)'}\right|_{z = \pm\frac2\pi} = \left.z^2\right|_{z = \pm\frac2\pi} = \frac4{\pi^2}\]
+	\end{itemize}
+	
+	Таким образом:
+	\[I = -2\pi i\left(\res_{\frac2\pi}f + \res_{-\frac2\pi}f + \res_{\infty}f\right) = 2\pi i\left(1 - \frac8{\pi^2}\right)\]
+\end{example}
+
+\begin{note}
+	В отличие от примера выше, интеграл $\int_{|z| = 1}\sin{z}\sin\frac1zdz$ нельзя вычислить применением теоремы о вычетах ни к одной из областей, поскольку и внутренняя, и внешняя области содержат бесконечное число особых точек.
+\end{note}
+
+\section{Вычисление несобственных интегралов}
+
+Положим $\Cm^+ = \{z \in \Cm: \im z \ge 0\}$, $\Cm^{++} = \{z \in \Cm: \im z > 0\}$.
+
+\begin{proposition}[лемма <<$+$>>]
+	Пусть выполнены следующие условия:
+	\begin{enumerate}
+		\item Функция $f$ регулярна на $\Cm^+ \bs \{z_1, \dotsc, z_n\}$, где $z_1, \dotsc, z_n \in \Cm^{++}$
+		\item Существует несобственный интеграл $\int_{-\infty}^{+\infty}fdx$
+		\item Если $C_R^+ := \{z \in \Cm: |z| = R\} \cap \Cm^+$ для любого $R > 0$, то:
+		\[\lim_{R\to +\infty} \int_{C_R^+}fdz = 0\]
+	\end{enumerate}
+	
+	Тогда верна следующая формула:
+	\[\int_{-\infty}^{+\infty}fdx = 2\pi i\sum_{k = 1}^n\res_{z_k}{f}\]
+\end{proposition}
+
+\begin{proof}
+	Выберем $R$ такое $z_1, \dotsc, z_n \in D_R = B_R(0) \cap \Cm^{++}$, то есть:	
+	\begin{center}
+		\scalebox{1}{
+			\begin{tikzpicture}
+				\clip (-3.4, -0.6) rectangle (3.4, 3);
+				\draw [->] (-3, 0) -- (3, 0) node [above, black] {$\re z$};
+				\draw [->] (0, -0.5) -- (0, 2.7) node [right, black] {$\im z$};
+				
+				% A clipped circle is drawn
+				\begin{scope}
+					\clip (-2.25, 0) rectangle (2.25, 2.2);
+					\fill [opacity=0.07] (0, 0) circle[radius=2.2];
+					\draw[
+					black, thick,
+					decoration={markings, mark=at position 0.13 with {\arrow{>}}},
+					decoration={markings, mark=at position 0.38 with {\arrow{>}}},
+					postaction={decorate}
+					] (0,0) circle[radius=2.2];
+					
+					\node[draw, star, star points=8, star point ratio=2.2, inner sep=0.5pt, fill, black, label={right, shift={(-3pt,-3pt)}:\scalebox{0.9}{$z_1$}}] at (1.2, 1) {};
+					\node[draw, star, star points=8, star point ratio=2.2, inner sep=0.5pt, fill, black, label={right, shift={(-3pt,-3pt)}:\scalebox{0.9}{$z_n$}}] at (-1.5, 0.5) {};
+					\node[draw, star, star points=8, star point ratio=2.2, inner sep=0.5pt, fill, black] at (-0.5, 1.4) {};
+					\node[draw, star, star points=8, star point ratio=2.2, inner sep=0.5pt, fill, black] at (0.45, 0.5) {};
+					\draw (-2.2,0) -- (2.2,0);
+				\end{scope}
+				
+				\draw[thick, ->] (-2.2,0) -- (-1,0);
+				\draw[thick, ->] (-1,0) -- (1, 0);
+				\draw[thick] (1, 0) -- (2.2,0);
+				
+				\node[] at (-1.75, 2.1) {$C_{R}^+$};
+				\node[] at (0.7, 1.6) {$D_R$};
+				
+				\draw [black] (2.19,3pt) -- (2.19,-3pt) node [below, black] {$R$};
+				\draw [black] (-2.19,3pt) -- (-2.19,-3pt) node [below, black] {$-R$};
+			\end{tikzpicture}
+		}
+	\end{center}
+	
+	Применим к $D_R$ теорему о вычетах:
+	\[\int_{-R}^Rfdx + \int_{C_R^+}fdz = 2\pi i\sum_{k=1}^n\res_{z_k}f\]
+	
+	Переходя к пределу $R \to +\infty$, получим требуемое.
+\end{proof}
+
+\begin{note}
+	Положим также $\Cm^- = \{z \in \Cm: \im z \le 0\}$, $\Cm^{--} = \{z \in \Cm: \im z < 0\}$, тогда аналогичным образом можно сформулировать \textit{лемму <<$-$>>}. Пусть выполнены следующие условия:
+	\begin{enumerate}
+		\item Функция $f$ регулярна на $\Cm^- \bs \{z_1, \dotsc, z_n\}$, где $z_1, \dotsc, z_n \in \Cm^{--}$
+		\item Существует несобственный интеграл $\int_{-\infty}^{+\infty}fdx$
+		\item Если $C_R^- := \{z \in \Cm: |z| = R\} \cap \Cm^-$ для любого $R > 0$, то:
+		\[\lim_{R\to +\infty} \int_{C_R^-}fdz = 0\]
+	\end{enumerate}
+	
+	Тогда верна следующая формула:
+	\[\int_{-\infty}^{+\infty}fdx = -2\pi i\sum_{k = 1}^n\res_{z_k}{f}\]
+\end{note}
+
+\begin{theorem}
+	Пусть выполнены следующие условия:
+	\begin{enumerate}
+		\item $f = \frac pq$, где $p, q \in \Cm[z]$ "--- многочлены степеней $m, n \in \N \cup \{0\}$ соответственно, не имеющие общих корней
+		\item $n \ge m + 2$
+		\item $q$ не имеет вещественных корней и обращается в ноль в точках $z_1, \dotsc, z_n \in \Cm^{++}$ и $w_1, \dotsc, w_m \in \Cm^{--}$
+	\end{enumerate}
+	
+	Тогда верны следующие равенства:
+	\[\int_{-\infty}^{+\infty}fdx = 2\pi i\sum_{k=1}^n \res_{z_k}f = -2\pi i\sum_{k=1}^m \res_{w_k}f\]
+\end{theorem}
+
+\begin{proof}
+	Поскольку $n \ge m + 2$, то существует предел $\lim_{z \to \infty}z^2f(z) = A \in \Cm$. Выберем $R_0$ такое, что при $|z| > R_0$ выполнено неравенство $|z^2f(z)| \le |A| + 1$. Тогда, по свойству оценки интегралов, для любого $R > R_0$ имеем:
+	\[\left|\int_{C_R^+}fdz\right| \le 2\pi\frac{|A| + 1}{R} \xrightarrow{R \to \infty} 0\]
+	
+	Значит, выполнены все условия леммы <<$+$>>, из которой следует первое равенство. Второе доказывается аналогично.
+\end{proof}
+
+\begin{proposition}[лемма Жордана]
+	Пусть выполнены следующие условия:
+	\begin{enumerate}
+		\item Функция $g$ непрерывна на множестве $G := \{z \in \Cm : |z| \ge R_0\} \cap \Cm^+$ для некоторого $R_0 > 0$
+		\item Если $M(R) := \max_{z \in C_R^+}|g(z)|$ для любого $R>0$, то $\lim_{R \to +\infty}M(R) = 0$
+		\item $\alpha > 0$
+	\end{enumerate}
+	
+	Тогда верно следующее равенство:
+	\[\lim_{R \to +\infty} \int_{C_R^+}ge^{i\alpha z}dz = 0\]
+\end{proposition}
+
+\begin{proof}
+	Произведем замену $z = Re^{it}$, тогда:
+	\begin{multline*}
+		\left|\int_{C_R^+}ge^{i\alpha z}dz\right| = \left|\int_0^\pi g(Re^{it})e^{i\alpha Re^{it}}z'(t)dt\right| \le M(R)R \int_0^\pi \left|e^{i\alpha R(\cos{t} + i\sin{t})}\right|dt = \\
+		= M(R)R \int_0^\pi e^{-\alpha R\sin{t}}dt = 2M(R)R \int_0^{\frac\pi 2} e^{-\alpha R\sin{t}}dt  \le 2M(R)R \int_0^{\frac\pi 2} e^{-\alpha \frac{2R}\pi t}dt \le \\
+		\le 2M(R)R \int_0^{+\infty} e^{-\alpha \frac{2R}\pi t}dt = 2M(R)R \cdot \frac\pi{2\alpha R} = \frac{M(R)\pi}{\alpha} \xrightarrow{R \to +\infty} 0
+	\end{multline*}
+	
+	Получено требуемое.
+\end{proof}
+
+\begin{theorem}
+	Пусть выполнены следующие условия:
+	\begin{enumerate}
+		\item $f = \frac pq$, где $p, q \in \Cm[z]$ "--- многочлены степеней $m, n \in \N \cup \{0\}$ соответственно, не имеющие общих корней
+		\item $n \ge m + 1$
+		\item $q$ не имеет вещественных корней и обращается в ноль в точках $z_1, \dotsc, z_n \in \Cm^{++}$ и $w_1, \dotsc, w_m \in \Cm^{--}$
+		\item $\alpha > 0$, $\beta \in \R$
+	\end{enumerate}
+	
+	Тогда верны следующие равенства:
+	\[\int_{-\infty}^{+\infty}fe^{i(\alpha x + \beta)}dx = 2\pi i\sum_{k=1}^n \res_{z_k}f = -2\pi i\sum_{k=1}^m \res_{w_k}f\]
+\end{theorem}
+
+\begin{proof}
+	Применим лемму <<$+$>> к функции $fe^{i(\alpha x + \beta)}$. Стремление к нулю интеграла по полуокружности $C_R^+$ достигается за счет леммы Жордана.
+\end{proof}
+
+\begin{note}
+	Если в условиях теоремы выше выполнено $p, q \in \R[z]$, то для интеграла $I := \int_{-\infty}^{+\infty}fe^{i(\alpha x + \beta)}dx$ выполнены соотношения:
+	\[I = \re I + i \im I = \int_{-\infty}^{+\infty}f\cos{(\alpha x + \beta)}dx + i\int_{-\infty}^{+\infty}f\sin{(\alpha x + \beta)}dx\]
+\end{note}
+
+\begin{note}
+	Пусть $R(u, v)$ "--- рациональная функция. Рассмотрим следующую функцию:
+	\[R_1(z) := R\left(\frac12\left(z + \frac1z\right), \frac1{2i}\left(z - \frac1z\right)\right)\]
+	
+	$R_1$ является рациональной функцией от $z$. Пусть $R_1$ не имеет особых точек на окружности $\{z \in \Cm : |z| = 1\}$. Рассмотрим следующий интеграл:
+	\[I := \int_{|z| = 1}\frac{1}{iz}R_1dz\]
+	
+	С одной стороны, его можно вычислить, используя теорему о вычетах. С другой стороны, если произвести замену $z = e^{it}$, то:
+	\[I = \int_{0}^{2\pi} R(\cos{t}, \sin{t})dt\]
+	
+	Получен способ вычислять еще один класс вещественных интегралов.
+\end{note}

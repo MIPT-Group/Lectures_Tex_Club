@@ -32,7 +32,8 @@
 \DeclareMathOperator{\re}{Re}
 \DeclareMathOperator{\Arg}{Arg}
 \DeclareMathOperator{\Ln}{Ln}
-\DeclareMathOperator{\res}{res}
+
+\DeclareMathOperator*{\res}{res}
 
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
@@ -179,4 +180,5 @@
 \usepackage{tikz-cd}     % Коммутативные диаграммы
 \usepackage{tkz-euclide} % Геометрия
 \usepackage{stackengine} % Многострочные тексты в картинках
-\usetikzlibrary{angles, babel, quotes}
+\usetikzlibrary{angles, babel, quotes, fadings, shapes.geometric}
+\tikzfading[name=fade out, inner color=transparent!0, outer color=transparent!100]

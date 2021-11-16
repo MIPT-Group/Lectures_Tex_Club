@@ -119,7 +119,7 @@
 \end{definition}
 
 \begin{note}
-	Если $f(z) = f(x + iy) = u(x, y) + iv(x, y)$, $\sigma = \xi + i\eta$, то, как нетрудно убедиться, выполнены следующие равенства:
+	Если $f(z) = f(x + iy) = u(x, y) + iv(x, y)$, то, как нетрудно убедиться, выполнены следующие равенства:
 	\begin{gather*}
 		\int_{\gamma}f(z)|dz| = \int_\gamma u(x, y)ds + i\int_\gamma v(x, y)ds
 		\\
@@ -343,14 +343,14 @@
 	Зафиксируем произвольное $\epsilon > 0$. Достаточно доказать, что выполнено следующее неравенство:
 	\[\left|\int_{\partial G}\frac{f(z)}{z - z_0}dz - 2\pi if(z_0)\right| \le 2\pi\epsilon\]
 	
-	Так как $f$ непрерывна в точке $z_0$, а множество $G$ "--- открытое, то существует $\delta > 0$ такое, что $\overline{B_\delta(z_0)} \subset G$ и для всех $z \in \overline{B_\delta(z_0)}$ выполнено $|f(z) - f(z_0)| \le \epsilon$. Рассмотрим область с простой границей $D := G \bs \overline{B_\delta(z_0)}$, тогда $\partial D = \partial G \cup \omega$, где $\omega$ "--- это окружность $\{z \in \Cm: |z - z_0| = \delta\}$, ориентированная по часовой стрелке. Применим к $\frac{f(z)}{z - z_0}$ интегральную теорему Коши для области $D$ и получим следующее:
+	Так как $f$ непрерывна в точке $z_0$, а множество $G$ "--- открытое, то существует $\delta > 0$ такое, что $\overline{B_\delta(z_0)} \subset G$ и для всех $z \in \overline{B_\delta(z_0)}$ выполнено $|f(z) - f(z_0)| \le \epsilon$. Рассмотрим область с простой границей $D := G \bs \overline{B_\delta(z_0)}$, тогда $\partial D = \partial G \cup \omega$, где $\omega$ "--- это окружность $\{z \in \Cm: |z - z_0| = \delta\}$, ориентированная \textit{по часовой стрелке}. Применим к $\frac{f(z)}{z - z_0}$ интегральную теорему Коши для области $D$ и получим следующее:
 	\[\int_{\partial D}\frac{f(z)}{z - z_0}dz = \int_{\partial G}\frac{f(z)}{z - z_0}dz + \int_{\omega}\frac{f(z)}{z - z_0}dz = 0 \ra \int_{\partial G}\frac{f(z)}{z - z_0}dz = -\int_{\omega}\frac{f(z)}{z - z_0}dz\]
 	
 	Заметим теперь, что верно следующее равенство:
 	\[\int_{\omega}\frac{dz}{z - z_0} = -2\pi i\]
 	
 	C учетом полученных равенств, имеем:
-	\[\left|\int_{\partial G}\frac{f(z)}{z - z_0}dz - 2\pi if(z_0)\right| = \left|\int_{\omega}\frac{f(z) - f(z_0)}{z - z_0}dz\right| \le \max_{z \in \omega}\frac{|f(z) - f(z_0)|}{|z - z_0|}|\omega| \le 2\pi\epsilon\]
+	\[\left|\int_{\partial G}\frac{f(z)}{z - z_0}dz - 2\pi if(z_0)\right| = \left|\int_{\omega}\frac{-f(z) + f(z_0)}{z - z_0}dz\right| \le \max_{z \in \omega}\frac{|f(z) - f(z_0)|}{|z - z_0|}|\omega| \le 2\pi\epsilon\]
 	
 	Таким образом, получено требуемое.
 \end{proof}
@@ -374,7 +374,7 @@
 \end{proposition}
 
 \begin{proof}
-	Положим $F := F_2 - F_1$, тогда $F$ тоже дифференцируема на $G$, причем $F' = F_2 - F_1 \equiv 0$ на $G$, откуда $F' \in C^1(G)$. Пусть $F(z) = U(x, y) + iV(x, y)$, тогда выполнено равенство $F' = U'_x +iV'_x$, и, по условиям Коши-Римана, $U'_x, U'_y, V'_x, V'_y \equiv 0$ на $G$. Значит, функции $U$ и $V$ постоянны на $G$, что и требовалось.
+	Положим $F := F_2 - F_1$, тогда $F$ тоже дифференцируема на $G$, причем $F' = F_2' - F_1' \equiv 0$ на $G$, откуда $F' \in C^1(G)$. Пусть $F(z) = U(x, y) + iV(x, y)$, тогда выполнено равенство $F' = U'_x +iV'_x$, и, по условиям Коши-Римана, $U'_x, U'_y, V'_x, V'_y \equiv 0$ на $G$. Значит, функции $U$ и $V$ постоянны на $G$, что и требовалось.
 \end{proof}
 
 \begin{proposition}[формула Ньютона-Лейбница]
