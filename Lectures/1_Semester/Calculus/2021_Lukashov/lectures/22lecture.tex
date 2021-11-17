@@ -1,0 +1,178 @@
+\subsection{Топология пространства $\R^n$ и непрерывные отображения}
+
+\subsubsection*{Пределы в частных случаях}
+
+\begin{proposition}
+	Если $X$ - метрическое пространство, то
+	\[
+		\liml_{n \to \infty} x_n = x_0 \lra \forall \eps > 0\ \exists N \in \N \such \forall n > N\ \rho(x_n, x_0) < \eps
+	\]
+\end{proposition}
+
+\begin{proposition}
+	Если $X$ - линейное нормированное пространство, то
+	\[
+		\liml_{n \to \infty}
+	\]
+\end{proposition}
+
+\begin{theorem} (Основные свойства предела последовательностей в $\R^n$)
+	\begin{enumerate}
+		\item (Единственность предела) В метрическом пространстве последовательность $\{x_n\}_{n = 1}^\infty$ не может иметь более одного предела
+		
+		\item (Ограниченность сходящейся последовательности) Если последовательность $\{x_n\}_{n = 1}^\infty \subset (X, \rho)$ - сходящаяся к $x_0 \in X$, то она ограничена. То есть
+		\[
+			\exists R > 0 \such \forall n \in \N\ \rho(x_n, x_0) < R
+		\] 
+		
+		\item (Отделимость от нуля) Если последовательность $\{x_n\}_{n = 1}^\infty \subset E$ (ЛНП) сходится к $x_0 \neq 0 \in E$, то она отделена от нуля. То есть
+		\[
+			\exists c > 0\ \exists N \in \N \such \forall n > N\ ||x_n|| \ge c
+		\]
+		
+		\item (Предел и арифметические операции) Если последовательности $\{x_n\}_{n = 1}^\infty$, $\{y_n\}_{n = 1}^\infty \subset E$ (ЛНП) - сходящиеся к $x_0, y_0 \in E$ соответственно, $\{\alpha_n\}_{n = 1}^\infty \subset \R(\Cm)$ сходится к $\alpha_0 \in \R(\Cm)$, то
+		\begin{enumerate}
+			\item $\liml_{n \to \infty} (x_n + y_n) = x_0 + y_0$
+			
+			\item $\liml_{n \to \infty} (\alpha_n \cdot x_n) = \alpha_0 \cdot x_0$
+		\end{enumerate}
+	
+	\item (Предел и скалярное произведение) Если последовательности $\{x_n\}_{n = 1}^\infty, \{y_n\}_{n = 1}^\infty \subset E$ (евклидово) - сходящиеся к $x_0, y_0$ соответственно, то
+	\[
+		\liml_{n \to \infty} \trbr{x_n, y_n} = \trbr{x_0, y_0}
+	\]
+	
+	\item (Предел и векторное произведение) Если последовательности $\{\vec{x_n}\}_{n = 1}^\infty, \{\vec{y_n}\}_{n = 1}^\infty \subset \R^n$ - сходящиеся к $\vec{x_0}, \vec{y_0}$ соответственно, то
+	\[
+		\liml_{n \to \infty} [\vec{x_n}, \vec{y_n}] = [\vec{x_0}, \vec{y_0}]
+	\]
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}~
+	\begin{enumerate}
+		\item От противного. Пусть $\liml_{n \to \infty} x_n = x_0,\ \liml_{n \to \infty} x_n = y_0,\ x_0 \neq y_0$. Из условия сразу следует, что $\rho(x_0, y_0) > 0$. Рассмотрим $\eps := \frac{1}{2}\rho(x_0, y_0)$:
+		\begin{align*}
+			&\exists N_1 \in \N \such \forall n > N_1\ \rho(x_n, x_0) < \eps
+			\\
+			&\exists N_2 \in \N \such \forall n > N_2\ \rho(x_n, y_0) < \eps
+		\end{align*}
+		Следовательно, если положить $N = \max(N_1, N_2)$, то
+		\[
+			\forall n > N\ \rho(x_0, y_0) \le \rho(x_0, x_n) + \rho(x_n, y_0) < 2\eps = \rho(x_0, y_0)
+		\]
+		Противоречие.
+		
+		\item Положим $\eps := 1$. По условию
+		\[
+			\exists N \in \N \such \forall n > N\ \rho(x_n, x_0) < 1
+		\]
+		Обозначим за $R$ следующую величину:
+		\[
+			R := \max(\rho(x_1, x_0), \rho(x_2, x_0), \ldots, \rho(x_N, x_0)) + 1
+		\]
+		Из определения следует, что
+		\[
+			\forall n \in \N\ \rho(x_n, x_0) < R
+		\]
+	\end{enumerate}
+	Дописать
+\end{proof}
+
+\begin{lemma} (Критерий сходимости последовательности в $\R^n$)
+	Последовательность $\{\vec{x_m} = (x_m^{(1)}, \ldots, x_m^{(n)})\}_{m = 1}^\infty$ сходится к $\vec{x_0} = (x_0^{(1)}, \ldots, x_0^{(n)})$ тогда и только тогда, когда $\forall j,\ j = 1, \ldots, n$ последовательность $\{x_m^{(j)}\}_{m = 1}^\infty$ сходится к $x_0^{(j)}$.
+\end{lemma}
+
+\begin{proof}
+	Докажем необходимость. По условию
+	\[
+		\forall \eps > 0\ \exists N \in \N\ \such \forall n > N\ \ |\vec{x_m} - \vec{x_0}| < \eps
+	\]
+	При этом
+	\[
+		|\vec{x_m} - \vec{x_0}| = \sqrt{(x_m^{(1)} - x_0^{(1)})^2 + \ldots + (x_m^{(n)} - x_0^{(n)})^2}
+	\]
+	Отсюда
+	\[
+		\forall j,\ j = 1, \ldots, n\ \ |x_m^{(j)} - x_0^{(0)}| = 
+	\]
+	Дописать
+	
+	Теперь докажем достатовность. По условию
+	\[
+		\forall j \in [1; n]\ \forall \eps > 0\ \exists N_j \in \N \such \forall n > N_j\ \ |x_m^{(j)} - x_0^{(j)}| < \frac{\eps}{\sqrt{n}}
+	\]
+	Дописать
+\end{proof}
+
+\begin{theorem} (Больцано-Верейштрасса в $\R^n$)
+	Из каждой ограниченной последовательности в $\R^n$ можно выделить сходящуюся подпоследовательность.
+\end{theorem}
+
+\begin{proof}
+	Пусть $\{\vec{x_m}\}_{m = 1}^\infty$ - ограниченная последовательность. Это означает, что
+	\[
+		\exists C > 0 \such \forall m \in \N\ \ |\vec{x_m}| < C \Ra \forall j \in [1; n]\ |x_m^{(j)}| < C
+	\]
+	Рассмотрим произвольное $j \in [1; n]$. Тогда последовательность $\{x_m^{(j)}\}_{m = 1}^\infty$ - ограниченная, а значит, по теореме Больцано-Вейерштрасса, существует $\{x_{m_k}^{(j)}\}_{k = 1}^\infty$ - сходящаяся подпоследовательность
+	Дописать
+\end{proof}
+
+\begin{definition}
+	Фундаментальной последовательностью в метрическом пространстве $(X, \rho)$ называется такая последовательность $\{x_n\}_{n = 1}^\infty \subset X$, что
+	\[
+		\forall \eps > 0\ \exists N \in \N \such \forall n > N,\ \forall p \in \N\ \ \rho(x_n, x_{n + p}) < \eps
+	\]
+\end{definition}
+
+\begin{theorem} (Критерий Коши в $\R^n$)
+	Последовательность $\{\vec{x_m}\}_{m = 1}^\infty \subset \R^n$ сходится тогда и только тогда, когда $\{\vec{x_m}\}_{m = 1}^\infty$ фундаментальная
+\end{theorem}
+
+\begin{proof}
+	Дописать
+\end{proof}
+
+\begin{definition}
+	Метрическое пространство, в котором каждая фундаментальная последовательность сходится, называется \textit{полным метрическим пространством}.
+	
+	Полное линейное нормированное пространство называется \textbf{банаховым}, в честь Стефана Банаха.
+	
+	Полное евклидово пространство называется \textit{гильбертовым} (не конечномерное), в честь Гильберта.
+\end{definition}
+
+\begin{theorem} (Критерий замкнутости множества)
+	Множество $F$ в метрическом пространстве является \textit{замкнутым} тогда и только тогда, когда
+	\[
+		\left(\forall \{x_n\}_{n = 1}^\infty \subset F,\ \liml_{n \to \infty} x_n = x_0\right) x_0 \in F
+	\]
+\end{theorem}
+
+\begin{proof}
+	Докажем необходимость. Из замкнутости следует, что
+	\[
+		\cl F \subset F
+	\]
+	Запишем предел $\{x_n\}$ по определению:
+	\[
+		\liml_{n \to \infty} x_n = x_0 \lra \forall \eps > 0\ \exists N \in \N \such \forall n > N\ \ \rho(x_n, x_0) < \eps
+	\]
+	Коль скоро $\forall n \in \N\ x_n \in F$, то
+	\[
+		\forall \eps > 0\ (U_\eps(x_0) \cap F) \supset \{x_{N + 1}, \ldots\}
+	\]
+	То есть $x_0$ - точка прикосновения, а значит $x_0 \in F$
+	
+	Докажем достаточность. Пусть $x_0 \in \cl F$. Тогда по определению
+	\[
+		\forall \eps > 0\ U_\eps(x_0) \cap F \neq \emptyset
+	\]
+	Последовательно будем рассматривать $\eps := 1, \frac{1}{2}, \ldots, \frac{1}{n}, \ldots$ и выбирать произвольную точку $x_n \in (U_\eps(x_0) \cap F)$. Получим $\{x_n\}$, удовлетворяющую условию
+	\[
+		\forall n \in \N\ \ \rho(x_n, x_0) < \frac{1}{n}
+	\]
+	Следовательно
+	\[
+		\liml_{n \to \infty} x_n = x_0
+	\]
+\end{proof}
