@@ -62,7 +62,7 @@
 
 \begin{proof}
 	Из условия следует, что $f$ непрерывна на $G$, а $M(\gamma)$ "--- компакт, поскольку $M(\gamma)$ является непрерывным образом отрезка. Тогда $f_n \convu_{M(\gamma)} f$, и выполнено следующее:
-	\[\left|\int_\gamma fndz - \int_\gamma fdz\right| = \left|\int_\gamma (f_n - f)dz\right| \le \left(\max_{z \in M(\gamma)}|f_n(z) - f(z)|\right)|\gamma| \xrightarrow{n \to \infty} 0\]
+	\[\left|\int_\gamma f_ndz - \int_\gamma fdz\right| = \left|\int_\gamma (f_n - f)dz\right| \le \left(\max_{z \in M(\gamma)}|f_n(z) - f(z)|\right)|\gamma| \xrightarrow{n \to \infty} 0\]
 	
 	Получено требуемое.
 \end{proof}
@@ -222,7 +222,7 @@
 
 \begin{definition}
 	Пусть $\gamma$ "--- кусочно-гладкая кривая, $z = \sigma(t)$, $t \in [a, b]$, "--- ее параметризация, функция $f$ такова, что композиция $f\circ\sigma$ непрерывна на $[a, b]$. \textit{Интегралом Коши} называется функция, определенная вне множества $M(\gamma)$, следующего вида:
-	\[F(z) := \frac1{2\pi i}\int_\gamma \frac{f(w)}{w - z}dz\]
+	\[F(z) := \frac1{2\pi i}\int_\gamma \frac{f(w)}{w - z}dw\]
 \end{definition}
 
 \begin{theorem}
@@ -240,7 +240,7 @@
 	\[\frac1{2\pi i} \cdot\frac{f(w)}{w-z} = \sum_{n=0}^\infty\frac1{2\pi i}\cdot \frac{f(w)}{(w-z_0)^{n + 1}}(z-z_0)^n\]
 	
 	Интегрируя обе части равенства выше, получим требуемое:
-	\[F(z) = \frac1{2\pi i} \int_\gamma \frac{f(w)}{w-z} = \sum_{n=0}^\infty\left(\frac1{2\pi i} \int_\gamma\frac{f(w)}{(w-z_0)^{n + 1}}dw\right)(z-z_0)^n \qedhere\]
+	\[F(z) = \frac1{2\pi i} \int_\gamma \frac{f(w)}{w-z}dw = \sum_{n=0}^\infty\left(\frac1{2\pi i} \int_\gamma\frac{f(w)}{(w-z_0)^{n + 1}}dw\right)(z-z_0)^n \qedhere\]
 \end{proof}
 
 \begin{corollary}
@@ -291,7 +291,7 @@
 \end{example}
 
 \begin{note}
-	Поскольку любую область $G \subset \Cm$ можно представить в виле объединения кругов, то для любой функции $f \in C^1(G)$ выполнено, что $f \in C^\infty(G)$.
+	Поскольку любую область $G \subset \Cm$ можно представить в виде объединения кругов, то для любой функции $f \in C^1(G)$ выполнено, что $f \in C^\infty(G)$.
 \end{note}
 
 \section{Гармонические функции}
@@ -368,7 +368,7 @@
 	\end{enumerate}
 \end{note}
 
-\begin{theorem}[Теорема единственности]
+\begin{theorem}[теорема единственности]
 	Пусть выполнены следующие условия:
 	\begin{enumerate}
 		\item Функция $f$ регулярна на $G \subset \Cm$
