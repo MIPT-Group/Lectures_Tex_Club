@@ -151,34 +151,34 @@
 \subsection{Композиция}
 
 \begin{definition}
-	Пусть $F \colon A \rra B$, $G \colon B \rra C$. Тогда соответствие $G \circ F$ называется \textit{композицией} соответствий $F$ и $G$, если
+	Пусть $F \colon A \rra B$, $G \colon B \rra C$. Тогда, соответствие $G \circ F$ называется \textit{композицией} соответствий $F$ и $G$.
 	\begin{align*}
-		&G \circ F \colon A \rra C,
+		&G \circ F \colon A \rra C
 		\\
-		&(x, z) \in G \circ F \lra \exists y\ |\ \big((x, y) \in F\big) \wedge \big((y, z) \in G\big).
+		&(x, z) \in G \circ F \lra \exists y\ |\ \big((x, y) \in F\big) \wedge \big((y, z) \in G\big)
 	\end{align*}
 \end{definition}
 
 \begin{definition}
-	Пусть $F \colon A \ra B$, $G \colon B \ra C$. Тогда отображение $G \circ F$ называется \textit{композицией} отображений $F$ и $G$, если
+	Пусть $F \colon A \ra B$, $G \colon B \ra C$. Тогда, отображение $G \circ F$ называется \textit{композицией} отображений $F$ и $G$.
 	\begin{align*}
-	&G \circ F \colon A \ra C,
+	&G \circ F : A \ra C
 	\\
-	&(x, z) \in G \circ F \lra \exists y\ |\ \big(y = F(x)) \wedge \big(z =  G(y)\big).
+	&(x, z) \in G \circ F \lra \exists y\ |\ \big(y = F(x)) \wedge \big(z =  G(y)\big)
 	\end{align*}
-	Принято обозначать $G \circ F := G(F(x))$.
+	Принято обозначать $G \circ F := G(F(x))$
 \end{definition}
 
 \subsubsection*{Свойства композиции}
 
 Рассматриваются такие соответствия/отображения, что композиция существует.
 \begin{enumerate}
-	\item $H \circ (G \circ F) = (H \circ G) \circ F$ (ассоциативность).
+	\item $H \circ (G \circ F) = (H \circ G) \circ F$ (ассоциативность)
 	\item Коммутативность \textbf{необязательно} выполнена.
 	\begin{example}
 		Пусть $F : A \rra B$, $G : B \rra A$. Тогда $G \circ F : A \rra A$, но при этом $F \circ G : B \rra B$.
 	\end{example}
-	\item $\exists id_A \colon A \ra A,\ id_B \colon B \ra B\ |\ F \circ id_A = id_B \circ F = F$ (существование отображения множества в себя, т.е. $a = id_A(a)\ \forall a \in A$).
-	\item $F^{-1} \circ F = id_A$, если $F \colon A \ra B$.
-	\item $F \circ F^{-1} = id_B$, если $F \colon A \ra B$.
+	\item $\exists id_A : A \ra A,\ id_B : B \ra B\ |\ F \circ id_A = id_B \circ F = F$ (существование отображения множества в себя, т.е. $a = id_A(a)\ \forall a \in A$)
+	\item $F^{-1} \circ F = id_A$, если $F : A \ra B$
+	\item $F \circ F^{-1} = id_B$, если $F : A \ra B$
 \end{enumerate}
