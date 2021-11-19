@@ -427,9 +427,9 @@
 \begin{theorem}[теорема Коши о вычетах]
 	Пусть выполнены следующие условия:
 	\begin{enumerate}
-		\item $G$ "--- область с простой границей $M(\gamma_1) \sqcup \dotsb \sqcup M(\gamma_m)$
+		\item $G$ "--- область с простой границей
 		
-		\item Граничные кривые $\gamma_1, \dotsc, \gamma_m$ положительно ориентированы относительно $G$
+		\item Граничные кривые положительно ориентированы относительно $G$
 		
 		\item Функция $f$ регулярна на $\overline{G}\,\bs \{z_1, \dotsc, z_n\}$, где $z_1, \dotsc, z_n \in G$.
 	\end{enumerate}
@@ -564,7 +564,7 @@
 					\clip (-2.25, 0) rectangle (2.25, 2.2);
 					\fill [opacity=0.07] (0, 0) circle[radius=2.2];
 					\draw[
-					black, thick,
+					black, line width = 0.2mm,
 					decoration={markings, mark=at position 0.13 with {\arrow{>}}},
 					decoration={markings, mark=at position 0.38 with {\arrow{>}}},
 					postaction={decorate}
@@ -577,9 +577,9 @@
 					\draw (-2.2,0) -- (2.2,0);
 				\end{scope}
 				
-				\draw[thick, ->] (-2.2,0) -- (-1,0);
-				\draw[thick, ->] (-1,0) -- (1, 0);
-				\draw[thick] (1, 0) -- (2.2,0);
+				\draw[line width = 0.2mm, ->] (-2.2,0) -- (-1,0);
+				\draw[line width = 0.2mm, ->] (-1,0) -- (1, 0);
+				\draw[line width = 0.2mm] (1, 0) -- (2.2,0);
 				
 				\node[] at (-1.75, 2.1) {$C_{R}^+$};
 				\node[] at (0.7, 1.6) {$D_R$};
