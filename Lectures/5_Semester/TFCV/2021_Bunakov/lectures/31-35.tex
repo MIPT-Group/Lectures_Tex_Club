@@ -1,0 +1,81 @@
+\section{Конформные отображения}
+
+\begin{note}
+	Пусть функция $f$ регулярна в точке $z_0 \in \Cm$, $f(z_0) = w_0$ и $f'(z_0) \ne 0$. Тогда, по теореме об обратной функции, $f$ взаимно однозначно отображает некоторую область $G \subset B_\delta(z_0)$ на круг $B_\epsilon(w_0)$.
+	\begin{center}
+		\begin{tikzpicture}
+			\clip (-5, -2) rectangle (5, 2);
+			
+			\fill [opacity=0.05] (-2,0) circle [radius=1.6];
+			\draw[black, dashed] (-2,0) circle [radius=1.6];
+			
+			\fill [opacity=0.05] (-1.8, 0) circle [radius=1];
+			\draw[black, dashed] (-1.8, 0) circle [radius=1];
+			
+			\fill [opacity=0.05] (2, 0) circle [radius=1.2];
+			\draw[black, dashed] (2, 0) circle [radius=1.2];
+			
+			\draw[->] (-1.5, 0.5) arc (120:60:3);
+			\draw[<-] (-1.5, -0.5) arc (-120:-60:3);
+			
+			\node[] at (0, 1.2) {$f$};
+			\node[] at (0.2, -1.2) {$f^{-1}$};
+			\node[] at (3, 1.5) {$B_\epsilon(w_0)$};
+			\node[] at (-3.7, -1.5) {$B_\delta(z_0)$};
+			\node[] at (-2.4, 0.3) {$G$};
+			\node[] at (-2.27, -0.6) {$\gamma$};
+			\node[] at (2, 0.7) {$\Gamma$};
+			
+			\path
+			coordinate (p1) at (-2, 0)
+			coordinate (p2) at (-2.1, -0.3)
+			coordinate (p3) at (-1.8, -0.7)
+			coordinate (q1) at (2, 0)
+			coordinate (q2) at (2.3, 0.6)
+			coordinate (q3) at (2.8, 0.4);
+			
+			\draw[
+			black,
+			decoration={markings, mark=at position 0.5 with {\arrow{>}}},
+			decoration={markings, mark=at position 0.95 with {\arrow{>}}},
+			postaction={decorate}
+			] plot [smooth, tension=0.85] coordinates {(p1) (p2) (p3)};
+			
+			\draw[
+			black,
+			decoration={markings, mark=at position 0.5 with {\arrow{>}}},
+			decoration={markings, mark=at position 0.95 with {\arrow{>}}},
+			postaction={decorate}
+			] plot [smooth, tension=0.85] coordinates {(q1) (q2) (q3)};
+			
+			\node[draw, circle, inner sep=1pt, fill, black, label={right:$z_0$}] at (-2, 0) {};
+			\node[draw, circle, inner sep=1pt, fill, black, label={below right:$w_0$}] at (2, 0) {};
+		\end{tikzpicture}
+	\end{center}
+	
+	В частности, любую гладкую простую кривую $\gamma$ на $G$ функция $f$ переводит в простую гладкую кривую $\Gamma$ на $B_\epsilon(z_0)$.
+\end{note}
+
+\begin{definition}
+	Пусть функция $f$ регулярна в точке $z_0 \in \Cm$, $\gamma$ "--- гладкая кривая с параметризацией $z(t)$, $t \in [t_0, t_1]$, $z(t_0) = z_0$, $\Gamma = f(\gamma)$ "--- гладкая кривая с параметризацией $w(t) = f(z(t))$, $w(t_0) = f(z_0) = w_0$. Линейным растяжением кривой $\gamma$ в точке $z_0$ называется следующий предел, если он существует:
+	\[K := \lim_{t \to t_0 + 0}\frac{|w(t) - w_0|}{|z(t) - z_0|}\]
+\end{definition}
+
+\begin{proposition}
+	Если $f$ регулярна в точке $z_0 \in \Cm$ и $f'(z_0) \ne 0$, то линейное растяжение любой гладкой кривой $\gamma$ в точке $z_0$ существует и равно $|f'(z_0)|$.
+\end{proposition}
+
+\begin{proof}
+	В силу непрерывности модуля и регулярности функции $f$, имеем:
+	\[K = \left|\lim_{t \to t_0 + 0}\frac{w(t) - w_0}{z(t) - z_0}\right| = \left|\lim_{t \to t_0 + 0}\frac{f(z(t)) - f(z_0)}{z(t) - z_0}\right| = |f'(z_0)|\]
+	
+	Получено требуемое.
+\end{proof}
+
+\begin{note}
+	Поскольку $w - w_0 = f'(z_0)(z-z_0) + o(|z - z_0|)$, $z \to z_0$, то окружность $\{z \in \Cm : |z - z_0| = \rho\}$ под действием $f$ с точностью до $o(\rho)$ переходит в окружность $\{w \in \Cm : |w - w_0| = |f'(z_0)|\rho\}$.
+\end{note}
+
+\begin{note}
+	Пусть $\theta_0 := \arg{z'(t_0)}$, $\theta_1 := \arg{w'(t_0)}$, тогда, поскольку $w'(t_0) = f'(z_0)z'(t_0)$, $\theta_1 = \arg{f'(z_0)} + \theta_0$. Значит, отображение $f$, поворачивает все кривые в точке $z_0$ на один и тот же угол и сохраняет углы между ними.
+\end{note}
