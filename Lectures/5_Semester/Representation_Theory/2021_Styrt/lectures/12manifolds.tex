@@ -92,7 +92,7 @@
 
 \begin{proof}
 	Зафиксируем локальные карты $(U, \phi)$ на $X$ и $(V, \psi)$ на $Y$ такие, что $a \in U$ и $f(a) \in V$. Рассмотрим произвольный гладкий путь $\gamma$ на $X$ с началом в точке $a$. Тогда:
-	\[(\phi^{-1} \circ f \circ \gamma)'(0) = \left((\psi^{-1} \circ f \circ \phi) \circ (\phi^{-1} \circ \gamma)\right)'(0) = (\psi^{-1} \circ f \circ \phi)'(\phi^{-1}(a))(\phi^{-1} \circ \gamma)'(0)\]
+	\[(\psi^{-1} \circ f \circ \gamma)'(0) = \left((\psi^{-1} \circ f \circ \phi) \circ (\phi^{-1} \circ \gamma)\right)'(0) = (\psi^{-1} \circ f \circ \phi)'(\phi^{-1}(a))(\phi^{-1} \circ \gamma)'(0)\]
 	
 	Поскольку значения $(\phi^{-1} \circ \gamma)'(0)$ в одном классе кривых $[\gamma] \in T_af$ одинаковы, то и значения $(\phi^{-1} \circ f \circ \gamma)'(0)$ для кривых этого класса одинаковы. Значит, определение корректно. Линейность полученного отображения также следует из равенства выше.
 \end{proof}
@@ -102,14 +102,14 @@
 \end{note}
 
 \begin{proposition}
-	Пусть $X, Y, Z$ "--- гладкие многообразия, и отображения $f : X \to Y$, $g : Y \to Z$ "--- гладкие. Тогда для каждой точки $a \in X$ выполнено $d_a(g\circ f) = d_{f(a)}g \circ d_fa$.
+	Пусть $X, Y, Z$ "--- гладкие многообразия, и отображения $f : X \to Y$, $g : Y \to Z$ "--- гладкие. Тогда для каждой точки $a \in X$ выполнено $d_a(g\circ f) = d_{f(a)}g \circ d_af$.
 \end{proposition}
 
 \begin{proof}
 	Зафиксируем локальные карты $(U, \phi)$ на $X$, $(V, \psi)$ на $Y$ и $(W, \theta)$ на $Z$ такие, что $a \in U$, $f(a) \in V$ и $g(f(a)) \in W$. Достаточно проверить, что преобразование градиентов дифференциалами производится так, как в условии:
 	\begin{multline*}
-		(\theta^{-1}\circ g \circ f \circ \phi)'(0) = \left((\theta^{-1}\circ g \circ \psi) \circ (\psi^{-1} \circ f \circ \phi)\right)'(0) = \\
-		=(\theta^{-1}\circ g \circ \psi)'\left(\psi^{-1}(f(a))\right)(\psi^{-1} \circ f \circ \phi)'(\phi^{-1(a)})
+		(\theta^{-1}\circ g \circ f \circ \phi)'(\phi^-1(a)) = \left((\theta^{-1}\circ g \circ \psi) \circ (\psi^{-1} \circ f \circ \phi)\right)'(\phi^-1(a)) = \\
+		=(\theta^{-1}\circ g \circ \psi)'\left(\psi^{-1}(f(a))\right)(\psi^{-1} \circ f \circ \phi)'(\phi^{-1}(a))
 	\end{multline*}
 	
 	Таким образом, получено требуемое.
