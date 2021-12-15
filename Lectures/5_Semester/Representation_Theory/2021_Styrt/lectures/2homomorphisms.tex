@@ -64,15 +64,15 @@
 \end{definition}
 
 \begin{definition}
-	\textit{Алгеброй Ли} называется линейное пространство $\mathfrak G$, на котором определена билинейная операция \textit{коммутирования} $[\cdot,\cdot] : \mathfrak G^2 \to \mathfrak G$, удовлетворяющая следующим условиям:
+	\textit{Алгеброй Ли} называется линейное пространство $\mathfrak g$, на котором определена билинейная операция \textit{коммутирования} $[\cdot,\cdot] : \mathfrak g^2 \to \mathfrak g$, удовлетворяющая следующим условиям:
 	\begin{enumerate}
-		\item Для любых $x, y \in \mathfrak G$ выполнено $[x, y] = -[y, x]$
-		\item Для любых $x, y, z \in \mathfrak G$ выполнено $[x, [y, z]] + [y, [z, x]] + [z, [x, y]] = 0$
+		\item Для любых $x, y \in \mathfrak g$ выполнено $[x, y] = -[y, x]$
+		\item Для любых $x, y, z \in \mathfrak g$ выполнено $[x, [y, z]] + [y, [z, x]] + [z, [x, y]] = 0$
 	\end{enumerate}
 \end{definition}
 
 \begin{note}
-	Зафиксируем базис $(e_1, \dotsc, e_n)$ в алгебре Ли $\mathfrak G$. Если $x, y \in \mathfrak G$ имеют координаты $(x_1, \dotsc, x_n)^T$ и $(y_1, \dotsc, y_n)^T$, то их коммутатор $[x, y]$ можно вычислить по следующей формуле:
+	Зафиксируем базис $(e_1, \dotsc, e_n)$ в алгебре Ли $\mathfrak g$. Если $x, y \in \mathfrak g$ имеют координаты $(x_1, \dotsc, x_n)^T$ и $(y_1, \dotsc, y_n)^T$, то их коммутатор $[x, y]$ можно вычислить по следующей формуле:
 	\[[x, y] = \left[\sum_{i=1}^nx_ie_i, \sum_{j=1}^ny_je_j\right] = \sum_{i=1}^n\sum_{j=1}^nx_iy_j[e_i, e_j]\]
 \end{note}
 
@@ -91,7 +91,7 @@
 \end{proof}
 
 \begin{definition}
-	\textit{Представлением ассоциативной алгебры $A$ в пространстве $V$} называется гомоморфизм алгебр $\phi : A \to \mc L(V)$. \textit{Представлением алгебры Ли $\mathfrak G$ в пространстве $V$} называется гомоморфизм алгебр Ли $\phi : \mathfrak{G} \to \mathfrak{L}(V)$, где под $\mathfrak{L}(V)$ понимается алгебра Ли, построенная по алгебре $\mathcal L(V)$.
+	\textit{Представлением ассоциативной алгебры $A$ в пространстве $V$} называется гомоморфизм алгебр $\phi : A \to \mc L(V)$. \textit{Представлением алгебры Ли $\mathfrak g$ в пространстве $V$} называется гомоморфизм алгебр Ли $\phi : \mathfrak{g} \to \mathfrak{gl}(V)$, где под $\mathfrak{gl}(V)$ понимается алгебра Ли, построенная по алгебре $\mathcal L(V)$.
 \end{definition}
 
 \begin{proposition}
