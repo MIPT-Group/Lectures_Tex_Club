@@ -309,7 +309,7 @@
 
 \begin{proof}
 	В силу регулярности функции $f$, можно выбрать открытое множество $A \subset \Cm$ такое, что $A \supset \overline{G}$ и $f \in C^1(A)$. Пусть $f(z) = f(x + iy) = u(x, y) + iv(x, y)$, тогда:
-	\[\int_{\partial G} fdz = \int_\gamma udx - vdy + i\int_\gamma vdx + udy\]
+	\[\int_{\partial G} fdz = \int_{\partial G} udx - vdy + i\int_{\partial G} vdx + udy\]
 	
 	Применяя предыдущую теорему к парам функций $u, -v$ и $v, u$, а также пользуясь условиями Коши-Римана, получим:
 	\begin{gather*}
@@ -432,7 +432,7 @@
 	\[\frac{F(z + \Delta z) - F(z)}{\Delta z} = \frac{1}{\Delta z}\left(\int_{z_0}^{z + \Delta z}fdw - \int_{z_0}^{z}fdw\right) = \frac{1}{\Delta z}\int_{z}^{z + \Delta z}fdw\]
 	
 	Таким образом, выполнено следующее:
-	\[\left|\frac{F(z + \Delta z) - F(z)}{\Delta z} - f(z)\right| = \frac1{|\Delta z|}\left|\int_z^{z + \Delta z}\left(f(w) - f(z)\right)dw\right| \le \frac1{|\Delta z|}(\epsilon\Delta z) = \epsilon\]
+	\[\left|\frac{F(z + \Delta z) - F(z)}{\Delta z} - f(z)\right| = \frac1{|\Delta z|}\left|\int_z^{z + \Delta z}\left(f(w) - f(z)\right)dw\right| \le \frac1{|\Delta z|}(\epsilon|\Delta z|) = \epsilon\]
 	
 	В силу произвольности выбора $z$ и $\epsilon$, получено требуемое.
 \end{proof}

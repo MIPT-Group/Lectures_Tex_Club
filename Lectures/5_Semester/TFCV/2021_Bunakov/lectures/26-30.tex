@@ -339,7 +339,7 @@
 		\item $f'(z_0) \ne 0$
 	\end{enumerate}
 
-	Тогда существуют числа $\delta > 0$ и $\epsilon > 0$ такие, что $f' \ne 0$ на $B_\delta(z_0)$ и для любой точки $\widetilde w \in B_\epsilon(w_0)$ на $B_\delta(z_0)$ уравнение $f(z) = \widetilde w$ имеет единственное решение. Решения этой системы задают на $B_\delta(z_0)$ функцию $g(w)$, обратную к функции $f(z)$, причем $g \in C^1(G)$. Наконец, на $B_\epsilon(w_0)$ имеют место следующие тождества:
+	Тогда существуют числа $\delta > 0$ и $\epsilon > 0$ такие, что $f' \ne 0$ на $B_\delta(z_0)$ и для любой точки $\widetilde w \in B_\epsilon(w_0)$ на $B_\delta(z_0)$ уравнение $f(z) = \widetilde w$ имеет единственное решение. Решения этого уравнения задают на $B_\delta(z_0)$ функцию $g(w)$, обратную к $f(z)$, причем $g \in C^1(B_\epsilon(w_0))$. Наконец, на $B_\epsilon(w_0)$ имеют место следующие тождества:
 	\vspace{-6pt}
 	\begin{gather*}
 		f(g(w)) \equiv w \\ g'(w)f'(g(w)) \equiv 1
@@ -368,7 +368,7 @@
 	
 	Следовательно, $g \in C^1(B_\epsilon(w_0))$. Остается проверить тождество для производных на круге $B_\epsilon(w_0)$:
 	\vspace*{-6pt}
-	\[g'(w)f'(g(w)) \equiv \frac{u'_x(g(w)) - iv'_x(g(w))}{|f'(g(w))|^2} \equiv \frac{\overline{f'(g(w))}f'(g(w))}{|f'(g(w))|^2} \equiv 1\]
+	\[g'(w)f'(g(w)) \equiv \frac{u'_x(g(w)) - iv'_x(g(w))}{|f'(g(w))|^2}f'(g(w)) \equiv \frac{\overline{f'(g(w))}f'(g(w))}{|f'(g(w))|^2} \equiv 1\]
 	
 	Получено требуемое.
 \end{proof}
