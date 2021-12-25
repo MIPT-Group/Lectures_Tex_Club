@@ -380,21 +380,23 @@
 \begin{proof}
 	Из условия, существует последовательность попарно различных точек $\{z_n\} \subset E$ такая, что $\lim_{n \to \infty}z_n = z_0$. Но $\forall n \in \N \cup \{0\}: f(z_n) = 0$, тогда, в силу непрерывности функции $f$, выполнено $f(z_0) = 0$. Кроме того, нуль $z_0$ "--- не изолированный. Значит, $f \equiv 0$ на наибольшем круге $K \subset G$ с центром в точке $z_0$.
 	
-	Проверим теперь, что $\forall z_1 \in G \bs K : f(z_1) = 0$. Пусть это не так, и для некоторой точки $z_1 \in G \bs K$ выполнено $f(z_1) \ne 0$, тогда, в частности, на некотором круге $K_1$ с центром в точке $z_1$ выполнено $f \ne 0$. Рассмотрим $\gamma$ "--- лежащую в $G$ кусочно-гладкую кривую с параметризацией $z = \sigma(t)$, $t \in [a, b]$, соединяющую точки $z_0$ и $z_1$. Обозначим через $\tau$ число $\inf\{t \in [a, b]: f(\sigma(t)) \ne 0\}$ и положим $z^* := \sigma(\tau)$. Тогда:
+	Проверим теперь, что $\forall z_1 \in G \bs K : f(z_1) = 0$. Пусть это не так, и для некоторой точки $z_1 \in G \bs K$ выполнено $f(z_1) \ne 0$, тогда, в частности, на некотором круге $K_1$ с центром в точке $z_1$ выполнено $f \ne 0$. Поскольку множество $G$ связно, существует лежащая в $G$ кривая $\gamma$ с параметризацией $z = \sigma(t)$, $t \in [a, b]$, соединяющая точки $z_0$ и $z_1$. Положим $\tau := \inf\{t \in [a, b]: f(\sigma(t)) \ne 0\}$ и $z^* := \sigma(\tau)$. Тогда:
 	\begin{center}
 		\scalebox{1.1}{
 			\begin{tikzpicture}
-				\clip (-2.8, -2.12) rectangle (2.8, 2.12);
+				\clip (-2.8, -2.14) rectangle (2.8, 2.12);
 				
 				\fill [opacity=0.05] (0,0) circle [radius=2];
 				\draw[black, dashed] (0,0) circle[radius=2];
 				
 				\node[] at (-1.05, 1.05) {$G$};
 				
-				\fill [opacity=0.03] (0,0) (-0.8, -0.8) circle[radius=2 - 0.8 * 1.41421];
+				\fill [opacity=0.03] (0,0) (-0.8, -0.8) circle[radius=2 - 0.8 * 1.414];
 				\draw[black,dashed] (-0.8, -0.8) circle[radius=2 - 0.8 * 1.41421];
 				\node[] at (-1.3, -0.6) {$K$};
 				\node[draw, circle, inner sep=1pt, fill, black, label=below:$z_0$] at (-0.8, -0.8) {};
+				
+				\node[] at (-0.41, -0.6) {$\gamma$};
 				
 				\fill [opacity=0.03] (0,0) (0.9, 0.66) circle[radius=0.6];
 				\draw[black,dashed] (0.9, 0.66) circle[radius=0.6];
@@ -412,7 +414,7 @@
 				
 				\draw[] plot [smooth, tension=0.9] coordinates {(start) (-0.2, 0.1) (0.3, -0.1) (endd)};
 				\node[draw, circle, inner sep=0.8pt, fill, black, label={below, shift={(3pt,3pt)}:$z^*$}] at (0.3, -0.1) {};
-				\node[] at (-0.25, 0.3) {\scalebox{0.85}{$f \equiv 0$}};
+				\node[] at (-0.22, 0.34) {\scalebox{0.85}{$f \equiv 0$}};
 			\end{tikzpicture}
 		}
 	\end{center}
