@@ -437,7 +437,7 @@
 \end{theorem}
 
 \begin{proof}
-	Пусть сначала $G$ "--- ограниченная область с простой границей. Выберем $\rho_1, \dotsc, \rho_n > 0$ такие, что $\overline{B_{\rho_1}(z_1)}, \dotsc, \overline{B_{\rho_n}(z_n)} \subset G$, причем эти шары не пересекаются. Функция $f$ регулярна на области $D = G \bs \big(\bigcup_{k = 1}^n\overline{B_{\rho_k}(z_k)}\big)$ с простой границей, тогда, по интегральной теореме Коши:
+	Пусть сначала $G$ "--- ограниченная область с простой границей. Выберем $\rho_1, \dotsc, \rho_n > 0$ такие, что $\overline{B_{\rho_1}(z_1)}, \dotsc, \overline{B_{\rho_n}(z_n)} \subset G$, причем эти круги не пересекаются. Функция $f$ регулярна на области $D = G \bs \big(\bigcup_{k = 1}^n\overline{B_{\rho_k}(z_k)}\big)$ с простой границей, тогда, по интегральной теореме Коши:
 	\[\int_{\partial D} fdz = 0\]
 	
 	Для каждого $k \in \{1, \dotsc, n\}$ обозначим через $C_k$ окружность $\{z \in \Cm: |z - z_k| = \rho_k\}$, ориентированную \textit{по часовой стрелке}. Тогда:
@@ -659,7 +659,7 @@
 	\end{enumerate}
 	
 	Тогда верны следующие равенства:
-	\[\int_{-\infty}^{+\infty}fe^{i(\alpha x + \beta)}dx = 2\pi i\sum_{k=1}^n \res_{z_k}f = -2\pi i\sum_{k=1}^m \res_{w_k}f\]
+	\[\int_{-\infty}^{+\infty}fe^{i(\alpha x + \beta)}dx = 2\pi i\sum_{k=1}^n \res_{z_k}\left(fe^{i(\alpha x + \beta)}\right) = -2\pi i\sum_{k=1}^m \res_{w_k}\left(fe^{i(\alpha x + \beta)}\right)\]
 \end{theorem}
 
 \begin{proof}
