@@ -37,51 +37,56 @@
 
 \begin{example}
 	Определим $y = f(x)$ как
-	$$
-		f\left(\frac{1}{n}\right) := \frac{1}{2n - 1},\ \forall n \in \N
-	$$
-	Будем считать, что
-	$$
-		f\left(\frac{1}{n} + 0\right) := f\left(\frac{1}{n}\right)
-	$$
+	\[
+		f\left(\frac{1}{n}\right) = f\left(\frac{1}{n} + 0\right) := \frac{1}{2n - 1},\ \forall n \in \N
+	\]
 	При этом
-	$$
+	\[
 		f\left(\frac{1}{n} - 0\right) := \frac{1}{2n}
-	$$
-	И дополнительно
-	\begin{align*}
-		&f(0) := 0
+	\]
+	А также
+	\[
+	\System{
+		&{f(0) := 0}
 		\\
-		&f(-x) := -f(x),\ \forall x \in (0; 1]
-	\end{align*}
-	Посчитаем предел $\liml_{\Delta x \to 0+} \frac{\Delta y}{\Delta x}$ в нуле.
+		&{f(-x) := -f(x)}
+		\\
+		&{f \text{ линейна на } \bigg[\frac{1}{n}; \frac{1}{n - 1}\bigg)}\ \forall n \in \N
+	}
+	\]
+	%%% Здесь нужен график функции. 11я лекция 2019 года 56:05
+	Сузим данную функцию на отрезок $[-1; 1]$ и посчитаем её производную в нуле:
 	
-	Рассмотрим случай $\Delta x \in [\frac{1}{n + 1}; \frac{1}{n})$. Тогда
-	$$
-		\Delta y = f(0 + \Delta x) - f(0)  = f(\Delta x)
-	$$
-	Отсюда
-	$$
-		\frac{1 / (2n + 1)}{1 / n} \le \frac{\Delta y}{\Delta x} \le \frac{1 / 2n}{1 / (n + 1)}
-	$$
-	В предельном переходе имеем
-	$$
-		\frac{1}{2} \le \liml_{\Delta x \to 0+} \frac{\Delta y}{\Delta x} \le \frac{1}{2}
-	$$
-	А отсюда
-	$$
-		f([-1; 1]) = [-1; 1] \bs \bigcup\limits_{n = 1}^{\infty} \left(\left(\frac{1}{2n}; \frac{1}{2n - 1}\right) \cup \left(-\frac{1}{2n - 1}; -\frac{1}{2n}\right)\right)
-	$$
-	То есть окрестность нуля не включена в область определения обратной функции $f^{-1}$ и мы не можем говорить о непрерывности и производной в нуле для неё.
+	В силу нечётности достаточно посмотреть предел $\liml_{\Delta x \to +0} \frac{\Delta y}{\Delta x}$. Рассмотрим такое $\Delta x$, что
+	\[
+		\Delta x \in \bigg[\frac{1}{n}; \frac{1}{n - 1}\bigg)
+	\]
+	Оценим дробь предела:
+	\[
+		\frac{\Delta y}{\Delta x} = \frac{f(\Delta x)}{\Delta x}
+	\]
+	Так как $f$ линейна на полуинтервале, то
+	\[
+		\frac{n - 1}{2n - 1} = \frac{f\left(\frac{1}{n}\right)}{\frac{1}{n - 1}} < \frac{f\left(\frac{1}{n}\right)}{\Delta x} < \frac{f(\Delta x)}{\Delta x} < \frac{f\left(\frac{1}{n - 1} - 0\right)}{\Delta x} < \frac{f\left(\frac{1}{n - 1} - 0\right)}{\frac{1}{n}} = \frac{n}{2n - 2}
+	\]
+	Обе оценки стремятся к $\frac{1}{2}$. Стало быть
+	\[
+		\liml_{\Delta x \to +0} \frac{\Delta y}{\Delta x} = \liml_{\Delta x \to 0} \frac{\Delta y}{\Delta x} = f'(0) = \frac{1}{2}
+	\]
+	При этом функция на $[-1; 1]$ непрерывной не является. Посмотрим на образ этого отрезка:
+	\[
+		f([-1; 1]) = [-1; 1] \bs \bigcup\limits_{n = 1}^\infty \left(\bigg[\frac{1}{2n}; \frac{1}{2n - 1}\bigg) \cup \bigg(-\frac{1}{2n - 1}; -\frac{1}{2n}\bigg]\right)
+	\]
+	Это же множество будет являться областью определения обратной функции. Но как видно из записи, образ $[-1; 1]$ не включает в себя ни одну окрестность нуля $\Ra$ обратная функция не имеет окрестности нуля, в которой она всюду определена и потому не имеет производной в нуле.
 \end{example}
 
 \subsection{Дифференцируемость}
 
 \begin{definition}
 	Функция $y = f(x)$ называется \textit{дифференцируемой} в точке $a \in \R$, если её приращение в этой точке может быть записано в виде
-	$$
+	\[
 		\Delta y = A\Delta x + o(\Delta x),\ \Delta x \to 0
-	$$
+	\]
 	где $A \in \R$.
 	
 	Выражение $A\Delta x$ называется \textit{дифференциалом} функции $y = f(x)$ в точке $a$. Обозначается как $dy := A \Delta x$

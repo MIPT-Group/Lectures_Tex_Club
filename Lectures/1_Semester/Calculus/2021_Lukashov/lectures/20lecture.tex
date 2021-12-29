@@ -48,12 +48,39 @@
 
 \begin{proposition}
 	\[
+		0 \cdot \vec{x} = \vec{0}
+	\]
+\end{proposition}
+
+\begin{proof}
+	\[
+		(0 + 0)\vec{x} = 0\vec{x} = 0\vec{x} + 0\vec{x}
+	\]
+	Из обеих частей равенства вычтем обратный элемент к $0\vec{x}$ и получим:
+	\[
+		\vec{0} = 0\vec{x}
+	\]
+\end{proof}
+
+\begin{proposition}
+	\[
 		(-1)\vec{x} = -\vec{x}
 	\]
 \end{proposition}
 
+\begin{proof}
+	Рассмотрим выражение
+	\[
+		\vec{x} + (-1)\vec{x} = 1\vec{x} + (-1)\vec{x} = (1 - 1)\vec{x} = 0\vec{x} = \vec{0}
+	\]
+	То есть $(-1)\vec{x}$ является обратным к $\vec{x}$ по сложению. Отсюда по единственности
+	\[
+		(-1)\vec{x} = -\vec{x}
+	\]
+\end{proof}
+
 \begin{definition}
-	\textit{Комплексным} линейным пространствм называется линейное пространство над $\Cm$. Определяется аналогично вещественному.
+	\textit{Комплексным} линейным пространством называется линейное пространство над $\Cm$. Определяется аналогично вещественному.
 \end{definition}
 
 \begin{lemma}
@@ -61,7 +88,7 @@
 \end{lemma}
 
 \begin{proof}
-	Следует напрямую из определения.
+	Следует напрямую из определения. Все операции определяются поэлементно.
 \end{proof}
 
 \begin{definition}
@@ -74,7 +101,7 @@
 \end{definition}
 
 \begin{definition}
-	Если существует биекция линейного пространства $X_1$ на $X_2$, являющаяся линейным оператором вместе со своим обратным, то $X_1 \simeq X_2$
+	Если существует биекция линейного пространства $X_1$ на $X_2$, являющаяся линейным оператором вместе со своим обратным, то $X_1 \cong X_2$ (изоморфны)
 \end{definition}
 
 \begin{definition}
@@ -93,13 +120,13 @@
 
 \begin{example}
 	\[
-		\{(x_1, x_2) \in \R^2 \such x_2 = 0\} \simeq \R
+		\{(x_1, x_2) \in \R^2 \such x_2 = 0\} \cong \R
 	\]
 \end{example}
 
 \begin{example}
 	\[
-		\{(z_1, z_2) \in \Cm^2 \such z_2 = 0\} \simeq \Cm
+		\{(z_1, z_2) \in \Cm^2 \such z_2 = 0\} \cong \Cm
 	\]
 \end{example}
 
@@ -119,17 +146,25 @@
 \begin{definition}
 	Вещественным \textit{евклидовым} пространством называется вещественное линейное пространство $X$, для любых элементов $\vec{x}, \vec{y}$ которого опредлено число $\trbr{\vec{x}, \vec{y}} \in \R$ так, чтобы
 	\begin{itemize}
-		\item $\forall \vec{x} \in X\ \ \trbr{\vec{x}, \vec{x}} \ge 0$, причём $\trbr{\vec{x}, \vec{x}}> = 0 \lra \vec{x} = \vec{0}$
+		\item $\forall \vec{x} \in X\ \ \trbr{\vec{x}, \vec{x}} \ge 0$, причём $\trbr{\vec{x}, \vec{x}} = 0 \lra \vec{x} = \vec{0}$
 		
-		\item $\forall \vec{x}, \vec{y} \in X\ \ \trbr{\vec{x}, \vec{y}} = \trbr{\vec{x}, \vec{y}}$
+		\item $\forall \vec{x}, \vec{y} \in X\ \ \trbr{\vec{x}, \vec{y}} = \trbr{\vec{y}, \vec{x}}$
 		
 		\item $\forall \alpha, \beta \in \R\ \ \trbr{\alpha\vec{x} + \beta\vec{y}, \vec{z}} = \alpha\trbr{\vec{x}, \vec{z}} + \beta\trbr{\vec{y}, \vec{z}}$
 	\end{itemize}
 	То есть $\trbr{\vec{x}, \vec{y}}$ - скалярное произведение
 \end{definition}
 
+\begin{addition}
+	Если в определении вещественного евклидового пространства заменить первое свойство на
+	\[
+	\forall \vec{y} \in X\ \ \left(\trbr{\vec{x}, \vec{y}} = 0 \lra \vec{x} = \vec{0}\right)
+	\]
+	то получим определение \textit{псевдоевклидового} пространства.
+\end{addition}
+
 \begin{lemma}
-	$\R^n$ является вещественным евклидовым пространством с
+	$\R^n$ является вещественным евклидовым пространством со скалярным произведением, определённым как
 	\[
 		\trbr{\vec{x}, \vec{y}} = \suml_{i = 0}^n x_iy_i
 	\]
@@ -169,7 +204,7 @@
 \end{corollary}
 
 \begin{definition}
-	Комплексным евклидовым (унитарным) пространством называется комплексное линейное пространство $X$, для любых двух элементов которого $\vec{x}, \vec{y} \in X$ определено число $\trbr{\vec{x}, \vec{y}} \in Cm$ так, что
+	Комплексным евклидовым (унитарным) пространством называется комплексное линейное пространство $X$, для любых двух элементов которого $\vec{x}, \vec{y} \in X$ определено число $\trbr{\vec{x}, \vec{y}} \in \Cm$ так, что
 	\begin{itemize}
 		\item $\forall \vec{x}, \vec{y} \in X\ \ \trbr{\vec{x}, \vec{x}} \ge 0$, причём $\trbr{\vec{x}, \vec{x}} = 0 \lra \vec{x} = \vec{0}$
 		
@@ -218,14 +253,6 @@
 	\]
 \end{corollary}
 
-\begin{addition}
-	Если в определении вещественного евклидового пространства заменить свойство 1. на
-	\[
-		\forall \vec{y} \in X\ \ \left(\trbr{\vec{x}, \vec{y}} = 0 \lra \vec{x} = \vec{0}\right)
-	\]
-	то получим определение \textit{псевдоевклидового} пространства.
-\end{addition}
-
 \begin{example}
 	$R^4$ - псевдоевклидово пространство, где для любых векторов $\vec{x} = (x_0, x_1, x_2, x_3)$ и $\vec{y} = (y_0, y_1, y_2, y_3)$ скалярное произведение имеет вид
 	\[
@@ -237,43 +264,43 @@
 \subsubsection*{Топологические структуры}
 
 \begin{definition}
-	Линейное пространство над $\R(\Cm)$ называется \textit{нормированным}, если $\forall \vec{x} \in X$ определено число $||\vec{x}|| \in \R$ - норма, так, что
+	Линейное пространство над $\R(\Cm)$ называется \textit{нормированным}, если $\forall \vec{x} \in X$ определено число $\|\vec{x}\| \in \R$ - норма, так, что
 	\begin{enumerate}
-		\item $\forall \vec{x} \in X\ \ ||\vec{x}|| \ge 0$, причём $||\vec{x}|| = 0 \lra \vec{x} = \vec{0}$
+		\item $\forall \vec{x} \in X\ \ \|\vec{x}\| \ge 0$, причём $\|\vec{x}\| = 0 \lra \vec{x} = \vec{0}$
 		
-		\item $\forall \alpha \in \R(\Cm),\ \forall \vec{x} \in X\ \ ||\alpha \vec{x}|| = |\alpha| \cdot ||\vec{x}||$
+		\item $\forall \alpha \in \R(\Cm),\ \forall \vec{x} \in X\ \ \|\alpha \vec{x}\| = |\alpha| \cdot \|\vec{x}\|$
 		
-		\item $\forall \vec{x}, \vec{y} \in X\ \ ||\vec{x} + \vec{y}|| \le ||\vec{x}|| + ||\vec{y}||$
+		\item $\forall \vec{x}, \vec{y} \in X\ \ \|\vec{x} + \vec{y}\| \le \|\vec{x}\| + \|\vec{y}\|$
 	\end{enumerate}
 \end{definition}
 
 \begin{theorem} 
-	Евклидово пространство над $\R(\Cm)$ является линейным нормированным пространством (ЛНП) с $||\vec{x}|| = \sqrt{\trbr{\vec{x}, \vec{x}}}$.
+	Евклидово пространство над $\R(\Cm)$ является линейным нормированным пространством (ЛНП) с $\|\vec{x}\| = \sqrt{\trbr{\vec{x}, \vec{x}}}$.
 \end{theorem}
 
 \begin{proof}~
 	\begin{enumerate}
 		\item В обоих случаях следует из определения:
 		\begin{align*}
-			\vec{x} = \vec{0} \lra \trbr{\vec{x}, \vec{x}} = 0 \lra ||\vec{x}|| = 0
+			\vec{x} = \vec{0} \lra \trbr{\vec{x}, \vec{x}} = 0 \lra \|\vec{x}\| = 0
 			\\
-			\vec{x} \neq \vec{0} \lra \trbr{\vec{x}, \vec{x}} > 0 \lra ||\vec{x}|| > 0
+			\vec{x} \neq \vec{0} \lra \trbr{\vec{x}, \vec{x}} > 0 \lra \|\vec{x}\| > 0
 		\end{align*}
 		
 		\item Докажем комплексный случай как более сложный:
 		\[
-			||\alpha\vec{x}|| = \sqrt{\trbr{\alpha\vec{x}, \alpha\vec{x}}} = \sqrt{\alpha\trbr{\vec{x}, \alpha\vec{x}}} = \sqrt{\alpha\overline{\trbr{\alpha\vec{x}, \vec{x}}}} = \sqrt{\alpha \cdot \overline{\alpha}\overline{\trbr{\vec{x}, \vec{x}}}} = |\alpha|\sqrt{\trbr{\vec{x}, \vec{x}}} = |\alpha| \cdot ||\vec{x}||
+			\|\alpha\vec{x}\| = \sqrt{\trbr{\alpha\vec{x}, \alpha\vec{x}}} = \sqrt{\alpha\trbr{\vec{x}, \alpha\vec{x}}} = \sqrt{\alpha\overline{\trbr{\alpha\vec{x}, \vec{x}}}} = \sqrt{\alpha \cdot \overline{\alpha}\overline{\trbr{\vec{x}, \vec{x}}}} = |\alpha|\sqrt{\trbr{\vec{x}, \vec{x}}} = |\alpha| \cdot \|\vec{x}\|
 		\]
 		
 		\item
 		\begin{multline*}
-			||\vec{x} + \vec{y}||^2 = \trbr{\vec{x} + \vec{y}, \vec{x} + \vec{y}} = \trbr{\vec{x}, \vec{x} + \vec{y}} + \trbr{\vec{y}, \vec{x} + \vec{y}} = \overline{\trbr{\vec{x} + \vec{y}, \vec{x}}} + \overline{\trbr{\vec{x} + \vec{y}, \vec{y}}} =
+			\|\vec{x} + \vec{y}\|^2 = \trbr{\vec{x} + \vec{y}, \vec{x} + \vec{y}} = \trbr{\vec{x}, \vec{x} + \vec{y}} + \trbr{\vec{y}, \vec{x} + \vec{y}} = \overline{\trbr{\vec{x} + \vec{y}, \vec{x}}} + \overline{\trbr{\vec{x} + \vec{y}, \vec{y}}} =
 			\\
 			\trbr{\vec{x}, \vec{x}} + \overline{\trbr{\vec{y}, \vec{x}}} + \overline{\trbr{\vec{x}, \vec{y}}} + \trbr{\vec{y}, \vec{y}} = \trbr{\vec{x}, \vec{x}} + 2\re(\trbr{\vec{x}, \vec{y}}) + \trbr{\vec{y}, \vec{y}} \le
 			\\
 			\trbr{\vec{x}, \vec{x}} + 2 |\trbr{\vec{x}, \vec{y}}| + \trbr{\vec{y}, \vec{y}} \le \trbr{\vec{x}, \vec{x}} + 2 \sqrt{\trbr{\vec{x}, \vec{x}}} \sqrt{\trbr{\vec{y}, \vec{y}}} + \trbr{\vec{y}, \vec{y}} = \left(\sqrt{\trbr{\vec{x}, \vec{x}}} + \sqrt{\trbr{\vec{y}, \vec{y}}}\right)^2 =
 			\\
-			\left(||\vec{x}|| + ||\vec{y}||\right)^2
+			\left(\|\vec{x}\| + \|\vec{y}\|\right)^2
 		\end{multline*}
 	\end{enumerate}
 \end{proof}
@@ -285,9 +312,13 @@
 \end{corollary}
 
 \begin{lemma}
-	$\R^n$ - ЛНП с $||\vec{x}|| = \sqrt{\suml_{i = 1}^n x_i^2}$. При этом в $\R^2$ и $\R^3$ норма совпадает с длиной вектора.
+	$\R^n$ - ЛНП с $\|\vec{x}\| = \sqrt{\suml_{i = 1}^n x_i^2}$. При этом в $\R^2$ и $\R^3$ норма совпадает с длиной вектора.
 \end{lemma}
 
+\begin{note}
+	Для удобства, в $\R^n$ будем обозначать норму просто как $|\vec{x}|$.
+\end{note}
+
 \begin{lemma}
-	$\Cm^n$ - ЛНП с $||\vec{z}|| = \sqrt{\suml_{i = 1}^n |z_i|^2}$
+	$\Cm^n$ - ЛНП с $\|\vec{z}\| = \sqrt{\suml_{i = 1}^n |z_i|^2}$
 \end{lemma}
