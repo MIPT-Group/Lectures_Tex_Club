@@ -40,15 +40,15 @@
 \subsection{Равенство множеств}
  
 \begin{definition}
-    $X = Y$, если $(X \subset Y) \wedge (Y \subset X)$, или же $\forall z \in X \Ra z \in Y$ и $\forall z \in Y \Ra z \in X$.
+    $X = Y$, если $(X \subset Y) \wedge (Y \subset X)$, или же $\forall z \in X \Ra z \in Y$ и $\forall z \in Y \Ra z \in X$
 \end{definition}
  
 \subsubsection*{Свойства равенства множеств}
  
 \begin{enumerate}
-     \item $X \subset X$ (рефлексивность).
-     \item $(X \subset Y) \wedge (Y \subset X) \Ra (X = Y)$ (антисимметричность).
-     \item $(X \subset Y) \wedge (Y \subset Z) \Ra (X \subset Z)$ (транзитивность).
+     \item $X \subset X$ (Рефлексивность)
+     \item $(X \subset Y) \wedge (Y \subset X) \Ra (X = Y)$ (Антисимметричность)
+     \item $(X \subset Y) \wedge (Y \subset Z) \Ra (X \subset Z)$ (Транзитивность)
 \end{enumerate}
  
 \begin{note}
@@ -117,10 +117,10 @@
 \subsection{Универсальное множество}
  
 \begin{definition}
-    \textit{Универсальным множеством} называется такое множество, для которого в конкретно задаче считается верным, что для любого множества $A$ выполнены два свойства:
+    \textit{Универсальным множеством} называется такое множество, для которого в конкретно данной задаче считается верным для любого множества $A$ два свойства:
     \begin{itemize}
-        \item $A \cap U = A$,
-        \item $A \cup U = U$.
+        \item $A \cap U = A$
+        \item $A \cup U = U$
     \end{itemize}
 \end{definition}
  
@@ -134,11 +134,11 @@
 %
 %
 \begin{enumerate}
-     \item Объединение: $A \cup B = \{x\ |\ (x \in A) \vee (x \in B)\}$.
-     \item Пересечение: $A \cap B = \{x\ |\ (x \in A) \wedge (x \in B)\}$.
-     \item Разность: $A \backslash B = \{x\ |\ (x \in A) \wedge (x \notin B)\}$.
-     \item Симметрическая разность: $A \simm B = \{x\ |\ (x \in A \cup B) \wedge (x \notin A \cap B)\}$.
-     \item Отрицание (дополнение): $\overline{A} = \{x\ |\ x \notin A\}$.
+     \item Объединение $A \cup B = \{x\ |\ (x \in A) \vee (x \in B)\}$
+     \item Пересечение $A \cap B = \{x\ |\ (x \in A) \wedge (x \in B)\}$
+     \item Разность $A \backslash B = \{x\ |\ (x \in A) \wedge (x \notin B)\}$
+     \item Симметрическая разность $A \simm B = \{x\ |\ (x \in A \cup B) \wedge (x \notin A \cap B)\}$
+     \item Отрицание (Дополнение) $\overline{A} = \{x\ |\ x \notin A\}$
 \end{enumerate}
 
 \subsubsection*{Дистрибутивность}
@@ -146,26 +146,27 @@
 \begin{proposition}
 	Для любых множеств $A, B$ и $C$ верно, что
 	$$
-		A \cap (B \cup C) = (A \cap B) \cup (A \cap C).
+		A \cap (B \cup C) = (A \cap B) \cup (A \cap C)
 	$$
 \end{proposition}
 
 \begin{proof}
 	Пусть $x \in A \cap (B \cup C)$, тогда:
 	$$
-	(x \in A) \wedge (x \in (B \cup C)).
+	(x \in A) \wedge (x \in (B \cup C))
 	$$
 	Имеем 2 случая:
 	\begin{enumerate}
-		\item $(x \in A) \wedge (x \in B) \Ra x \in (A \cap B)$.
-		\item $(x \in A) \wedge (x \in C) \Ra x \in (A \cap C)$.
+		\item $(x \in A) \wedge (x \in B) \Ra x \in (A \cap B)$
+		\item $(x \in A) \wedge (x \in C) \Ra x \in (A \cap C)$
 	\end{enumerate}
-	Фактически означает, что $x \in (A \cap B) \cup (A \cap C) \Ra A \cap (B \cup C) \subset (A \cap B) \cup (A \cap C)$.
-	Теперь покажем обратное. Рассмотрим $x \in (A \cap B) \cup (A \cap C)$.
-	Возникает снова 2 случая:
+	Это даёт нам факт, что $x \in (A \cap B) \cup (A \cap C) \Ra A \cap (B \cup C) \subset (A \cap B) \cup (A \cap C)$
+	Теперь покажем обратное, рассмотрим $x \in (A \cap B) \cup (A \cap C)$.
+	
+	Снова 2 случая:
 	\begin{enumerate}
-		\item $x \in (A \cap B) \Ra (x \in A) \wedge (x \in B) \Ra (x \in A) \wedge (x \in (B \cup C)) \Ra x \in A \cap (B \cup C)$.
-		\item $x \in (A \cap C) \Ra (x \in A) \wedge (x \in C) \Ra (x \in A) \wedge (x \in (B \cup C)) \Ra x \in A \cap (B \cup C)$.
+		\item $x \in (A \cap B) \Ra (x \in A) \wedge (x \in B) \Ra (x \in A) \wedge (x \in (B \cup C)) \Ra x \in A \cap (B \cup C)$
+		\item $x \in (A \cap C) \Ra (x \in A) \wedge (x \in C) \Ra (x \in A) \wedge (x \in (B \cup C)) \Ra x \in A \cap (B \cup C)$
 	\end{enumerate}
 
 	Отсюда по определению равенства $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$.
@@ -175,21 +176,21 @@
 
 Законы де Моргана на множествах имеют ровно такие же аналоги, как и в логике:
 \begin{align*}
-	\overline{A \cap B} = \overline{A} \cup \overline{B},
+	\overline{A \cap B} = \overline{A} \cup \overline{B}
 	\\
-	\overline{A \cup B} = \overline{A} \cap \overline{B}.
+	\overline{A \cup B} = \overline{A} \cap \overline{B}
 \end{align*}
 
 \subsection{Упорядоченные пары и кортежи}
 
 \begin{definition}
-	\textit{Неупорядоченной парой} называется мультимножество из 2х элементов. Обозначается как и просто множество: $\{a, b\}$.
+	\textit{Неупорядоченной парой} называется мультимножество из 2х элементов. Обозначается как и просто множество: $\{a, b\}$
 \end{definition}
 
 \begin{definition}
 	\textit{Упорядоченной парой} называется неупорядоченная пара, у которой зафиксирован первый элемент. Обозначается через круглые скобки: $(a, b)$. Упорядоченная пара может быть выражена через мультимножество по определению Куратовского:
 	\begin{itemize}
-		\item упрощенное определение Куратовского $\{a, \{a, b\}\}$,
-		\item полное определение Куратовского $\{\{a\}, \{a, b\}\}$.
+		\item Упрощенное определение Куратовского $\{a, \{a, b\}\}$
+		\item Полное определение Куратовского $\{\{a\}, \{a, b\}\}$
 	\end{itemize}
 \end{definition}
