@@ -137,7 +137,7 @@
 \end{proof}
 \section{Линейная регрессионная модель}
 
-В линейной модели наблюдение -- случайный вектор $\displaystyle X\in \mathbb{R}^{n}$, который представляется в виде $\displaystyle X=l+\varepsilon $, где $\displaystyle l$ -- неслучайный неизвестный вектор, а $\displaystyle \varepsilon $ -- случайный вектор. Тогда, $\displaystyle l$ является оцениваемой величиной, а $\displaystyle \varepsilon $ трактуется как вектор ошибок. Будем считать, что $\displaystyle E\varepsilon =0,\ D\varepsilon =\sigma ^{2} I_{n}$, при этом $\displaystyle \sigma ^{2}$ неизвестен. Про $\displaystyle l$ известно, что $\displaystyle l\in L$, где $\displaystyle L$ -- линейное подпространство в $\displaystyle \mathbb{R}^{n}$. Задача состоит в оценивании $\displaystyle l$ и $\displaystyle \sigma ^{2}$.
+В линейной модели наблюдение -- случайный вектор $\displaystyle X\in \mathbb{R}^{n}$, который представляется в виде $\displaystyle X=l+\varepsilon $, где $\displaystyle l$ -- неслучайный неизвестный вектор, а $\displaystyle \varepsilon $ -- случайный вектор. Тогда, $\displaystyle l$ является оцениваемой величиной, а $\displaystyle \varepsilon $ трактуется как вектор ошибок. Будем считать, что $\displaystyle E\varepsilon =0,\ D\varepsilon =\sigma ^{2} I_{n},\ \sigma^2 > 0$, при этом $\displaystyle \sigma ^{2}$ неизвестен. Про $\displaystyle l$ известно, что $\displaystyle l\in L$, где $\displaystyle L$ -- линейное подпространство в $\displaystyle \mathbb{R}^{n}$. Задача состоит в оценивании $\displaystyle l$ и $\displaystyle \sigma ^{2}$.
 
 Пусть $\displaystyle L$ задано с помощью базиса $\displaystyle ( Z_{1} ,\ \dotsc ,\ Z_{k})$ из вектор-столбцов. Следовательно, $\displaystyle \dim L=k$. Составим матрицу $\displaystyle Z=\begin{pmatrix}
 Z_{1} & \dotsc  & Z_{k}
