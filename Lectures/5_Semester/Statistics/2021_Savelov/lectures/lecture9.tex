@@ -59,17 +59,17 @@
 \end{definition}
 \subsection{Условия регулярности}
 
-Перечислим следующие условия регулярности по книге "Теория точечного оценивания" Лемана.
+Перечислим следующие условия регулярности по книге "Теория точечного оценивания"\, Лемана.
 \begin{itemize}
     \item (R0) $\displaystyle \{P_{\theta } ,\ \theta \in \Theta \}$ -- параметрическое семейство, доминируемое относительно меры $\displaystyle \mu $, при $\displaystyle \theta _{1} \neq \theta _{2} \hookrightarrow P_{\theta _{1}} \neq P_{\theta _{2}}$, и $\displaystyle \forall \theta \in \Theta $ определена плотность $\displaystyle p_{\theta }( X)$ меры $\displaystyle P_{\theta }$.
     \item (R1) $\displaystyle A=\{x\in \mathcal{X} :\ p_{\theta }( x)  >0\}$ не зависит от $\displaystyle \theta $.
     \item (R2) Наблюдение $\displaystyle X$ есть выборка $\displaystyle X=( X_{1} ,\ \dotsc ,\ X_{n})$ из неизвестного распределения $\displaystyle P\in \{P_{\theta } ,\ \theta \in \Theta \}$.
     \item (R3) $\displaystyle \Theta $ -- открытый интервал в $\displaystyle \mathbb{R}$ (возможно, бесконечный).
-    \item (R4) Функция $\displaystyle p_{\theta }( X)$ непрерывно дифференцируема по $\displaystyle \theta $ при всех $\displaystyle x\in A$.
+    \item (R4) Функция $\displaystyle p_{\theta }(x)$ непрерывно дифференцируема по $\displaystyle \theta $ при всех $\displaystyle x\in A$.
     \item (R5) $\displaystyle p_{\theta }( x)$ трижды непрерывно дифференцируема.
     \item (R6) интеграл $\displaystyle \int _{A} p_{\theta }( x) \mu ( dx)$ трижды дифференцируем по $\displaystyle \theta $ под знаком интеграла.
     \item (R7) $\displaystyle E_{\theta }\left(\dfrac{\partial }{\partial \theta }\ln p_{\theta }( X)\right)^{2} < \infty $.
-    \item (R8) $\displaystyle \forall \theta _{0} \in \Theta \ \exists c >0\ \exists H( X) \hookrightarrow \left| \dfrac{\partial ^{3}}{\partial \theta ^{3}}\ln p_{\theta }( X)\right| \leqslant H( X)$, и $\displaystyle E_{\theta _{0}} H( X) < \infty $.
+    \item (R8) $\displaystyle \forall \theta _{0} \in \Theta \ \exists c >0\ \exists H( X):\, \forall \theta \in (\theta_0 - c,\, \theta_0 + c)\, \forall x \in A \hookrightarrow \left| \dfrac{\partial ^{3}}{\partial \theta ^{3}}\ln p_{\theta }( X)\right| \leqslant H( X)$, и $\displaystyle E_{\theta _{0}} H( X) < \infty $.
 \end{itemize}
 \begin{lemma}
     Если $\displaystyle \xi _{1} ,\ \dotsc ,\ \xi _{n}$ -- независимые одинаково распределенные случайные величины, $\displaystyle E\xi _{1} \in \mathbb{R} \cup \{+\infty \} \cup \{-\infty \}$. Тогда $\displaystyle \dfrac{S_{n}}{n}\xrightarrow{a.s.} E\xi _{1}$.
@@ -97,7 +97,7 @@
         f_{\theta _{0}}( X_{1} ,\ \dotsc ,\ X_{n})  >f_{\theta }( X_{1} ,\ \dotsc ,\ X_{n}) \Leftrightarrow \dfrac{1}{n}\ln\left(\dfrac{f_{\theta }( X_{1} ,\ \dotsc ,\ X_{n})}{f_{\theta _{0}}( X_{1} ,\ \dotsc ,\ X_{n})}\right) < 0\Leftrightarrow \\
         \dfrac{1}{n}\sum _{i=1}^{n}\ln\dfrac{p_{\theta }( X_{i})}{p_{\theta _{0}}( X_{i})} < 0.
     \end{gather*}
-    По предыдущей лемме \ $\displaystyle \dfrac{1}{n}\sum _{i=1}^{n}\ln\dfrac{p_{\theta }( X_{i})}{p_{\theta _{0}}( X_{i})}\xrightarrow{P_{\theta } -a.s.} E_{\theta _{0}}\ln\dfrac{p_{\theta }( X_{1})}{p_{\theta _{0}}( X_{1})}$. Осталось доказать, что $\displaystyle E_{\theta _{0}}\ln\dfrac{p_{\theta }( X_{1})}{p_{\theta _{0}}( X_{1})} < 0$.
+    По предыдущей лемме \ $\displaystyle \dfrac{1}{n}\sum _{i=1}^{n}\ln\dfrac{p_{\theta }( X_{i})}{p_{\theta _{0}}( X_{i})}\xrightarrow{P_{\theta_0 } -a.s.} E_{\theta _{0}}\ln\dfrac{p_{\theta }( X_{1})}{p_{\theta _{0}}( X_{1})}$. Осталось доказать, что $\displaystyle E_{\theta _{0}}\ln\dfrac{p_{\theta }( X_{1})}{p_{\theta _{0}}( X_{1})} < 0$.
     
     
     \begin{equation*}
