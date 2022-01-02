@@ -1,0 +1,155 @@
+\section{Многочлены}
+
+\subsection{Кольцо многочленов}
+
+\begin{note}
+	В общем случае, определять многочлены как функции не вполне правильно. Например, полезно различать многочлены $P(x) = x$ и $Q(x) = x^p$ над полем $\mathbb{Z}_p$, однако $\forall x \in \mathbb{Z}_p: P(x) = Q(x)$. Поэтому нам потребуется другое определение.
+\end{note}
+
+\begin{definition}
+	Пусть $K$ "--- коммутативное кольцо. Последовательность $(a_0, a_1, \dots)$ элементов из $K$ называется \textit{финитной}, если $\exists N \in \mathbb{N}: \forall n > N: a_n = 0$. Обозначение финитной последовательности "--- $(a_i)$.
+\end{definition}
+
+\begin{definition}
+	Для финитных последовательностей можно определить операции сложения и умножения:
+	\begin{itemize}
+		\item $(a_i) + (b_i) := (a_i + b_i)$
+		\item $(a_i)(b_i) := (c_k)$, $c_k = \sum_{i + j = k}a_ib_j$
+	\end{itemize}
+
+	Заметим, что последовательность $(c_k)$ действительно финитна: если $\forall i > N: a_i = 0$ и $\forall i > M: b_i = 0$, то $\forall k > N + M: c_k = 0$.
+\end{definition}
+
+\begin{theorem}
+	Пусть $R$ "--- множество всех финитных последовательностей над коммутативным кольцом $K$. Тогда $(R, +, \cdot)$ также является коммутативным кольцом.
+\end{theorem}
+
+\begin{proof}~
+	\begin{enumerate}
+		\item Покажем сначала, что $(R, +)$ "--- абелева группа, пользуясь тем, что $(K, +)$ "--- абелева группа:
+		\begin{itemize}
+			\item $(a_i) + (b_i) = (a_i + b_i) = (b_i + a_i) = (b_i) + (a_i)$.
+			\item $((a_i) + (b_i)) + (c_i) = ((a_i + b_i) + c_i) = (a_i + (b_i + c_i)) \hm{=} (a_i) + ((b_i) + (c_i))$.
+			\item $\exists 0 = (0, 0, 0, \dots) \in R: \forall (a_i) \in R: (a_i) + 0 = (a_i)$.
+			\item $\forall (a_i) \in R: \exists -(a_i) = (-a_i) \in R: (a_i) + (-(a_i)) = 0$.
+		\end{itemize}
+	
+		Последние два свойства достаточно проверять <<с одной стороны>>, поскольку коммутативность сложения в $R$ доказана.
+		
+		\item Покажем теперь, что $(R, +, \cdot)$ "--- коммутативное кольцо. Это, в свою очередь, следует из того, что $(K, +, \cdot)$ "--- коммутативное кольцо:
+		\begin{itemize}
+			\item $(a_i)(b_i) = (\sum_{j + k = i}a_jb_k) = (b_i)(a_i)$.
+			
+			\item Заметим, что $((a_i)(b_i))(c_i) = (\sum_{j + k = i}a_jb_k)(c_i) = (\sum_{l + m = i}(\sum_{j + k = l}a_jb_k)c_m) \hm{=} (\sum_{j+k+m = i}a_jb_kc_m)$. Поскольку последовательность $(a_i)((b_i)(c_i))$ можно привести к такому же виду, то $((a_i)(b_i))(c_i) = (a_i)((b_i)(c_i))$.
+			\item $(a_i)((b_i) + (c_i)) = (\sum_{j + k = i}a_j(b_k + c_k)) = (\sum_{j + k = i}(a_jb_k + a_jc_k)) \hm{=} (a_i)(b_i) + (a_i)(c_i)$.
+			\item $\exists 1 = (1, 0, 0, \dots) \in R: \forall (a_i) \in R: (a_i)1 = (a_i)$.
+		\end{itemize}
+	
+		Последние два свойства также достаточно проверять <<с одной стороны>>, поскольку коммутативность умножения в $R$ доказана.\qedhere
+	\end{enumerate}
+\end{proof}
+
+\begin{note}
+	Положим $x := (0, 1, 0, 0, \dots)$, тогда $x^k = (\overbrace{0, \dots, 0}^{k}, 1, 0, \dots)$, согласно правилам умножения в $R$. В таких обозначениях $(a_i)$ с последним ненулевым элементом на $n$-м месте можно переписать в виде $a_0 + a_1x + \dots + a_nx^n$,считая, что $a_i \equiv (a_i, 0, 0,\dots)$, причем единственным образом.
+\end{note}
+
+\begin{definition}
+	Кольцо $K[x] := R$ называется \textit{кольцом многочленов над $K$}. Позиция последнего ненулевого элемента в $P \in K[x]$ называется степенью \textit{степенью многочлена $P$}, обозначение "--- $\deg{P}$. Будем также считать, что $\deg{0} := -\infty$.
+\end{definition}
+
+\begin{note}
+	Если не требовать от последовательностей финитности, то аналогично построенное кольцо будет называться \textit{кольцом формальных степенных рядов} над $K$. Обозначение "--- $K[[x]]$.
+\end{note}
+
+\begin{definition}
+	Коммутативное кольцо $K$ называется \textit{целостным}, если для всех элементов $a, b \in K \backslash \{0\}$ выполнено $ab \ne 0$.
+\end{definition}
+
+\begin{example}
+	Целостными кольцами являются:
+	\begin{itemize}
+		\item любое поле (так как если $a, b \ne 0$ и $ab = 0$, то можно домножить, например, на $a^{-1}$, и получить, что $b = 0$)
+		\item кольцо целых чисел $\mathbb{Z}$
+	\end{itemize}
+	
+	В отличие от поля $\mathbb{Z}_p$, при составном $n$ кольцо $\mathbb{Z}_n$ не является целостным: если $n = ab$ ($1 < a, b < n$), то $\overline{a}\overline{b} = \overline{0}$, при этом $\overline{a}, \overline{b} \ne \overline{0}$.
+\end{example}
+
+\begin{proposition}
+	Пусть $K$ "--- целостное. Тогда $\forall a, b, c \in K, a \ne 0: ab = ac \rightarrow b = c$, то есть в $K$ можно <<сокращать>>.
+\end{proposition}
+
+\begin{proof}
+	Поскольку $a(b - c) = 0$ и $K$ "--- целостное кольцо, то один из множителей $a$, $(b - c)$ равен $0$. так как по условию это не $a$, то $b - c = 0 \Leftrightarrow b = c$.
+\end{proof}
+
+\begin{proposition}
+	Пусть $K$ "--- коммутативное кольцо, $P, Q \hm{\in} K[x]$. Тогда:
+	\begin{enumerate}
+		\item $\deg{(P + Q)} \le \max(\deg{P}, \deg{Q})$
+		\item $\deg{(PQ)} \le \deg{P} + \deg{Q}$, причем если $K$ "--- целостное, то $\deg{(PQ)} = \deg{P} + \deg{Q}$
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}~
+	\begin{enumerate}
+		\item Если $n := \max{(\deg{P}, \deg{Q})}$, то $\forall i > n: p_i + q_i = 0$.
+		\item Обозначим $n := \deg{P}$ и $m := \deg{Q}$ и запишем $P$ и $Q$ в виде $\sum_{i = 0}^{n}p_ix^i$ и $\sum_{j = 0}^{m}q_jx^j$ соответственно. Тогда $PQ = \sum_{i = 0}^{n}\sum_{j = 0}^{m}p_iq_jx^{i + j}$, следовательно, $\deg{(PQ)} \le m + n$. Более того, коэффициент при $x^{n + m}$ равен $p_nq_m$, следовательно, если $K$ "--- целостное, то $p_nq_m \ne 0$ и $\deg{(PQ)} = m + n$.\qedhere
+	\end{enumerate}
+\end{proof}
+
+\begin{corollary}
+	Если $K$ "--- целостное, то $K[x]$ "--- тоже целостное.
+\end{corollary}
+
+\begin{proof}
+	Если $P, Q \in K[x], P, Q \ne 0$, то $\deg{P}, \deg{Q} \ge 0$. Тогда, как уже было доказано, $\deg{(PQ)} = \deg{P} + \deg{Q} \ge 0$, поэтому $PQ \ne 0$.
+\end{proof}
+
+\begin{note}
+	Если $K$ "--- поле, то $K[x]$ "--- алгебра над $K$.
+\end{note}
+
+\begin{definition}
+	Пусть $R$, $S$ "--- кольца. Отображение $\phi: R \rightarrow S$ называется \textit{гомоморфизмом колец}, если:
+	\begin{itemize}
+		\item $\forall a, b \in R: \phi(a + b) = \phi(a) + \phi(b)$
+		\item $\forall a, b \in R: \phi(ab) = \phi(a)\phi(b)$
+	\end{itemize}
+	
+	Будем также требовать, чтобы выполнялось равенство $\phi(1) = 1$.
+\end{definition}
+
+\begin{definition}
+	Пусть $R$, $S$ "--- алгебры над полем $F$. Отображение $\phi: R \rightarrow S$ называется \textit{гомоморфизмом алгебр}, если оно является одновременно линейным отображением из $R$ в $S$ и гомоморфизмом колец $R$ и $S$.
+\end{definition}
+
+\begin{proposition}
+	Пусть $A$ "--- алгебра над полем $F$, $a \in A$. Тогда существует единственный гомоморфизм алгебр $\phi: F[x] \rightarrow A$ такой, что $\phi(x) = a$.
+\end{proposition}
+
+\begin{proof}~
+	\begin{enumerate}
+		\item Покажем, что искомый гомоморфизм не более чем единственен. Если $\phi$ существует, то в силу свойств гомоморфизма колец $\forall n \in \mathbb{N} \cup \{0\}: \phi(x^n) \hm{=} a^n$, тогда $\phi$ однозначно определяется следующим образом:
+		\[\forall (p_0, \dots, p_n) \in F[x]: \phi\left(\sum_{i = 0}^{n}p_ix^i\right) \hm{=} \sum_{i = 0}^{n}p_ia^i\]
+		\item Покажем теперь, что определенное таким образом отображение действительно является гомоморфизмом алгебр. Оно, очевидно, является линейным отображением, и, кроме того, $\phi(1) \hm{=} 1$. Остается проверить лишь мультипликативность:
+		\begin{multline*}
+		\forall P = (p_0, \dots, p_n), Q = (q_0, \dots, q_m) \in F[x]: \phi(P)\phi(Q) =\\
+		= \sum_{i = 0}^np_ia^i\sum_{j = 0}^mq_ja^j = \sum_{k = 0}^{n + m}\left(\sum_{i + j = k}p_iq_j\right)a^k = \phi(PQ)
+		\end{multline*}
+		
+		Значит, $\phi$ "--- гомоморфизм алгебр.\qedhere
+	\end{enumerate}
+\end{proof}
+
+\begin{definition}
+	Пусть $A$ "--- алгебра над $F$. \textit{Значением многочлена $P \in F[x]$ в точке $a \in A$} называется $P(a) := \phi(P)$, где $\phi$ "--- построенный в предыдущем утверждении \textit{гомоморфизм подстановки}. Тогда, в частности, верны следующие свойства:
+	\begin{itemize}
+		\item $(PQ)(a) = P(a)Q(a)$
+		\item $(P + Q)(a) = P(a) + Q(a)$
+	\end{itemize}
+\end{definition}
+
+\begin{example}
+	Пусть $A = \mathcal{L}(V)$, где $V$ "--- некоторое линейное пространство над полем $F$. Тогда если $\Theta \in A$ и $P(x) = x^2 + 3x + 2$, то $\phi(\Theta) = \Theta^2 + 3\Theta + 2 = (\Theta + 1)(\Theta + 2)$, причем под единицей в $A$ понимается тождественное отображение $\id$.
+\end{example}

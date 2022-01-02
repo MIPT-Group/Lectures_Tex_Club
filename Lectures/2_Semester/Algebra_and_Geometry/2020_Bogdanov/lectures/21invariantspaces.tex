@@ -1,0 +1,77 @@
+\section{Линейные операторы}
+
+\subsection{Инвариантные подпространства}
+
+\begin{definition}
+	Пусть $\phi \in \mathcal{L}(V)$. Подпространство $U \le V$ называется \textit{инвариантным} относительно преобразования $\phi$, если $\phi(U) \hm{\le} U$.
+\end{definition}
+
+\begin{example}
+	Инвариантными подпространствами относительно соответствующих преобразований являются:
+	\begin{itemize}
+		\item $l \le V_2$ (прямая в плоскости) и $n \perp l$ для $\phi$ "--- симметрии относительно $l$
+		\item $P_k \le P_n$ (многочлены степени не выше $k$/$n$, $k \le n$) для $\phi$ "--- формального дифференцирования
+	\end{itemize}
+\end{example}
+
+\begin{proposition}
+	Пусть $\phi \in \mathcal{L}(V)$, $e = (\overline{e_1}, \dots, \overline{e_n})$ "--- базис в $V$, $\phi \leftrightarrow_e A \hm{\in} M_n(F)$. Тогда $U = \langle\overline{e_1}, \dots, \overline{e_k}\rangle \le V$ инвариантно относительно $\phi$ $\Leftrightarrow$ $A$ имеет следующий вид:
+	\[A = \left(\begin{array}{@{}c|c@{}}
+	B & C\\
+	\hline
+	0 & D
+	\end{array}\right),~B \in M_k(F),~D \in M_{n - k}(F)\]
+\end{proposition}
+
+\begin{proof}
+	$U$ инвариантно относительно $\phi$ $\Leftrightarrow$ $\forall i \in \{1, \dots, k\}: \phi(\overline{e_i}) \in U$ $\Leftrightarrow$ $A$ имеет такой вид, как в утверждении.
+\end{proof}
+
+\begin{note}
+	В терминах предыдущего утверждения матрица $B$ является матрицей преобразования $\phi|_U \in \mathcal{L}(U)$ в базисе $(\overline{e_1}, \dots, \overline{e_k})$.
+\end{note}
+
+\begin{proposition}
+	Пусть $\phi \in \mathcal{L}(V)$, $U_1, U_2 \le V$ "--- инвариантные подпространства относительно $\phi$. Тогда $U_1 + U_2$ и $U_1 \cap U_2$ "--- тоже инвариантные подпространства относительно $\phi$.
+\end{proposition}
+
+\begin{proof}~
+	\begin{itemize}
+		\item $\phi(U_1 + U_2) = \phi(U_1) + \phi(U_2) \le U_1 + U_2$.
+		\item $\phi(U_1 \cap U_2) \le \phi(U_1) \cap \phi(U_2) \le U_1 \cap U_2$.\qedhere
+	\end{itemize}
+\end{proof}
+
+\begin{proposition}
+	Пусть $\phi \in \mathcal{L}(V)$, $U \le \ke{\phi}$, $\im{\phi} \le W \le V$. Тогда $U$ и $W$ инвариантны относительно $\phi$.
+\end{proposition}
+
+\begin{proof}
+	$\phi(U) \le \phi(\ke{\phi}) = \{\overline{0}\} \le U$, $\phi(W) \le \im{\phi} \hm{\le} W$.
+\end{proof}
+
+\begin{proposition}
+	Пусть $\phi, \psi \in \mathcal{L}(V)$, причем $\phi \circ \psi = \psi \circ \phi$. Тогда $\ke{\psi}$ и $\im{\psi}$ инвариантны относительно $\phi$.
+\end{proposition}
+
+\begin{proof}~
+	\begin{itemize}
+		\item $\overline{u} \in \ke{\psi} \Leftrightarrow \psi(\overline{u}) = \overline{0}$, тогда $\psi(\phi(\overline{u})) = \phi(\psi(\overline{u})) = \phi(\overline{0}) = \overline{0}$, то есть $\phi(\overline{u}) \in \ke{\psi}$.
+		\item $\overline{u} \in \im{\psi} \Leftrightarrow \exists \overline{v} \in V: \psi(\overline{v}) = \overline{u}$, тогда $\phi(\overline{u}) = \phi(\psi(\overline{v})) \hm{=} \psi(\phi(\overline{v})) \in \im{\psi}$.\qedhere
+	\end{itemize}
+\end{proof}
+
+\begin{note}
+	Последнее утверждение полезно в случае, когда $\psi \hm{=} P(\phi)$, $P \in F[x]$, в частности, $\psi = \phi - \lambda$, где $\lambda \in F$.
+\end{note}
+
+\begin{note}
+	Если $V = U \oplus W$, причем подпространства $U, W$ инвариантны относительно $\phi \in \mathcal{L}(V)$, а $e' = (\overline{e_1}, \dots, \overline{e_k})$, $e'' = (\overline{e_{k + 1}}, \dots, \overline{e_n})$ "--- базисы в $U, W$ соответственно, то по свойству прямой суммы $e = (\overline{e_1}, \dots, \overline{e_n})$ "--- базис в $V$, и $\phi \leftrightarrow_e A \in M_n(F)$, где $A$ имеет следующий вид:
+	\[A = \left(\begin{array}{@{}c|c@{}}
+	B & 0\\
+	\hline
+	0 & D
+	\end{array}\right),~B \in M_k(F),~D \in M_{n - k}(F)\]
+	
+	Кроме того, $\phi|_U \leftrightarrow_{e'} B$, $\phi|_W \leftrightarrow_{e''} D$.
+\end{note}

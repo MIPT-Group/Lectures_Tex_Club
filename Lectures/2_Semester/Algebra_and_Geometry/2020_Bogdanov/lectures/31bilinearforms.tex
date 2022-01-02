@@ -1,0 +1,145 @@
+\section{Билинейные и квадратичные формы}
+
+\subsection{Билинейные формы}
+
+\begin{definition}
+	Пусть $V$ "--- линейное пространство над полем $F$. \textit{Билинейной формой} на $V$ называется функция $b: V \times V \rightarrow F$, линейная по обоим аргументам:
+	\begin{itemize}
+		\item $\forall \overline{x_1}, \overline{x_2}, \overline{y} \in V: b(\overline{x_1} + \overline{x_2}, \overline{y}) = b(\overline{x_1}, \overline{y}) + b(\overline{x_2}, \overline{y})$
+		\item $\forall \overline{x}, \overline{y} \in V: \forall \alpha \in F: b(\alpha\overline{x}, \overline{y}) = \alpha b(\overline{x}, \overline{y})$
+		\item $\forall \overline{x}, \overline{y_1}, \overline{y_2} \in V: b(\overline{x}, \overline{y_1} + \overline{y_2}) = b(\overline{x}, \overline{y_1}) + b(\overline{x}, \overline{y_2})$
+		\item $\forall \overline{x}, \overline{y} \in V: \forall \alpha \in F: b(\overline{x}, \alpha\overline{y}) = \alpha b(\overline{x}, \overline{y})$
+	\end{itemize}
+	
+	Множество всех билинейных форм на $V$ обозначается через $\mathcal{B}(V)$.
+\end{definition}
+
+\begin{example}
+	Билинейными формами являются:
+	\begin{itemize}
+		\item Скалярное произведение в пространстве векторов $V_i$
+		\item Умножение в поле $F$
+		\item $b(\overline{x}, \overline{y}) = |\overline{x}~\overline{y}|$, где	$\overline x, \overline y \in F^2$
+		\item $b(\overline{x}, \overline{y}) = |\overline{x}~\overline{y}~\overline{c}|$, где $\overline{c} \in F^3$ "--- фиксированный столбец
+	\end{itemize}
+\end{example} 
+
+\begin{definition}
+	 \textit{Матрицей формы} $b \in \mathcal{B}(V)$ в базисе $(\overline{e_1}, \dots, \overline{e_n}) \hm{=:} e$ называется следующая матрица $B$:
+	\[B = (b(\overline{e_i}, \overline{e_j})) = \begin{pmatrix}b(\overline{e_1}, \overline{e_1}) & \dots & b(\overline{e_1}, \overline{e_n})\\
+		\vdots & \ddots & \vdots\\
+		b(\overline{e_n}, \overline{e_1}) & \dots & b(\overline{e_n}, \overline{e_n})
+	\end{pmatrix} \in M_n(F)\]
+	
+	Обозначение "--- $b \leftrightarrow_e B$.
+\end{definition}
+
+\begin{proposition}
+	Пусть $b \in \mathcal{B}(V)$, $e$ "--- базис в $V$, $b \leftrightarrow_e B$. Тогда для любых $\overline{u}, \overline{v} \in V$, $\overline{u} \leftrightarrow_e x$, $\overline{v} \leftrightarrow_e y$, выполнено $b(\overline{u}, \overline{v}) = x^TBy$.
+\end{proposition}
+
+\begin{proof}
+	$b(\overline{u}, \overline{v}) = b(\sum_{i = 1}^nx_i\overline{e_i}, \sum_{j = 1}^ny_j\overline{e_j}) = \sum_{i = 1}^nx_i(\sum_{j = 1}^ny_jb(\overline{e_i}, \overline{e_j})) = x^TBy$.
+\end{proof}
+
+\begin{note}
+	$\mathcal{B}(V)$ "--- это линейное пространство над $F$ с операциями сложения и умножения на скаляр, определенными следующим образом:
+	\begin{itemize}
+		\item $\forall b_1, b_2 \in \mathcal{B}(V): \forall \overline{u}, \overline{v} \in V: (b_1 + b_2)(\overline{u}, \overline{v}) := b_1(\overline{u}, \overline{v}) + b_2(\overline{u}, \overline{v})$
+		\item $\forall b \in \mathcal{B}(V): \forall \alpha \in F: \forall \overline{u}, \overline{v} \in V: (\alpha b)(\overline{u}, \overline{v}) = \alpha b(\overline{u}, \overline{v})$
+	\end{itemize}
+\end{note}
+
+\begin{theorem}
+	Пусть $e$ "--- базис в $V$, $n := \dim{V}$. Тогда соответствие между $\mathcal{B}(V)$ и $M_n(F)$ вида $b \leftrightarrow_e B$ осуществляет изоморфизм линейных пространств $\mathcal{B}(V)$ и $M_n(F)$.
+\end{theorem}
+
+\begin{proof}~
+	\begin{enumerate}
+		\item Если $b_1, b_2 \in \mathcal{B}(V)$, $b_1 \leftrightarrow_e B_1$, $b_2 \leftrightarrow_e B_2$, то $b_1 + b_2 \leftrightarrow_e B_1 \hm{+} B_2$, $\alpha b_1 \leftrightarrow_e \alpha B_1$. Значит, описанное в теореме отображение $\phi: \mathcal{B}(V) \rightarrow M_n(F)$ линейно.
+		\item Отображение $\phi$ инъективно, поскольку если $\phi(b_1) = \phi(b_2) = B$, то $\forall \overline{u}, \overline{v} \in V$, $\overline{u} \leftrightarrow_e x$, $\overline{v} \leftrightarrow_e y$: $b_1(\overline{u}, \overline{v}) = b_2(\overline{u}, \overline{v})$, то есть $b_1 = b_2$.
+		\item Отображение $\phi$ сюръективно, поскольку для каждой матрицы $B \in M_n(F)$ можно определить билинейную форму $b$ как $b(\overline{u}, \overline{v}) = x^TBy$, где $\overline{u} \leftrightarrow_e x, \overline{v} \leftrightarrow_e y$. Тогда если $B = (b_{ij})$, то $b(\overline{e_i}, \overline{e_j}) = b_{ij}$, то есть $b \leftrightarrow_e B$.
+	\end{enumerate}
+	
+	Таким образом, $\phi$ "--- это изоморфизм линейных пространств.
+\end{proof}
+
+\begin{corollary}
+	$\dim{\mathcal{B}(V)} = n^2$.
+\end{corollary}
+
+\begin{theorem}
+	Пусть $b \in \mathcal{B}(V)$, $e$ и $e'$ "--- два базиса в $V$, $e' = eS$. Тогда если $b \leftrightarrow_e B$, $b \leftrightarrow_{e'} B'$, то $B' = S^TBS$.
+\end{theorem}
+
+\begin{proof}
+	Перепишем $S$ в виде $(s_1|\dots|s_n)$ (то есть $s_i$ "--- координатный столбец вектора $\overline{e_i'}$ в базисе $e$). Тогда:
+	\[B' = \begin{pmatrix}
+		b(\overline{e_1'}, \overline{e_1'})&\dots&b(\overline{e_1'}, \overline{e_n'})\\
+		\vdots&\ddots&\vdots\\
+		b(\overline{e_n'}, \overline{e_1'})&\dots&b(\overline{e_n'}, \overline{e_n'})
+	\end{pmatrix} = \begin{pmatrix}
+		s_1^TBs_1&\dots&s_1^TBs_n\\
+		\vdots&\ddots&\vdots\\
+		s_n^TBs_1&\dots&s_n^TBs_n\\
+	\end{pmatrix} = S^TBS\]
+	
+	Таким образом, получено требуемое.
+\end{proof}
+
+\begin{corollary}
+		Пусть $b \in \mathcal{B}(V)$, $e$ и $e'$ "--- два базиса в $V$. Тогда если $b \leftrightarrow_e B$, $b \leftrightarrow_{e'} B'$, то $\rk{B} = \rk{B'}$.
+\end{corollary}
+
+\begin{definition}
+	\textit{Рангом билинейной формы} $b \in \mathcal{B}(V)$ называется ранг ее матрицы в произвольном базисе. Обозначение "--- $\rk{b}$.
+\end{definition}
+
+\begin{corollary}
+	Пусть $F = \mathbb{R}$, $b \in \mathcal{B}(V)$, $e$ и $e'$ "--- два базиса в $V$, $e' = eS$. Тогда если $b \leftrightarrow_e B$, $b \leftrightarrow_{e'} B'$, то $\det{B}$ и $\det{B'}$ имеют один и тот же знак.
+\end{corollary}
+
+\begin{proof}
+	$\det{B'} = \det{S^TBS} = \det^2{S}\det{B}$ --- определители отличаются друг от друга домножением на положительное число, что и означает требуемое.
+\end{proof}
+
+\begin{definition}
+	Пусть $b \in \mathcal{B}(V)$. Форма $b$ называется \textit{симметрической}, если для всех $\overline{u}, \overline{v} \in V$ выполнено $b(\overline{u}, \overline{v}) = b(\overline{v}, \overline{u})$. Пространство симметрических форм на $V$ обозначается через $\mathcal{B}^+(V)$.
+\end{definition}
+
+\begin{definition}
+	Пусть $b \in \mathcal{B}(V)$. Форма $b$ называется \textit{кососимметрической}, если:
+	\begin{enumerate}
+		\item $\forall \overline{u}, \overline{v} \in V: b(\overline{u}, \overline{v}) = -b(\overline{v}, \overline{u})$
+		\item $\forall \overline{u} \in V: b(\overline{u}, \overline{u}) = 0$
+	\end{enumerate}
+	
+	Пространство кососимметрических форм на $V$ обозначается через $\mathcal{B}^-(V)$.
+\end{definition}
+
+\begin{note}
+	Как и в случае с определителями, из условия $(2)$ следует условие $(1)$. Действительно, пусть выполенно условие $(2)$, тогда:
+	\[0 = b(\overline{u} + \overline{v}, \overline{u} + \overline{v}) = b(\overline{u}, \overline{u}) + b(\overline{u}, \overline{v}) + b(\overline{v}, \overline{u}) + b(\overline{v}, \overline{v}) = b(\overline{u}, \overline{v}) + b(\overline{v}, \overline{u})\]
+	
+	Значит, $b(\overline{u}, \overline{v}) = -b(\overline{v}, \overline{u})$. При этом из условия $(1)$ следует условие $(2)$ лишь в том случае, когда $\cha{F} \ne 2$.
+\end{note}
+\pagebreak
+\begin{proposition}
+	Пусть $e$ "--- базис в $V$, $b \in \mathcal{B}(V)$, $b \leftrightarrow_e B$. Тогда:
+	\begin{enumerate}
+		\item $b \in \mathcal{B}^+(V)$ $\Leftrightarrow$ $B^T = B$
+		\item $b \in \mathcal{B}^-(V)$ $\Leftrightarrow$ $B^T = -B$ и на главной диагонали $B$ стоят нули
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}~
+	\begin{itemize}
+		\item[$\Rightarrow$] Поскольку $B = (b_{ij}) = (b(\overline{e_i}, \overline{e_j}))$, то непосредственная подстановка базисных векторов позволяет убедиться, что в первом случае $B^T = B$, а во втором "--- $B^T = -B$, причем на главной диагонали $B$ стоят нули.
+		
+		\item[$\Leftarrow$] Пусть $\overline{u}, \overline{v} \in V$, $\overline{u} \leftrightarrow_e x$, $\overline{v} \leftrightarrow_e y$. Тогда:
+		\begin{enumerate}
+			\item $b(\overline{u}, \overline{v}) = x^TBy = (x^TBy)^T = y^TBx = b(\overline{v}, \overline{u})$.
+			\item Достаточно проверить, что $b(\overline{u}, \overline{u}) = 0$: $b(\overline{u}, \overline{u}) = x^TBx \hm{=} \sum_{i = 1}^n\sum_{j = 1}^nx_ib_{ij}x_j \hm= \sum_{i = 1}^nx_ib_{ii}x_i + \sum_{1 \le i < j \le n}(x_ib_{ij}x_j + x_jb_{ji}x_i) \hm{=} 0 + 0 = 0$.\qedhere
+		\end{enumerate}
+	\end{itemize}
+\end{proof}

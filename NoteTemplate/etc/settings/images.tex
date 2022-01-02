@@ -1,0 +1,22 @@
+% -----------  Images -----------
+\RequirePackage{float}
+\RequirePackage{graphicx}                           % Для вставки рисунков
+\setlength\fboxsep{3pt}           % Отступ рамки \fbox{} от рисунка
+\setlength\fboxrule{1pt}          % Толщина линий рамки \fbox{}
+\usepackage{wrapfig}              % Обтекание рисунков текстом
+
+% ----------- commands -----------
+\graphicspath{{images/}{img/}{figures/}{fig/}}  % Путь к папкам с картинками
+\newcommand{\figL}[3]{%      Для быстрой вставки картинок
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=#2\textwidth]{#1}
+    \label{fig:#3}
+\end{figure}%
+}
+\newcommand{\fig}[2]{%    
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=#2\textwidth]{#1}
+\end{figure}%
+}
