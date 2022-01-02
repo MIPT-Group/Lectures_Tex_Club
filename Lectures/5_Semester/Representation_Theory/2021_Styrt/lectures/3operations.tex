@@ -28,12 +28,12 @@
 
 \begin{definition}
 	Пусть $R$ "--- представление группы $G$ в пространстве $V$. \textit{Представлением, двойственным к $R$,} называется представление $R^*$ группы $G$ в пространстве $V^*$ следующего вида:
-	\[g^*\xi := \xi\circ g^{-1},~g \in G, \xi \in V^*\]
+	\[g\xi := \xi\circ g^{-1},~g \in G, \xi \in V^*\]
 \end{definition}
 
 \begin{note}
 	Двойственное представление $R^*$ действительно является представлением, поскольку для любых элементов $g, h \in G$ и функционала $\xi \in V^*$ выполнено следующее:
-	\[(gh)^*\xi = \xi \circ (gh)^{-1} = \xi \circ h^{-1} \circ g^{-1} = g^*(\xi \circ h^{-1})= g^*(h^*\xi)\]
+	\[(gh)\xi = \xi \circ (gh)^{-1} = \xi \circ h^{-1} \circ g^{-1} = g(\xi \circ h^{-1})= g(h\xi)\]
 \end{note}
 
 \begin{definition}
@@ -92,11 +92,11 @@
 	\[
 	\begin{tikzcd}[row sep = large]
 		v + \ke\phi \arrow[swap]{d}{g} \arrow{r}{\phi} & \phi(v) \arrow{d}{g}\\
-		gv + \ke\phi \arrow{r}{\phi} & g(\phi(v)) = \phi(gv)
+		gv + \ke\phi \arrow{r}{\psi} & g(\phi(v)) = \phi(gv)
 	\end{tikzcd}
 	\]
 	
-	Как видно из диаграммы, получено требуемое.
+	Диаграмма коммутативна, что и означает требуемое.
 \end{proof}
 
 \begin{problem}
