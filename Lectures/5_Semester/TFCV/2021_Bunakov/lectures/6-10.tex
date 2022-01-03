@@ -1,7 +1,7 @@
 \section{Комплекснозначные функции вещественного переменного}
 
 \begin{note}
-	Зафиксируем функцию $f : \R \to \Cm$ и представим ее в виде $f = g + ih$, $g, h : \R \to \R$. Тогда для любого $t \in \R$ выполнено $f(t) = (g(t), h(t))$. Из этого равенства следуют такие свойства, ранее полученные для вектор-функций:
+	Зафиксируем функцию $f : \R \to \Cm$ и представим ее в виде $f = g + ih$, $g, h : \R \to \R$, тогда для любого $t \in \R$ выполнено $f(t) = (g(t), h(t))$. Из этого равенства следуют свойства, ранее полученные для вектор-функций:
 	\begin{enumerate}
 		\item Функция $f$ непрерывна в точке $t_0 \in \R$ $\lra$ функции $g, h$ непрерывны в $t_0$
 		\item Функция $f$ дифференцируема в точке $t_0 \in \R$ $\lra$ функции $g, h$ дифференцируемы в $t_0$, причем $f'(t_0) = g'(t_0) + ih'(t_0)$
@@ -25,7 +25,7 @@
 
 
 \begin{definition}
-	\textit{Расширенной комплексной плоскостью} называется множество вида $\overline{\Cm} := \Cm \cup \{\infty\}$, где $\infty$ "--- объект, называемый \textit{бесконечно удаленной точкой}. \pagebreak Считается также, что $B_\epsilon(\infty) := \{z \in \Cm: |z| > \epsilon\} \cup \{\infty\}$ для любого $\epsilon > 0$
+	\textit{Расширенной комплексной плоскостью} называется множество вида $\overline{\Cm} := \Cm \cup \{\infty\}$, где $\infty$ "--- объект, называемый \textit{бесконечно удаленной точкой}. \pagebreak Считается также, что $B_\epsilon(\infty) := \{z \in \Cm: |z| > \epsilon\} \cup \{\infty\}$ для любого $\epsilon > 0$.
 \end{definition}
 
 \begin{definition}
@@ -33,7 +33,7 @@
 \end{definition}
 
 \begin{definition}
-	\textit{Кривой} $\gamma$ на комплексной плоскости называется непрерывное отображение отрезка $[a, b] \subset \R$, $a < b$, в $\Cm$. \textit{Параметризацией} кривой $\gamma$ называется соответствующая 	функция $\sigma(t) = \xi(t) + i\eta(t)$, $t \in [a, b]$. \textit{Носителем} кривой $\gamma$ называется множество $M(\gamma) := \sigma([a, b])$. 
+	\textit{Кривой} $\gamma$ на комплексной плоскости называется непрерывное отображение отрезка $[a, b] \subset \R$ в $\Cm$. \textit{Параметризацией} кривой $\gamma$ называется соответствующая 	функция $\sigma(t) = \xi(t) + i\eta(t)$, $t \in [a, b]$. \textit{Носителем} кривой $\gamma$ называется множество $M(\gamma) := \sigma([a, b])$. 
 \end{definition}
 
 \begin{note}
@@ -50,11 +50,11 @@
 \end{definition}
 
 \begin{example}
-	Зафиксируем кривую $\gamma$ и рассмотрим кривую $\gamma^{-1}$ с параметризацией $z = \sigma(-t)$, $t \in [-b, -a]$. Тогда <<конкатенация>> этих кривых $\gamma\gamma^{-1}$ "--- замкнутая, но не простая.
+	Зафиксируем кривую $\gamma$ и рассмотрим кривую $\gamma^{-1}$ с параметризацией $z = \sigma(-t)$, $t \in [-b, -a]$. Тогда \textit{конкатенация} этих кривых $\gamma\gamma^{-1}$ "--- замкнутая, но не простая.
 \end{example}
 
 \begin{definition}
-	Пусть $\gamma$ "--- кривая с параметризацией $z = \sigma(t)$, $t \in [a, b]$, и зафиксировано $\{t_k\}_{k = 0}^n$ "--- \textit{разбиение отрезка} $[a, b]$, то есть $a = t_0 < t_1 < \dotsb < t_n = b$. Кривая, заданная сужением $\sigma|_{[t_{k-1}, t_k]}$, $k \in \{1, \dotsc, n\}$, называется \textit{дугой} кривой $\gamma$ и обозначается через $\gamma_k$. Говорят, что $\gamma$ \textit{разбита} на дуги $\gamma_1, \dotsc, \gamma_n$, или \textit{составлена} из этих дуг.
+	Пусть $\gamma$ "--- кривая с параметризацией $z = \sigma(t)$, $t \in [a, b]$, и зафиксировано $\{t_k\}_{k = 0}^n$ "--- \textit{разбиение отрезка} $[a, b]$, то есть $a = t_0 < t_1 < \dotsb < t_n = b$. Кривая, заданная сужением $\sigma|_{[t_{k-1}, t_k]}$, $k \in \{1, \dotsc, n\}$, называется \textit{дугой} кривой $\gamma$ и обозначается через $\gamma_k$. Говорят, что $\gamma$ \textit{разбита на дуги $\gamma_1, \dotsc, \gamma_n$, или \textit{составлена} из дуг $\gamma_1, \dotsc, \gamma_n$}.
 \end{definition}
 
 \begin{definition}
@@ -99,7 +99,7 @@
 \end{note}
 
 \begin{definition}
-	Область $G \subset \overline\Cm$ называется \textit{односвязной}, если для любой ограниченной области $D \subset \Cm$, границей которой является кусочно-гладкий контур $\gamma$, такой, что $M(\gamma) \subset G$, выполнено либо $D \subset G$, либо $(\overline\Cm \bs D) \subset G$.
+	Область $G \subset \overline\Cm$ называется \textit{односвязной}, если для любой ограниченной области $D \subset \Cm$, границей которой является кусочно-гладкий контур $\gamma$ такой, что $M(\gamma) \subset G$, выполнено либо $D \subset G$, либо $\left(\overline\Cm \bs D\right) \subset G$.
 \end{definition}
 
 \section{Последовательности и ряды комплексных чисел}
@@ -113,15 +113,15 @@
 \end{definition}
 
 \begin{note}
-	Легко видеть, что если $\lim_{n \to \infty}z_n = a \in \Cm$, то, начиная с некоторого номера, все значения элементов $z_n$ конечны, тогда $\lim_{n \to \infty}|z_n - a| = 0$. Кроме того, положим $|\infty| := \infty$ и заметим, что выполнены следующие эквивалентности:
+	Легко видеть, что если $\lim_{n \to \infty}z_n = a \in \Cm$, то, начиная с некоторого номера, все значения элементов $z_n$ конечны, тогда $\lim_{n \to \infty}|z_n - a| = 0$. Кроме того, положим $|\infty| := +\infty$ и заметим, что выполнены следующие эквивалентности:
 	\begin{itemize}
-		\item $\lim_{n \to \infty}z_n = \infty \lra \lim_{n \to \infty}|z_n| = \infty$
+		\item $\lim_{n \to \infty}z_n = \infty \lra \lim_{n \to \infty}|z_n| = +\infty$
 		\item $\lim_{n \to \infty}z_n = 0 \lra \lim_{n \to \infty}|z_n| = 0$
 	\end{itemize}
 \end{note}
 
 \begin{note}
-	Пусть $\{z_n\}, \{w_n\} \subset \Cm$, $\lim_{n \to \infty}z_n = a \in \Cm$, $\lim_{n \to \infty}w_n = b \in \Cm$. Аналогично вещественному случаю, можно доказать следующие факты:
+	Пусть $\{z_n\}, \{w_n\} \subset \Cm$, $\lim_{n \to \infty}z_n = a \in \Cm$ и $\lim_{n \to \infty}w_n = b \in \Cm$. Аналогично вещественному случаю, можно доказать следующие факты:
 	\begin{itemize}
 		\item $\lim_{n \to \infty}|z_n| = |a|$
 		\item $\lim_{n \to \infty}(z_n+w_n) = a+b$
@@ -144,7 +144,7 @@
 \end{proof}
 
 \begin{definition}
-	\textit{Числовым рядом} в $\Cm$ называется выражение вида $\sum_{n = 0}^\infty z_n$, где $z_n \in \Cm$ при всех $n \in \N$. \textit{Частной суммой} числового ряда называется число $S_n := \sum_{k = 0}^nz_k$, $n \in \N$. Если $\lim_{n \to \infty}S_n = S \in \Cm$, то ряд $\sum_{n = 0}^\infty z_n$ называется \textit{сходящимся}, а число $S$ называется его \textit{суммой}.
+	\textit{Числовым рядом} в $\Cm$ называется выражение вида $\sum_{n = 0}^\infty z_0, z_1, \dotsc \in \Cm$. \textit{Частной суммой} числового ряда называется число $S_n := \sum_{k = 0}^nz_k$, где $n \in \N \cup \{0\}$. Если существует предел $\lim_{n \to \infty}S_n = S \in \Cm$, то ряд $\sum_{n = 0}^\infty z_n$ называется \textit{сходящимся}, а число $S$ называется его \textit{суммой}.
 \end{definition}
 
 \begin{definition}
@@ -165,7 +165,7 @@
 \begin{definition}
 	Пусть функция $f$ определена в некоторой окрестности $\mathring B_{\delta_0}(z_0)$ точки $z_0 \in \overline\Cm$. Число $A \in \CM$ называется \textit{пределом функции $f$ в точке $z_0$}, если выполнено одно из следующих условий:
 	\begin{enumerate}
-		\item $\forall \epsilon > 0: \exists 0 < \delta \le \delta_0: f(\mathring B_\delta(z_0)) \subset B_\epsilon(A)$
+		\item $\forall \epsilon > 0: \exists \delta \in (0, \delta_0]: f(\mathring B_\delta(z_0)) \subset B_\epsilon(A)$
 		\item Для любой последовательности $\{z_n\} \subset \mathring B_{\delta_0}(z_0)$ такой, что $\lim_{n \to \infty}z_n = z_0$, выполнено $\lim_{n \to \infty}f(z_n) = A$
 	\end{enumerate}
 	
@@ -173,7 +173,7 @@
 \end{definition}
 
 \begin{note}
-	Аналогично вещественному случаю, можно доказать эквивалентность условий в определении предела функции в точке. Из второго условия и свойств предела последовательности легко вывести, \pagebreak что если $a = b + ic, z_0 = x_0 + iy_0 \in \Cm$, $f(z) = f(x + iy) \hm= u(x, y) + iv(x, y)$, то:
+	Аналогично вещественному случаю, можно доказать эквивалентность условий в определении предела функции в точке. Из второго условия и свойств предела последовательности легко вывести, \pagebreak что если $f(z) = f(x + iy) \hm= u(x, y) + iv(x, y)$, $z_0 = x_0 + iy_0 \in \Cm$ и $a = b + ic \in \Cm$, то:
 	\[\lim_{z \to z_0}f(z) = a \lra \System{
 		\lim_{(x, y) \to (x_0, y_0)}u(x, y) = b\\
 		\lim_{(x, y) \to (x_0, y_0)}v(x, y) = c
@@ -181,11 +181,11 @@
 \end{note}
 
 \begin{note}
-	Пусть $z_0 \in \CM$, функции $f, g$ таковы, что $\lim_{z \to z_0}f(z) = a \in \Cm$, $\lim_{z \to z_0}g(z) \hm= b \in \Cm$. Аналогично вещественному случаю, можно доказать следующие факты:
+	Пусть $z_0 \in \CM$, и функции $f, g$, определенные на $\mathring B_\delta(z_0)$, таковы, что существуют пределы $\lim_{z \to z_0}f(z) = a \in \Cm$ и $\lim_{z \to z_0}g(z) \hm= b \in \Cm$. Аналогично вещественному случаю, можно доказать следующие факты:
 	\begin{itemize}
 		\item $\lim_{z \to z_0}(f(z) + g(z)) = a+b$
 		\item $\lim_{z \to z_0}f(z)g(z) = ab$
-		\item Если $\exists \delta > 0: \forall z \in \mathring B_\delta(z_0) : g(z) \ne 0$ и $b \ne 0$, то $\lim_{z \to z_0}\frac{f(z)}{g(z)} = \frac ab$
+		\item Если $\forall z \in \mathring B_\delta(z_0) : g(z) \ne 0$ и $b \ne 0$, то $\lim_{z \to z_0}\frac{f(z)}{g(z)} = \frac ab$
 	\end{itemize}
 \end{note}
 
@@ -200,16 +200,16 @@
 \begin{example}
 	Рассмотрим функцию $f : \overline{\Cm} \to \CM$ следующего вида:
 	\[f(z) = \System{
-		&\frac1{z-i}, \text{ если } z \in \CM \bs \{i, \infty\}\\
-		&0, \text{ если } z  = \infty\\
-		&\infty, \text{ если } z = i
+		&\frac1{z-i},&\text{если } &z \in \CM \bs \{i, \infty\}\\
+		&0,&\text{если } &z  = \infty\\
+		&\infty,&\text{если } &z = i
 	}\]
 	
-	Согласно определению выше, $f$ непрерывна в каждой точке из $\CM$.
+	Тогда, согласно определению выше, $f$ непрерывна в каждой точке из $\CM$.
 \end{example}
 
 \begin{note}
-	Пусть функции $f, g$ непрерывны и конечны в точке $z_0 \in \Cm$. Аналогично вещественному случаю, можно доказать, что тогда непрерывны функции $f + g$, $fg$ и $\frac fg$ (последняя --- если $g(z_0) \ne 0$).
+	Пусть функции $f, g$ непрерывны и конечны в точке $z_0 \in \Cm$. Аналогично вещественному случаю, можно доказать, что тогда непрерывны функции $f + g$ и $fg$, а если $g(z_0) \ne 0$ --- то и функция $\frac fg$.
 \end{note}
 
 \begin{proposition}
@@ -217,7 +217,7 @@
 \end{proposition}
 
 \begin{proof}
-	Рассмотрим произвольную последовательность $\{z_n\} \subset B_{\delta_0}(z_0)$ такую, что $\lim_{n \to \infty}z_n = z_0$. Тогда, в силу непрерывности функции $f$, $\lim_{n \to \infty}f(z_n) = f(z_0) = w_0$. Но тогда, в силу непрерывности функции $g$, $\lim_{n \to \infty}g(f(z_n)) = g(w_0) = f(g(z_0))$. Получено требуемое в силу произвольности выбора $\{z_n\}$.
+	Рассмотрим произвольную последовательность $\{z_n\} \subset B_{\delta_0}(z_0)$ такую, что $\lim_{n \to \infty}z_n = z_0$. Тогда, в силу непрерывности функции $f$, $\lim_{n \to \infty}f(z_n) = f(z_0) = w_0$. Но тогда, в силу непрерывности функции $g$, выполнено $\lim_{n \to \infty}g(f(z_n)) = g(w_0) = f(g(z_0))$. В силу произвольности выбора последовательности $\{z_n\}$, получено требуемое.
 \end{proof}
 
 \section{Основные элементарные функции}
