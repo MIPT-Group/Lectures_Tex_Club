@@ -106,15 +106,15 @@
 \end{note}
 
 \begin{theorem}
-	Пусть $G \subset \GL(V)$ "--- подгруппа Ли в $\GL(V)$, $\eta \in V^{\otimes k}$ "--- $k$-линейная форма. Тогда множество $H := \{h \in G: \forall v_1, \dotsc, v_k \in V: \eta(hv_1, \dotsc, hv_k) = \eta(v_1, \dotsc, v_k)\}$ образует подгруппу Ли в $G$, причем выполнено следующее равенство:
+	Пусть $G \subset \GL(V)$ "--- подгруппа Ли в $\GL(V)$, $\eta \in (V^*)^{\otimes k}$ "--- $k$-линейная форма. Тогда множество $H := \{h \in G: \forall v_1, \dotsc, v_k \in V: \eta(hv_1, \dotsc, hv_k) = \eta(v_1, \dotsc, v_k)\}$ образует подгруппу Ли в $G$, причем выполнено следующее равенство:
 	\[\mf h = \left\{x \in \mf g: \forall v_1, \dotsc, v_k \in V: \sum_{i = 1}^k\eta(v_1, \dotsc, v_{i - 1}, x v_i, v_{i+1}, \dotsc, v_k) = 0\right\}\]
 \end{theorem}
 
 \begin{proof}
-	Рассмотрим следующее действие группы Ли $G$ на пространстве $V^{\otimes k}$:
-	\[(g\widetilde\eta)(v_1, \dotsc, v_k) := \widetilde\eta(g^{-1}v_1, \dotsc, g^{-1}v_k),~g \in G, \widetilde\eta \in V^{\otimes k}, v_1, \dotsc, v_k \in V\]
+	Рассмотрим следующее действие группы Ли $G$ на пространстве $(V^*)^{\otimes k}$:
+	\[(g\widetilde\eta)(v_1, \dotsc, v_k) := \widetilde\eta(g^{-1}v_1, \dotsc, g^{-1}v_k),~g \in G, \widetilde\eta \in (V^*)^{\otimes k}, v_1, \dotsc, v_k \in V\]
 	
-	Тогда множество $H$ является стабилизатором формы $\eta \in V^{\otimes k}$ и потому является подгруппой Ли. Остается доказать равенство для $\mf h$. Для этого продифференцируем равенство $\eta(h^{-1}v_1, \dotsc, h^{-1}v_k) = \eta(v_1, \dotsc, v_k)$ по $h$ в точке $e$ при фиксированных $v_1, \dotsc, v_k \in V$:
+	Тогда множество $H$ является стабилизатором формы $\eta \in (V^*)^{\otimes k}$ и потому является подгруппой Ли. Остается доказать равенство для $\mf h$. Для этого продифференцируем равенство $\eta(h^{-1}v_1, \dotsc, h^{-1}v_k) = \eta(v_1, \dotsc, v_k)$ по $h$ в точке $e$ при фиксированных $v_1, \dotsc, v_k \in V$:
 	\[-\sum_{i = 1}^k\eta(v_1, \dotsc, v_{i - 1}, x v_i, v_{i+1}, \dotsc, v_k) = 0\]
 	
 	Здесь $h \in G$ под действием дифференциала переходит в $x \in \mf g$.
@@ -132,7 +132,7 @@
 \end{corollary}
 
 \begin{proof}
-	Применим предыдущую теорему к умножению на $A$, являющемуся билинейной формой.
+	Аналогично предыдущей теореме, но с рассмотрением действия пространстве $(V^*)^{\otimes 2} \otimes V$.
 \end{proof}
 
 \begin{corollary}
