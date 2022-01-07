@@ -1,8 +1,14 @@
 \begin{theorem}
     Если некоторое $r$ является рациональным числом, то оно представимо в виде периодической десятичной дроби и наоборот.
-     $$
-     r \in \Q \lra (r = \alpha_0,\alpha_1 \dots \alpha_k (\beta_1 \dots \beta_t)), \alpha_0 \in \N \cup \{0\}, \forall i > 0\ \alpha_i \in \{0, 1, \dots, 9\},\ \forall \beta_i \in \{0, 1, \dots, 9\}
-     $$
+     \[
+     	r \in \Q \lra (r = \alpha_0,\alpha_1 \dots \alpha_k (\beta_1 \dots \beta_t)), \System{
+     		&{\alpha_0 \in \N \cup \{0\}}
+     		\\
+     		&{\forall i > 0\ \alpha_i \in \{0, 1, \dots, 9\}}
+     		\\
+     		&{\forall \beta_i \in \{0, 1, \dots, 9\}}
+     	}
+     \]
 \end{theorem}
 
 \begin{proof}
@@ -70,7 +76,7 @@
 \begin{definition}
     Две системы стягивающихся рациональных отрезков $\{[p_n; q_n]_\Q\}_{n = 1}^\infty$ и $\{[r_n; s_n]_\Q\}_{n = 1}^\infty$ называются \textit{эквивалентными}, если:
     
-    $\{[min(p_n, r_n); max(q_n, s_n)]_\Q\}_{n = 1}^\infty$ - тоже стягивающаяся последовательность
+    $\{[\min(p_n, r_n); \max(q_n, s_n)]_\Q\}_{n = 1}^\infty$ - тоже стягивающаяся последовательность
 \end{definition}
 
 \begin{proposition}
@@ -78,7 +84,7 @@
 \end{proposition}
 
 \begin{proof}
-    Рефлексивность очевидна, так как $min(p_n, p_n) = p_n$ ну и $max(q_n, q_n) = q_n$, что эквивалентно изначальной стягивающейся последовательности.
+    Рефлексивность очевидна, так как $\min(p_n, p_n) = p_n$ ну и $\max(q_n, q_n) = q_n$, что эквивалентно изначальной стягивающейся последовательности.
     
     Симметричность тоже очевидна, так как минимум и максимум - инвариант относительно перестановки.
     
@@ -88,27 +94,27 @@
     $$
     Из условия следует, что
     \begin{align*}
-        \{[min(p_n, r_n); max(q_n, s_n)]_\Q\}_{n = 1}^\infty \text{ - стягивающаяся, то есть } \\
-        \forall \veps \in \Q\ \exists N_1 \in \N\ |\ \forall n > N_1\ max(q_n, s_n) - min(p_n, r_n) < \frac{\veps}{2} \\
-        \{[min(r_n, t_n); max(s_n, u_n)]_\Q\}_{n = 1}^\infty \text{ - стягивающаяся, то есть } \\
-        \forall \veps \in \Q\ \exists N_2 \in \N\ |\ \forall n > N_2\ max(s_n, u_n) - min(r_n, t_n) < \frac{\veps}{2}
+        \{[\min(p_n, r_n); \max(q_n, s_n)]_\Q\}_{n = 1}^\infty \text{ - стягивающаяся, то есть } \\
+        \forall \veps \in \Q\ \exists N_1 \in \N\ |\ \forall n > N_1\ \max(q_n, s_n) - \min(p_n, r_n) < \frac{\veps}{2} \\
+        \{[\min(r_n, t_n); \max(s_n, u_n)]_\Q\}_{n = 1}^\infty \text{ - стягивающаяся, то есть } \\
+        \forall \veps \in \Q\ \exists N_2 \in \N\ |\ \forall n > N_2\ \max(s_n, u_n) - \min(r_n, t_n) < \frac{\veps}{2}
     \end{align*}
-    Если положить $\forall n > max(N_1, N_2)$, то оба неравенства будут верны одновременно. Тогда, нужно доказать следующее:
+    Если положить $\forall n > \max(N_1, N_2)$, то оба неравенства будут верны одновременно. Тогда, нужно доказать следующее:
     $$
-        max(q_n, u_n) - min(p_n, t_n) < \veps
+        \max(q_n, u_n) - \min(p_n, t_n) < \veps
     $$
     Для этого рассмотрим по отдельности 4 случая:
     \begin{enumerate}
-        \item $max(q_n, u_n) - min(p_n, t_n) = q_n - p_n$ \\ 
-        Заметим, что $q_n - p_n \le  max(q_n, s_n) - p_n \le max(q_n, s_n) - min(p_n, r_n) < \veps$.
-        Следовательно $max(q_n, u_n) - min(p_n, t_n) = q_n - p_n < \veps$
-        \item $max(q_n, u_n) - min(p_n, t_n) = u_n - t_n$ - аналогично 1му случаю
-        \item $max(q_n, u_n) - min(p_n, t_n) = q_n - t_n$ \\
-        Заметим, что $q_n - t_n = (q_n - r_n) + (r_n - t_n)$. Далее $q_n - r_n \le max(q_n, s_n) - r_n \le max(q_n, s_n) - min(p_n, r_n) < \frac{\veps}{2}$. А также $r_n - t_n \le s_n - t_n \le max(s_n, u_n) - t_n \le max(s_n, u_n) - min(r_n, t_n) < \frac{\veps}{2}$.
+        \item $\max(q_n, u_n) - \min(p_n, t_n) = q_n - p_n$ \\ 
+        Заметим, что $q_n - p_n \le  \max(q_n, s_n) - p_n \le \max(q_n, s_n) - \min(p_n, r_n) < \veps$.
+        Следовательно $\max(q_n, u_n) - \min(p_n, t_n) = q_n - p_n < \veps$
+        \item $\max(q_n, u_n) - \min(p_n, t_n) = u_n - t_n$ - аналогично 1му случаю
+        \item $\max(q_n, u_n) - \min(p_n, t_n) = q_n - t_n$ \\
+        Заметим, что $q_n - t_n = (q_n - r_n) + (r_n - t_n)$. Далее $q_n - r_n \le \max(q_n, s_n) - r_n \le \max(q_n, s_n) - \min(p_n, r_n) < \frac{\veps}{2}$. А также $r_n - t_n \le s_n - t_n \le \max(s_n, u_n) - t_n \le \max(s_n, u_n) - \min(r_n, t_n) < \frac{\veps}{2}$.
         
         Складывая два выражения, получим:
-        $max(q_n, u_n) - min(p_n, t_n) = q_n - t_n < \frac{\veps}{2} + \frac{\veps}{2} = \veps$
-        \item $max(q_n, u_n) - min(p_n, t_n) = u_n - p_n$ - аналогично 3му случаю
+        $\max(q_n, u_n) - \min(p_n, t_n) = q_n - t_n < \frac{\veps}{2} + \frac{\veps}{2} = \veps$
+        \item $\max(q_n, u_n) - \min(p_n, t_n) = u_n - p_n$ - аналогично 3му случаю
     \end{enumerate}
     Таким образом, $\{[p_n; q_n]_\Q\}_{n = 1}^\infty = \{[t_n; u_n]_\Q\}_{n = 1}^\infty \Ra$ транзитивность верна.
 \end{proof}
