@@ -1,0 +1,470 @@
+\section{Уравнения прямых и плоскостей}
+
+\subsection{Прямая в плоскости}
+Рассмотрим различные способы задания прямой $l$ в плоскости. Пусть $M (\overline{r_0})$ "--- точка на прямой $l$, $\overline{a}$ "--- направляющий вектор прямой ($\overline{a} \parallel l$, $\overline{a} \ne 0$). Тогда $X (\overline{r}) \in l \Leftrightarrow \overline{MX} \text{ коллинеарен } \overline{a}$. Введем базис $e$ и декартову систему координат $(O, e)$:
+\[M \leftrightarrow_{(O, e)}
+\begin{pmatrix}
+x_0\\y_0
+\end{pmatrix},~
+X \leftrightarrow_{(O, e)}
+\begin{pmatrix}
+x\\y
+\end{pmatrix},~
+\overline{a} \xleftrightarrow[e]{}
+\begin{pmatrix}
+\alpha_1\\\alpha_2
+\end{pmatrix}\]
+
+\begin{definition} \textit{Векторно-параметрическим уравнением прямой} называется следующее уравнение:
+	\[\overline{r} = \overline{r_0} + t\overline{a}~(t \in \mathbb{R})\]
+\end{definition}
+
+\begin{definition} \textit{Параметрическим уравнением прямой} называется следующая система:
+	\[\left\{
+	\begin{aligned}
+	x = x_0 + t\alpha_1\\
+	y = y_0 + t\alpha_2
+	\end{aligned}
+	\right.
+	\]
+\end{definition}
+
+\begin{definition}
+	\textit{Каноническим уравнением прямой} называется следующее уравнение:
+	\[\frac{x - x_0}{\alpha_1} = \frac{y - y_0}{\alpha_2}\]
+\end{definition}
+
+\begin{note}
+	Если, например, $\alpha_1 = 0$ (тогда $\alpha_2 \ne 0$), то считаем, что $\forall t\in\mathbb{R}: x = x_0$.
+\end{note}
+
+\begin{definition}
+	\textit{Общим уравнением прямой} называется следующее уравнение:
+	\[Ax+By+C = 0~(A^2+B^2 \ne 0)\]
+\end{definition}
+
+\begin{proposition}
+	Пусть $l$ задана в $(O, e)$ общим уравнением прямой $Ax+By+C=0$, вектор $\overline{b} \leftrightarrow_{(O, e)} \beta$. Тогда $\overline{b} \parallel l \Leftrightarrow A\beta_1 + B\beta_2 = 0$.
+\end{proposition}
+
+\begin{proof}
+	Пусть точка $M \in l$, а точка $N$ такова, что $\overline{MN} \hm{=} \overline{b}$. Тогда:
+	\begin{gather*}
+	M \leftrightarrow_{(O, e)}
+	\begin{pmatrix}
+	x_0\\y_0
+	\end{pmatrix},~
+	N \leftrightarrow_{(O, e)}
+	\begin{pmatrix}
+	x_0 + \beta_1\\y_0 + \beta_2
+	\end{pmatrix}\\
+	\overline{b} \parallel l \Leftrightarrow N \in l \Leftrightarrow A(x_0 + \beta_1) + B(y_0 + \beta_2) + C = 0
+	\end{gather*}
+	
+	Теперь, т.\:к. $M \in l$:
+	\[A(x_0 + \beta_1) + B(y_0 + \beta_2) + C = 0 \Leftrightarrow A\beta_1 + B\beta_2 = 0\]
+\end{proof}
+
+\begin{corollary}
+	В произвольной декартовой системе координат направляющим вектором $l$ служит вектор $\overline{a}$:
+	\[\overline{a} \xleftrightarrow[e]{} \begin{pmatrix}
+	-B\\A
+	\end{pmatrix}\]
+\end{corollary}
+
+\begin{corollary}
+	В прямоугольной декартовой системе координат вектором нормали $l$ служит вектор $\overline{n}$:
+	\[\overline{n} \xleftrightarrow[e]{} \begin{pmatrix}
+	A\\B
+	\end{pmatrix}\]
+	
+	Это позволяет получить еще один способ задания прямой.
+\end{corollary}
+
+\begin{definition}
+	\textit{Нормальным уравнением прямой} называется следующее уравнение:
+	\[(\overline{r} - \overline{r_0}, \overline{n}) = 0 \Leftrightarrow (\overline{r}, \overline{n}) = \alpha~(\overline{n} \ne \overline{0})\]
+\end{definition}
+
+\begin{note}
+	Непосредственная проверка позволяет убедиться, что различные уравнения, задающие прямую, эквивалентны, поскольку из каждого из них можно получить любое другое.
+\end{note}
+
+\begin{note}
+	Рассмотренные способы задания прямой позволяют определить \textit{взаимное расположение прямых на плоскости}. Пусть прямые $l_1, l_2$ заданы векторно-параметрическими уравнениями $\overline{r} \hm{=} \overline{r_1} + t\overline{a_1}$, $\overline{r} = \overline{r_2} + t\overline{a_2}$. Тогда:
+	\begin{itemize}
+		\item $l_1 \cap l_2 \Leftrightarrow \overline{a_1} \nparallel \overline{a_2}$
+		\item $l_1 \parallel l_2 \text{ и } l_1 \ne l_2 \Leftrightarrow \overline{r_1} - \overline{r_2} \nparallel \overline{a_1} \parallel \overline{a_2}$
+		\item $l_1 = l_2 \Leftrightarrow \overline{r_1} - \overline{r_2} \parallel \overline{a_1} \parallel \overline{a_2}$
+	\end{itemize}
+\end{note}
+
+\begin{note}
+	Каждая прямая в плоскости делит ее на две \textit{полуплоскости}.
+	Пусть в прямоугольной декартовой системе координат прямая $l$ задана уравнением $Ax+By+C = 0 \Leftrightarrow (\overline{r} \hm{-} \overline{r_0}, \overline{n}) = 0$, причем вектор $\overline{n}$ направлен в полуплоскость $S$ относительно прямой $l$ (считаем, что $S$ "--- открытая, т.\:е. не содержит саму прямую $l$). Тогда $X(\overline{r}) \in S \Leftrightarrow (\overline{r} \hm{-} \overline{r_0}, \overline{n}) > 0 \hm{\Leftrightarrow} Ax+By+C > 0$. Противоположная полуплоскость задается противоположным неравенством.
+	
+	В произвольной декартовой системе координат неравенство $A'x'\hm{+}B'y'+C' > 0$ также задает одну из полуплоскостей относительно $l$, поскольку при переходе в исходную декартову систему координат выражение $A'x'+B'y'+C'$ переходит в $Ax+By+C$ (поскольку оба они равны одному и тому же скалярному произведению).
+\end{note}
+
+\begin{definition}
+	\textit{Пучком пересекающихся прямых} называется множество всех прямых, проходящих через данную точку.
+\end{definition}
+
+\begin{definition}
+	\textit{Пучком параллельных прямых} называется множество всех прямых, параллельных данной прямой.
+\end{definition}
+
+\begin{note}
+	Любые две прямые лежат ровно в одном пучке.
+\end{note}
+
+\begin{theorem}
+	Пусть в произвольной декартовой системе координат прямые $l_1 \ne l_2$ заданы уравнениями $A_1x\hm{+}B_1y+C_1=0$, $A_2x+B_2y+C_2=0$. Тогда прямые, лежащие в том же пучке, что и $l_1$ и $l_2$, "--- это прямые, задаваемые уравнениями вида:
+	\[\alpha_1(A_1x+B_1y+C_1) + \alpha_2(A_2x+B_2y+C_2) = 0\]
+\end{theorem}
+
+\begin{proof}
+	Пусть прямая $l$ задается данным уравнением. Если $l_1 \cap l_2 = P$, то координаты точки $P$ удовлетворяют данному уравнению, т.\:е. $P \in l$. Если же $l_1 \parallel l_2$, то из данного уравнения направляющий вектор $l$ параллелен направляющим векторам $l_1$ и $l_2$ (в этом случае уравнение выше задает прямую не всегда, но если и задает, то лежащую в данном пучке).
+	
+	Теперь пусть прямая $l$ лежит в данном пучке. Если $l_1 \cap l_2 = P$, то выберем на $l$ точку $Q \ne P$ с координатами $\begin{pmatrix}x_0\\y_0\end{pmatrix}$. Тогда $Q$ удовлетворяет уравнению с коэффициентами $\alpha_1 = A_2x_0+B_2y_0+C_2$, $\alpha_1 = -(A_1x_0+B_1y_0+C_1)$, причем хотя бы один из коэффициентов ненулевой (т.\:к. $Q$ лежит не более, чем на одной из прямых $l_1$, $l_2$). Тогда данное уравнение задает $l$, т.\:к. ему удовлетворяют две различных точки этой прямой. Если же $l \parallel l_1 \parallel l_2$, то аналогичным образом можно выбрать любую точку $Q \in l$ и соответствующие коэффициенты, тогда данное уравнение задает $l$ при условии, что оно задает прямую, но это верно всегда, поскольку множество его решений содержит $Q$ (т.\:е. непусто) и не содержит хотя бы одну из прямых $l_1$, $l_2$.
+\end{proof}
+
+\begin{proposition}
+	Пусть прямые $l_1$, $l_2$ заданы в прямоугольной системе координат $(O, e)$ уравнениями $A_1x\hm{+}B_1y+C_1=0$, $A_2x\hm{+}B_2y\hm{+}C_2=0$. Тогда угол $\phi$ между ними удовлетворяет равенству:
+	\[\cos{\phi} = \frac{|A_1A_2+B_1B_2|}{\sqrt{A_1^2+B_1^2}\sqrt{A_2^2+B_2^2}}\]
+\end{proposition}
+
+\begin{proof}
+	Если $\alpha$ "--- угол между нормальными векторами данных прямых $\overline{n_1} \xleftrightarrow[e]{} \begin{pmatrix}A_1\\B_1\end{pmatrix}$, $\overline{n_2} \xleftrightarrow[e]{} \begin{pmatrix}A_2\\B_2\end{pmatrix}$, то $\phi$ равен меньшему из углов $\alpha$ и $\pi - \alpha$. В каждом из случаев справедливо следующее:
+	\[\cos{\phi} = |\cos{\angle(\overline{n_1}, \overline{n_2})}| = \frac{|A_1A_2+B_1B_2|}{\sqrt{A_1^2+B_1^2}\sqrt{A_2^2+B_2^2}}\]
+\end{proof}
+
+\begin{proposition}
+	Пусть прямая $l$ задана в прямоугольной системе координат $(O, e)$ общим уравнением $Ax+By+C=0$, точка $M(\overline{r_0})$ имеет координаты $\begin{pmatrix}x_0\\y_0\end{pmatrix}$. Тогда расстояние $\rho$ от $M$ до $l$ равно:
+	\[\rho = \frac{|Ax_0 + By_0 + C|}{\sqrt{A^2 + B^2}}\]
+\end{proposition}
+
+\begin{proof}
+	Пусть $\overline{n}$ "--- вектор нормали к $l$, $X(\overline{r})$ "--- произвольная точка на $l$. Тогда:
+	\[\rho = |\pr_{\overline{n}}(\overline{r_0} - \overline{r})| = \left|\frac{(\overline{r_0} - \overline{r}, \overline{n})}{|\overline{n}|^2}\overline{n}\right| = \left|\frac{(\overline{r_0} - \overline{r}, \overline{n})}{|\overline{n}|}\right| = \frac{|Ax_0 + By_0 + C|}{\sqrt{A^2 + B^2}}\]
+\end{proof}
+
+\subsection{Плоскость в простанстве}
+
+Рассмотрим различные способы задания плоскости $\nu$ в пространстве. Пусть $M (\overline{r_0})$ "--- точка на плоскости $\nu$, $\overline{a}$ $\overline{b}$ "--- векторы в плоскости $\nu$ ($\overline{a} \nparallel \overline{b}$, $\overline{a}, \overline{b} \in \nu$). Тогда $X (\overline{r}) \in \nu \Leftrightarrow \overline{MX} \text{ компланарен } \overline{a}, \overline{b}$. Введем базис $e$ и декартову систему координат $(O, e)$:
+\[M \leftrightarrow_{(O, e)}
+\begin{pmatrix}
+x_0\\y_0\\z_0
+\end{pmatrix},~
+X \leftrightarrow_{(O, e)}
+\begin{pmatrix}
+x\\y\\z
+\end{pmatrix},~
+\overline{a} \xleftrightarrow[e]{}
+\begin{pmatrix}
+\alpha_1\\\alpha_2\\\alpha_3
+\end{pmatrix},~
+\overline{b} \xleftrightarrow[e]{}
+\begin{pmatrix}
+\beta_1\\\beta_2\\\beta_3
+\end{pmatrix}\]
+
+\begin{definition} \textit{Векторно-параметрическим уравнением плоскости} называется следующее уравнение:
+	\[\overline{r} = \overline{r_0} + t\overline{a} + s\overline{b}~(t,s \in \mathbb{R})\]
+	
+	Данное уравнение можно также переписать в виде:
+	\[(\overline{r} - \overline{r_0}, \overline{a}, \overline{b}) = 0 \Leftrightarrow (\overline{r}, \overline{a}, \overline{b}) = \alpha\]
+\end{definition}
+
+\begin{definition} \textit{Параметрическим уравнением плоскости} называется следующая система:
+	\[\left\{
+	\begin{aligned}
+	x = x_0 + t\alpha_1 + s\beta_1\\
+	y = y_0 + t\alpha_2 + s\beta_2\\
+	z = z_0 + t\alpha_3 + s\beta_3
+	\end{aligned}
+	\right.
+	\]
+\end{definition}
+
+Если в явном виде расписать смешанное произведение $(\overline{r} - \overline{r_0}, \overline{a}, \overline{b})$ как определитель соответствующей матрицы, можно получить еще одно уравнение плоскости.
+\begin{definition}
+	\textit{Общим уравнением плоскости} называется следующее уравнение:
+	\[Ax + By + Cz + D = 0~(A^2+B^2+C^2 \ne 0)\]
+\end{definition}
+
+\begin{proposition}
+	Пусть $\nu$ задана в $(O, e)$ общим уравнением плоскости $Ax+By+Cz+D=0$, вектор $\overline{b} \leftrightarrow_{(O, e)} \beta$. Тогда $\overline{b} \hm{\parallel} \nu \Leftrightarrow A\beta_1 + B\beta_2 + C\beta_3 = 0$.
+\end{proposition}
+
+\begin{proof}
+	Пусть точка $M \in \nu$, а точка $N$ такова, что $\overline{MN} \hm{=} \overline{b}$. Тогда:
+	\begin{gather*}
+	M \leftrightarrow_{(O, e)}
+	\begin{pmatrix}
+	x_0\\y_0\\z_o
+	\end{pmatrix},~
+	N \leftrightarrow_{(O, e)}
+	\begin{pmatrix}
+	x_0 + \beta_1\\y_0 + \beta_2\\z_o+\beta_3
+	\end{pmatrix}\\
+	\overline{b} \parallel \nu \Leftrightarrow N \in \nu \Leftrightarrow A(x_0 + \beta_1) + B(y_0 + \beta_2) + C(z_0 + \beta_3) + D = 0
+	\end{gather*}
+	
+	Теперь, т.\:к. $M \in \nu$:
+	\[A(x_0 + \beta_1) + B(y_0 + \beta_2) + C(z_0 + \beta_3) + D = 0 \Leftrightarrow A\beta_1 + B\beta_2 + C\beta_3= 0\]
+\end{proof}
+
+\begin{proposition}
+	Уравнение вида $Ax+By+Cz+D=0$ при $A^2+B^2+C^2\ne0$ всегда задает плоскость в декартовой системе координат $(O, e)$.
+\end{proposition}
+
+\begin{proof}
+	Пусть без ограничения общности $A \ne 0$. Выберем пару векторов $\overline{a}$, $\overline{b}$ и точку $M$ такие, что: \[\overline{a} \xleftrightarrow[e]{} \begin{pmatrix}-B\\A\\0\end{pmatrix},~\overline{b} \xleftrightarrow[e]{} \begin{pmatrix}-C\\0\\A\end{pmatrix},~M \leftrightarrow_{(O, e)} \begin{pmatrix}-\frac{D}{A}\\0\\0\end{pmatrix}\]
+	
+	Векторы $\overline{a}$ и $\overline{b}$ неколлинеарны, поскольку их координаты непропорциональны. Если отложить их от точки $M$, то им будет соответствовать некоторая плоскость $\nu$. Рассмотрим произвольную точку $X(\overline{r})$:
+	\[X \in \nu \Leftrightarrow (\overline{r} - \overline{r_0}, \overline{a}, \overline{b}) = 0\]
+	\[\begin{vmatrix}
+	x + \frac{D}{A} & -B & -C\\
+	y & A & 0\\
+	z & 0 & A
+	\end{vmatrix} = (x + \frac{D}{A})A^2 - y(-B)A - z(-C)A = 0\]
+	\[A^2x + ABy + ACz + AD = 0 \Leftrightarrow Ax + By + Cz + D = 0\]
+	
+	Таким образом, мы получили, что данное уравнение задает в точности плоскость $\nu$.
+\end{proof}
+
+Пусть $\overline{n}$ "--- вектор нормали к плоскости $\nu$. Тогда $X (\overline{r}) \in \nu \hm{\Leftrightarrow} \overline{MX} \perp \overline{n}$.
+
+\begin{definition}
+	\textit{Нормальным уравнением плоскости} называется следующее уравнение:
+	\[(\overline{r} - \overline{r_0}, \overline{n}) = 0 \Leftrightarrow (\overline{r}, \overline{n}) = \alpha~(\overline{n} \ne \overline{0})\]
+\end{definition}
+
+\begin{note}
+	Непосредственная проверка позволяет убедиться, что различные уравнения, задающие плоскость, эквивалентны, поскольку из каждого из них можно получить любое другое.
+\end{note}
+
+\begin{note}
+	В прямоугольной декартовой системе координат нормальное уравнение плоскости преобразуется к виду $Ax+By+Cz\hm{+}D=0$, и это означает, что в такой системе координат нормальный вектор плоскости имеет вид:
+	\[\overline{n} \xleftrightarrow[e]{} \begin{pmatrix}A\\B\\C\end{pmatrix}\]
+\end{note}
+
+\begin{definition}
+	Пусть в произвольной декартовой системе координат плоскость $\nu$ задана уравнением $Ax+By+Cz\hm{+}D=0$. Тогда \textit{сопутствующим вектором} плоскости $\nu$ в данной системе координат называется следующий вектор:
+	\[\overline{n} \xleftrightarrow[e]{} \begin{pmatrix}A\\B\\C\end{pmatrix}\]
+\end{definition}
+
+Рассмотренные способы задания плоскости позволяют определить \textit{взаимное расположение плоскостей в пространстве}.
+
+\begin{proposition}
+	Пусть плоскости $\nu_1, \nu_2$ заданы общими уравнениями $A_1x+B_1y+C_1z+D_1 = 0$, $A_2x+B_2y+C_2z+D_2 = 0$. Тогда:
+	\begin{itemize}
+		\item $\nu_1 \cap \nu_2 \Leftrightarrow \overline{n_1} \nparallel \overline{n_2}$
+		\item $\nu_1 \parallel \nu_2 \text{ и } \nu_1 \ne \nu_2 \Leftrightarrow \overline{n_1} \parallel \overline{n_2} \text{, но уравнения непропорциональны}$
+		\item $l_1 = l_2 \Leftrightarrow  \text{уравнения пропорциональны}$
+	\end{itemize}
+\end{proposition}
+
+\begin{proof}~
+	\begin{itemize}
+		\item По условию $\overline{n_1} \nparallel \overline{n_2}$, тогда без ограничения общности $\begin{vmatrix}A_1 & A_2\\B_1 & B_2\end{vmatrix} \hm{\ne} 0$. Рассмотрим систему уравнений относительно $x$ и $y$:
+		\[\left\{
+		\begin{aligned}
+		A_1x + B_1y = -C_1z -D_1\\
+		A_2x + B_2y = -C_2z -D_2
+		\end{aligned}
+		\right.
+		\]
+		Согласно правилу Крамера, эта система имеет единственное решение $\forall z$. Значит, плоскости имеют общие точки, но не все их точки общие, и это означает, что они пересекаются.
+		\item Коэффициенты $A_i$, $B_i$, $C_i$ пропорциональны из параллельности $\overline{n_1}$ и $\overline{n_2}$, а уравнения "--- нет, поэтому можно считать, что они отличаются только коэффициентом $D_i$. Тогда они не имеют общих решений, т.\:е. $\nu_1 \parallel \nu_2 \text{ и } \nu_1 \ne \nu_2$.
+		\item Уравнения пропорциональны, поэтому можно считать, что они совпадают. Тогда совпадают и их множества решений, т.\:е. $\nu_1 = \nu_2$.
+	\end{itemize}
+\end{proof}
+
+\begin{proposition}
+	Пусть в произвольной декартовой системе координат $(O, e)$ пересекающиеся плоскости $\nu_1$ и $\nu_2$ заданы уравнениями $A_1x+B_1y+C_1z+D_1 = 0$ и $A_2x+B_2y+C_2z+D_2 = 0$. Тогда направляющий вектор их прямой пересечения имеет координаты:
+	\[\overline{v} \xleftrightarrow[e]{}
+	\begin{pmatrix}
+	\det\begin{pmatrix}
+	B_1&C_1\\
+	B_2&C_2
+	\end{pmatrix}\\
+	\det\begin{pmatrix}
+	C_1&A_1\\
+	C_2&A_2
+	\end{pmatrix}\\~
+	\det\begin{pmatrix}
+	A_1&B_1\\
+	A_2&B_2
+	\end{pmatrix}
+	\end{pmatrix}\]
+\end{proposition}
+
+\begin{proof}
+	Докажем, что $\overline{v}$ "--- направляющий вектор прямой пересечения. Во-первых, он ненулевой, поскольку из непараллельности $\nu_1$ и $\nu_2$ следует, что хотя бы один из определителей, указанных в координатном столбце $\overline{v}$, ненулевой. Во-вторых, $\overline{v} \parallel \nu_1$ и $\overline{v} \parallel \nu_2$. Покажем это на примере $\nu_1$:
+	\[A_1\begin{vmatrix}B_1&C_1\\B_2&C_2\end{vmatrix}+
+	B_1\begin{vmatrix}C_1&A_1\\C_2&A_2\end{vmatrix}+
+	A_1\begin{vmatrix}A_1&B_1\\A_2&B_2\end{vmatrix} = 
+	\begin{vmatrix}A_1&B_1&C_1\\A_1&B_1&C_1\\A_2&B_2&C_2\end{vmatrix}\]
+	
+	Заметим теперь, что определитель матрицы не меняется при транспонировании:
+	\[\begin{vmatrix}A_1&B_1&C_1\\A_1&B_1&C_1\\A_2&B_2&C_2\end{vmatrix} = \begin{vmatrix}A_1&A_1&A_2\\B_1&B_1&B_2\\C_1&C_1&C_2\end{vmatrix} = 0\]
+	
+	Данный определитель равен нулю, поскольку он соответствует ориентированному объему от тройки векторов, среди которых есть два одинаковых. Значит, $\overline{v}$ удовлетворяет критерию параллельности $\nu_1$. Аналогично показывается, что $\overline{v} \parallel \nu_2$.
+\end{proof}
+
+\begin{note}
+	Каждая плоскость в пространстве делит его на два \textit{полупространства}. Пусть в прямоугольной декартовой системе координат плоскость $\nu$ задана уравнением $Ax+By+Cz+D = 0 \Leftrightarrow (\overline{r} \hm{-} \overline{r_0}, \overline{n}) = 0$, причем вектор $\overline{n}$ направлен в полупространство $V$ относительно плоскости $\nu$ (считаем, что $V$ "--- открытое, т.\:е. не содержит саму плоскость $\nu$). Тогда $X(\overline{r}) \in V \Leftrightarrow (\overline{r} \hm{-} \overline{r_0}, \overline{n}) > 0 \hm{\Leftrightarrow} Ax+By+Cz+D > 0$. Противоположное полупространство задается противоположным неравенством.
+	
+	В произвольной декартовой системе координат неравенство $A'x'\hm{+}B'y'+C'z' +D' > 0$ также задает одно из полупространств относительно $\nu$, поскольку при переходе в исходную декартову систему координат выражение $A'x'+B'y'+C'z+D'$ переходит в $Ax\hm{+}By+Cz+D$ (поскольку оба они равны одному и тому же скалярному произведению).
+\end{note}
+
+\begin{definition}
+	\textit{Пучком пересекающихся плоскостей} называется множество всех плоскостей, проходящих через данную прямую.
+\end{definition}
+
+\begin{definition}
+	\textit{Пучком параллельных плоскостей} называется множество всех плоскостей, параллельных данной плоскости.
+\end{definition}
+
+\begin{note}
+	Любые две прямые плоскости ровно в одном пучке.
+\end{note}
+
+\begin{theorem}
+	Пусть в произвольной декартовой системе координат плоскости $\nu_1 \ne \nu_2$ заданы уравнениями $A_1x+B_1y+C_1z+D_1=0$, $A_2x+B_2y+C_2z+D_2=0$. Тогда плоскости, лежащие в том же пучке, что и $\nu_1$ и $\nu_2$, "--- это плоскости, задаваемые уравнениями вида:
+	\[\alpha_1(A_1x+B_1y+C_1z+D_1) + \alpha_2(A_2x+B_2y+C_2z+D_2) = 0\]
+\end{theorem}
+
+\begin{proof}
+	Пусть плоскость $\nu$ задается данным уравнением. Если $\nu_1 \cap \nu_2 = l$, то координаты точки каждой точки на прямой $l$ удовлетворяют данному уравнению, т.\:е. $l \subset \nu$. Если же $\nu_1 \parallel \nu_2$, то из данного уравнения сопутствующий вектор $\nu$ параллелен сопутствующим векторам $\nu_1$ и $\nu_2$ (в этом случае уравнение выше задает плоскость не всегда, но если и задает, то лежащую в данном пучке).
+	
+	Теперь пусть плоскость $\nu$ лежит в данном пучке. Если $\nu_1 \cap \nu_2 = l$, то выберем на $\nu$ точку $Q \not\in l$ с координатами $\begin{pmatrix}x_0\\y_0\\z_0\end{pmatrix}$. Тогда $Q$ удовлетворяет уравнению с коэффициентами $\alpha_1 = A_2x_0+B_2y_0+C_2z_0+D_0$, $\alpha_1 = -(A_1x_0+B_1y_0+C_1z_0+D_2)$, причем хотя бы один из коэффициентов ненулевой (т.\:к. $Q$ лежит не более, чем на одной из плоскостей $\nu_1$, $\nu_2$). Тогда данное уравнение задает $\nu$, т.\:к. ему удовлетворяют все точки прямой и точка, не лежащая на этой прямой. Если же $\nu \parallel \nu_1 \parallel \nu_2$, то аналогичным образом можно выбрать любую точку $Q \in \nu$ и соответствующие коэффициенты, тогда данное уравнение задает $\nu$ при условии, что оно задает плоскость, но это верно всегда, поскольку множество его решений содержит $Q$ (т.\:е. непусто) и не содержит хотя бы одну из плоскостей $\nu_1$, $\nu_2$.
+\end{proof}
+
+\begin{proposition}
+	Пусть плоскости $\nu_1$, $\nu_2$ заданы в прямоугольной системе координат $(O, e)$ уравнениями $A_1x\hm{+}B_1y+C_1z+D_1=0$, $A_2x\hm{+}B_2y\hm{+}C_2z+D_2=0$. Тогда угол $\phi$ между ними удовлетворяет равенству:
+	\[\cos{\phi} = \frac{|A_1A_2+B_1B_2+C_1C_2|}{\sqrt{A_1^2+B_1^2+C_1^2}\sqrt{A_2^2+B_2^2+C_2^2}}\]
+\end{proposition}
+
+\begin{proof}
+	Если $\alpha$ "--- угол между нормальными векторами данных плоскостей $\overline{n_1} \xleftrightarrow[e]{} \begin{pmatrix}A_1\\B_1\\C_1\end{pmatrix}$, $\overline{n_2} \xleftrightarrow[e]{} \begin{pmatrix}A_2\\B_2\\C_2\end{pmatrix}$, то $\phi$ равен меньшему из углов $\alpha$ и $\pi - \alpha$. В каждом из случаев справедливо следующее:
+	\[\cos{\phi} = |\cos{\angle(\overline{n_1}, \overline{n_2})}| = \frac{|A_1A_2+B_1B_2+C_1C_2|}{\sqrt{A_1^2+B_1^2+C_1^2}\sqrt{A_2^2+B_2^2+C_2^2}}\]
+\end{proof}
+
+\begin{proposition}
+	Пусть плоскость $\nu$ задана в прямоугольной системе $(O, e)$ координат уравнением $Ax+By+Cz+D=0$, точка $M(\overline{r_0})$ имеет координаты $\begin{pmatrix}x_0\\y_0\\z_0\end{pmatrix}$. Тогда расстояние $\rho$ от $M$ до $\nu$ равно:
+	\[\rho = \frac{|Ax_0 + By_0 + Cz_0+D|}{\sqrt{A^2 + B^2+C^2}}\]
+\end{proposition}
+
+\begin{proof}
+	Пусть $\overline{n}$ "--- вектор нормали к $\nu$, $X(\overline{r})$ "--- произвольная точка на $l$. Тогда:
+	\[\rho = |\pr_{\overline{n}}(\overline{r_0} - \overline{r})| = \left|\frac{(\overline{r_0} - \overline{r}, \overline{n})}{|\overline{n}|^2}\overline{n}\right| = \left|\frac{(\overline{r_0} - \overline{r}, \overline{n})}{|\overline{n}|}\right| = \frac{|Ax_0 + By_0 + Cz_0+D|}{\sqrt{A^2 + B^2+C^2}}\]
+\end{proof}
+
+\begin{proposition}
+	Пусть плоскости $\nu_1 \parallel \nu_2$ заданы в прямоугольной системе координат $(O, e)$ уравнениями $Ax+By+Cz\hm{+}D_1=0$, $Ax\hm{+}By\hm{+}Cz+D_2=0$. Тогда расстояние $\rho$ между ними равно:
+	\[\rho = \frac{|D_1 - D_2|}{\sqrt{A^2 + B^2 + C^2}}\]
+\end{proposition}
+
+\begin{proof}
+	Пусть $M_1(\overline{r_1})$, $M_2(\overline{r_2})$ "--- произвольные точки на $\nu_1$ и $\nu_2$ соответственно. Т.\:к. $\overline{n_1} = \overline{n_2} = \overline{n}$, $(\overline{r_1}, \overline{n_1}) = -D_1$, $(\overline{r_2}, \overline{n_2}) = -D_2$:
+	\[\rho = |\pr_{\overline{n}}(\overline{r_1} - \overline{r_2})| = \left|\frac{(\overline{r_1}, \overline{n_1}) - (\overline{r_2}, \overline{n_2})}{|\overline{n}|}\right| = \frac{|D_1 - D_2|}{\sqrt{A^2 + B^2 + C^2}}\]
+\end{proof}
+
+\subsection{Прямая в пространстве}
+
+Рассмотрим различные способы задания прямой $l$ в пространстве. Пусть $M (\overline{r_0})$ "--- точка на прямой $l$, $\overline{a}$ "--- направляющий вектор прямой ($\overline{a} \parallel l$, $\overline{a} \ne 0$). Тогда $X (\overline{r}) \in l \Leftrightarrow \overline{MX} \text{ коллинеарен } \overline{a}$. Введем базис $e$ и декартову систему координат $(O, e)$:
+\[M \leftrightarrow_{(O, e)}
+\begin{pmatrix}
+x_0\\y_0\\z_0
+\end{pmatrix},~
+X \leftrightarrow_{(O, e)}
+\begin{pmatrix}
+x\\y\\z
+\end{pmatrix},~
+\overline{a} \xleftrightarrow[e]{}
+\begin{pmatrix}
+\alpha_1\\\alpha_2\\\alpha_3
+\end{pmatrix}\]
+
+\begin{definition} \textit{Векторно-параметрическим уравнением прямой} называется следующее уравнение:
+	\[\overline{r} = \overline{r_0} + t\overline{a}~(t \in \mathbb{R})\]
+\end{definition}
+
+\begin{definition} \textit{Параметрическим уравнением прямой} называется следующая система:
+	\[\left\{
+	\begin{aligned}
+	x = x_0 + t\alpha_1\\
+	y = y_0 + t\alpha_2\\
+	z = z_0 + t\alpha_3
+	\end{aligned}
+	\right.
+	\]
+\end{definition}
+
+\begin{definition}
+	\textit{Каноническим уравнением прямой} называется следующее уравнение:
+	\[\frac{x - x_0}{\alpha_1} = \frac{y - y_0}{\alpha_2} = \frac{z - z_0}{\alpha_3}\]
+\end{definition}
+
+\begin{note}
+	Если, например, $\alpha_1 = 0$ (тогда $\alpha_2 \ne 0$ или $\alpha_3 \ne 0$), то считаем, что $\forall t\in\mathbb{R}: x = x_0$.
+\end{note}
+
+\begin{definition}
+	\textit{Векторным уравнением прямой} называется следующее уравнение:
+	\[[\overline{r} - \overline{r_0}, \overline{a}] = \overline{0} \Leftrightarrow [\overline{r}, \overline{a}] = \overline{b}\]
+\end{definition}
+
+\begin{note}
+	В пространстве прямую также можно задать как пересечение двух плоскостей.
+\end{note}
+
+\begin{note}
+	Рассмотренные способы задания прямой позволяют определить \textit{взаимное расположение прямых в пространстве}. Пусть прямые $l_1, l_2$ заданы векторно-параметрическими уравнениями $\overline{r} \hm{=} \overline{r_1} + t\overline{a_1}$, $\overline{r} = \overline{r_2} + t\overline{a_2}$. Тогда:
+	\begin{itemize}
+		\item $l_1 \parallel l_2 \Leftrightarrow [\overline{a_1}, \overline{a_2}] = \overline{0} \text{ и } [\overline{a_1}, \overline{r_2} - \overline{r_1}] \ne \overline{0}$
+		\item $l_1 = l_2 \Leftrightarrow [\overline{a_1}, \overline{a_2}] = \overline{0} \text{ и } [\overline{a_1}, \overline{r_2} - \overline{r_1}] = \overline{0}$
+		\item $l_1 \cap l_2 \Leftrightarrow (\overline{a_1}, \overline{a_2}, \overline{r_2} - \overline{r_1}) = 0 \text{ и } [\overline{a_1}, \overline{a_2}] \ne \overline{0}$
+		\item $l_1 \text{ и } l_2 \text{ скрещиваются} \Leftrightarrow (\overline{a_1}, \overline{a_2}, \overline{r_2} - \overline{r_1}) \ne 0$
+	\end{itemize}
+\end{note}
+
+\begin{note}
+	Рассмотренные способы задания прямой и плоскости позволяют определить \textit{взаимное расположение прямой и плоскости в пространстве}. Пусть плоскость $\nu$ задана общим уравнением $Ax + By + Cz + D = 0$, прямая $l$ задана векторно-параметрическим уравнением $\overline{r} \hm{=} \overline{r_0} + t\overline{a}$, $\overline{r_0} \xleftrightarrow[e]{} \begin{pmatrix}
+	x_0\\y_0\\z_0\end{pmatrix}$, $\overline{a} \xleftrightarrow[e]{} \begin{pmatrix}
+	\alpha_1\\\alpha_2\\\alpha_3\end{pmatrix}$. Тогда:
+	\begin{itemize}
+		\item $l \cap \nu \Leftrightarrow \overline{a} \nparallel \nu \Leftrightarrow A\alpha_1 + B\alpha_2 + C\alpha_3 \ne 0$
+		\item $l \parallel \nu \text{ и } l \not\subset \nu \Leftrightarrow
+		\left\{\begin{aligned}
+		&A\alpha_1 + B\alpha_2 + C\alpha_3 = 0\\
+		&Ax_0 + By_0 + Cz_0 + D \ne 0
+		\end{aligned}\right.$
+		\item $l \subset \nu \Leftrightarrow
+		\left\{\begin{aligned}
+		&A\alpha_1 + B\alpha_2 + C\alpha_3 = 0\\
+		&Ax_0 + By_0 + Cz_0 + D = 0
+		\end{aligned}\right.$
+	\end{itemize}
+\end{note}
+
+\begin{proposition}
+	Пусть прямая $l$ задана в прямоугольной системе координат $(O, e)$ векторно-параметрическим уравнением $\overline{r} = \overline{r_0} + \overline{a}t$, точка $A(\overline{r_A})$ не лежит на данной прямой. Тогда расстояние $\rho$ от $A$ до $l$ равно:
+	\[\rho = \frac{|[\overline{r_A} - \overline{r_0}, \overline{a}]|}{|\overline{a}|}\]
+\end{proposition}
+
+\begin{proof}
+	Искомое расстояние $\rho$ является высотой параллелограма, построенного на векторах $\overline{r_A} - \overline{r_0}$ и $\overline{a}$, что и дает требуемую формулу.
+\end{proof}
+
+\begin{proposition}
+	Пусть скрещивающиеся прямые $l_1, l_2$ заданы в прямоугольной системе координат $(O, e)$ уравнениями $\overline{r} = \overline{r_1} \hm{+} \overline{a_1}t$, $\overline{r} = \overline{r_2} + \overline{a_2}t$. Тогда расстояние $\rho$ между ними равно:
+	\[\rho = \frac{|(\overline{a_1}, \overline{a_2}, \overline{r_1} - \overline{r_2})|}{|[\overline{a_1}, \overline{a_2}]|}\]
+\end{proposition}
+
+\begin{proof}
+	Искомое расстояние $\rho$ является высотой параллелепипеда, построенного на векторах $\overline{a_1}$, $\overline{a_2}$ и $\overline{r_1} - \overline{r_2}$ (эти векторы гарантированно некомпланарны), что и дает требуемую формулу.
+\end{proof}
