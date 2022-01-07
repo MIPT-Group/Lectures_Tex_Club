@@ -1,0 +1,488 @@
+\section{Линейные функционалы и отображения}
+
+\subsection{Сопряженное пространство}
+
+\begin{definition}
+	Пусть $V$ "--- линейное пространство над полем $F$. Отображение $f : V \rightarrow F$ называется \textit{линейной функцией} (\textit{линейным функционалом}), если оно обладает свойством линейности:
+	\begin{itemize}
+		\item $\forall \overline{v_1}, \overline{v_2} \in V: f(\overline{v_1} + \overline{v_2}) = f(\overline{v_1}) + f(\overline{v_2})$
+		\item $\forall \overline{v} \in V: \forall \alpha \in F: f(\alpha\overline{v}) = \alpha f(\overline{v})$
+	\end{itemize}
+\end{definition}
+
+\begin{definition}
+	Множество линейных функционалов на $V$ называется пространством, \textit{сопряженным} к $V$. Обозначение "--- $V^*$. На этом множестве можно определить операции сложения и умножения на скаляр:
+	\begin{itemize}
+		\item $\forall \overline{f_1}, \overline{f_2} \in V^*: (f_1 + f_2)(\overline{v}) = f_1(\overline{v}) + f_2(\overline{v})$
+		\item $\forall \overline{f} \in V^*: \forall \alpha \in F: (\alpha f)(\overline{v}) = \alpha f(\overline{v})$
+	\end{itemize}
+\end{definition}
+
+\begin{proposition}
+	$V^*$ "--- линейное пространство над $F$.
+\end{proposition}
+
+\begin{proof}
+	Покажем сначала, что $(V^*, +)$ "--- абелева группа:
+	\begin{itemize}
+		\item Ассоциативность и коммутативность следуют из их выполнимости в $(F, +)$.
+		\item Нейтральный элемент "--- $0$: $\forall \overline{v} \in V: 0(\overline{v}) = \overline{0}$.
+		\item Обратный к $f$ элемент "--- это $-f$.
+	\end{itemize}
+
+	Теперь проверим свойства линейного пространства:
+	\begin{itemize}
+		\item $((\alpha + \beta)f)(\overline{v}) = (\alpha + \beta)f(\overline{v}) = \alpha f(\overline{v}) + \beta f(\overline{v}) = (\alpha f)(\overline{v}) + (\beta f)(\overline{v})$
+		\item $(\alpha(f_1 + f_2))(\overline{v}) = \alpha(f_1 + f_2)(\overline{v}) = \alpha(f_1(\overline{v}) + f_2(\overline{v})) = \alpha f_1(\overline{v}) \hm{+} \alpha f_2(\overline{v}) = (\alpha f_1 + \alpha f_2)(\overline{v})$
+		\item $((\alpha \beta) f)(\overline{v}) = (\alpha \beta)f(\overline{v}) = \alpha(\beta f(\overline{v})) = (\alpha(\beta f))(\overline{v})$
+		\item $(1f)(\overline{v}) = 1f(\overline{v}) = f(\overline{v})$
+	\end{itemize}
+\end{proof}
+
+\begin{example}
+	Пусть $e = (e_1, \dots, e_n)$ "--- базис в $V$. Тогда для каждого $i \in \{1, \dots, n\}$ определим $f_i \in V^*$:
+	\[\text{Если }\overline{v} \xleftrightarrow[e]{} \alpha = \begin{pmatrix}\alpha_1\\\vdots\\\alpha_n\end{pmatrix} \text{, то }f_i(\overline{v}) = \alpha_i\]
+\end{example}
+
+\begin{proposition}
+	$(f_1, \dots, f_n)$ "--- базис в $V^*$.
+\end{proposition}
+
+\begin{proof}
+	Сначала докажем, что система $(f_1, \dots, f_n)$ линейно независима. Действительно, если существует нетривиальная линейная комбинация $\lambda_1f_1 + \dots + \lambda_nf_n$, равная нулю, то, в частности, она принимает нулевое значение на базисных векторах $e$. Из того, что $f_i(\overline{e_j}) = \delta_{ij} = \begin{cases}1\text{, если }i = j\\0\text{, если }i \ne j\end{cases}$, следует, что все $\lambda_i = 0$.
+	
+	Теперь покажем, что $\langle f_1, \dots, f_n\rangle = V^*$. Выберем произвольный функционал $f \in V^*$:
+	\[f(\overline{v}) = f\left(\sum_{i = 1}^n\alpha_i\overline{e_i}\right) = \sum_{i = 1}^n\alpha_if(\overline{e_i}) =  \sum_{i = 1}^nf(\overline{e_i})f_i(\overline{v}) = \left(\sum_{i = 1}^nf(\overline{e_i})f_i\right)(\overline{v})\]
+	
+	Для каждого $f$ значения $f(\overline{e_i})$ зафиксированы, поэтому каждый функционал $f$ представим в виде линейной комбинации $f_i$. Таким образом, $(f_1, \dots, f_n)$ "--- базис в $V^*$.
+\end{proof}
+
+\begin{corollary}
+	$\dim{V^*} = \dim{V}$.
+\end{corollary}
+
+\begin{corollary}
+	Функционал $f \in V^*$ в базисе $(f_1, \dots, f_n)$ имеет координаты $(f(\overline{e_1}), \dots, f(\overline{e_n}))$.
+\end{corollary}
+
+\begin{definition}
+	Базис $\mathcal{F} = \begin{pmatrix}
+	f_1\\\vdots\\f_n
+	\end{pmatrix}$ в $V^*$ называется \textit{взаимным} (\textit{сопряженным}) к базису $e = (\overline{e_1}, \dots, \overline{e_n})$ в $V$.
+\end{definition}
+
+\begin{note}
+	Если для $V$ базисные вектора записываются в строку, а координаты "--- в столбец, в $V^*$ удобнее делать это наоборот.
+\end{note}
+
+\begin{proposition}
+	Пусть $e$ и $e'$ "--- базисы в $V$, $\mathcal{F}$ и $\mathcal{F}'$ "--- взаимные к ним базисы в $V^*$. Если $e' = eS$, то $\mathcal{F} = S\mathcal{F}'$.
+\end{proposition}
+
+\begin{proof}
+	Рассмотрим произвольный вектор $\overline{v} \in V$ с координатными столбцами $\alpha$ и $\alpha'$ в базисах $e$ и $e'$ соответственно: $\overline{v} = e\alpha = e'\alpha'$, $\alpha = S\alpha'$. Тогда:
+	\begin{gather*}
+	\mathcal{F}(\overline{v}) = \begin{pmatrix}f_1(\overline{v})\\\vdots\\f_n(\overline{v})\end{pmatrix} = \begin{pmatrix}\alpha_1\\\vdots\\\alpha_n\end{pmatrix} = \alpha\\
+	S\mathcal{F}'(\overline{v}) = S\begin{pmatrix}f_1'(\overline{v})\\\vdots\\f_n'(\overline{v})\end{pmatrix} = S\begin{pmatrix}\alpha_1'\\\vdots\\\alpha_n'\end{pmatrix} = S\alpha' = \alpha
+	\end{gather*}
+\end{proof}
+
+\begin{definition}
+	Пространством, \textit{дважды сопряженным} к $V$, называется пространство, сопряженное к $V^*$: $V^{**} = (V^*)^*$.
+\end{definition}
+
+\begin{example}
+	Пусть $\overline{v} \in V$. Определим $v^{**} \in V^{**}$ следующим образом: $v^{**}(f) = f(\overline{v})$. Проверим, что $v^{**}$ "--- линейный функционал:
+	\begin{itemize}
+		\item $v^{**}(f_1 + f_2) = (f_1 + f_2)(\overline{v}) = f_1(\overline{v}) + f_2(\overline{v}) = v^{**}(f_1) + v^{**}(f_2)$
+		\item $v^{**}(\alpha f) = (\alpha f)(\overline{v}) = \alpha f(\overline{v}) = \alpha v^{**}(f)$
+	\end{itemize}
+\end{example}
+
+\begin{theorem}
+	Отображение $\phi: V \rightarrow V^{**}$ такое, что $\phi(\overline{v}) = v^{**}$ "--- изоморфизм линейных пространств $V$ и $V^{**}$.
+\end{theorem}
+
+\begin{proof}
+	Покажем сначала, что $\phi$ линейно:
+	\begin{multline*}
+		\phi(\overline{v_1} + \overline{v_2})(f) = (\overline{v_1} + \overline{v_2})^{**}(f) = f(\overline{v_1} + \overline{v_2}) =\\ = f(\overline{v_1}) + f(\overline{v_2}) = v_1^{**}(f) + v_2^{**}(f) = \phi(\overline{v_1}) + \phi(\overline{v_2})
+	\end{multline*}
+	\[\phi(\alpha \overline{v})(f) = (\alpha \overline{v})^{**}(f) = f(\alpha \overline{v}) = \alpha f(\overline{v}) = \alpha v^{**}(f) = \alpha \phi(\overline{v})\]
+	
+	Теперь докажем, что $\phi$ "--- биекция. Пусть $e = (\overline{e_1}, \dots, \overline{e_n})$ "--- базис в $V$. Тогда $(e_1^{**}, \dots, e_n^{**})$ "--- линейно независимая система: если некоторая ее линейная комбинация равна нулю, то:
+	\[\forall f \in V^*: \sum_{i = 1}^{n}\alpha_ie_i^{**}(f) = f\left(\sum_{i = 1}^n\alpha_i\overline{e_i}\right) = \sum_{i = 1}^n\alpha_if(\overline{e_i}) = 0\]
+	
+	Равенство должно выполняться, в частности, для функционалов из базиса $\mathcal{F}$, взаимного к $e$, следовательно, $\alpha_1 = \dots = \alpha_n = 0$.
+	
+	Уже было доказано, что $\dim{V} = \dim{V^*} = \dim{(V^*)^*} = n$, поэтому $(e_1^{**}, \dots, e_n^{**})$ "--- базис в $V^{**}$. Итак, $\phi$ отображает $\overline{v} \xleftrightarrow[e]{} \alpha$ в $v^{**} \xleftrightarrow[e^{**}]{} \alpha$, т.\:к. $\phi$ линейно, поэтому $\phi$ "--- биекция.
+\end{proof}
+
+\begin{definition}
+	Изоморфизм $V$ и $V^{**}$ такой, что $\overline{v} \mapsto v^{**}$, называется \textit{каноническим изоморфизмом} $V$ и $V^{**}$.
+\end{definition}
+
+\begin{note}
+	Канонический изоморфизм $\phi$ построен инвариантно: он не опирается на выбор базиса.
+\end{note}
+
+\begin{note}
+	Благодаря каноническому изоморфизму, можно отождествить $\overline{v} \in V$ и $v^{**} \in V^{**}$:
+	\[\forall \overline{v} \in V: \forall f \in V^*: f(\overline{v}) = v^{**}(f) = \overline{v}(f)\]
+\end{note}
+
+\begin{proposition}
+	Любой базис в $V^*$ взаимен некоторому базису в $V$.
+\end{proposition}
+
+\begin{proof}
+	Пусть $(f_1, \dots, f_n)$ "--- базис в $V^*$. У него есть взаимный базис в $V^{**}$ $(e_1^{**}, \dots, e_n^{**})$:
+	\[e^{**}_i(f_j) = \delta_{ij} = \begin{cases}1\text{, если }i = j\\0\text{, если }i \ne j\end{cases} \Leftrightarrow f_j(\overline{e_i}) = \delta_{ij} = \begin{cases}1\text{, если }i = j\\0\text{, если }i \ne j\end{cases}\]
+	
+	Но это означает, что $(f_1, \dots, f_n)$ "--- базис, взаимный к $(\overline{e_1}, \dots, \overline{e_n})$. (Система $(\overline{e_1}, \dots, \overline{e_n})$ линейно независима, поскольку линейно независима система $(e_1^{**}, \dots, e_n^{**})$.)
+\end{proof}
+
+\subsection{Аннуляторы}
+
+\begin{definition}
+	Если $f: A \rightarrow B$ "--- отображение, $A' \subset A$, то \textit{образом} $A'$ называется $\{f(a)~|~a \in A'\}$. Обозначение "--- $f(A')$.
+\end{definition}
+
+\begin{definition}~
+	\begin{enumerate}
+		\item Пусть $V$ "--- линейное пространство над $F$, $W \le V$. Тогда \textit{аннулятором} $W$ называется $W^0 = \{f \in V^*~|~f(W) = \{0\}\}$.
+		\item Пусть $V^*$ "--- пространство, сопряженное к $V$, $U \le V^*$. Тогда \textit{аннулятором} $U$ называется $U^0 = \{v^{**} \in V^{**}~|~v^{**}(U) = \{0\}\} \hm{=} \{\overline{v} \in V~|~\overline{v}(U) = \{0\} \Leftrightarrow \forall f \in U: f(\overline{v}) = 0\}$.
+	\end{enumerate}
+\end{definition}
+
+\begin{note}
+	Т.\:к. $V \cong F^n$, то $U^0$ ($U \le V^*$) "--- это пространство решений однородной системы линейных уравнений, заданной базисом $U$.
+\end{note}
+
+\begin{proposition}
+	$W^0 \le V^*$, $U^0 \le V$.
+\end{proposition}
+
+\begin{proof}
+	Если $f_1, f_2 \in W^0$, то $(f_1 + f_2)(W) \subset f_1(W) \hm{+} f_2(W) = \{0\} \Rightarrow (f_1 + f_2) \in W^0$. Аналогично, если $f \in W^0$, то $\alpha f \in W^0$.
+\end{proof}
+
+\begin{theorem}
+	Пусть $\dim{V} = n$, $W \in V$. Тогда $\dim{W} + \dim{W^0} = n$.
+\end{theorem}
+
+\begin{proof}
+	Пусть $\dim{W} = k$, $(\overline{e_1}, \dots, \overline{e_k})$ "--- базис в $W$. Дополним его до базиса $(\overline{e_1}, \dots, \overline{e_k}, \overline{e_{k+1}}, \dots, \overline{e_n})$ в $V$. Пусть $(f_1, \dots, f_n)$ "--- взаимный к нему базис в $V^*$. Пусть $f \in V^*$, $\alpha$ "--- координатный столбец $f$ в $(f_1, \dots, f_n)$. Тогда $f \in W^0 \Leftrightarrow f(\overline{e_1}) = \dots = f(\overline{e_k}) \hm{=} 0 \Leftrightarrow \alpha_1 \hm{=} \dots = \alpha_k = 0 \Leftrightarrow f \in \langle f_{k+1}, \dots, f_n\rangle$. Таким образом, $W^0 = \langle f_{k+1}, \dots, f_n \rangle$, и, т.\:к. $f_{k+1}, \dots, f_n$ образуют линейно независимую систему, то $\dim{W^0} = n - k$.
+\end{proof}
+
+\begin{theorem}Пусть $V$ "--- линейное пространство, $W, W_1, W_2 \le V$. Тогда:
+	\begin{enumerate}
+		\item $(W^0)^0 = W$
+		\item $W_1 \le W_2 \Leftrightarrow W_2^0 \le W_1^0$
+		\item $(W_1 + W_2)^0 = W_1^0 \cap W_2^0$
+		\item $(W_1 \cap W_2)^0 = W_1^0 + W_2^0$
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}~
+	\begin{enumerate}
+		\item $\overline{v} \in W \Rightarrow \forall f \in W^0: f(\overline{v}) = 0 \Leftrightarrow \forall f \in W^0: \overline{v}(f) = 0 \hm{\Leftrightarrow} \overline{v} \in (W^0)^0$. Значит, $W \subset (W^0)^0$. При этом, $\dim{W} + \dim{W^0} \hm{=} \dim{V} = n$ и $\dim{W^0} + \dim{(W^0)^0} = \dim{V^*} = n$, следовательно, $\dim{W} = \dim{(W^0)^0}$, а это возможно, только если $W = (W^0)^0$.
+		\item Доказательство $\Rightarrow$: пусть $W_1 \le W_2$. Тогда $f \in W_2^0 \Rightarrow f(W_1) \hm{\subset} f(W_2) = \{0\} \Rightarrow f \in W_1$.
+		
+		Доказательство $\Leftarrow$: пусть $W_2^0 \le W_1^0$. Тогда $(W_1^0 )^0 \le (W_2^0)^0$, и, следовательно, $W_1 = (W_1^0)^0 \le (W_2^0)^0 = W_2$.
+		\item Доказательство $\subset$: $W_1 \le W_1 + W_2 \Rightarrow (W_1 + W_2)^0 \le W_1^0$, и, аналогично, $(W_1 + W_2)^0 \le W_2^0$.
+		
+		Доказательство $\supset$: Если $f \in W_1^0 \cap W_2^0$, то $\forall \overline{w_1} \in W_1, \overline{w_2} \in W_2: f(\overline{w_1}) = f(\overline{w_2}) = \overline{0} \Rightarrow f(\overline{w_1} + \overline{w_2}) = 0 \Rightarrow f \in (W_1 + W_2)^0$.
+		\item $(W_1^0 + W_2^0)^0 = (W_1^0)^0 \cap (W_2^0)^0 = W_1 \cap W_2 \Rightarrow ((W_1^0 + W_2^0)^0)^0 \hm{=} W_1^0 + W_2^0 = (W_1 \cap W_2)^0$.
+	\end{enumerate}
+\end{proof}
+
+\begin{note}
+	Из пункта 1 доказанной теоремы следует, что любое подпространство задается однородной системой линейных уравнений. Из пунктов 3 и 4 следует, что поиск суммы подпространств можно свети к поиску пересечения и наоборот.
+\end{note}
+
+\begin{note}
+	В случае пространств, не являющихся конечно порожденными, не все утверждения остаются справедливыми.
+\end{note}
+
+\subsection{Линейные отображения}
+
+\begin{definition}
+	Пусть $U, V$ "--- линейные пространства над полем $F$. \textit{Линейным отображением} (\textit{линейным оператором}) называется такое отображение $\phi: U \rightarrow V$, что:
+	\begin{itemize}
+		\item $\forall \overline{u_1}, \overline{u_2} \in U: \phi(\overline{u_1} + \overline{u_2}) = \phi(\overline{u_1}) + \phi(\overline{u_2})$
+		\item $\forall \overline{u}, \in U: \forall \alpha \in F: \phi(\alpha\overline{u}) = \alpha\phi(\overline{u})$
+	\end{itemize}
+\end{definition}
+
+\begin{definition}
+	Линейное отображение $\phi: V \rightarrow V$ называется \textit{линейным преобразованием}.
+\end{definition}
+
+\begin{example}
+	Линейными отображениями являются:
+	\begin{itemize}
+		\item Поворот вокруг точки (прямой), отражение относительно прямой (плоскости), проекция на прямую (плоскость) в $V_2$ ($V_3$)
+		\item Линейные функционалы (можно считать, что $F$ "--- одномерное линейное пространство над самим собой)
+		\item Изоморфизм линейных пространств
+		\item $\phi: F^n \rightarrow F^k$, $\forall \alpha \in F^n: \phi(\alpha) = A\alpha, A \in M_{k \times n}(F)$
+	\end{itemize}
+\end{example}
+
+\begin{note}
+	В силу линейности:
+	\begin{itemize}
+		\item $\phi(\alpha_1\overline{v_1} + \dots + \alpha_n\overline{v_n}) = \alpha_1\phi(\overline{v_1}) + \dots + \alpha_n\phi(\overline{v_n})$
+		\item $\phi(\overline{0}) = \phi(0\overline{0}) = 0\phi(\overline{0}) = \overline{0}$
+		\item Если система $(\overline{v_1}, \dots, \overline{v_n})$ линейно зависима, то также линейно зависимой будет система $(\phi(\overline{v_1}), \dots, \phi(\overline{v_n}))$
+	\end{itemize}
+\end{note}
+
+\begin{proposition}
+	Пусть $e = (\overline{e_1}, \dots, \overline{e_k})$ "--- базис в $U$, $\overline{v_1}, \dots, \overline{v_n} \hm{\in} V$. Тогда существует единственное линейное отображение $\phi: U \hm{\rightarrow} V$ такое, что $\forall i \in \{1, \dots, k\}: \phi(\overline{e_i}) = \overline{v_i}$.
+\end{proposition}
+
+\begin{proof}
+	Пусть $\overline{u} = e\alpha \in U$. Тогда, если $\phi$ удовлетворяет условиям, то $\phi(\overline{u}) = (\overline{v_1}, \dots, \overline{v_k})\alpha$. Значит, если линейное отображение $\phi$ существует, то оно определяется однозначно. С другой стороны, в силу линейности сопоставления координат $\phi$, заданное условием $\overline{u} = (\overline{v_1}, \dots, \overline{v_k})\alpha$, является линейным отображением. Наконец, $\forall i \in \{1, \dots, k\}: \phi(\overline{e_i}) = \overline{v_i}$.
+\end{proof}
+
+\begin{definition}
+	Пусть $\phi: U \rightarrow V$ "--- линейное отображение. Его \textit{образом} называется $\phi(U)$. Обозначение "--- $\im{\phi}$.
+\end{definition}
+
+\begin{definition}
+	Пусть $\phi: U \rightarrow V$ "--- линейное отображение. Его \textit{ядром} называется $\{\overline{u} \in U~|~\phi(\overline{u})  = \overline{0}\}$. Обозначение "--- $\ke{\phi}$.
+\end{definition}
+
+\begin{proposition}
+	Пусть $U' \le U$, $V' \le V$. Тогда:
+	\begin{enumerate}
+		\item $\phi(U') \le V$
+		\item $\phi^{-1}(V') = \{\overline{u} \in U~|~\phi(\overline{u}) \in V'\} \le U$
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}~
+	\begin{enumerate}
+		\item Пусть $\overline{v_1}, \overline{v_2} \in \phi(U')$, т.\:е. $\exists \overline{u_1}, \overline{u_2} \in U': \phi(\overline{u_1}) = \overline{v_1}, \phi(\overline{u_2}) = \overline{v_2}$. Тогда $(\overline{u_1} + \overline{u_2}) \in U'$ и $\phi(\overline{u_1} + \overline{u_2}) = \overline{v_1} + \overline{v_2} \Rightarrow (\overline{v_1} + \overline{v_2}) \in \phi(U')$. Аналогично, $\forall \alpha \in F: \alpha\overline{u_1} \in U', \phi(\alpha\overline{u_1}) = \alpha\overline{v_1} \Rightarrow \alpha\overline{v_1} \in \phi(U')$. Наконец, $\phi(U') \ne \emptyset$, т.\:к. $\overline{0} \in \phi(U')$.
+		
+		\item Пусть $\overline{u_1}, \overline{u_2} \in \phi^{-1}(V')$, т.\:е. $\phi(\overline{u_1}), \phi(\overline{u_2}) \in V'$. Тогда $\phi(\overline{u_1} \hm{+} \overline{u_2}) = \phi(\overline{u_1}) + \phi(\overline{u_2}) \in V'$. Аналогично, $\forall \alpha \in F: \phi(\alpha\overline{u_1}) \hm{=} \alpha\phi(\overline{u_1}) \in V'$. Наконец, $\phi^{-1}(V') \ne \emptyset$, т.\:к. $\overline{0} \in \phi^{-1}(V')$.
+	\end{enumerate}
+\end{proof}
+
+\begin{corollary}
+	$\im{\phi} \le V, \ke{\phi} \le U$.
+\end{corollary}
+
+\begin{proposition}
+	Если $e = (\overline{e_1}, \dots ,\overline{e_k})$ "--- базис в пространстве $U$, то $\im{\phi} \hm{=} \langle\phi(\overline{e_1}), \dots, \phi(\overline{e_k})\rangle$.
+\end{proposition}
+
+\begin{proof}
+	Доказательство $\subset$: $\forall \overline{u} \in U$ представляется в виде линейной комбинации $e$, поэтому $\phi(\overline{u}) \in \langle \phi(e)\rangle$.
+	
+	Доказательство $\supset$: все векторы из $\phi(e)$ лежат в $\im{\phi}$, при этом $\im{\phi}$ "--- линейное пространство, поэтому $\langle\phi(e)\rangle \subset \im{\phi}$.
+\end{proof}
+
+\begin{proposition}
+	Пусть $\phi: U \rightarrow V$ "--- линейное отображение. Тогда $\phi$ инъективно $\Leftrightarrow$ $\ke{\phi} = \{\overline{0}\}$.
+\end{proposition}
+
+\begin{proof}
+	Доказательство $\Rightarrow$: если $\phi$ инъективно, то $\exists! \overline{u} \hm{=} \overline{0} \in U: \phi(\overline{u}) = \overline{0}$.
+	
+	Доказательство $\Leftarrow$: Предположим, что $\phi$ не инъективно, то есть $\exists \overline{u_1}, \overline{u_2} \in U: \phi(\overline{u_1}) = \phi(\overline{u_2})$. Но тогда $\phi(\overline{u_1} - \overline{u_2}) = \overline{0}$ и $(\overline{u_1} - \overline{u_2}) \hm{\in} \ke{\phi}$, при этом $\overline{u_1} - \overline{u_2} \ne \overline{0}$.
+\end{proof}
+
+\begin{proposition}
+	Пусть $\phi: U \rightarrow V$ "--- линейное отображение. Тогда $\phi$ инъективно $\Leftrightarrow$ $\phi$ переводит линейно независимые системы в линейно независимые.
+\end{proposition}
+
+\begin{proof}
+	Доказательство $\Rightarrow$: пусть система $(\phi(\overline{u_1}), \dots, \phi(\overline{u_n}))$ линейно зависима. Тогда существует ее нетривиальная линейная комбинация, равная нулю:
+	\[\sum_{i = 1}^n\alpha_i\phi(\overline{u_i}) = \overline{0} \Leftrightarrow \phi\left(\sum_{i = 1}^n\alpha_i\overline{u_i}\right) = \overline{0}\]
+	Но $\phi$ инъективно, поэтому $\alpha_1\overline{u_1} + \dots + \alpha_n\overline{u_n} = \overline{0}$ "--- система $(\overline{u_1}, \dots, \overline{u_n})$ тоже линейно зависима. Итак, если образ системы линейно зависим, то и сама система линейно зависима, поэтому образ линейно независимой системы линейно независим.
+	
+	Доказательство $\Leftarrow$: Предположим, что $\phi$ не инъективно, то есть $\exists \overline{u_1}, \overline{u_2} \in U: \phi(\overline{u_1}) = \phi(\overline{u_2})$. Тогда $\overline{u} = \overline{u_1} - \overline{u_2} \ne \overline{0}$ и $\phi(\overline{u}) = \overline{0}$. Т.\:к. $\overline{u}$ ненулевой, он соответствует нетривиальной линейной комбинации базисных векторов $(\overline{e_1}, \dots, \overline{e_k})$ в $U$:
+	
+	\[\sum_{i = 1}^{k}\alpha_i\overline{e_i} = \overline{u} \Rightarrow \phi\left(\sum_{i = 1}^{k}\alpha_i\overline{e_i}\right) = \sum_{i = 1}^{k}\alpha_i\phi(\overline{e_i}) = \overline{0}\]
+	
+	Таким образом, система $(\phi(\overline{e_1}), \dots, \phi(\overline{e_k}))$ линейно зависима. Итак, если $\phi$ не инъективно, то существует линейно независимая система, которую оно переводит в линейно зависимую систему.
+\end{proof}
+
+\begin{proposition}
+	Пусть $\phi: U \rightarrow V$ "--- линейное отображение, $W$ "--- прямое дополнение $\ke{\phi}$ в $U$ $(U = \ke{\phi} \oplus W)$. Тогда сужение $\phi|_W : W \rightarrow V$ осуществляет изоморфизм между $U$ и $\im{U}$.
+\end{proposition}
+
+\begin{proof}
+	$\phi|_W$ линейно, поскольку свойство линейности справедливо для $\phi$. Значит, требуется доказать, что $\phi|_W$ "--- биекция.
+	
+	Во-первых, $\phi|_W$ инъективно, т.\:к. $ \ke{\phi|_W} = \ke{\phi} \cap W = \{\overline{0}\}$.
+	
+	Во-вторых, $\phi|_W$ сюръективно относительно $\im{\phi}$, т.\:к. $\forall \overline{v} \in \im{\phi}: \exists \overline{u} \in U: \phi(\overline{u}) = \overline{v}$, и при этом $\exists \overline{k} \in \ke{\phi}, \overline{w} \in W: \overline{u} = \overline{k} + \overline{w}$, тогда $\phi(\overline{u}) = \phi(\overline{k}) + \phi(\overline{w}) = \phi(\overline{w})$, т.\:е. $\forall \overline{v} \in \im{\phi}: \exists \overline{w} \in W: \phi(\overline{w}) = \overline{v}$.
+\end{proof}
+
+\begin{theorem}
+	$\dim{\ke{\phi}} + \dim{\im{\phi}} = \dim{U}$.
+\end{theorem}
+
+\begin{proof}
+	Выберем $W \le U$ такое, что $\ke{\phi} \oplus W = U$, тогда $W \cong \im{\phi}$. Тогда, по свойству прямой суммы $\dim{U} = \dim{\ke{\phi}} \hm{+} \dim{W} = \dim{\ke{\phi}} + \dim{\im{\phi}}$.
+\end{proof}
+
+\begin{proposition}
+	Пусть $\overline{v_0} \in \im{\phi}$, $\overline{u_0} \in U: \phi(\overline{u_0}) = \overline{v_0}$. Тогда $\phi^{-1}(\overline{v_0}) = \overline{u_0} + \ke{\phi}$.
+\end{proposition}
+
+\begin{proof}
+	Если $\overline{u} \in U$ таков, что $\phi(\overline{u}) = \overline{v_0}$. Тогда $\phi(\overline{u}) \hm{=} \phi(\overline{u_0}) \Leftrightarrow \phi(\overline{u} - \overline{u_0}) = \overline{0} \Leftrightarrow (\overline{u} - \overline{u_0}) \in \ke{\phi} \Leftrightarrow \overline{u} \in \overline{u_0} + \ke{\phi}$.
+\end{proof}
+
+\begin{note}
+	Данное утверждение аналогично тому, что общее решение системы $Ax = b$ имеет вид $x_0 + \Phi\gamma$.
+\end{note}
+
+\begin{definition}
+	Пусть $\phi: U \rightarrow V$ "--- линейное отображение. Пусть $e = (\overline{e_1}, \dots, \overline{e_k})$ "--- базис в $U$, $\mathcal{F} = (\overline{f_1}, \dots, \overline{f_n})$ "--- базис в $V$. Тогда \textit{матрицей отображения} $\phi$ в базисах $e$ и $\mathcal{F}$ называется следующая матрица $A \in M_{n \times k}(F)$:
+	\[\forall i \in \{1, \dots, k\}: \phi(\overline{e_i}) = \mathcal{F}\alpha_i \Rightarrow A = (\alpha_1|\dots|\alpha_k)\]
+	
+	Обозначение "--- $\phi \xleftrightarrow[e, \mathcal{F}]{} A$.
+\end{definition}
+
+\begin{note}
+	Если $\phi$ "--- линейное преобразование, матрица отображения определяется в одном базисе.
+\end{note}
+
+\begin{note}
+	Соответствие $\phi \xleftrightarrow[e, \mathcal{F}]{} A$ взаимно однозначно: каждому отображению соответствует некоторая матрица, различным отображениям "--- различные матрицы, и, более того, каждой матрице соответствует некоторое отображение.
+\end{note}
+
+\begin{definition}
+	Обозначим через $\mathcal{L}(U, V)$ множество линейных отображений из $U$ в $V$, $\mathcal{L}(V)$ "--- множество линейных преобразований пространства $V$.
+\end{definition}
+
+\begin{proposition}
+	$\mathcal{L}(U, V)$ "--- линейное пространство.
+\end{proposition}
+
+\begin{proof}
+	Проверка свойств линейного пространства аналогична проверке для множества линейных функционалов.
+\end{proof}
+
+\begin{proposition}
+	Соответствие $\phi \xleftrightarrow[e, \mathcal{F}]{} A$ осуществляет изоморфизм между $\mathcal{L}(U, V)$ и $M_{n\times k}(F)$.
+\end{proposition}
+
+\begin{proof}
+	Уже доказано, что $\psi : \mathcal{L}(U, V) \rightarrow M_{n\times k}(F)$ биективно. Проверим линейность данного отображения:
+	\begin{itemize}
+		\item $\forall \phi_1, \phi_2 \in \mathcal{L}(U)(V): \psi(\phi_1 + \phi_2) = \psi(\phi_1) + \psi(\phi_2)$, т.\:к. $\forall i \hm{\in} \{1, \dots, k\}: (\phi_1 + \phi_2)(\overline{e_i}) = \phi_1(\overline{e_i}) + \phi_2(\overline{e_i})$ "--- каждый из столбцов матрицы $\phi_1 + \phi_2$ "--- это сумма соответствующих столбцов матриц $\phi_1$ и $\phi_2$.
+		\item Аналогично, $\forall \alpha \in F: \forall \phi \in \mathcal{L}(U)(V): \psi(\alpha\phi) = \alpha\psi(\phi)$.
+	\end{itemize}
+\end{proof}
+
+\begin{proposition}
+	Пусть $\phi: U \rightarrow V$ "--- линейное отображение, $\phi \xleftrightarrow[e, \mathcal{F}]{} A$, $\overline{u} \in U$, $\overline{u} \xleftrightarrow[e]{} \alpha$. Тогда $\phi(\overline{u}) \xleftrightarrow[\mathcal{F}]{} A\alpha$.
+\end{proposition}
+
+\begin{proof}
+	\[\phi(\overline{u}) = \phi(e\alpha) = \phi(e)\alpha = \mathcal{F}	A\alpha \Rightarrow \phi(\overline{u}) \xleftrightarrow[\mathcal{F}]{} A\alpha\]
+\end{proof}
+
+\begin{proposition}
+	Если $\phi \xleftrightarrow[e, \mathcal{F}]{} A$, то $\rk{A} = \dim{\im{\phi}}$ (т.\:е. $\rk{A}$ не зависит от выбора базисов).
+\end{proposition}
+
+\begin{proof}
+	Пусть $e = (\overline{e_1}, \dots, \overline{e_k})$, $\phi(\overline{e_i}) \xleftrightarrow[\mathcal{F}]{} \alpha_i$. Тогда $\rk{A} \hm{=} \dim{\langle \alpha_1, \dots, \alpha_k\rangle} = \dim{\langle \phi(\overline{e_1}), \dots, \phi(\overline{e_k})\rangle}$ (в силу изоморфизма $V$ и $F^n$). Т.\:к. $\langle \phi(\overline{e_1}), \dots, \phi(\overline{e_k})\rangle = \dim{\im{\phi}}$, то $\rk{A} = \dim{\im{\phi}}$.
+\end{proof}
+
+\begin{definition}
+	$\dim{\im{\phi}}$ называется \textit{рангом отображения} $\phi$.
+\end{definition}
+
+\begin{proposition}
+	Пусть $e, e'$ "--- два базиса в $U$, $e' = eS$ $(S \hm{\in} M_{k \times k}(F))$, $\mathcal{F}, \mathcal{F}'$ "--- два базиса в $V$, $\mathcal{F}' = \mathcal{F}T$ $(T \in M_{n \times n}(F))$. Рассмотрим линейное отображение $\phi: U \rightarrow V$, $\phi \xleftrightarrow[e, \mathcal{F}]{} A$, $\phi \xleftrightarrow[e', \mathcal{F}']{} A'$. Тогда:
+	\[A' = T^{-1}AS\]
+\end{proposition}
+
+\begin{proof}
+	Уже известно, что $\phi(e) = \mathcal{F}A$, $\phi(e') = \mathcal{F}'A'$. С другой стороны, $\phi(e') = \phi(eS) = \phi(e)S$ (в силу линейности). Итак, $\phi({e'}) = \mathcal{F}AS = \mathcal{F'}T^{-1}AS$, значит, $A' = T^{-1}AS$.
+\end{proof}
+
+\begin{corollary}
+	Если $\phi \in \mathcal{L}(V)$, $e, e'$ "--- два базиса в $V$, $e' = eS$, $\phi \xleftrightarrow[e]{} A$, $\phi \xleftrightarrow[e']{} A'$, то $A' = S^{-1}AS$.
+\end{corollary}
+
+\begin{theorem}
+	Пусть $\phi: U \rightarrow V$ "--- линейное отображение. Тогда существуют базисы $e$, $\mathcal{F}$ в $U$, $V$ такие, что:
+	\[\phi \xleftrightarrow[e, \mathcal{F}]{} \left(\begin{array}{@{}c|c@{}}
+	E & 0\\
+	\hline
+	0 & 0
+	\end{array}\right)\]
+\end{theorem}
+
+\begin{proof}
+	Рассмотрим $\ke{\phi} \le U$ и возьмем $W$ "--- прямое дополнение $\ke{\phi}$ в $U$: $\ke{\phi} \oplus W = U$. Пусть $(\overline{e_1}, \dots, \overline{e_s})$ "--- базис в $W$, $(\overline{e_{s+1}}, \dots, \overline{e_k})$ "--- базис в $\ke{\phi}$, тогда $e = (\overline{e_1}, \dots, \overline{e_k})$ "--- базис в $U$. Уже было доказано, что $\phi|_W$ "--- изоморфизм между $W$ и $\im{\phi}$, тогда $(\phi(\overline{e_1}), \dots \phi(\overline{e_s})) = (\overline{f_1}, \dots, \overline{f_s})$ "--- базис в $\im{\phi}$. Дополним его до базиса $\mathcal{F} = (\overline{f_1}, \dots, \overline{f_n})$ в $V$. Тогда базисы $e$ и $\mathcal{F}$ и являются искомыми.
+\end{proof}
+
+\begin{note}
+	Если $\phi \in \mathcal{L}(V)$, то базисы уже нельзя выбрать независимо друг от друга, поэтому нельзя гарантировать справедливость теоремы.
+\end{note}
+
+\subsection{Алгебры}
+
+\begin{definition}
+	Пусть $f: A \rightarrow B$, $g: B\rightarrow C$ "--- отображения. \textit{Композицей} отображений называется отображение $g \circ f: A \rightarrow C$ такое, что $\forall a \in A: (g \circ f)(a) = g(f(a))$.
+\end{definition}
+
+\begin{proposition}
+	Пусть $U, V, W$ "--- линейные пространства над $F$, базисы "--- $e, \mathcal{F}, \mathcal{G}$. $\phi: U \rightarrow V$ и $\psi: V \rightarrow W$ "--- линейные отображения. Тогда $\psi \circ \phi$ "--- тоже линейное отображение, причем если $\phi \xleftrightarrow[e, \mathcal{F}]{} A$, $\psi \xleftrightarrow[\mathcal{F}, \mathcal{G}]{} B$, то $\psi \circ \phi \xleftrightarrow[e, \mathcal{G}]{} BA$.
+\end{proposition}
+
+\begin{proof}
+	Уже известно, что $\phi(e) = \mathcal{F}A$, $\psi(\mathcal{F}) = \mathcal{G}B$. Тогда $(\psi \circ \phi)(e) = \psi(\phi(e)) = \psi(\mathcal{F}A) = \psi(\mathcal{F})A = \mathcal{G}BA$.
+\end{proof}
+
+\begin{corollary}
+	Если $\phi, \psi \in \mathcal{L}(V)$, $e$ "--- базис $V$, $\phi \xleftrightarrow[e]{} A$, $\psi \xleftrightarrow[e]{} B$, то $\psi \circ \phi \xleftrightarrow[e]{} BA$.
+\end{corollary}
+
+\begin{corollary}
+	Если определить умножение в $\mathcal{L}(V)$ как композицию отображений, то $\mathcal{L}(V)$ является кольцом, изоморфным $M_n(F)$, где $n = \dim{V}$.
+\end{corollary}
+
+\begin{proof}
+	Операциями в $\mathcal{L}(V)$ "--- это сложение и композиция. Зафиксируем базис $e$ в $V$ и рассмотрим отображение $\Theta: \mathcal{L}(V) \hm{\rightarrow} M_n(F)$, $\forall \phi \in \mathcal{L}(V): \Theta(\phi)$ "--- матрица отображения $\phi$ в базисе $e$. Уже было доказано, что $\Theta$ "--- изоморфизм линейных пространств, значит, в частности, биекция. Кроме того, $\Theta(\psi \circ \phi) = \Theta(\psi)\Theta(\phi)$. Из этого следует, что $\mathcal{L}(V)$ "--- кольцо: выполнение аксиом кольца в нем равносильно выполнению их $M_n(F)$. Например, дистрибутивность можно показать так:
+	\begin{multline*}
+	\Theta(\psi \circ (\phi_1 + \phi_2)) = \Theta(\psi)\Theta(\phi_1 + \phi_2) = \Theta(\psi)(\Theta(\phi_1) + \Theta(\phi_2)) =\\ = \Theta(\psi)\Theta(\phi_1) + \Theta(\psi)\Theta(\phi_2) = \Theta(\psi \circ \phi_1) + \Theta(\psi \circ \phi_2) = \Theta(\psi \circ \phi_1 + \psi \circ \phi_2)
+	\end{multline*}
+	
+	Равенство $\psi \circ (\phi_1 + \phi_2) \hm{=} \psi \circ \phi_1 + \psi \circ \phi_2$ выполняется потому, что $\Theta$ "--- биекция. Таким образом, $\mathcal{L}(V)$ "--- кольцо, а $\Theta$ "--- изоморфизм колец.
+\end{proof}
+
+\begin{definition}
+	Кольцо $(R, +, \cdot)$ называется \textit{алгеброй} над полем $F$, если на нем определено умножение на элементы поля $F$ ($\forall r \in R: \forall \alpha \in F: \alpha r \in R$), удовлетворяющее следующим свойствам:
+	\begin{itemize}
+		\item $(R, +)$ "--- линейное пространство над $F$
+		\item $\forall r_1, r_2 \in R: \forall \alpha \in F: \alpha (r_1r_2) = (\alpha r_1)r_2 = r_1 (\alpha r_2)$
+	\end{itemize}
+\end{definition}
+
+\begin{definition}
+	\textit{Изоморфизмом алгебр} называется такое отображение, которое одновременно является изоморфизмом колец и линейных пространств.
+\end{definition}
+
+\begin{note}
+	Построенное ранее отображение $\Theta: \mathcal{L}(V) \rightarrow M_n(F)$ является изоморфизмом алгебр.
+\end{note}
+
+\begin{example}
+	Алгебрами являются:
+	\begin{itemize}
+		\item $\mathcal{L}(V)$ и $M_n(F)$ над полем $F$
+		\item Поле $F$ над самим собой
+		\item $\mathbb{R}[x]$ над $\mathbb{R}$
+	\end{itemize}
+\end{example}
