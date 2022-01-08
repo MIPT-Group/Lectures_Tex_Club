@@ -18,7 +18,7 @@
     $\displaystyle E_{\theta }( d\ |\ T( X))$ -- несмещенная оценка и является функцией от $\displaystyle T$.
 \end{proof}
 \begin{theorem}
-    (об экспоненциальном семействе) Пусть $\displaystyle X_{1} ,\ \dotsc ,\ X_{n}$ -- выборка из экспоненциального семейства распределений. Если множество значений вектор-функции $\displaystyle \forall \theta \ \overline{a}( \theta ) =\begin{pmatrix}
+    (об экспоненциальном семействе, б/д) Пусть $\displaystyle X_{1} ,\ \dotsc ,\ X_{n}$ -- выборка из экспоненциального семейства распределений. Если множество значений вектор-функции $\displaystyle \forall \theta \ \overline{a}( \theta ) =\begin{pmatrix}
     a_{0}( \theta ) & \dotsc  & a_{k}( \theta )
     \end{pmatrix}$ из определения экспоненциального семейства содержит $\displaystyle k$-мерный параллелепипед в $\displaystyle \mathbb{R}^{k}$, то $\displaystyle T( X) =\begin{pmatrix}
     T_{1}( X) & \dotsc  & T_{k}( X)
@@ -85,13 +85,13 @@ $\displaystyle X_{1} ,\ \dotsc ,\ X_{n}$ -- независимые одинак�
 
 
 \begin{equation*}
-p( F( x_{i}) \leqslant y) =P\left( x_{i} \leqslant F^{-1}( y)\right) ,
+P( F( x_{i}) \leqslant y) =P\left( x_{i} \leqslant F^{-1}( y)\right) ,
 \end{equation*}
 где $\displaystyle y\in ( 0,\ 1) ,\ F^{-1}( y) =\min( x:\ F( x) =y)$. Следовательно, $\displaystyle F\left( F^{-1}( y)\right) =y$. Тогда
 
 
 \begin{equation*}
--\ln F( x_{i}) \ \sim \ exp( 1) \Rightarrow G( X_{1} ,\ \dotsc ,\ X_{n}) =-\sum _{i=1}^{n}\ln F( X_{i}) \ \sim \ \Gamma ( 1,\ n) .
+-\ln F( x_{i}) \ \sim \ Exp( 1) \Rightarrow G( X_{1} ,\ \dotsc ,\ X_{n}) =-\sum _{i=1}^{n}\ln F( X_{i}) \ \sim \ \Gamma ( 1,\ n) .
 \end{equation*}
 \end{proof}
 \begin{corollary}
