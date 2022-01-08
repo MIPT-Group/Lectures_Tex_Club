@@ -1,0 +1,327 @@
+\section{Основы теории групп}
+	
+\subsection{Изоморфизмы групп}
+
+\begin{proposition}
+	Невырожденные матрицы порядка $n$ образуют группу по умножению.
+\end{proposition}
+
+\begin{proof}
+	Проверим непосредственно свойства группы:
+	\begin{itemize}
+		\item Уже было доказано, что умножение матриц ассоциативно.
+		\item $E_n$ "--- невырожденная матрица, и она является нейтральным элементом по умножению.
+		\item Если $A, B$ "--- невырожденные матрицы порядка $n$, то $AB$ "--- тоже. Кроме того, $A$ и $B$ обратимы, и $A^{-1}$, $B^{-1}$ тоже невырожденные.
+	\end{itemize}
+\end{proof}
+
+\begin{proposition}
+$GL_n(\mathbb{Z}) = \{A \in M_n(\mathbb{Z})~|~\exists A^{-1} \in M_n(\mathbb{Z})\}$ "--- это группа матриц с определителем, равным $\pm1$.
+\end{proposition}
+
+\begin{proof}
+Если $A, A^{-1} \in GL_n(\mathbb{Z})$, то $\det{A}\det{A^{-1}} = \det{E} \hm{=} 1$, тогда $\det{A}, \det{A^{-1}} = \pm1$. Напротив, если $\det{A} = \pm 1$, то, по формуле Крамера, $A^{-1} \in M_n(\mathbb{Z})$, и, аналогично, $\det{A^{-1}} = \pm1$, тогда $A^{-1} \in GL_n(\mathbb{Z})$.
+\end{proof}
+
+\begin{definition}
+	Группа невырожденных матриц порядка $n$ над полем $F$ обозначается как $GL_n(F)$ "--- \textit{general linear group}.
+\end{definition}
+
+\begin{definition}
+	Группа невырожденных матриц порядка $n$ над полем $F$ с определителем, равным 1, обозначается как $SL_n(F)$ "--- \textit{special linear group}. Кроме того, $SL_n(F) \le GL_n(F)$.
+\end{definition}
+
+\begin{definition}
+	\textit{Порядком группы} называется количество элементов в группе.
+\end{definition}
+
+\begin{definition}
+	Пусть $G, H$ "--- группы. \textit{Гомоморфизмом} групп $G$ и $H$ называется такое отображение $\phi : G \rightarrow H$, что $\forall a,b \in G: \phi(ab) = \phi(a)\phi(b)$. Гомоморфизм называется \textit{изоморфизмом}, если он также является биекцией.
+	
+	Если изоморфизм $\phi: G \rightarrow H$ существует, то группы $G$ и $H$ называются \textit{изоморфными}. Обозначение "--- $G \cong H$.
+\end{definition}
+
+\begin{note}
+	Аналогичным образом можно определить изоморфизм и для других алгебраических структур.
+\end{note}
+
+\begin{proposition}
+	Если $\phi: G \rightarrow H$ "--- гомоморфизм групп, то:
+	\begin{itemize}
+		\item $\phi(e) = e$
+		\item $\phi(a^{-1}) = (\phi(a))^{-1}$
+	\end{itemize}
+\end{proposition}
+
+\begin{proof}~
+	\begin{itemize}
+		\item $\phi(e) = \phi(ee) = \phi(e)\phi(e) \Rightarrow \phi(e) = e$
+		\item $\phi(e) = \phi(aa^{-1}) = \phi(a)\phi(a^{-1}) \Rightarrow \phi(a^{-1}) = (\phi(a))^{-1}\phi(e) \hm{=} (\phi(a))^{-1}$
+	\end{itemize}
+\end{proof}
+
+\begin{example}
+	Гомоморфизмом $\mathbb{Z}$ и $\mathbb{Z}_n$ является $\phi: \mathbb{Z} \rightarrow \mathbb{Z}_n$: $\phi(a) = \overline{a}$.
+\end{example}
+
+\begin{theorem}[Кэли]
+	Пусть $G$ "--- произвольная конечная группа, $|G| = n$. Тогда $\exists H \le S_n: H \cong G$ ($G$ вкладывается в $S_n$).
+\end{theorem}
+
+\begin{proof}
+	Рассмотрим группу $S(G)$ всех перестановок множества $G$ (т.\:е. биекций $G \rightarrow G$). $S(G) \cong S_n$, поскольку можно построить биекцию $G \rightarrow \{1, \dots, n\}$. Найдем требуемую подгруппу в $S(G)$. $\forall a \in G$ определим	$\sigma_a \in S(G): \forall b \in G: \sigma_a(b) = ab$. Перестановка, обратная к $\sigma_a$ "--- это $(\sigma_a)^{-1} \in S(G): \forall b \in G: (\sigma_a)^{-1}(b) = a^{-1}b$. Положим $H = \{\sigma_a \in S(G)~|~a \in G\}$.
+	
+	Заметим, что $\forall x \in G: (\sigma_a \circ \sigma_b)(x) = abx = \sigma_{ab}(x)$, $\sigma_e = \id$, $\forall x \in G: (\sigma_a \circ \sigma_{a^{-1}})(x) = ex = x = \sigma_e(x)$. Следовательно, $H \le S(G)$, и, более того, $\phi: G \rightarrow H$, $\forall a \in G: \phi(a) = \sigma_a$ "--- гомоморфизм, т.\:к. $\phi(ab) = \sigma_{ab} = \sigma(a) \circ \sigma(b) = \phi(a)\circ\phi(b)$. Наконец, $\phi$ сюръективно (каждому $\sigma_a \in H$ соответствует $a \in G$) и инъективно (при $a \ne b$ $\sigma_a(e) \ne \sigma_b(e)$, т.\:е. $\sigma_a \ne \sigma_b$). Итак, $\phi$ "--- изоморфизм $G$ и $H \le S(G)$, причем $S(G) \cong S_n$.
+\end{proof}
+
+\subsection{Циклические группы}
+
+\begin{proposition}
+	Пусть $G$ "--- группа, $\{H_\alpha\}$ "--- произвольное семейство подгрупп $G$. Тогда:
+	\[\bigcap_{\alpha} H_\alpha \le G\]
+\end{proposition}
+
+\begin{proof}
+	Нейтральный элемент $e$ лежит в каждой из подгрупп. Если $a, b$ лежат в каждой из подгрупп, то и $ab$ лежит в каждой из подгрупп, как и $a^{-1}$, $b^{-1}$.
+\end{proof}
+
+\begin{definition}
+	Пусть $G$ "--- группа, $X \subset G$. \textit{Подгруппой, порожденной множеством} $X$, называется:
+	\[\langle X\rangle = \bigcap_{H \le G~(X \subset H)}H\]
+	
+	Иными словами, $\langle X\rangle$ "--- наименьшая по включению подгруппа $G$, содержащая $X$.
+\end{definition}
+
+\begin{example}~
+	\begin{itemize}
+		\item $\mathbb{Z} = \langle 1 \rangle$
+		\item $2\mathbb{Z} = \langle 2 \rangle$
+		\item $\{e\} = \langle \emptyset \rangle$
+	\end{itemize}
+\end{example}
+
+\begin{proposition}
+	$S_n = \langle (1, 2), (1, \dots, n)\rangle$.
+\end{proposition}
+
+\begin{proof}
+	Уже было доказано, что $\forall \sigma \in S_n$ можно представить в виде произведения транспозиций вида $(i, i+1)$. В то же время, любую такую транспозицию можно представить в виде произведения двух перестановок из условия: сначала циклическими сдвигами поместить элементы $i, i+1$ на позиции $1, 2$, затем поменять их местами и циклическими сдвигами вернуть на свои позиции.
+\end{proof}
+
+\begin{proposition}
+	Пусть $G$ "--- группа, $X \subset G$. Тогда подгруппа, порожденная $X$, имеет вид $\langle X\rangle = \{x_1\dots x_n~|~x_i \in X \lor x_i^{-1} \in X\}$.
+\end{proposition}
+
+\begin{proof}
+	Обозначим правую часть требуемого равенства через $K$. $\forall H \le G~(X \subset H)$ каждый из множителей $x_i$ содержится в $H$ (поскольку $H$ "--- группа), тогда и $x_1\dots x_n \in H$. Значит, $\forall H \hm{\le} G~(X \subset H): K \subset H$, тогда $K \subset \langle X\rangle$.
+	
+	Покажем теперь, что $\langle X\rangle \subset K$. Для этого докажем, что $K \le G$. Действительно, если $x_1\dots x_n, y_1\dots y_k \in K$, то, поскольку $x_i \in X \hm{\lor} x_i^{-1} \in X$ и $y_i \in X \lor y_i^{-1} \in X$, то $x_1\dots x_ny_1\dots y_k \in K$, и, кроме того, $(x_1\dots x_n)^{-1} = x_n^{-1}\dots x_1^{-1} \in K$, $(y_1\dots y_k)^{-1} = x_k^{-1}\dots y_1^{-1} \in K$. Наконец, $e \in K$, т.\:к. мы считаем, что произведение нуля множителей "--- это  $e$. Итак, $K \le G$, причем $X \subset K$. Следовательно, по определению $\langle X\rangle$, $\langle X\rangle \subset K$.
+\end{proof}
+
+\begin{definition}
+	Пусть $G$ "--- группа, $a \in G$. \textit{Степень} $n \in \mathbb{Z}$ элемента $a$ определяется следующим образом:
+	\[a^n = \begin{cases}
+	\underbrace{a\dots a}_{n}\text{, если $n > 0$}\\
+	e\text{, если $n = 0$}\\
+	\underbrace{a^{-1}\dots a^{-1}}_{-n}\text{, если $n < 0$}
+	\end{cases}\]
+\end{definition}
+
+\begin{note}
+	Для степени, определенной так, остается справедливым свойство $a^{n}a^{k} = a^{n + k}$. В этом можно убедиться непосредственной проверкой всех случаев знаков чисел $n$ и $k$.
+\end{note}
+
+\begin{definition}
+	\textit{Порядком} элемента $a$ называется наименьшее $n \in \mathbb{N}$ такое, что $a^n = e$. Если такого $n$ не существует, то порядок считается равным $\infty$. Обозначения "--- $\ord{a}$, $|a|$.
+\end{definition}
+
+\begin{proposition}
+	Пусть $G$ "--- группа, $a \in G$, $\ord{a} = n$. Тогда $a^k = e \Leftrightarrow n~|~k$.
+\end{proposition}
+
+\begin{proof}
+	Разделим $k$ на $n$ с остатком: $k = qn + r$, $r \hm{\in} \{0, \dots, n-1\}$. Тогда $a^k = a^{qn + r} = (a^n)^qa^r = a^r$. Если $r \ne 0$, то $a^r \ne e$, иначе бы порядок $a$ был меньше $n$, что противоречит условию. Значит, $a^k = e \Leftrightarrow r = 0$, т.\:е. $a^k = e \Leftrightarrow n~|~k$.
+\end{proof}
+
+\begin{proposition}
+	Пусть $G$ "--- группа, $a \in G$. Тогда $\ord{a} = |\langle a\rangle|$.
+\end{proposition}
+
+\begin{proof}
+	Рассмотрим сначала случай, когда $\ord{a} = n \in \mathbb{N}$. Тогда $\forall k \in \mathbb{Z}: a^k \in \{e, a, \dots, a^{n-1}\}$, т.\:к. аналогично предыдущему утверждению $k$ можно разделить с остатком на $n$. Уже было доказано, что $\langle a\rangle = \{a^k~|~k \in \mathbb{Z}\} = \{e, a, \dots, a^{n-1}\}$. Следовательно, $|\langle a\rangle| \le n$. Кроме того, все эти элементы различны: если это не так и $\exists r, s \in \{1, \dots, n-1\}, r < s: a^r = a^s$, то $a^{s - r} = e$, и порядок $a$ меньше $n$, что противоречит условию. Значит, $|\langle a\rangle| = n$.
+	
+	Наконец, если $\ord{a} = \infty$, то $\forall r, s \in \mathbb{Z}, r < s: a^r \ne a^s$ из аналогичных соображений, тогда $|\langle a\rangle| = \infty$.
+\end{proof}
+
+\begin{definition}
+	Группа $G$ называется \textit{циклической}, если $\exists a \hm{\in} G: \langle a\rangle = G$.
+\end{definition}
+
+\begin{example}
+	Циклическими группами являются:
+	\begin{itemize}
+		\item $\mathbb{Z} = \langle 1 \rangle$
+		\item $\mathbb{Z}_n = \langle \overline{1} \rangle$
+	\end{itemize}
+\end{example}
+
+\begin{theorem}
+	Любые две циклических группы одного порядка изоморфны.
+\end{theorem}
+
+\begin{proof}
+	Пусть $G$ "--- циклическая группа, $a \in G$, $G = \langle a\rangle$, $|G| = n \in \mathbb{N}\cup\{\infty\}$. Рассмотрим сначала случай, когда $n = \infty$. Докажем, что тогда $G \cong \mathbb{Z}$ (и из этого будет следовать, что любые две таких группы изоморфны друг другу). Рассмотрим отображение $\phi: \mathbb{Z} \rightarrow G$, $\phi(k) = a^k$. $\phi(k + l) = a^{k + l} = a^ka^l = \phi(k)\phi(l)$, значит, $\phi$ "--- гомоморфизм. Поскольку $G = \{a^k~|~k \in \mathbb{Z}\}$, $\phi$ сюръективно. Наконец, $\phi$ инъективно из соображений деления с остатком.
+	
+	Теперь $n \in \mathbb{N}$. Докажем, что тогда $G \cong \mathbb{Z}_n$ (и из этого будет следовать, что любые две таких группы изоморфны друг другу). Рассмотрим отображение $\phi: \mathbb{Z}_n \rightarrow G$, $\phi(\overline{k}) = a^k$. $\phi$ определено корректно, поскольку $\forall k, l \in \mathbb{Z}: a^k = a^l \Leftrightarrow a^{k - l} = e \Leftrightarrow n~|~(k - l) \hm{\Leftrightarrow} \overline{k} = \overline{l}$ (и из этого также следует инъективность $\phi$). $\phi(\overline{k + l}) \hm{=} a^{k + l} = a^ka^l = \phi(\overline{k})\phi(\overline{l})$, значит, $\phi$ "--- гомоморфизм. Поскольку $G \hm{=} \{a^k~|~k \in \{0, \dots, n - 1\}\}$, $\phi$ сюръективно.
+\end{proof}
+
+\begin{note}
+	Циклическая группа не более, чем счетна. Более того, любая конечно порожденная группа не более, чем счетна, поскольку $\mathbb{N}^k$ равномощно $\mathbb{N}$.
+\end{note}
+
+\begin{theorem}~
+	\begin{enumerate}
+		\item Подгруппа циклической группы тоже является циклической.
+		\item Если $G = \langle a \rangle$ "--- циклическая группа, $|G| = n \in \mathbb{N}$, то $\forall k~|~n$ в $G$ есть ровно одна подгруппа порядка $k$, и других подгрупп в $G$ нет.
+	\end{enumerate}
+	
+	$(\forall n \in \mathbb{N}: n\mathbb{Z} \le \mathbb{Z}$, $\forall k~|~n: \frac{n}{k}\mathbb{Z}_n \le \mathbb{Z}_n)$
+\end{theorem}
+
+\begin{proof}
+	Рассмотрим сначала случай, когда $|G| = \infty$. Тогда можно считать, что это группа $\mathbb{Z}$. Пусть $H \le \mathbb{Z}$. Если $H = \{0\}$, утверждение уже доказано. Иначе "--- $H$ содержит ненулевые элементы, в частности, натуральные числа. Пусть $n$ "--- наименьшее из них. Поскольку $H$ "--- группа, то $\langle n \rangle = n\mathbb{Z} \le H$. Теперь рассмотрим $k \in H$. Разделим $k$ с остатком на $n$: $k = qn + r$, тогда $r = k - qn \in H$. Если $r \ne 0$, то $n$ "--- не наименьшее натуральное число, значит, $r = 0$ и $n~|~k$. Итак, $n\mathbb{Z} \le H$, при этом $\forall k \in H: k \in n\mathbb{Z}$, тогда $H = n\mathbb{Z}$: все подгруппы $\mathbb{Z}$ имеют вид циклических групп $n\mathbb{Z}$.
+	
+	Теперь пусть $|G| = n \in \mathbb{N}$. Тогда можно считать, что это группа $\mathbb{Z}_n$. Пусть $H \le \mathbb{Z}$. Если $H = \{\overline{0}\}$, утверждение уже доказано. Иначе "--- $H$ содержит ненулевые элементы. Выберем наименьшее $l > 0$ такое, что $\overline{l} \in H$. Разделим $n$ с остатком на $l$: $n = ql + r$, тогда $r = n - ql$ и $\overline{r} = -q\overline{l} \in H$. Если $r \ne 0$, то $l$ "--- не наименьшее натуральное число, значит, $r = 0$ и $l~|~n$. Тогда положим $k = \frac{n}{l}$ и заметим, что $\ord{\overline{l}} = k$ (поскольку $k\overline{l} = \overline{0}$ и $\forall m \in \{1, \dots, k - 1\}: 0 < ml < n$). Покажем теперь, что $H = \langle\overline{l}\rangle = l\mathbb{Z}_n$. $H$ "--- группа, поэтому $\langle\overline{l}\rangle \le H$. Аналогично, из соображений деления с остатком, $\forall \overline{d} \in H: l~|~d$, значит, $\forall \overline{d} \in H: \overline{d} \in l\mathbb{Z}_n$, тогда $H = l\mathbb{Z}_n$: все подгруппы $\mathbb{Z}_n$ имеют вид циклических групп $\frac{n}{k}\mathbb{Z}_n$ порядка $k$.
+\end{proof}
+
+\begin{proposition}
+	Пусть $G$ "--- группа, $a \in G$, $\ord{a} = n$. Тогда $\ord{a^k} = \frac{n}{(n, k)}$.
+\end{proposition}
+
+\begin{proof}
+	Пусть $(a^k)^l = a^{kl} = e$. Разделим $kl$ с остатком на $n$: $kl = qn + r$, тогда $a^{kl} = (a^{n})^qa^r = a^r$, поэтому если $r \ne 0$, то порядок $a$ меньше $n$. Значит, $r = 0$ и $n~|~kl$. Наименьшее число, одновременно кратное $n$ и $k$ "--- это $[n, k]$, тогда $l = \frac{[n, k]}{k} = \frac{n}{(n, k)}$.
+\end{proof}
+
+\begin{note}
+	Одна и та же группа может быть порождена множествами различной мощности. Например, $\mathbb{Z} = \langle 1\rangle = \langle 2, 3\rangle = \langle 6, 10, 15\rangle$.
+\end{note}
+
+\subsection{Смежные классы}
+
+\begin{definition}
+	Пусть $G$ "--- группа, $A, B \subset G$. Определим следующие операции с множествами:
+	\begin{itemize}
+		\item $AB = \{ab~|~a \in A, b \in B\}$
+		\item $A^{-1} = \{a^{-1}~|~a\in A\}$
+	\end{itemize}
+\end{definition}
+
+\begin{note}~
+	\begin{itemize}
+		\item Умножение множеств ассоциативно как следствие ассоциативности операции в группе.
+		\item В общем случае неверно, что $A^{-1}$ "--- обратный к $A$, поскольку не всегда $AA^{-1} = \{e\}$.
+	\end{itemize}
+\end{note}
+
+\begin{definition}
+	Пусть $G$ "--- группа, $H \le G$, $a \in G$. Тогда для элемента $a$ определим \textit{левый смежный класс} по подгруппе $H$ как $aH$, \textit{правый смежный класс} "--- как $Ha$.
+\end{definition}
+
+\begin{definition}
+	\textit{Множество левых смежных классов} по подгруппе $H$ в группе $G$ обозначается как $G/H$, \textit{множество правых смежных классов} "--- $H\backslash G$.
+\end{definition}
+
+\begin{note}
+	Если $a \in H$, то $aH = H$, поскольку $H$ "--- группа.
+\end{note}
+
+\begin{proposition}
+	Пусть $G$ "--- группа, $H \le G$, $a, b \in G$. Тогда следующие утверждения эквивалентны:
+	\begin{enumerate}
+		\item $aH \cap bH \ne \emptyset$
+		\item $b^{-1}a \in H$
+		\item $aH = bH$
+		\item $a \in bH$
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	Доказательство $1 \Rightarrow 2$. По условию, $\exists h_1, h_2 \in H: ah_1 = bh_2$. Тогда $b^{-1}a = h_2h_1^{-1} \in H$.
+	
+	Доказательство $2 \Rightarrow 3$. $b^{-1}a \in H \Rightarrow b^{-1}aH = H$. Умножив обе части равенства на $b$, получим $aH = bH$.
+	
+	Доказательство $3 \Rightarrow 4$. $a = ae \in aH$, тогда, поскольку $aH = bH$, то $a \in bH$.
+	
+	Доказательство $4 \Rightarrow 1$. $a \in aH$, $a \in bH$, поэтому $a \in aH \cap bH$.
+\end{proof}
+
+\begin{note}
+	Аналогичное утверждение спрведливо и для правых смежных классов с одним отличием: $ab^{-1} \in H$ вместо $b^{-1}a \in H$.
+\end{note}
+
+\begin{corollary}
+	Если смежные классы (по одной и той же подгруппе) пересекаются, то они совпадают, значит, вся группа $G$ разбивается на непересекающиеся смежные классы.
+\end{corollary}
+
+\begin{theorem}[Лагранжа]
+	Пусть $G$ "--- конечная группа, $H \le G$. Тогда:
+	\[|G| = |H|\cdot|G/H|\]
+	
+	В частности, $|H|~\big|~|G|$.
+\end{theorem}
+
+\begin{proof}
+	$G$ разбивается на $|G/H|$ непересекающихся смежных классов, и мощность каждого из них равна $H$ (поскольку умножение на фиксированный элемент $a$ инъективно). Следовательно, $|G| = |H|\cdot|G/H|$.
+\end{proof}
+
+\begin{corollary}
+	Пусть $G$ "--- конечная группа, $a \in G$. Тогда $\ord{a}~\big|~|G|$.
+\end{corollary}
+
+\begin{proof}
+	По теореме Лагранжа, $\ord{a} = |\langle a\rangle|~\big|~|G|$.
+\end{proof}
+
+\begin{corollary}
+	Пусть $G$ "--- конечная группа, $a \in G$. Тогда $a^{|G|} = e$.
+\end{corollary}
+
+\begin{proof}
+	Пусть $\ord{a} = k$, при этом $k~\big|~|G|$, следовательно, $a^{|G|} = e$.
+\end{proof}
+
+\begin{corollary}[Малая теорема Ферма]
+	Пусть $p$ "--- простое число, $\overline{a} \hm{\in} \mathbb{Z}_p$, $\overline{a} \ne \overline{0}$. Тогда $\overline{a}^{p-1} = \overline{1}$.
+\end{corollary}
+
+\begin{proof}
+	Рассмотрим группу $(\mathbb{Z}_p\backslash\{\overline{0}\}, \cdot)$, $|\mathbb{Z}_p\backslash\{\overline{0}\}| = p - 1$. Применяя предыдущее следствие, получим $\overline{a}^{p - 1} = \overline{1}$.
+\end{proof}
+
+\begin{definition}
+	\textit{Функцией Эйлера} называется следующая функция: $\phi(n) = |\{a \in \mathbb{N}, a \le n, (a, n) = 1\}|, n \in \mathbb{N}$. Если $n = p_1^{\alpha_1}\dots p_k^{\alpha_k}$, то $\phi(n) = n(1 - \frac{1}{p_1})\dots(1 - \frac{1}{p_k})$.
+\end{definition}
+
+\begin{theorem}[Эйлера]
+	Пусть $\overline{a} \in \mathbb{Z}_n$, $(a, n) = 1$. Тогда $\overline{a}^{\phi(n)} = \overline{1}$.
+\end{theorem}
+
+\begin{proof}
+	Рассмотрим $(\mathbb{Z}_n^*, \cdot)$, $\mathbb{Z}_n^* = \{\overline{b} \in \mathbb{Z}_n~|~(b, n) = 1\}$, $|\mathbb{Z}_n^*| = \phi(n)$. Тогда для $\overline{a} \in \mathbb{Z}_n^*$ верно, что $\overline{a}^{|\mathbb{Z}_n^*|} = \overline{a}^{\phi(n)} = \overline{1}$.
+\end{proof}
+
+\begin{note}
+	Из аналогичных соображений можно показать, что $|G| = |H|\cdot|H\backslash G|$, тогда в случае, когда $G$ "--- конечная группа, верно, что $|G / H| = |H\backslash G|$.
+\end{note}
+
+\begin{proposition}
+	Пусть $H$ "--- подгруппа в $G$. Тогда $|G / H| \hm{=} |H\backslash G|$, даже когда $|G| = \infty$.
+\end{proposition}
+
+\begin{proof}
+	Определим отображение $\phi$ следующим образом: $aH \mapsto (aH)^{-1} = H^{-1}a^{-1} = Ha^{-1}$. $\phi$ определено корректно: если $aH = bH$, то и их образы совпадают. Более того, $\phi$ является биекцией, поскольку существует обратное отображение $\phi^{-1}$: $Ha \hm{\mapsto} (Ha)^{-1} = a^{-1}H$, что равносильно биективности.
+\end{proof}
+
+\begin{definition}
+	Пусть $G$ "--- группа, $H \le G$. Тогда величина $|G / H| = |H\backslash G|$ называется \textit{индексом} $H$ в $G$. Обозначение "--- $|G : H|$.
+\end{definition}

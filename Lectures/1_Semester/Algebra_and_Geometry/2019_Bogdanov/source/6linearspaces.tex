@@ -1,0 +1,833 @@
+\section{Линейные пространства}
+
+\subsection{Пространства и подпространства}
+
+\begin{definition}
+	\textit{Линейным (векторным) пространством} над полем $F$ называется абелева группа $(V, +)$, на котором определено умножение на элементы поля $\cdot: F \times V \rightarrow V$ ($(\alpha, \overline{v}) \mapsto \alpha\overline{v}$), удовлетворяющее следующим свойствам:
+	\begin{itemize}
+		\item $\forall \alpha, \beta \in F: \forall \overline{v} \in V: (\alpha + \beta)\overline{v} = \alpha\overline{v} + \beta\overline{v}$
+		\item $\forall \alpha \in F: \forall \overline{u}, \overline{v} \in V: \alpha(\overline{u} + \overline{v}) = \alpha\overline{u} + \alpha\overline{v}$
+		\item $\forall \alpha, \beta \in F: \forall \overline{v} \in V: (\alpha\beta)\overline{v} = \alpha(\beta\overline{v})$
+		\item $\forall \overline{v} \in V: 1\overline{v} = \overline{v}$
+	\end{itemize}
+
+Элементы $F$ назвыаются \textit{скалярами}, элементы $V$ "--- \textit{векторами}.
+\end{definition}
+
+\begin{example}
+	Линейными пространствами являются:
+	\begin{itemize}
+		\item $V_1$, $V_2$, $V_3$
+		\item $F^n = M_{n \times 1}(F)$
+		\item $M_{n \times k}(F)$
+		\item $F[x]$ "--- многочлены от переменной $x$ (с коэффициентами из $F$)
+	\end{itemize}
+\end{example}
+
+\begin{example}
+	Пусть $F$ "--- поле, $K$ "--- его подполе. Тогда $F$ является линейным пространством над $K$.
+\end{example}
+
+\begin{proposition}~
+	\begin{itemize}
+		\item $\forall \overline{v} \in V: 0\overline{v} = \overline{0}$
+		\item $\forall \alpha \in F: \alpha\overline{0} = \overline{0}$
+		\item $\forall \overline{v} \in V: (-1)\overline{v} = -\overline{v}$
+	\end{itemize}
+\end{proposition}
+
+\begin{proof}~
+	\begin{itemize}
+		\item $0\overline{v} + 0\overline{v} = (0 + 0)\overline{v} = 0\overline{v} \Leftrightarrow 0\overline{v} = \overline{0}$
+		\item $\alpha\overline{0} + \alpha\overline{0} = \alpha(\overline{0} + \overline{0}) = \alpha\overline{0} \Leftrightarrow \alpha\overline{0} = \overline{0}$
+		\item $(-1)\overline{v} + 1\overline{v} = (-1 + 1)\overline{v} = 0\overline{v} = \overline{0} \Leftrightarrow (-1)\overline{v} = -1\overline{v} = -\overline{v}$
+	\end{itemize}
+\end{proof}
+
+\begin{definition}
+	\textit{Подпространством} линейного пространства $V$ над полем $F$ называется такое непустое его подмножество $U$, что:
+	\begin{itemize}
+		\item $(U, +)$ "--- подгруппа в $(V, +)$
+		\item $\forall \alpha \in F: \forall \overline{u} \in U: \alpha\overline{u} \in U$ ($U$ замкнуто относительно умножения на скаляр)
+	\end{itemize}
+	
+	$U$ является пространством над $F$. Обозначение "--- $U \le V$.
+\end{definition}
+
+\begin{example}
+	Подпространствами в соответствующих линейных пространствах являются:
+	\begin{itemize}
+		\item $U = \left\{\left.\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix} \in F^n~\right|~x_1+\dots+x_n = 0\right\} \le F^n$
+		\item $U = \{A \in M_{n \times k}~|~a_{11} = 0\} \le M_{n \times k}$
+		\item $U = \{p \in \mathbb{R}[x]~|~p(0) = 0\} \le \mathbb{R}[x]$
+	\end{itemize}
+\end{example}
+
+\begin{definition}
+	Пусть $V$ "--- линейное пространство над $F$, векторы $\overline{v_1}, \dots, \overline{v_k}$ "--- элементы $V$. \textit{Линейной оболочкой} векторов $\overline{v_1}, \dots, \overline{v_k}$ называется множество всевозможных линейных комбинаций этих векторов:
+	\[\langle\overline{v_1}, \dots, \overline{v_k}\rangle = \left\{\sum_{i = 1}^{k}\alpha_i\overline{v_i}~|~\alpha_1, \dots, \alpha_k \in F\right\}\]
+\end{definition}
+
+\begin{note}
+	Линейную оболочку можно определить и для бесконечного набора векторов. В этом случае следует брать всевозможные линейные комбинации конечного числа векторов из набора.
+\end{note}
+
+\begin{proposition}
+	Пусть $V$ "--- линейное пространство, $\overline{v_1}, \dots, \overline{v_k} \hm{\in} V$. Тогда $U = \langle\overline{v_1}, \dots, \overline{v_k}\rangle \le V$, и, более того, $U$ "--- наименьшее по включению подпространство в $V$, содержащее все векторы $\overline{v_1}, \dots, \overline{v_k}$.
+\end{proposition}
+
+\begin{proof}
+	Сначала проверим, что $U$ является линейным пространством (т.\:е. подпространством в $V$):
+	\begin{itemize}
+		\item $(U, +)$ "--- подгруппа в $(V, +)$:
+		\begin{gather*}
+			\forall a = \sum_{i = 1}^{k}\alpha_i\overline{v_i}, b = \sum_{i = 1}^{k}\beta_i\overline{v_i} \in U: a + b = \sum_{i = 1}^{k}(\alpha_i + \beta_i)\overline{v_i} \in U\\
+			\forall a = \sum_{i = 1}^{k}\alpha_i\overline{v_i}: (-a) = \sum_{i = 1}^{k}(-\alpha_i)\overline{v_i} \in U
+		\end{gather*}
+		\item $U$ замкнуто относительно умножения на скаляр:
+		\[\forall a = \sum_{i = 1}^{k}\alpha_i\overline{v_i}: \forall \gamma \in F: \gamma a = \sum_{i = 1}^{k}(\gamma\alpha_i)\overline{v_i} \in U\]
+	\end{itemize}
+
+	Наконец, если $W \le V$ и $\overline{v_1}, \dots, \overline{v_k} \hm{\in} W$, то и $U = \langle\overline{v_1}, \dots, \overline{v_k}\rangle \hm{\subset} W$.
+\end{proof}
+
+\subsection{Базисы и изоморфизмы}
+
+\begin{definition}
+	\textit{Базисом} в линейном пространстве $V$ называется такая линейно независимая система $(\overline{v_1}, \dots, \overline{v_n})$ ($\overline{v_1}, \dots, \overline{v_n} \hm{\in} V$), что $\langle\overline{v_1}, \dots, \overline{v_n}\rangle = V$.
+\end{definition}
+
+\begin{note}
+	В пространстве $\mathbb{R}[x]$ базиса нет. Действительно, если $(p_1, \dots, p_n)$ "--- базис в $\mathbb{R}[x]$, то через него не выражается многочлен степени большей, чем $\max(\deg{p_1}, \dots, \deg{p_n})$.
+\end{note}
+
+\begin{definition}
+	Линейное пространство $V$ называется \textit{конечно порожденным}, если $\exists(\overline{v_1}, \dots, \overline{v_n})~(\overline{v_1}, \dots, \overline{v_n} \hm{\in} V): \langle\overline{v_1}, \dots, \overline{v_n} \hm{\in} V\rangle \hm{=} V$.
+\end{definition}
+
+\begin{proposition}
+	Любое конечно порожденное пространство обладает базисом.
+\end{proposition}
+
+\begin{proof}
+	Выберем набор из минимального количества векторов $(\overline{u_1}, \dots, \overline{u_k})$ такой, что $\langle\overline{u_1}, \dots, \overline{u_k}\rangle = V$. Предположим, что он линейно зависим. Тогда без ограничения общности можно считать, что вектор $\overline{u_k}$ выражается через остальные векторы набора, т.\:е. $\langle\overline{u_1}, \dots, \overline{u_k}\rangle \subset \langle\overline{u_1}, \dots, \overline{u_{k-1}}\rangle$. Обратное включение тоже верно, поэтому $\langle\overline{u_1}, \dots, \overline{u_{k - 1}}\rangle = \langle\overline{u_1}, \dots, \overline{u_k}\rangle = V$ "--- противоречие с минимальностью.
+\end{proof}
+
+\begin{example}
+	Базисами в соответствующих линейных пространствах являются:
+	\begin{itemize}
+		\item В $F^n$ "--- $\left\{\begin{pmatrix}1\\0\\\vdots\\0\end{pmatrix}, \begin{pmatrix}0\\1\\\vdots\\0\end{pmatrix},\dots, \begin{pmatrix}0\\0\\\vdots\\1\end{pmatrix}\right\}$
+		\item В $M_{n \times k}$ "--- $\{E_{ij} \in M_{n \times k}~|~e_{ij} = 1, \forall (i',j') \ne (i, j): e_{i'j'} = 0\}$
+	\end{itemize}
+\end{example}
+
+\begin{note}
+	Аналогично случаю $V_i$, в базисе $e$ векторного пространства $V$ определяются координатные столбцы для векторов $\overline{v} \hm{\in} V$:
+	\[\overline{v} = e\alpha \Leftrightarrow \overline{v} \xleftrightarrow[e]{} \alpha\]
+	
+	Координатный столбец в данном базисе для каждого вектора существует и единственен, а сопоставление координат линейно.
+\end{note}
+
+\begin{definition}
+	Пусть $U$ и $V$ "--- линейные пространства над полем $F$. \textit{Изоморфизмом линейных пространств} называется такое отображение $\phi: U \rightarrow V$, что:
+	\begin{itemize}
+		\item $\phi(\overline{u_1} + \overline{u_2}) = \phi(\overline{u_1}) + \phi(\overline{u_2})$, $\phi(\alpha\overline{u}) = \alpha\phi(\overline{u})$
+		\item $\phi$ "--- биекция
+	\end{itemize}
+
+	Если такой изоморфизм $\phi$ существует, то пространства $U$ и $V$ называются \textit{изоморфными}. Обозначение "--- $U \cong V$.
+\end{definition}
+
+\begin{note}
+	Если $U \cong V$ и $V \cong W$, то $U \cong W$, поскольку композиция биекций "--- тоже биекция.
+\end{note}
+
+\begin{proposition}
+	Пусть $V$ "--- линейное пространство над $F$ с базисом из $n$ элементов. Тогда $V \cong F^n$.
+\end{proposition}
+
+\begin{proof}
+	Пусть $e = (\overline{e_1}, \dots, \overline{e_n})$ "--- базис в $V$. Рассмотрим отображение $\phi: V \rightarrow F^n$:
+	\[\forall \overline{v} \in V: \overline{v} \xleftrightarrow[e]{} \alpha \Leftrightarrow \phi(\overline{v}) = \alpha\]
+	
+	Уже было доказано, что $\phi$ линейно. Кроме того, $\phi$ инъективно (разным векторам соответствуют разные координатные столбцы) и сюръективно (каждый столбец $\alpha$ может быть получен как соответствующая линейная комбинация базисных векторов), т.\:е. $\phi$ "--- биекция.
+\end{proof}
+
+\begin{corollary}
+	Пусть $V$ "--- линейное пространство с базисом из $n$ элементов над $F$. Если $|F| = k$, то $|V| = |F^n| = k^n$.
+\end{corollary}
+
+\begin{corollary}
+	Пусть $F$ "--- поле. Если $|F| = k$ и $\cha{F} = p$, то $k \hm{=} p^d~(d \in \mathbb{N})$.
+\end{corollary}
+
+\begin{proof}
+	Пусть $K$ "--- простое подполе в $F$, $|K| = p$. Тогда $F$ "--- линейное пространство над $K$. Поскольку число элементов в нем конечно, оно конечно порожденное, тогда в нем есть базис из $d$ элементов, т.\:е. $|F| = p^d$.
+\end{proof}
+
+\subsection{Системы линейных уравнений}
+
+\begin{definition}
+	Пусть $A \in M_{k \times n}(F)$, $b, x \in M_{n \times 1}(F)$, $A = (a_{ij})$, $b = (b_{ij})$, $x = (x_{ij})$. Тогда \textit{системой линейных уравнений} $Ax = b$ называется система:
+	\[
+	\left\{
+	\begin{aligned}
+	&a_{11}x_1 + a_{12}x_2 + \dots a_{1n}x_n = b_1\\
+	&a_{21}x_1 + a_{22}x_2 + \dots a_{2n}x_n = b_2\\
+	&\dots\\
+	&a_{k1}x_1 + a_{k2}x_2 + \dots a_{kn}x_n = b_k\\
+	\end{aligned}
+	\right.
+	\]
+\end{definition}
+
+\begin{definition}
+	$A$ называется \textit{матрицей системы} $Ax = b$, $(A|b)$ "---\textit{ расширенной матрицей системы} $Ax = b$.
+\end{definition}
+
+\begin{definition}
+	Система линейных уравнений $Ax = b$ называется \textit{совместной}, если множество ее решений непусто.
+\end{definition}
+
+\begin{definition}
+	Система линейных уравнений $Ax = b$ называется \textit{однородной}, если $b = 0$.
+\end{definition}
+
+\begin{proposition}
+	Множество решений однородной линейной системы уравнений $Ax = 0$ является линейным пространством.
+\end{proposition}
+
+\begin{proof}
+	Пусть $V$ "--- множество решений. Если $v_1, v_2 \in V$, то $A(v_1 + v_2) = Av_1 + Av_2 = 0$, т.\:е. $v_1 + v_2 \in V$. Аналогично показывается, что $\forall v \in V: \forall \alpha \in F: \alpha v \in V$ и $\forall v \in V: -v \in V$. ($V$ непусто, т.\:к. $0 \in V$.)
+\end{proof}
+
+\begin{note}
+	Чтобы найти все решения однородной системы линейных уравнений, достаточно найти базис пространства решений.
+\end{note}
+
+\begin{proposition}
+	Рассмотрим совместную систему линейных уравнений $Ax = b$. Если $x_0$ "--- решение $Ax = b$, $V$ "--- пространство решений $Ax = 0$. Тогда множество решений $Ax = b$ "--- это $x_0 + V \hm{=} \{x_0 + v~|~v \in V\}$.
+\end{proposition}
+
+\begin{proof}
+	Пусть $U$ "--- множество решений $Ax = b$. Если $v \hm{\in} V$, то $x_0 + v$ "--- решение $Ax = b$: $A(x_0 + v) = Ax_0 + Av = b$. Напротив, если $u \in U$, то $u - x_0$ "--- решение $Ax = 0$: $A(u - x_0) = b - b = 0$. Значит, $U = x_0 + V$.
+\end{proof}
+
+\begin{definition}
+	Системы линейных уравнений $Ax = b$ и $A'x\hm{=}b'$ называются \textit{эквивалентными}, если множества их решений совпадают.
+\end{definition}
+
+\begin{definition}
+	\textit{Элементарными преобразованиями} строк матрицы $A \in M_{n \times k}(F)$ называются:
+	\begin{itemize}
+		\item прибавление к $i$-й строке матрицы $j$-й строки, умноженной на скаляр $\alpha \in F$ ($i \ne j$)
+		\item умножение $i$-й строки на скаляр $\lambda \in F^*$
+		\item замена $i$-й и $j$-й строк местами ($i \ne j$)
+	\end{itemize}
+\end{definition}
+
+\begin{definition}
+	\textit{Элементарными матрицами} называются матрицы, домножение слева
+	на которые приводит к осуществлению соответствующего элементарного преобразования строк:
+	\begin{itemize}
+		\item $D_{ij}(\alpha) = E + \alpha E_{ij}$
+		\item $T_{i}(\lambda) = E + (\lambda - 1) E_{ii}$
+		\item $P_{ij} = E - (E_{ii} + E_{jj}) + (E_{ij} + E_{ji})$
+	\end{itemize}
+\end{definition}
+
+\begin{note}
+	Аналогично можно определить элементарные преобразования столбцов. Они будут осуществляться домножением на элементарные матрицы справа.
+\end{note}
+
+\begin{definition}
+	Матрица $A \in M_n(F)$ называется \textit{обратимой}, если $\exists A^{-1} \in M_n(F): AA^{-1} = A^{-1}A = E$.
+\end{definition}
+
+\begin{proposition}
+	Элементарные матрицы обратимы.
+\end{proposition}
+
+\begin{proof}
+	Обратными к данным элементарным матрицам будет такие элементарные матрицы, которым соответствуют преобразования, обратные к данным (т.\:е. такие, которые возвращают матрицу, к которой применено преобразование, в исходный вид):
+	\begin{itemize}
+		\item $(D_{ij}(\alpha))^{-1} = D_{ij}(-\alpha)$
+		\item $(T_{i}(\lambda))^{-1} = T_{i}(\lambda^{-1})$
+		\item $(P_{ij})^{-1} = P_{ij}$
+	\end{itemize}
+\end{proof}
+
+\begin{corollary}
+	Рассмотрим расширенную матрицу $(A|b)$ системы $Ax \hm{=} b$. Тогда элементарные преобразования этой матрицы переводят ее в расширенную матрицу эквивалентной системы.
+\end{corollary}
+
+\begin{proof}
+	Пусть $L$ "--- элементарная матрица некоторого преобразования, $L(A|b) = (LA|Lb)$. Если $Ax = b$, то и $LAx = Lb$. Напротив, если $LAx = Lb$, то $L^{-1}LAx = L^{-1}Lb \Leftrightarrow Ax = b$.
+\end{proof}
+
+\begin{definition}
+	\textit{Главным} элементом строки называется ее первый ненулевой элемент (у нулевой строки главного элемента нет).
+\end{definition}
+
+\begin{definition}
+	Матрица $A$ имеет \textit{ступенчатый вид}, если номера главных элементов ее строк строго возрастают (если в матрице есть нулевые строки, то они расположены внизу).
+\end{definition}
+
+\begin{theorem}[Метод Гаусса]
+	Любую матрицу элементарными преобразованиями строк можно привести к ступенчатому виду.
+\end{theorem}
+
+\begin{proof}
+	Пусть $A \in M_{n \times k}(F)$ "--- матрица. Запустим следующий алгоритм:
+	\begin{enumerate}
+		\item Если $A = 0$, она уже имеет ступенчатый вид.
+		\item Выберем $i$ "--- наименьший номер ненулевого столбца. Преставим строки так, чтобы $a_{1i}$ стал ненулевым.
+		\item Для всех $j \in \{2, \dots, n\}$ к $j$-й строке прибавим первую, умноженную на $-a_{ji}(a_{1i})^{-1}$. Тогда все элементы $a_{2i}, \dots, a_{ni}$ станут нулевыми.
+		\item Пусть после преобразований матрица $A$ была приведена к виду $A'$. Повторим указанные действия для подматрицы $B \hm{\subset} A'$, расположенной на пересечении строк $a'_{2*}, \dots, a'_{n*}$ и столбцов $a'_{*(i+1)}, \dots, a'_{*k}$. Все дальнейшие преобразования не изменят элементов за пределами этой подматрицы.
+	\end{enumerate}
+\end{proof}
+
+\begin{definition}
+	Алгоритм приведения к ступенчатому виду назвыается \textit{прямым ходом метода Гаусса}.
+\end{definition}
+
+\begin{definition}
+	В системе $Ax = b$ переменная $x_i$ называется \textit{главной}, если в матрице $(A|b)$, приведенной к ступенчатому виду, есть строка, где $i$-й элемент главный, в противном случае переменная называется \textit{свободной}.
+\end{definition}
+
+\begin{theorem}
+	Пусть $(A|b)$ "--- расширенная матрица системы $Ax = b$, приведенная к ступенчатому виду. Тогда система совместна $\Leftrightarrow$ в $(A|b)$ нет ступеньки, начинающейся в  столбце $b$.
+\end{theorem}
+
+\begin{proof}
+	Доказательство $\Rightarrow$: пусть в $(A|b)$ есть ступенька, начинающаяся в $b$. Тогда она соответствует уравнению $0x_1 + \dots \hm{+} 0x_n = b_i \ne 0$, но если система совместна, то это невозможно.
+	
+	Доказательство $\Leftarrow$: присвоим свободным переменным произвольные значения. Тогда, двигаясь по матрице $(A|b)$ снизу вверх, все главные переменные можно выразить через свободные и предыдущие главные, и получить частное решение системы.
+\end{proof}
+
+\begin{note}
+	Каждому набору значений свободных переменных в совместной системе соответствует единственное решение системы.
+\end{note}
+
+\begin{definition}
+	Матрица $A$ имеет \textit{упрощенный вид}, если она является ступенчатой, и всякий ее столбец, содержащий главный элемент, состоит из одной единицы (соответствующей главному элементу) и нулей.
+\end{definition}
+
+\begin{theorem}
+	Любую матрицу элементарными преобразованиями строк можно привести к упрощенному виду.
+\end{theorem}
+
+\begin{proof}
+	Пусть $A \in M_{n \times k}(F)$ "--- матрица. Приведем ее к ступенчатому виду, и далее запустим следующий алгоритм:
+	\begin{itemize}
+		\item Если $A = 0$, она уже имеет упрощенный вид.
+		\item Выберем $i$ "--- наибольший номер ненулевой строки, и $a_{ik}$ "--- главный элемент в ней. Умножим $i$-ю строку на $(a_{ik})^{-1}$, чтобы коэффициент $a_{ik}$ стал равным $1$.
+		\item Для всех $j \in \{1, \dots, i - 1\}$ к $j$-й строке прибавим $i$-ю, умноженную на $-a_{jk}$. Тогда все элементы $a_{1k}, \dots, a_{(i-1)k}$ станут нулевыми.
+		\item Пусть после преобразований матрица $A$ была приведена к виду $A'$. Повторим указанные действия для подматрицы $B \subset A'$, расположенной на пересечении строк $a'_{1*}, \dots a'_{(i-1)*}$ и столбцов $a'_{*1}, \dots, a'_{*(k - 1)}$. Все дальнейшие преобразования не изменят элементов за пределами этой подматрицы.
+	\end{itemize}
+\end{proof}
+
+\begin{definition}
+	Алгоритм приведения к упрощенному виду назвыается \textit{обратным ходом метода Гаусса}.
+\end{definition}
+
+\begin{note}
+	Перестановка столбцов матрицы $A$ системы $Ax = b$ соответствует перестановке переменных. Такой перестановкой из упрощенного вида расширенной матрицы совместной системы $Ax = b$ можно получить следующую матрицу:
+	\[
+	\left(\begin{array}{@{}c|c|c@{}}
+	E & C & b\\
+	\hline
+	0 & 0 & 0
+	\end{array}\right)
+	=
+	\left(\begin{array}{@{}ccccc|cccc|c@{}}
+	1 & 0 & \dots & 0 & 0 & \alpha_1 & \beta_1 & \dots & \xi_1 & b_1\\
+	0 & 1 & \dots & 0 & 0 & \alpha_2 & \beta_2 &\dots & \xi_2 & b_2\\
+	\vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots\\
+	0 & 0 & \dots & 1 & 0 & \alpha_{m - 1} & \beta_{m - 1} & \dots & \xi_{m -1} & b_{m - 1}\\
+	0 & 0 & \dots & 0 & 1 & \alpha_m & \beta_m &\dots & \xi_m & b_m\\
+	\hline
+	0 & 0 & \dots & 0 & 0 & 0 & 0 &\dots & 0 & 0\\
+	\vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots\\
+	0 & 0 & \dots & 0 & 0 & 0 & 0 &\dots & 0 & 0
+	\end{array}\right)
+	\]
+	Это позволяет непосредственно выразить главные переменные через свободные.
+\end{note}
+
+\begin{definition}
+	\textit{Фундаментальной системой решений} однородной системы линейных уравнений называется базис ее пространства решений. Матрица, образованная базисными столбцами фундаментальной системы решений, называется \textit{фундаментальной матрицей системы} и обозначается $\Phi$.
+\end{definition}
+
+\begin{note}
+	Любое решение системы $Ax = b$ имеет вид $x_0 + \Phi\gamma$, где $x_0 \in F^n$ "--- частное решение системы $Ax = b$, $\Phi \in M_{n \times m}(F)$ "--- фундаментальная матрица системы $Ax = 0$, $\gamma \in F^m$ "--- произвольный столбец коэффициентов.
+\end{note}
+
+\begin{theorem}
+	Пусть расширенная матрица системы $Ax = b$ имеет упрощенный вид $(E_k|B|b)$. Тогда фундаментальная матрица $\Phi$ системы $Ax = 0$ и частное решение $x_0$ системы $Ax = b$ имеют вид:
+	\[\Phi = \left(\begin{array}{@{}c@{}}-B\\\hline E_{n - k}\end{array}\right),~
+	x_0 = \left(\begin{array}{@{}c@{}}b\\\hline 0\end{array}\right)\]
+\end{theorem}
+
+\begin{proof}
+	Покажем, что каждый столбец $\Phi$ является решением системы $Ax = 0$:
+	\[A\Phi = (E_k|B)\left(\begin{array}{@{}c@{}}-B\\\hline E_{n-k}\end{array}\right) = E_k(-B) + BE_{n-k} = 0\]
+	
+	Столбцы $\Phi$ линейно независимы, поскольку любая их линейная комбинация имеет вид:
+	\[\Phi\gamma = \left(\begin{array}{@{}c@{}}-B\gamma\\\hline E_{n - k}\gamma\end{array}\right) = \left(\begin{array}{@{}c@{}}-B\gamma\\\hline \gamma\end{array}\right)\]
+	
+	Это значит, что $\Phi\gamma = 0 \Leftrightarrow \gamma = 0$. Наконец, если $\alpha$ "--- решение системы $Ax = 0$, то его можно переписать в виде:
+	\[\alpha = \left(\begin{array}{@{}c@{}}\beta\\\hline \gamma\end{array}\right)\]
+	
+	Рассмотрим линейную комбинацию $\Phi\gamma$. Это решение $Ax = 0$, причем с теми же значениями свободных переменных, что и в $\alpha$, но главные переменные однозначно выражаются через свободные, поэтому $\Phi\gamma = \alpha$. Таким образом, $\Phi$ "--- фундаментальная матрица системы $Ax = 0$.
+	
+	Остается проверить, что $x_0$ является частным решением $Ax = b$:
+	\[Ax_0 = (E_k|B)\left(\begin{array}{@{}c@{}}b\\\hline 0\end{array}\right) = E_kb + B0 = b\]
+\end{proof}
+
+\begin{note}
+	В каждом столбце матрицы $\Phi$ одна из $n - k$ свободных переменных равна единице, а остальные "--- нулю, и главные переменные выражаются через ненулевую свободную.
+\end{note}
+
+\begin{note}
+	Можно предварительно не переставлять столбцы в расширенной матрице упрощенного вида, поскольку перестановке переменных соответствует перестановка строк $\Phi$ и $x_0$.
+\end{note}
+
+\begin{proposition}
+	Рассмотрим произвольную однородную систему линейных уравнений $Ax = 0$, $A \in M_{k \times n}(F)$ $(n > k)$. Тогда у этой системы есть нетривиальное решение.
+\end{proposition}
+
+\begin{proof}
+	Приведем $A$ к упрощенному виду $A'$. Главных переменных в ней не больше, чем $k$, значит, есть свободные переменные. Каждому набору свободных переменных соответствует единственное решение, значит, если выбрать нетривиальный набор свободных переменных, то можно получить нетривиальное решение.
+\end{proof}
+
+\subsection{Размерности и ранги}
+
+\begin{theorem}[Основная лемма о линейной зависимости]
+	Пусть $V$ "--- линейное пространство над $F$, $V = \langle\overline{v_1}, \dots, \overline{v_k}\rangle$. Рассмотрим набор векторов $\overline{u_1}, \dots, \overline{u_n} \in V$, $n > k$. Тогда система $(\overline{u_1}, \dots, \overline{u_n})$ линейно зависима.
+\end{theorem}
+
+\begin{proof}
+	Векторы $\overline{u_1}, \dots, \overline{u_n}$ выражаются через $\overline{v_1}, \dots, \overline{v_k}$, поскольку $\overline{u_1}, \dots, \overline{u_n} \in V = \langle\overline{v_1}, \dots, \overline{v_k}\rangle$. Следовательно, $(\overline{u_1}, \dots, \overline{u_n}) \hm{=} (\overline{v_1}, \dots, \overline{v_k})A$, где $A \in M_{k \times n}(F)$. Т.\:к. $n > k$, то $\exists \gamma \hm{\in} F^n, \gamma \ne 0: A\gamma = 0 \Rightarrow (\overline{u_1}, \dots, \overline{u_n})\gamma = \overline{0}$, значит, система линейно зависима.
+\end{proof}
+
+\begin{corollary}
+	Пусть $V$ "--- линейное пространство с базисом из $n$ векторов. Тогда любая система из $n + 1$ вектора в $V$ линейно зависима.
+\end{corollary}
+
+\begin{proof}
+	Пусть $e = (\overline{e_1}, \dots, \overline{e_n})$ "--- базис в $V$, тогда $V = \langle\overline{e_1}, \dots, \overline{e_n}\rangle$. Поэтому любой набор векторов $\overline{v_1}, \dots, \overline{v_{n+1}} \in V$ линейно зависим.
+\end{proof}
+
+\begin{corollary}
+	Любые два базиса в конечно порожденном линейном пространстве $V$ равномощны.
+\end{corollary}
+
+\begin{proof}
+	Пусть $e_1, e_2$ "--- базисы в $V$. Если без ограничения общности $|e_1| < |e_2|$, то $e_2 \subset \langle e_1\rangle$ и $e_2$ состоит из большего числа векторов, чем $e_1$, поэтому $e_2$ линейно зависим. Но $e_2$ "--- базис, значит, это невозможно.
+\end{proof}
+
+\begin{note}
+	Для пространств, не являющихся конечно порожденными, утверждение о равномощности базисов также справедливо.
+\end{note}
+
+\begin{definition}
+	Пусть $V$ "--- конечно порожденное линейное пространство. Его \textit{размерностью} называется количество векторов в любом его базисе. Обозначение "--- $\dim{V}$.
+\end{definition}
+
+\begin{theorem}
+	Пусть $U$ и $V$ "--- конечно порожденные пространства над полем $F$. Тогда $U \cong V \Leftrightarrow \dim{U} = \dim{V}$.
+\end{theorem}
+
+\begin{proof}
+	Доказательство $\Rightarrow$: рассмотрим изоморфизм $\phi : U \rightarrow V$. Пусть $(\overline{e_1}, \dots, \overline{e_n})$ "--- базис в $U$. Покажем, что $(\phi(\overline{e_1}), \dots, \phi(\overline{e_n}))$ "--- базис в $V$:
+	\[\forall \gamma \in F^n: (\overline{e_1}, \dots, \overline{e_n})\gamma \ne \overline{0} \Rightarrow \phi((\overline{e_1}, \dots, \overline{e_n})\gamma) \ne \phi(\overline{0}) = \overline{0}\]
+	
+	Но $\phi((\overline{e_1}, \dots, \overline{e_n})\gamma) = (\phi(\overline{e_1}), \dots, \phi(\overline{e_n}))\gamma$, т.\:к. $\phi$ "--- изоморфизм, поэтому любая нетривиальная линейная комбинация $\phi(\overline{e_1}), \dots, \phi(\overline{e_n})$ не равна нулю, значит, $(\phi(\overline{e_1}), \dots, \phi(\overline{e_n}))$ "--- линейно независимая система. Кроме того, $\forall \overline{v} \in V$ выражается через $(\phi(\overline{e_1}), \dots, \phi(\overline{e_n}))$:
+	
+	\[\forall \overline{v} = V: \exists \overline{u} \in U: \overline{v} = \phi(\overline{u}) = \phi\left(\sum_{i - 1}^{n}\alpha_i\overline{e_i}\right) = \sum_{i - 1}^{n}\alpha_i\phi(\overline{e_i})\]
+	
+	Таким, образом, $(\phi(\overline{e_1}), \dots, \phi(\overline{e_n}))$ "--- базис из $n$ векторов в $V$, следовательно, $\dim{U} = \dim{V} = n$.
+	
+	Доказательство $\Leftarrow$: пусть $\dim{U} = \dim{V} = n$, тогда:
+	\[\left\{\begin{aligned}
+	U \cong F^n\\
+	V \cong F^n
+	\end{aligned}\right. \Rightarrow U \cong V\]
+\end{proof}
+
+\begin{proposition}
+	Пусть $V$ "--- линейное пространство, $\dim{V} \hm{=} n$. Тогда:
+	\begin{enumerate}
+		\item Если $V = \langle\overline{v_1}, \dots, \overline{v_n}\rangle$, то $(\overline{v_1}, \dots, \overline{v_n})$ "--- базис.
+		\item Если система $(\overline{v_1}, \dots, \overline{v_n})$ линейно независима, то она является базисом.
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}~
+	\begin{enumerate}
+		\item Предположим $(\overline{v_1}, \dots, \overline{v_n})$ не является базисом. Следовательно, она линейно зависима, тогда без ограничения общности $\overline{v_n}$ выражается через $(\overline{v_1}, \dots, \overline{v_{n - 1}})$. Значит, $V = \langle\overline{v_1}, \dots, \overline{v_n}\rangle = \langle\overline{v_1}, \dots, \overline{v_{n - 1}}\rangle$, но из этого следует, что в $V$ нет линейно независимых систем из $n$ векторов "--- противоречие с тем, что $\dim{V} \hm{=} n$.
+		\item Предположим $(\overline{v_1}, \dots, \overline{v_n})$ не является базисом. Следовательно, она выражает не все векторы пространства $V$, т.\:е. $\exists \overline{v} \hm{\in} V: \overline{v} \not\in \langle\overline{v_1}, \dots, \overline{v_n}\rangle$. Но тогда система $(\overline{v_1},\dots,\overline{v_n},\overline{v})$ линейно независима "--- противоречие с тем, что $\dim{V} = n$.
+	\end{enumerate}
+\end{proof}
+
+\begin{proposition}
+	Пусть $V$ "--- конечно порожденное линейное пространство над $F$, $U \le V$. Тогда $U$ тоже конечно порожденное, и, более того, $\dim{U} \le \dim{V} = n$.
+\end{proposition}
+
+\begin{proof}
+	Будем выбирать из $U$ векторы $\overline{u_1}, \overline{u_2}, \dots$ так, чтобы система $(\overline{u_1}, \overline{u_2}, \dots)$ оставалась линейно независимой. Процесс закончится не позднее, чем после $n$ шагов, поскольку в $V$ нет линейно независимой системы из $n + 1$ вектора. Пусть полученная система "--- $(\overline{u_1}, \dots, \overline{u_k})$ ($k \le n$). Она линейно независима, и $\forall \overline{u} \in U: (\overline{u_1}, \dots, \overline{u_k}, \overline{u})$ линейно зависима, значит, все векторы $U$ выражаются через $(\overline{u_1}, \dots, \overline{u_k})$, тогда эта система "--- базис в $U$.
+\end{proof}
+
+\begin{note}
+	Если $k = n$, то $(\overline{u_1}, \dots, \overline{u_n})$ "--- линейно независимая система из $n$ векторов в $V$, т.\:е. $U = V = \langle\overline{u_1}, \dots, \overline{u_n}\rangle$. Значит, если $U \ne V$, то $\dim{U} < \dim{V}$.
+\end{note}
+
+\begin{proposition}
+	Пусть $V$ "--- конечно порожденное линейное пространство над $F$, $\dim{V} = n$, $\overline{v_1}, \dots, \overline{v_k} \in V$ $(k < n)$ "--- векторы, образующие линейно независимую систему. Тогда $(\overline{v_1}, \dots, \overline{v_k})$ можно дополнить до базиса в $V$.
+\end{proposition}
+
+\begin{proof}
+	Выберем $\overline{v_{k+1}} \in V$ такой, что $\overline{v_{k+1}} \not\in \langle\overline{v_1}, \dots, \overline{v_k}\rangle$, при этом система остается линейно независимой. Затем аналогично выберем $\overline{v_{k+2}} \in V$ такой, что $\overline{v_{k+2}} \not\in \langle\overline{v_1}, \dots, \overline{v_{k+1}}\rangle$. Процесс будет продолжаться, пока не будет получена система $(\overline{v_1}, \dots, \overline{v_n})$, которая и является базисом. Он не может остановиться раньше, потому что пока в системе менее $n$ векторов, она не выражает все пространство $V$, и не может продолжиться далее, потому что в $V$ нет линейно независимой системы из $n + 1$ векторов.
+\end{proof}
+
+\begin{definition}
+	Пусть $V$ "--- конечно порожденное линейное пространство над $F$. $X \subset V$ "--- произвольный набор векторов $V$. \textit{Рангом} системы $X$ называется наибольший размер линейно независимой подсистемы в $X$. Обозначение "--- $\rk{X}$.
+\end{definition}
+
+\begin{proposition}
+	$\rk{X} = \dim{\langle X\rangle}$.
+\end{proposition}
+
+\begin{proof}
+	Пусть $\rk{X} = k$ и $(\overline{v_1}, \dots, \overline{v_k})$ "--- линейно независимая система в $X$. Тогда $\forall \overline{v} \in X: (\overline{v_1}, \dots, \overline{v_k}, \overline{v})$ линейно зависима, значит, $X \subset \langle\overline{v_1}, \dots, \overline{v_k}\rangle$, тогда $\langle X \rangle \subset \langle\overline{v_1}, \dots, \overline{v_k}\rangle \subset \langle X \rangle$, т.\:е. $\langle X \rangle = \langle\overline{v_1}, \dots, \overline{v_k}\rangle$, $(\overline{v_1}, \dots, \overline{v_k})$ "--- базис в $\langle X\rangle$, поэтому $\dim{\langle X\rangle} = k \hm{=} \rk{X}$.
+\end{proof}
+
+\begin{note}
+	Аналогично случаю $V_i$, для базисов $e$ и $e'$ векторного пространства $V$ определяется матрица перехода $S$ от $e$ к $e'$: $e' = eS$.
+	
+	Если $\dim{V} = n$, то $S \in M_{n}(F)$.
+	
+	Если $\overline{v} \xleftrightarrow[e]{} \alpha$ и $\overline{v'} \xleftrightarrow[e']{} \alpha'$, то $\alpha = S\alpha'$.
+\end{note}
+
+\begin{proposition}
+	Матрица перехода $S$ от базиса $e$ к базису $e'$ обратима.
+\end{proposition}
+
+\begin{proof}
+	Т.\:к. возможен также обратный переход от $e'$ к $e$, то $\exists T \in M_n(F): e = e'T = e(ST)$, т.\:е. $ST = E$. Аналогично, $e' = eS = e'(TS)$, т.\:е. $ST = TS = E$.
+\end{proof}
+
+\begin{proposition}
+	Если $e$ "--- базис в пространстве $V$ $(\dim{V} \hm{=} n)$, $S \in M_n(F)$ "--- обратимая матрица, то $e' = eS$ "--- тоже базис в $V$.
+\end{proposition}
+
+\begin{proof}
+	$e' = eS \Leftrightarrow e = e'S^{-1}$, т.\:е. $e \subset \langle e'\rangle$, тогда и $V \subset \langle e'\rangle$. Но в $e'$ ровно $n$ векторов, значит, $e'$ "--- базис.
+\end{proof}
+
+\begin{definition}
+	\textit{Строчным рангом} матрицы $A \in M_{n \times k}(F)$ называется ранг системы ее строк. Обозначение "--- $\rk_{r}{A}$.
+\end{definition}
+
+\begin{definition}
+	\textit{Столбцовым рангом} матрицы $A \in M_{n \times k}(F)$ называется ранг системы ее столбцов. Обозначение "--- $\rk_{c}{A}$.
+\end{definition}
+
+\begin{proposition}
+	$\rk_c{AB} \le \rk_cA$, $\rk_r{AB} \le \rk_rB$.
+\end{proposition}
+
+\begin{proof}
+	Пусть $U$ "--- линейная оболочка столбцов $A$, $V$ "--- линейная оболочка столбцов $AB$. Уже было доказано, что столбцы $AB$ являются линейными комбинациями столбцов $A$, значит, они лежат в $U$, тогда $V \le U$. Следовательно, $\rk_r(AB) = \dim{V} \le \dim{U} \hm{=} \rk_rA$. Второе неравенство доказывается аналогично.
+\end{proof}
+
+\begin{theorem}[О ранге матрицы]
+	$\rk_rA = \rk_cA$.
+\end{theorem}
+
+\begin{proof}
+	Пусть $r = rk_cA$, т.\:е. все столбцы $A$ выражаются через некоторые $r$ столбцов. Составим из этих $r$ столбцов матрицу $B$, тогда каждый столбец $A$ имеет вид $B\gamma$ ($\gamma \in F^r$). Следовательно, $A$ можно представить в виде $B(\gamma_1|\dots|\gamma_k)$. Уже было доказано, что $\rk_rA \le \rk_r(\gamma_1|\dots|\gamma_k) \le r$, потому что в каждом столбце $\gamma_i$ ровно $r$ элементов. Аналогично показывается, что $\rk_cA \le \rk_rA$. Таким образом, $\rk_rA = \rk_cA$.
+\end{proof}
+
+\begin{definition}
+	\textit{Рангом матрицы} $A \in M_{n \times k}(F)$ называется ее строчный или столбцовый ранг. Обозначение "--- $\rk{A}$.
+\end{definition}
+
+\begin{proposition}
+	Пусть $A \in M_{n \times k}(F)$, $B \in M_{k \times m}(F)$, причем столбцы $A$ линейно независимы. Тогда $\rk{AB} = \rk{B}$.
+\end{proposition}
+
+\begin{proof}
+	Пусть $\rk{B} = r$, $\gamma_1,\ \dots, \gamma_r$ "--- столбцы $B$, образующие линейно независимую систему. Тогда $A\gamma_1, \dots, A\gamma_r$ "--- столбцы с теми же номерами в $AB$. Докажем, что они тоже образуют линейно независимую систему (и тогда утверждение будет доказано, поскольку $\rk{AB} \le \rk{B}$). Линейная комбинация этих столбцов имеет вид:
+	\[\sum_{i = 1}^{r}\alpha_iA\gamma_i = \sum_{i = 1}^{r}A(\alpha_i\gamma_i) = A\sum_{i = 1}^{r}\alpha_i\gamma_i = A\gamma\]
+		
+	Если линейная комбинация нетривиальна, то, в силу линейной независимости $(\gamma_1, \dots, \gamma_r)$, $\gamma \ne 0$. Тогда $A\gamma$ "--- нетривиальная линейная комбинация столбцов $A$, но столбцы $A$ тоже образуют линейно независимую систему, поэтому $A\gamma \ne 0$. Таким образом, система $(A\gamma_1, \dots, A\gamma_r)$ линейно независима.
+\end{proof}
+
+\begin{proposition}
+	Пусть $\overline{v_1}, \dots, \overline{v_m} \in V$, $e$ "--- базис в $V$. Тогда $(\overline{v_1}, \dots, \overline{v_m}) = eA$, $A \in M_{n \times m}(F)$. В этом случае $\rk(\overline{v_1}, \dots, \overline{v_m}) \hm{=} \rk{A}$.
+\end{proposition}
+
+\begin{proof}
+	Если векторы $\overline{v_1}, \dots, \overline{v_k}$ образуют линейно независимую систему, то, т.\:к. $V \cong F^n$ и изоморфизм переводит линейно независимые системы в линейно независимые, координатные столбцы $\overline{v_1}, \dots, \overline{v_k}$ (т.\:е. соответствующие столбцы $A$) также образуют линейно независимую систему. Обратное утверждение тоже верно, поэтому $\rk(\overline{v_1}, \dots, \overline{v_m}) \hm{=} \rk{A}$.
+\end{proof}
+
+\begin{theorem}[О базисном миноре]
+	Пусть $A \in M_{n \times k}(F)$, $\rk{A} = r$. Тогда в $A$ найдется подматрица размера $r \times r$ ранга $r$. Более того, если выбрать линейно независимую систему из $r$ строк $A$ и линейно независимую систему из $r$ столбцов $A$, то на их пересечении будет расположена искомая матрица.
+\end{theorem}
+
+\begin{proof}
+	Докажем сразу более сильное утверждение. Без ограничения общности можно считать, что искомая матрица $M$ расположена в левом верхнем углу $A$. Пусть $R \in M_{r \times k}$ "--- подматрица из первых $r$ строк $A$, $C \in M_{n \times r}$ "--- подматрица из первых $r$ столбцов $A$. Столбцы $A$ выражаются через столбцы $C$, поэтому $A = CB$, $B \in M_{r \times n}(F)$. Из этого следует, что столбцы $R$ выражаются через столбцы $M$ с теми же коэффициентами, что и столбцы $A$ через столбцы $C$, т.\:е. $R = MB$. Кроме того, строки $A$ выражаются через строки $R$, т.\:е. $A = SR$, $S \in M_{n \times r}(F)$. Таким образом, $A = SMB$, тогда $\rk{A} \le \rk{M} \le r$. Наконец, т.\:к. $\rk{A} = r$, то $\rk{M} = r$.
+\end{proof}
+
+\begin{proposition}
+	Пусть $A \in M_{n \times k}(F)$, $D \in M_{n \times n}(F)$ "--- обратимая матрица. Тогда $\rk(DA) = \rk(A)$.
+\end{proposition}
+
+\begin{proof}
+	$rk{A} \ge \rk(DA) \ge \rk(D^{-1}DA) = \rk{A}$.
+\end{proof}
+
+\begin{proposition}
+	Пусть $A \in M_{n \times k}(F)$, $D \in M_{n \times n}(F)$ "--- обратимая матрица. Тогда если столбцы $A$ с некоторыми номерами образуют линейно зависимую систему, то и столбцы $DA$ с теми же номерами образуют линейно зависимую систему, причем с теми же коэффициентами.
+\end{proposition}
+
+\begin{proof}
+	Если столбцы $A$ образуют линейно зависимую систему, то $\exists \gamma \in F^k: A\gamma = 0$. Тогда:
+	\begin{gather*}
+		A\gamma = 0 \Rightarrow DA\gamma = 0\\
+		DA\gamma = 0 \Rightarrow D^{-1}DA\gamma = 0 \Rightarrow A\gamma = 0
+	\end{gather*}
+\end{proof}
+
+\begin{corollary}
+	При элементарных преобразованиях строк не меняется ранг матрицы и линейная зависимость столбцов.
+\end{corollary}
+
+\begin{proposition}
+	Ранг ступенчатой матрицы равен числу ступеней.
+\end{proposition}
+
+\begin{proof}
+	Если в $A \in M_{n \times k}(F)$ всего $r$ ступеней, то в ней всего $r$ ненулевых строк, значит, $\rk{A} \le r$. С другой стороны, эти строки образуют линейно независимую систему. Предположим, что это не так, тогда существует их нетривиальная линейная комбинация, равная нулю:
+	\[\exists \alpha_1, \dots, \alpha_r \in F: \sum_{i = 1}^{r}\alpha_ia_{1*} = 0\]
+	
+	Пусть $j$ "--- наименьший индекс такой, что $\alpha_j \ne 0$, $k$ "--- индекс главного элемента в строке $a_{j*}$, тогда на $k$-й позиции в данной линейной комбинации стоит элемент $\alpha_j a_{jk} \ne 0$ "--- противоречие. Значит, система $r$ строк линейно независима, тогда $\rk{A} = r$.
+\end{proof}
+
+\begin{corollary}
+	Для нахождения ранга матрицы следует привести ее к ступенчатому виду, и число ступеней в полученной матрице будет равно искомому рангу.
+\end{corollary}
+
+\begin{theorem}
+	Пусть $U$ "--- пространство решений однородной системы линейных уравнений $Ax = b$ с $n$ переменными. Тогда $\dim{U} \hm{=} n - \rk{A}$.
+\end{theorem}
+
+\begin{proof}
+	Приведем матрицу $A$ к упрощенному виду $A'$, $\rk{A'} = \rk{A}$. Если в полученной матрице $r$ ненулевых строк, то в системе $r$ главных переменных и $n - r$ свободных переменных. Тогда фундаментальная матрица решений системы $\Phi$ состоит из $n - r$ столбцов. Поскольку ее столбцы являются базисом в $U$, то $\dim{U} = n - r = n - \rk{A}$.
+\end{proof}
+
+\begin{theorem}[Кронекера-Капелли]
+	Система линейных уравнений $Ax = b$ совместна $\Leftrightarrow$ $\rk{A} = \rk{(A|b)}$.
+\end{theorem}
+
+\begin{proof}
+	Приведем расширенную матрицу системы $(A|b)$ к ступенчатому виду $(A'|b')$. Поскольку перестановки столбцов не происходит, то матрица $A'$ "--- это упрощенный вид матрицы $A$. Система совместна $\Leftrightarrow$ в $(A'|b')$ нет ступеньки, начинающейся в столбце $b'$ $\Leftrightarrow$ у $A'$ и $(A'|b')$ одно и то же число ступенек $\Leftrightarrow$ $\rk{A} = \rk{(A|b)}$.
+\end{proof}
+
+\begin{definition}
+	Матрица $A \in M_{n}(F)$ называется \textit{невырожденной}, если $\rk{A} = n$.
+\end{definition}
+
+\begin{theorem}
+	Пусть $A \in M_{n}(F)$. Тогда равносильны следующие утверждения:
+	\begin{enumerate}
+		\item $A$ невырожденна.
+		\item $A$ элементарными преобразованиями строк приводится к $E$.
+		\item $A$ является произведением элементарных матриц.
+		\item $A$ обратима.
+		\item $A$ обратима слева (т.\:е. $\exists B \in M_n(F): BA = E$) или справа.
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	Доказательство $1 \Rightarrow 2$. Приведем $A$ к упрощенному виду $A'$. Т.\:к. $\rk{A'} = \rk{A} = n$, то $A' = E$.
+	
+	Доказательство $2 \Rightarrow 3$. Пусть последовательности преобразований, приводящих $A$ к $E$, соответствует последовательность элементарных матриц $M_1, \dots, M_{k} \in M_n(F)$, т.\:е. $M_k\dots M_1A = E$. Тогда $A = M_1^{-1}\dots M_k^{-1}$ "--- произведение элементарных матриц.
+	
+	Доказательство $3 \Rightarrow 4$. Если $A = M_1^{-1}\dots M_k^{-1}$, то $A$ обратима: $\exists B = M_k\dots M_1 \in M_n(F) : AB = BA = E$.
+	
+	Доказательство $4 \Rightarrow 5$. Если $A$ обратима, то, в частности, $A$ обратима слева или справа.
+	
+	Доказательство $5 \Rightarrow 1$. Пусть без ограничения общности $A$ обратима слева, т.\:е. $\exists B \in M_n(F): BA = E$. Тогда $n = \rk{E} = \rk{BA} \hm{\le} \rk{A}$. Поскольку $\rk{A} \le n$, то $\rk{A} = n$.
+\end{proof}
+
+\begin{corollary}
+ 	Пусть $A$ "--- невырожденная матрица. Тогда матрицу, обратную к ней, можно определить, приведя $(A|E)$ к упрощенному виду $(E|C)$: матрица $C$ и будет искомой.
+\end{corollary}
+
+\begin{proof}
+	Пусть последовательности преобразований, приводящих $(A|E)$ к $(E|C)$, соответствует последовательность элементарных матриц $M_1, \dots, M_{k} \in M_n(F)$, т.\:е. $M_k\dots M_1(A|E) = (E|C)$. Преобразуем произведение в левой части равенства:
+	\[M_k\dots M_1(A|E) \hm{=} (M_k\dots M_1A|M_k\dots M_1E) = (M_k\dots M_1A|M_k\dots M_1)\]
+	
+	Следовательно, $M_k\dots M_1 = C$ и $CA = E$.
+\end{proof}
+
+\begin{note}
+	В общем случае, для матрицы $A \in M_{n \times k}(F)$ не существует обратной матрицы $B \in M_{k \times n}(F)$: $\rk{(AB)}$ и $\rk{(BA)}$ не превосходят $\min{(n, k)}$, и потому не могут равняться $\rk{E_{\max{(n, k)}}} \hm{=} \max{(n, k)}$.
+\end{note}
+
+\subsection{Сумма и пересечение подпространств}
+
+\begin{proposition}
+	Пусть $V$ "--- линейное пространство над полем $F$, $U_1, U_2 \le V$. Тогда $U_1 \cap U_2 \le V$.
+\end{proposition}
+
+\begin{proof}
+	Если $\overline{u}, \overline{v} \in U_1 \cup U_2$, то $\overline{u} \in U_1, U_2$ и $\overline{v} \in U_1, U_2$. Тогда и $\overline{u} + \overline{v} \in U_1, U_2$. Аналогично, $\forall \overline{u} \in U: \forall \alpha \in F: \alpha\overline{u} \in U_1, U_2$. Наконец, $U_1 \cap U_2 \ne \emptyset$, т.\:к. $\overline{0} \in U_1, U_2$.
+\end{proof}
+
+\begin{definition}
+	Пусть $V$ "--- линейное пространство над полем  $F$, $U_1, U_2 \le V$. Тогда их \textit{суммой} называется $U_1 + U_2 = \{\overline{u_1} + \overline{u_2}~|~\overline{u_1} \hm{\in} U_1, \overline{u_2} \in U_2\}$. Сумма $U_1 + \dots + U_k$ определяется аналогично.
+\end{definition}
+
+\begin{proposition}
+	Пусть $V$ "--- линейное пространство над полем $F$, $U_1, \dots, U_k \le V$. Тогда $U_1 + \dots + U_k \le V$.
+\end{proposition}
+
+\begin{proof}
+	Сначала докажем справедливость утверждения для $U_1 + U_2$. $U_1 + U_2 \ne \emptyset$, т.\:к. $U_1 \ne \emptyset$, $U_2 \ne \emptyset$. Если $\overline{u_1} + \overline{u_2}, \overline{v_1} + \overline{v_2} \hm{\in} U_1 + U_2$ ($\overline{u_1}, \overline{v_1} \in U_1$, $\overline{u_2}, \overline{v_2} \in U_2$), то $\overline{u_1} + \overline{u_2} + \overline{v_1} + \overline{v_2} = (\overline{u_1} + \overline{v_1}) \hm{+} (\overline{u_2} + \overline{v_2}) \in U_1 + U_2$. Аналогично, $\forall \overline{u_1} \in U_1, \overline{u_2} \in U_2: \forall \alpha \in F: \alpha(\overline{u_1} + \overline{u_2}) \in U_1 + U_2$.
+	
+	Чтобы обобщить утверждение на $U_1, \dots, U_k \le V$, заметим, что из ассоциативности сложения в $V$ следует ассоциативность сложения подпространств. Тогда достаточно показать по индукции, что $U_1 \hm{+} U_2 \le V$, $(U_1 + U_2) + U_3 \le V$, и т.\:д.
+\end{proof}
+
+\begin{note}
+	Определить сумму $U_1 + \dots + U_k$ можно и другим способом:
+	\[U_1 + \dots + U_k = \langle U_1\cup\dots\cup U_k\rangle\]
+\end{note}
+
+\begin{proposition}
+	Если $\forall i \in \{1, \dots, k\}: U_i = \langle A_i\rangle$, то $U_1 + \dots \hm{+} U_k \hm{=} \langle A_1 \cup \dots \cup A_k\rangle$.
+\end{proposition}
+
+\begin{proof}
+	Доказательство $\subset$. Если $\overline{u_1} + \dots + \overline{u_k} \in U_1 + \dots \hm{+} U_k$ ($\overline{u_1} \in U_1, \dots, \overline{u_k} \in U_k$), то $\overline{u_i}$ выражается через $A_i$ $\forall i \in \{1, \dots, k\}$, тогда $\overline{u_1} + \dots + \overline{u_k} \in \langle A_1 \cup \dots \cup A_k\rangle$.
+	
+	Доказательство $\supset$. $\forall i \in \{1, \dots, k\}: A_i \subset U_i \subset U_1 + \dots + U_k$, тогда $A_1 \cup \dots \cup A_k \subset U_1 + \dots + U_k$. Но, т.\:к. сумма подпространств "--- это линейное пространство, то $\langle A_1 \cup \dots \cup A_k\rangle \subset U_1 + \dots + U_k$.
+\end{proof}
+
+\begin{corollary}
+	$\dim{(U_1 + \dots + U_k)} \le \dim{U_1} + \dots + \dim{U_k}$.
+\end{corollary}
+
+\begin{proof}
+	Возьмем в качестве $A_i$ (систем векторов, порождающих $U_i$) базисы в соответствующих подпространствах. Тогда $U_1 + \dots + U_k$ порождено системой из не более, чем $\dim{U_1} + \dots + \dim{U_k}$ векторов.
+\end{proof}
+
+\begin{note}
+	Если $U_1 + U_2 = U_1 + U_3$, то необязательно $U_2 = U_3$. Например, любые два пересекающиеся прямые $V_1$ порождают плоскость $V_2$.
+\end{note}
+
+\begin{definition}
+	Пусть $U_1, \dots, U_k \le V$. Сумма $U = U_1 + \dots + U_k$ называется \textit{прямой}, если $\forall \overline{u} \in U: \exists! \overline{u_1} \in U_1, \dots, \overline{u_k} \in U_k: \overline{u} \hm{=} \overline{u_1} + \dots + \overline{u_k}$. Обозначение "--- $U = U_1 \oplus \dots \oplus U_k$.
+\end{definition}
+
+\begin{proposition}
+	Сумма $U_1 + \dots + U_k$ прямая $\Leftrightarrow$ $\exists! \overline{u_1} \in U_1, \dots, \overline{u_k} \hm{\in} U_k: \overline{u_1} + \dots + \overline{u_k} = \overline{0}$.
+\end{proposition}
+
+\begin{proof}
+	Доказательство $\Rightarrow$. Данное утверждение верно по определению прямой суммы: единственное разложение для $\overline{0}$ "--- это $\overline{0} + \dots + \overline{0}$.
+	
+	Доказательство $\Leftarrow$. Пусть для некоторого $\overline{u} \in U$ разложение не единственно: $\overline{u} = \overline{u_1} + \dots + \overline{u_k} = \overline{w_1} + \dots + \overline{w_k}$. Тогда $\overline{0} = (\overline{u_1} - \overline{w_1}) \hm{+} \dots + (\overline{u_k} - \overline{w_k})$ ($(\overline{u_1} - \overline{w_1}) \in U_1, \dots, (\overline{u_k} - \overline{w_k}) \in U_k$). Но вектор $\overline{0}$ раскладывается единственным образом, поэтому $\overline{u_1} = \overline{w_1}, \dots, \overline{u_k} \hm{=} \overline{w_k}$.
+\end{proof}
+
+\begin{theorem}
+	Пусть $U_1, \dots, U_k \in V$. Тогда сумма $U_1 + \dots + U_k$ прямая $\Leftrightarrow$ $\forall i \in \{1, \dots, k\}: U_i \cap (U_1+\dots+U_{i-1}+U_{i+1}+U_k) = \{\overline{0}\}$.
+\end{theorem}
+
+\begin{proof}
+	Доказательство $\Rightarrow$. Предположим, что $\exists \overline{u_i} \ne \overline{0}: \overline{u_i} \in U_i, \overline{u_i} = \overline{u_1} + \dots + \overline{u_{i-1}} + \overline{u_{i+1}} +\dots + \overline{u_k} \in U_1+\dots+U_{i-1}+U_{i+1}\hm{+}U_k$. Но тогда $\overline{0} = \overline{u_1} + \dots + \overline{u_{i-1}} + \overline{u_i} + \overline{u_{i+1}} +\dots + \overline{u_k}$ "--- разложение для нуля, отличное от суммы нулей "--- противоречие.
+	
+	Доказательство $\Leftarrow$. Предположим, что сумма не прямая, т.\:е. $\overline{0} \hm{=} \overline{u_1} + \dots + \overline{u_k}$ и $\exists i: \overline{u_i} \ne \overline{0}$. Но тогда $-\overline{u_i} = \overline{u_1} + \dots + \overline{u_{i-1}} + \overline{u_{i+1}} +\dots \hm{+} \overline{u_k}$ "--- некоторый ненулевой вектор лежит и в $U_i$, и в $U_1+\dots+U_{i-1}\hm{+}U_{i+1}\hm{+}U_k$ "--- противоречие.
+\end{proof}
+
+\begin{note}
+	Можно по индукции показать, что достаточно проверить следующий набор условий:
+	\[\left\{
+	\begin{aligned}
+		&U_k \cap (U_1 + \dots + U_{k-1}) = \{\overline{0}\}\\
+		&U_{k-1} \cap (U_1 + \dots + U_{k-2}) = \{\overline{0}\}\\
+		&\dots\\
+		&U_2 \cap U_1 = \{\overline{0}\}
+	\end{aligned}
+	\right.\]
+\end{note}
+
+\begin{note}
+	В случае прямой суммы из того, что $U_1 \oplus U_2 = U_1 \hm{\oplus} U_3$ тоже не следует, что $U_2 = U_3$. Контрпример аналогичен случаю обычной суммы.
+\end{note}
+
+\begin{theorem}
+	Пусть $U_1, \dots, U_k \le V$. Тогда равносильны следующие утверждения:
+	\begin{enumerate}
+		\item Сумма $U = U_1 + \dots U_k$ прямая.
+		\item $\dim{(U_1 + \dots + U_k)} = \dim{U_1} + \dots + \dim{U_k}$.
+		\item Для любого набора базисов $e_1, \dots, e_k$ в $U_1, \dots, U_k$ верно, что $(e_1, \dots, e_k)$ "--- базис в $U$.
+		\item Существует такой набор базисов $e_1, \dots, e_k$ в $U_1, \dots, U_k$, что $(e_1, \dots, e_k)$ "--- базис в $U$.
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	Доказательство $1 \Leftrightarrow 3 \Leftrightarrow 4$. Пусть $e_1$ "--- базис в $U_1$, $\dots$, $e_k$ "--- базис в $U_k$. Докажем, что сумма прямая $\Leftrightarrow$ $(e_1, \dots, e_k)$ "--- базис в $U$. Т.\:к. $U_i = \langle e_i\rangle$, то $U = \langle e_1, \dots, e_k \rangle$. Значит, остается проверить, что система $(e_1, \dots, e_k)$ линейно независима. Предположим, что сумма $U$ не прямая, тогда $\exists \overline{u_i} \in U_i: \overline{u_1} + \dots + \overline{u_k} = \overline{0}$, при этом не все векторы в сумме нулевые. Разложив каждый $\overline{u_i}$ по базису $e_i$, получим нетривиальную линейную комбинацию, равную нулю, значит, система линейно зависима.
+	
+	Напротив, если система $(e_1, \dots, e_k)$ линейно зависима, то сгруппируем нетривиальную линейную комбинацию, равную нулю, по базисам, и получим $\overline{u_1} + \dots + \overline{u_k} = \overline{0}$, причем не все векторы нулевые, значит, сумма не прямая.
+	
+	Доказательство $2 \Leftrightarrow 3 \Leftrightarrow 4$. Если $(\overline{e_1}, \dots, \overline{e_k})$ "--- базис в $U$, то $\dim{U} \hm{=} \dim{U_1} + \dots + \dim{U_k}$. Если $(\overline{e_1}, \dots, \overline{e_k})$ "--- не базис в $U$, то эта система линейно зависима, тогда, т.\:к. она выражает все пространство $U$, $\dim{U} < \dim{U_1} + \dots + \dim{U_k}$.
+\end{proof}
+
+\begin{definition}
+	Пусть $U \le V$. Тогда $W \le V$ называется \textit{прямым дополнением} подпространства $U$ в пространстве $V$, если сумма $U + W$ прямая и $U \oplus W = V$.
+\end{definition}
+
+\begin{note}
+	$\dim{U} + \dim{W} = \dim{V}$.
+\end{note}
+
+\begin{proposition}
+	Пусть $U \le V$. Тогда существует прямое дополнение $U$ в $V$.
+\end{proposition}
+
+\begin{proof}
+	Выберем базис $(\overline{e_1}, \dots, \overline{e_k})$ "--- базис в $U$. Уже было доказано, что любую линейно независимую систему, значит, в частности, $e$, можно дополнить до базиса. Пусть $(\overline{e_1}, \dots, \overline{e_k}, \overline{e_{k+1}}, \dots, \overline{e_n})$ "--- базис в $V$. Тогда рассмотрим $W = \langle \overline{e_{k+1}}, \dots, \overline{e_n}\rangle$. $U + W = V$, и, более того, объединение базисов $U$ и $W$ является базисом в $V$, значит, сумма $U \oplus W$ прямая.
+\end{proof}
+
+\begin{theorem}
+	Пусть $U_1, U_2 \le V$. Тогда $\dim{(U_1 + U_2)} = \dim{U_1} \hm{+} \dim{U_2} - \dim{(U_1 \cap U_2)}$.
+\end{theorem}
+
+\begin{proof}
+	Пусть $U = U_1 \cap U_2$, тогда $U \le U_1, U_2$. Выберем $W_1$, $W_2$ "--- прямые дополнения $U$ в $U_1$ и $U_2$ соответственно. Уже было доказано, что $\dim{W_i} + \dim{U} = \dim{U_i}$.
+	
+	Докажем теперь, что $U_1 + U_2 = U \oplus W_1 \oplus W_2$. $U_1 + U_2 = (U + W_1) \hm{+} (U + W_2) = U + W_1 + W_2$. Эта сумма прямая, т.\:к. если $\overline{0} = \overline{u} + \overline{w_1} + \overline{w_2}$, то $-\overline{w_1} = \overline{u} + \overline{w_2}$, т.\:е. $\overline{w_1} \in W_1, U_1, U_2 \Rightarrow \overline{w_1} \in W_1 \cap U \Rightarrow \overline{w_1} = \overline{0}$. Аналогично, $\overline{w_2} = \overline{0}$, тогда и $\overline{u} = \overline{0}$.
+	
+	Таким образом, $\dim{(U_1 + U_2)} = \dim{U} + \dim{W_1} + \dim{W_2}$, $\dim{U_1} \hm{=} \dim{U} + \dim{W_1}$, $\dim{U_2} = \dim{U} + \dim{W_2}$. Используя эти равенства, получаем требуемый результат.
+\end{proof}
+
+\begin{note}
+	В общем случае по размерностям попарных пересечений нельзя восстановить $\dim(U_1 + \dots + U_k)$.
+\end{note}
+
+\begin{definition}
+	Пусть $V = U \oplus W$, $\overline{v} \in V$, тогда существует единственное разложение $\overline{v} = \overline{u} + \overline{w}, \overline{u} \hm{\in} U, \overline{w} \hm{\in} W$. Вектор $\overline{u}$ называется \textit{проекцией} $\overline{v}$ \textit{на} $U$ \textit{вдоль} $W$, $\overline{w}$ "--- проекцией $\overline{v}$ на $W$ вдоль $U$.
+\end{definition}
+
+\begin{note}
+	Пусть $V_1, V_2$ "--- линейные пространства над $F$. Их \textit{внешней прямой суммой} называется $V = V_1 \oplus V_2 = \{(\overline{v_1}, \overline{v_2}~|~\overline{v_1} \in V_1, \overline{v_2} \hm{\in} V_2)\}$. Если определить сложение и умножение на скаляр покоординатно, то $V$ становится линейным пространством, причем:
+	\begin{itemize}
+		\item $V_1 \cong \{(\overline{v_1}, \overline{0})~|~\overline{v_1} \in V_1\} = U_1, V_2 \cong \{(\overline{0}, \overline{v_2})~|~\overline{v_2} \in V_2\} = U_2$
+		\item $V = U_1 \oplus U_2$
+	\end{itemize}
+\end{note}

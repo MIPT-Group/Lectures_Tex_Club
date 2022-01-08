@@ -1,16 +1,14 @@
 \subsubsection*{Свойство полноты}
 
 \begin{definition}
-    Любое действительное число разбивает по отношению порядка множество $\R$ на две части
-    \begin{align*}
-        &A \neq \emptyset,\ B \neq \emptyset,\ A \cap B = \emptyset, A \cup B = \R \\
-        &\forall a \in A, b \in B\ \ a \le b \\
-        &\exists c \in \R\ |\ \forall a \in A, b \in B\ \ a \le c \le b
-    \end{align*}
+    Любое действительное число разбивает по отношению порядка множество $\R$ на две части. То есть, если $A \neq \emptyset,\ B \neq \emptyset$ и при этом $A \cap B = \emptyset$, $A \cup B = \R$, а также $\forall a \in A, b \in B\ a \le b$, то
+    \[
+    	\exists c \in \R \such \forall a \in A, b \in B\ a \le c \le b
+    \]
 \end{definition}
 
 \begin{proof}
-    Построим $\{[p_n; q_n]_\Q\}_{n = 1}^\infty$ - система стягивающихся отрезков
+    Построим $\{[p_n; q_n]_\Q\}_{n = 1}^\infty$ - систему стягивающихся отрезков
     $$
         p_n - \text{ наибольшее } \frac{1}{10^{n - 1}}\Z \cap A,\ q_n - \text{ наименьшее } \frac{1}{10^{n - 1}}\Z \cap B
     $$
@@ -258,7 +256,7 @@ $$
 \end{definition}
 
 \begin{note}
-    Сейчас формулу Эйлера нужно принять "на веру". В будущем её можно и нужно доказать.
+    Сейчас формулу Эйлера нужно принять <<на веру>>. В будущем её можно и нужно доказать.
 \end{note}
 
 \subsubsection*{Комплексное расширение тригонометрических функций}
@@ -318,10 +316,10 @@ $$
 \subsubsection*{Плотность множества рациональных чисел в множестве действительных}
 
 \begin{proposition}
-    Между любыми двумя неравными числами найдётся рациональное
-    $$
-    (\forall a, b \in \R\ |\ a < b)(\exists r \in \Q)\ |\ a < r < b
-    $$
+    Между любыми двумя неравными действительными числами найдётся рациональное.
+    \[
+    	(\forall a, b \in \R\ |\ a < b)(\exists r \in \Q)\ |\ a < r < b
+    \]
 \end{proposition}
 
 \begin{proof}
