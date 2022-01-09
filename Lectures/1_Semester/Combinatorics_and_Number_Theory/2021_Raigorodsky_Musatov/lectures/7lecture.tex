@@ -206,7 +206,7 @@
 		\item $C_n^k = C_{n - 1}^k + C_{n - 1}^{k - 1}$;
 		\item $C_n^0 + C_n^1 + C_n^2 + \ldots + C_n^n = 2^n$;
 		\item $\left(C_n^0\right)^2 + \ldots + \left(C_n^n\right)^2 = C_{2n}^n$;
-		\item $C_{n + m}^{n - 1} + C_{n + m - 1}^{n - 1} + \ldots + C_{n - 1}^{n - 1} = C_{n + m}^n = C_{n + m}^m,\ m \ge 0$.
+		\item $C_{n + m - 1}^{n - 1} + \ldots + C_{n - 1}^{n - 1} = C_{n + m}^n = C_{n + m}^m,\ m \ge 0$.
 	\end{enumerate}
 \end{theorem}
 
@@ -237,7 +237,7 @@
 		
 		\item Давайте рассмотрим всевозможные $m$-сочетания с повторениями в множестве $A = \{a_1, \ldots, a_{n + 1}\}$. Их $\bar{C}_{n + 1}^m = C_{n + 1 + m - 1}^m = C_{n + m}^m = C_{n + m}^n$ штук. С другой стороны, каждое сочетание принадлежит группе наборов, которые содержат $i \in [0, \ldots, m]$ элементов $a_1$. Отсюда
 		\[
-			C_{n + m}^n = \suml_{i = 0}^m \bar{C}_n^{m - i} = \suml_{i = 0}^m C_{n + m - i - 1}^{m - i} = \suml_{i = 0}^m C_{n + m - i - 1}^{(n + m - i - 1) - (m - i)} = \suml_{i = 0}^m C_{n + m - i}^{n - 1}.
+			C_{n + m}^n = \suml_{i = 0}^m \bar{C}_n^{m - i} = \suml_{i = 0}^m C_{n + m - i - 1}^{m - i} = \suml_{i = 0}^m C_{n + m - i - 1}^{(n + m - i - 1) - (m - i)} = \suml_{i = 0}^m C_{n + m - 1 - i}^{n - 1}.
 		\]
 	\end{enumerate}
 \end{proof}
