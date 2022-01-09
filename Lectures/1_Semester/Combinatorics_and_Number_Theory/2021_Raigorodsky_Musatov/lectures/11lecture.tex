@@ -1,5 +1,5 @@
 \begin{proof}
-	Пусть $\{d_1, \ldots, d_s\}$ --- это все делители числа $n \in \N$. Тогда множество $V$ можно представить как объединение множеств слов длины $n$ с одинаковым периодом $d_i$:
+	Пусть $\{d_1, \ldots, d_s\}$ --- это все делители числа $n \in \N$. Тогда множество $V$ можно представить как объединение множеств слов $V_i$ длины $n$ с одинаковым периодом $d_i$:
 	\begin{align*}
 		&V = V_1 \sqcup \ldots \sqcup V_s,
 		\\
@@ -33,7 +33,7 @@
 	\end{align*}
 	Отсюда получаем
 	\[
-		T_r(n) = \suml_{d \mid n} M(d) = \suml_{d \mid n} \frac{1}{d} \left(\suml_{d' \mid d} \mu(d') r^{d / d'}\right).
+		T_r(n) = \suml_{d \mid n} M(d) = \suml_{d \mid n} \frac{1}{d} \left(\suml_{d' \mid d} \mu(d') r^{d / d'}\right)
 	\]
 \end{proof}
 
