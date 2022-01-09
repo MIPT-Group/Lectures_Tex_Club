@@ -36,10 +36,12 @@
 
 \subsubsection*{Ассоциативность декартового произведения}
 
-\textcolor{red}{Здесь должна быть ассоциативность декартового произведения, 
-то есть что для любых множеств $A$, $B$, $C$ множества $A \times (B \times C)$
-и $(A \times B) \times C$ имеют каноническую биекцию и практически никогда 
-не различаются.}
+\begin{proposition}
+	Если положить кортежи $(a, (b, c))$ и $((a, b), c)$ естественно равными для любых $a, b, c$, то декартово произведение ассоциативно:
+	\[
+		\forall A, B, C\ \ A \times (B \times C) = (A \times B) \times C
+	\]
+\end{proposition}
 
 \subsection{Отображения и соответствия}
 
@@ -60,13 +62,13 @@
 
 \begin{definition}
 	\textit{Отображением} или же \textit{функцией} между множествами $A$ и $B$ называется однозначное соответствие на этих же множествах, то есть
-	$$
-		\forall a \in A \Ra \exists! b \in B \colon b = F(a).
-	$$
+	\[
+		\forall a \in A\ \exists! b \in B \colon b = F(a).
+	\]
 	Или же пишут, что
-	$$
+	\[
 		F \colon A \ra B.
-	$$
+	\]
 \end{definition}
 
 \begin{definition}
@@ -118,8 +120,9 @@
 
 \subsection{Образ и прообраз}
 
-\textcolor{red}{Возможно, здесь подразумевается по умолчанию, что задано 
-соответствие $F \colon A \rra B$. Если это так, то мы об этом вас предупредили.}
+\begin{note}
+	Определения ниже даны в предположении, что задано соответствие \\ $F \colon A \rra B$.
+\end{note}
 
 \begin{definition}
 	Если $S \subset A$, то $F(S) := \bigcup\limits_{a \in S} F(a)$ называется \textit{образом} множества $S$.
