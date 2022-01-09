@@ -37,7 +37,7 @@
 	\]
 \end{proof}
 
-\subsection{Общая функция Мёбиуса}
+\subsection{Обобщённая Мёбиуса}
 
 \begin{definition}
 	 \textit{Функцией Мёбиуса на частично упорядоченном множестве} (ЧУМе) $\trbr{\mcP, \preceq}$ называется функция $\mu$, определяемая как
@@ -51,7 +51,7 @@
 	 При этом считается, что $\forall y \in \mcP$ существует лишь конечное число $x \in \mcP$ таких, что $x \preceq y$.
 \end{definition}
 
-\begin{theorem} (Связь между общей и стандартной функцией Мёбиуса)
+\begin{theorem} (Связь между обобщённой и стандартной функцией Мёбиуса)
 	Переобозначим стандартную функцию Мёбиуса за $\hat{\mu}$. Тогда, если $\trbr{\mcP, \preceq} = \trbr{\N, |}$, то
 	\[
 		\mu(y, x) = \hat{\mu}\left(\frac{x}{y}\right).
@@ -93,7 +93,7 @@
 	\end{itemize}
 \end{proof}
 
-\begin{theorem} (Общее обращение Мёбиуса) \label{globMebius}
+\begin{theorem} (Обобщённое обращение Мёбиуса) \label{globMebius}
 	Пусть $\trbr{\mcP, \preceq}$ --- некоторый ЧУМ. Пусть $f\colon \mcP \ra \Cm$, $g(x) := \suml_{y \preceq x} f(y)$. Тогда
 	\[
 		f(x) = \suml_{y \preceq x} \mu(y, x) g(y).
