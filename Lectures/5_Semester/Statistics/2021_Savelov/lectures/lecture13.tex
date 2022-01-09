@@ -45,7 +45,7 @@
 \section{Критерии согласия}
 \subsection{Критерий согласия Пирсона (критерий хи-квадрат)}
 
-Пусть выборка $\displaystyle X_{1} ,\ \dotsc ,\ X_{n}$ с распределением $\displaystyle P( X_{1} =a_{i}) =p_{i} ,\ i=\overline{1,m} ,\ \sum _{i=1}^{m} p_{i} =1$ (полиномиальная схема). Положим $\displaystyle \nu _{j} =\sum _{i=1}^{n} I_{X_{i} =a_{i}} ,\ j=\overline{1,m}$ -- количество осуществлений исхода $\displaystyle a_{j}$. Тогда $\displaystyle \sum _{i=1}^{m} \nu _{i} =n$. Вектор $\displaystyle \overline{p} =\begin{pmatrix}
+Пусть выборка $\displaystyle X_{1} ,\ \dotsc ,\ X_{n}$ с распределением $\displaystyle P( X_{1} =a_{i}) =p_{i} ,\ i=\overline{1,m} ,\ \sum _{i=1}^{m} p_{i} =1$ (полиномиальная схема). Положим $\displaystyle \nu _{j} =\sum _{i=1}^{n} I_{X_{i} =a_{j}} ,\ j=\overline{1,m}$ -- количество осуществлений исхода $\displaystyle a_{j}$. Тогда $\displaystyle \sum _{i=1}^{m} \nu _{i} =n$. Вектор $\displaystyle \overline{p} =\begin{pmatrix}
 p_{1}\\
 \dotsc \\
 p_{m}
@@ -76,7 +76,7 @@ p_{m}^{0}
     p_{1}^{0}\\
     \dotsc \\
     p_{m}^{0}
-    \end{pmatrix}$. Найдем матрицу ковариаций вектора $\displaystyle Y_{j}$.
+    \end{pmatrix}$. Найдем матрицу ковариаций вектора $\displaystyle Y_{j}$:
     \begin{equation*}
         cov( I_{X_{j} =a_{i}} ,\ I_{X_{j} =a_{k}}) =EI_{X_{j} =a_{i} ,\ X_{j} =a_{k}} -EI_{X_{j} =a_{i}} \cdotp EI_{X_{j} =a_{k}} =\begin{cases}
         p_{i}^{0} -p_{i}^{0} p_{k}^{0} & ,\ i=k\\

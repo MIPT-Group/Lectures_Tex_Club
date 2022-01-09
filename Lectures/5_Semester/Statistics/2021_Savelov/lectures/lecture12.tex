@@ -77,7 +77,7 @@
 \end{theorem}
 \subsection{Двойственность доверительного оценивания и проверки гипотез}
 \begin{proposition}
-    Пусть $\displaystyle S( X)$ -- доверительная область уровня доверия $\displaystyle 1-\varepsilon $ для параметра $\displaystyle \theta \in \Theta $. Хотим проверить простую гипотезу $\displaystyle H_{0} :\ \theta =\theta _{0}$. Рассмотрим $\displaystyle \tilde{S}( \theta ) =\{X\in \mathcal{X} :\ \theta \neq S( X)\}$. Тогда $\displaystyle \tilde{S}( \theta _{0})$ -- критерий уровня значимости $\displaystyle \varepsilon $ для проверки $\displaystyle H_{0}$.
+    Пусть $\displaystyle S( X)$ -- доверительная область уровня доверия $\displaystyle 1-\varepsilon $ для параметра $\displaystyle \theta \in \Theta $. Хотим проверить простую гипотезу $\displaystyle H_{0} :\ \theta =\theta _{0}$. Рассмотрим $\displaystyle \tilde{S}( \theta ) =\{X\in \mathcal{X} :\ \theta \notin S( X)\}$. Тогда $\displaystyle \tilde{S}( \theta _{0})$ -- критерий уровня значимости $\displaystyle \varepsilon $ для проверки $\displaystyle H_{0}$.
 \end{proposition}
 \begin{proof}
     \begin{equation*}
@@ -85,7 +85,7 @@
     \end{equation*}
 \end{proof}
 \begin{proposition}
-    Пусть $\displaystyle S_{\theta _{0}}$ -- известный критерий уровня значимости $\displaystyle \varepsilon $ для проверки $\displaystyle H_{0} :\ \theta =\theta _{0} \ \forall \theta _{0} \in \Theta $. Рассмотрим $\displaystyle S( X) =\{\theta \in \Theta :\ X\notin S_{\theta }\}$. Тогда $\displaystyle S( X)$ -- доверительное множество уровня доверия $\displaystyle 1-\varepsilon $.
+    Пусть $\displaystyle S_{\theta _{0}}$ -- критерий уровня значимости $\displaystyle \varepsilon $ для проверки $\displaystyle H_{0} :\, \theta =\theta _{0}$, который известен $\forall \theta_0 \in \Theta$. Рассмотрим $\displaystyle S( X) =\{\theta \in \Theta :\ X\notin S_{\theta }\}$. Тогда $\displaystyle S( X)$ -- доверительное множество уровня доверия $\displaystyle 1-\varepsilon $.
 \end{proposition}
 \begin{proof}
     \begin{equation*}
@@ -102,7 +102,7 @@
     \end{equation*}
 \end{proposition}
 \begin{proof}
-    Так как $\displaystyle \hat{\theta } \ \sim \ \mathcal{N}\left( \theta ,\ \sigma ^{2}\left( Z^{T} Z\right)^{-1}\right)$, где $\displaystyle \hat{\theta } =\left( Z^{T} Z\right)^{-1} Z^{T} X$ -- оценка ОНК для $\displaystyle \theta $, $\displaystyle \hat{t} =T\hat{\theta }$ -- оптимальная оценка для $\displaystyle T\theta $, то 
+    Так как $\displaystyle \hat{\theta } \ \sim \ \mathcal{N}\left( \theta ,\ \sigma ^{2}\left( Z^{T} Z\right)^{-1}\right)$, где $\displaystyle \hat{\theta } =\left( Z^{T} Z\right)^{-1} Z^{T} X$ -- ОНК для $\displaystyle \theta $, $\displaystyle \hat{t} =T\hat{\theta }$ -- оптимальная оценка для $\displaystyle T\theta $, то 
     \begin{equation*}
         \hat{t} =T\hat{\theta } \ \sim \ \mathcal{N}\left( T\theta ,\ T\sigma ^{2}\left( Z^{T} Z\right)^{-1} T^{T}\right) =\ \mathcal{N}\left( T\theta ,\ \sigma ^{2} B\right) ,
     \end{equation*}
