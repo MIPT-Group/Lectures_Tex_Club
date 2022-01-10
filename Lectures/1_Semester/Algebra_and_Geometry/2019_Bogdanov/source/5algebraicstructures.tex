@@ -3,7 +3,7 @@
 \subsection{Группы}
 
 \begin{definition}
-	\textit{Группой} называется множество $G$ с введенной на нем бинарной операцией $\cdot: G \times G \rightarrow G$ ($(a, b) \mapsto a\cdot b = ab$), удовлетворяющей следующим свойствам:
+	\textit{Группой} называется множество $G$ с определенной на нем бинарной операцией \textit{умножения} $\cdot: G \times G \rightarrow G$, удовлетворяющей следующим условиям:
 	\begin{itemize}
 		\item $\forall a, b, c \in G : (ab)c = a(bc)$ (ассоциативность)
 		\item $\exists e \in G: \forall a \in G: ae = ea = a$ (существование нейтрального элемента)
@@ -12,317 +12,273 @@
 \end{definition}
 
 \begin{proposition}
-	Пусть $(G, \cdot)$ "--- группа. Нейтральный элемент $e$ в группе единственен.
+	Нейтральный элемент $e$ в группе $(G, \cdot)$ единственен.
 \end{proposition}
 
 \begin{proof}
-	Пусть $e$ и $e'$ "--- нейтральные элементы в $G$. Тогда:
-	\[e = ee' = e'\]
+	Пусть $e$ и $e'$ "--- нейтральные элементы в $G$. Тогда $e = ee' = e'$.
 \end{proof}
 
 \begin{proposition}
-	Обратный элемент в $(G, \cdot)$ единственен: $\forall a \hm{\in} G: \exists! a^{-1} \in G$. Более того, $\forall b, c \in G: ba = ac = e \rightarrow b = c$.
+	Обратный элемент к каждому элементу группы $(G, \cdot)$ единственен.
 \end{proposition}
 
 \begin{proof}
-	Сначала докажем вторую часть утверждения:
-	\[b = be = b(ac) = (ba)c = ec = c\]
-	
-	Первая часть утверждения является прямым следствием доказанного.
+	Пусть для некоторых $b, c \in G$ выполнены равенства $ba = ac = e$. Тогда $b = be = b(ac) = (ba)c = ec = c$.
 \end{proof}
 
 \begin{proposition}
-	В группе можно сокращать: 
-	\[\forall a, b, c, \in G: ab = ac \rightarrow b = c\]
+	В группе $(G, \cdot)$ можно <<сокращать>>, то есть для любых $a, b, c \in G$ таких, что $ab = ac$, выполнено $b = c$.
 \end{proposition}
 
 \begin{proof}
-	Домножив обе части слева на $a^{-1}$, получим требуемое.
+	Домножив обе части равенства $ab = ac$ на $a^{-1}$, получим требуемое.
 \end{proof}
 
 \begin{definition}
-	Группа называется $(G, \cdot)$ \textit{абелевой}, если умножение в ней коммутативно:
-	\[\forall a, b \in G: ab = ba\]
+	Группа называется $(G, \cdot)$ \textit{абелевой}, если умножение в ней коммутативно, то есть для любых $a, b \in G$ выполнено $ab = ba$.
 \end{definition}
 
 \begin{example}
-	Абелевыми группами являются:
+	Рассмотрим несколько примеров абелевых групп:
 	\begin{itemize}
-		\item $(\mathbb{Z}, +)$, $(\mathbb{Q}, +)$, $(\mathbb{R}, +)$, $(\mathbb{C}, +)$ (в отличие от $(\mathbb{N}, +)$, в котором нет обратных элементов)
-		\item $(M_{n \times k}, +)$, $(V_i, +)$
-		\item $(\mathbb{Q} \backslash \{0\}, \cdot) \equiv (\mathbb{Q}^*, \cdot)$, $(\mathbb{R} \backslash \{0\}, \cdot) \equiv (\mathbb{R}^*, \cdot)$, $(\mathbb{C} \backslash \{0\}, \cdot) \equiv (\mathbb{C}^*, \cdot)$
+		\item $(\mathbb{Z}, +)$, $(\mathbb{Q}, +)$, $(\mathbb{R}, +)$, $(\mathbb{C}, +)$ являются абелевыми группами, при этом $(\mathbb{N}, +)$ --- нет, поскольку в $\N$ нет обратных элементов
+		\item $(M_{n \times k}, +)$, $(V_i, +)$ являются абелевыми группами
+		\item $(\mathbb{Q}^*, \cdot) := (\mathbb{Q} \backslash \{0\}, \cdot)$, $ (\mathbb{R}^*, \cdot) := (\mathbb{R} \backslash \{0\}, \cdot)$, $(\mathbb{C}^*, \cdot) := (\mathbb{C} \backslash \{0\}, \cdot)$ являются абелевыми группами
 	\end{itemize}
 \end{example}
 
 \begin{example}
-	Неабелевой группой является \textit{группа перестановок} $(S_n, \circ)$ (при условии, что $n \ge 3$):
-	\[S_n = \{\sigma: \{1,\dots, n\} \rightarrow \{1,\dots, n\}~|~\sigma \text{ "--- биекция}\}\]
-	
-	Перестановка $\sigma$ часто обозначается как:
-	\[\sigma = \begin{pmatrix}
-	1&2&\dots&n\\
-	\sigma(1)&\sigma(2)&\dots&\sigma(n)
-	\end{pmatrix}\]
-	
-	Ассоциативность в $(S_n, \circ)$ выполнена: $(\sigma \circ \tau \circ \kappa) (k) = \sigma(\tau(\kappa(k)))$ независимо от расстановки скобок, т.\:к. $(\sigma \circ \tau)(k) = \sigma(\tau(k))$. Нейтральным элементом является \textit{тождественная перестановка} ($\id$). Существование обратного элемента также верно: $\forall \sigma \hm{\in} S_n: \exists \sigma^{-1} \hm{\in} S_n$, поскольку $\sigma$ "--- биекция.
+	\textit{Группа перестановок} $(S_n, \circ)$, где $S_n = \{\sigma: \{1,\dots, n\} \rightarrow \{1,\dots, n\}: \sigma \text{ "--- биекция}\}$, является неабелевой при $n \ge 3$. Эта группа будет изучена подробнее далее в курсе.
 \end{example}
 
 \begin{definition}
-	\textit{Суммой} множеств $A$ и $B$ называется следующее множество:
-	\[A + B = \{a + b~|~a \in A, b \in B\}\]
-	
-	Данное определение позволяет ввести еще одну группу.
+	\textit{Суммой множеств} $A$ и $B$ называется следующее множество:
+	\[A + B := \{a + b: a \in A, b \in B\}\]
 \end{definition}
 
 \begin{definition}
-	Числа $a, b \in \mathbb{Z}$ называются \textit{сравнимыми по модулю $n$}, если $n~|~(a - b)$. Обозначение "--- $a \equiv_n b$. Сравнимость является отношением эквивалентности. $\mathbb{Z}_n$ "--- это множество соответствующих классов эквивалентности, $|\mathbb{Z}_n| = n$. Класс, которому принадлежит $a \in \mathbb{Z}$ обозначается как $\overline{a}$ или $a + n\mathbb{Z}$.
+	Пусть $n \in \N$, $n \ge 2$. Числа $a, b \in \mathbb{Z}$ называются \textit{сравнимыми по модулю $n$}, если $n \mid (a - b)$. Обозначение "--- $a \equiv_n b$. Сравнимость является отношением эквивалентности. Множество классов эквивалентности обозначается через $\mathbb{Z}_n$. Класс, которому принадлежит число $a \in \mathbb{Z}$, обозначается через $\overline{a}$.
 \end{definition}
+
+\begin{note}
+	Для любого числа $a \in \Z$ выполнено равенство $\overline{a} = \{a + nk: k \in \Z\}$, поэтому класс $\overline{a}$ также обозначают через $a + n\Z$.
+\end{note}
 
 \begin{example}
-	Абелевой группой является $(\mathbb{Z}_n, +)$.
-	
-	Сложение в $\mathbb{Z}_n$ определено как сложение множеств:
-	\[(a + n\mathbb{Z}) + (b + n\mathbb{Z}) = (a + b) + n\mathbb{Z} \Leftrightarrow \overline{a} + \overline{b} = \overline{a + b}\]
-	
-	Ассоциативность, коммутативность, существование нейтрального и обратного элементов в $\mathbb{Z}_n$ выполнены как следствия соответствующих свойств сложения в $\mathbb{Z}$.
+	Для любых классов $\overline a, \overline b \in \Z_n$ их \textit{сумма} определяется как сумма множеств, то есть $\overline{a} + \overline{b} := \overline{a + b}$. Тогда $(\mathbb{Z}_n, +)$ является абелевой группой. Ассоциативность, коммутативность, существование нейтрального и обратного элементов в $\mathbb{Z}_n$ выполнены как следствия соответствующих свойств сложения в $\mathbb{Z}$.
 \end{example}
 
 \begin{definition}
-	\textit{Подгруппой} группы $G$ называется такое непустое ее подмножество $H$, что:
+	Пусть $(G, \cdot)$ "--- группа. Ее \textit{подгруппой} называется такое ее непустое подмножество $H \subset G$, что выполнены следующие условия:
 	\begin{itemize}
 		\item $\forall a, b \in H: ab \in H$
 		\item $\forall a \in H : a^{-1} \in H$
 	\end{itemize}
-	
-	$H$ является группой с той же операцией, что и в $G$.
 \end{definition}
+
+\begin{note}
+	Имеет место эквивалентное определение подгруппы, согласно которому подгруппой группы $(G, \cdot)$ называется такое ее непустое подмножество $H \subset G$, что $(H, \cdot)$ тоже является группой.
+\end{note}
 
 \subsection{Кольца}
 
 \begin{definition}
-	\textit{Кольцом} называется множество $R$ с введенными на нем двумя бинарными операциями $+$ и $\cdot$, удовлетворяющими следующим условиям:
+	\textit{Кольцом} называется множество $R$ с определенными на нем бинарными операциями \textit{сложения} $+ : R \times R \to R$ и \textit{умножения} $\cdot: R \times R \rightarrow R$, удовлетворяющими следующим условиям:
 	\begin{itemize}
-		\item $(R, +)$ "--- абелева группа, нейтральный элемент в которой обозначается как $0$
+		\item $(R, +)$ "--- абелева группа, нейтральный элемент в которой обозначается через $0$
 		\item $\forall a, b, c \in R: (ab)c = a(bc)$ (ассоциативность умножения)
-		\item $\forall a, b, c \in R: a(b + c) = ab + ac, (a + b)c = ac + bc$ (дистрибутивность умножения относительно сложения)
+		\item $\forall a, b, c \in R: a(b + c) = ab + ac$ и $(a + b)c = ac + bc$ (дистрибутивность умножения относительно сложения)
 		\item $\exists 1 \in R: \forall a \in R: a1 = 1a = a$ (существование нейтрального элемента относительно умножения)
 	\end{itemize}
 \end{definition}
 
 \begin{definition}
-	Кольцо называется $(R, +, \cdot)$ \textit{коммутативным}, если умножение в нем коммутативно:
-	\[\forall a, b \in R: ab = ba\]
+	Кольцо называется $(R, +, \cdot)$ \textit{коммутативным}, если умножение в нем коммутативно, то есть для любых $a, b \in R$ выполнено $ab = ba$.
 \end{definition}
 
 \begin{proposition}
-	$\forall a \in R: a0 = 0a = 0$.
+	Пусть $(K, +, \cdot)$ "--- кольцо. Тогда для любого $a \in R$ выполнены равенства $a0 = 0a = 0$.
 \end{proposition}
 
 \begin{proof}
-	\begin{gather*}
-	a0 + a0 = a(0 + 0) = a0\\
-	a0 + a0 + (-a0) = a0 + (-a0)\\
-	a0 = 0
-	\end{gather*}
+	Докажем, что $a0 = 0$:
+	\[a0 + a0 = a(0 + 0) = a0 \ra a0 + a0 + (-a0) = a0 + (-a0) \ra a0 = 0\]
+	
+	Аналогично доказывается, что $0a = 0$.
 \end{proof}
 
 \begin{example}
-	Коммутативными кольцами являются:
+	Рассмотрим несколько примеров коммутативных колец:
 	\begin{itemize}
-		\item $(\mathbb{Z}, +, \cdot)$, $(\mathbb{Q}, +, \cdot)$, $(\mathbb{R}, +)$, $(\mathbb{C}, +, \cdot)$ (в отличие от $(\mathbb{N}, +, \cdot)$, поскольку $(\mathbb{N}, +)$ "--- не группа)
-		\item $\mathbb{Z}[\sqrt{2}] = \{a + b\sqrt{2}~|~a, b \in \mathbb{Z}\}$
-		\item $\mathbb{R}[x, y, \dots]$ "--- многочлены от переменных $x, , \dots$ (с коэффициентами из $\mathbb{R}$)
+		\item $(\mathbb{Z}, +, \cdot)$, $(\mathbb{Q}, +, \cdot)$, $(\mathbb{R}, +, \cdot)$, $(\mathbb{C}, +, \cdot)$ являются коммутативными кольцами, при этом $(\mathbb{N}, +, \cdot)$ --- нет
+		\item $(\mathbb{Z}[\sqrt{2}], +, \cdot)$, где $\mathbb{Z}[\sqrt{2}] := \{a + b\sqrt{2}: a, b \in \mathbb{Z}\}$, является коммутативным кольцом
+		\item $\mathbb{R}[x_1, \dotsc, x_n] = \{P: P\text{ "--- многочлен от переменных }x_1, \dotsc, x_n\}$ является коммутативным кольцом
 	\end{itemize}
 \end{example}
 
 \begin{example}
-	Некоммутативным кольцом является $M_{n \times n}$ (при условии, что $n \ge 2$). Более того, некоммутативным кольцом также является $M_{n \times n}(R)$ "--- множество матриц с элементами из произвольного кольца, т.\:е. необязательно из $\mathbb{R}$.
+	Кольцо $(M_n, +, \cdot)$ является некоммутативным кольцом при $n \ge 2$. Более того, некоммутативным кольцом также является $(M_n(R), +, \cdot)$, где $R$ "--- множество матриц с элементами из произвольного кольца $(R, +, \cdot)$.
 \end{example}
 
 \begin{proposition}
-	$(\mathbb{Z}_n, +, \cdot)$ является кольцом, если определить умножение следующим образом: $\forall \overline{a}, \overline{b} \in \mathbb{Z}_n: \overline{a}\cdot\overline{b} = \overline{ab}$.
+	Определим для любых классов $\overline a, \overline b \in \Z_n$ их произведение как $\overline{a}\overline{b} := \overline{ab}$. Тогда $(\mathbb{Z}_n, +, \cdot)$ является коммутативным кольцом.
 \end{proposition}
 
 \begin{proof}
-	Сначала проверим, что такое определение умножения корректно. Пусть $a' \in \overline{a}, b' \in \overline{b}$, тогда $a' = a + kn$, $b' = b + ln$ $(k, l \in \mathbb{Z})$. В таком случае $a'b' = ab + n(la' + kb' + kln)$, т.\:е. $a'b' \in \overline{ab}$.
+	Проверим, что определение умножения корректно. Пусть $a' \in \overline{a}$, $b' \in \overline{b}$, тогда $a' = a + kn$, $b' = b + ln$ для некоторых $k, l \in \mathbb{Z}$, и, следовательно:
+	\[a'b' = ab + n(la' + kb' + kln) \ra a'b' \in \overline{ab}\]
 	
-	Ассоциативность умножения, дистрибутивность и существование нейтрального элемента относительно умножения в $\mathbb{Z}_n$ выполнены как следствия соответствующих свойств в $\mathbb{Z}$.
+	Ассоциативность и коммутативность умножения, дистрибутивность и существование нейтрального элемента относительно умножения в $\mathbb{Z}_n$ выполнены как следствия соответствующих свойств в $\mathbb{Z}$.
 \end{proof}
 
 \begin{definition}
-	\textit{Подкольцом} кольца $R$ называется такое непустое его подмножество $S$, что:
+	\textit{Подкольцом} кольца $(R, +, \cdot)$ называется такое его непустое подмножество $S \subset R$, что выполнены следующие условия:
 	\begin{itemize}
 		\item $(S, +)$ "--- подгруппа в $(R, +)$
 		\item $\forall a, b \in S: ab \in S$
 		\item $1 \in S$
 	\end{itemize}
-
-$S$ является кольцом с теми же операциями, что и в $R$.
 \end{definition}
+
+\begin{note}
+	Имеет место эквивалентное определение подкольца, согласно которому подкольцом кольца $(R, +, \cdot)$ называется такое его непустое подмножество $S \subset R$, что $(S, +, \cdot)$ тоже является кольцом.
+\end{note}
 
 \subsection{Поля}
 
 \begin{definition}
-	Пусть $R$ "--- кольцо. Элемент $a \in R$ называется \textit{обратимым} (относительно умножения), если $\exists a^{-1} \in R: aa^{-1} \hm{=} a^{-1}a = 1$.
-\end{definition}
-
-\begin{definition}
-	\textit{Группой обратимых элементов} кольца $R$ называется множество $R^*$ его обратимых элементов.
+	Пусть $(R, +, \cdot)$ "--- кольцо. Элемент $a \in R$ называется \textit{обратимым}, если существует $a^{-1} \in R$ такой, что $aa^{-1} \hm{=} a^{-1}a = 1$. \textit{Группой обратимых элементов} кольца $(R, +, \cdot)$ называется множество $R^*$ его обратимых элементов.
 \end{definition}
 
 \begin{proposition}
-	$(R^*, \cdot)$ "--- группа.
+	Пусть $(R, +, \cdot)$ "--- кольцо. Тогда $(R^*, \cdot)$ является группой.
 \end{proposition}
 
-\begin{proof} Множество $R^*$ непусто, поскольку $1 \in R^*$ (элемент $1$ является обратным сам себе). Умножение в $R^*$ определено корректно, поскольку если $a, b \in R^*$, то $\exists a^{-1}, b^{-1} \in R$, тогда $\exists (ab)^{-1} = b^{-1}a^{-1} \in R$, т.\:е. $ab \in R^*$. Проверим теперь свойства группы:
+\begin{proof}
+	Множество $R^*$ непусто, поскольку $1 \in R^*$. Умножение в $R^*$ определено корректно, поскольку если $a, b \in R^*$, то и $ab \in R^*$, причем обратный к $ab$ элемент имеет вид $(ab)^{-1} = b^{-1}a^{-1}$. Свойства группы, очевидно, выполнены:
 	\begin{itemize}
-		\item $\forall a, b, c \in R^*: (ab)c = a(bc)$ (как следствие ассоциативности в $R$)
+		\item $\forall a, b, c \in R^*: (ab)c = a(bc)$
 		\item $\exists 1 \in R^*: \forall a \in R^*: a1 = 1a = a$
-		\item $\forall a \in R^*: \exists a^{-1} \in R^*: aa^{-1} = a^{-1}a = 1$ (оба элемента $a$ и $a^{-1}$ обратимы, поскольку являются обратными друг другу)
+		\item $\forall a \in R^*: \exists a^{-1} \in R^*: aa^{-1} = a^{-1}a = 1$\qedhere
 	\end{itemize}
 \end{proof}
 
 \begin{definition}
-	\textit{Полем} называется множество $F$ такое, что $(F, +, \cdot)$ "--- коммутативное кольцо и $F^* = F\backslash\{0\}$.
+	\textit{Полем} называется такое коммутативное кольцо $(F, +, \cdot)$, для которого выполнено равенство $F^* = F\backslash\{0\}$.
 \end{definition}
 
 \begin{example}
-	Полями являются:
+	Рассмотрим несколько примеров полей:
 	\begin{itemize}
-		\item $\mathbb{Q}$, $\mathbb{R}$, $\mathbb{C}$
-		\item $\mathbb{Q}[\sqrt{2}] = \{a + b\sqrt{2}~|~a, b \in \mathbb{Q}\}$
+		\item $(\mathbb{Q}, +, \cdot)$, $(\mathbb{R}, +, \cdot)$, $(\mathbb{C}, +, \cdot)$ являются полями
+		\item $(\mathbb{Q}[\sqrt{2}], +, \cdot)$, где $\Q[\sqrt 2] = \{a + b\sqrt{2}: a, b \in \mathbb{Q}\}$, является полем
 	\end{itemize}
 \end{example}
 
 \begin{proposition}
-	$\mathbb{Z}_n$ "--- поле $\Leftrightarrow$ $n$ "--- простое число.
+	Пусть $n \in \N$, $n \ge 2$. Тогда кольцо $(\mathbb{Z}_n, +, \cdot)$ является полем $\Leftrightarrow$ число $n$ является простым.
 \end{proposition}
 
-\begin{proof}
-	Если $n = 1$, то $0$ и $1$ в $\mathbb{Z}_n$ совпадают, а $\mathbb{Z}_n^* = \mathbb{Z}_n$ "--- это не удовлетворяет определению поля.
-	
-	Пусть $n$ "--- составное число, $n = ab$ ($a, b \in \mathbb{N}$, $a, b > 1$). Тогда $\overline{a}, \overline{b} \ne \overline{0}$, но при этом $\overline{a}\cdot\overline{b} = \overline{0}$. Из этого следует, что $\overline{a} \not\in \mathbb{Z}_n^*$: если $\overline{a} \in \mathbb{Z}_n^*$, то, домножив слева на $\overline{a}^{-1}$, можно получить, что $\overline{b} = \overline{0}$, а это не так. Значит, в случае, когда $n$ составное, $\mathbb{Z}_n^*$ не может являться полем.
-	
-	Пусть $n$ "--- простое число. Докажем, что $\forall \overline{a} \in \mathbb{Z}_n \backslash \{0\}: \overline{a} \in \mathbb{Z}_n^*$. Рассмотрим числа $a, 2a, \dots, na$. Все они дают разные остатки при делении на $n$: если это было не так, то для некоторых $k, l \hm{\in} \{1, \dots, n\}$ ($k \ne l$) выполнено, что $n|(k-l)a$, а это невозможно. Следовательно, $\exists m \in \{1, \dots, n\}: am \equiv_n 1$, т.\:е. $\exists \overline{a}^{-1} = \overline{m}$.
+\begin{proof}~
+	\begin{itemize}
+		\item[$\ra$]Предположим, что $n$ "--- составное число, то есть $n = ab$ для некоторых $a, b \in \mathbb{N}$ таких, что $a, b > 1$. Тогда $\overline{a}, \overline{b} \ne \overline{0}$, при этом $\overline{a}\overline{b} = \overline{0}$. Покажем, что тогда $\overline{a} \not\in \mathbb{Z}_n^*$. Пусть это не так, тогда, умножая обе части равенства $\overline{a}\overline{b} = \overline{0}$ на $\overline{a}^{-1}$, получим, что $\overline{b} = \overline{0}$, что неверно. Значит, $\mathbb{Z}_n^*$ не является полем --- противоречие.
+		
+		\item[$\la$]Пусть $n$ "--- простое число. Зафиксируем произвольный класс $\overline{a} \in \mathbb{Z}_n \backslash \{\overline 0\}$ и рассмотрим числа $a, 2a, \dots, na$. Покажем, что все они дают разные остатки при делении на $n$. Действительно, если для некоторых $k, l \hm{\in} \{1, \dots, n\}$ выполнено $n|(k-l)a$, то либо $n \mid a$, что неверно, либо $n \mid (k - l)$, откуда $k = l$. Значит, существует $m \in \{1, \dots, n\}$ такое, что $am \equiv_n 1$, то есть обратным к элементу $\overline{a}$ является элемент $\overline{m}$.\qedhere
+	\end{itemize}
 \end{proof}
 
 \begin{definition}
-	\textit{Подполем} поля $F$ называется такое непустое его подмножество $S$, что:
+	\textit{Подполем} поля $(F, +, \cdot)$ называется такое его непустое подмножество $S \subset F$, что выполнены следующие условия:
 	\begin{itemize}
-		\item $(S, +, \cdot)$ "--- подкольцо в $(R, +, \cdot)$
+		\item $(S, +, \cdot)$ "--- подкольцо в $(F, +, \cdot)$
 		\item $\forall a \in S\backslash\{0\}: a^{-1} \in S$
 	\end{itemize}
-	
-	$S$ является полем с теми же операциями, что и в $F$.
 \end{definition}
 
+\begin{note}
+	Имеет место эквивалентное определение подполя, согласно которому подполем поля $(F, +, \cdot)$ называется такое его непустое подмножество $S \subset F$, что $(S, +, \cdot)$ тоже является полем.
+\end{note}
+
+\begin{note}
+	Далее в курсе при рассмотрении групп, колец и полей указание операций в них часто будет опускаться, если выбор операций понятен из контекста.
+\end{note}
+
 \begin{definition}
-	Пусть $F_1$ и $F_2$ "--- поля. \textit{Изоморфизмом} полей $F_1$ и $F_2$ называется такое отображение $\phi : F_1 \rightarrow F_2$, что:
-	\begin{itemize}
-		\item $\phi(a + b) = \phi(a) + \phi(b)$, $\phi(a \cdot b) = \phi(a) \cdot \phi(b)$ ($\phi$ сохраняет операции)
-		\item $\phi$ "--- биекция
-	\end{itemize}
-	
-	Если такой изоморфизм $\phi$ существует, то поля $F_1$ и $F_2$ называются \textit{изоморфными}. Обозначение "--- $F_1 \cong F_2$.
+	\textit{Изоморфизмом} полей $(F_1, +, \cdot)$ и $(F_2, +, \cdot)$ называется такое биективное отображение $\phi : F_1 \rightarrow F_2$, что для любых элементов $a, b \in F$ выполнены равенства $\phi(a + b) = \phi(a) + \phi(b)$ и $\phi(ab) = \phi(a)\phi(b)$. Поля $F_1$ и $F_2$ называются \textit{изоморфными}, если между ними существует изоморфизм. Обозначение "--- $F_1 \cong F_2$.
 \end{definition}
 
 \begin{proposition}
-	Изоморфизм полей обладает следующими свойствами:
+	Изоморфизм полей $\phi: F_1 \to F_2$ обладает следующими свойствами:
 	\begin{itemize}
 		\item $\phi(0) = 0$
 		\item $\phi(1) = 1$
-		\item $\phi(-a) = -\phi(a)$
-		\item $\phi(a^{-1}) = (\phi(a))^{-1}$ $(a \ne 0)$
+		\item $\forall a \in F_1: \phi(-a) = -\phi(a)$
+		\item $\forall a \in F_1^*: \phi(a^{-1}) = (\phi(a))^{-1}$
 	\end{itemize}
 \end{proposition}
 
 \begin{proof}~
 	\begin{itemize}
 		\item $\phi(0) = \phi(0 + 0) = \phi(0) + \phi(0) \Rightarrow \phi(0) = 0$
-		\item $\phi(1) = \phi(1\cdot1) = \phi(1)\cdot\phi(1) \Rightarrow \phi(1) = 1$ (на $\phi(1)$ можно сократить, потому что условие биективности гарантирует, что $\phi(1) \ne \phi(0) = 0$)
+		\item В силу биективности и предыдущего пункта, $\phi(1) \ne 0$, то есть элемент $\phi(1)$ обратим, поэтому $\phi(1) = \phi(1\cdot1) = \phi(1)\phi(1) \Rightarrow \phi(1) = 1$
 		\item $\phi(0) = \phi(a + (-a)) = \phi(a) + \phi(-a) \Rightarrow \phi(-a) = -\phi(a)$
-		\item $\phi(1) = \phi(aa^{-1}) = \phi(a)\phi(a^{-1}) \Rightarrow \phi(a^{-1}) = (\phi(a))^{-1}$ $(a \ne 0)$
+		\item $\phi(1) = \phi(aa^{-1}) = \phi(a)\phi(a^{-1}) \Rightarrow \phi(a^{-1}) = (\phi(a))^{-1}$\qedhere
 	\end{itemize}
 \end{proof}
 
 \begin{note}
-	В любом поле $F$ можно определить целое число $n$:
+	В любом поле $F$ можно определить целое число $n$, отличное от $0$ и $1$:
 	\begin{itemize}
-		\item $n > 0$: $n_F = \underbrace{1 + \dots + 1}_{n}$
-		\item $n = 0$: $n_F$ уже определено как нейтральный элемент относительно сложения
-		\item $n < 0$: $n_F = -(-n)_F = -(\underbrace{1 + \dots + 1}_{-n})$, где $(-n) > 0$
+		\item Если $n > 0$, то в поле $F$ число $n$ "--- это сумма $n$ элементов $1$
+		\item Если $n < 0$, то в поле $F$ число $n$ "--- это сумма $|n|$ элементов $-1$
 	\end{itemize}
-
-	Как следствие, $n_F + k_F = (n + k)_F$, $n_F\cdot k_F = (n\cdot k)_F$.
+	
+	Арифметические операции с целыми числами в $F$ согласованы с обычными арифметическими операциями.
 \end{note}
 
 \begin{definition}
-	Пусть $F$ "--- поле. Его \textit{характеристикой} называется наименьшее $k \in \mathbb{N}$ такое, что $k_F = 0$. Если такого $k$ нет, принято считать характеристику равной нулю. Обозначение "--- $\cha{F}$.
+	Пусть $F$ "--- поле. Его \textit{характеристикой} называется наименьшее число $k \in \mathbb{N}$ такое, что в поле $F$ выполнено равенство $k = 0$. Если такого $k$ не существует, то характеристика поля считается равной $0$. Обозначение "--- $\cha{F}$.
 \end{definition}
 
 \begin{proposition}
-	Если $\cha{F} > 0$, то $\cha{F}$ "--- простое число.
+	Пусть $F$ "--- поле. Тогда если $\cha{F} > 0$, то $\cha{F}$ "--- простое число.
 \end{proposition}
 
 \begin{proof}
-	Пусть $\cha{F} = n$. Если $n = 1$, то $0$ и $1$ в $F$ совпалают, а $F^* = F$ "--- это не удовлетворяет определению поля.
-	
-	Пусть $n$ "--- составное число, $n = ab$ ($a, b \in \mathbb{N}$, $a, b > 1$). Тогда $a_F, b_F \ne 0$, но при этом $a_F\cdot b_F = 0$. Из этого следует, что $a_F \not\in F^*$: если $a_F \in F^*$, то, домножив слева на $a_F^{-1}$, можно получить, что $b_F = 0$, а это не так. Значит, случай составного $n$ невозможен.
+	Пусть $\cha{F} = n$. Если $n = 1$, то элементы $0$ и $1$ в $F$ совпадают, откуда $F^* = F$, что невозможно. Пусть теперь $n$ "--- составное число, то есть $n = ab$ для некоторых $a, b \in \mathbb{N}$ таких, что $a, b > 1$. Тогда в поле $F$ числа $a, b$ отличны от нуля, но $ab = 0$. Умножая обе части равенства на $a^{-1}$, получим, что $b = 0$, --- противоречие. Значит, возможен только случай простого числа $n$.
 \end{proof}
 
 \begin{definition}
 	Поле называется \textit{простым}, если оно не имеет подполей, отличных от него самого.
 \end{definition}
 
-\begin{theorem}
+\begin{theorem}[о простом подполе]
 	Пусть $F$ "--- поле. Тогда:
 	\begin{enumerate}
-		\item Если $\cha{F} = p > 0$, то в $F$ существует простое подполе, изоморфное $\mathbb{Z}_p$.
-		\item Если $\cha{F} = 0$, то в $F$ существует простое подполе, изоморфное $\mathbb{Q}$.
+		\item Если $\cha{F} = p > 0$, то в $F$ существует подполе, изоморфное $\mathbb{Z}_p$.
+		\item Если $\cha{F} = 0$, то в $F$ существует подполе, изоморфное $\mathbb{Q}$.
 	\end{enumerate}
 \end{theorem}
 
 \begin{proof}~
 	\begin{enumerate}
-		\item Пусть $\cha{F} = p$. Рассмотрим $K = \{n_F \in F~|~n \in \mathbb{Z}\}$. Определим отображение $\phi: \mathbb{Z}_p \rightarrow K$ : $\phi(\overline{a}) = a_F$. Покажем, что определенное отображение корректно: если $a' \in \overline{a}$, то $a' = a + kp$ ($k \in \mathbb{Z}$) и $a'_F = a_F + (kp)_F = a_F$.
+		\item Пусть $\cha{F} = p$. Определим $K$ как множество всех целых чисел в $F$, и зададим отображение $\phi: \mathbb{Z}_p \rightarrow K$ как $\phi(\overline{a}) = a$ для каждого $\overline{a} \in \Z_p$. Покажем, что отображение определено корректно. Пусть $\overline{a} = \overline{a'}$ для некоторых $a, a' \in \Z$, тогда $a' = a + kp$ для некоторого $k \in \mathbb{Z}$, откуда в поле $F$ выполнены равенства $a' = a + kp = a$. Ясно, что определенное таким образом отображение $\phi$ сохраняет операции сложения и умножения.
 		
-		Отображение $\phi$ сохраняет операции:
-		\begin{gather*}
-			\phi(\overline{a} + \overline{b}) = \phi(\overline{a + b}) \hm{=} (a+b)_F = a_F + b_F = \phi(\overline{a}) + \phi(\overline{b})\\
-			\phi(\overline{a} \cdot \overline{b}) = \phi(\overline{a \cdot b}) = (a \cdot b)_F \hm{=} a_F \cdot b_F = \phi(\overline{a}) \cdot \phi(\overline{b})
-		\end{gather*}
+		Сюръективность отображения $\phi$ очевидна, проверим его инъективность. Пусть для некоторых $\overline{a}, \overline{b} \in Z_p$ выполнено $\phi(\overline{a}) = \phi(\overline{b})$. Без ограничения общности можно считать, что $a, b \in \{0,\dots, p-1\}$ и $a \ge b$, тогда $\phi(\overline{a - b}) = \phi(\overline{a}) - \phi(\overline{b}) = 0$. Но это возможно только в том случае, когда $p \mid (a - b)$, откуда $a = b$.
 		
-		Наконец, $\phi$ "--- биекция. Сюръективность очевидна: $\forall a_F \in K: \exists \overline{a} \in \mathbb{Z}_p: \phi(\overline{a}) = a_F$. Покажем инъективность: если $\phi(\overline{a}) \hm{=} \phi(\overline{b})$ (без ограничения общности можно считать, что $a \ge b$ и $a, b \in \{0,\dots, p-1\}$), то $(a - b)_F = \phi(\overline{a - b}) = \phi(\overline{a}) - \phi(\overline{b}) = 0$. Это возможно, только если $\overline{a} = \overline{b}$.
+		Из доказанного также следует, что $K$ "--- подполе в $F$. Например, замкнутость относительно взятия обратного элемента по умножению можно показать, используя свойства отображения $\phi$. Пусть $a \in K \bs \{0\}$, тогда обратным к нему является элемент $\phi(\overline{a}^{-1})$:
+		\[\phi(\overline{a}^{-1}) a = \phi(\overline{a}^{-1})\phi(\overline{a}) = \phi(\overline{1}) = 1\]
 		
-		Из доказанного также следует, что $K$ "--- подполе в $F$. Например, замкнутость относительно взятия обратного элемента по умножению можно показать, используя свойства отображения $\phi$:
-		\begin{multline*}
-		\forall a_F \in K, a_F \ne 0 : \exists \phi(\overline{a}^{-1}) \in K:\\
-		\phi(\overline{a}^{-1}) a_F = \phi(\overline{a}^{-1})\phi(\overline{a}) = \phi(\overline{1}) = 1_F
-		\end{multline*}
-		
-		Проверка остальных свойств подполя позволяет убедиться, что $K$ "--- поле, тогда $\phi$ "--- изоморфизм полей.
+		Проверка остальных свойств подполя позволяет убедиться, что $K$ является полем, тогда отображение $\phi$ является изоморфизмом полей.
 	
-		\item Пусть $\cha{F} = 0$. Рассмотрим $K = \{\frac{a_F}{b_F}=a_F(b_F)^{-1}~|~a, b \hm{\in} \mathbb{Z}, b \ne 0\}$ ($(b_F)^{-1}$ существует, поскольку $b \ne 0$ и $\cha{F} = 0$). Определим отображение $\phi: \mathbb{Q} \rightarrow K$ : $\phi\left(\frac{a}{b}\right) = \frac{a_F}{b_F}$. Покажем, что определенное отображение корректно. Пусть $\frac{a}{b} = \frac{a'}{b'}$, тогда $\frac{a}{b} \hm{=} \frac{aa'}{a'b} \hm{=} \frac{aa'}{ab'} = \frac{a'}{b'}$. В то же время, $a_F(b_F)^{-1} = (ak)_F((bk)_F)^{-1}$ ($k \ne 0$), поскольку $(ak)_F((bk)_F)^{-1} = a_Fk_F(k_F)^{-1}(b_F)^{-1}$. Следовательно, $\frac{a_F}{b_F} = \frac{(aa')_F}{(a'b)_F} = \frac{(aa')_F}{(ab')_F} = \frac{a'_F}{b'_F}$.
+		\item Пусть $\cha{F} = 0$. Определим $K$ как множество всех выражений вида $\frac ab = ab^{-1}$, где $a, b \in F$ "--- целые числа в поле $F$, $b \ne 0$, и зададим отображение $\phi: \mathbb{Q} \rightarrow K$ как $\phi(\frac{a}{b}) = \frac ab$ для каждого $\frac ab \in \Q$. Покажем, что отображение определено корректно. Пусть $\frac{a}{b} = \frac{a'}{b'}$ для некоторых $a, a', b, b' \in \Z$, $b, b' \ne 0$, тогда $a'b = ab'$, откуда в поле $F$ выполнены равенства $ab^{-1} = (aa')(a'b)^{-1} = (aa')(ab')^{-1} = a'b'^{-1}$. Ясно, что определенное таким образом отображение $\phi$ сохраняет операции сложения и умножения.
 		
-		Отображение $\phi$ сохраняет операции:
-		\begin{multline*}
-		\phi\left(\frac{a}{b} + \frac{c}{d}\right) = \phi\left(\frac{ad + bc}{bd}\right) = (ad + bc)_F((bd)_F)^{-1} =\\
-		= (ad)_F)((bd)_F)^{-1} + ((bc)_F)((bd)_F)^{-1} =\\ = \phi\left(\frac{ad}{bd}\right) + \phi\left(\frac{bc}{bd}\right) = \phi\left(\frac{a}{b}\right) + \phi\left(\frac{c}{d}\right)
-		\end{multline*}
+		Сюръективность отображения $\phi$ очевидна, проверим его инъективность. Пусть для некоторых $\frac ab, \frac cd \in \Q$ выполнено $\phi(\frac ab) = \phi(\frac cd)$, тогда $\phi(\frac{ad - bc}{bd}) = \phi(\frac ab) - \phi(\frac cd) = 0$. Но это возможно только в том случае, когда ${ad - bc} = 0$, откуда $\frac ab = \frac cd$.
 		
-		\begin{multline*}
-		\phi\left(\frac{a}{b}\cdot\frac{c}{d}\right) = \phi\left(\frac{ac}{bd}\right) = (ac)_F((bd)_F)^{-1} =\\
-		= a_F(b_F)^{-1}c_F(d_F)^{-1} = \phi\left(\frac{a}{b}\right)\phi\left(\frac{c}{d}\right)
-		\end{multline*}
-			
-		Наконец, $\phi$ "--- биекция. Сюръективность очевидна: $\forall a_F(b_F)^{-1} \hm{\in} K: \exists \frac{a}{b} \in \mathbb{Q}: \phi(\frac{a}{b}) = a_F(b_F)^{-1}$. Покажем инъективность: если $\phi\left(\frac{a}{b}\right) \hm{=} \phi\left(\frac{c}{d}\right)$, то $\phi\left(\frac{ad - bc}{bd}\right) = (ad - bc)_F((bd)_F)^{-1} = 0$. Это возможно, только если $ad - bc = 0$, т.\:е. $\frac{a}{b} = \frac{c}{d}$.
+		Из доказанного также следует, что $K$ "--- подполе в $F$. Например, замкнутость относительно взятия обратного элемента по умножению можно показать, используя свойства отображения $\phi$. Пусть $\frac ab \in K \bs \{0\}$, тогда $a \ne 0$, и обратным к элементу $\frac ab$ является элемент $\phi(\frac ba)$:
+		\[\frac ab\hspace{3pt}\phi\left(\frac{b}{a}\right) = \phi\left(\frac{a}{b}\right)\phi\left(\frac{b}{a}\right) = \phi(1) = 1\]
 		
-		Из доказанного также следует, что $K$ "--- подполе в $F$. Например, замкнутость относительно взятия обратного элемента по умножению можно показать, используя свойства отображения $\phi$:
-			\begin{multline*}
-			\forall a_F(b_F)^{-1} \in K, a_F \ne 0 : \exists \phi\left(\frac{b}{a}\right) \in K:\\
-			a_F(b_F)^{-1}\phi\left(\frac{b}{a}\right) = \phi\left(\frac{a}{b}\right)\phi\left(\frac{b}{a}\right) = \phi\left(\frac{1}{1}\right) = 1_F(1_F)^{-1}
-			\end{multline*}
-			
-		Проверка остальных свойств подполя позволяет убедиться, что $K$ "--- поле, тогда $\phi$ "--- изоморфизм полей.
+		Проверка остальных свойств подполя позволяет убедиться, что $K$ является полем, тогда отображение $\phi$ является изоморфизмом полей.\qedhere
 	\end{enumerate}
 \end{proof}
