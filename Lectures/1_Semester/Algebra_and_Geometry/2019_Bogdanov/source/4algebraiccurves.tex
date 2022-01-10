@@ -3,21 +3,15 @@
 \subsection{Многочлены}
 
 \begin{definition}
-	\textit{Одночленом} (\textit{мономом}) от переменных $x, y, \dots$ называется функция вида:
-	\[f(x, y, \dots) = \alpha x^ky^l\dots (\alpha \in \mathbb{R}, k, l \in \mathbb{N} \cup \{0\})\]
+	\textit{Одночленом}, или \textit{мономом}, от переменных $x_1, \dotsc, x_n$ называется выражение вида $\alpha x_1^{k_1} \dotsm x_n^{k_n}$, где $\alpha \in \mathbb{R}$, $k_1, \dotsc, k_n \in \mathbb{N} \cup \{0\}$. \textit{Многочленом}, или \textit{полиномом}, от переменных $x_1, \dotsc, x_n$ называется линейная комбинация одночленов от $x_1, \dotsc, x_n$.
 \end{definition}
 
 \begin{definition}
-	\textit{Многочленом} (\textit{полиномом}) от переменных $x, y, \dots$ называется линейная комбинация одночленов от $x, y, \dots$.
-\end{definition}
-
-\begin{definition}
-	\textit{Несократимой записью} многочлена $P$ называется представление $P$ в виде линейной комбинации одночленов, которые попарно непропорциональны:
-	\[P(x,y,\dots) = \sum_{i}\alpha_ix^{k_i}y^{l_i}\dots (\text{наборы } k_i, l_i, \dots \text{ попарно различны})\]
+	\textit{Несократимой записью} многочлена $P(x_1, \dotsc, x_n)$ называется представление этого многочлена в виде линейной комбинации одночленов $\alpha x_1^{k_1} \dotsm x_n^{k_n}$ с ненулевыми коэффициентами $\alpha$ и попарно различными наборами степеней $k_1, \dotsc, k_n$.
 \end{definition}
 
 \begin{proposition}
-	Если несократимая запись многочлена $P$ от переменных $x_1, \dots, x_n$ содержит хотя бы один моном, то $P \ne 0$.
+	Если несократимая запись многочлена $P(x_1, \dots, x_n)$ содержит хотя бы один моном, то $P \ne 0$.
 \end{proposition}
 
 \begin{proof}
