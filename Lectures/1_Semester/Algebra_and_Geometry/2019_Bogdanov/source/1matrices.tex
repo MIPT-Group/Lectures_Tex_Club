@@ -123,7 +123,7 @@
 
 \begin{definition}
 	\textit{Линейной комбинацией} элементов $v_1, \dots, v_n$ (для которых определено сложение и умножение на числа) с коэффициентами $\alpha_1, \dots, \alpha_n \in \R$ называется следующая величина:
-	\[\sum_{i = 1}^{n}\alpha_iV_n = \alpha_1v_1 + \dots + \alpha_nv_n\]
+	\[\sum_{i = 1}^{n}\alpha_iv_i = \alpha_1v_1 + \dots + \alpha_nv_n\]
 \end{definition}
 
 \begin{proposition}
@@ -217,7 +217,7 @@
 
 \begin{definition}
 	Система $(\overline{v_1}, \dots, \overline{v_n})$ векторов из $V_n$ называется \textit{линейно независимой}, если для любых $\alpha_1, \dotsc, \alpha_n \in \R$ выполнено следующее условие:
-	\[\sum_{i = 1}^{n}\alpha_i\overline{V_n} = \overline{0} \Leftrightarrow \alpha_1 = \dots = \alpha_n = 0\]
+	\[\sum_{i = 1}^{n}\alpha_i\overline{v_i} = \overline{0} \Leftrightarrow \alpha_1 = \dots = \alpha_n = 0\]
 \end{definition}
 
 \begin{note}
@@ -255,16 +255,16 @@
 	\begin{itemize}
 		\item[$\la$] Пусть без ограничения общности $\overline{v_n}$ выражается через остальные векторы системы, тогда существуют коэффициенты $\alpha_1, \dotsc, \alpha_{n-1} \in \R$ такие, что:
 		\pagebreak
-		\[\overline{v_n} = \sum_{i = 1}^{n - 1}\alpha_i\overline{V_n}\]
+		\[\overline{v_n} = \sum_{i = 1}^{n - 1}\alpha_i\overline{v_i}\]
 		
 		Преобразуем это равенство:
-		\[\sum_{i = 1}^{n - 1}\alpha_i\overline{V_n} + (-1)\overline{v_n} = \overline{0}\]
+		\[\sum_{i = 1}^{n - 1}\alpha_i\overline{v_i} + (-1)\overline{v_n} = \overline{0}\]
 		
 		Значит, система $(\overline{v_1}, \dotsc, \overline{v_n})$ линейно зависима.
 		
 		\item[$\ra$] Пусть без ограничения общности в нетривиальной линейной комбинации, равной $\overline{0}$, коэффициент $\alpha_n$ отличен от нуля. Тогда:
-		\[\sum_{i = 1}^{n - 1}\alpha_i\overline{V_n} + \alpha_n\overline{v_n} = \overline{0} \ra
-		\overline{v_n} = \sum_{i = 1}^{n - 1}\left(-\frac{\alpha_i}{\alpha_n}\right)\overline{V_n}\]
+		\[\sum_{i = 1}^{n - 1}\alpha_i\overline{v_i} + \alpha_n\overline{v_n} = \overline{0} \ra
+		\overline{v_n} = \sum_{i = 1}^{n - 1}\left(-\frac{\alpha_i}{\alpha_n}\right)\overline{v_i}\]
 			
 		Таким образом, вектор $\overline{v_n}$ выражается через остальные векторы системы. \qedhere
 	\end{itemize}
@@ -277,10 +277,10 @@
 
 \begin{proof}
 	Так как система $(\overline{v_1}, \dots, \overline{v_{n + 1}})$ линейно зависима, то существует нетривиальная линейная комбинация, равная $\overline{0}$, то есть существуют коэффициенты $\alpha_1, \dotsc, \alpha_{n+1} \in \R$ такие, что:
-	\[\sum_{i = 1}^{n+1}\alpha_i\overline{V_n} = \overline{0}\]
+	\[\sum_{i = 1}^{n+1}\alpha_i\overline{v_i} = \overline{0}\]
 	
 	Если $\alpha_{n + 1} = 0$, то у $(\overline{v_1}, \dots, \overline{v_n})$ также существует равная $\overline{0}$ нетривиальная линейная комбинация, что противоречит условию линейной независимости. Значит, $\alpha_{n + 1} \ne 0$, тогда:
-	\[\overline{v_{n + 1}} = \sum_{i = 1}^{n}\left(-\frac{\alpha_i}{\alpha_{n + 1}}\right)\overline{V_n}\qedhere\]
+	\[\overline{v_{n + 1}} = \sum_{i = 1}^{n}\left(-\frac{\alpha_i}{\alpha_{n + 1}}\right)\overline{v_i}\qedhere\]
 \end{proof}
 
 \begin{definition}
