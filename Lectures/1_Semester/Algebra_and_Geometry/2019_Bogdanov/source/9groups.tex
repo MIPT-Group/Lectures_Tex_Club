@@ -3,144 +3,158 @@
 \subsection{Изоморфизмы групп}
 
 \begin{proposition}
-	Невырожденные матрицы порядка $n$ образуют группу по умножению.
+	Невырожденные матрицы порядка $n$ над полем $F$ образуют группу по умножению.
 \end{proposition}
 
 \begin{proof}
 	Проверим непосредственно свойства группы:
 	\begin{itemize}
-		\item Уже было доказано, что умножение матриц ассоциативно.
-		\item $E_n$ "--- невырожденная матрица, и она является нейтральным элементом по умножению.
-		\item Если $A, B$ "--- невырожденные матрицы порядка $n$, то $AB$ "--- тоже. Кроме того, $A$ и $B$ обратимы, и $A^{-1}$, $B^{-1}$ тоже невырожденные.
+		\item Умножение матриц в $M_n(F)$ ассоциативно.
+		\item Матрица $E_n \in M_n(F)$ "--- невырожденная, и она является нейтральным элементом по умножению.
+		\item Если $A, B$ "--- невырожденные матрицы порядка $n$, то $AB$ "--- тоже, поскольку $\det{AB} = \det{A}\det{B} \ne 0$. Кроме того, матрицы $A$ и $B$ обратимы, и матрицы $A^{-1}$, $B^{-1}$ "--- тоже невырожденные.\qedhere
 	\end{itemize}
 \end{proof}
 
+\begin{definition}
+	Пусть $F$ "--- поле, $n \in \N$.
+	\begin{itemize}
+		\item Группа невырожденных матриц порядка $n$ над $F$ обозначается через $\GL_n(F)$
+		\item Группа невырожденных матриц порядка $n$ над $F$ с определителем, равным $1$, обозначается через $\SL_n(F)$
+	\end{itemize}
+\end{definition}
+
 \begin{proposition}
-$GL_n(\mathbb{Z}) = \{A \in M_n(\mathbb{Z})~|~\exists A^{-1} \in M_n(\mathbb{Z})\}$ "--- это группа матриц с определителем, равным $\pm1$.
+	$\GL_n(\mathbb{Z}) := \{A \in M_n(\mathbb{Z}): \exists A^{-1} \in M_n(\mathbb{Z})\}$ "--- это группа матриц из $M_n(\Z)$ с определителем, равным $\pm1$.
 \end{proposition}
 
-\begin{proof}
-Если $A, A^{-1} \in GL_n(\mathbb{Z})$, то $\det{A}\det{A^{-1}} = \det{E} \hm{=} 1$, тогда $\det{A}, \det{A^{-1}} = \pm1$. Напротив, если $\det{A} = \pm 1$, то, по формуле Крамера, $A^{-1} \in M_n(\mathbb{Z})$, и, аналогично, $\det{A^{-1}} = \pm1$, тогда $A^{-1} \in GL_n(\mathbb{Z})$.
+\begin{proof}~
+	\begin{itemize}
+		\item Если $A, A^{-1} \in \GL_n(\mathbb{Z})$, то $\det{A}\det{A^{-1}} = \det{E} \hm{=} 1$, откуда $\det{A} = \det{A^{-1}} = \pm1$
+		\item Если $\det{A} = \pm 1$, то, по формуле Крамера, $A^{-1} \in M_n(\mathbb{Z})$, и, аналогично, $\det{A^{-1}} = \pm1$, тогда $A^{-1} \in \GL_n(\mathbb{Z})$\qedhere
+	\end{itemize}
 \end{proof}
 
 \begin{definition}
-	Группа невырожденных матриц порядка $n$ над полем $F$ обозначается как $GL_n(F)$ "--- \textit{general linear group}.
+	\textit{Порядком} группы $G$ называется мощность множества $G$.
 \end{definition}
 
 \begin{definition}
-	Группа невырожденных матриц порядка $n$ над полем $F$ с определителем, равным 1, обозначается как $SL_n(F)$ "--- \textit{special linear group}. Кроме того, $SL_n(F) \le GL_n(F)$.
-\end{definition}
-
-\begin{definition}
-	\textit{Порядком группы} называется количество элементов в группе.
-\end{definition}
-
-\begin{definition}
-	Пусть $G, H$ "--- группы. \textit{Гомоморфизмом} групп $G$ и $H$ называется такое отображение $\phi : G \rightarrow H$, что $\forall a,b \in G: \phi(ab) = \phi(a)\phi(b)$. Гомоморфизм называется \textit{изоморфизмом}, если он также является биекцией.
-	
-	Если изоморфизм $\phi: G \rightarrow H$ существует, то группы $G$ и $H$ называются \textit{изоморфными}. Обозначение "--- $G \cong H$.
+	\textit{Гомоморфизмом групп} $G$ и $H$ называется отображение $\phi : G \rightarrow H$ такое, что для любых $a,b \in G$ выполнено равенство $\phi(ab) = \phi(a)\phi(b)$. \textit{Изоморфизмом групп} $G$ и $H$ называется биективный гомоморфизм $\phi : G \rightarrow H$. Пространства $G$ и $H$ называются \textit{изоморфными}, если между ними существует изоморфизм. Обозначение "--- $G \cong H$.
 \end{definition}
 
 \begin{note}
-	Аналогичным образом можно определить изоморфизм и для других алгебраических структур.
+	Аналогичным образом можно определить изоморфизм и для других алгебраических структур, таких как кольцо или алгебра.
 \end{note}
 
 \begin{proposition}
-	Если $\phi: G \rightarrow H$ "--- гомоморфизм групп, то:
+	Пусть $\phi: G \rightarrow H$ "--- гомоморфизм групп, тогда:
 	\begin{itemize}
 		\item $\phi(e) = e$
-		\item $\phi(a^{-1}) = (\phi(a))^{-1}$
+		\item $\forall a \in G: \phi(a^{-1}) = (\phi(a))^{-1}$
 	\end{itemize}
 \end{proposition}
 
 \begin{proof}~
 	\begin{itemize}
 		\item $\phi(e) = \phi(ee) = \phi(e)\phi(e) \Rightarrow \phi(e) = e$
-		\item $\phi(e) = \phi(aa^{-1}) = \phi(a)\phi(a^{-1}) \Rightarrow \phi(a^{-1}) = (\phi(a))^{-1}\phi(e) \hm{=} (\phi(a))^{-1}$
+		\item $\phi(e) = \phi(aa^{-1}) = \phi(a)\phi(a^{-1}) \Rightarrow \phi(a^{-1}) = (\phi(a))^{-1}\phi(e) \hm{=} (\phi(a))^{-1}$\qedhere
 	\end{itemize}
 \end{proof}
 
 \begin{example}
-	Гомоморфизмом $\mathbb{Z}$ и $\mathbb{Z}_n$ является $\phi: \mathbb{Z} \rightarrow \mathbb{Z}_n$: $\phi(a) = \overline{a}$.
+	Гомоморфизмом групп $(\mathbb{Z}, +)$ и $(\mathbb{Z}_n, +)$ является отображение $\phi: \mathbb{Z} \rightarrow \mathbb{Z}_n$ такое, что для любого $a \in \Z$ выполнено $\phi(a) := \overline{a}$.
 \end{example}
 
 \begin{theorem}[Кэли]
-	Пусть $G$ "--- произвольная конечная группа, $|G| = n$. Тогда $\exists H \le S_n: H \cong G$ ($G$ вкладывается в $S_n$).
+	Пусть $G$ "--- конечная группа, $|G| = n$. Тогда существует подгруппа $H \le S_n$ такая, что $H \cong G$, то есть группа $G$ вкладывается в группу $S_n$.
 \end{theorem}
 
 \begin{proof}
-	Рассмотрим группу $S(G)$ всех перестановок множества $G$ (т.\:е. биекций $G \rightarrow G$). $S(G) \cong S_n$, поскольку можно построить биекцию $G \rightarrow \{1, \dots, n\}$. Найдем требуемую подгруппу в $S(G)$. $\forall a \in G$ определим	$\sigma_a \in S(G): \forall b \in G: \sigma_a(b) = ab$. Перестановка, обратная к $\sigma_a$ "--- это $(\sigma_a)^{-1} \in S(G): \forall b \in G: (\sigma_a)^{-1}(b) = a^{-1}b$. Положим $H = \{\sigma_a \in S(G)~|~a \in G\}$.
+	Рассмотрим группу $S(G)$ перестановок множества $G$, тогда $S(G) \cong S_n$, поскольку имеет место биекция между $G$ и $\{1, \dots, n\}$. Найдем требуемую подгруппу в $S(G)$. Для каждого элемента $a \in G$ определим перестановку $\sigma_a \in S(G)$ такую, что для любого $b \in G$ выполнено $\sigma_a(b) := ab$. Положим $H := \{\sigma_a \in S(G): a \in G\}$. Проверим, что $H \le S(G)$:
+	\begin{itemize}
+		\item $H \ne \emptyset$, поскольку $\sigma_e = \id \in H$
+		\item $\forall a, b \in G: \sigma_a \circ \sigma_b = \sigma_{ab} \in H$
+		\item $\forall a \in G: (\sigma_a)^{-1} = \sigma_{a^{-1}} \in H$
+	\end{itemize}
 	
-	Заметим, что $\forall x \in G: (\sigma_a \circ \sigma_b)(x) = abx = \sigma_{ab}(x)$, $\sigma_e = \id$, $\forall x \in G: (\sigma_a \circ \sigma_{a^{-1}})(x) = ex = x = \sigma_e(x)$. Следовательно, $H \le S(G)$, и, более того, $\phi: G \rightarrow H$, $\forall a \in G: \phi(a) = \sigma_a$ "--- гомоморфизм, т.\:к. $\phi(ab) = \sigma_{ab} = \sigma(a) \circ \sigma(b) = \phi(a)\circ\phi(b)$. Наконец, $\phi$ сюръективно (каждому $\sigma_a \in H$ соответствует $a \in G$) и инъективно (при $a \ne b$ $\sigma_a(e) \ne \sigma_b(e)$, т.\:е. $\sigma_a \ne \sigma_b$). Итак, $\phi$ "--- изоморфизм $G$ и $H \le S(G)$, причем $S(G) \cong S_n$.
+	Определим отображение $\phi: G \rightarrow H$ для каждого $a \in G$ как $\phi(a) := \sigma_a$. Очевидно, это гомоморфизм, причем сюръективный. Он также инъективен, поскольку для различных $a, b \in G$ выполнено $\sigma_a(e) \ne \sigma_b(e)$. Таким образом, $G \cong H \le S(G) \cong S_n$.
 \end{proof}
 
 \subsection{Циклические группы}
 
 \begin{proposition}
-	Пусть $G$ "--- группа, $\{H_\alpha\}$ "--- произвольное семейство подгрупп $G$. Тогда:
-	\[\bigcap_{\alpha} H_\alpha \le G\]
+	Пусть $G$ "--- группа, $\{H_\alpha\}_{\alpha \in A}$ "--- произвольное семейство подгрупп в $G$. Тогда:
+	\[\bigcap_{\alpha \in A} H_\alpha \le G\]
 \end{proposition}
 
 \begin{proof}
-	Нейтральный элемент $e$ лежит в каждой из подгрупп. Если $a, b$ лежат в каждой из подгрупп, то и $ab$ лежит в каждой из подгрупп, как и $a^{-1}$, $b^{-1}$.
+	Положим $K := \bigcap_{\alpha} H_\alpha$ и проверим свойства подгруппы:
+	\begin{itemize}
+		\item $K \ne \emptyset$, поскольку $e \in K$
+		\item Если $a, b \in K$, то $a, b \in H_\alpha$ для любого $\alpha \in A$, тогда $ab \in H_\alpha$ для любого $\alpha \in A$, откуда $ab \in K$
+		\item Аналогично предыдущему пункту, если $a\in K$, то $a^{-1}\in K$\qedhere
+	\end{itemize}
 \end{proof}
 
 \begin{definition}
-	Пусть $G$ "--- группа, $X \subset G$. \textit{Подгруппой, порожденной множеством} $X$, называется:
-	\[\langle X\rangle = \bigcap_{H \le G~(X \subset H)}H\]
-	
-	Иными словами, $\langle X\rangle$ "--- наименьшая по включению подгруппа $G$, содержащая $X$.
+	Пусть $G$ "--- группа, $X \subset G$. \textit{Подгруппой, порожденной множеством} $X$, называется следующая подгруппа:
+	\[\langle X\rangle := \bigcap_{H \le G~(X \subset H)}H\]
 \end{definition}
 
-\begin{example}~
+\begin{note}
+	$\langle X\rangle$ "--- наименьшая по включению подгруппа в $G$, содержащая множество $X$.
+\end{note}
+
+\begin{example}
+	Рассмотрим несколько примеров порождающих множеств групп:
 	\begin{itemize}
 		\item $\mathbb{Z} = \langle 1 \rangle$
 		\item $2\mathbb{Z} = \langle 2 \rangle$
-		\item $\{e\} = \langle \emptyset \rangle$
+		\item $\{e\} = \langle \emptyset \rangle$ для любой группы $G$ с нейтральным элементом $e$
 	\end{itemize}
 \end{example}
 
 \begin{proposition}
-	$S_n = \langle (1, 2), (1, \dots, n)\rangle$.
+	Для любого $n \in \N$ выполнено равенство $S_n = \langle (1, 2), (1, \dots, n)\rangle$.
 \end{proposition}
 
 \begin{proof}
-	Уже было доказано, что $\forall \sigma \in S_n$ можно представить в виде произведения транспозиций вида $(i, i+1)$. В то же время, любую такую транспозицию можно представить в виде произведения двух перестановок из условия: сначала циклическими сдвигами поместить элементы $i, i+1$ на позиции $1, 2$, затем поменять их местами и циклическими сдвигами вернуть на свои позиции.
+	Уже было доказано, что любую перестановку $\sigma \in S_n$ можно представить в виде произведения транспозиций вида $(i, i+1)$. В то же время, любую такую транспозицию можно представить в виде произведения двух перестановок из условия. Для этого сначала циклическими сдвигами следует поместить элементы $i, i+1$ на позиции $1, 2$, затем поменять их местами и циклическими сдвигами вернуть на свои позиции.
 \end{proof}
 
 \begin{proposition}
-	Пусть $G$ "--- группа, $X \subset G$. Тогда подгруппа, порожденная $X$, имеет вид $\langle X\rangle = \{x_1\dots x_n~|~x_i \in X \lor x_i^{-1} \in X\}$.
+	Пусть $G$ "--- группа, $X \subset G$. Тогда выполнено следующее равенство:
+	\[\langle X\rangle = \{x_1\dots x_n: x_i \in X \text{ или } x_i^{-1} \in X\}\]
 \end{proposition}
 
 \begin{proof}
-	Обозначим правую часть требуемого равенства через $K$. $\forall H \le G~(X \subset H)$ каждый из множителей $x_i$ содержится в $H$ (поскольку $H$ "--- группа), тогда и $x_1\dots x_n \in H$. Значит, $\forall H \hm{\le} G~(X \subset H): K \subset H$, тогда $K \subset \langle X\rangle$.
-	
-	Покажем теперь, что $\langle X\rangle \subset K$. Для этого докажем, что $K \le G$. Действительно, если $x_1\dots x_n, y_1\dots y_k \in K$, то, поскольку $x_i \in X \hm{\lor} x_i^{-1} \in X$ и $y_i \in X \lor y_i^{-1} \in X$, то $x_1\dots x_ny_1\dots y_k \in K$, и, кроме того, $(x_1\dots x_n)^{-1} = x_n^{-1}\dots x_1^{-1} \in K$, $(y_1\dots y_k)^{-1} = x_k^{-1}\dots y_1^{-1} \in K$. Наконец, $e \in K$, т.\:к. мы считаем, что произведение нуля множителей "--- это  $e$. Итак, $K \le G$, причем $X \subset K$. Следовательно, по определению $\langle X\rangle$, $\langle X\rangle \subset K$.
+	Обозначим правую часть равенства через $K$.
+	\begin{itemize}
+		\item[$\supset$] Для любой подгруппы $H \le G$, такой, что $X \subset H$, каждый из множителей $x_i$ содержится в $H$, поэтому и $x_1\dots x_n \in H$. Значит, $K \subset \langle X\rangle$.
+		\item[$\subset$] Множество $K$ непусто потому, что пустым произведением считается элемент $e$, а свойства замкнутости множества $K$ относительно умножения и взятия обратного элемента, очевидно, выполнены. Значит, $K \le G$, причем $X \subset K$, поэтому $\langle X\rangle \subset K$.\qedhere
+	\end{itemize}
 \end{proof}
 
-\begin{definition}
-	Пусть $G$ "--- группа, $a \in G$. \textit{Степень} $n \in \mathbb{Z}$ элемента $a$ определяется следующим образом:
-	\[a^n = \begin{cases}
-	\underbrace{a\dots a}_{n}\text{, если $n > 0$}\\
-	e\text{, если $n = 0$}\\
-	\underbrace{a^{-1}\dots a^{-1}}_{-n}\text{, если $n < 0$}
-	\end{cases}\]
-\end{definition}
-
 \begin{note}
-	Для степени, определенной так, остается справедливым свойство $a^{n}a^{k} = a^{n + k}$. В этом можно убедиться непосредственной проверкой всех случаев знаков чисел $n$ и $k$.
+	В любой группе $G$ можно определить степень $n \in \Z$ произвольного элемента $a \in G$, отличную от нулевой и первой:
+	\begin{itemize}
+		\item Если $n > 0$, то $a^n$ "--- это произведение $n$ элементов $a$
+		\item Если $n < 0$, то $a^n$ "--- это произведение $|n|$ элементов $a^{-1}$
+	\end{itemize}
+
+	Справедливо свойство, что для любых $k, n \in \Z$ выполнено $a^{k}a^{n} = a^{k + n}$. В этом можно убедиться непосредственной проверкой, перебрав все случаи знаков чисел $k$ и $n$.
 \end{note}
 
 \begin{definition}
-	\textit{Порядком} элемента $a$ называется наименьшее $n \in \mathbb{N}$ такое, что $a^n = e$. Если такого $n$ не существует, то порядок считается равным $\infty$. Обозначения "--- $\ord{a}$, $|a|$.
+	\textit{Порядком} элемента $a$ называется наименьшее $n \in \mathbb{N}$ такое, что $a^n = e$. Если такого $n$ не существует, то порядок считается равным $\infty$. Обозначение "--- $\ord{a}$.
 \end{definition}
 
 \begin{proposition}
-	Пусть $G$ "--- группа, $a \in G$, $\ord{a} = n$. Тогда $a^k = e \Leftrightarrow n~|~k$.
+	Пусть $G$ "--- группа, $a \in G$, $\ord{a} = n$. Тогда $a^k = e \Leftrightarrow n \mid k$.
 \end{proposition}
 
 \begin{proof}
-	Разделим $k$ на $n$ с остатком: $k = qn + r$, $r \hm{\in} \{0, \dots, n-1\}$. Тогда $a^k = a^{qn + r} = (a^n)^qa^r = a^r$. Если $r \ne 0$, то $a^r \ne e$, иначе бы порядок $a$ был меньше $n$, что противоречит условию. Значит, $a^k = e \Leftrightarrow r = 0$, т.\:е. $a^k = e \Leftrightarrow n~|~k$.
+	Разделим $k$ на $n$ с остатком, то есть представим его в виде $k = qn + r$, $r \hm{\in} \{0, \dots, n-1\}$, $q \in \Z$. Тогда $a^k = a^{qn + r} = (a^n)^qa^r = a^r$. Если $r \ne 0$, то $a^r \ne e$, иначе бы порядок $a$ был меньше $n$, что противоречит условию. Значит, $a^k = e \Leftrightarrow r = 0 \Leftrightarrow n \mid k$.
 \end{proof}
 
 \begin{proposition}
@@ -148,17 +162,15 @@ $GL_n(\mathbb{Z}) = \{A \in M_n(\mathbb{Z})~|~\exists A^{-1} \in M_n(\mathbb{Z})
 \end{proposition}
 
 \begin{proof}
-	Рассмотрим сначала случай, когда $\ord{a} = n \in \mathbb{N}$. Тогда $\forall k \in \mathbb{Z}: a^k \in \{e, a, \dots, a^{n-1}\}$, т.\:к. аналогично предыдущему утверждению $k$ можно разделить с остатком на $n$. Уже было доказано, что $\langle a\rangle = \{a^k~|~k \in \mathbb{Z}\} = \{e, a, \dots, a^{n-1}\}$. Следовательно, $|\langle a\rangle| \le n$. Кроме того, все эти элементы различны: если это не так и $\exists r, s \in \{1, \dots, n-1\}, r < s: a^r = a^s$, то $a^{s - r} = e$, и порядок $a$ меньше $n$, что противоречит условию. Значит, $|\langle a\rangle| = n$.
-	
-	Наконец, если $\ord{a} = \infty$, то $\forall r, s \in \mathbb{Z}, r < s: a^r \ne a^s$ из аналогичных соображений, тогда $|\langle a\rangle| = \infty$.
+	Если $\ord{a} = n \in \mathbb{N}$, то $\langle a\rangle = \{a^k: k \in \mathbb{Z}\} = \{e, a, \dots, a^{n-1}\}$, поэтому $|\langle a\rangle| \le n$. Кроме того, все элементы различны $e, a, \dots, a^{n-1}$. \pagebreak Действительно, если для некоторых $r, s \in \{1, \dots, n-1\}$, $r < s$ выполнено $a^r = a^s$, то $a^{s - r} = e$, откуда $s - r = 0$ в силу минимальности порядка $n$. Значит, $|\langle a\rangle| = n$. Если же $\ord{a} = \infty$, то для любых $\forall r, s \in \mathbb{Z}$, $r < s$, выполнено $a^r \ne a^s$ из аналогичных соображений, тогда $|\langle a\rangle| = \infty$.
 \end{proof}
 
 \begin{definition}
-	Группа $G$ называется \textit{циклической}, если $\exists a \hm{\in} G: \langle a\rangle = G$.
+	Группа $G$ называется \textit{циклической}, если существует элемент $\exists a \in G$ такой, что $\langle a\rangle = G$.
 \end{definition}
 
 \begin{example}
-	Циклическими группами являются:
+	Рассмотрим несколько примеров циклических групп:
 	\begin{itemize}
 		\item $\mathbb{Z} = \langle 1 \rangle$
 		\item $\mathbb{Z}_n = \langle \overline{1} \rangle$
