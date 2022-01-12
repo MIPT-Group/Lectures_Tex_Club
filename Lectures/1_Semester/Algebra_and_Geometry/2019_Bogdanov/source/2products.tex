@@ -392,12 +392,12 @@
 \end{definition}
 
 \begin{theorem}[правило Крамера]
-	Пусть $A\in M_3$, причем $\Delta := \det A \ne 0$. Обозначим через $\Delta_x, \Delta_y, \Delta_z$ определители матриц, полученных заменой столбца коэффициентов при соответствующей переменной на столбец $b$. Тогда система $Ax = b$ имеет единственное решение $(x, y, z)$, и оно имеет следующий вид:
+	Пусть $A\in M_3$, причем $\Delta := \det A \ne 0$. Обозначим через $\Delta_x, \Delta_y, \Delta_z$ определители матриц, полученных заменой столбца коэффициентов при соответствующей переменной на столбец $b$. Тогда система $Ax = b$ имеет единственное решение $(x, y, z)$, и это решение имеет следующий вид:
 	\[(x, y, z) := \left(\frac{\Delta_x}{\Delta}, \frac{\Delta_y}{\Delta}, \frac{\Delta_z}{\Delta}\right)\]
 \end{theorem}
 
 \begin{proof}
-	Пусть $e$ "--- правый ортонормированный базис в $V_3$. Рассмотрим векторы $\overline{v_1}, \overline{v_2}, \overline{v_2}, \overline{u} \in V_3$ такие, что для каждого $i \in \{1, 2, 3\}$ выполнено $\overline{v_i} \leftrightarrow_{e} a_{*i}$, и $\overline{u} \leftrightarrow_{e} b$. Тогда $Ax = b \Leftrightarrow x\overline{v_1} + y\overline{v_2} + z\overline{v_3} = \overline{u}$. Поскольку $\Delta \ne 0$, то векторы $\overline{v_1}$, $\overline{v_2}$ и $\overline{v_3}$ некомпланарны и потому образуют базис в $V_3$. Значит, существует единственное решение $(x, y, z)$ уравнения $x\overline{v_1} + y\overline{v_2} + z\overline{v_3} = \overline{u}$, и оно имеет следующий вид:
+	Пусть $e$ "--- правый ортонормированный базис в $V_3$. Рассмотрим векторы $\overline{v_1}, \overline{v_2}, \overline{v_2}, \overline{u} \in V_3$ такие, что для каждого $i \in \{1, 2, 3\}$ выполнено $\overline{v_i} \leftrightarrow_{e} a_{*i}$, и $\overline{u} \leftrightarrow_{e} b$. Тогда $Ax = b \Leftrightarrow x\overline{v_1} + y\overline{v_2} + z\overline{v_3} = \overline{u}$. Поскольку $\Delta \ne 0$, то векторы $\overline{v_1}$, $\overline{v_2}$ и $\overline{v_3}$ некомпланарны и потому образуют базис в $V_3$. Значит, существует единственное решение $(x, y, z)$ уравнения $x\overline{v_1} + y\overline{v_2} + z\overline{v_3} = \overline{u}$, и это решение имеет следующий вид:
 	\begin{gather*}
 	\Delta_x = V(\overline{u}, \overline{v_2}, \overline{v_3}) = V(x\overline{v_1} + y\overline{v_2} + z\overline{v_3}, \overline{v_2}, \overline{v_3}) = xV(\overline{v_1}, \overline{v_2}, \overline{v_3})\\
 	\Delta_y = V(\overline{v_1}, \overline{u}, \overline{v_3}) = V(\overline{v_1}, x\overline{v_1} + y\overline{v_2} + z\overline{v_3}, \overline{v_3}) = yV(\overline{v_1}, \overline{v_2}, \overline{v_3})\\
