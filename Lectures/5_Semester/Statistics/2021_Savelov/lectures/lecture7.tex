@@ -88,11 +88,11 @@ u_{\theta }( X) =a'( \theta )\sum _{i=1}^{n} T( X_{i}) +nV'( \theta ) .
     
     По неравенству Йенсена, если $h(x)$ -- выпуклая функция, и $E(h(\xi))<\infty$, то $h(E(\xi\, \vert\, \mathcal{G})) \leq E(h(\xi)\, \vert\, \mathcal{G})$. Тогда, $\phi^2(T) = E^2(d(X)\, \vert\, T(X)) \leq E(d^2(X)\, \vert\, T(X)) < \infty$. Далее,
     \begin{gather*}
-        E_\theta(d(X) - \tau(\theta))^2 = E_\theta(d(X) - \phi(T) + \phi(T) - \tau(\theta))^2 =\\
+        D_\theta d(X) = E_\theta(d(X) - \tau(\theta))^2 = E_\theta(d(X) - \phi(T) + \phi(T) - \tau(\theta))^2 =\\
         E_\theta(d(X) - \phi(T))^2 + E_\theta(\phi(T) - \tau(\theta))^2 + 2E_\theta(d(X) - \phi(T))(\phi(T) - \tau(\theta)) =\\ E_\theta(d(X) - \phi(T))^2 + D_\theta\phi,
     \end{gather*}
     т.к. $E_\theta(d - \phi)(\phi - \tau) = E_\theta(E_\theta((d-\phi)(\phi - \tau)\, \vert\, T)) = E_\theta((\phi - \tau)E_\theta(d - \phi\, \vert\, T)) = 0$.
-    При этом, неравенство переходит в равенство тогда и только тогда, когда $E_\theta(d-\phi)^2 = 0$, т.е. $d=\phi\ \forall \theta\ P_\theta-a.s.$
+    При этом, неравенство переходит в равенство тогда и только тогда, когда $E_\theta(d(X)-\phi(T))^2 = 0$, т.е. $d=\phi\ \forall \theta\ P_\theta-a.s.$
 \end{proof}
 Введем расширенное определение оценки.
 \begin{definition}
@@ -125,4 +125,3 @@ u_{\theta }( X) =a'( \theta )\sum _{i=1}^{n} T( X_{i}) +nV'( \theta ) .
         Значит, $\displaystyle \tilde{d} =E\left(\tilde{d} \ |\ T\right) =\tilde{\phi } =d$. Следовательно, $\displaystyle d$ -- оптимальна.
     \end{enumerate}
 \end{proof}
-    
