@@ -115,13 +115,6 @@ u_{\theta }( X) =a'( \theta )\sum _{i=1}^{n} T( X_{i}) +nV'( \theta ) .
         
         Для любой несмещенной $\widetilde{d}$ получаем $\widetilde{\phi}$ -- несмещенная оценка, которая не хуже $\widetilde{d}$. Но т.к. $\widetilde{\phi}$ -- несмещенная $T$-измеримая оценка $\tau(\theta)$, то $\widetilde{\phi} = d$ в силу единственности. Поэтому, $d$ не хуже $\widetilde{d}$.
         
-        Если $\forall \theta D_\theta\widetilde{d} = D_\theta d$, то из условия $d \in L_2$ следует $D_\theta\widetilde{d} = D_\theta d = D_\theta\widetilde{\phi} < \infty$. Получили, что
-        \begin{gather*}
-            \begin{cases}
-                \tilde{d} \in L_{2}\\
-                D_{\theta }\tilde{d} =D_{\theta }\left( E_{\theta }\tilde{d}( T)\right)
-            \end{cases} \Rightarrow \tilde{d} =E\left(\tilde{d} \ |\ T\right).
-        \end{gather*}
-        Значит, $\displaystyle \tilde{d} =E\left(\tilde{d} \ |\ T\right) =\tilde{\phi } =d$. Следовательно, $\displaystyle d$ -- оптимальна.
+        Если $\forall \theta D_\theta\widetilde{d} = D_\theta d$, то из условия $d \in L_2$ следует $D_\theta\widetilde{d} = D_\theta d = D_\theta\widetilde{\phi} < \infty$. Получили, что $\tilde{d} \in L_{2},\ D_{\theta }\tilde{d}=D_{\theta }\left( E_{\theta}\left(\tilde{d}\, \vert\, T\right)\right)$. Значит, по теореме Колмогорова-Блэкуэлла-Рао $\displaystyle \tilde{d} =E\left(\tilde{d} \ |\ T\right) =\tilde{\phi } =d$. Следовательно, $\displaystyle d$ -- оптимальна.
     \end{enumerate}
 \end{proof}
