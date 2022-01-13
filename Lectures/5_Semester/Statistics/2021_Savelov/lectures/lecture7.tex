@@ -48,7 +48,7 @@ u_{\theta }( X) =a'( \theta )\sum _{i=1}^{n} T( X_{i}) +nV'( \theta ) .
 
 \section{Достаточные статистики}
 \begin{definition}
-    Пусть $X$ -- выборка из неизвестного распределения $P \in \{P_\theta,\, \theta \in \Theta\}$. Статистика $T(X)$ называется \textit{достаточной} для параметра $\theta$, если выполняется, что $P_\theta(X \in B\, \vert\, T(X) = t)$ не зависит от $\theta$.
+    Пусть $X$ -- выборка из неизвестного распределения $P \in \{P_\theta,\, \theta \in \Theta\}$. Статистика $T(X)$ называется \textit{достаточной} для параметра $\theta$, если для любого борелевского множества $B$ и любого $t$ выполняется, что $P_\theta(X \in B\, \vert\, T(X) = t)$ не зависит от $\theta$.
 \end{definition}
 \begin{note}
     Если статистики $S$ и $T$ находятся во взаимооднозначном соответствии, и $T$ достаточная, тогда и $S$ достаточная.
@@ -122,5 +122,4 @@ u_{\theta }( X) =a'( \theta )\sum _{i=1}^{n} T( X_{i}) +nV'( \theta ) .
         Значит, $\displaystyle \tilde{d} =E\left(\tilde{d} \ |\ T\right) =\tilde{\phi } =d$. Следовательно, $\displaystyle d$ -- оптимальна.
     \end{enumerate}
 \end{proof}
-
-
+    
