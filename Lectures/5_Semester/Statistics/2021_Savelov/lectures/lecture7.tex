@@ -86,7 +86,7 @@ u_{\theta }( X) =a'( \theta )\sum _{i=1}^{n} T( X_{i}) +nV'( \theta ) .
     
     Несмещенность очевидна в силу свойств условного математического ожидания.
     
-    По неравенству Йенсена, если $h(x)$ -- выпуклая функция, и $E(h(\xi))<\infty$, то $h(E(\xi\, \vert\, \mathcal{G})) \leq E(h(\xi)\, \vert\, \mathcal{G})$. Тогда, $\phi^2(T) = E^2(d(X)\, \vert\, T(X)) \leq E(d^2(X)\, \vert\, T(X)) < \infty$. Далее,
+    По неравенству Йенсена, если $h(x)$ -- выпуклая функция, и $E(h(\xi))<\infty$, то $h(E(\xi\, \vert\, \mathcal{G})) \leq E(h(\xi)\, \vert\, \mathcal{G})$. Тогда, $\phi^2(T) = E^2(d(X)\, \vert\, T(X)) \leq E(d^2(X)\, \vert\, T(X)) < \infty$. Тогда $E_\theta\phi^2(T) \leq E_\theta(E(d^2(X)\, \vert\, T(X))) = E_\theta d^2(X) < \infty$. Далее,
     \begin{gather*}
         D_\theta d(X) = E_\theta(d(X) - \tau(\theta))^2 = E_\theta(d(X) - \phi(T) + \phi(T) - \tau(\theta))^2 =\\
         E_\theta(d(X) - \phi(T))^2 + E_\theta(\phi(T) - \tau(\theta))^2 + 2E_\theta(d(X) - \phi(T))(\phi(T) - \tau(\theta)) =\\ E_\theta(d(X) - \phi(T))^2 + D_\theta\phi,
