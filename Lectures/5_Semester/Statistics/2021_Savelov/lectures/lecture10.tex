@@ -78,13 +78,10 @@
     \begin{equation*}
         \dfrac{1}{\sqrt{n}} L'( X,\ \theta _{0}) =\dfrac{1}{\sqrt{n}}\sum _{k=1}^{n}\dfrac{f'_{\theta _{0}}( X_{k})}{f_{\theta _{0}}( X_{k})} .
     \end{equation*}
-    Под знаком суммы независимые, одинаково распределенные случайные величины. В доказательстве неравенства Рао-Крамера было доказано, что $\displaystyle E_{\theta _{0}}\dfrac{f'_{\theta _{0}}( X_{k})}{f_{\theta _{0}}( X_{k})} =0$, и \ $\displaystyle D_{\theta _{0}}\dfrac{f'_{\theta _{0}}( X_{k})}{f_{\theta _{0}}( X_{k})} =I( \theta _{0})$. Следовательно, по ЦПТ получаем требуемое.
-    
+    Под знаком суммы независимые, одинаково распределенные случайные величины. В доказательстве неравенства Рао-Крамера было доказано, что $\displaystyle E_{\theta _{0}}\dfrac{f'_{\theta _{0}}( X_{k})}{f_{\theta _{0}}( X_{k})} =0$, и \ $\displaystyle D_{\theta _{0}}\dfrac{f'_{\theta _{0}}( X_{k})}{f_{\theta _{0}}( X_{k})} =i( \theta _{0})$. Следовательно, по ЦПТ получаем требуемое.
     Также,
-    
-    
     \begin{equation*}
-        -\dfrac{1}{n} L^{''}( X,\ \theta _{0}) =\dfrac{1}{n}\sum _{k=1}^{n}\dfrac{\left( f_{\theta _{0}}^{''}( X_{k})\right)^{2} -f_{\theta _{0}}( X_{k}) f_{\theta _{0}}^{''}( X_{k})}{f_{\theta _{0}}^{2}( X_{k})}\xrightarrow{P_{\theta _{0}}} I( \theta _{0}) -E_{\theta _{0}}\left(\dfrac{f_{\theta _{0}}^{''}( X_{1})}{f_{\theta _{0}}( X_{1})}\right) =I( \theta _{0}) ,
+        -\dfrac{1}{n} L^{''}( X,\ \theta _{0}) =\dfrac{1}{n}\sum _{k=1}^{n}\dfrac{\left( f_{\theta _{0}}^{''}( X_{k})\right)^{2} -f_{\theta _{0}}( X_{k}) f_{\theta _{0}}^{''}( X_{k})}{f_{\theta _{0}}^{2}( X_{k})}\xrightarrow{P_{\theta _{0}}} I( \theta _{0}) -E_{\theta _{0}}\left(\dfrac{f_{\theta _{0}}^{''}( X_{1})}{f_{\theta _{0}}( X_{1})}\right) =i( \theta _{0}) ,
     \end{equation*}
     так как $\displaystyle E_{\theta _{0}}\left(\dfrac{f_{\theta _{0}}^{''}( X_{1})}{f_{\theta _{0}}( X_{1})}\right) =\int _{A}\dfrac{f_{\theta _{0}}^{''}( x)}{f_{\theta _{0}}( x)} f_{\theta _{0}}( x) dx=\int _{A} f_{\theta _{0}}^{''}( x) dx=\left(\int _{A} f_{\theta _{0}}( x)dx\right)^{''} =1^{''} =0$.
     
@@ -102,22 +99,22 @@
     \end{equation*}
     Следовательно,
     \begin{equation*}
-        -\frac{1}{n} L''( X,\ \theta _{0}) -\frac{1}{2n}(\hat{\theta }_{n} -\theta _{0}) L'''\left( X,\ \theta _{n}^{*}\right)\xrightarrow{P_{\theta _{0}}} I( \theta _{0}) .
+        -\frac{1}{n} L''( X,\ \theta _{0}) -\frac{1}{2n}(\hat{\theta }_{n} -\theta _{0}) L'''\left( X,\ \theta _{n}^{*}\right)\xrightarrow{P_{\theta _{0}}} i( \theta _{0}) .
     \end{equation*}
     Тогда
     
     \begin{equation*}
-        \dfrac{\frac{L'( X,\ \theta _{0})}{\sqrt{n}}}{-\frac{1}{n} L''( X,\ \theta _{0}) -\frac{1}{2n}(\hat{\theta }_{n} -\theta _{0}) L'''\left( X,\ \theta _{n}^{*}\right)}\xrightarrow{d_{\theta _{0}}}\mathcal{N}\left( 0,\ \dfrac{1}{I( \theta _{0})}\right) .
+        \dfrac{\frac{L'( X,\ \theta _{0})}{\sqrt{n}}}{-\frac{1}{n} L''( X,\ \theta _{0}) -\frac{1}{2n}(\hat{\theta }_{n} -\theta _{0}) L'''\left( X,\ \theta _{n}^{*}\right)}\xrightarrow{d_{\theta _{0}}}\mathcal{N}\left( 0,\ \dfrac{1}{i( \theta _{0})}\right) .
     \end{equation*}
 \end{proof}
 \begin{note}
     Формально перенеся $\displaystyle \sqrt{n}$ в правую часть, получим, что асимптотическая дисперсия будет равняться информации Фишера всей выборки. Таким образом, эту теорему можно воспринимать, как асимптотическую версию неравенства Рао-Крамера.
 \end{note}
 \begin{corollary}
-    (асимптотическая нормальность ОМП) В условиях (R0)-(R8), если $\displaystyle \forall n\in \mathbb{N} \ \forall X_{1} ,\ \dotsc ,\ X_{n}$ существует единственное решение $\displaystyle \hat{\theta }_{n}$ уравнения правдоподобия, и если оно является статистикой, то $\displaystyle \hat{\theta }_{n}$ -- асимптотически нормальная оценка $\displaystyle \theta $ с асимптотической дисперсией $\displaystyle \dfrac{1}{I( \theta )}$ и с вероятностью, стремящейся к единице, является ОМП. 
+    (асимптотическая нормальность ОМП) В условиях (R0)-(R8), если $\displaystyle \forall n\in \mathbb{N} \ \forall X_{1} ,\ \dotsc ,\ X_{n}$ существует единственное решение $\displaystyle \hat{\theta }_{n}$ уравнения правдоподобия, и если оно является статистикой, то $\displaystyle \hat{\theta }_{n}$ -- асимптотически нормальная оценка $\displaystyle \theta $ с асимптотической дисперсией $\displaystyle \dfrac{1}{i( \theta )}$ и с вероятностью, стремящейся к единице, является ОМП. 
 \end{corollary}
 \begin{theorem}
-    (Бахадур, б/д) Пусть выполнены условия регулярности (R0)-(R8), и $\displaystyle \hat{\theta }_{n}( X_{1} ,\ \dotsc ,\ X_{n})$ асимптотически нормальная оценка $\displaystyle \theta $, т.е. $\displaystyle \sqrt{n}(\hat{\theta }_{n} -\theta )\xrightarrow{d_{\theta }}\mathcal{N}\left( 0,\ \sigma ^{2}( \theta )\right)$, причем $\displaystyle \sigma ( \theta )$ непрерывна. Тогда, $\displaystyle \forall \theta \in \Theta \hookrightarrow \sigma ^{2}( \theta ) \geqslant \dfrac{1}{I( \theta )}$.
+    (Бахадур, б/д) Пусть выполнены условия регулярности (R0)-(R8), и $\displaystyle \hat{\theta }_{n}( X_{1} ,\ \dotsc ,\ X_{n})$ асимптотически нормальная оценка $\displaystyle \theta $, т.е. $\displaystyle \sqrt{n}(\hat{\theta }_{n} -\theta )\xrightarrow{d_{\theta }}\mathcal{N}\left( 0,\ \sigma ^{2}( \theta )\right)$, причем $\displaystyle \sigma ( \theta )$ непрерывна. Тогда, $\displaystyle \forall \theta \in \Theta \hookrightarrow \sigma ^{2}( \theta ) \geqslant \dfrac{1}{i( \theta )}$.
 \end{theorem}
 \begin{note}
     Эта теорема также является некоторой асимптотической версией неравенства Крамера-Рао.
@@ -126,7 +123,7 @@
     В условиях следствия про асимптотическую нормальность ОМП имеем, что ОМП не хуже любой другой оценки в асимптотическом подходе в классе оценок с непрерывной дисперсией.
 \end{corollary}
 \begin{definition}
-    Если $\displaystyle \sqrt{n}(\hat{\theta }_{n}( X_{1} ,\ \dotsc ,\ X_{n}) -\theta )\xrightarrow{d_{\theta }}\mathcal{N}\left( 0,\ \dfrac{1}{I( \theta )}\right)$, то $\displaystyle \hat{\theta }_{n}$ называется асимптотически эффективной оценкой $\displaystyle \theta $.
+    Если $\displaystyle \sqrt{n}(\hat{\theta }_{n}( X_{1} ,\ \dotsc ,\ X_{n}) -\theta )\xrightarrow{d_{\theta }}\mathcal{N}\left( 0,\ \dfrac{1}{i( \theta )}\right)$, то $\displaystyle \hat{\theta }_{n}$ называется асимптотически эффективной оценкой $\displaystyle \theta $.
 \end{definition}
 \begin{proposition}
     Пусть выполнены условия регулярности для неравенства Крамера-Рао, $\displaystyle \hat{\theta }( X)$ -- эффективная оценка $\displaystyle \theta $, и равенство из критерия эффективности (для $\displaystyle \hat{\theta }( X)$) выполнено для любого $\displaystyle X$ и любого $\displaystyle \theta $. Тогда $\displaystyle \hat{\theta }$ -- ОМП.
