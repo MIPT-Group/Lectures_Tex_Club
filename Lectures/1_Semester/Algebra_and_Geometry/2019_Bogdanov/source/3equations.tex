@@ -450,19 +450,19 @@
 \end{note}
 
 \begin{proposition}
-	Пусть в прямоугольной декартовой системе координат $(O, e)$ в $P_3$ прямая $l$ задана  векторно-параметрическим уравнением $\overline{r} = \overline{r_0} + \overline{a}t$, $A \in P_3$, $\overline{r_A} := \overline{OA}$. Тогда расстояние $\rho$ от точки $A$ до прямой $l$ равно следующей величине:
+	Пусть прямая $l \subset P_3$ задана векторно-параметрическим уравнением $\overline{r} = \overline{r_0} + \overline{a}t$, $A \in P_3$, $\overline{r_A} := \overline{OA}$. Тогда расстояние $\rho$ от точки $A$ до прямой $l$ равно следующей величине:
 	\[\rho = \frac{|[\overline{r_A} - \overline{r_0}, \overline{a}]|}{|\overline{a}|}\]
 \end{proposition}
 
 \begin{proof}
-	Искомое расстояние $\rho$ является высотой параллелограма, построенного на векторах $\overline a$ и $\overline{r_A} - \overline{r_0}$, из чего и следует требуемое.
+	Искомое расстояние $\rho$ является длиной высоты параллелограмма, построенного на векторах $\overline a$ и $\overline{r_A} - \overline{r_0}$, проведенной к стороне, образованной вектором $\overline{a}$ и имеющей длину $|\overline{a}|$, из чего и следует требуемое.
 \end{proof}
 
 \begin{proposition}
-	Пусть в прямоугольной декартовой системе координат $(O, e)$ в $P_3$ скрещивающиеся прямые $l_1, l_2$ заданы уравнениями $\overline{r} = \overline{r_1} \hm{+} \overline{a_1}t$, $\overline{r} = \overline{r_2} + \overline{a_2}t$. Тогда расстояние $\rho$ между ними равно следующей величине:
+	Пусть скрещивающиеся прямые $l_1, l_2 \subset P_3$ заданы уравнениями $\overline{r} = \overline{r_1} \hm{+} \overline{a_1}t$, $\overline{r} = \overline{r_2} + \overline{a_2}t$. Тогда расстояние $\rho$ между ними равно следующей величине:
 	\[\rho = \frac{|(\overline{a_1}, \overline{a_2}, \overline{r_1} - \overline{r_2})|}{|[\overline{a_1}, \overline{a_2}]|}\]
 \end{proposition}
 
 \begin{proof}
-	Искомое расстояние $\rho$ является высотой параллелепипеда, построенного на векторах $\overline{a_1}$, $\overline{a_2}$ и $\overline{r_1} - \overline{r_2}$, что и дает требуемую формулу.
+	Искомое расстояние $\rho$ является длиной высоты параллелепипеда, построенного на векторах $\overline{a_1}$, $\overline{a_2}$ и $\overline{r_1} - \overline{r_2}$, проведенной к грани, образованной векторами $\overline{a_1}$, $\overline{a_2}$ и имеющей площадь $|\overline{a_1}||\overline{a_2}|\sin\angle(\overline{a_1}, \overline{a_2}) = |[\overline{a_1}, \overline{a_2}]|$, из чего и следует требуемое.
 \end{proof}

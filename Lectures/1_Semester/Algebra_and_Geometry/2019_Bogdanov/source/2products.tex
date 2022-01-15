@@ -77,7 +77,8 @@
 \end{note}
 
 \begin{proposition}
-	Для любых $\overline{a}, \overline{b} \in V_n$, $\overline{b} \ne \overline{0}$, выполнено равенство $\pr_{\overline{b}}\overline{a} = \frac{(\overline{a}, \overline{b})}{|\overline{b}|^2}\overline{b}$.
+	Для любых $\overline{a}, \overline{b} \in V_n$, $\overline{b} \ne \overline{0}$, выполнено следующее равенство:
+	\[\pr_{\overline{b}}\overline{a} = \frac{(\overline{a}, \overline{b})}{|\overline{b}|^2}\overline{b}\]
 \end{proposition}
 
 \begin{proof}
@@ -85,7 +86,7 @@
 	\[
 	(\overline{a}, \overline{b}) = (\pr_{\overline{b}}\overline{a}, \overline{b}) = (\lambda\overline{b}, \overline{b}) = \lambda |\overline{b}|^2 \Rightarrow \lambda = \frac{(\overline{a}, \overline{b})}{|\overline{b}|^2}\]
 	
-	Следовательно, $\pr_{\overline{b}}\overline{a} = \lambda\overline{b} = \frac{(\overline{a}, \overline{b})}{|\overline{b}|^2}\overline{b}$.
+	Таким образом, $\pr_{\overline{b}}\overline{a} = \lambda\overline{b} = \frac{(\overline{a}, \overline{b})}{|\overline{b}|^2}\overline{b}$.
 \end{proof}
 
 \begin{theorem}
@@ -246,11 +247,11 @@
 \end{note}
 
 \begin{definition}
-	Пусть $\overline{a}, \overline{b} \in V_2$, и в плоскости $V_2$ задана ориентация. \textit{Ориентированной площадью} $S(\overline{a}, \overline{b})$ называется площадь параллелограмма, <<натянутого>> на эти векторы, взятая со знаком, соответствующим ориентации $(\overline{a}, \overline{b})$.
+	Пусть $\overline{a}, \overline{b} \in V_2$, и в плоскости $V_2$ задана ориентация. \textit{Ориентированной площадью} $S(\overline{a}, \overline{b})$ называется площадь параллелограмма, построенного на этих векторах, взятая со знаком, соответствующим ориентации $(\overline{a}, \overline{b})$.
 \end{definition}
 
 \begin{definition}
-	Пусть $\overline{a}, \overline{b}, \overline{c} \in V_3$. \textit{Ориентированным объемом} $V(\overline{a}, \overline{b}, \overline{c})$ называется объем параллелепипеда, <<натянутого>> на эти векторы, взятая со знаком, соответствующим ориентации $(\overline{a}, \overline{b}, \overline{c})$. Эта величина также называется \textit{смешанным произведением} векторов $\overline{a}, \overline{b}, \overline{c}$ и обозначается через $(\overline{a}, \overline{b}, \overline{c})$.
+	Пусть $\overline{a}, \overline{b}, \overline{c} \in V_3$. \textit{Ориентированным объемом} $V(\overline{a}, \overline{b}, \overline{c})$ называется объем параллелепипеда, построенного на этих векторах, взятая со знаком, соответствующим ориентации $(\overline{a}, \overline{b}, \overline{c})$. Эта величина также называется \textit{смешанным произведением} векторов $\overline{a}, \overline{b}, \overline{c}$ и обозначается через $(\overline{a}, \overline{b}, \overline{c})$.
 \end{definition}
 
 \begin{note}
@@ -270,8 +271,8 @@
 
 \begin{proof}~
 	\begin{enumerate}
-		\item Параллелограмм, образованный векторами $\overline{e_1}$ и $\overline{e_2}$, "--- это квадрат со стороной 1.
-		\item Параллелепипед, образованный векторами $\overline{e_1}$, $\overline{e_2}$ и $\overline{e_3}$, "--- это куб со стороной 1.\qedhere
+		\item Параллелограмм, образованный векторами $\overline{e_1}$ и $\overline{e_2}$, "--- это квадрат со стороной $1$, поэтому $|S(\overline{e_1}, \overline{e_2})| = 1$.
+		\item Параллелепипед, образованный векторами $\overline{e_1}$, $\overline{e_2}$ и $\overline{e_3}$, "--- это куб со стороной $1$, поэтому $|V(\overline{e_1}, \overline{e_2}, \overline{e_3})| = 1$.\qedhere
 	\end{enumerate}
 \end{proof}
 
@@ -451,7 +452,7 @@
 \end{proof}
 
 \begin{note}
-	Пусть $\overline a, \overline b, \overline{v} \in V_3$. Утверждение выше гарантирует, что если для всех $\overline{c} \in V_3$ выполнено равенство $(\overline{a}, \overline{b}, \overline{c} = (\overline{v}, \overline{c})$, то $ \overline{v} = [\overline{a}, \overline{b}]$.
+	Пусть $\overline a, \overline b, \overline{v} \in V_3$. Утверждение выше гарантирует, что если для некоторого вектора $\overline{v} \in V_3$ и всех $\overline{c} \in V_3$ выполнено равенство $(\overline{a}, \overline{b}, \overline{c}) = (\overline{v}, \overline{c})$, то $ \overline{v} = [\overline{a}, \overline{b}]$.
 \end{note}
 
 \begin{theorem}
