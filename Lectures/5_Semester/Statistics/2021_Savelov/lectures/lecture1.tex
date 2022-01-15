@@ -78,25 +78,22 @@
 		\begin{gather*}
 		    P\left(\Vert \xi_n - \xi \Vert_2 > \varepsilon\right) \le \sum_{i=1}^m P\left(\left|\xi_n^{(i)} - \xi^{(i)}\right| > \frac{\varepsilon}{\sqrt{m}}\right) \xrightarrow{n\rightarrow\infty} 0.
 		\end{gather*}
-		
 		\item
 		\begin{gather*}
 		    0\leqslant \left| \xi _{n}^{( i)} -\xi ^{( i)}\right| ^{p} \leqslant \sum _{i=1}^{m}\left| \xi _{n}^{( i)} -\xi ^{( i)}\right| ^{p}.
 		\end{gather*}
 		По свойству математического ожидания
 		\begin{gather*}
-		    0\leqslant E\left(\left| \xi _{n}^{( i)} -\xi ^{( i)}\right| ^{p}\right) \leqslant E\left(\sum _{i=1}^{m}\left| \xi _{n}^{( i)} -\xi ^{( i)}\right| ^{p}\right) \Rightarrow\\  E\left(\left|\xi_n^{(i)} - \xi^{(i)}\right|^p\right)^p \le E\left(\sum _{i=1}^{m}\left| \xi _{n}^{( i)} -\xi ^{( i)}\right| ^{p}\right)^p.
+		    0\leqslant E\left(\left| \xi _{n}^{( i)} -\xi ^{( i)}\right| ^{p}\right) \leqslant E\left(\sum _{i=1}^{m}\left| \xi _{n}^{( i)} -\xi ^{( i)}\right| ^{p}\right)
 		\end{gather*}
 		Пусть $\xi _{n}\xrightarrow{L_{p}} \xi$. Тогда
 		\begin{gather*}
-		    0 \le E\left(\left|\xi_n^{(i)} - \xi^{(i)}\right|^p\right)^p \le E\left(\sum _{i=1}^{m}\left| \xi _{n}^{( i)} -\xi ^{( i)}\right| ^{p}\right)^p \Rightarrow E\left(\left|\xi_n^{(i)} - \xi^{(i)}\right|^p\right)^p \xrightarrow{n\rightarrow\infty}0.
+		    0 \le E\left(\left|\xi_n^{(i)} - \xi^{(i)}\right|^p\right) \le E\left(\sum _{i=1}^{m}\left| \xi _{n}^{( i)} -\xi ^{( i)}\right| ^{p}\right) \xrightarrow{n\rightarrow\infty} 0.
 		\end{gather*}
-		
 		Обратно, пусть $\forall i\in \overline{1,m} \ \xi _{n}^{( i)}\xrightarrow{L_{p}} \xi ^{( i)}$. Тогда
 		\begin{gather*}
-		    \forall i \in \overline{1,m}\ E\left(\left|\xi_n^{(i)} - \xi^{(i)}\right|^p\right) \xrightarrow{n \rightarrow \infty} 0 \Rightarrow \sum_{i=1}^{m}E\left(\left|\xi_n^{(i)}- \xi^{(i)}\right|^p\right) \xrightarrow{n\rightarrow\infty} 0 \Rightarrow\\ E\left(\sum_{i=1}^{m}\left|\xi_n^{(i)}-\xi^{(i)}\right|^p\right)^p\xrightarrow{n\rightarrow\infty} 0.
+		    \forall i \in \overline{1,m}\hookrightarrow E\left(\left|\xi_n^{(i)} - \xi^{(i)}\right|^p\right) \xrightarrow{n \rightarrow \infty} 0 \Rightarrow \sum_{i=1}^{m}E\left(\left|\xi_n^{(i)}- \xi^{(i)}\right|^p\right) \xrightarrow{n\rightarrow\infty} 0.
 		\end{gather*}
-		
 		\item Пусть $g:\R\rightarrow\R$ -- непрерывная ограниченная функция, $h:\R^m \rightarrow \R,\ h(x) = x^{(i)}$. Тогда $g \circ h$ -- непрерывная ограниченная функция и
 		\begin{gather*}
 		    E\left(g\left(\xi_n^{(i)}\right)\right) = E\left(g\left(h\left(\xi_n\right)\right)\right) \xrightarrow{n \rightarrow \infty} E\left(g\left(h\left(\xi\right)\right)\right) = E\left(g\left(\xi^{(i)}\right)\right).
@@ -176,13 +173,13 @@
 		
 		\item От противного. Пусть $h\left(\xi_n\right)$ не сходится по вероятности к $h\left(\xi\right)$. Тогда
 		\begin{gather*}
-		    \exists \varepsilon_0,\ \delta_0,\ \{n_k\}_{k=1}^\infty : P(\Vert f(\xi_{n_k}) - f(\xi)\Vert > \varepsilon_0) \ge \delta_0.
+		    \exists \varepsilon_0,\ \delta_0,\ \{n_k\}_{k=1}^\infty : P(\Vert f(\xi_{n_k}) - f(\xi)\Vert_2 > \varepsilon_0) \ge \delta_0.
 		\end{gather*}
 		Выберем из $\xi_{n_k}$ подпоследовательность, сходящуюся к $\xi$ почти наверное. Такая подпоследовательность получается как
 		\begin{gather*}
 		    \{n_k^1\} \subset \{n_k\}: \xi^{(1)}_{n_k^1} \xrightarrow{a.s.} \xi^{(1)}, \{n_k^2\} \subset \{n_k^1\}: \xi^{(2)}_{n_k^2}\xrightarrow{a.s.} \xi^{(2)},\ldots, \{n_k^m\} \subset \{n_k^{m-1}\}: \xi^{(m)}_{n_k^m}\xrightarrow{a.s.} \xi^{(m)}.
 		\end{gather*}
-		Тогда $\xi_{n_k^m} \xrightarrow{a.s.} \xi$ по Утверждению 1.1, следовательно, $\xi_{n_k^m} \xrightarrow{P} \xi \Rightarrow f(\xi_{n_k^m}) \xrightarrow{a.s.} f(\xi) \Rightarrow f(\xi_{n_k^m}) \xrightarrow{P} f(\xi)$, но $\{n_k^m\} \subset \{n_k\}$ по построению. Противоречие.
+		Тогда $\xi_{n_k^m} \xrightarrow{a.s.} \xi \Rightarrow h(\xi_{n_k^m}) \xrightarrow{a.s.} h(\xi) \Rightarrow h(\xi_{n_k^m}) \xrightarrow{P} h(\xi)$, но $\{n_k^m\} \subset \{n_k\}$ по построению. Противоречие.
 		
 		\item Докажем только для всюду непрерывных функций $h$. Пусть $f:\R^m\rightarrow\R$ -- непрерывная ограниченная функция. Тогда $f \circ h$ -- непрерывная ограниченная функция, и $E\left(f\left(h\left(\xi_n\right)\right)\right) \rightarrow E\left(f \left( h\left( \xi\right) \right) \right).$
 	\end{enumerate}

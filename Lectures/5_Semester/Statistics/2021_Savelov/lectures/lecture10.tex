@@ -78,13 +78,10 @@
     \begin{equation*}
         \dfrac{1}{\sqrt{n}} L'( X,\ \theta _{0}) =\dfrac{1}{\sqrt{n}}\sum _{k=1}^{n}\dfrac{f'_{\theta _{0}}( X_{k})}{f_{\theta _{0}}( X_{k})} .
     \end{equation*}
-    Под знаком суммы независимые, одинаково распределенные случайные величины. В доказательстве неравенства Рао-Крамера было доказано, что $\displaystyle E_{\theta _{0}}\dfrac{f'_{\theta _{0}}( X_{k})}{f_{\theta _{0}}( X_{k})} =0$, и \ $\displaystyle D_{\theta _{0}}\dfrac{f'_{\theta _{0}}( X_{k})}{f_{\theta _{0}}( X_{k})} =I( \theta _{0})$. Следовательно, по ЦПТ получаем требуемое.
-    
+    Под знаком суммы независимые, одинаково распределенные случайные величины. В доказательстве неравенства Рао-Крамера было доказано, что $\displaystyle E_{\theta _{0}}\dfrac{f'_{\theta _{0}}( X_{k})}{f_{\theta _{0}}( X_{k})} =0$, и \ $\displaystyle D_{\theta _{0}}\dfrac{f'_{\theta _{0}}( X_{k})}{f_{\theta _{0}}( X_{k})} =i( \theta _{0})$. Следовательно, по ЦПТ получаем требуемое.
     Также,
-    
-    
     \begin{equation*}
-        -\dfrac{1}{n} L^{''}( X,\ \theta _{0}) =\dfrac{1}{n}\sum _{k=1}^{n}\dfrac{\left( f_{\theta _{0}}^{''}( X_{k})\right)^{2} -f_{\theta _{0}}( X_{k}) f_{\theta _{0}}^{''}( X_{k})}{f_{\theta _{0}}^{2}( X_{k})}\xrightarrow{P_{\theta _{0}}} I( \theta _{0}) -E_{\theta _{0}}\left(\dfrac{f_{\theta _{0}}^{''}( X_{1})}{f_{\theta _{0}}( X_{1})}\right) =I( \theta _{0}) ,
+        -\dfrac{1}{n} L^{''}( X,\ \theta _{0}) =\dfrac{1}{n}\sum _{k=1}^{n}\dfrac{\left( f_{\theta _{0}}^{''}( X_{k})\right)^{2} -f_{\theta _{0}}( X_{k}) f_{\theta _{0}}^{''}( X_{k})}{f_{\theta _{0}}^{2}( X_{k})}\xrightarrow{P_{\theta _{0}}} I( \theta _{0}) -E_{\theta _{0}}\left(\dfrac{f_{\theta _{0}}^{''}( X_{1})}{f_{\theta _{0}}( X_{1})}\right) =i( \theta _{0}) ,
     \end{equation*}
     так как $\displaystyle E_{\theta _{0}}\left(\dfrac{f_{\theta _{0}}^{''}( X_{1})}{f_{\theta _{0}}( X_{1})}\right) =\int _{A}\dfrac{f_{\theta _{0}}^{''}( x)}{f_{\theta _{0}}( x)} f_{\theta _{0}}( x) dx=\int _{A} f_{\theta _{0}}^{''}( x) dx=\left(\int _{A} f_{\theta _{0}}( x)dx\right)^{''} =1^{''} =0$.
     
@@ -102,12 +99,12 @@
     \end{equation*}
     Следовательно,
     \begin{equation*}
-        -\frac{1}{n} L''( X,\ \theta _{0}) -\frac{1}{2n}(\hat{\theta }_{n} -\theta _{0}) L'''\left( X,\ \theta _{n}^{*}\right)\xrightarrow{P_{\theta _{0}}} I( \theta _{0}) .
+        -\frac{1}{n} L''( X,\ \theta _{0}) -\frac{1}{2n}(\hat{\theta }_{n} -\theta _{0}) L'''\left( X,\ \theta _{n}^{*}\right)\xrightarrow{P_{\theta _{0}}} i( \theta _{0}) .
     \end{equation*}
     Тогда
     
     \begin{equation*}
-        \dfrac{\frac{L'( X,\ \theta _{0})}{\sqrt{n}}}{-\frac{1}{n} L''( X,\ \theta _{0}) -\frac{1}{2n}(\hat{\theta }_{n} -\theta _{0}) L'''\left( X,\ \theta _{n}^{*}\right)}\xrightarrow{d_{\theta _{0}}}\mathcal{N}\left( 0,\ \dfrac{1}{I( \theta _{0})}\right) .
+        \dfrac{\frac{L'( X,\ \theta _{0})}{\sqrt{n}}}{-\frac{1}{n} L''( X,\ \theta _{0}) -\frac{1}{2n}(\hat{\theta }_{n} -\theta _{0}) L'''\left( X,\ \theta _{n}^{*}\right)}\xrightarrow{d_{\theta _{0}}}\mathcal{N}\left( 0,\ \dfrac{1}{i( \theta _{0})}\right) .
     \end{equation*}
 \end{proof}
 \begin{note}

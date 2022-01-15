@@ -1,5 +1,5 @@
 \begin{definition}
-    Статистика $S(X)$ называется \textit{полной} для $\theta$, если из условия $E_\theta f(S(X)) = 0$ следует, что $\forall \theta \hookrightarrow f(S(X)) = 0\ \forall \theta\ P_\theta-a.s.$
+    Статистика $S(X)$ называется \textit{полной} для $\theta$, если из условия $E_\theta f(S(X)) = 0\ \forall \theta \in \Theta$ следует, что $f(S(X)) = 0\ \forall \theta \in \Theta\ P_\theta-a.s.$
 \end{definition}
 \begin{theorem}
     (Лемана-Шеффе, об оптимальной оценке) Пусть $\displaystyle T( X)$ -- полная достаточная статистика для $\displaystyle \{P_{\theta } ,\ \theta \in \Theta \} ,\ \phi ( T( X))$ -- несмещенная оценка для $\displaystyle \tau ( \theta )$. Тогда $\displaystyle \phi ( T( X))$ не хуже любой несмещенной оценки $\displaystyle \tau ( \theta )$ в среднеквадратичном подходе, и если $\displaystyle \phi ( T) \in L_{2}$, то $\displaystyle \phi ( T)$ -- оптимальная оценка.
@@ -42,9 +42,9 @@
 Пусть $\displaystyle X$ -- наблюдение с неизвестным распределением $\displaystyle \{P_{\theta } ,\ \theta \in \Theta \} ,\ \Theta \subset \mathbb{R}$. 
 
 \begin{definition}
-    Пара статистик $\displaystyle ( T_{1}( X) ,T_{2}( X))$ называется доверительным интервалом уровня доверия $\displaystyle \gamma $ для параметра $\displaystyle \theta $, если $\displaystyle \forall \theta \in \Theta $ выполняется
+    Пара статистик $\displaystyle ( T_{1}( X),\,T_{2}( X))$ называется доверительным интервалом уровня доверия $\displaystyle \gamma $ для параметра $\displaystyle \theta $, если $\displaystyle \forall \theta \in \Theta $ выполняется
 \begin{equation*}
-    P( T_{1}( X) < \theta < T_{2}( X)) \geqslant \gamma .
+    P_\theta( T_{1}( X) < \theta < T_{2}( X)) \geqslant \gamma .
 \end{equation*}
 Если равенство достигается при всех $\displaystyle \theta $, то доверительный интервал называется точным.
 \end{definition}
