@@ -173,7 +173,7 @@
 		
 		\item От противного. Пусть $h\left(\xi_n\right)$ не сходится по вероятности к $h\left(\xi\right)$. Тогда
 		\begin{gather*}
-		    \exists \varepsilon_0,\ \delta_0,\ \{n_k\}_{k=1}^\infty : P(\Vert f(\xi_{n_k}) - f(\xi)\Vert_2 > \varepsilon_0) \ge \delta_0.
+		    \exists \varepsilon_0,\ \delta_0,\ \{n_k\}_{k=1}^\infty : P(\Vert h(\xi_{n_k}) - h(\xi)\Vert_2 > \varepsilon_0) \ge \delta_0.
 		\end{gather*}
 		Выберем из $\xi_{n_k}$ подпоследовательность, сходящуюся к $\xi$ почти наверное. Такая подпоследовательность получается как
 		\begin{gather*}
@@ -217,7 +217,7 @@
 \begin{example}
 	Пусть $\xi_n \xrightarrow{d} \xi$ -- последовательность случайных величин, $H(x)$ -- дифференцируемая в точке $a$ функция, $\{b_n\}: b_n \xrightarrow{n\rightarrow \infty} 0,\ b_n \ne 0$. Тогда
 	\begin{gather*}
-	    \frac{H\left(a + \xi_nb_n\right) - H(a)}{b_n}\xrightarrow{n \rightarrow \infty} H'(a)\xi.
+	    \frac{H\left(a + \xi_nb_n\right) - H(a)}{b_n}\xrightarrow{d} H'(a)\xi.
 	\end{gather*}
 \end{example}
 
@@ -229,7 +229,7 @@
 		H'( a), & x=0.
 	\end{cases}
 	\end{gather*}
-    Функция $h$ непрерывна в нуле, поэтому по лемме Слуцкого $\xi_nb_n \xrightarrow{d} 0$. По теореме о наследовании сходимостей $\displaystyle h\left(\xi_nb_n\right) \xrightarrow{d} h\left(0\right) = H'(a)$, и
+    Функция $h$ непрерывна в нуле, и по лемме Слуцкого $\xi_nb_n \xrightarrow{d} 0$. Тогда по теореме о наследовании сходимостей $\displaystyle h\left(\xi_nb_n\right) \xrightarrow{d} h\left(0\right) = H'(a)$, и
 	\begin{equation*}
 		h\left(\xi_nb_n\right)\xi_n = \frac{H(a + \xi_nb_n) - H(a)}{b_n} \xrightarrow{d} H'(a)\xi
 	\end{equation*}.

@@ -15,7 +15,7 @@
     Таким образом, оценка МНК является несмещенной.
 \end{note}
 \begin{theorem}
-    (б/д) Пусть $\displaystyle t=T\theta $ -- линейная вектор-функция от $\displaystyle \theta $, $\displaystyle T\in M_{n\times k}$. Тогда оценка $\displaystyle \hat{t} =T\hat{\theta }$ является оптимальной оценкой параметра $\displaystyle T$ в классе линейных несмещенных оценок, т.е. оценок вида $\displaystyle B\cdotp X$.
+    (б/д) Пусть $\displaystyle t=T\theta $ -- линейная вектор-функция от $\displaystyle \theta $, $\displaystyle T\in M_{n\times k}$. Тогда оценка $\displaystyle \hat{t} =T\hat{\theta }$ является оптимальной оценкой параметра $\displaystyle t$ в классе линейных несмещенных оценок, т.е. оценок вида $\displaystyle B\cdotp X$.
 \end{theorem}
 \begin{lemma}
     $\displaystyle E\Vert X-Z\hat{\theta }\Vert _{2}^{2} =\sigma ^{2}( n-k)$.
@@ -37,7 +37,7 @@
     Тогда
     \begin{gather*}
         E\Vert X-Z\hat{\theta }\Vert _{2}^{2} =\sigma ^{2} tr( I_{n} -A) =\sigma ^{2}\left( trI_{n} -tr\left( Z\left( Z^{T} Z\right)^{-1} Z^{T}\right)\right) =\\
-        \sigma ^{2}( n-tr\left(\left( Z^{T} Z\right)^{-1} Z^{T} Z\right) =\sigma ^{2}( n-k) .
+        \sigma ^{2}\left( n-tr\left(\left( Z^{T} Z\right)^{-1} Z^{T} Z\right)\right) =\sigma ^{2}( n-k) .
     \end{gather*}
 \end{proof}
 \begin{corollary} ~
@@ -57,9 +57,9 @@
     Если в линейной регрессионной модели $\displaystyle \varepsilon \ \sim \ \mathcal{N}\left( 0,\ \sigma ^{2} I_{n}\right)$, то модель называется \textit{гауссовской линейной моделью}.
 \end{definition}
 \begin{theorem}
-    (об ортогональном разложении, б/д) Пусть $\displaystyle ( X_{1} ,\ \dotsc ,\ X_{n}) \ \sim \ \mathcal{N}\left( l,\ \sigma ^{2} I_{n}\right)$ и $\displaystyle L_{1} ,\ \dotsc ,\ L_{r}$ -- попарно ортогональные подпространства $\displaystyle \mathbb{R}^{n}$, причем $\displaystyle L_{1} \oplus \ \dotsc \ \oplus L_{r} =\mathbb{R}^{n}$. Обозначим $\displaystyle Y_{i} =proj_{L_{i}} X$ -- проекция $\displaystyle X$ на $\displaystyle L_{i}$. Тогда $\displaystyle Y_{1} ,\ \dotsc ,\ Y_{r}$ -- независимые в совокупности нормальные случайные векторы, причем $\displaystyle EY_{i} =proj_{L_{j}} l$, и
+    (об ортогональном разложении, б/д) Пусть $\displaystyle ( X_{1} ,\ \dotsc ,\ X_{n}) \ \sim \ \mathcal{N}\left( l,\ \sigma ^{2} I_{n}\right)$ и $\displaystyle L_{1} ,\ \dotsc ,\ L_{r}$ -- попарно ортогональные подпространства $\displaystyle \mathbb{R}^{n}$, причем $\displaystyle L_{1} \oplus \ \dotsc \ \oplus L_{r} =\mathbb{R}^{n}$. Обозначим $\displaystyle Y_{i} =proj_{L_{i}} X$ -- проекция $\displaystyle X$ на $\displaystyle L_{i}$. Тогда $\displaystyle Y_{1} ,\ \dotsc ,\ Y_{r}$ -- независимые в совокупности нормальные случайные векторы, причем $\displaystyle EY_{i} =proj_{L_{i}} l$, и
     \begin{equation*}
-        \dfrac{1}{\sigma ^{2}}| Y_{i} -EY_{i}| ^{2} \ \sim \ \chi _{dimL_{i}}^{2} .
+        \dfrac{1}{\sigma ^{2}}\Vert Y_{i} -EY_{i}\Vert ^{2} \ \sim \ \chi _{dimL_{i}}^{2} .
     \end{equation*}
 \end{theorem}
 \begin{proposition}
@@ -158,7 +158,7 @@
 
 \subsubsection{Доверительная область для $\theta$.}
 
-Так как $\displaystyle \dfrac{1}{\sigma ^{2}}\Vert Z\hat{\theta } -Z\theta \Vert ^{2} \ \sim \ \chi _{k}^{2} ,\ \dfrac{1}{\sigma ^{2}} \ \sim \ \Vert X-Z\hat{\theta }\Vert ^{2} \ \sim \ \chi _{n-k}^{2}$, причем эти случайные величины независимы, и
+Так как $\displaystyle \dfrac{1}{\sigma ^{2}}\Vert Z\hat{\theta } -Z\theta \Vert ^{2} \, \sim \, \chi _{k}^{2} ,\ \dfrac{1}{\sigma ^{2}}\Vert X-Z\hat{\theta }\Vert ^{2} \, \sim \, \chi _{n-k}^{2}$, причем эти случайные величины независимы, и
 \begin{equation*}
     \dfrac{n-k}{k} \cdotp \dfrac{\Vert Z\hat{\theta } -Z\theta \Vert ^{2}}{\Vert X-Z\hat{\theta }\Vert ^{2}} \ \sim \ F_{k,n-k} .
 \end{equation*}
@@ -171,7 +171,7 @@
 \end{definition}
 Задача заключается по наблюдению $\displaystyle X$ либо принять $\displaystyle H_{0}$, либо отвергнуть $\displaystyle H_{0}$. В последнем случае переходим к рассмотрению альтернативы (если она есть). \textit{Альтернативная гипотеза} имеет вид $\displaystyle H_{1} :\ P\in \mathcal{P}_{1} ,\ \mathcal{P}_{1} \subset \mathcal{P} \backslash \mathcal{P}_{0}$.
 \begin{definition}
-    Пусть $\displaystyle X$ принимает значения в выборочном пространстве $\displaystyle \mathcal{X}$, а $\displaystyle S\subset X$ -- некоторое подмножество. Если правило принятия $\displaystyle H_{0}$ выглядит следующим образом: $\displaystyle H_{0}$ отвергаем$\displaystyle \Leftrightarrow $ $\displaystyle X\in S$, то $\displaystyle S$ называется \textit{критерием} для проверки $\displaystyle H_{0}$ против альтернативы $\displaystyle H_{1}$, если она есть.
+    Пусть $\displaystyle X$ принимает значения в выборочном пространстве $\displaystyle \mathcal{X}$, а $\displaystyle S\subset \mathcal{X}$ -- некоторое подмножество. Если правило принятия $\displaystyle H_{0}$ выглядит следующим образом: $\displaystyle H_{0}$ отвергается тогда и только тогда, когда $\displaystyle X\in S$, то $\displaystyle S$ называется \textit{критерием} для проверки $\displaystyle H_{0}$ против альтернативы $\displaystyle H_{1}$, если она есть.
 \end{definition}
 \begin{definition}
     \textit{Ошибкой первого рода} называется ситуация, когда отвергается гипотеза $\displaystyle H_{0}$, когда она верна.

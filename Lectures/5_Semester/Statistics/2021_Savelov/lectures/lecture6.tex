@@ -84,7 +84,7 @@ D_{\theta } S( X) \geqslant \frac{( \tau '( \theta ))^{2}}{I_{X}( \theta )} .
 \end{gather*}
 \end{proof}
 \begin{corollary}
-Если $\displaystyle \tau ( \theta ) =\theta $, то в условиях предыдущей теоремы $\displaystyle D_{\theta }\hat{\theta }( X) =\frac{1}{I_{X}( \theta )}$, где $\displaystyle \hat{\theta }$ -- несмещенная оценка $\displaystyle \tau ( \theta )$.
+Если $\displaystyle \tau ( \theta ) =\theta $, то в условиях предыдущей теоремы $\displaystyle D_{\theta }\hat{\theta }( X) \ge\frac{1}{I_{X}( \theta )}$, где $\displaystyle \hat{\theta }$ -- несмещенная оценка $\displaystyle \tau ( \theta )$.
 \end{corollary}
 \begin{exercise}
 $\displaystyle I_{X}( \theta ) =n\cdotp i( \theta )$, где $\displaystyle i( \theta )$ -- информация одного наблюдения.
@@ -140,7 +140,7 @@ D_{\theta } u_{\theta }( X)  >0.
 Тогда, взяв математическое ожидание от обеих частей, получаем
 \begin{gather*}
 E_{\theta }\hat{\theta } =\tau ( \theta ) ,\\
-E_{\theta }(\hat{\theta } -\tau ( \theta ))^{2} =c^{2}( \theta ) Eu_{\theta }^{2}( X) < \infty \Rightarrow E_{\theta }\hat{\theta } < \infty .
+E_{\theta }(\hat{\theta } -\tau ( \theta ))^{2} =c^{2}( \theta ) Eu_{\theta }^{2}( X) < \infty \Rightarrow E_{\theta }\hat{\theta }^2 < \infty .
 \end{gather*}
 Домножив обе части на $\displaystyle u_{\theta }( X)$, выходит, что
 \begin{gather*}
@@ -150,7 +150,7 @@ c( \theta ) =\frac{\tau '( \theta )}{I_{X}( \theta )} ,
 и из линейной зависимости $\displaystyle \xi ,\eta $ следует эффективность.
 \end{proof}
 \begin{corollary}
-Если $\displaystyle \theta ^{*}$ не хуже $\displaystyle \theta $ из предыдущей теоремы, то из критерия эффективности следует, что $\displaystyle \theta ^{*} =\hat{\theta } \ P_{\theta }$-п.н.
+Если $\displaystyle \theta ^{*}$ не хуже $\displaystyle \hat{\theta} $ из предыдущей теоремы, то из критерия эффективности следует, что $\displaystyle \theta ^{*} =\hat{\theta } \ P_{\theta }$-п.н.
 \end{corollary}
 \begin{note}
 Эффективная оценка -- наилучшая оценка в классе несмещенных в равномерном подходе с квадратичной функцией потерь (обратное неверно).

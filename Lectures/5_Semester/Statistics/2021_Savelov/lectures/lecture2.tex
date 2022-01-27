@@ -2,7 +2,7 @@
 
 Пусть $\displaystyle \{\xi _{n}\}_{n=1}^{\infty } ,\xi $ -- случайные векторы в $\displaystyle \mathbb{R}^{m}$, $\displaystyle S_{n} =\xi _{1} +\dotsc +\xi _{n}$.
 \begin{theorem}
-	(ЗБЧ, б/д) Пусть $\displaystyle \{\xi _{n}\}_{n=1}^{\infty}$ попарно некоррелированные случайные величины, и $\displaystyle \forall n \ge 1 \sup_{1\le i\le m} D\xi _{n}^{( i)} \leqslant c=const$. Тогда
+	(ЗБЧ, б/д) Пусть $\displaystyle \{\xi _{n}\}_{n=1}^{\infty}$ попарно некоррелированные случайные векторы, и $\displaystyle \forall n \ge 1 \sup_{1\le i\le m} D\xi _{n}^{( i)} \leqslant c=const$. Тогда
 	
 	
 	\begin{equation*}
@@ -113,14 +113,13 @@ $\displaystyle P^{\infty }$ -- вероятностная мера на $\displa
 	Показать, что эмпирическое распределение является распределением.
 \end{exercise}
 \begin{proposition}
-	Пусть $\displaystyle X_{1} ,\dotsc ,X_{n}$ -- выборка на вероятностном пространстве $\displaystyle ( \Omega ,\mathcal{F} ,P)$ из распределения $\displaystyle P_{X}$. Тогда $\displaystyle \forall B\in \mathcal{B}\left(\mathbb{R}^{m}\right) \hookrightarrow \ P_{n}^{*}( B)\xrightarrow{a.s.} P_{X_{1}}( B)$.
+	Пусть $\displaystyle X_{1} ,\dotsc ,X_{n}$ -- выборка на вероятностном пространстве $\displaystyle ( \Omega ,\mathcal{F} ,P)$ из распределения $\displaystyle P_{X}$. Тогда $\displaystyle \forall B\in \mathcal{B}\left(\mathbb{R}^{m}\right) \hookrightarrow \ P_{n}^{*}( B)\xrightarrow{a.s.} P_{X}( B)$.
 \end{proposition}
-\textit{Доказательство}
 \begin{proof}
     $\displaystyle \mathbb{I}_{x_{i} \in B}$ -- независимые (потому что являются функциями от $\displaystyle X_{i}$) одинаково распределенные случайные величины с конечным математическим ожиданием. Поэтому, по УЗБЧ
     
     \begin{equation*}
-    	P_{n}^{*}( B)\xrightarrow{a.s.} E\mathbb{I}_{x_{i} \in B} =P( X_{1} \in B) =P_{X_{1}}( B).
+    	P_{n}^{*}( B)\xrightarrow{a.s.} E\mathbb{I}_{x_{i} \in B} =P( X_{1} \in B) =P_{X}( B).
     \end{equation*}
 \end{proof}
 
@@ -149,18 +148,18 @@ $\displaystyle P^{\infty }$ -- вероятностная мера на $\displa
     \end{gather*}
     С другой стороны,
     \begin{gather*}
-    F_{n}^{*}( x) -F( x) \geqslant F^{*}( x_{N,k}) -F( x_{N,k+1} -0) =F^{*}( x_{N,k}) -F( x_{N,k}) +F( x_{N,k}) -\\
-    F( x_{N,k+1} -0) \geqslant F^{*}( x_{N,k}) -F( x_{N,k}) +\frac{k}{N} -\frac{k+1}{N} =F^{*}( x_{N,k}) -F( x_{N,k}) -\frac{1}{N} .
+    F_{n}^{*}( x) -F( x) \geqslant F_n^{*}( x_{N,k}) -F( x_{N,k+1} -0) =F_n^{*}( x_{N,k}) -F( x_{N,k}) +F( x_{N,k}) -\\
+    F( x_{N,k+1} -0) \geqslant F_n^{*}( x_{N,k}) -F( x_{N,k}) +\frac{k}{N} -\frac{k+1}{N} =F_n^{*}( x_{N,k}) -F( x_{N,k}) -\frac{1}{N} .
     \end{gather*}
     Получили, что
     \begin{gather*}
-    \left| F_{n}^{*}( x) -F( x)\right| \leqslant \max\left(\left| F_{n}^{*}( x_{N,k+1} -0) -F( x_{N,k+1} -0)\right| ,\left| F^{*}( x_{N,k}) -F( x_{N,k})\right| \right) + \frac{1}{N}.
+    \left| F_{n}^{*}( x) -F( x)\right| \leqslant \max\left(\left| F_{n}^{*}( x_{N,k+1} -0) -F( x_{N,k+1} -0)\right| ,\left| F_n^{*}( x_{N,k}) -F( x_{N,k})\right| \right) + \frac{1}{N}.
     \end{gather*}
     В итоге
     \begin{gather*}
-    \sup _{x\in \mathbb{R}}| F_{n}( x) -F( x)| \leqslant\\ \max_{1\leqslant k\leqslant N-1}\max\left(\left| F_{n}^{*}( x_{N,k+1} -0) -F( x_{N,k+1} -0)\right|,\ \left| F^{*}( x_{N,k}) -F( x_{N,k})\right| \right)+\frac{1}{N} .
+    \sup _{x\in \mathbb{R}}| F^*_{n}( x) -F( x)| \leqslant\\ \max_{1\leqslant k\leqslant N-1}\max\left(\left| F_{n}^{*}( x_{N,k+1} -0) -F( x_{N,k+1} -0)\right|,\ \left| F_n^{*}( x_{N,k}) -F( x_{N,k})\right| \right)+\frac{1}{N} .
     \end{gather*}
-    Так как $\displaystyle F_{n}^{*}( x)\xrightarrow{a.s.} F( x)$, $\displaystyle F^{*}( x-0) =P^{*}(( -\infty ,x))\xrightarrow{a.s.} P_{X}(( -\infty ,x)) =F( x-0)$, то для достаточно большого $\displaystyle N\in \mathbb{N}$ и фиксированного $\displaystyle \omega \in \mathcal{X}$ выполняется
+    Так как $\displaystyle F_{n}^{*}( x)\xrightarrow{a.s.} F( x)$, $\displaystyle F_n^{*}( x-0) =P^{*}(( -\infty ,x))\xrightarrow{a.s.} P_{X}(( -\infty ,x)) =F( x-0)$, то для достаточно большого $\displaystyle N\in \mathbb{N}$ и фиксированного $\displaystyle \omega \in \mathcal{X}$ выполняется
     
     \begin{equation*}
     D_{n}( \omega ) =\sup _{x\in \mathbb{R}}\left| F_{n}^{*}( x) -F( x)\right| < \varepsilon \Rightarrow P\left( \omega :D_{n}( \omega )\rightarrow 0\right) =1.

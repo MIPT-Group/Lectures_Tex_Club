@@ -42,7 +42,7 @@ m_{k}( \theta ) =\overline{g_{k}( X)}
 Функции $\displaystyle g_{i}( x) =X^{i}$ называются пробными.
 \end{definition}
 \begin{note}
-В случае, когда $\displaystyle \overline{g} \notin m( \Theta )$, можно для нахождения $\displaystyle m^{-1}( g)$ взять ближайшую к $\displaystyle \overline{g}$ точку из $\displaystyle m( \theta )$.
+В случае, когда $\displaystyle \overline{g} \notin m( \Theta )$, можно для нахождения $\displaystyle m^{-1}( g)$ взять ближайшую к $\displaystyle \overline{g}$ точку из $\displaystyle m( \Theta )$.
 \end{note}
 \begin{theorem}
 (сильная состоятельности оценки по методу моментов) Пусть $\displaystyle m:\Theta \rightarrow m( \Theta )$ -- биекция, и функцию $\displaystyle m^{-1}$ можно доопределить до функции, заданной на всем $\displaystyle \mathbb{R}^{k}$, и непрерывной в каждой точке множества $\displaystyle m( \Theta )$. Также, $\displaystyle E_{\theta } g_{i}( X_{1}) < \infty \ \forall i:1\leqslant i\leqslant k,\ \forall \theta \in \Theta $. Тогда оценка по методу моментов является сильно состоятельной оценкой параметра $\displaystyle \theta $.
@@ -53,8 +53,6 @@ m_{k}( \theta ) =\overline{g_{k}( X)}
 \begin{theorem}
 (асимптотическая нормальность оценки по методу моментов) Если в условиях предыдущей теоремы функция $\displaystyle m^{-1}$, доопределенная на $\displaystyle \mathbb{R}^{k}$, дифференцируема на $\displaystyle m( \Theta )$, и $\displaystyle E_{\theta } g_{i}^{2}( X_{1}) < \infty \ \forall i:1\leqslant i\leqslant k$, то оценка, полученная по методу моментов, асимптотически нормальна.
 \end{theorem}
-\textit{Доказательство}
-
 \begin{proof}
     $\displaystyle \sqrt{n}(\overline{g} -m( \theta ))\xrightarrow{d_{\theta }} N( 0,\ \Sigma ( \theta ))$, где $\displaystyle \Sigma ( \theta )$ -- матрица ковариаций вектора $\displaystyle ( g_{1}( X_{1}) ,\dotsc ,\ g_{k}( X_{1}))^{T}$. Далее применяем утверждение о наследовании асимптотической нормальности.
 \end{proof}

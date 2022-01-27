@@ -26,12 +26,12 @@
     \end{equation*}
 \end{theorem}
 \begin{theorem}
-    Байесовская оценка является наилучшей оценкой в байесовсом подходе с квадратичной функцией потерь.
+    Байесовская оценка является наилучшей оценкой в байесовском подходе с квадратичной функцией потерь.
 \end{theorem}
 \begin{proof}
     Пусть $\displaystyle \hat{\theta }$ -- байесовская оценка параметра $\displaystyle \theta $. Тогда
     \begin{equation*}
-        \int _{\Theta } R(\hat{\theta } ,\ t) q( \theta ) d\theta =\int _{\Theta } E_{\theta }(\hat{\theta } -\theta )^{2} q( t) dt=\int _{\Theta }\int _{\mathcal{X}}(\hat{\theta } -\theta )^{2} f( t,\ x) dxdt=E_{\tilde{P}}(\hat{\theta }( X) -\theta )^{2} .
+        \int _{\Theta } R(\hat{\theta } ,\ \theta) q( \theta ) d\theta =\int _{\Theta } E_{\theta }(\hat{\theta } -\theta )^{2} q( t) dt=\int _{\Theta }\int _{\mathcal{X}}(\hat{\theta } -\theta )^{2} f( t,\ x) dxdt=E_{\tilde{P}}(\hat{\theta }( X) -\theta )^{2} .
     \end{equation*}
     По теореме о наилучшем среднеквадратичном прогнозе
     \begin{equation*}
@@ -136,7 +136,7 @@
     Ограниченность следует из неравенста Коши-Буняковского. $\displaystyle \rho _{s} =1$, когда $\displaystyle R_{i} =S_{i} \ \forall i\in \{1,\ \dotsc ,\ n\}$, $\displaystyle \rho _{S} =-1$, если $\displaystyle R_{i} =n+1-S_{i}$.
 \end{proof}
 \begin{proposition}
-    При $\displaystyle H_{0}$ распределение $\displaystyle H_{0}$ известно, не зависит от конкретных функций распределений $\displaystyle F_{X}$ и $\displaystyle F_{Y}$, и его квантиль есть в таблицах.
+    При $\displaystyle H_{0}$ распределение $\displaystyle \rho_{0}$ известно, не зависит от конкретных функций распределений $\displaystyle F_{X}$ и $\displaystyle F_{Y}$, и его квантиль есть в таблицах.
 \end{proposition}
 \begin{proof}
     Следует из того, что распределение $\displaystyle \rho _{S}$ зависит только от распределения $\displaystyle T_{k}$, которое известно.
@@ -227,4 +227,4 @@
 \begin{proposition}
     Если $\displaystyle H_{0}$ верна, то $\displaystyle \dfrac{\tau }{\sqrt{D\tau }}\xrightarrow{d}\mathcal{N}( 0,\ 1)$.
 \end{proposition}
-Критерий для проверки гипотезы $\displaystyle H_{0}$ имеет вид $\displaystyle \{| \tau |  >c\}$, где $\displaystyle c$ -- квантиль изизвестного распределния $\displaystyle \tau $ при верности $H_0$.
+Критерий для проверки гипотезы $\displaystyle H_{0}$ имеет вид $\displaystyle \{| \tau |  >c\}$, где $\displaystyle c$ -- квантиль из известного распределения $\displaystyle \tau $ при верности $H_0$.
