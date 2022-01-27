@@ -57,7 +57,7 @@ p_{m}^{0}
 \begin{definition}
     \textit{Статистикой хи-квадрат Пирсона} называют величину
     \begin{equation*}
-        \hat{\chi }_{n}^{2} =\sum _{j=1}^{n}\dfrac{\left( \nu _{j} -np_{j}^{0}\right)^{2}}{np_{j}^{0}} .
+        \hat{\chi }_{n}^{2} =\sum _{j=1}^{m}\dfrac{\left( \nu _{j} -np_{j}^{0}\right)^{2}}{np_{j}^{0}} .
     \end{equation*}
 \end{definition}
 \begin{theorem}
@@ -169,7 +169,7 @@ p_{m}^{0}
     Критерий хи-квадрат состоятелен.
 \end{proposition}
 \begin{proof}
-    Пусть на самом деле $\displaystyle \overline{p} \neq \overline{p}_{0}$. Тогда $\displaystyle \hat{\chi }_{n}^{2} =n\sum _{i=1}^{n}\left(\dfrac{\nu _{i}}{n} -p_{i}^{0}\right)^{2}\dfrac{1}{p_{i}^{0}}$. В силу УЗБЧ для любого фиксированного $\displaystyle i\in \{1,\ \dotsc ,\ m\}$ выполнено $\displaystyle \dfrac{\nu _{i}}{n} =\dfrac{1}{n}\sum _{j=1}^{n} I_{X_{j} =a_{i}}\xrightarrow{a.s.} p_{i}$. По теореме о наследовании сходимости $\displaystyle \sum _{i=1}^{m}\left(\dfrac{\nu _{i}}{n} -p_{i}^{0}\right)^{2} \cdotp \dfrac{1}{p_{i}^{0}}\xrightarrow{a.s.}\sum _{i=1}^{m}\dfrac{\left( p_{i} -p_{i}^{0}\right)^{2}}{p_{i}^{0}}  >0$. Значит, $\displaystyle \hat{\chi }_{n}^{2}\xrightarrow[n\rightarrow \infty ]{} \infty $, а, следовательно, и $\displaystyle P\left(\hat{\chi }_{n}^{2}  >u_{1-\varepsilon }\right)\xrightarrow[n\rightarrow \infty ]{} 1$. Таким образом, вероятность ошибки второго рода стремится к нулю.
+    Пусть на самом деле $\displaystyle \overline{p} \neq \overline{p}_{0}$. Тогда $\displaystyle \hat{\chi }_{n}^{2} =n\sum _{i=1}^{m}\left(\dfrac{\nu _{i}}{n} -p_{i}^{0}\right)^{2}\dfrac{1}{p_{i}^{0}}$. В силу УЗБЧ для любого фиксированного $\displaystyle i\in \{1,\ \dotsc ,\ m\}$ выполнено $\displaystyle \dfrac{\nu _{i}}{n} =\dfrac{1}{n}\sum _{j=1}^{n} I_{X_{j} =a_{i}}\xrightarrow{a.s.} p_{i}$. По теореме о наследовании сходимости $\displaystyle \sum _{i=1}^{m}\left(\dfrac{\nu _{i}}{n} -p_{i}^{0}\right)^{2} \cdotp \dfrac{1}{p_{i}^{0}}\xrightarrow{a.s.}\sum _{i=1}^{m}\dfrac{\left( p_{i} -p_{i}^{0}\right)^{2}}{p_{i}^{0}}  >0$. Значит, $\displaystyle \hat{\chi }_{n}^{2}\xrightarrow[n\rightarrow \infty ]{} \infty $, а, следовательно, и $\displaystyle P\left(\hat{\chi }_{n}^{2}  >u_{1-\varepsilon }\right)\xrightarrow[n\rightarrow \infty ]{} 1$. Таким образом, вероятность ошибки второго рода стремится к нулю.
 \end{proof}
 \subsection{Критерий согласия Колмогорова (Колмогорова-Смирнова)}
 
