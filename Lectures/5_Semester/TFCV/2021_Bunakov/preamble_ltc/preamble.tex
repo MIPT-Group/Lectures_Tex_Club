@@ -33,11 +33,14 @@
 \DeclareMathOperator{\Arg}{Arg}
 \DeclareMathOperator{\Ln}{Ln}
 
+\DeclareMathOperator*{\res}{res}
+
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Cm}{\mathbb{C}}
+\newcommand{\CM}{\overline{\mathbb{C}}}
 \newcommand{\F}{\mathbb{F}}
 \newcommand{\id}{\mathrm{id}}
 
@@ -51,8 +54,12 @@
 	\left\{\begin{aligned}#1\end{aligned}\right.
 }
 \newcommand{\Root}[2]{
-	\left\{\!\sqrt[#1]{#2}\right\}
+	\left\{\!\!\sqrt[#1]{#2}\right\}
 }
+\newcommand{\D}[2]{
+	\frac{\partial #1}{\partial #2}
+}
+\newcommand{\convlr}{\rightarrow_{\text{ЛР}}}
 
 \renewcommand\labelitemi{$\triangleright$}
 
@@ -66,6 +73,7 @@
 \let\gr\rangle
 \let\sd\leftthreetimes
 \let\emb\hookrightarrow
+\let\convu\rightrightarrows
 
 %%% Перенос знаков в формулах (по Львовскому)
 \newcommand*{\hm}[1]{#1\nobreak\discretionary{}{\hbox{$\mathsurround=0pt #1$}}{}}
@@ -118,6 +126,14 @@
 \usepackage{multicol}			  % Для текста в нескольких колонках
 \usepackage{soulutf8}             % Модификаторы начертания
 
+%%% Содержаниие
+\usepackage{tocloft}
+\tocloftpagestyle{main}
+\setlength{\cftsecnumwidth}{2.3em}
+\renewcommand{\cftsecdotsep}{1}
+\renewcommand{\cftsecpresnum}{\hfill}
+\renewcommand{\cftsecaftersnum}{\quad}
+
 %%% Шаблонная информация для титульного листа
 \newcommand{\CourseName}{Теория функций комплексного переменного}
 \newcommand{\FullCourseNameFirstPart}{{ТЕОРИЯ ФУНКЦИЙ КОМПЛЕКСНОГО ПЕРЕМЕННОГО}}
@@ -164,4 +180,5 @@
 \usepackage{tikz-cd}     % Коммутативные диаграммы
 \usepackage{tkz-euclide} % Геометрия
 \usepackage{stackengine} % Многострочные тексты в картинках
-\usetikzlibrary{angles, babel, quotes}
+\usetikzlibrary{angles, babel, quotes, fadings, shapes.geometric}
+\tikzfading[name=fade out, inner color=transparent!0, outer color=transparent!100]
