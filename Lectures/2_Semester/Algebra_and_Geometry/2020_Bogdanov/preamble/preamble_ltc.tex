@@ -38,7 +38,6 @@
 \DeclareMathOperator{\im}{Im}
 \DeclareMathOperator{\ke}{Ker}
 \DeclareMathOperator{\re}{Re}
-\DeclareMathOperator{\id}{id}
 \DeclareMathOperator{\cha}{char}
 \DeclareMathOperator{\ord}{ord}
 \DeclareMathOperator{\tr}{tr}
@@ -48,10 +47,7 @@
 \DeclareMathOperator{\Inn}{Inn}
 \DeclareMathOperator{\GL}{GL}
 \DeclareMathOperator{\SL}{SL}
-\DeclareMathOperator{\PSL}{PSL}
 \DeclareMathOperator{\diag}{diag}
-\DeclareMathOperator{\Tor}{Tor}
-\DeclareMathOperator{\quot}{Quot}
 
 \newcommand{\divby}{
 	\mathrel{\vbox{\baselineskip.65ex\lineskiplimit0pt\hbox{.}\hbox{.}\hbox{.}}}
@@ -62,6 +58,7 @@
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Cm}{\mathbb{C}}
+\newcommand{\id}{\mathrm{id}}
 \renewcommand\labelitemi{$\triangleright$}
 \newcommand{\Chi}{\scalebox{1.05}{\raisebox{\depth}{$\chi$}}}
 
@@ -74,7 +71,6 @@
 \let\la\Leftarrow
 \let\gl\langle
 \let\gr\rangle
-%\let\sd\leftthreetimes
 \let\sd\leftthreetimes
 
 %%% Перенос знаков в формулах (по Львовскому)
@@ -96,11 +92,11 @@
 \newtheorem{theorem}{Теорема}[section]
 \newtheorem{lemma}{Лемма}[section]
 \newtheorem{proposition}{Утверждение}[section]
+\newtheorem*{corollary}{Следствие}
 \newtheorem*{exercise}{Упражнение}
 
 \theoremstyle{definition}
 \newtheorem{definition}{Определение}[section]
-\newtheorem*{corollary}{Следствие}
 \newtheorem*{note}{Замечание}
 \newtheorem*{reminder}{Напоминание}
 \newtheorem*{example}{Пример}
