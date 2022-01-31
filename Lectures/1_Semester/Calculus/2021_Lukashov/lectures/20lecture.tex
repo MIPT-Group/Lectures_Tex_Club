@@ -174,7 +174,7 @@
 \begin{theorem} (Неравенство Коши-Буняковского-Шварца)
 	Если $X$ - вещественное евклидовое пространство, то
 	\[
-		\forall \vec{x}, \vec{y} \in X\ \ \trbr{\vec{x}, \vec{y}} \le \trbr{\vec{x}, \vec{x}} \cdot \trbr{\vec{y}, \vec{y}}
+		\forall \vec{x}, \vec{y} \in X\ \ \trbr{\vec{x}, \vec{y}}^2 \le \trbr{\vec{x}, \vec{x}} \cdot \trbr{\vec{y}, \vec{y}}
 	\]
 	причём равенство имеет место тогда и только тогда, когда $\exists \lambda \in \R \such \vec{x} = \lambda \vec{y}$.
 \end{theorem}
@@ -189,10 +189,6 @@
 	Раз у квадратного трёхчлена относительно $\lambda$ коэффициент при старшей степени положителен и весь он неотрицателен, то дискриминант должен быть неположителен:
 	\[
 		\frac{D}{4} = \trbr{\vec{x}, \vec{y}}^2 - \trbr{\vec{x}, \vec{x}} \cdot \trbr{\vec{y}, \vec{y}} \le 0
-	\]
-	Отсюда
-	\[
-		\trbr{\vec{x}, \vec{y}} \le \trbr{\vec{x}, \vec{y}}^2 \le \trbr{\vec{x}, \vec{x}} \cdot \trbr{\vec{y}, \vec{y}}
 	\]
 	При этом если $D = 0$ и выражение выше обращается в равенство, то $\vec{x} + \lambda\vec{y} = \vec{0} \lra \vec{x} = (-\lambda)\vec{y}$
 \end{proof}
