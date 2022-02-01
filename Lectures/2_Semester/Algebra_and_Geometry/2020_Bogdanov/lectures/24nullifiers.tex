@@ -68,14 +68,17 @@
 	Значит, для произвольного $\overline{v} \in V$ выполнены следующие равенства:
 	\[\overline{v} = \id(\overline{v}) \hm{=} Q_1(\phi)(P_1(\phi)(\overline{v})) + Q_2(\phi)(P_2(\phi)(\overline{v}))\]
 	
-	Заметим теперь, что $P_1(\phi)(\overline{v}) \in \im P_1(\phi) \le V_2$ и $P_2(\phi)(\overline{v}) \in \im P_2(\phi) \le V_1$, откуда $Q_1(\phi)(P_1(\phi)(\overline{v})) \in V_2$ и $Q_2(\phi)(P_2(\phi)(\overline{v})) \in V_1$ в силу инвариантности подпространств $V_1, V_2$ относительно $\phi$. Значит, $V_1 + V_2 = V$, причем эта сумма "--- прямая, поскольку для любого вектора $\overline{v} \in V_1 \cap V_2$ выполнены следующие равенства:
-	\[\overline{v} = \id(\overline{v}) \hm{=} Q_1(\phi)(P_1(\phi)(\overline{v})) + Q_2(\phi)(P_2(\phi)(\overline{v})) = Q_1(\phi)(\overline{0}) + Q_2(\phi)(\overline{0}) = \overline{0}\]
+	Заметим теперь, что $P_1(\phi)(\overline{v}) \in \im P_1(\phi) \le V_2$ и $P_2(\phi)(\overline{v}) \in \im P_2(\phi) \le V_1$, откуда $Q_1(\phi)(P_1(\phi)(\overline{v})) \in V_2$ и $Q_2(\phi)(P_2(\phi)(\overline{v})) \in V_1$ в силу инвариантности подпространств $V_1, V_2$ относительно $\phi$. Значит, $V_1 + V_2 = V$, причем эта сумма "--- прямая, поскольку для любого вектора $\overline{w} \in V_1 \cap V_2$ выполнены следующие равенства:
+	\[\overline{w} = \id(\overline{w}) \hm{=} Q_1(\phi)(P_1(\phi)(\overline{w})) + Q_2(\phi)(P_2(\phi)(\overline{w})) = Q_1(\phi)(\overline{0}) + Q_2(\phi)(\overline{0}) = \overline{0}\]
 	
 	Таким образом, $V = V_1 \oplus V_2$.
 \end{proof}
 
 \begin{note}
-	Один из промежуточных результатов в доказательстве выше можно усилить: на самом деле, выполнены равенства $\im{P_1(\phi)} = V_2$ и $\im{P_2(\phi)} = V_1$. Согласно теореме выше, $V_1 \oplus V_2 = V$, то есть $\dim{V_1} \hm{+} \dim{V_2} = \dim{V} = \dim{\im{P_1(\phi)}} + \dim{\ke{P_1(\phi)}}$, откуда $\dim{V_2} \hm{=} \dim{\im{P_1(\phi)}}$, и, в силу включения $\im{P_1(\phi)} \le V_2$, выполнено равенство $\im{P_1(\phi)} = V_2$. Аналогичное рассуждение показывает, что $\im{P_2(\phi)} = V_1$.
+	На самом деле, в теореме выше выполнены равенства $\im{P_1(\phi)} = V_2$ и $\im{P_2(\phi)} = V_1$. Согласно теореме, $V_1 \oplus V_2 = V$, поэтому выполнено следующее:
+	\[\dim{V_1} \hm{+} \dim{V_2} = \dim{V} = \dim{\im{P_1(\phi)}} + \dim{\ke{P_1(\phi)}}\]
+	
+	Следовательно, $\dim{V_2} \hm{=} \dim{\im{P_1(\phi)}}$, и, в силу включения $\im{P_1(\phi)} \le V_2$, имеем $\im{P_1(\phi)} = V_2$. Аналогичное рассуждение показывает, что $\im{P_2(\phi)} = V_1$.
 \end{note}
 
 \begin{corollary}
