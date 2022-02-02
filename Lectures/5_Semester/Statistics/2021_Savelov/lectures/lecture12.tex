@@ -14,20 +14,20 @@
     Если $\displaystyle X=( X_{1} ,\ \dotsc ,\ X_{n})$ -- выборка растущего размера, то последовательность критериев $\displaystyle S_{n}$ называется \textit{состоятельной}, если $\displaystyle B( Q,\ S)\xrightarrow[n\rightarrow \infty ]{} 1,\ \forall Q\in \mathcal{P}_{1}$.
 \end{definition}
 \begin{definition}
-    Критерий уровня значимости $\displaystyle \varepsilon $ называется \textit{более мощным}, чем критерий $\displaystyle R$ того же уровня значимости $\displaystyle \varepsilon $, если $\displaystyle B( Q,\ S) \geqslant B( Q,\ R) \ \forall Q\in \mathcal{P}_{1}$, т.е. вероятность ошибки второго рода у $\displaystyle S$ равномерно меньше.
+    Критерий $S$ уровня значимости $\displaystyle \varepsilon $ называется \textit{более мощным}, чем критерий $\displaystyle R$ того же уровня значимости $\displaystyle \varepsilon $, если $\displaystyle B( Q,\ S) \geqslant B( Q,\ R) \ \forall Q\in \mathcal{P}_{1}$, т.е. вероятность ошибки второго рода у $\displaystyle S$ равномерно меньше.
 \end{definition}
 \begin{definition}
     Критерий $\displaystyle S$ называют равномерно наиболее мощным (р.н.м.к.) уровня значимости $\displaystyle \varepsilon $, если $\displaystyle \alpha ( S) \leqslant \varepsilon $, и $\displaystyle S$ мощнее любого другого критерия $\displaystyle R$, который удовлетворяет условию $\displaystyle \alpha ( R) \leqslant \varepsilon $.
 \end{definition}
 \begin{definition}
-    Гипотеза $\displaystyle H:\ P=P_{0}$, где $\displaystyle P_{0}$ -- известное распределние, называется \textit{простой}.
+    Гипотеза $\displaystyle H:\ P=P_{0}$, где $\displaystyle P_{0}$ -- известное распредление, называется \textit{простой}.
 \end{definition}
 Пусть заданы простые гипотезы $\displaystyle H_{0} :\ P=P_{0}$ и альтернатива $\displaystyle H_{1} :\ P=P_{1}$, причем $\displaystyle P_{i}$ имеют плотность $\displaystyle p_{i}( x)$ по одной и той же мере $\displaystyle \mu $. Рассмотрим критерий
 \begin{equation*}
-    S_{\lambda } =\{x:\ p_{1}( x) -\lambda p_{2}( x) \geqslant 0\} .
+    S_{\lambda } =\{x:\ p_{1}( x) -\lambda p_{0}( x) \geqslant 0\} .
 \end{equation*}
 \begin{lemma}
-    (Неймана-Пирсона) Пусть критерий $\displaystyle R$ удовлетворяет соотношению $\displaystyle P_{0}( X\in R) \leqslant P_{0}( X\in S_{\lambda })$. Тогда $\displaystyle P_{1}( X\in R) \leqslant P_{1}( X\in S_{\lambda })$, т.е. $\displaystyle S_{\lambda }$ мощнее $\displaystyle R$, и $\displaystyle P_{0}( X\in S_{\lambda }) \leqslant P_{1}( X\in S_{\lambda })$, т.е. $\displaystyle S$ -- несмещенный.
+    (Неймана-Пирсона) Пусть критерий $\displaystyle R$ удовлетворяет соотношению $\displaystyle P_{0}( X\in R) \leqslant P_{0}( X\in S_{\lambda })$. Тогда $\displaystyle P_{1}( X\in R) \leqslant P_{1}( X\in S_{\lambda })$, т.е. $\displaystyle S_{\lambda }$ мощнее $\displaystyle R$, и $\displaystyle P_{0}( X\in S_{\lambda }) \leqslant P_{1}( X\in S_{\lambda })$, т.е. $\displaystyle S_\lambda$ -- несмещенный.
 \end{lemma}
 \begin{proof}
     Рассмотрим следующее соотношение
@@ -48,7 +48,7 @@
     \end{gather*}
     Докажем несмещенность. Если $\displaystyle \lambda \geqslant 1$, то $\displaystyle p_{0}( x) \leqslant p_{1}( x) \ \forall x\in S_{\lambda }$. Тогда
     \begin{equation*}
-        P_{0}( X\in S_{\lambda }) =\int _{\mathcal{X}} I_{S_{\lambda }}( x) p_{0}( x) d\mu \leqslant \int _{\mathcal{X}} I_{S_{\lambda }}( x) p_{1}( x) =P_{1}( X\in S_{\lambda }) .
+        P_{0}( X\in S_{\lambda }) =\int _{\mathcal{X}} I_{S_{\lambda }}( x) p_{0}( x) d\mu \leqslant \int _{\mathcal{X}} I_{S_{\lambda }}( x) p_{1}( x)d\mu =P_{1}( X\in S_{\lambda }) .
     \end{equation*}
     Если $\displaystyle \lambda < 1$, то $\displaystyle p_{1}( x) \leqslant p_{0}( x) \ \forall x\in \overline{S}_{\lambda }$. Тогда
     \begin{gather*}
@@ -77,7 +77,7 @@
 \end{theorem}
 \subsection{Двойственность доверительного оценивания и проверки гипотез}
 \begin{proposition}
-    Пусть $\displaystyle S( X)$ -- доверительная область уровня доверия $\displaystyle 1-\varepsilon $ для параметра $\displaystyle \theta \in \Theta $. Хотим проверить простую гипотезу $\displaystyle H_{0} :\ \theta =\theta _{0}$. Рассмотрим $\displaystyle \tilde{S}( \theta ) =\{X\in \mathcal{X} :\ \theta \neq S( X)\}$. Тогда $\displaystyle \tilde{S}( \theta _{0})$ -- критерий уровня значимости $\displaystyle \varepsilon $ для проверки $\displaystyle H_{0}$.
+    Пусть $\displaystyle S( X)$ -- доверительная область уровня доверия $\displaystyle 1-\varepsilon $ для параметра $\displaystyle \theta \in \Theta $. Хотим проверить простую гипотезу $\displaystyle H_{0} :\ \theta =\theta _{0}$. Рассмотрим $\displaystyle \tilde{S}( \theta ) =\{X\in \mathcal{X} :\ \theta \notin S( X)\}$. Тогда $\displaystyle \tilde{S}( \theta _{0})$ -- критерий уровня значимости $\displaystyle \varepsilon $ для проверки $\displaystyle H_{0}$.
 \end{proposition}
 \begin{proof}
     \begin{equation*}
@@ -85,7 +85,7 @@
     \end{equation*}
 \end{proof}
 \begin{proposition}
-    Пусть $\displaystyle S_{\theta _{0}}$ -- известный критерий уровня значимости $\displaystyle \varepsilon $ для проверки $\displaystyle H_{0} :\ \theta =\theta _{0} \ \forall \theta _{0} \in \Theta $. Рассмотрим $\displaystyle S( X) =\{\theta \in \Theta :\ X\notin S_{\theta }\}$. Тогда $\displaystyle S( X)$ -- доверительное множество уровня доверия $\displaystyle 1-\varepsilon $.
+    Пусть $\displaystyle S_{\theta _{0}}$ -- критерий уровня значимости $\displaystyle \varepsilon $ для проверки $\displaystyle H_{0} :\, \theta =\theta _{0}$, который известен $\forall \theta_0 \in \Theta$. Рассмотрим $\displaystyle S( X) =\{\theta \in \Theta :\ X\notin S_{\theta }\}$. Тогда $\displaystyle S( X)$ -- доверительное множество уровня доверия $\displaystyle 1-\varepsilon $.
 \end{proposition}
 \begin{proof}
     \begin{equation*}
@@ -102,7 +102,7 @@
     \end{equation*}
 \end{proposition}
 \begin{proof}
-    Так как $\displaystyle \hat{\theta } \ \sim \ \mathcal{N}\left( \theta ,\ \sigma ^{2}\left( Z^{T} Z\right)^{-1}\right)$, где $\displaystyle \hat{\theta } =\left( Z^{T} Z\right)^{-1} Z^{T} X$ -- оценка ОНК для $\displaystyle \theta $, $\displaystyle \hat{t} =T\hat{\theta }$ -- оптимальная оценка для $\displaystyle T\theta $, то 
+    Так как $\displaystyle \hat{\theta } \ \sim \ \mathcal{N}\left( \theta ,\ \sigma ^{2}\left( Z^{T} Z\right)^{-1}\right)$, где $\displaystyle \hat{\theta } =\left( Z^{T} Z\right)^{-1} Z^{T} X$ -- ОНК для $\displaystyle \theta $, $\displaystyle \hat{t} =T\hat{\theta }$ -- оптимальная оценка для $\displaystyle T\theta $, то 
     \begin{equation*}
         \hat{t} =T\hat{\theta } \ \sim \ \mathcal{N}\left( T\theta ,\ T\sigma ^{2}\left( Z^{T} Z\right)^{-1} T^{T}\right) =\ \mathcal{N}\left( T\theta ,\ \sigma ^{2} B\right) ,
     \end{equation*}

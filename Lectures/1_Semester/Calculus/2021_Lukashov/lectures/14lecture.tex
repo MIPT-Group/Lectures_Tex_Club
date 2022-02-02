@@ -146,43 +146,34 @@
 \end{example}
 
 \begin{theorem} (Дифференцируемость сложной функции)
-	Если $u = f(y)$ дифференцируема в точке $g(a)$, функция $y = f(x)$ дифференцируема в точке $a$, то композиция $u = h(x) = f(g(x))$ дифференцируема в точке $a$, причём $h'(a) = f'(g(a)) \cdot g'(a)$
+	Если $u = f(y)$ дифференцируема в точке $g(a)$, функция $y = g(x)$ дифференцируема в точке $a$, то композиция $u = h(x) = f(g(x))$ дифференцируема в точке $a$, причём $h'(a) = f'(g(a)) \cdot g'(a)$
 \end{theorem}
 
 \begin{proof}
-	По условию
-	$$
-		\Delta u = f'(g(a))\Delta y + o(\Delta y),\ \Delta y \to 0
-	$$
-	Где 
-	$$
-		\Delta u = f(g(a) + \Delta y) - f(g(a))
-	$$
-	А также
-	$$
-		\Delta y = g'(a)\Delta x + o(\Delta x),\ \Delta x \to 0
-	$$
-	С другой стороны
-	$$
-		\Delta y = g(a + \Delta x) - g(a)
-	$$
-	Отсюда получим
-	$$
-		\Delta u = f(g(a) + g(a + \Delta x) - g(a)) - f(g(a)) = h(a + \Delta x) - h(a)
-	$$
-	Подставим всё в выражение $\Delta u$:
-	$$
-		\Delta u = f'(g(a))g'(a)\Delta x + f'(g(a)) \cdot o(\Delta x) + o(g(a + \Delta x) - g(a)),\ \Delta x \to 0
-	$$
-	В силу определения $o$-маленького
-	\begin{multline*}
-		o(g(a + \Delta x) - g(a)) = \lambda(\Delta x) \cdot \left(g(a + \Delta x) - g(a)\right) = \\
-		\lambda(\Delta x)g'(a)\Delta x + \lambda(x)o(\Delta x) = o(\Delta x) + \lambda(x) \cdot o(\Delta x),\ \Delta x \to 0
-	\end{multline*}
-	В итоге имеем
-	$$
-		\Delta u = f'(g(a))g'(a)\Delta x + o(\Delta x),\ \Delta x \to 0
-	$$
+	Выпишем всё, что нам даёт условие:
+	\begin{align*}
+		&{\Delta u = f'(g(a))\Delta y + o(\Delta y),\ \Delta y \to 0}
+		\\
+		&{\Delta u = f(g(a) + \Delta y) - f(g(a))}
+		\\
+		&{\Delta y = g'(a)\Delta x + o(\Delta x),\ \Delta x \to 0}
+		\\
+		&{\Delta y = g(a + \Delta x) - g(a)}
+	\end{align*}
+	Сразу отметим то, что если $\Delta x \to 0$, то и $\Delta y \to 0$. Это следует, например, из третьей строки. Значит, $o(\Delta y)$ является также и $o(\Delta x)$: если $u = o(\Delta y(\Delta x))$, то её можно записать как
+	\[
+		u(\Delta y(\Delta x)) = \lambda(\Delta x) \cdot \Delta y(\Delta x) = \lambda(\Delta x) \cdot (g'(a) + o(1))\Delta x
+	\]
+	При этом $\lambda(\Delta x) \cdot (g'(a) + o(1)) \xrightarrow[\Delta x \to 0]{} 0$ Значит, $u = o(\Delta x)$.
+	
+	Подставим во вторую строку четвёртую. Получим следующее утверждение:
+	\[
+		\Delta u = f(g(a) + g(a + \Delta x) - g(a)) - f(g(a)) = h(a + \Delta x) - h(a) = \Delta h
+	\]
+	Подставим теперь в первую строку третью и получим нужный результат:
+	\[
+		\Delta h = \Delta u = f'(g(a))g'(a) \cdot \Delta x + \underbrace{f'(g(a)) \cdot o(\Delta x) + o(\Delta y)}_{o(\Delta x)},\ \Delta x \to 0
+	\]
 \end{proof}
 
 \begin{note}

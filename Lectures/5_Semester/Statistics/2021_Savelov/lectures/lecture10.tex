@@ -6,7 +6,7 @@
     
     
     \begin{gather*}
-    S_{n} =\{x:\ f_{\theta _{0} +\varepsilon }( X_{1} ,\ \dotsc ,\ X_{n}) < f_{\theta _{0}}( X_{1} ,\ \dotsc ,\ X_{n}) ,\\
+    S_{n} =\{x:\ f_{\theta _{0} -\varepsilon }( X_{1} ,\ \dotsc ,\ X_{n}) < f_{\theta _{0}}( X_{1} ,\ \dotsc ,\ X_{n}) ,\\
     f_{\theta _{0}}( X_{1} ,\ \dotsc ,\ X_{n})  >f_{\theta _{0} +\varepsilon }( X_{1} ,\ \dotsc ,\ X_{n})\} ,
     \end{gather*}
     где $\displaystyle \theta _{0}$ -- истинное значение параметра, выполняется с вероятностью, стремящейся к единице.
@@ -61,36 +61,33 @@
 \begin{theorem}
     В условиях (R0)-(R8) любая состоятельная последовательность оценок $\displaystyle \hat{\theta }_{n}( X_{1} ,\ \dotsc ,\ X_{n})$, являющихся решениями уравнения правдоподобия, удовлетворяют соотношению
     \begin{equation*}
-        \forall \theta \in \Theta \hookrightarrow \sqrt{n}(\hat{\theta }_{n} -\theta )\xrightarrow{d_{\theta }}\mathcal{N}\left( 0,\dfrac{1}{i( \theta )}\right) ,
+        \forall \theta \in \Theta \hookrightarrow \sqrt{n}(\hat{\theta }_{n} -\theta )\xrightarrow{d_{\theta }}\mathcal{N}\left( 0,\, \dfrac{1}{i( \theta )}\right) ,
     \end{equation*}
     где $\displaystyle i( \theta )$ -- количество информации Фишера в одном наблюдении.
 \end{theorem}
 \begin{proof}
-    $\displaystyle L( X,\ \theta ) =\ln f$. Применим формулу Тейлора в окрестности точки $\displaystyle \theta _{0}$
+    $\displaystyle L( X,\ \theta ) =\ln f_\theta(X)$. Применим формулу Тейлора в окрестности точки $\displaystyle \theta _{0}$:
     \begin{equation*}
-        0=L'( X,\ \hat{\theta }_{n}) =L'( X,\ \theta _{0}) +(\hat{\theta }_{n} -\theta _{0}) L''( X,\ \hat{\theta }_{n}) +\dfrac{(\hat{\theta }_{n} +\theta _{0})^{2}}{2} L'''\left( X,\ \theta _{n}^{*}\right) ,
+        0=L^{'}( X,\ \hat{\theta }_{n}) =L^{'}( X,\ \theta _{0}) +(\hat{\theta }_{n} -\theta _{0}) L^{''}( X,\ \theta_0) +\dfrac{(\hat{\theta }_{n} -\theta _{0})^{2}}{2} L^{'''}\left( X,\ \theta _{n}^{*}\right) ,
     \end{equation*}
-    где $\displaystyle \theta _{n}^{*}$ лежит между $\displaystyle \theta _{0}$ и $\displaystyle \hat{\theta }_{n}$. Тогда, 
+    где $\displaystyle \theta _{n}^{*}$ лежит между $\displaystyle \theta _{0}$ и $\displaystyle \hat{\theta }_{n}$. Тогда 
     \begin{equation*}
-        \sqrt{n}(\hat{\theta }_{n} -\theta _{0}) =\dfrac{\frac{L'( X,\ \theta _{0})}{\sqrt{n}}}{-\frac{1}{n} L''( X,\ \theta _{0}) -\frac{1}{2n}(\hat{\theta }_{n} -\theta _{0}) L'''\left( X,\ \theta _{n}^{*}\right)} .
+        \sqrt{n}(\hat{\theta }_{n} -\theta _{0}) =\dfrac{\frac{L^{'}( X,\ \theta _{0})}{\sqrt{n}}}{-\frac{1}{n} L^{''}( X,\ \theta _{0}) -\frac{1}{2n}(\hat{\theta }_{n} -\theta _{0}) L^{'''}\left( X,\ \theta _{n}^{*}\right)} .
     \end{equation*}
-    Покажем, что $\displaystyle \dfrac{1}{\sqrt{n}} L'( X,\ \theta _{0})\xrightarrow{d_{\theta }}\mathcal{N}( 0,\ I( \theta _{0}))$, где $\displaystyle I( \theta _{0})$ -- информация Фишера. Рассмотрим
+    Покажем, что $\displaystyle \dfrac{1}{\sqrt{n}} L'( X,\ \theta _{0})\xrightarrow{d_{\theta }}\mathcal{N}( 0,\ i( \theta _{0}))$, где $\displaystyle i( \theta _{0})$ -- информация Фишера одного наблюдения. Рассмотрим
     \begin{equation*}
-        \dfrac{1}{\sqrt{n}} L'( X,\ \theta _{0}) =\dfrac{1}{\sqrt{n}}\sum _{k=1}^{n}\dfrac{f'_{\theta _{0}}( X_{k})}{f_{\theta _{0}}( X_{k})} .
+        \dfrac{1}{\sqrt{n}} L^{'}( X,\ \theta _{0}) =\dfrac{1}{\sqrt{n}}\sum _{k=1}^{n}\dfrac{f^{'}_{\theta _{0}}( X_{k})}{f_{\theta _{0}}( X_{k})} .
     \end{equation*}
-    Под знаком суммы независимые, одинаково распределенные случайные величины. В доказательстве неравенства Рао-Крамера было доказано, что $\displaystyle E_{\theta _{0}}\dfrac{f'_{\theta _{0}}( X_{k})}{f_{\theta _{0}}( X_{k})} =0$, и \ $\displaystyle D_{\theta _{0}}\dfrac{f'_{\theta _{0}}( X_{k})}{f_{\theta _{0}}( X_{k})} =I( \theta _{0})$. Следовательно, по ЦПТ получаем требуемое.
-    
+    Под знаком суммы независимые, одинаково распределенные случайные величины. В доказательстве неравенства Рао-Крамера было доказано, что $\displaystyle E_{\theta _{0}}\dfrac{f^{'}_{\theta _{0}}( X_{k})}{f_{\theta _{0}}( X_{k})} =0$, и \ $\displaystyle D_{\theta _{0}}\dfrac{f^{'}_{\theta _{0}}( X_{k})}{f_{\theta _{0}}( X_{k})} =i( \theta _{0})$. Следовательно, по ЦПТ получаем требуемое.
     Также,
-    
-    
     \begin{equation*}
-        -\dfrac{1}{n} L^{''}( X,\ \theta _{0}) =\dfrac{1}{n}\sum _{k=1}^{n}\dfrac{\left( f_{\theta _{0}}^{''}( X_{k})\right)^{2} -f_{\theta _{0}}( X_{k}) f_{\theta _{0}}^{''}( X_{k})}{f_{\theta _{0}}^{2}( X_{k})}\xrightarrow{P_{\theta _{0}}} I( \theta _{0}) -E_{\theta _{0}}\left(\dfrac{f_{\theta _{0}}^{''}( X_{1})}{f_{\theta _{0}}( X_{1})}\right) =I( \theta _{0}) ,
+        -\dfrac{1}{n} L^{''}( X,\ \theta _{0}) =\dfrac{1}{n}\sum _{k=1}^{n}\dfrac{\left( f_{\theta _{0}}^{'}( X_{k})\right)^{2} -f_{\theta _{0}}( X_{k}) f_{\theta _{0}}^{''}( X_{k})}{f_{\theta _{0}}^{2}( X_{k})}\xrightarrow{P_{\theta _{0}}} I( \theta _{0}) -E_{\theta _{0}}\left(\dfrac{f_{\theta _{0}}^{''}( X_{1})}{f_{\theta _{0}}( X_{1})}\right) =i( \theta _{0}) ,
     \end{equation*}
-    так как $\displaystyle E_{\theta _{0}}\left(\dfrac{f_{\theta _{0}}^{''}( X_{1})}{f_{\theta _{0}}( X_{1})}\right) =\int _{A}\dfrac{f_{\theta _{0}}^{''}( x)}{f_{\theta _{0}}( x)} f_{\theta _{0}}( x) dx=\int _{A} f_{\theta _{0}}^{''}( x) dx=\left(\int _{A} f_{\theta _{0}}( x)\right)^{''} =1^{''} =0$.
+    так как $\displaystyle E_{\theta _{0}}\left(\dfrac{f_{\theta _{0}}^{''}( X_{1})}{f_{\theta _{0}}( X_{1})}\right) =\int _{A}\dfrac{f_{\theta _{0}}^{''}( x)}{f_{\theta _{0}}( x)} f_{\theta _{0}}( x) dx=\int _{A} f_{\theta _{0}}^{''}( x) dx=\left(\int _{A} f_{\theta _{0}}( x)dx\right)^{''} =1^{''} =0$.
     
     Докажем, что величина $\displaystyle \dfrac{1}{n} L^{'''}\left( X,\ \theta _{n}^{*}\right)$ ограничена по вероятности. Так как оценка $\displaystyle \hat{\theta }_{n}$ состоятельна, то с вероятностью, стремящейся к единице $\displaystyle \theta _{n}^{*}$ лежит в малой окрестности $\displaystyle \theta _{0}$, а значит применимо условие (R8):
     \begin{equation*}
-        \left| \dfrac{1}{\sqrt{n}} L^{'''}\left( X,\ \theta _{n}^{*}\right)\right| < \dfrac{1}{n}\sum _{k=1}^{n} H( X_{k}) ,
+        \left| \dfrac{1}{n} L^{'''}\left( X,\ \theta _{n}^{*}\right)\right| \leq \dfrac{1}{n}\sum _{k=1}^{n} H( X_{k}) ,
     \end{equation*}
     где неравенство выполняется с вероятностью, стремящейся к единице. Также,
     \begin{equation*}
@@ -102,20 +99,19 @@
     \end{equation*}
     Следовательно,
     \begin{equation*}
-        -\frac{1}{n} L''( X,\ \theta _{0}) -\frac{1}{2n}(\hat{\theta }_{n} -\theta _{0}) L'''\left( X,\ \theta _{n}^{*}\right)\xrightarrow{P_{\theta _{0}}} I( \theta _{0}) .
+        -\frac{1}{n} L''( X,\ \theta _{0}) -\frac{1}{2n}(\hat{\theta }_{n} -\theta _{0}) L'''\left( X,\ \theta _{n}^{*}\right)\xrightarrow{P_{\theta _{0}}} i( \theta _{0}) .
     \end{equation*}
-    Тогда,
-    
+    Тогда
     
     \begin{equation*}
-        \dfrac{\frac{L'( X,\ \theta _{0})}{\sqrt{n}}}{-\frac{1}{n} L''( X,\ \theta _{0}) -\frac{1}{2n}(\hat{\theta }_{n} -\theta _{0}) L'''\left( X,\ \theta _{n}^{*}\right)}\xrightarrow{d_{\theta _{0}}}\mathcal{N}\left( 0,\ \dfrac{1}{I( \theta _{0})}\right) .
+        \dfrac{\frac{L'( X,\ \theta _{0})}{\sqrt{n}}}{-\frac{1}{n} L''( X,\ \theta _{0}) -\frac{1}{2n}(\hat{\theta }_{n} -\theta _{0}) L'''\left( X,\ \theta _{n}^{*}\right)}\xrightarrow{d_{\theta _{0}}}\mathcal{N}\left( 0,\ \dfrac{1}{i( \theta _{0})}\right) .
     \end{equation*}
 \end{proof}
 \begin{note}
     Формально перенеся $\displaystyle \sqrt{n}$ в правую часть, получим, что асимптотическая дисперсия будет равняться информации Фишера всей выборки. Таким образом, эту теорему можно воспринимать, как асимптотическую версию неравенства Рао-Крамера.
 \end{note}
 \begin{corollary}
-    (асимптотическая нормальность ОМП) В условиях (R0)-(R8), если $\displaystyle \forall n\in \mathbb{N} \ \forall X_{1} ,\ \dotsc ,\ X_{n}$ существует единственно решение $\displaystyle \hat{\theta }_{n}$ уравнения правдоподобия, и если оно является статистикой, то $\displaystyle \hat{\theta }_{n}$ асимптотически нормальная оценка $\displaystyle \theta $ с асимптотической дисперсией $\displaystyle \dfrac{1}{i( \theta )}$ и с вероятностью, стремящейся к единице, является ОМП. 
+    (асимптотическая нормальность ОМП) В условиях (R0)-(R8), если $\displaystyle \forall n\in \mathbb{N} \ \forall X_{1} ,\ \dotsc ,\ X_{n}$ существует единственное решение $\displaystyle \hat{\theta }_{n}$ уравнения правдоподобия, и если оно является статистикой, то $\displaystyle \hat{\theta }_{n}$ -- асимптотически нормальная оценка $\displaystyle \theta $ с асимптотической дисперсией $\displaystyle \dfrac{1}{i( \theta )}$ и с вероятностью, стремящейся к единице, является ОМП. 
 \end{corollary}
 \begin{theorem}
     (Бахадур, б/д) Пусть выполнены условия регулярности (R0)-(R8), и $\displaystyle \hat{\theta }_{n}( X_{1} ,\ \dotsc ,\ X_{n})$ асимптотически нормальная оценка $\displaystyle \theta $, т.е. $\displaystyle \sqrt{n}(\hat{\theta }_{n} -\theta )\xrightarrow{d_{\theta }}\mathcal{N}\left( 0,\ \sigma ^{2}( \theta )\right)$, причем $\displaystyle \sigma ( \theta )$ непрерывна. Тогда, $\displaystyle \forall \theta \in \Theta \hookrightarrow \sigma ^{2}( \theta ) \geqslant \dfrac{1}{i( \theta )}$.
@@ -124,7 +120,7 @@
     Эта теорема также является некоторой асимптотической версией неравенства Крамера-Рао.
 \end{note}
 \begin{corollary}
-    В условиях следствия про асимптотическую нормальность ОМП имеем, что не хуже любой другой оценки в асимптотическом подходе в классе оценок с непрерывной дисперсией.
+    В условиях следствия про асимптотическую нормальность ОМП имеем, что ОМП не хуже любой другой оценки в асимптотическом подходе в классе оценок с непрерывной дисперсией.
 \end{corollary}
 \begin{definition}
     Если $\displaystyle \sqrt{n}(\hat{\theta }_{n}( X_{1} ,\ \dotsc ,\ X_{n}) -\theta )\xrightarrow{d_{\theta }}\mathcal{N}\left( 0,\ \dfrac{1}{i( \theta )}\right)$, то $\displaystyle \hat{\theta }_{n}$ называется асимптотически эффективной оценкой $\displaystyle \theta $.
