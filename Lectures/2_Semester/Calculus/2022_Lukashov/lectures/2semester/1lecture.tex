@@ -1,0 +1,193 @@
+% Желательно бы дописать остальные методы интегрирования. Их можно найти в лекциях 2019
+
+\section{Дифференциальное исчисление функций многих переменных}
+
+\subsection{Предел и непрерывность функций многих переменных}
+
+\begin{definition}
+	\textit{Функцией многих переменных} будем называть $f: D \to \R,\ D \subset \R^n$
+\end{definition}
+
+\begin{definition}
+	Если $\vec{x_0}$ - предельная точка множества $D$, то \textit{предел функции многих переменных} можно записать следующим образом:
+	\[
+		\liml_{\vec{x} \to \vec{x}_0} f(\vec{x}) = l
+	\]
+	Понятно, что $\vec{x} \in D$. В другом виде:
+	\[
+		\liml_{(x_1, \ldots, x_n) \to (x_1^{(0)}, \ldots, x_n^{(0)})} f(x_1, \ldots, x_n) = l
+	\]
+	Аналогично $(x_1, \ldots, x_n) \in D$
+\end{definition}
+
+\begin{definition}
+	% Это тоже пределы
+	\begin{itemize}
+		\item По Коши:
+		\[
+			\liml_{x \to x_0} f(x) = l \lra \forall \eps > 0\ \exists \delta > 0 \such \forall x \in D,\ 0 < \rho_X (x, x_0) < \delta\ \ \rho_Y(f(x), l) < \eps
+		\]
+		
+		\item По Гейне:
+		\[
+			\liml_{x \to x_0} f(x) = l \lra \left(\forall \{x_k\}_{k = 1}^\infty \subset D \bs \{x_0\},\ \liml_{k \to \infty} x_k = x_0\right)\ \ \liml_{k \to \infty} f(x_k) = l
+		\]
+	\end{itemize}
+	В частности для $f: D \to \R,\ D \subset \R^n$:
+	\begin{itemize}
+		\item По Коши:
+		\[
+			\liml_{\vec{x} \to \vec{x}_0 \over \vec{x} \in D} f(\vec{x}) = l \lra \forall \eps > 0\ \exists \delta > 0 \such \forall \vec{x} \in D,\ 0 < |\vec{x} - \vec{x}_0| < \delta\ \ |f(x) - l| < \eps
+		\]
+		
+		\item По Гейне:
+		\[
+			\liml_{\vec{x} \to \vec{x}_0 \over \vec{x} \in D} f(\vec{x}) = l \lra \left(\forall \{\vec{x}_k\}_{k = 1}^\infty \subset D \bs \{\vec{x}_0\},\ \liml_{k \to \infty} \vec{x}_k = \vec{x}_0\right)\ \ \liml_{k \to \infty} f(\vec{x}_k) = l
+		\]
+	\end{itemize}
+	Выше предел функции по множеству $D$. А ещё есть предел по совокопности переменных:
+	Если $\vec{x}_0$ - внутренняя точка множества $D \cup \{\vec{x}_0\}$, то $\liml_{\vec{x} \to \vec{x}_0} f(\vec{x}) = l$ - принадлежность $\vec{x} \in D$ опускается
+	А ещё есть предел по направлению $\vec{e} \in \R^n \bs \{\vec{0}\}$:
+	\[
+		D_{\vec{x}, \vec{e}} = D \cap \{\vec{x} \in \R^n \such \vec{x} = \vec{x_0} + \vec{e} \cdot t,\ t \in \R \bs \{0\}\}
+	\]
+\end{definition}
+
+\begin{theorem}
+	Если существует предел по совокупности переменных $\liml_{\vec{x} \to \vec{x_0}} f(\vec{x}) = l$, то существует предел по любому направлению в точке $\vec{x}_0$, равный $l$. Обратное, вообще говоря, неверно.
+\end{theorem}
+
+\begin{proof}
+	Само утверждение прямо вытекает из определения разных пределов. Контрпримером же будет $f(x, y)$:
+	\[
+		f(x, y) = \System{
+			&{\frac{x^2 y}{x^4 + y^2},\ (x, y) \neq (0, 0)}
+			\\
+			&{0,\ (x, y) = (0, 0)}
+		}
+	\]
+	Пусть $\vec{e} = (\alpha, \beta)$. Тогда
+	\[
+		D_{0, \vec{e}} = \{(x, y) \such x = \alpha t,\ y = \beta t,\ t \neq 0\}
+	\]
+	Посмотрим на предел $\liml_{t \to 0} f(\alpha t, \beta t)$:
+	\[
+		\liml_{t \to 0} f(\alpha t, \beta t) = \liml_{t \to 0} \frac{\alpha^2 \beta t^3}{\alpha^4 t^4 + \beta^2 t^2} = \liml_{t \to 0} \frac{\alpha^2 \beta t}{\alpha^4 t^2 + \beta^2} = 0
+	\]
+	То есть предел по любому направлению равен нулю. Однако предела по совокупности переменных нет: положим $x_k = \frac{1}{k},\ y_k = \frac{1}{k^2}$. В таком случае
+	\[
+		f\left(\frac{1}{k}, \frac{1}{k^2}\right) = \frac{1 / k^4}{2 / k^4} = \frac{1}{2}
+	\]
+\end{proof}
+
+\begin{addition}
+	На практике для проверки существования предела по совокупности используют следующий факт:
+	
+	Пусть есть $f(x, y)$, и нужно проверить $\liml_{(x, y) \to (0, 0)} f(x, y) = l$. Если в перейти в полярные координаты, положив $x = \rho \cos \phi$ и $y = \rho \sin \phi$ и удастся доказать, что
+	\[
+		|f(\rho \cos\phi, \rho \sin\phi) - l| \le \psi(\rho),\ \liml_{\rho \to 0+} \psi(\rho) = 0
+	\]
+	где $\phi(\rho)$ - функция, зависящая только от $\rho$. Тогда действительно $\liml_{(x, y) \to (0, 0)} f(x, y) = l$
+\end{addition}
+
+\begin{definition}
+	\textit{Повторным пределом} называется предел вида
+	\[
+		\liml_{x \to x_0} \left(\liml_{y \to y_0} f(x, y)\right)
+	\]
+\end{definition}
+
+\begin{note}
+	Вообще говоря, нет никакого общего соотношения между 
+\end{note}
+
+\begin{example}
+	Пусть $f(x, y)$ имеет вид:
+	\[
+		f(x, y) = \System{
+			&{\sqrt{x^2 + y^2} \sin \frac{1}{x} \cos \frac{1}{x}},\ xy \neq 0
+			\\
+			&{0,\ xy = 0}
+		}
+	\]
+	Заметим оценку:
+	\[
+		|f(\rho\cos\phi, \rho\sin\phi)| = |\rho\sin\frac{1}{\rho\cos\phi}\cos\frac{1}{\rho\sin\phi}| \le \rho
+	\]
+	при $\cos\phi\sin\phi \neq 0$. То есть
+	\[
+		\liml_{(x, y) \to (0, 0)} f(x, y) = 0
+	\]
+	Но при этом повторного предела нет: если рассмотреть $\liml_{y \to 0} \left(\liml_{x \to 0} f(x, y)\right)$ и зафиксировать $\cos \frac{1}{y} \neq 0$, то получим
+	\[
+		\not\exists \liml_{x \to 0} f(x, y) = \liml_{x \to 0} \left(\sqrt{x^2 + y^2} \cos\frac{1}{y}\right)\sin\frac{1}{x}
+	\]
+\end{example}
+
+\begin{definition}
+	Если $\vec{x}_0$ - предельная точка области определения $D$ функции $f: D \to \R$, тогда \textit{непрерывность в точке} $\vec{x}_0$ запишется в виде
+	\[
+		\liml_{\vec{x} \to \vec{x}_0} f(\vec{x}) = f(\vec{x}_0)
+	\]
+	Если же $\vec{x}_0$ - изолированная точка области определения $D$ функции $f$, то тогда сразу $f$ непрерывна в $\vec{x}_0$.
+\end{definition}
+
+\begin{theorem} (Непрерывность сложной функции)
+	Пусть $f: D \to \R$ непрерывна в точке $\vec{y}_0 = (y_1^{(0)}, \ldots, y_m^{(0)}) \in D \subset \R^m$, а также функции $\forall j \in \range{m}\ g_j \colon G \to \R$ непрерывны в точке $\vec{x_0} = (x_1^{(0)}, \ldots, x_n^{(0)}) \in G \subset \R^n$, причём
+	\begin{align*}
+		&{\forall j \in \range{m}\ g_j(\vec{x}_0) = y_j^{(0)}}
+		\\
+		&{\forall \vec{x} \in G\ (g_1(\vec{x}), \ldots, g_m(\vec{x}))) \in D}
+	\end{align*}
+	Тогда сложная функция $h(\vec{x}) = f(g_1(\vec{x}), \ldots, g_m(\vec(x)))$ непрерывна в точке $\vec{x_0}$
+\end{theorem}
+
+\begin{proof}
+	Рассмотрим последовательность Гейне $\forall \{\vec{x}_l\}_{k = 1}^\infty \subset G,\ \liml_{k \to \infty} \vec{x}_k = \vec{x}_0$. Тогда
+	\[
+		\forall j \in \range{m}\ \liml_{k \to \infty} g_j(\vec{x}_k) = g_j(\vec{x}_0) = y_j^{(0)}
+	\]
+	Если обозначить за $y_j^{(k)} := g_j(\vec{x}_k)$, то имеем:
+	\[
+		\vec{y}_k = (y_1^{(k)}, \ldots, y_m^{(k)}) \xrightarrow[k \to \infty]{} (y_1^{(0)}, \ldots, y_m^{(0)}) \lra \forall j \in \range{m}\ \liml_{k \to \infty} y_j^{(k)} = y_j^{(0)}
+	\]
+	В итоге получили, что
+	\[
+		\liml_{k \to \infty} f(\vec{y}_k) = f(\vec{y}_0) = \liml_{k \to \infty} h(\vec{x}_k) = h(\vec{x}_0)
+	\]
+\end{proof}
+
+\begin{theorem} (Обобщение теоремы Кантора о равномерной непрерывности)
+	Если $f$ непрерывна на компактном множестве $K \subset \R^n$, то она равномерно непрерывна на нём.
+\end{theorem}
+
+\begin{proof}
+	От противного. Это означает, что
+	\[
+		\exists \eps_0 > 0 \such \forall \delta > 0\ \exists \vec{x}_1, \vec{x}_2 \in K,\ |\vec{x}_1 - \vec{x}_2| < \delta\ \ |f(\vec{x}_1) - f(\vec{x}_2)| \ge \eps_0
+	\]
+	Последовательно для данного $\eps_0$ будем выбирать $\delta = 1, \frac{1}{2}, \ldots, \frac{1}{m}, \ldots$. Тогда имеем:
+	\[
+		\exists \vec{x}_{1, m}, \vec{x}_{2, m} \in K,\ |\vec{x}_{1, m} - \vec{x}_{2, m}| < \frac{1}{m}\ \ |f(\vec{x}_{1, m}) - f(\vec{x}_{2, m})| \ge \eps_0
+	\]
+	Получили последовательность $\{\vec{x}_{1, m}\}_{m = 1}^\infty \subset K$, причём из-за компактности $K$ имеем, что
+	\[
+		\exists \{\vec{x}_{1, m_k}\}_{k = 1}^\infty,\ \liml_{k \to \infty} \vec{x}_{1, m_k} = \vec{x}_0 \in K
+	\]
+	% Дописать доказательство
+\end{proof}
+
+\begin{definition}
+	Множество $A \subset E \subset \R^n$ называется \textit{относительно открытым (замкнутым)} в $E$, если $\exists$ открытое (замкнутое) множество $G (F) \subset \R^n$ такое, что
+	\[
+		A = E \cap G\ (A = E \cap F)
+	\]
+\end{definition}
+
+\begin{definition}
+	Множество $E \subset \R^n$ называется \textit{связным}, если его нельзя разбить на 2 непересекающихся непустых относительно открытых (замкнутых) в $E$ множеств.
+\end{definition}
+
+\begin{definition}
+	Множество $E \subset \R^n$ называется \textit{линейно связным}, если $\forall \vec{x}_1, \vec{x}_2 \in E$ существует кривая $\gamma \subset E$, соединяющая $\vec{x}_1$ и $\vec{x}_2$.
+\end{definition}
