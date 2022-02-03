@@ -134,7 +134,7 @@
 \begin{theorem}
 	Если $f$ дифференцируема в точке $\vec{x}_0$, то существуют частные производные $\forall j \in \range{n}$, причём
 	\[
-		\grad f(\vec{x}_0) = \left(\frac{\delta f}{\delta x_1}(\vec{x}_0), \ldots, \frac{\delta f}{\delta x_n}(\vec{x}_0)\right)
+		\grad f(\vec{x}_0) = \left(\frac{\vdelta f}{\vdelta x_1}(\vec{x}_0), \ldots, \frac{\vdelta f}{\vdelta x_n}(\vec{x}_0)\right)
 	\]
 \end{theorem}
 
@@ -145,7 +145,7 @@
 	\]
 	При этом $\Delta_j f(\vec{x}_0) = \Delta \phi_j (x_{j, 0})$. То есть $\phi_j$ дифференцируема в точке $x_{j, 0}$. Значит
 	\[
-		\forall j \in \range{n}\ \ \phi'_j (x_{j, 0}) = \frac{\delta f}{\delta x_j} (x_{j, 0}) = A_j
+		\forall j \in \range{n}\ \ \phi'_j (x_{j, 0}) = \frac{\vdelta f}{\vdelta x_j} (x_{j, 0}) = A_j
 	\]
 \end{proof}
 
@@ -186,7 +186,9 @@
 	\begin{multline*}
 		\Delta f(\vec{x}_0) = f(x_{1, 0} + \Delta x_1, \ldots, x_{n, 0} + \Delta x_n) - f(x_{1, 0}, \ldots, x_{n, 0}) =
 		\\
-		\left(f(x_{1, 0} + \Delta x_1, \ldots, x_{n, 0} + \Delta x_n) - f(x_{1, 0}, x_{2, 0} + \Delta x_2, \ldots, x_{n, 0} + \Delta x_n)\right) + f(x_{1, 0}, x_{2, 0} + \Delta x_2, \ldots, x_{n, 0} + \Delta x_n) - \ldots + \left(f(x_{1, 0}, \ldots, x_{n - 1, 0}, x_{n, 0} + \Delta x_n) - f(x_{1, 0}, \ldots, x_{n, 0})\right)
+		\left(f(x_{1, 0} + \Delta x_1, \ldots, x_{n, 0} + \Delta x_n) - f(x_{1, 0}, x_{2, 0} + \Delta x_2, \ldots, x_{n, 0} + \Delta x_n)\right) +
+		\\
+		f(x_{1, 0}, x_{2, 0} + \Delta x_2, \ldots, x_{n, 0} + \Delta x_n) - \ldots + \left(f(x_{1, 0}, \ldots, x_{n - 1, 0}, x_{n, 0} + \Delta x_n) - f(x_{1, 0}, \ldots, x_{n, 0})\right)
 	\end{multline*}
 	Положим $\psi_j(x_j) = f(x_{1, 0} + \Delta x_1, \ldots, x_j, \ldots, x_{n, 0} + \Delta x_n)$. Так как это функция одной переменной, то, например для $\psi_1$ можно записать следующее:
 	\[
