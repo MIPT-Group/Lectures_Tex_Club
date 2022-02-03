@@ -18,19 +18,18 @@ $\displaystyle ImA=\{y\in E_{2} :\ \exists x\in E_{1} \hookrightarrow A( x) =y\}
 \end{definition}
 \begin{definition}
 Оператор $\displaystyle A:\ E_{1}\rightarrow E_{2}$ называется \textit{линейным}, если
-
-1) $\displaystyle A( x+y) =Ax+Ay\ \forall x,y\in E_{1}$
-
-2) $\displaystyle A( \lambda x) =\lambda Ax\ \forall x\in E_{1} ,\ \forall \lambda \in \mathbb{K}$
+\begin{enumerate}
+    \item $\displaystyle A( x+y) =Ax+Ay\ \forall x,y\in E_{1}$
+    \item $\displaystyle A( \lambda x) =\lambda Ax\ \forall x\in E_{1} ,\ \forall \lambda \in \mathbb{K}$
+\end{enumerate}
 \end{definition}
 \begin{proposition}
 Пусть $\displaystyle A$ -- линейный оператор. Тогда следующие утверждения эквивалентны
-
-1) $\displaystyle A$ -- ограниченный
-
-2) $\displaystyle \exists K:\ \Vert Ax\Vert \leqslant K\Vert x\Vert \ \forall x\in E_{1}$
-
-3) $\displaystyle A( B_{1}( \theta ))$, где $\displaystyle B_{1}( \theta )$ -- шар единичного радиуса с центром в нуле, является ограниченным множеством
+\begin{enumerate}
+    \item $\displaystyle A$ -- ограниченный
+    \item $\displaystyle \exists K:\ \Vert Ax\Vert \leqslant K\Vert x\Vert \ \forall x\in E_{1}$
+    \item $\displaystyle A( B_{1}( \theta ))$, где $\displaystyle B_{1}( \theta )$ -- шар единичного радиуса с центром в нуле, является ограниченным множеством
+\end{enumerate}
 \end{proposition}
 \begin{proof}
 Пусть выполняется неравенство в пункте 2. Пусть $\displaystyle x\in B_{1}( \theta )$. Если $\displaystyle x=\theta $, то неравенство выполнено автоматически для любого неотрицательного $\displaystyle K$. Так как $\displaystyle \Vert x\Vert \leqslant 1$, то $\displaystyle \Vert Ax\Vert \leqslant K\Vert x\Vert \leqslant K$. Обратно, пусть выполнено условие пункта 3. Рассмотрим $\displaystyle x\in E_{1} \backslash \{\theta \} .$Тогда $\displaystyle \Vert Ax\Vert =\left\Vert A\dfrac{x}{\Vert x\Vert }\Vert x\Vert \right\Vert \leqslant K\Vert x\Vert $ в силу ограниченности образа единичного шара. Если $\displaystyle x=\theta $, то неравенство выполнено автоматически для любого неотрицательного $\displaystyle K$.
@@ -93,26 +92,28 @@ $\displaystyle \Vert A\Vert \geqslant \Vert A\Vert \cdotp \Vert x\Vert \geqslant
 \end{definition}
 \begin{theorem}
 Пусть $\displaystyle E_{1} ,\ E_{2}$ -- линейные нормированные пространства. Тогда
-
-1) $\displaystyle \mathcal{L}( E_{1} ,\ E_{2})$ -- линейное нормированное пространство с нормой $\displaystyle \Vert A\Vert =\sup _{\Vert x\Vert =1}\Vert Ax\Vert $,
-
-2) Если $\displaystyle E_{2}$ -- банахово, то $\displaystyle \mathcal{L}( E_{1} ,\ E_{2})$ -- банахово.
+\begin{enumerate}
+    \item $\displaystyle \mathcal{L}( E_{1} ,\ E_{2})$ -- линейное нормированное пространство с нормой $\displaystyle \Vert A\Vert =\sup _{\Vert x\Vert =1}\Vert Ax\Vert $,
+    \item Если $\displaystyle E_{2}$ -- банахово, то $\displaystyle \mathcal{L}( E_{1} ,\ E_{2})$ -- банахово.
+\end{enumerate}
 \end{theorem}
-\begin{proof}
-1) Операции сложения двух линейных операторов и умножение на константу не выводят из пространства линейных операторов. Докажем, что $\displaystyle \Vert A\Vert =\sup _{\Vert x\Vert =1}\Vert Ax\Vert $ является нормой. $\displaystyle \Vert A\Vert =0\Leftrightarrow \forall x\in E_{1} ,\Vert x\Vert =1\hookrightarrow \Vert Ax\Vert =0\Leftrightarrow Ax=0\ \forall x\in E_{1}$. В силу линейности $\displaystyle \forall \lambda \in \mathbb{K}$ выполнено
-\begin{equation*}
-\Vert \lambda A\Vert =\sup _{\Vert x\Vert =1}\Vert \lambda Ax\Vert =\sup _{\Vert x\Vert =1}| \lambda | \cdotp \Vert Ax\Vert =\sup _{\Vert x\Vert =1}| \lambda | \cdotp \Vert Ax\Vert =| \lambda | \sup _{\Vert x\Vert =1}\Vert Ax\Vert =| \lambda | \cdotp \Vert A\Vert .
-\end{equation*}
-Пусть $\displaystyle A_{1} ,\ A_{2} \in \mathcal{L}( E_{1} ,\ E_{2})$. Тогда
+\begin{proof} ~
+\begin{enumerate}
+    \item Операции сложения двух линейных операторов и умножение на константу не выводят из пространства линейных операторов. Докажем, что $\displaystyle \Vert A\Vert =\sup _{\Vert x\Vert =1}\Vert Ax\Vert $ является нормой. $\displaystyle \Vert A\Vert =0\Leftrightarrow \forall x\in E_{1} ,\Vert x\Vert =1\hookrightarrow \Vert Ax\Vert =0\Leftrightarrow Ax=0\ \forall x\in E_{1}$. В силу линейности $\displaystyle \forall \lambda \in \mathbb{K}$ выполнено
+    \begin{equation*}
+    \Vert \lambda A\Vert =\sup _{\Vert x\Vert =1}\Vert \lambda Ax\Vert =\sup _{\Vert x\Vert =1}| \lambda | \cdotp \Vert Ax\Vert =\sup _{\Vert x\Vert =1}| \lambda | \cdotp \Vert Ax\Vert =| \lambda | \sup _{\Vert x\Vert =1}\Vert Ax\Vert =| \lambda | \cdotp \Vert A\Vert .
+    \end{equation*}
+    Пусть $\displaystyle A_{1} ,\ A_{2} \in \mathcal{L}( E_{1} ,\ E_{2})$. Тогда
+    
+    
+    \begin{gather*}
+    \Vert A_{1} +A_{2}\Vert =\sup _{\Vert x\Vert =1}\Vert ( A_{1} +A_{2}) x\Vert =\sup _{\Vert x\Vert =1}\Vert A_{1} x+A_{2} x\Vert \leqslant \sup _{\Vert x\Vert =1}(\Vert A_{1} x\Vert +\Vert A_{2} x\Vert ) \leqslant \\
+    \sup _{\Vert x\Vert =1}\Vert A_{1} x\Vert +\sup _{\Vert x\Vert =1}\Vert A_{2} x\Vert =\Vert A_{1}\Vert +\Vert A_{2}\Vert .
+    \end{gather*}
+    \item Пусть $\displaystyle \{A_{n}\} \subset \mathcal{L}( E_{1} ,\ E_{2})$. Тогда $\displaystyle \forall \varepsilon  >0\ \exists N:\ \forall n,m\geqslant N\hookrightarrow \Vert A_{n} -A_{m}\Vert < \varepsilon $. Пусть $\displaystyle x\in E_{1} ,\ \Vert x\Vert =1$. Тогда $\displaystyle \varepsilon  >\Vert A_{n} -A_{m}\Vert \geqslant \Vert ( A_{n} -A_{m}) x\Vert =\Vert A_{n} x-A_{m} x\Vert $. Следовательно, $\displaystyle \forall x\in E_{1} ,\ \Vert x\Vert =1$ последовательность $\displaystyle \{A_{n} x\}$ является фундаментальной в $\displaystyle E_{2}$. Так как $\displaystyle E_{2}$ банахово, то $\displaystyle \exists y\in E_{2}$, такой что $\displaystyle A_{n} x\rightarrow y=:Ax\ \forall x\in E_{1} ,\ \Vert x\Vert =1$. Докажем, что оператор $\displaystyle A$, определяемый таким способом, является линейным. Покажем, что $\displaystyle A$ -- ограниченный оператор. Так как последовательность $\displaystyle \{A_{n}\}$ фундаментальна, то она ограничена. Следовательно, $\displaystyle \exists K:\ \Vert A_{n}\Vert \leqslant K\ \forall n\in \mathbb{N}$. Так как норма в линейном нормированном пространстве является непрерывной функцией, и $\displaystyle \forall x\in E_{1} \hookrightarrow A_{n} x\xrightarrow[n\rightarrow \infty ]{} Ax$, то $\displaystyle \Vert A_{n} x\Vert \xrightarrow[n\rightarrow \infty ]{}\Vert Ax\Vert $. Из того, что $\displaystyle \Vert A_{n} x\Vert \leqslant \Vert A\Vert \cdotp \Vert x\Vert \leqslant K\Vert x\Vert \Rightarrow \Vert Ax\Vert \leqslant K\Vert x\Vert $. Поэтому, $\displaystyle A$ -- ограниченный.
 
-
-\begin{gather*}
-\Vert A_{1} +A_{2}\Vert =\sup _{\Vert x\Vert =1}\Vert ( A_{1} +A_{2}) x\Vert =\sup _{\Vert x\Vert =1}\Vert A_{1} x+A_{2} x\Vert \leqslant \sup _{\Vert x\Vert =1}(\Vert A_{1} x\Vert +\Vert A_{2} x\Vert ) \leqslant \\
-\sup _{\Vert x\Vert =1}\Vert A_{1} x\Vert +\sup _{\Vert x\Vert =1}\Vert A_{2} x\Vert =\Vert A_{1}\Vert +\Vert A_{2}\Vert .
-\end{gather*}
-2) Пусть $\displaystyle \{A_{n}\} \subset \mathcal{L}( E_{1} ,\ E_{2})$. Тогда $\displaystyle \forall \varepsilon  >0\ \exists N:\ \forall n,m\geqslant N\hookrightarrow \Vert A_{n} -A_{m}\Vert < \varepsilon $. Пусть $\displaystyle x\in E_{1} ,\ \Vert x\Vert =1$. Тогда $\displaystyle \varepsilon  >\Vert A_{n} -A_{m}\Vert \geqslant \Vert ( A_{n} -A_{m}) x\Vert =\Vert A_{n} x-A_{m} x\Vert $. Следовательно, $\displaystyle \forall x\in E_{1} ,\ \Vert x\Vert =1$ последовательность $\displaystyle \{A_{n} x\}$ является фундаментальной в $\displaystyle E_{2}$. Так как $\displaystyle E_{2}$ банахово, то $\displaystyle \exists y\in E_{2}$, такой что $\displaystyle A_{n} x\rightarrow y=:Ax\ \forall x\in E_{1} ,\ \Vert x\Vert =1$. Докажем, что оператор $\displaystyle A$, определяемый таким способом, является линейным. Покажем, что $\displaystyle A$ -- ограниченный оператор. Так как последовательность $\displaystyle \{A_{n}\}$ фундаментальна, то она ограничена. Следовательно, $\displaystyle \exists K:\ \Vert A_{n}\Vert \leqslant K\ \forall n\in \mathbb{N}$. Так как норма в линейном нормированном пространстве является непрерывной функцией, и $\displaystyle \forall x\in E_{1} \hookrightarrow A_{n} x\xrightarrow[n\rightarrow \infty ]{} Ax$, то $\displaystyle \Vert A_{n} x\Vert \xrightarrow[n\rightarrow \infty ]{}\Vert Ax\Vert $. Из того, что $\displaystyle \Vert A_{n} x\Vert \leqslant \Vert A\Vert \cdotp \Vert x\Vert \leqslant K\Vert x\Vert \Rightarrow \Vert Ax\Vert \leqslant K\Vert x\Vert $. Поэтому, $\displaystyle A$ -- ограниченный.
-
-Покажем, что $\displaystyle \Vert A_{n} -A\Vert \xrightarrow[n\rightarrow \infty ]{} 0$. Так как последовательность $\displaystyle \{A_{n}\}$ фундаментальна, то $\displaystyle \forall x\in E_{1} ,\ \Vert x\Vert =1,\ \forall \varepsilon  >0\ \exists N\in \mathbb{N} :\ \forall n,m\geqslant N\hookrightarrow \Vert A_{n} x-A_{m} x\Vert < \varepsilon $. Устремляя $\displaystyle m$ к бесконечности, получаем $\displaystyle \Vert A_{n} x-A x\Vert \leqslant \varepsilon $. Следовательно, $\displaystyle \sup _{\Vert x\Vert =1}\Vert A_{n} x-A x\Vert =\Vert A_{n} -A\Vert < \varepsilon $.
+    Покажем, что $\displaystyle \Vert A_{n} -A\Vert \xrightarrow[n\rightarrow \infty ]{} 0$. Так как последовательность $\displaystyle \{A_{n}\}$ фундаментальна, то $\displaystyle \forall x\in E_{1} ,\ \Vert x\Vert =1,\ \forall \varepsilon  >0\ \exists N\in \mathbb{N} :\ \forall n,m\geqslant N\hookrightarrow \Vert A_{n} x-A_{m} x\Vert < \varepsilon $. Устремляя $\displaystyle m$ к бесконечности, получаем $\displaystyle \Vert A_{n} x-A x\Vert \leqslant \varepsilon $. Следовательно, $\displaystyle \sup _{\Vert x\Vert =1}\Vert A_{n} x-A x\Vert =\Vert A_{n} -A\Vert < \varepsilon $.
+\end{enumerate}
 \end{proof}
 \begin{exercise}
 Пусть $\displaystyle A_{n} \in \mathcal{L}( E_{1} ,\ E_{2}) \ \forall n\in \mathbb{N}$, и $\displaystyle \forall x\in E_{1} \hookrightarrow A_{n} x\rightarrow Ax$. Следует ли из этого ограниченность оператора $\displaystyle A$?
