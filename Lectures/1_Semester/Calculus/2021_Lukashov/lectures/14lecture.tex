@@ -37,51 +37,56 @@
 
 \begin{example}
 	Определим $y = f(x)$ как
-	$$
-		f\left(\frac{1}{n}\right) := \frac{1}{2n - 1},\ \forall n \in \N
-	$$
-	Будем считать, что
-	$$
-		f\left(\frac{1}{n} + 0\right) := f\left(\frac{1}{n}\right)
-	$$
+	\[
+		f\left(\frac{1}{n}\right) = f\left(\frac{1}{n} + 0\right) := \frac{1}{2n - 1},\ \forall n \in \N
+	\]
 	При этом
-	$$
+	\[
 		f\left(\frac{1}{n} - 0\right) := \frac{1}{2n}
-	$$
-	И дополнительно
-	\begin{align*}
-		&f(0) := 0
+	\]
+	А также
+	\[
+	\System{
+		&{f(0) := 0}
 		\\
-		&f(-x) := -f(x),\ \forall x \in (0; 1]
-	\end{align*}
-	Посчитаем предел $\liml_{\Delta x \to 0+} \frac{\Delta y}{\Delta x}$ в нуле.
+		&{f(-x) := -f(x)}
+		\\
+		&{f \text{ линейна на } \bigg[\frac{1}{n}; \frac{1}{n - 1}\bigg)}\ \forall n \in \N
+	}
+	\]
+	%%% Здесь нужен график функции. 11я лекция 2019 года 56:05
+	Сузим данную функцию на отрезок $[-1; 1]$ и посчитаем её производную в нуле:
 	
-	Рассмотрим случай $\Delta x \in [\frac{1}{n + 1}; \frac{1}{n})$. Тогда
-	$$
-		\Delta y = f(0 + \Delta x) - f(0)  = f(\Delta x)
-	$$
-	Отсюда
-	$$
-		\frac{1 / (2n + 1)}{1 / n} \le \frac{\Delta y}{\Delta x} \le \frac{1 / 2n}{1 / (n + 1)}
-	$$
-	В предельном переходе имеем
-	$$
-		\frac{1}{2} \le \liml_{\Delta x \to 0+} \frac{\Delta y}{\Delta x} \le \frac{1}{2}
-	$$
-	А отсюда
-	$$
-		f([-1; 1]) = [-1; 1] \bs \bigcup\limits_{n = 1}^{\infty} \left(\left(\frac{1}{2n}; \frac{1}{2n - 1}\right) \cup \left(-\frac{1}{2n - 1}; -\frac{1}{2n}\right)\right)
-	$$
-	То есть окрестность нуля не включена в область определения обратной функции $f^{-1}$ и мы не можем говорить о непрерывности и производной в нуле для неё.
+	В силу нечётности достаточно посмотреть предел $\liml_{\Delta x \to +0} \frac{\Delta y}{\Delta x}$. Рассмотрим такое $\Delta x$, что
+	\[
+		\Delta x \in \bigg[\frac{1}{n}; \frac{1}{n - 1}\bigg)
+	\]
+	Оценим дробь предела:
+	\[
+		\frac{\Delta y}{\Delta x} = \frac{f(\Delta x)}{\Delta x}
+	\]
+	Так как $f$ линейна на полуинтервале, то
+	\[
+		\frac{n - 1}{2n - 1} = \frac{f\left(\frac{1}{n}\right)}{\frac{1}{n - 1}} < \frac{f\left(\frac{1}{n}\right)}{\Delta x} < \frac{f(\Delta x)}{\Delta x} < \frac{f\left(\frac{1}{n - 1} - 0\right)}{\Delta x} < \frac{f\left(\frac{1}{n - 1} - 0\right)}{\frac{1}{n}} = \frac{n}{2n - 2}
+	\]
+	Обе оценки стремятся к $\frac{1}{2}$. Стало быть
+	\[
+		\liml_{\Delta x \to +0} \frac{\Delta y}{\Delta x} = \liml_{\Delta x \to 0} \frac{\Delta y}{\Delta x} = f'(0) = \frac{1}{2}
+	\]
+	При этом функция на $[-1; 1]$ непрерывной не является. Посмотрим на образ этого отрезка:
+	\[
+		f([-1; 1]) = [-1; 1] \bs \bigcup\limits_{n = 1}^\infty \left(\bigg[\frac{1}{2n}; \frac{1}{2n - 1}\bigg) \cup \bigg(-\frac{1}{2n - 1}; -\frac{1}{2n}\bigg]\right)
+	\]
+	Это же множество будет являться областью определения обратной функции. Но как видно из записи, образ $[-1; 1]$ не включает в себя ни одну окрестность нуля $\Ra$ обратная функция не имеет окрестности нуля, в которой она всюду определена и потому не имеет производной в нуле.
 \end{example}
 
 \subsection{Дифференцируемость}
 
 \begin{definition}
 	Функция $y = f(x)$ называется \textit{дифференцируемой} в точке $a \in \R$, если её приращение в этой точке может быть записано в виде
-	$$
+	\[
 		\Delta y = A\Delta x + o(\Delta x),\ \Delta x \to 0
-	$$
+	\]
 	где $A \in \R$.
 	
 	Выражение $A\Delta x$ называется \textit{дифференциалом} функции $y = f(x)$ в точке $a$. Обозначается как $dy := A \Delta x$
@@ -141,43 +146,34 @@
 \end{example}
 
 \begin{theorem} (Дифференцируемость сложной функции)
-	Если $u = f(y)$ дифференцируема в точке $g(a)$, функция $y = f(x)$ дифференцируема в точке $a$, то композиция $u = h(x) = f(g(x))$ дифференцируема в точке $a$, причём $h'(a) = f'(g(a)) \cdot g'(a)$
+	Если $u = f(y)$ дифференцируема в точке $g(a)$, функция $y = g(x)$ дифференцируема в точке $a$, то композиция $u = h(x) = f(g(x))$ дифференцируема в точке $a$, причём $h'(a) = f'(g(a)) \cdot g'(a)$
 \end{theorem}
 
 \begin{proof}
-	По условию
-	$$
-		\Delta u = f'(g(a))\Delta y + o(\Delta y),\ \Delta y \to 0
-	$$
-	Где 
-	$$
-		\Delta u = f(g(a) + \Delta y) - f(g(a))
-	$$
-	А также
-	$$
-		\Delta y = g'(a)\Delta x + o(\Delta x),\ \Delta x \to 0
-	$$
-	С другой стороны
-	$$
-		\Delta y = g(a + \Delta x) - g(a)
-	$$
-	Отсюда получим
-	$$
-		\Delta u = f(g(a) + g(a + \Delta x) - g(a)) - f(g(a)) = h(a + \Delta x) - h(a)
-	$$
-	Подставим всё в выражение $\Delta u$:
-	$$
-		\Delta u = f'(g(a))g'(a)\Delta x + f'(g(a)) \cdot o(\Delta x) + o(g(a + \Delta x) - g(a)),\ \Delta x \to 0
-	$$
-	В силу определения $o$-маленького
-	\begin{multline*}
-		o(g(a + \Delta x) - g(a)) = \lambda(\Delta x) \cdot \left(g(a + \Delta x) - g(a)\right) = \\
-		\lambda(\Delta x)g'(a)\Delta x + \lambda(x)o(\Delta x) = o(\Delta x) + \lambda(x) \cdot o(\Delta x),\ \Delta x \to 0
-	\end{multline*}
-	В итоге имеем
-	$$
-		\Delta u = f'(g(a))g'(a)\Delta x + o(\Delta x),\ \Delta x \to 0
-	$$
+	Выпишем всё, что нам даёт условие:
+	\begin{align*}
+		&{\Delta u = f'(g(a))\Delta y + o(\Delta y),\ \Delta y \to 0}
+		\\
+		&{\Delta u = f(g(a) + \Delta y) - f(g(a))}
+		\\
+		&{\Delta y = g'(a)\Delta x + o(\Delta x),\ \Delta x \to 0}
+		\\
+		&{\Delta y = g(a + \Delta x) - g(a)}
+	\end{align*}
+	Сразу отметим то, что если $\Delta x \to 0$, то и $\Delta y \to 0$. Это следует, например, из третьей строки. Значит, $o(\Delta y)$ является также и $o(\Delta x)$: если $u = o(\Delta y(\Delta x))$, то её можно записать как
+	\[
+		u(\Delta y(\Delta x)) = \lambda(\Delta x) \cdot \Delta y(\Delta x) = \lambda(\Delta x) \cdot (g'(a) + o(1))\Delta x
+	\]
+	При этом $\lambda(\Delta x) \cdot (g'(a) + o(1)) \xrightarrow[\Delta x \to 0]{} 0$ Значит, $u = o(\Delta x)$.
+	
+	Подставим во вторую строку четвёртую. Получим следующее утверждение:
+	\[
+		\Delta u = f(g(a) + g(a + \Delta x) - g(a)) - f(g(a)) = h(a + \Delta x) - h(a) = \Delta h
+	\]
+	Подставим теперь в первую строку третью и получим нужный результат:
+	\[
+		\Delta h = \Delta u = f'(g(a))g'(a) \cdot \Delta x + \underbrace{f'(g(a)) \cdot o(\Delta x) + o(\Delta y)}_{o(\Delta x)},\ \Delta x \to 0
+	\]
 \end{proof}
 
 \begin{note}

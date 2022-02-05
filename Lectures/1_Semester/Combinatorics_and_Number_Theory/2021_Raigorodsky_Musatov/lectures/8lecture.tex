@@ -40,7 +40,7 @@
 \begin{theorem}
 	\textit{Полиномиальной формулой} называется выражение
 	\[
-		(x_1 + \ldots + x_t)^n = \suml_{\forall n_1 + \ldots + n_t = n} P(n_1, \ldots, n_t) \cdot x_1^{n_1} x_2^{n_2} \cdot x_t^{n_t}.
+		(x_1 + \ldots + x_t)^n = \suml_{n_1 + \ldots + n_t = n} P(n_1, \ldots, n_t) \cdot x_1^{n_1} x_2^{n_2} \cdot x_t^{n_t}.
 	\]
 \end{theorem}
 
@@ -62,7 +62,7 @@
 	
 	Несложно понять, что такое слагаемое мы могли получить разными способами - в зависимости от того, из каких скобок какие объекты мы брали. Количество различных способов набрать $n_1, n_2, \ldots, n_t$ из скобок определяется полиномиальным коэффициентом. Отсюда 
 	\[
-		(x_1 + \ldots + x_t)^n = \suml_{\forall n_1 + \ldots + n_t = n} P(n_1, \ldots, n_t) \cdot x_1^{n_1} x_2^{n_2} \cdot x_t^{n_t}.
+		(x_1 + \ldots + x_t)^n = \suml_{n_1 + \ldots + n_t = n} P(n_1, \ldots, n_t) \cdot x_1^{n_1} \cdot \ldots \cdot x_t^{n_t}.
 	\]
 \end{proof}
 
@@ -70,7 +70,7 @@
 
 \begin{proposition}
 	\[
-		\suml_{\forall n_1 + \ldots + n_t = n} P(n_1, \ldots, n_t) = k^n.
+		\suml_{n_1 + \ldots + n_t = n} P(n_1, \ldots, n_t) = k^n.
 	\]
 \end{proposition}
 

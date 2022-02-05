@@ -142,13 +142,13 @@
 \end{definition}
 
 Доопределим произведение на всё множество $\R$:
-
-$a \cdot b :=$
-\begin{enumerate}
-    \item $a \cdot (-b)$, $\forall a > 0, b < 0$
-    \item $(-a) \cdot (-b)$, $\forall a < 0, b < 0$
-\end{enumerate}
-
+\[
+	a \cdot b := \System{
+		&{a \cdot (-b),\ a > 0,\ b < 0}
+		\\
+		&{(-a) \cdot (-b),\ a < 0,\ b < 0}
+	}
+\]
 А также $a \cdot 0 = 0 \cdot a = 0$, $\forall a \in \R$
 
 \begin{proposition}
@@ -162,7 +162,7 @@ $a \cdot b :=$
 \end{proposition}
 
 \begin{anote}
-    Надеюсь, очевидно, что $p'_1 > 0$, $q'_1 > 0$ (нам нужно доказать корректность основного определения)
+    Стоит отметить, что $p'_1 > 0$, $q'_1 > 0$ (нам нужно доказать корректность основного определения)
 \end{anote}
 
 \begin{proof}
@@ -237,7 +237,7 @@ $$
 \begin{proposition}
     Определение обратного действительного числа по произведению корректно.
     $$
-        \{[p_n; q_n]_\Q\}_{n = 1}^\infty \sim \{[p'_n; q'_n]_\Q\}_{n = 1}^\infty \Ra \{[\frac{1}{q_n}; \frac{1}{p_n}]_\Q\}_{n = 1}^\infty \sim \{[\frac{1}{s_n}; \frac{1}{r_n}]_\Q\}_{n = 1}^\infty
+        \{[p_n; q_n]_\Q\}_{n = 1}^\infty \sim \{[p'_n; q'_n]_\Q\}_{n = 1}^\infty \Ra \left\{\left[\frac{1}{q_n}; \frac{1}{p_n}\right]_\Q\right\}_{n = 1}^\infty \sim \left\{\left[\frac{1}{s_n}; \frac{1}{r_n}\right]_\Q\right\}_{n = 1}^\infty
     $$
 \end{proposition}
 
