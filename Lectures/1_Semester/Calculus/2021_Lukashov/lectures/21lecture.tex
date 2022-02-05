@@ -100,7 +100,7 @@
 \end{definition}
 
 \begin{definition}
-	Множество $A \subset X$ называется \textit{замкнутым}, если оно содержит все свои точки прикосновения, то есть $A \supset \cl A$. Естественно, что $\emptyset$ - замкнутое множество
+	Множество $A \subset X$ называется \textit{замкнутым}, если оно содержит все свои точки прикосновения, то есть $A \supset \cl A$. Естественно, $\emptyset$ - замкнутое множество
 \end{definition}
 
 \begin{definition}
@@ -122,7 +122,7 @@
 	
 	Второе включение следует из того, что если $x_0 \in A$, то
 	\[
-		\forall \eps > 0\ U_\eps(x_0) \cap A \supset \{x_0\}
+		\forall \eps > 0\ \ U_\eps(x_0) \cap A \supset \{x_0\}
 	\]
 	Значит, любая точка $A$ также лежит и в замыкании $A$.
 \end{proof}
@@ -226,7 +226,7 @@
 		\[
 			\forall \eps > 0\ U_{\eps}(x_0) \cap A \supset \{x_2\}
 		\]
-		Значит $x_0$ - точка прикосновения множества $A$ $\Ra x_0 \in K$.
+		Значит $x_0$ - точка прикосновения множества $A$ $\lra x_0 \in K$.
 	\end{enumerate}
 \end{proof}
 
@@ -275,7 +275,7 @@
 	\[
 		\vdelta A = \cl A \bs \Int A
 	\]
-	Все точки $\vdelta$ называются \textit{граничными} точками множества $\vdelta A$.
+	Все точки $\vdelta A$ называются \textit{граничными} точками множества $A$.
 \end{definition}
 
 \begin{lemma}
@@ -300,7 +300,7 @@
 		
 		\item $\forall G_1, G_2 \in \Tau \Ra G_1 \cap G_2 \in \Tau$
 		
-		\item $\forall \{G_\alpha\}_{\alpha \in A} \subset \Tau \Ra \bigcup\limits_{\alpha \in A} G_\alpha \in \Tau$
+		\item $\forall \{G_\alpha\}_{\alpha \in A} \subset \Tau \Ra \bigcup\limits_{\alpha \in A} G_\alpha \in \Tau \text{, где } A \text{ является некоторым множеством индексов}$
 	\end{enumerate}
 \end{theorem}
 
@@ -332,7 +332,7 @@
 \begin{definition}
 	Пусть $X$ - топологическое пространство с топологией $\Tau$. Тогда $x_0$ называется \textit{пределом последовательности} $\{x_n\}_{n = 1}^\infty \subset X$, если
 	\[
-		\forall G \in \Tau, x_0 \in G\ \exists N \in \N \such \forall n > N\ x_n \in G
+		(\forall G \in \Tau, x_0 \in G)\ \exists N \in \N \such \forall n > N\ x_n \in G
 	\]
 	Предел обозначается как
 	\[
@@ -353,5 +353,5 @@
 	\[
 		\forall x, y \in X\ \exists G_x, G_y \in \Tau \such (x \in G_x) \wedge (y \in G_y) \wedge (G_x \cap G_y = \emptyset)
 	\]
-	Топологическое пространство со свойством хаусдорфовости называется \textit{Хаусдорфовым пространством}.
+	Такое топологическое пространство называется \textit{хаусдорфовым}.
 \end{anote}

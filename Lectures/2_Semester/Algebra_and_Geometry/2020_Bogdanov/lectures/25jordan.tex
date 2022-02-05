@@ -1,7 +1,9 @@
+\section{Жорданова нормальная форма и ее приложения}
+
 \subsection{Жорданова нормальная форма}
 
 \begin{definition}
-	\textit{Жордановой клеткой} размера $k$ с собственным значением $\lambda_0 \in F$ называется матрица $J_k(\lambda_0) \in M_k(F)$, имеющая следующий вид:
+	Пусть $F$ "--- поле, $\lambda_0 \in F$. \textit{Жордановой клеткой} размера $k \in \N$ с собственным значением $\lambda_0$ называется матрица $J_k(\lambda_0) \in M_k(F)$, имеющая следующий вид:
 	\[J_k(\lambda_0) := \begin{pmatrix}
 		\lambda_0 & 1 & \dots & 0 & 0 \\ 
 		0 & \lambda_0 & \ddots & \ddots & 0 \\ 
@@ -10,11 +12,11 @@
 		0 & 0 & \dots & 0 & \lambda_0
 	\end{pmatrix}\]
 	
-	Будем также считать, что $J_k := J_k(0)$.
+	Cчитается также, что $J_k := J_k(0)$.
 \end{definition}
 
 \begin{definition}
-	Матрица $A \in M_n(F)$ имеет \textit{жорданов вид}, если она имеет блочно-диагональный вид, в котором каждый блок является жордановой клеткой:
+	Пусть $F$ "--- поле, $A \in M_n(F)$. Матрица $A$ имеет \textit{жорданов вид}, если она имеет блочно-диагональный вид, в котором каждый блок является жордановой клеткой, то есть имеет следующий вид для некоторых $k_1, \dotsc, k_m \in \N$ и $\lambda_1, \dotsc, \lambda_m \in F$:
 	\[A = \left(\begin{array}{@{}cccc@{}}
 		\cline{1-1}
 		\multicolumn{1}{|c|}{J_{k_1}(\lambda_1)} & 0 & \dots & 0\\
@@ -26,73 +28,87 @@
 		0 & 0 & \dots & \multicolumn{1}{|c|}{J_{k_m}(\lambda_m)}\\
 		\cline{4-4}
 	\end{array}\right)\]
+\end{definition}
+
+\begin{definition}
+	Пусть $V$ "--- линейное пространство, $\phi \in \mc L(V)$. Если в некотором базисе матрица оператора $\phi$ имеет жорданов вид, то она называется \textit{жордановой нормальной формой} оператора $\phi$, а соответствующий базис "--- его \textit{жордановым базисом}.
+\end{definition}
+
+\textbf{До конца раздела} зафиксируем линейное пространство $V$ над полем $F$ и положим $n := \dim{V}$, а также зафиксируем оператор $\phi \in \mathcal L(V)$ такой, что  $\Chi_\phi(\lambda)$ имеет вид $\eqref*{charpol}$.
+
+\begin{note}
+	В силу предположения выше, многочлен $\Chi_\phi(\lambda)$ можно представить в виде произведения многочленов $P_1 := (\lambda_1 - \lambda)^{\alpha_1}, \dotsc, P_k := (\lambda_k - \lambda)^{\alpha_k}$. Эти многочлены попарно взаимно просты.
+\end{note}
+
+\begin{definition}
+	Пусть $\lambda_i$ "--- собственное значение оператора $\phi$. \textit{Корневым подпространством}, соответствующим $\lambda_i$, называется $V^{\lambda_i} := \ke{P_i(\phi)} \hm{=} \ke(\phi_{\lambda_i})^{\alpha_i}$.
+\end{definition}
+
+\begin{note}
+	Поскольку $V_{\lambda_i} = \ke{\phi_{\lambda_i}}$, то $V_{\lambda_i} \le V^{\lambda_i}$, но обратное включение верно не всегда. Кроме того, $V = V^{\lambda_1} \oplus \dotsb \oplus V^{\lambda_k}$ по уже доказанному утверждению.
+\end{note}
+
+\begin{proposition}
+	Пусть $\lambda_i$, $\lambda_j$ "--- различные собственные значения оператора $\phi$. Тогда оператор $\phi_{\lambda_i}|_{V^{\lambda_j}} \in \mathcal{L}(V^{\lambda_j})$ "--- невырожденный.
+\end{proposition}
+
+\begin{proof}
+	Отметим сначала, что сужение $\phi_{\lambda_i}|_{V^{\lambda_j}}$ корректно, поскольку $V^{\lambda_j}$ инвариантно относительно $\phi$. Тогда, поскольку выполнены равенства $V^{\lambda_i} \cap V^{\lambda_j} = \{\overline{0}\}$ и $V_{\lambda_i} = \ke{\phi_{\lambda_i}} \le V^{\lambda_i}$, имеем $\ke{\phi_{\lambda_i}|_{V^{\lambda_j}}} = V^{\lambda_j} \cap \ke{\phi_{\lambda_i}} \hm{=} \{\overline{0}\}$, что и означает невырожденность оператора.
+\end{proof}
+
+\begin{proposition}
+	Пусть $\lambda_i$ "--- собственное значение оператора $\phi$. Тогда выполнено следующее равенство:
+	\[V^{\lambda_i} = \{\overline{v} \in V: \exists m \in \mathbb{N}: (\phi_{\lambda_i})^m(\overline{v}) = \overline{0}\}\]
+\end{proposition}
+
+\begin{proof}
+	Нетривиально только включение $(\ge)$. Пусть $\overline{v} \in V$ "--- вектор такой, что $(\phi_{\lambda_i})^m(\overline{v}) = \overline{0}$ для некоторого $m \in \N$. Представим его в виде $\overline{v} = \overline{v_1} + \dots + \overline{v_k}$, где $\overline{v_j} \in V^{\lambda_j}$ для каждого $j \in \{1, \dotsc, k\}$, тогда выполнено следующее равенство:
+	\[(\phi_{\lambda_i})^m(\overline{v_1}) + \dots +  (\phi_{\lambda_i})^m(\overline{v_k}) = \overline{0}\]
 	
-	При этом допускается, что некоторые из $\lambda_i$ могут совпадать. Если в некотором базисе матрица оператора $\phi \in \mathcal{L}(V)$ имеет жорданов вид, она называется \textit{жордановой нормальной формой} оператора $\phi$, а соответствующий базис "--- его \textit{жордановым базисом}.
-\end{definition}
-
-\textbf{До конца раздела} зафиксируем оператор $\phi \in \mathcal L(V)$ такой, что  $\chi_\phi(\lambda)$ имеет вид $\eqref*{charpol}$. Тогда $\chi_\phi(\lambda)$ можно представить в виде произведения $k$ взаимно простых многочленов вида $P_i := (\lambda_i - \lambda)^{\alpha_i}$.
-
-\begin{definition}
-	\textit{Корневым подпространством}, соответствующим собственному значению $\lambda_i$, называется $V^{\lambda_i} := \ke{P_i(\phi)} \hm{=} \ke(\phi_{\lambda_i})^{\alpha_i}$.
-\end{definition}
-
-\begin{note}
-	Поскольку $V_{\lambda_i} = \ke{\phi_{\lambda_i}}$, то $V_{\lambda_i} \le V^{\lambda_i}$, но обратное включение верно не всегда. Заметим также, что $V = V^{\lambda_1} \oplus \dotsb \oplus V^{\lambda_k}$ по уже доказанному утверждению.
-\end{note}
-
-\begin{proposition}
-	Пусть $\lambda_i$, $\lambda_j$ "--- различные собственные значения. Тогда оператор $\phi_{\lambda_j}|_{V^{\lambda_i}} \in \mathcal{L}(V^{\lambda_i})$ "--- невырожденный.
-\end{proposition}
-
-\begin{proof}
-	Отметим сначала, что сужение $\phi_{\lambda_j}|_{V^{\lambda_i}}$ корректно, поскольку $V^{\lambda_i}$ по уже доказанной теореме инвариантно относительно $\phi$. Заметим теперь, что $V^{\lambda_i} \cap V^{\lambda_j} = \{\overline{0}\}$ и $V_{\lambda_j} = \ke{\phi_{\lambda_j}} \le V^{\lambda_j}$, поэтому $\ke{\phi_{\lambda_j}|_{V^{\lambda_i}}} = V^{\lambda_i} \cap \ke{\phi_{\lambda_j}} \hm{=} \{\overline{0}\}$, что и означает невырожденность оператора.
+	В силу инвариантности, для каждого $j \in \{1, \dotsc, k\}$ выполнено $(\phi_{\lambda_i})^m(\overline{v_j}) \in V^{\lambda_j}$, поэтому каждый такой вектор равен $\overline 0$ по свойству прямой суммы. Но для каждого индекса $j \in \{1, \dotsc n\} \bs \{i\}$ оператор $\phi_{\lambda_i}|_{V^{\lambda_j}}$ "--- невырожденный, откуда $\overline{v_j} = \overline{0}$. Значит, $\overline{v} = \overline{v_i} \in V^{\lambda_i}$, и получено требуемое.
 \end{proof}
 
-\begin{proposition}
-	$V^{\lambda_j} = \{\overline{v} \in V\mid \exists m \in \mathbb{N}: (\phi_{\lambda_j})^m(\overline{v}) = \overline{0}\}$, то есть если $\overline{v} \in V$ обнуляется при действии какой-либо степени оператора $\phi_{\lambda_j}$, то он также обнуляется при действии оператора $\phi$ в некоторой степени, не превосходящей $\alpha_j$.
-\end{proposition}
-
-\begin{proof}
-	Пусть $\overline{v} \in V$ "--- вектор такой, что $\exists m \in \mathbb{N}: (\phi_{\lambda_j})^m(\overline{v}) = \overline{0}$. Представим его как $\overline{v} = \overline{v_1} + \dots + \overline{v_k}$, где $ \forall i: \overline{v_i} \in V^{\lambda_i}$, тогда $(\phi_{\lambda_j})^m(\overline{v_1}) + \dots +  (\phi_{\lambda_j})^m(\overline{v_k}) = \overline{0}$, причем $ \forall i: (\phi_{\lambda_j})^m(\overline{v_i}) \in V^{\lambda_i}$ в силу инвариантности. Но тогда, по свойству прямой суммы, $\forall i: (\phi_{\lambda_j})^m(\overline{v_i}) = \overline{0}$. Значит, в силу невырожденности оператора $\phi$, $\forall i \ne j: \overline{v_i} = \overline{0}$, тогда $\overline{v} = \overline{v_j} \in V^{\lambda_j}$. Обратное включение очевидно.
-\end{proof}
-
-\begin{definition}
-	Пусть $\psi \in \mathcal{L}(V)$. Если $\exists m \in \mathbb{N}: \psi^m = 0$, то оператор $\psi$ называется \textit{нильпотентным}.
-\end{definition}
-
 \begin{note}
-	Поскольку уже было доказано, что все собственные значения оператора являются корнями любого аннулирующего многочлена, а многочлен $x^m$ "--- аннулирующий для нильпотентного оператора $\psi$, то единственное собственное значение для $\psi$ "--- это 0.
+	Утверждение выше означает, что если вектор $\overline{v} \in V$ обнуляется при действии какой-либо степени оператора $\phi_{\lambda_i}$, то он также обнуляется при действии оператора $\phi$ в некоторой степени, не превосходящей $\alpha_i$.
 \end{note}
 
 \begin{definition}
-	Пусть $\psi \in \mathcal{L}(V)$ "--- нильпотентный. Подпространство $U \le V$ называется \textit{циклическим} относительно $\psi$, если оно инвариантно относительно $\psi$ и $\exists \overline{v} \in V$ такой, что $U$ "--- минимальное по включению инвариантное подпространство, содержащее $\overline{v}$.
+	Пусть $\psi \in \mathcal{L}(V)$. Оператор $\psi$ называется \textit{нильпотентным}, если существует $m \in \mathbb{N}$ такое, что $\psi^m = 0$.
 \end{definition}
 
 \begin{note}
-	Если подпространство $U \le V$ "--- циклическое относительно $\overline{v} \in V$, то $\{\overline{v}, \psi(\overline{v}), \psi^2(\overline{v}), \dots\} \subset U$. Значит, $U = \langle\overline{v}, \psi(\overline{v}), \psi^2(\overline{v}), \dots\rangle$, причем порождающий набор конечен в силу нильпотентности $\psi$.
+	Все собственные значения оператора являются корнями любого аннулирующего многочлена этого оператора, а для нильпотентного оператора $\psi$ многочлен $x^m$ является аннулирующим, поэтому его единственное собственное значение "--- это $0$.
 \end{note}
 
 \begin{definition}
-	Пусть $\psi \in \mathcal{L}(V)$ "--- нильпотентный оператор, $\overline{v} \in V$, $\overline{v} \ne \overline{0}$. \textit{Высотой} вектора $\overline{v}$ называется наименьшее $n \in \mathbb{N}$ такое, что $\psi^n(\overline{v}) = \overline{0}$.
+	Пусть $\psi \in \mathcal{L}(V)$ "--- нильпотентный оператор. Подпространство $U \le V$ называется \textit{циклическим} относительно $\psi$, если оно инвариантно относительно $\psi$ и существует вектор $\overline{v} \in V$ такой, что $U$ "--- минимальное по включению инвариантное подпространство, содержащее $\overline{v}$.
+\end{definition}
+
+\begin{note}
+	Если подпространство $U \le V$ "--- циклическое относительно нильпотентного оператора $\psi \in \mc L(V)$ и вектора $\overline{v} \in V$, то $U = \langle\overline{v}, \psi(\overline{v}), \psi^2(\overline{v}), \dots\rangle$, причем порождающий набор конечен в силу нильпотентности оператора $\psi$.
+\end{note}
+
+\begin{definition}
+	Пусть $\psi \in \mathcal{L}(V)$ "--- нильпотентный оператор, $\overline{v} \in V \bs \{\overline 0\}$. \textit{Высотой} вектора $\overline{v}$ относительно $\psi$ называется наименьшее $n \in \mathbb{N}$ такое, что $\psi^n(\overline{v}) = \overline{0}$.
 \end{definition}
 
 \begin{proposition}
-	Пусть $\overline{v_1}, \dots, \overline{v_k}$ "--- различные ненулевые векторы с попарно различными высотами. Тогда они образуют линейно независимую систему.
+	Пусть $\psi \in \mathcal{L}(V)$ "--- нильпотентный оператор, и пусть векторы ${\overline{v_1}, \dots, \overline{v_k} \in V \bs \{\overline 0\}}$ имеют попарно различные высоты относительно $\psi$. Тогда эти векторы образуют линейно независимую систему.
 \end{proposition}
 
 \begin{proof}
-	Предположим, что это не так и существует нетривиальная линейная комбинация, равная нулю:
+	Предположим, что это не так, тогда существует нетривиальная линейная комбинация с коэффициентами $\alpha_1, \dotsc, \alpha_k \in F$, равная нулю:
 	\[\alpha_1\overline{v_1} + \dots + \alpha_k\overline{v_k} = \overline{0}\]
 	
 	Пусть $\overline{v_i}$ "--- вектор с наибольшей высотой $n_i$, коэффициент при котором не равен нулю. Применяя к данному равенству $\psi^{n_i - 1}$, получим, что $\alpha_i\psi^{n_i-1}(\overline{v_i}) = \overline{0}$. Значит, $\alpha_i = 0$, что противоречит нашему предположению.
 \end{proof}
 
 \begin{corollary}
-	Пусть $\psi \in \mathcal{L}(V)$ "--- нильпотентный оператор, $U \le V$ "--- циклическое подпространство, порожденное вектором $\overline{v}$ высоты $n$. Тогда $(\overline{v}, \psi(\overline{v}), \dots, \psi^{n-1}(\overline{v}))$ "--- базис в $U$.
+	Пусть $\psi \in \mathcal{L}(V)$ "--- нильпотентный оператор, $U \le V$ "--- циклическое подпро-    ст\-ран-ство, порожденное вектором $\overline{v} \in V \bs \{\overline 0\}$ высоты $n$. Тогда {система $(\overline{v}, \psi(\overline{v}), \dots, \psi^{n-1}(\overline{v}))$} образует базис в $U$.
 \end{corollary}
 
 \begin{proof}
-	Уже было показано, что $U = \langle\overline{v}, \psi(\overline{v}), \psi^2(\overline{v}), \dots\rangle$, тогда, поскольку высота $\overline{v}$ равна $n$, $U = \langle\overline{v}, \psi(\overline{v}), \dots, \psi^{n - 1}(\overline{v})\rangle$. Кроме~того, данная система линейно независима по только что доказанному утверждению.
+	Как уже было отмечено, $U = \langle\overline{v}, \psi(\overline{v}), \psi^2(\overline{v}), \dots\rangle$, тогда, поскольку высота $\overline{v}$ равна $n$, $U = \langle\overline{v}, \psi(\overline{v}), \dots, \psi^{n - 1}(\overline{v})\rangle$. Кроме того, данная система линейно независима по только что доказанному утверждению.
 \end{proof}
 
 \begin{note}
@@ -125,7 +141,7 @@
 \end{proof}
 
 \begin{theorem}[о существовании жордановой нормальной формы]
-	Пусть $\phi \in \mathcal{L}(V)$, причем $\chi_\phi$ имеет вид $\eqref*{charpol}$. Тогда у $\phi$ есть жорданова нормальная форма.
+	Пусть $\phi \in \mathcal{L}(V)$, причем $\Chi_\phi$ имеет вид $\eqref*{charpol}$. Тогда у $\phi$ есть жорданова нормальная форма.
 \end{theorem}
 
 \begin{proof}
@@ -188,7 +204,7 @@
 \end{note}
 
 \begin{theorem}[о единственности жордановой нормальной формы]
-	Пусть $\phi \in \mathcal{L}(V)$, причем $\chi_\phi$ имеет вид $\eqref*{charpol}$. Тогда жорданва нормальная форма оператора $\phi$ единственна с точностью до перестановки клеток.
+	Пусть $\phi \in \mathcal{L}(V)$, причем $\Chi_\phi$ имеет вид $\eqref*{charpol}$. Тогда жорданва нормальная форма оператора $\phi$ единственна с точностью до перестановки клеток.
 \end{theorem}
 
 \begin{proof}

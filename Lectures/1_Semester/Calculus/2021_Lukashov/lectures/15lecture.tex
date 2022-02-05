@@ -1,13 +1,33 @@
 \subsubsection*{Производные высших порядков некоторых функций}
 
 \begin{enumerate}
-	\item $(\sin x)^{(n)} = $
-	\item $(\cos x)^{(n)} = $
-	\item $(x^\alpha)^{(n)} = \alpha \cdot (\alpha - 1) \cdot \dots \cdot (\alpha - n + 1) x^{\alpha - n} = n! \cdot C_{\alpha}^n \cdot x^{\alpha - n}$, где
+	\item $(\sin x)^{(n)} = \sin (x + \frac{\pi n}{2})$
+	\item $(\cos x)^{(n)} = \cos (x + \frac{\pi n}{2})$
+	\item $(x^\alpha)^{(n)} = \alpha \cdot (\alpha - 1) \cdot \ldots \cdot (\alpha - n + 1) x^{\alpha - n} = n! \cdot C_{\alpha}^n \cdot x^{\alpha - n}$, где
 	\[
-		C_{\alpha}^n = \frac{\alpha!}{n! \cdot (\alpha - n)!} = \frac{\alpha \cdot (\alpha - 1) \cdot (\alpha - n + 1)}{n!}
+		C_{\alpha}^n = \frac{\alpha!}{n! \cdot (\alpha - n)!} = \frac{\alpha \cdot (\alpha - 1) \cdot \ldots \cdot (\alpha - n + 1)}{n!}
 	\]
 \end{enumerate}
+
+\begin{note}
+	Биномиальный коэффициент таким образом определён для \textit{любого вещественного $\alpha$}.
+\end{note}
+
+\begin{theorem}
+	Для вещественного биномиального коэффициента справедливо свойство треугольника Паскаля:
+	\[
+		C_\alpha^n + C_\alpha^{n - 1} = C_{\alpha + 1}^n
+	\]
+\end{theorem}
+
+\begin{proof}
+	Распишем сумму по определению. Дальше уже всё сойдётся:
+	\begin{multline*}
+		C_\alpha^n + C_\alpha^{n - 1} = \frac{\alpha \cdot (\alpha - 1) \cdot \ldots \cdot (\alpha - (n - 1))}{n!} + \frac{\alpha \cdot (\alpha - 1) \cdot \ldots \cdot (\alpha - (n - 2))}{(n - 1)!} =
+		\\
+		\frac{\alpha \cdot (\alpha - 1) \cdot \ldots \cdot (\alpha - (n - 2)) \cdot (\alpha - (n - 1) + n)}{n!} = C_{\alpha + 1}^n
+	\end{multline*}
+\end{proof}
 
 \begin{theorem} (Формула Лейбница)
 	Если существуют конечные производные порядка $n$ функций $f$ и $g$ в некоторой точке, то для их произведения в этой точке справедлива формула
@@ -17,8 +37,6 @@
 \end{theorem}
 
 \begin{proof}
-	Здесь лектор доказывает свойства биномиальных коэффициентов, но я этого здесь делать не стану: всё можно найти в конспекте по ОКТЧ.
-	
 	Доказательство же формулы проведём по индукции:
 	\begin{itemize}
 		\item База $n = 1$:
@@ -44,19 +62,19 @@
 
 \begin{corollary} (Бином Ньютона)
 	\[
-	(a + b)^n = \suml_{k = 0}^n C_n^k a^k b^{n - k}
+		(a + b)^n = \suml_{k = 0}^n C_n^k a^k b^{n - k}
 	\]
 \end{corollary}
 
 \begin{proof}
 	С одной стороны,
 	\[
-	\left((\alpha\beta)^x\right)^{(n)} = (\alpha\beta)^x \cdot \ln^n (\alpha\beta) = (\alpha\beta)^x(\ln \alpha + \ln \beta)^n
+		\left((\alpha\beta)^x\right)^{(n)} = (\alpha\beta)^x \cdot \ln^n (\alpha\beta) = (\alpha\beta)^x(\ln \alpha + \ln \beta)^n
 	\]
 	С другой стороны, по формуле Лейбница
 	\begin{multline*}
-	\left((\alpha\beta)^x\right) = \left(\alpha^x \cdot \beta^x\right)^{(n)} = \suml_{k = 0}^n C_n^k \left(\alpha^x\right)^{(k)}\left(\beta^x\right)^{(n - k)} = \suml_{k = 0}^n C_n^k (\alpha^x \ln^k \alpha)(\beta^x \ln^{(n - k)} \beta) = \\
-	(\alpha\beta)^x \suml_{k = 0}^n C_n^k \ln^k \alpha \cdot \ln^{(n - k)} \beta
+		\left((\alpha\beta)^x\right) = \left(\alpha^x \cdot \beta^x\right)^{(n)} = \suml_{k = 0}^n C_n^k \left(\alpha^x\right)^{(k)}\left(\beta^x\right)^{(n - k)} = \suml_{k = 0}^n C_n^k (\alpha^x \ln^k \alpha)(\beta^x \ln^{(n - k)} \beta) = \\
+		(\alpha\beta)^x \suml_{k = 0}^n C_n^k \ln^k \alpha \cdot \ln^{(n - k)} \beta
 	\end{multline*}
 	Положив $a := \ln \alpha$ и $b := \ln \beta$, получим необходимое утверждение.
 \end{proof}

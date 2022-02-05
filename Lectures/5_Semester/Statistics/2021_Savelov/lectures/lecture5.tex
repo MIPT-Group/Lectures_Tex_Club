@@ -66,7 +66,7 @@
     \end{definition}
     \subsection{Байесовский подход}
     
-    Предположим, что на множестве $\displaystyle \Theta $ задано априорное распределение вероятностей $\displaystyle Q$, и $\displaystyle \theta $ выбирается в соответствии с распределением $\displaystyle Q$ из $\displaystyle \Theta $. Если $\displaystyle \hat{\theta }( X)$ -- оценка $\displaystyle \theta $ и $\displaystyle R(\hat{\theta },\, \theta )$ -- ее функция риска, то положим $\displaystyle R(\hat{\theta }( X)) =E_{Q}(\hat{\theta }( X),\, \theta ) =\int _{\Theta } R(\hat{\theta }( X),\, t) Q( dt)$.
+    Предположим, что на множестве $\displaystyle \Theta $ задано априорное распределение вероятностей $\displaystyle Q$, и $\displaystyle \theta $ выбирается в соответствии с распределением $\displaystyle Q$ из $\displaystyle \Theta $. Если $\displaystyle \hat{\theta }( X)$ -- оценка $\displaystyle \theta $ и $\displaystyle R(\hat{\theta },\, \theta )$ -- ее функция риска, то положим $\displaystyle R(\hat{\theta }( X)) =E_{Q}(R(\hat{\theta }( X),\, \theta )) =\int _{\Theta } R(\hat{\theta }( X),\, t) Q( dt)$.
     \begin{definition}
     Оценка $\displaystyle \theta ^{*}( X)$ называется наилучшей в байесовском подходе, если $\displaystyle R\left( \theta ^{*}( X)\right) =\min_{\hat{\theta }} R(\hat{\theta }( X))$.
     \end{definition}

@@ -31,9 +31,8 @@ Eg( x) =\sum _{k\in \mathbb{Z}} g( k) p( k) =\sum _{k\in \mathbb{Z}} g( k) P( \x
 \begin{exercise}
 Пусть $\displaystyle K$ -- класс несмещенных оценок параметра $\displaystyle \tau ( \theta ),\ \tau :\Theta \rightarrow \mathbb{R}$, и $\displaystyle T_{1},\, T_{2} \in K$. Если $\displaystyle \forall \theta \in \Theta \hookrightarrow E_{\theta }( T_{i} -\tau ( \theta ))^{2} =\inf_{T\in K} E_{\theta }( T-\tau ( \theta ))^{2} < \infty $, то $\displaystyle T_{1} =T_{2} \ P_{\theta }$-п.н. $\displaystyle \forall \theta \in \Theta $.
 \end{exercise}
-Пусть $\displaystyle X$ -- наблюдение с неизвестным распределением $\displaystyle P\in \{P_{\theta },\, \theta \in \Theta \}$, и $\displaystyle \forall \theta \in \Theta\ P_{\theta }$ имеет плотность $\displaystyle p_{\theta }( x)$ по одной и той же мере $\displaystyle \mu $ (мера Лебега, либо считающая).
 \begin{definition}
-В этом случае семейство $\displaystyle \{P_{\theta },\, \theta \in \Theta \}$ называется доминируемым относительно $\displaystyle \mu $.
+Пусть $\displaystyle X$ -- наблюдение с неизвестным распределением $\displaystyle P\in \{P_{\theta },\ \theta \in \Theta \}$, и $\displaystyle \forall \theta \in \Theta\ P_{\theta }$ имеет плотность $\displaystyle p_{\theta }( x)$ по одной и той же мере $\displaystyle \mu $ (мера Лебега, либо считающая). В этом случае семейство $\displaystyle \{P_{\theta },\ \theta \in \Theta \}$ называется доминируемым относительно $\displaystyle \mu $.
 \end{definition}
 \begin{definition}
 Случайная величина $\displaystyle u_{\theta }( X) =\frac{\partial }{\partial \theta }\ln p_{\theta }( X)$ называется вкладом наблюдения $\displaystyle X$, а функция $\displaystyle I_{X}( \theta ) =E_{\theta } u_{\theta }^{2}( X)$ называется количеством информации о параметре $\displaystyle \theta $ (информация по Фишеру).
@@ -85,7 +84,7 @@ D_{\theta } S( X) \geqslant \frac{( \tau '( \theta ))^{2}}{I_{X}( \theta )} .
 \end{gather*}
 \end{proof}
 \begin{corollary}
-Если $\displaystyle \tau ( \theta ) =\theta $, то в условиях предыдущей теоремы $\displaystyle D_{\theta }\hat{\theta }( X) =\frac{1}{I_{X}( \theta )}$, где $\displaystyle \hat{\theta }$ -- несмещенная оценка $\displaystyle \tau ( \theta )$.
+Если $\displaystyle \tau ( \theta ) =\theta $, то в условиях предыдущей теоремы $\displaystyle D_{\theta }\hat{\theta }( X) \ge\frac{1}{I_{X}( \theta )}$, где $\displaystyle \hat{\theta }$ -- несмещенная оценка $\displaystyle \tau ( \theta )$.
 \end{corollary}
 \begin{exercise}
 $\displaystyle I_{X}( \theta ) =n\cdotp i( \theta )$, где $\displaystyle i( \theta )$ -- информация одного наблюдения.
@@ -107,11 +106,11 @@ $\displaystyle I_{X}( \theta ) =n\cdotp i( \theta )$, где $\displaystyle i( \
 \begin{equation*}
 \tau '( \theta ) =E_{\theta }(\hat{\theta }( X) -\tau ( \theta )) u_{\theta }( X) .
 \end{equation*}
-Так как оценка $\displaystyle \hat{\theta }$ эффективна, то выполнилось равенство в КБШ. Тогда величины $\displaystyle \xi :=(\hat{\theta }( X) -\tau ( \theta ))$ и $\displaystyle \eta :=u_{\theta }( X)$ линейно зависимы, т.е. $\displaystyle \alpha ( \theta ) +\beta ( \theta ) \xi +\gamma ( \theta ) \eta =0$. Беря математическое ожидание от обеих частей, получаем
+Так как оценка $\displaystyle \hat{\theta }$ эффективна, то выполнилось равенство в КБШ. Тогда величины $\displaystyle \xi :=(\hat{\theta }( X) -\tau ( \theta ))$ и $\displaystyle \eta :=u_{\theta }( X)$ линейно зависимы, т.е. $\displaystyle \alpha ( \theta ) +\beta ( \theta ) \eta +\gamma ( \theta ) \xi =0$. Беря математическое ожидание от обеих частей, получаем
 
 
 \begin{equation*}
-E\alpha ( \theta ) +\beta ( \theta ) E(\hat{\theta } -\tau ( \theta )) +\gamma ( \theta ) Eu_{\theta }( X) =\alpha ( \theta ) =0.
+E\alpha ( \theta ) + \beta ( \theta ) Eu_{\theta }( X) + \gamma ( \theta ) E(\hat{\theta } -\tau ( \theta )) =\alpha ( \theta ) =0.
 \end{equation*}
 Тогда
 
@@ -141,7 +140,7 @@ D_{\theta } u_{\theta }( X)  >0.
 Тогда, взяв математическое ожидание от обеих частей, получаем
 \begin{gather*}
 E_{\theta }\hat{\theta } =\tau ( \theta ) ,\\
-E_{\theta }(\hat{\theta } -\tau ( \theta ))^{2} =c^{2}( \theta ) Eu_{\theta }^{2}( X) < \infty \Rightarrow E_{\theta }\hat{\theta } < \infty .
+E_{\theta }(\hat{\theta } -\tau ( \theta ))^{2} =c^{2}( \theta ) Eu_{\theta }^{2}( X) < \infty \Rightarrow E_{\theta }\hat{\theta }^2 < \infty .
 \end{gather*}
 Домножив обе части на $\displaystyle u_{\theta }( X)$, выходит, что
 \begin{gather*}
@@ -151,7 +150,7 @@ c( \theta ) =\frac{\tau '( \theta )}{I_{X}( \theta )} ,
 и из линейной зависимости $\displaystyle \xi ,\eta $ следует эффективность.
 \end{proof}
 \begin{corollary}
-Если $\displaystyle \theta ^{*}$ не хуже $\displaystyle \theta $ из предыдущей теоремы, то из критерия эффективности следует, что $\displaystyle \theta ^{*} =\hat{\theta } \ P_{\theta }$-п.н.
+Если $\displaystyle \theta ^{*}$ не хуже $\displaystyle \hat{\theta} $ из предыдущей теоремы, то из критерия эффективности следует, что $\displaystyle \theta ^{*} =\hat{\theta } \ P_{\theta }$-п.н.
 \end{corollary}
 \begin{note}
 Эффективная оценка -- наилучшая оценка в классе несмещенных в равномерном подходе с квадратичной функцией потерь (обратное неверно).
