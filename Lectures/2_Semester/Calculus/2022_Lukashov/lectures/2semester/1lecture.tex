@@ -9,7 +9,7 @@
 \end{definition}
 
 \begin{definition}
-	Если $\vec{x_0}$ - предельная точка множества $D$, то \textit{предел функции многих переменных} можно записать следующим образом:
+	\textit{(Предел функции по множеству $D$)} Если $\vec{x_0}$ - предельная точка множества $D$, то \textit{предел функции многих переменных} можно записать следующим образом:
 	\[
 		\liml_{\vec{x} \to \vec{x}_0} f(\vec{x}) = l
 	\]
@@ -17,11 +17,9 @@
 	\[
 		\liml_{(x_1, \ldots, x_n) \to (x_1^{(0)}, \ldots, x_n^{(0)})} f(x_1, \ldots, x_n) = l
 	\]
-	Аналогично $(x_1, \ldots, x_n) \in D$
-\end{definition}
-
-\begin{definition}
-	% Это тоже пределы
+	Аналогично $(x_1, \ldots, x_n) \in D$ 
+	
+	Определение предела для функций одного переменного:
 	\begin{itemize}
 		\item По Коши:
 		\[
@@ -33,7 +31,7 @@
 			\liml_{x \to x_0} f(x) = l \lra \left(\forall \{x_k\}_{k = 1}^\infty \subset D \bs \{x_0\},\ \liml_{k \to \infty} x_k = x_0\right)\ \ \liml_{k \to \infty} f(x_k) = l
 		\]
 	\end{itemize}
-	В частности для $f: D \to \R,\ D \subset \R^n$:
+	Теперь для функции многих переменных $f: D \to \R,\ D \subset \R^n$:
 	\begin{itemize}
 		\item По Коши:
 		\[
@@ -45,11 +43,17 @@
 			\liml_{\vec{x} \to \vec{x}_0 \over \vec{x} \in D} f(\vec{x}) = l \lra \left(\forall \{\vec{x}_k\}_{k = 1}^\infty \subset D \bs \{\vec{x}_0\},\ \liml_{k \to \infty} \vec{x}_k = \vec{x}_0\right)\ \ \liml_{k \to \infty} f(\vec{x}_k) = l
 		\]
 	\end{itemize}
-	Выше предел функции по множеству $D$. А ещё есть предел по совокопности переменных:
-	Если $\vec{x}_0$ - внутренняя точка множества $D \cup \{\vec{x}_0\}$, то $\liml_{\vec{x} \to \vec{x}_0} f(\vec{x}) = l$ - принадлежность $\vec{x} \in D$ опускается
-	А ещё есть предел по направлению $\vec{e} \in \R^n \bs \{\vec{0}\}$:
-	\[
-		D_{\vec{x}, \vec{e}} = D \cap \{\vec{x} \in \R^n \such \vec{x} = \vec{x_0} + \vec{e} \cdot t,\ t \in \R \bs \{0\}\}
+\end{definition}
+
+\begin{definition}
+	\textit{(Предел по совокопности переменных)}
+	Если $\vec{x}_0$ - внутренняя точка множества $D \cup \{\vec{x}_0\}$, то $\liml_{\vec{x} \to \vec{x}_0} f(\vec{x}) = l$ (принадлежность $\vec{x} \in D$ опускается) \\
+	Также его называют двойным или тройным, если речь идет о плоскости и пространстве соотвественно.
+\end{definition}
+\begin{definition}
+	\textit{Пределом по направлению} $\vec{e} \in \R^n \bs \{\vec{0}\}$ в точке $\vec{x}_0$, которая является внутренней для множества $D \cup \{\vec{x}_0\}$, называется
+	$\liml_{\vec{x} \to \vec{x_0} \over \vec{x} \in D_{\vec{x}, \vec{e}}} f(\vec{x}) = l$, где	\[
+	D_{\vec{x}, \vec{e}} = D \cap \{\vec{x} \in \R^n \such \vec{x} = \vec{x_0} + \vec{e} \cdot t,\ t \in \R \bs \{0\}\}
 	\]
 \end{definition}
 
@@ -58,7 +62,7 @@
 \end{theorem}
 
 \begin{proof}
-	Само утверждение прямо вытекает из определения разных пределов. Контрпримером же будет $f(x, y)$:
+	Само утверждение прямо вытекает из определения  пределов. Контрпримером обратного утверждения же будет $f(x, y)$:
 	\[
 		f(x, y) = \System{
 			&{\frac{x^2 y}{x^4 + y^2},\ (x, y) \neq (0, 0)}
@@ -83,7 +87,7 @@
 \begin{addition}
 	На практике для проверки существования предела по совокупности используют следующий факт:
 	
-	Пусть есть $f(x, y)$, и нужно проверить $\liml_{(x, y) \to (0, 0)} f(x, y) = l$. Если в перейти в полярные координаты, положив $x = \rho \cos \phi$ и $y = \rho \sin \phi$ и удастся доказать, что
+	Пусть есть $f(x, y)$, и нужно проверить $\liml_{(x, y) \to (0, 0)} f(x, y) = l$. Если перейти в полярные координаты, положив $x = \rho \cos \phi$ и $y = \rho \sin \phi$ нам удастся доказать, что
 	\[
 		|f(\rho \cos\phi, \rho \sin\phi) - l| \le \psi(\rho),\ \liml_{\rho \to 0+} \psi(\rho) = 0
 	\]
@@ -98,7 +102,7 @@
 \end{definition}
 
 \begin{note}
-	Вообще говоря, нет никакого общего соотношения между 
+	Вообще говоря, нет никакого общего соотношения между существованием повторного и двойного предела.
 \end{note}
 
 \begin{example}
@@ -112,7 +116,7 @@
 	\]
 	Заметим оценку:
 	\[
-		|f(\rho\cos\phi, \rho\sin\phi)| = |\rho\sin\frac{1}{\rho\cos\phi}\cos\frac{1}{\rho\sin\phi}| \le \rho
+		|f(\rho\cos\phi, \rho\sin\phi)| =  \left|\rho\sin\frac{1}{\rho\cos\phi}\cos\frac{1}{\rho\sin\phi}\right| \le \rho
 	\]
 	при $\cos\phi\sin\phi \neq 0$. То есть
 	\[
@@ -163,18 +167,27 @@
 
 \begin{proof}
 	От противного. Это означает, что
-	\[
+	\[(0)
 		\exists \eps_0 > 0 \such \forall \delta > 0\ \exists \vec{x}_1, \vec{x}_2 \in K,\ |\vec{x}_1 - \vec{x}_2| < \delta\ \ |f(\vec{x}_1) - f(\vec{x}_2)| \ge \eps_0
 	\]
 	Последовательно для данного $\eps_0$ будем выбирать $\delta = 1, \frac{1}{2}, \ldots, \frac{1}{m}, \ldots$. Тогда имеем:
-	\[
-		\exists \vec{x}_{1, m}, \vec{x}_{2, m} \in K,\ |\vec{x}_{1, m} - \vec{x}_{2, m}| < \frac{1}{m}\ \ |f(\vec{x}_{1, m}) - f(\vec{x}_{2, m})| \ge \eps_0
+	\[(1)
+		\exists \vec{x}_{1, m}, \vec{x}_{2, m} \in K, \|\vec{x}_{1, m} - \vec{x}_{2, m}| < \frac{1}{m}\ \ |f(\vec{x}_{1, m}) - f(\vec{x}_{2, m})| \ge \eps_0
 	\]
-	Получили последовательность $\{\vec{x}_{1, m}\}_{m = 1}^\infty \subset K$, причём из-за компактности $K$ имеем, что
-	\[
+	Получили последовательность $\{\vec{x}_{1, m}\}_{m = 1}^\infty \subset K$, причём по обобщению теоремы Больцано-Вейерштрасса для комапакта $K$ имеем, что
+	\[(2)
 		\exists \{\vec{x}_{1, m_k}\}_{k = 1}^\infty,\ \liml_{k \to \infty} \vec{x}_{1, m_k} = \vec{x}_0 \in K
 	\]
-	% Дописать доказательство
+	По неравенству треугольника
+	 $|\vec{x}_{2, m_k} - \vec{x}_0| \leq |\vec{x}_{2, m_k} - \vec{x}_{1, m_k}| + |\vec{x}_{1, m_k} - \vec{x}_0|$ \\
+	Из (1) $|\vec{x}_{1, m} - \vec{x}_{2, m}| < \frac{1}{m} \to 0$ \\
+	Из (2) $|\vec{x}_{1, m_k} - \vec{x}_0| \to 0$ \\
+	Тогда  $|\vec{x}_{2, m_k} - \vec{x}_0| \to 0$  То есть $\liml_{k \to \infty} \vec{x}_{2, m_k} = \vec{x}_0$ \\
+	Из определения непрерывности:
+	\[
+		\liml_{k \to \infty} f(\vec{x}_{2, m_k}) = \liml_{k \to \infty} f(\vec{x}_{1, m_k}) = f(\vec{x}_0)
+	\]
+	Но это противоречит (0)
 \end{proof}
 
 \begin{definition}
