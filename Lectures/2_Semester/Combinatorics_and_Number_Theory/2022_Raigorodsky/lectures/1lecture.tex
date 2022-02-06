@@ -1,0 +1,58 @@
+\section{Основы комбинаторики и теории чисел}
+
+\subsection{Распределение простых чисел}
+
+\begin{definition}
+	\textit{Пи-функцией от натурального числа } $x$ будем называть количество простых чисел, меньших либо равных $x$:
+	\[
+		\pi(x) = \suml_{p \le x} 1
+	\]
+\end{definition}
+
+\begin{definition}
+	\textit{Тета-функцией от натурального числа} $x$ будем называть сумму натуральных логарифмов простых чисел, меньших либо равных $x$:
+	\[
+		\Theta(x) = \suml_{p \le x} \ln p
+	\]
+\end{definition}
+
+\begin{definition}
+	\textit{Пси-функцией от натурального числа} $x$ будем называть сумму натуральных логарифмов от простых чисел $p$ по парам $(p, \alpha)$ так, что верно соотношение $p^\alpha \le x$:
+	\[
+		\psi(x) = \suml_{(p, \alpha) \colon p^\alpha \le x} \ln p
+	\]
+\end{definition}
+
+\begin{theorem} (Чебышёва, 1848-1850гг.)
+	Для всех достаточно больших $x$ при фиксированном $\eps$ верно, что
+	\[
+		\pi(x) \in \left[(1 - \eps) \cdot \ln 2 \frac{x}{\ln x}; (1 + \eps) \cdot 4\ln 2 \frac{x}{\ln x}\right]
+	\]
+\end{theorem}
+
+\begin{theorem} (без доказательства, Адамара и Валле-Пуссена, 1896г.)
+	На бесконечности для $\pi(x)$ справедливо следующее утверждение:
+	\[
+		\pi(x) \sim \frac{x}{\ln x},\ x \to \infty
+	\]
+\end{theorem}
+
+\begin{proof} (теоремы Чебышёва)
+	Обозначим следующие пределы через $\lambda$ и $\mu$:
+	\begin{align*}
+		&{\lambda_1 := \varlimsup\limits_{x \to \infty} \frac{\Theta(x)}{x};} & &{\mu_1 := \varliminf\limits_{x \to \infty} \frac{\Theta(x)}{x}} \\
+		&{\lambda_2 := \varlimsup\limits_{x \to \infty} \frac{\phi(x)}{x};} & &{\mu_2 := \varliminf\limits_{x \to \infty} \frac{\phi(x)}{x}} \\
+		&{\lambda_3 := \varlimsup\limits_{x \to \infty} \frac{\pi(x)}{x / \ln x};} & &{\mu_3 := \varliminf\limits_{x \to \infty} \frac{\pi(x)}{x / \ln x}}
+	\end{align*}
+	
+	\begin{lemma}
+		Утверждается, что
+		\[
+			\lambda_1 = \lambda_2 = \lambda_3;\ \ \mu_1 = \mu_2 = \mu_3
+		\]
+	\end{lemma}
+
+	\begin{proof}
+		
+	\end{proof}
+\end{proof}
