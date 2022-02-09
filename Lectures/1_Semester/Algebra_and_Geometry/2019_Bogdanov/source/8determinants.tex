@@ -70,19 +70,19 @@
 \end{definition}
 
 \begin{proposition}
-	Пусть $\sigma \in S_n$. Тогда для любых $i, j \in \{1, \dots, n\}$ таких, что $i < j)$, выполнено равенство $\sgn{\sigma} = -\sgn(\sigma(i, j))$.
+	Пусть $\sigma \in S_n$. Тогда для любых $i, j \in \{1, \dots, n\}$ таких, что $i < j$, выполнено равенство $\sgn{\sigma} = -\sgn(\sigma(i, j))$.
 \end{proposition}
 
 \begin{proof}
 	Рассмотрим сначала случай, когда $j = i + 1$. Положим $\tau := \sigma(i, i + 1)$, тогда $\tau(i + 1) = \sigma(i)$, $\tau(i) = \sigma(i + 1)$ и для любого $k \in \nset{n} \bs \{i, i+1\}$ выполнено $\tau(k) = \sigma(k)$. Тогда:
 	\begin{itemize}
 		\item $(i, i+1)$ "--- беспорядок в $\sigma$ $\Leftrightarrow$ $(i, i+1)$ "--- не беспорядок в $\tau$
-		\item $(i, k)$ $(k \not\in \{i, i+1\})$ "--- беспорядок в $\sigma$ $\Leftrightarrow$ $(i + 1, k)$ "--- беспорядок в $\tau$
-		\item $(i+1, k)$ $(k \not\in \{i, i+1\})$ "--- беспорядок в $\sigma$ $\Leftrightarrow$ $(i, k)$ "--- беспорядок в $\tau$
-		\item $(k, l)$ $(k, l \not\in \{i, i+1\})$ "--- беспорядок в $\sigma$ $\Leftrightarrow$ $(k, l)$ "--- беспорядок в $\tau$
+		\item $(i, k)$ при $k \not\in \{i, i+1\}$ "--- беспорядок в $\sigma$ $\Leftrightarrow$ $(i + 1, k)$ "--- беспорядок в $\tau$
+		\item $(i+1, k)$ при $k \not\in \{i, i+1\}$ "--- беспорядок в $\sigma$ $\Leftrightarrow$ $(i, k)$ "--- беспорядок в $\tau$
+		\item $(k, l)$ при $k, l \not\in \{i, i+1\}$ "--- беспорядок в $\sigma$ $\Leftrightarrow$ $(k, l)$ "--- беспорядок в $\tau$
 	\end{itemize}
 
-	Таким образом, $N(\tau) = N(\sigma) \pm 1$, и утверждение доказано. Если же $j \ne i + 1$, то разложим $(i, j)$ в произведение нечетного числа транспозиций вида $(k, k + 1)$, тогда, применяя утверждение нечетное число раз, снова получим требуемре.
+	Таким образом, $N(\tau) = N(\sigma) \pm 1$, и утверждение доказано. Если же $j \ne i + 1$, то разложим $(i, j)$ в произведение нечетного числа транспозиций вида $(k, k + 1)$, тогда, применяя утверждение нечетное число раз, снова получим требуемое.
 \end{proof}
 
 \begin{corollary}

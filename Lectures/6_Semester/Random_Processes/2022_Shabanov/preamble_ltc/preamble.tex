@@ -2,10 +2,12 @@
 
 %%% Работа с русским языком
 \usepackage{cmap}					% поиск в PDF
-\usepackage{mathtext} 				% русские буквы в формулах
+\usepackage{hyperref}				% русские буквы в формулах
+\usepackage[warn]{mathtext} 		% русские буквы в формулах
 \usepackage[T2A]{fontenc}			% кодировка
 \usepackage[utf8]{inputenc}			% кодировка исходного текста
 \usepackage[english,russian]{babel}	% локализация и переносы
+\usepackage{extarrows}              % xlongequal
 \usepackage{indentfirst}
 \frenchspacing
 
@@ -31,13 +33,14 @@
 \renewcommand{\emptyset}{\varnothing}
 
 \DeclareMathOperator{\sgn}{\mathop{sgn}}
-\DeclareMathOperator{\nd}{\text{НОД}}
+\DeclareMathOperator{\gd}{\text{НОД}}
 \DeclareMathOperator{\lf}{\text{НОК}}
 \DeclareMathOperator{\rk}{rk}
 \DeclareMathOperator{\pr}{pr}
 \DeclareMathOperator{\im}{Im}
 \DeclareMathOperator{\ke}{Ker}
 \DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\id}{id}
 \DeclareMathOperator{\cha}{char}
 \DeclareMathOperator{\ord}{ord}
 \DeclareMathOperator{\tr}{tr}
@@ -47,7 +50,11 @@
 \DeclareMathOperator{\Inn}{Inn}
 \DeclareMathOperator{\GL}{GL}
 \DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\PSL}{PSL}
 \DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\quot}{Quot}
+\DeclareMathOperator{\Gal}{Gal}
 
 \newcommand{\divby}{
 	\mathrel{\vbox{\baselineskip.65ex\lineskiplimit0pt\hbox{.}\hbox{.}\hbox{.}}}
@@ -58,12 +65,10 @@
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Cm}{\mathbb{C}}
-\newcommand{\id}{\mathrm{id}}
+\newcommand{\F}{\mathbb{F}}
 \renewcommand\labelitemi{$\triangleright$}
-\newcommand{\Chi}{\scalebox{1.05}{\raisebox{\depth}{$\chi$}}}
 
 \let\bs\backslash
-\let\mc\mathcal
 \let\vect\overline
 \let\normal\trianglelefteqslant
 \let\lra\Leftrightarrow
@@ -71,7 +76,10 @@
 \let\la\Leftarrow
 \let\gl\langle
 \let\gr\rangle
+%\let\sd\leftthreetimes
 \let\sd\leftthreetimes
+
+\DeclareRobustCommand{\varnormal}{\text{\,\,\reflectbox{$\normal$}\,\,}}
 
 %%% Перенос знаков в формулах (по Львовскому)
 \newcommand*{\hm}[1]{#1\nobreak\discretionary{}{\hbox{$\mathsurround=0pt #1$}}{}}
@@ -92,11 +100,11 @@
 \newtheorem{theorem}{Теорема}[section]
 \newtheorem{lemma}{Лемма}[section]
 \newtheorem{proposition}{Утверждение}[section]
-\newtheorem*{corollary}{Следствие}
 \newtheorem*{exercise}{Упражнение}
 
 \theoremstyle{definition}
 \newtheorem{definition}{Определение}[section]
+\newtheorem*{corollary}{Следствие}
 \newtheorem*{note}{Замечание}
 \newtheorem*{reminder}{Напоминание}
 \newtheorem*{example}{Пример}
@@ -158,7 +166,7 @@
 	pdfproducer={Производитель}, % Производитель
 	pdfkeywords={keyword1} {key2} {key3}, % Ключевые слова
 	colorlinks=true,       	% false: ссылки в рамках; true: цветные ссылки
-	linkcolor=black!10!blue,         % внутренние ссылки
+	linkcolor=black!15!blue,         % внутренние ссылки
 	citecolor=green,        % на библиографию
 	filecolor=magenta,      % на файлы
 	urlcolor=NavyBlue,      % на URL
@@ -170,4 +178,3 @@
 \usepackage{stackengine} % Многострочные тексты
 
 \newcommand{\imp}[2]{(#1\,\,$\ra$\,\,#2)\,\,}
-\newcommand{\implr}[2]{(#1\,\,$\lra$\,\,#2)\,\,}
