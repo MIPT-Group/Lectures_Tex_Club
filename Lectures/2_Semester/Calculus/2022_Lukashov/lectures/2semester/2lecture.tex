@@ -1,18 +1,18 @@
 \begin{theorem} (Обобщённая теорема Больцано-Коши)
 	Если $f \colon E \to \R$ непрерывна на связном множестве $E \subset \R^n$, то для любых своих значений $A < B$ она принимает и любое промежуточное, то есть
 	\[
-		\left(\exists \vec{x}_1, \vec{x}_2 \in E,\ f(\vec{x}_1) = A,\ f(\vec{x}_2) = B\right) \Ra \forall A < C < B\ \exists \vec{\xi} \in E,\ f(\vec{\xi}) = C
+		\left(\exists \vv{x}_1, \vv{x}_2 \in E,\ f(\vv{x}_1) = A,\ f(\vv{x}_2) = B\right) \Ra \forall A < C < B\ \exists \vv{\xi} \in E,\ f(\vv{\xi}) = C
 	\]
 \end{theorem}
 
 \begin{proof}
 	Рассмотрим метрическое пространство $E$ с метрикой, индуцированной евклидовой метрикой из $\R^n$. Так как $f$ - это функция из одного метрического пространства в другое, то условие непрерывности равносильно утверждению:
 	\[
-		\forall G \subset \R\ \ f^{-1}(G) \ \ G\text{ - открытое в } E, относительно открытое в \R^n.
+		\forall G \subset \R\ \ f^{-1}(G) \ \ G\text{ - открытое в } E, \text{ относительно открытое в }\R^n.
 	\]
 	Предположим противное, то есть
 	\[
-		\exists C,\ A < C < B \such \forall \vec{\xi} \in E\ \ f(\vec{\xi}) \neq C
+		\exists C,\ A < C < B \such \forall \vv{\xi} \in E\ \ f(\vv{\xi}) \neq C
 	\]
 	Теперь рассмотрим множества $(-\infty; C),\ (C; +\infty)$ - открытые в $R$. Обозначим за $G_1 := f^{-1}(-\infty; C),\ G_2 := f^{-1}(C, +\infty)$ - открытые в $E$, а значит относительно открытые в $\R^n$.
 	Тогда $E = G_1 \cup G_2$, что противоречит определению связности.
@@ -25,7 +25,7 @@
 	\end{itemize}
 \end{theorem}
 
-\begin{proof}
+\begin{proof}~
 	\begin{itemize}
 		\item От противного. Пусть $E$ - линейно связное, но не связное. То есть
 		\[
@@ -35,19 +35,19 @@
 		\[
 		E_1 = G_1 \cap E,\ E_2 = G_2 \cap E,\ \ G_1, G_2 \text{ - открытые в } \R^n
 		\]
-		Теперь рассмотрим произвольные $\vec{x}_1 \in E_1, \vec{x}_2 \in E_2$. Так как $E$ - линейно связное, то найдётся кривая $\gamma \subset E$, которая соединяет $\vec{x}_1$ и $\vec{x}_2$, то есть
+		Теперь рассмотрим произвольные $\vv{x}_1 \in E_1, \vv{x}_2 \in E_2$. Так как $E$ - линейно связное, то найдётся кривая $\gamma \subset E$, которая соединяет $\vv{x}_1$ и $\vv{x}_2$, то есть
 		\[
-		\gamma \colon [a; b] \to E,\ \gamma(a) = \vec{x}_1,\ \gamma(b) = \vec{x}_2
+		\gamma \colon [a; b] \to E,\ \gamma(a) = \vv{x}_1,\ \gamma(b) = \vv{x}_2
 		\]
 		Положим $T := \sup \{t \in [a; b] \such \gamma(t) \in E_1\},\ T \in [a; b]$. Рассмотрим все возможные случаи, чем может быть $T$:
 		\begin{enumerate}
 			\item Покажем, что $T \neq b$. Предположим противное:
 			\[
-			\gamma(b) = \gamma(T) = \vec{x}_2 \in G_2 \Ra \exists U(\vec{x}_2) \subset G_2 \Ra U(\vec{x}_2) \cap E \subset E_2
+			\gamma(b) = \gamma(T) = \vv{x}_2 \in G_2 \Ra \exists U(\vv{x}_2) \subset G_2 \Ra U(\vv{x}_2) \cap E \subset E_2
 			\]
 			Так как $\gamma$ - непрерывная, то 
 			\[
-			\exists \delta > 0 \such \forall t,\ [T - \delta, T]\ \gamma(t) \in U(\vec{x}_2) \Ra \gamma(t) \in E_2
+			\exists \delta > 0 \such \forall t,\ [T - \delta, T]\ \gamma(t) \in U(\vv{x}_2) \Ra \gamma(t) \in E_2
 			\]
 			Получили противоречие с предположением о $T$.
 			
@@ -60,7 +60,7 @@
 			\exists \delta > 0 \such \forall t \in (T - \delta, T + \delta)\ \ \gamma(t) \in U(\gamma(T)) \Ra \gamma(t) \in E_1
 			\]
 			И снова противоречие с предположением о $T$.
-			\item $\gamma(T) \in E_2$ Это означает, что 
+			\item $\gamma(T) \in E_2$. Это означает, что 
 			\[
 			\gamma(T) \in G_2 \Ra \exists U(\gamma(T)) \subset G_2
 			\]
@@ -72,18 +72,18 @@
 			% Дописать + переписать первые 2 пункта без разбора \gamma(a), \gamma(b). Можно где-то скобочки подогнать
 		\end{enumerate}
 		Получили противоречие, потому $E$ связно.
-		\item Пусть $G$ - открытое связное, но не линейно связное. Тогда $\exists \vec{x}_1, \vec{x}_2 \in G$ такие, что их нельзя соединить кривой в $G$. Положим за 
+		\item Пусть $G$ - открытое связное, но не линейно связное. Тогда $\exists \vv{x}_1, \vv{x}_2 \in G$ такие, что их нельзя соединить кривой в $G$. Положим за 
 		\[
-			G_1 := \{\vec{x} \in G, \text{ которые можно соединить с } \vec{x}_1\} 
+			G_1 := \{\vv{x} \in G, \text{ которые можно соединить с } \vv{x}_1\} 
 		\]
 		\[
 			G_2 := G \bs G_1
 		\]
-		 Пусть $\vec{x} \in G_1 \subset G \Ra \exists U(\vec{x}) \subset G$.
+		 Пусть $\vv{x} \in G_1 \subset G \Ra \exists U(\vv{x}) \subset G$.
 		 
-		 Ясно, что $\vec{x}_1 \in G_1,\ \vec{x}_2 \in G_2$. Заметим, что мы можем соединить любую точку окрестности $U(\vec{x})$ с $\vec{x_1}$, просто взяв непрерывную кривую от $\vec{x}_1$ до $\vec{x}$ и добавив отрезок до точки от $\vec{x}$. Стало быть, $U(\vec{x}) \subset G_1$, то есть $G_1$ - открытое множество.
+		 Ясно, что $\vv{x}_1 \in G_1,\ \vv{x}_2 \in G_2$. Заметим, что мы можем соединить любую точку окрестности $U(\vv{x})$ с $\vv{x_1}$, просто взяв непрерывную кривую от $\vv{x}_1$ до $\vv{x}$ и добавив отрезок до точки от $\vv{x}$. Стало быть, $U(\vv{x}) \subset G_1$, то есть $G_1$ - открытое множество.
 		 
-		 Аналогично рассмотрим $G_2$. Посмотрим на  $\vec{x} \in G_2 \subset G$. Тогда $\exists U(\vec{x}) \subset G$. Если в этой окрестности найдётся хотя бы одна точка из $G_1$, то мы можем соединить её с $\vec{x}_1$ и затем с исходной точкой $\vec{x}$, получив непрерывную кривую. То есть $G_2$ - действительно открытое множество.
+		 Аналогично рассмотрим $G_2$. Посмотрим на  $\vv{x} \in G_2 \subset G$. Тогда $\exists U(\vv{x}) \subset G$. Если в этой окрестности найдётся хотя бы одна точка из $G_1$, то мы можем соединить её с $\vv{x}_1$ и затем с исходной точкой $\vv{x}$, получив непрерывную кривую. То есть $G_2$ - действительно открытое множество.
 		 
 		 \[
 		  G = G_1 \sqcup G_2 \ \ G \ \text{ - не связное}
@@ -99,63 +99,66 @@
 \subsection{Дифференцируемость функций многих переменных}
 
 \begin{definition}
-	\textit{(Полным) приращением функции $f(\vec{x})$ в точке} $\vec{x}_0 \in \R^n$, отвечающим приращению $\vv{\Delta x} := \vec{x} - \vec{x_0}$, называется
+	\textit{(Полным) приращением функции $f(\vv{x})$ в точке} $\vv{x}_0 \in \R^n$, отвечающим приращению $\vv{\Delta x} := \vv{x} - \vv{x_0}$, называется
 	\[
-		\Delta f(\vec{x}_0) = f(\vec{x}) - f(\vec{x}_0)
+		\Delta f(\vv{x}_0) = f(\vv{x}) - f(\vv{x}_0)
 	\]
 \end{definition}
 
 \begin{definition}
-	Пусть $f$ определена в некоторой окрестности точки $\vec{x}_0$. Тогда $f$ называется \textit{дифференцируемой} в точке $\vec{x}_0$, если её приращение $\Delta f(\vec{x}_0)$ может быть записано в виде
+	Пусть $f$ определена в некоторой окрестности точки $\vv{x}_0$. Тогда $f$ называется \textit{дифференцируемой} в точке $\vv{x}_0$, если её приращение $\Delta f(\vv{x}_0)$ может быть записано в виде
 	\[
-		\Delta f(\vec{x}_0) = (\vec{A}, \vv{\Delta x}) + o(|\vv{\Delta x}|),\ \vv{\Delta x} \to \vec{0}
+		\Delta f(\vv{x}_0) = \trbr{\vv{A}, \vv{\Delta x}} + o(|\vv{\Delta x}|),\ \vv{\Delta x} \to \vv{0}
 	\]
-	где $\vec{A} \in \R^n$ - \textit{градиент} $f$ в точке $\vec{x}_0$. Обозначается как
+	где $\vv{A} \in \R^n$ - \textit{градиент} $f$ в точке $\vv{x}_0$. Обозначается как
 	\[
-		\grad f(\vec{x}_0) := \vec{A}
+		\grad f(\vv{x}_0) := \vv{A}
 	\]
-	Выражение $(\vec{A}, \vv{\Delta x})$ называется \textit{дифференциалом} функции $f$ в точке $\vec{x}_0$:
+	Выражение $\trbr{\vv{A}, \vv{\Delta x}}$ называется \textit{дифференциалом} функции $f$ в точке $\vv{x}_0$:
 	\[
-		df(\vec{x}_0) := (\vec{A}, \vv{\Delta x})
+		df(\vv{x}_0) := \trbr{\vv{A}, \vv{\Delta x}}
 	\]
 \end{definition}
 
 \begin{definition}
-	\textit{Частным (частитчным) приращением функции $f(\vec{x})$ в точке} $\vec{x}_0 \in \R^n$ называется приращение функции $f(\vec{x})$, отвечающее 	приращению $\vv{\Delta x}_j$, имеющуему вид
+	\textit{Частным (частитчным) приращением функции $f(\vv{x})$ в точке} $\vv{x}_0 \in \R^n$ называется приращение функции $f(\vv{x})$, отвечающее 	приращению $\vv{\Delta x}_j$, имеющуему вид
 	\[
 		\vv{\Delta x}_j = (0, \ldots, \Delta x_j, \ldots, 0)
 	\]
 	Частичное приращение обозначается как
 	\[
-		\Delta_j f(\vec{x}_0) = f(\vec{x}_0 + \vv{\Delta x_j}) - f(\vec{x}_0) = f(x_{1, 0}, \ldots, x_{j - 1, 0}, x_{j, 0} + \Delta x_j, x_{j + 1, 0}, \ldots, x_{n, 0}) - f(x_{1, 0}, \ldots, x_{n, 0})
+		\Delta_j f(\vv{x}_0) = f(\vv{x}_0 + \vv{\Delta x_j}) - f(\vv{x}_0) = f(x_{1, 0}, \ldots, x_{j - 1, 0}, x_{j, 0} + \Delta x_j, x_{j + 1, 0}, \ldots, x_{n, 0}) - f(x_{1, 0}, \ldots, x_{n, 0})
 	\]
 \end{definition}
 
 \begin{note}
 	Заметим, что частичное приращение является приращением функции одной переменной:
 	\[
-		\Delta_j f(\vec{x}_0) = \Delta \phi_j (x_{j, 0})
+		\Delta_j f(\vv{x}_0) = \Delta \phi_j (x_{j, 0})
 	\]
 	где $\phi_j(x_j) = f(x_{1, 0}, \ldots, x_{j - 1, 0}, x_j, x_{j + 1, 0}, \ldots, x_{n, 0}) - f(x_{1, 0}, \ldots, x_{n, 0})$
 \end{note}
 
 \begin{definition}
-	\textit{Частной производной} функции $f(\vec{x})$ в точке $\vec{x}_0$ по $j$-й переменной называется производная функции $\phi_j$ в точке $x_{j, 0}$, если она существует. Обозначается как $\frac{\vdelta f}{\vdelta x_j}(\vec{x}_0),\ f'_{x_j}(\vec{x_0})$
+	\textit{Частной производной} функции $f(\vv{x})$ в точке $\vv{x}_0$ по $j$-й переменной называется производная функции $\phi_j$ в точке $x_{j, 0}$, если она существует. Обозначается как 
+	\[
+		f'_{x_j}(\vv{x}_0) = \pd{f}{x_j} (\vv{x}_0) := \phi'_j (x_{j, 0})
+	\]
 \end{definition}
 
 \begin{theorem}
-	Если $f$ дифференцируема в точке $\vec{x}_0$, то существуют частные производные $\forall j \in \range{n}$, причём
+	Если $f$ дифференцируема в точке $\vv{x}_0$, то существуют частные производные $\forall j \in \range{n}$, причём
 	\[
-		\grad f(\vec{x}_0) = \left(\frac{\vdelta f}{\vdelta x_1}(\vec{x}_0), \ldots, \frac{\vdelta f}{\vdelta x_n}(\vec{x}_0)\right)
+		\grad f(\vv{x}_0) = \left(\frac{\vdelta f}{\vdelta x_1}(\vv{x}_0), \ldots, \frac{\vdelta f}{\vdelta x_n}(\vv{x}_0)\right)
 	\]
 \end{theorem}
 
 \begin{proof}
-	Пусть $\Delta f(\vec{x}_0) := \Delta_j f(\vec{x}_0)$, то есть $\vv{\Delta x} := \vv{\Delta x_j}$. Отсюда получаем, что
+	Пусть $\vv{\Delta x} := \vv{\Delta x_j}$, то есть $\Delta f(\vv{x}_0) := \Delta_j f(\vv{x}_0)$. Отсюда получаем, что
 	\[
-		\Delta_j f(\vec{x}_0) = A_j \Delta x_j + o(|\Delta x_j|),\ \Delta x_j \to 0
+		\Delta_j f(\vv{x}_0) = A_j \Delta x_j + o(|\Delta x_j|),\ \Delta x_j \to 0
 	\]
-	При этом $\Delta_j f(\vec{x}_0) = \Delta \phi_j (x_{j, 0})$. То есть $\phi_j$ дифференцируема в точке $x_{j, 0}$. Значит
+	При этом $\Delta_j f(\vv{x}_0) = \Delta \phi_j (x_{j, 0})$. То есть $\phi_j$ дифференцируема в точке $x_{j, 0}$. Значит
 	\[
 		\forall j \in \range{n}\ \ \phi'_j (x_{j, 0}) = \frac{\vdelta f}{\vdelta x_j} (x_{j, 0}) = A_j
 	\]
@@ -179,53 +182,52 @@
 	\]
 	Но так как она не дифференцируема в (0, 0) то
 	\[
-		f(x,\ y) \neq o(|(x,\ y)|) \ \ \text{при} \  (x,\ y) \to \vec{0}
+		f(x,\ y) \neq o(|(x,\ y)|) \ \ \text{при} \  (x,\ y) \to \vv{0}
 	\]
 \end{example}
 
 \begin{theorem}
-	Если $f$ дифференцируема в $\vec{x}_0$, то она непрерывна в $\vec{x}_0$.
+	Если $f$ дифференцируема в $\vv{x}_0$, то она непрерывна в $\vv{x}_0$.
 \end{theorem}
 
 \begin{proof}
-	Непрерывность в точке $\vec{x}_0$ равносильно наличию предела $\liml_{\vv{\Delta x} \to \vec{0}} \Delta f(\vec{x}_0) = 0$. При этом
+	Непрерывность в точке $\vv{x}_0$ равносильна наличию предела $\liml_{\vv{\Delta x} \to \vv{0}} \Delta f(\vv{x}_0) = 0$. При этом
 	\[
-		|\Delta f(\vec{x}_0)| \le |\grad f(\vec{x}_0)| \cdot |\vv{\Delta x}| + |o(|\vv{\Delta x}|)| \xrightarrow[\vv{\Delta x} \to \vec{0}]{} 0
+		|\Delta f(\vv{x}_0)| \le |\grad f(\vv{x}_0)| \cdot |\vv{\Delta x}| + |o(|\vv{\Delta x}|)| \xrightarrow[\vv{\Delta x} \to \vv{0}]{} 0
 	\]
 \end{proof}
 
 \begin{example}
-	Обратное неверно. Примером служит $f(\vec{x}) = |\vec{x}|$
+	Обратное неверно. Примером служит $f(\vv{x}) = |\vv{x}|$
 \end{example}
 
 \begin{theorem} (Достаточное условие дифференцируемости)
-	Если $f$ определена в окрестности точки $\vec{x}_0$ вместе со своими частными производными, причём они непрерывны в $\vec{x}_0$, то $f$ дифференцируема в $\vec{x}_0$
+	Если $f$ определена в окрестности точки $\vv{x}_0$ вместе со своими частными производными, причём они непрерывны в $\vv{x}_0$, то $f$ дифференцируема в $\vv{x}_0$
 \end{theorem}
 
 \begin{proof}
 	Распишем полное приращение $f$:
 	\begin{multline*}
-		\Delta f(\vec{x}_0) = f(x_{1, 0} + \Delta x_1, \ldots, x_{n, 0} + \Delta x_n) - f(x_{1, 0}, \ldots, x_{n, 0}) =
+		\Delta f(\vv{x}_0) = f(x_{1, 0} + \Delta x_1, \ldots, x_{n, 0} + \Delta x_n) - f(x_{1, 0}, \ldots, x_{n, 0}) =
 		\\
 		\left(f(x_{1, 0} + \Delta x_1, \ldots, x_{n, 0} + \Delta x_n) - f(x_{1, 0}, x_{2, 0} + \Delta x_2, \ldots, x_{n, 0} + \Delta x_n)\right) +
 		\\
-		\left(f(x_{1, 0}, x_{2, 0} + \Delta x_2, \ldots, x_{n, 0} + \Delta x_n) - f(x_{1, 0}, x_{2, 0}, x_{3, 0} + \Delta x_3, \ldots, x_{n, 0} + \Delta x_n)\right) + 
+		\left(f(x_{1, 0}, x_{2, 0} + \Delta x_2, \ldots, x_{n, 0} + \Delta x_n) - f(x_{1, 0}, x_{2, 0}, x_{3, 0} + \Delta x_3, \ldots, x_{n, 0} + \Delta x_n)\right) + \ldots +
 		\\
-		\ldots\\
 		\left(f(x_{1, 0}, \ldots, x_{n - 1, 0}, x_{n, 0} + \Delta x_n) - f(x_{1, 0}, \ldots, x_{n, 0})\right)
 	\end{multline*}
-	Положим $\psi_j(x_j) := f(x_{1, 0}, \ldots, x_j, \ldots, x_{n, 0} + \Delta x_n),\  j = 1\ldots n$. Так как это функция одной переменной, то, например для $\psi_1$ по теореме Лагранжа можно записать следующее:
+	Положим $\psi_j(x_j) := f(x_{1, 0}, \ldots, x_j, \ldots, x_{n, 0} + \Delta x_n)$. Так как это функция одной переменной, то, например для $\psi_1$ по теореме Лагранжа можно записать следующее:
 	\[
 		\psi_1(x_{1, 0} + \Delta x_1) - \psi_1(x_{1, 0}) = \psi'_1(\xi_1)\Delta x_1 = \frac{\vdelta f}{\vdelta x_1}(\xi_1, x_{2, 0} + \Delta x_2, \ldots, x_{n, 0} + \Delta x_n)
 	\]
 	Тогда приращение можно переписать как:
 	\begin{multline*}
-		\Delta f(\vec{x}_0) = \frac{\vdelta f}{\vdelta x_1}(\xi_1, x_{2, 0} + \Delta x_2, \ldots, x_{n, 0} + \Delta x_n) + \ldots + \frac{\vdelta f}{\vdelta x_n}(x_{1, 0}, x_{2, 0}, \ldots, \xi_n) = 
-		\grad f(\vec{x}_0)\cdot \Delta\vec{x}\\
-		+ \frac{\vdelta f}{\vdelta x_1}(\xi_1, x_{2, 0} + \Delta x_2, \ldots, x_{n, 0} + \Delta x_n) \Delta x_1 + \ldots + \frac{\vdelta f}{\vdelta x_n}(x_{1, 0}, \ldots, \xi_n)\Delta x_n - \grad f(\vec{x}_0)\cdot \Delta\vec{x}
+		\Delta f(\vv{x}_0) = \frac{\vdelta f}{\vdelta x_1}(\xi_1, x_{2, 0} + \Delta x_2, \ldots, x_{n, 0} + \Delta x_n) + \ldots + \frac{\vdelta f}{\vdelta x_n}(x_{1, 0}, x_{2, 0}, \ldots, \xi_n) = 
+		\grad f(\vv{x}_0)\cdot \Delta\vv{x}\\
+		+ \frac{\vdelta f}{\vdelta x_1}(\xi_1, x_{2, 0} + \Delta x_2, \ldots, x_{n, 0} + \Delta x_n) \Delta x_1 + \ldots + \frac{\vdelta f}{\vdelta x_n}(x_{1, 0}, \ldots, \xi_n)\Delta x_n - \grad f(\vv{x}_0)\cdot \Delta\vv{x}
 	\end{multline*}
-	Так как $|\frac{\Delta x_j}{|\Delta \vec{x}|}| \leq 1$, то справедливо
+	Так как $|\frac{\Delta x_j}{|\Delta \vv{x}|}| \leq 1$, то справедливо
 	\[
-		\forall j \ \liml_{\Delta\vec{x} \to \vec{0}}\frac{\frac{\vdelta f}{\vdelta x_j}(x_1, \ldots, \xi_j, \ldots, x_{n, 0} + \Delta x_n) - \frac{\vdelta f}{\vdelta x_j}(\vec{x}_0)}{|\Delta \vec{x}|} = 0
+		\forall j \ \liml_{\Delta\vv{x} \to \vv{0}}\frac{\frac{\vdelta f}{\vdelta x_j}(x_1, \ldots, \xi_j, \ldots, x_{n, 0} + \Delta x_n) - \frac{\vdelta f}{\vdelta x_j}(\vv{x}_0)}{|\Delta \vv{x}|} = 0
 	\]
 \end{proof}
