@@ -1,0 +1,194 @@
+% Про необходимое условие теоремы
+\begin{example}
+	\[
+		f(x, y) = \sqrt{|xy|}
+	\]
+	Посмотрим частные производные в точке $(0, 0)$:
+	\[
+		\frac{\vdelta f}{\vdelta x} (0, 0) = \liml_{\Delta x \to 0} \frac{f(x, 0) - f(0, 0)}{\Delta x} = 0 = \frac{\vdelta f}{\vdelta y} (0, 0)
+	\]
+	С другой стороны, перейдём в полярные координаты:
+	\begin{align*}
+		&{x = r \cos \phi}
+		\\
+		&{y = r \sin \phi}
+	\end{align*}
+	Отсюда получим, что
+	\[
+		f(r \cos \phi, r \sin \phi) = r \sqrt{|\cos \phi \sin \phi|} \le r
+	\]
+	При этом
+	\[
+		\Delta f(0, 0) = \sqrt{|\Delta x \cdot \Delta y|} - \sqrt{|0 \cdot 0|} = r \sqrt{|\cos \phi \cdot \sin \phi|} \neq o(r)
+	\]
+	% Дописать суть примера
+\end{example}
+% Пример про достаточное условие. Функция может быть дифференцируема без непрерывности частных производных
+\begin{example}
+	Рассмотрим функцию $f(x, y)$ следующего вида:
+	\[
+		f(x, y) = \sqrt[3]{x^2 y^2}
+	\]
+	Частные производные в точке $(0, 0)$, очевидно, равны нулю и при этом выполнено следующее:
+	\[
+		\Delta f(0, 0) = \sqrt[3]{(\Delta x)^2 (\Delta y)^2} = r^{4/3} \sqrt[3]{\cos^2 \phi \sin^2 \phi} \le r^{4/3}
+	\]
+	То есть $\Delta f = o(r),\ r \to 0$
+\end{example}
+
+\begin{theorem} (Дифференцируемость сложной функции)
+	Пусть $f$ дифференцируема в точке $\vec{y}_0 \in \R^m$, $\forall j \in \range{m}\ g_j$ дифференцируема в точке $\vec{x}_0 \in \R^n$, причём $g_j(\vec{x}_0) = y_{j, 0}$, если $\vec{y}_0 = (y_{1, 0}, \ldots, y_{m, 0})$. Тогда сложная функция $h(\vec{x}) = f(g_1(\vec{x}), \ldots, g_m(\vec{x}))$ дифференцируема в точке $\vec{x}_0$, причём
+	\[
+		\grad h(\vec{x}_0) = \grad f(\vec{y}_0)
+	\]
+\end{theorem}
+
+\begin{proof}
+	Чтобы доказать дифференцируемость функции $h$, нужно расписать её приращение:
+	\[
+		\Delta h(\vec{x}_0) = f(g_1(\vec{x}_0 + \overra{\Delta x}), \ldots, g_m(\vec{x}_0 + \overra{\Delta x})) - f(g_1(\vec{x}_0,\ ldots, g_m(\vec{x}_0)))
+	\]
+	Положим по определению $\Delta y_j := g_j(\vec{x}_0 + \overra{\Delta x}) - g_j(\vec{x}_0)$. Тогда
+	\[
+		\forall j \in \range{m}\ g_j(\vec{x}_0 + \overra{\Delta x}) = y_{j, 0} + \Delta y_j
+	\]
+	То есть приращение можно переписать в другом виде
+	\[
+		\Delta h(\vec{x}_0) = f(\vec{y}_0 + \overra{\Delta y}) - f(\vec{y}_0) = \frac{\vdelta f}{\vdelta y_1} (\vec{y}_0) \Delta y_1 + \ldots + \frac{\vdelta f}{\vdelta y_m} (\vec{y}_0) \Delta y_m + o(|\overra{\Delta y}|), |\Delta y| \to 0
+	\]
+	\textcolor{red}{Здесь мы должны принять соглашение, что при $\overra{\Delta y} = \vec{0}$ o-малое тоже будем считать нулём, но это надо вначале самому осознать. Дописать}. Продолжим цепочку преобразований приращения:
+	\begin{multline*}
+		\Delta h(\vec{x}_0) = \suml_{j = 1}^m \frac{\vdelta f}{\vdelta y_j} (\vec{y}_0) (g_j(\vec{x}_0 + \overra{\Delta x} - g_j(\vec{x}_0))) + o(|\overra{\Delta y}|) =
+		\\
+		\suml_{j = 1}^m \frac{\vdelta f}{\vdelta y_j} (\vec{y}_0) \left(\suml_{k = 1}^n \frac{\vdelta g_j}{\vdelta x_k} (\vec{x}_0) \Delta x_k + o_j(|\overra{\Delta x}|)\right) + o(|\overra{\Delta y}|) =
+		\\
+		\suml_{k = 1}^n \left(\suml_{j = 1}^m \frac{\vdelta f}{\vdelta y_i} (\vec{y}_0) \cdot \frac{\vdelta g_j}{\vdelta x_k} (\vec{x}_0)\right) \Delta x_k + \suml_{j = 1}^m \frac{\vdelta f}{\vdelta y_i} (\vec{y}_0) \cdot o_j(|\overra{\Delta x}|) + o(|\overra{\Delta y}|)
+	\end{multline*}
+	Если мы докажем, что вторая сумма - это $o(|\overra{\Delta x}|)$, то теорема будет доказана. Если $|\overra{\Delta y}| \neq 0$, то запишем о-малое в следующем виде:
+	\[
+		o(|\overra{\Delta y}|) = \frac{o(|\overra{\Delta y}|)}{|\overra{\Delta y}|} \cdot \frac{|\overra{\Delta y}|}{|\overra{\Delta x}|}
+	\]
+\end{proof}
+
+\begin{corollary}
+	Сумма, разность и произведение функций многих переменных - дифференцируема в точке $\vec{x}_0$, если изначальные функции тоже были дифференцируемы в точке $\vec{x}_0$
+\end{corollary}
+
+\begin{corollary} (Инвариантность формы первого дифференциала)
+	Пусть $f$ дифференцируема в точке $\vec{y}_0$. Тогда формула
+	\[
+		df(\vec{y}_0) = \suml_{j = 1}^m \frac{\vdelta f}{\vdelta y_j} (\vec{y}_0) dy_j
+	\]
+	справедлива как в случае, когда $y_1, \ldots, y_m$ - независимые переменные, то и в случае, когда они являются дифференцируемыми функциями от $x_1, \ldots, x_n$
+\end{corollary}
+
+\begin{proof}
+	Пусть $f$ зависит от $y_j = g_j(x_1, \ldots, x_n)$. Тогда $dh(\vec{x}_0)$, где $h = f(g_1, \ldots, g_m)$, имеет вид
+	\[
+		dh(\vec{x}_0) = \suml_{k = 1}^n \frac{\vdelta h}{\vdelta x_k} (\vec{x}_0) dx_k = \suml_{k = 1}^n \left(\suml_{j = 1}^m \frac{\vdelta f}{\vdelta y_j} (\vec{y}_0) \frac{\vdelta g_j}{\vdelta x_k} (\vec{x}_0)\right) dx_k =
+		\\
+		\suml_{j = 1}^m \frac{\vdelta f}{\vdelta y_j} (\vec{y}_0) \underbrace{\left(\suml_{k = 1}^n \frac{\vdelta g_j}{\vdelta x_k} (\vec{x}_0) dx_k\right)}_{dy_j}
+	\]
+\end{proof}
+
+\subsection{Геометрический смысл градиента и дифференцируемости}
+
+\begin{definition}
+	\textit{Область} - это открытое связное множество. \textit{Замкнутая область} - это замыкание области.
+\end{definition}
+
+\begin{definition}
+	\textit{Параметрически заданной поверхностью} в $\R^3$ называется множество точек $(x, y, z) \in \R^3$, задаваемых непрерывными в некоторой замкнутой области $\vec{D} \subset \R^2$ функциями
+	\begin{align*}
+		&{x = \phi(u, v)}
+		\\
+		&{y = \psi(u, v)}
+		\\
+		&{z = \chi(u, v)}
+	\end{align*}
+	В частности, график функции $z = f(x, y)$, где $(x, y) \in \vec{D}$.
+\end{definition}
+
+\begin{definition}
+	Плоскость, проходящая через точку $M_0(x_0, y_0, f(x_0, y_0))$, называется касательной к графику $z = f(x, y)$ в данной точке, если для $M_1(x, y, f(x, y))$ угол между секущей $M_0 M_1$ и плоскостью стремится к нулю при $(x, y) \to (x_0, y_0)$ в $\vec{D}$.
+\end{definition}
+
+% Здесь нужна картинка с осями и плоскостями. Пнуть меня для фото
+
+\begin{theorem}
+	Если $f(x, y)$ дифференцируеа в точке $(x_0, y_0)$, то касательная плоскость к $z = f(x, y)$ в точке $(x_0, y_0, f(x_0, y_0))$ существует и задаётся уравнением
+	\[
+		z - f(x_0, y_0) = \pd{f}{x} (x_0, y_0) (x - x_0) + \pd{f}{y} (x_0, y_0) (y - y_0)
+	\]
+\end{theorem}
+
+\begin{proof}
+	Выберем точку $M_1(x, y, f(x, y))$. Из дифференцируемости следует, что $f$ определена в некоторой окрестности точки $(x_0, y_0)$. Стало быть, $M_1$ в окрестности тоже определна. Запишем уравнение секущей $M_0 M_1$:
+	\[
+		\frac{X - x_0}{x - x_0} = \frac{Y - y_0}{y - y_0} = \frac{Z - f(x_0, y_0)}{f(x, y) - f(x_0, y_0)}
+	\]
+	где $(X, Y, Z)$ - точка на прямой. Из данного уравнения мы можем узнать направляющий вектор прямой $M_0 M_1$:
+	\[
+		\vec{a} \leftrightarrow (x - x_0, y - y_0, f(x, y) - f(x_0, y_0))
+	\]
+	Нормальный вектор $\vec{n}$ к плоскости, заданной уравнением в теореме, имеет вид
+	\[
+		\vec{n} \leftrightarrow \left(\pd{f}{x} (x_0, y_0), \pd{f}{y} (x_0, y_0), -1\right)
+	\]
+	Теперь посмотрим на косинус угла между $\vec{a}$ и $\vec{n}$:
+	% Исправить выход за границы
+	\[
+		\cos \angle (\vec{a}, \vec{n}) = \frac{\pd{f}{x} (x_0, y_0)(x - x_0) + \pd{f}{y} (x_0, y_0)(y - y_0) - f(x, y) + f(x_0, y_0)}{\sqrt{(x - x_0)^2 + (y - y_0)^2 + (f(x, y) - f(x_0, y_0))^2} \cdot \sqrt{(\pd{f}{x} (x_0, y_0))^2 + (\pd{f}{y} (x_0, y_0))^2 + 1}}
+	\]
+	% Дописать. Нужно обозначить расстояние между M_1 и M_0 за $r$ и сделать оценку
+\end{proof}
+
+\begin{definition}
+	\textit{Производной функции $f$ в точке $\vec{x}_0$ по направлению} $\vec{l}$ называется предел (если он существует):
+	\[
+		\pd{f}{\vec{l}} (\vec{x}_0) := \liml_{t \to 0+} \frac{f(\vec{x}_0 + t\vec{l}) - f(\vec{x}_0)}{t}
+	\]
+\end{definition}
+
+\begin{note}
+	В разных книгах производную по направлению определяют по-разному. Например, могут убрать стремление $t$ к 0 лишь с положительной стороны, могут добавить модуль $\vec{l}$ в знаменатель или потребовать, что $\vec{l}$ имеет единичную длину. Поэтому, если нужно прочитать доказательство, использующее производную по направлению, то стоит уточнить, что именно под этим понятием подразумевает автор.
+\end{note}
+
+\begin{proposition}
+	Если $f$ дифференцируема в $\vec{x}_0$, то она имеет производную по любому направлению $\vec{l} \neq \vec{0}$, причём
+	\[
+		\pd{f}{\vec{l}} (\vec{x}_0) = \trbr{\grad f(\vec{x}_0), \vec{l}}
+	\]
+\end{proposition}
+
+\begin{proof}
+	Распишем дробь под пределом:
+	\[
+		\frac{f(\vec{x}_0 + t\vec{l}) - f(\vec{x}_0)}{t} = \frac{\pd{f}{x_1} (\vec{x}_0) tl_1 + \ldots + \pd{f}{x_n} (\vec{x}_0)tl_n + o(|t\vec{l}|)}{t}
+	\]
+	% Дописать немного слов про деление каждого слагаемого
+\end{proof}
+
+\begin{corollary}
+	Если $f$ дифференцируема в точке $\vec{x}_0$ и $\grad f(\vec{x}_0) \neq \vec{0}$, то производная по направлению $\vec{l},\ \vec{l} = 1$
+	\begin{itemize}
+		\item Максимальна при $\vec{l} = \frac{\grad f(\vec{x}_0)}{|\grad f(\vec{x}_0)|}$
+		
+		\item Минимальна при $\vec{l} = -\frac{\grad f(\vec{x}_0)}{|\grad f(\vec{x}_0)|}$
+	\end{itemize}
+\end{corollary}
+
+\begin{note}
+	То есть по сути данное следствие указывает, что изменение функции максимально по направлению градиента в данной точке и минимально в обратную сторону.
+\end{note}
+
+\begin{proof}
+	Распишем модуль производной по направлению как скалярное произведение:
+	\[
+		\left|\pd{f}{\vec{l}} (\vec{x}_0)\right| = |\trbr{\grad f(\vec{x}_0), \vec{l}}| \le |\grad f(\vec{x}_0)|
+	\]
+	Последнее неравенство - это неравенство Коши-Буняковского-Шварца. Равенство достицается, если
+	\[
+		\vec{l} = \pm \frac{\grad f(\vec{x}_0)}{|\grad f(\vec{x}_0)|}
+	\]
+\end{proof}
