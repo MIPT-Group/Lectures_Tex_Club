@@ -99,7 +99,7 @@
 \subsection{Дифференцируемость функций многих переменных}
 
 \begin{definition}
-	\textit{(Полным) приращением функции $f(\vec{x})$ в точке} $\vec{x}_0 \in \R^n$, отвечающим приращению $\overrightarrow{\Delta x} := \vec{x} - \vec{x_0}$, называется
+	\textit{(Полным) приращением функции $f(\vec{x})$ в точке} $\vec{x}_0 \in \R^n$, отвечающим приращению $\vv{\Delta x} := \vec{x} - \vec{x_0}$, называется
 	\[
 		\Delta f(\vec{x}_0) = f(\vec{x}) - f(\vec{x}_0)
 	\]
@@ -108,26 +108,26 @@
 \begin{definition}
 	Пусть $f$ определена в некоторой окрестности точки $\vec{x}_0$. Тогда $f$ называется \textit{дифференцируемой} в точке $\vec{x}_0$, если её приращение $\Delta f(\vec{x}_0)$ может быть записано в виде
 	\[
-		\Delta f(\vec{x}_0) = (\vec{A}, \overrightarrow{\Delta x}) + o(|\overrightarrow{\Delta x}|),\ \overrightarrow{\Delta x} \to \vec{0}
+		\Delta f(\vec{x}_0) = (\vec{A}, \vv{\Delta x}) + o(|\vv{\Delta x}|),\ \vv{\Delta x} \to \vec{0}
 	\]
 	где $\vec{A} \in \R^n$ - \textit{градиент} $f$ в точке $\vec{x}_0$. Обозначается как
 	\[
 		\grad f(\vec{x}_0) := \vec{A}
 	\]
-	Выражение $(\vec{A}, \overrightarrow{\Delta x})$ называется \textit{дифференциалом} функции $f$ в точке $\vec{x}_0$:
+	Выражение $(\vec{A}, \vv{\Delta x})$ называется \textit{дифференциалом} функции $f$ в точке $\vec{x}_0$:
 	\[
-		df(\vec{x}_0) := (\vec{A}, \overrightarrow{\Delta x})
+		df(\vec{x}_0) := (\vec{A}, \vv{\Delta x})
 	\]
 \end{definition}
 
 \begin{definition}
-	\textit{Частным (частитчным) приращением функции $f(\vec{x})$ в точке} $\vec{x}_0 \in \R^n$ называется приращение функции $f(\vec{x})$, отвечающее 	приращению $\overrightarrow{\Delta x}_j$, имеющуему вид
+	\textit{Частным (частитчным) приращением функции $f(\vec{x})$ в точке} $\vec{x}_0 \in \R^n$ называется приращение функции $f(\vec{x})$, отвечающее 	приращению $\vv{\Delta x}_j$, имеющуему вид
 	\[
-		\overrightarrow{\Delta x}_j = (0, \ldots, \Delta x_j, \ldots, 0)
+		\vv{\Delta x}_j = (0, \ldots, \Delta x_j, \ldots, 0)
 	\]
 	Частичное приращение обозначается как
 	\[
-		\Delta_j f(\vec{x}_0) = f(\vec{x}_0 + \overrightarrow{\Delta x_j}) - f(\vec{x}_0) = f(x_{1, 0}, \ldots, x_{j - 1, 0}, x_{j, 0} + \Delta x_j, x_{j + 1, 0}, \ldots, x_{n, 0}) - f(x_{1, 0}, \ldots, x_{n, 0})
+		\Delta_j f(\vec{x}_0) = f(\vec{x}_0 + \vv{\Delta x_j}) - f(\vec{x}_0) = f(x_{1, 0}, \ldots, x_{j - 1, 0}, x_{j, 0} + \Delta x_j, x_{j + 1, 0}, \ldots, x_{n, 0}) - f(x_{1, 0}, \ldots, x_{n, 0})
 	\]
 \end{definition}
 
@@ -151,7 +151,7 @@
 \end{theorem}
 
 \begin{proof}
-	Пусть $\Delta f(\vec{x}_0) := \Delta_j f(\vec{x}_0)$, то есть $\overrightarrow{\Delta x} := \overrightarrow{\Delta x_j}$. Отсюда получаем, что
+	Пусть $\Delta f(\vec{x}_0) := \Delta_j f(\vec{x}_0)$, то есть $\vv{\Delta x} := \vv{\Delta x_j}$. Отсюда получаем, что
 	\[
 		\Delta_j f(\vec{x}_0) = A_j \Delta x_j + o(|\Delta x_j|),\ \Delta x_j \to 0
 	\]
@@ -188,9 +188,9 @@
 \end{theorem}
 
 \begin{proof}
-	Непрерывность в точке $\vec{x}_0$ равносильно наличию предела $\liml_{\overrightarrow{\Delta x} \to \vec{0}} \Delta f(\vec{x}_0) = 0$. При этом
+	Непрерывность в точке $\vec{x}_0$ равносильно наличию предела $\liml_{\vv{\Delta x} \to \vec{0}} \Delta f(\vec{x}_0) = 0$. При этом
 	\[
-		|\Delta f(\vec{x}_0)| \le |\grad f(\vec{x}_0)| \cdot |\overrightarrow{\Delta x}| + |o(|\overrightarrow{\Delta x}|)| \xrightarrow[\overrightarrow{\Delta x} \to \vec{0}]{} 0
+		|\Delta f(\vec{x}_0)| \le |\grad f(\vec{x}_0)| \cdot |\vv{\Delta x}| + |o(|\vv{\Delta x}|)| \xrightarrow[\vv{\Delta x} \to \vec{0}]{} 0
 	\]
 \end{proof}
 
