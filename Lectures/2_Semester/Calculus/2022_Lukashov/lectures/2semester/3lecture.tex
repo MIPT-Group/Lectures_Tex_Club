@@ -21,7 +21,7 @@
 	\[
 		\Delta f(0, 0) = \sqrt{|\Delta x \cdot \Delta y|} - \sqrt{|0 \cdot 0|} = r \sqrt{|\cos \phi \cdot \sin \phi|} \neq o(r)
 	\]
-	% Дописать суть примера
+	Частные производные не непрерывны, функция не дифференцируема.
 \end{example}
 % Пример про достаточное условие. Функция может быть дифференцируема без непрерывности частных производных
 \begin{example}
@@ -33,7 +33,7 @@
 	\[
 		\Delta f(0, 0) = \sqrt[3]{(\Delta x)^2 (\Delta y)^2} = r^{4/3} \sqrt[3]{\cos^2 \phi \sin^2 \phi} \le r^{4/3}
 	\]
-	То есть $\Delta f = o(r),\ r \to 0$
+	То есть $\Delta f = o(r),\ r \to 0$. Таким образом функция дифференцируема, хоть ее частные производные не непрерывны. Таким образомы мы показали отсутствие достаточности.
 \end{example}
 
 \begin{theorem} (Дифференцируемость сложной функции)
@@ -136,11 +136,18 @@
 		\vv{n} \leftrightarrow \left(\pd{f}{x} (x_0, y_0), \pd{f}{y} (x_0, y_0), -1\right)
 	\]
 	Теперь посмотрим на косинус угла между $\vv{a}$ и $\vv{n}$:
-	% Исправить выход за границы
 	\[
-		\cos \angle (\vv{a}, \vv{n}) = \frac{\pd{f}{x} (x_0, y_0)(x - x_0) + \pd{f}{y} (x_0, y_0)(y - y_0) - f(x, y) + f(x_0, y_0)}{\scalebox{0.9}{$\sqrt{(x - x_0)^2 + (y - y_0)^2 + (f(x, y) - f(x_0, y_0))^2} \cdot \sqrt{(\pd{f}{x} (x_0, y_0))^2 + (\pd{f}{y} (x_0, y_0))^2 + 1}$}}
+		\cos \angle (\vv{a}, \vv{n}) = \frac{\pd{f}{x} (x_0, y_0)(x - x_0) + \pd{f}{y} (x_0, y_0)(y - y_0) - f(x, y) + f(x_0, y_0)}{|\vv{a}|\cdot |\vv{n}|}%{\scalebox{0.9}{$\sqrt{(x - x_0)^2 + (y - y_0)^2 + (f(x, y) - f(x_0, y_0))^2} \cdot \sqrt{(\pd{f}{x} (x_0, y_0))^2 + (\pd{f}{y} (x_0, y_0))^2 + 1}$}}
 	\]
-	% Дописать. Нужно обозначить расстояние между M_1 и M_0 за $r$ и сделать оценку
+	Также распишем приращение функции в $(x_0, y_0)$.
+	\[
+		f(x_0, y_0) - z = \frac{\vdelta f}{\vdelta x}(x_0, y_0)(x - x_0) + \frac{\vdelta f}{\vdelta y}(x_0, y_0)(y - y_0) + o(|(x - x_0, y - y_0)|)
+	\]
+	Итого получаем:
+	\[
+		|\cos \angle (\vv{a}, \vv{n})| = \frac{|o(x - x_0, y - y_0)|}{|\vv{a}|\cdot |\vv{n}|} \leq \frac{|o(x - x_0, y - y_0)|}{\sqrt{1} \cdot \sqrt{(x - x_0)^2 + (y - y_0)^2}} \to 0, \ (x - x_0, y - y_0) \to (0, 0)
+	\]
+	Так как косинус стремится к 0, то $\vv{n}$ и правда нормаль к поверхности в окрестности.
 \end{proof}
 
 \begin{definition}
@@ -163,10 +170,10 @@
 
 \begin{proof}
 	Распишем дробь под пределом:
-	\[
-		\frac{f(\vv{x}_0 + t\vv{l}) - f(\vv{x}_0)}{t} = \frac{\pd{f}{x_1} (\vv{x}_0) tl_1 + \ldots + \pd{f}{x_n} (\vv{x}_0)tl_n + o(|t\vv{l}|)}{t}
-	\]
-	% Дописать немного слов про деление каждого слагаемого
+	\begin{multline*}
+		\pd{f}{\vv{l}}(\vv{x}_0) = \liml_{t \to 0^+}\frac{f(\vv{x}_0 + t\vv{l}) - f(\vv{x}_0)}{t} = \frac{\trbr{\grad f(\vv{x}_0), t\vv{l}} + o(|t\vv{l}|)}{t} = \\
+		= \liml_{t \to 0^+} \left(\trbr{\grad f(\vv{x}_0), \vv{l}} + \vv{l}\cdot \frac{o(t)}{t}\right) = \trbr{\grad f(\vv{x}_0), \vv{l}}
+	\end{multline*}
 \end{proof}
 
 \begin{corollary}
