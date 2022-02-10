@@ -1,0 +1,219 @@
+\subsection{Частные производные и дифференциалы высших порядков}
+
+\begin{definition}
+	Если существуют частные производные $\forall i \in \range{n}\ \pd{f}{x_i} (\vv{x})$ в некоторой окрестности точки $\vv{x}_0 \in \R^n$ и существуют частные производные 
+	\[
+		\forall j \in \range{n}\ \frac{\vdelta}{\vdelta x_j} \left(\pd{f}{x_i}\right) (\vv{x}_0)
+	\]
+	то эта производная обозначается как
+	\[
+		\frac{\vdelta^2 f}{\vdelta x_j \vdelta x_i} (\vv{x}_0) = f_{x_ix_j}
+	\]
+	и называется \textit{частной производной второго порядка}
+\end{definition}
+
+\begin{example}
+	Рассмотрим следующую функцию:
+	\[
+		f(x, y) = \System{
+			&{xy \frac{x^2 - y^2}{x^2 + y^2},\ x^2 + y^2 \neq 0}
+			\\
+			&{0,\ x^2 + y^2 = 0}
+		}
+	\]
+	Частная производная по $x$ имеет вид:
+	\[
+		\pd{f}{x} (x, y) = \System{
+			&{y \frac{x^2 - y^2}{x^2 + y^2} + \frac{4x^2 y^3}{(x^2 + y^2)^2},\ x^2 + y^2 \neq 0}
+			\\
+			&{0,\ x^2 + y^2 = 0}
+		}
+	\]
+	А по $y$ она выглядит так:
+	\[
+		\pd{f}{y} (x, y) = \System{
+			&{x \frac{x^2 - y^2}{x^2 + y^2} - \frac{4x^3 y^2}{(x^2 + y^2)^2},\ x^2 + y^2 \neq 0}
+			\\
+			&{0,\ x^2 + y^2 = 0}
+		}
+	\]
+	А теперь посчитаем вторые производные $f_{xy}$ и $f_{yx}$:
+	Таким образом, значение производной зависит от порядка дифференцирования
+\end{example}
+
+\begin{theorem} (Шварц)
+	Если существуют $\frac{\vdelta^2 f}{\vdelta x \vdelta y}$ и $\frac{\vdelta^2 f}{\vdelta y \vdelta x}$ в некоторой окрестности точки $(x_0, y_0)$, причём они непрерывны в $(x_0, y_0)$, то
+	\[
+		\frac{\vdelta^2 f}{\vdelta x \vdelta y} (x_0, y_0) = \frac{\vdelta^2 f}{\vdelta y \vdelta x} (x_0, y_0)
+	\]
+\end{theorem}
+
+\begin{proof}
+	Рассмотрим выражение следующего вида:
+	\[
+		\Phi (h) = f(x_0 + h, y_0 + h) - f(x_0 + h, y_0) - f(x_0, y_0 + h) + f(x_0, y_0)
+	\]
+	Чтобы преобразовать $\Phi(h)$, определим допольнительную функцию $\phi$:
+	\[
+		\phi(x) := f(x, y_0 + h) - f(x, y_0)
+	\]
+	Отсюда получаем новое выражение:
+	\[
+		\Phi(h) = \phi(x_0 + h) - \phi(x_0)
+	\]
+	% Проверить текст ниже
+	Коль скоро $f$ дифференцируема в окрестности точки $(x_0, y_0)$, то и $\phi$ - тоже. Более того, мы можем расписать $\Phi(h)$, которое является приращением $\phi$:
+	\[
+		\Phi(h) = \phi(x_0 + h) - \phi(x_0) = \phi'(\xi) h = \left(\pd{f}{x} (\xi, y_0 + h) - \pd{f}{x} (\xi, y_0)\right) h = \frac{\vdelta^2 f}{\vdelta y \vdelta x} (\xi, \nu) h^2
+	\]
+	Если считать $h > 0$, то $\xi \in (x_0; x_0 + h)$, а $\nu \in (y_0; y_0 + h)$. Теперь распишем $\Psi(y)$ следующего вида:
+	\[
+		\Psi(y) := f(x_0 + h, y) - f(x_0, y)
+	\]
+	Отсюда снова получаем способ по-другому записать $\Phi(h)$:
+	\[
+		\Phi(h) = \Psi(y_0 + h) - \Psi(y_0) = \Psi'(\eta) h = \left(\pd{f}{y} (x_0 + h, \eta) - \pd{f}{y} (x_0, \eta)\right) h = \frac{\vdelta^2 f}{\vdelta x \vdelta y} (\Theta, \eta) h^2
+	\]
+	Так как мы расписали по сути одно и то же значение $\Phi(h)$, то, устремив $h$ к нулю, получим требуемое равенство.
+\end{proof}
+
+\begin{definition}
+	Функция $f$ называется \textit{дважды дифференцируемой} в точке $\vv{x}_0 \in \R^n$, если \underline{все} её частные производные дифференцируемы в $\vv{x}_0$.
+\end{definition}
+
+\begin{theorem} (Юнг)
+	Если $f$ дважды дифференцируема в точке $(x_0, y_0)$, то
+	\[
+		\frac{\vdelta^2 f}{\vdelta x \vdelta y} (x_0, y_0) = \frac{\vdelta^2 f}{\vdelta y \vdelta x} (x_0, y_0)
+	\]
+\end{theorem}
+
+\begin{proof}
+	Положим $\Phi(h)$ и $\phi(x)$ как в предыдущем доказательстве. Тогда:
+	\[
+		\Phi(h) = \phi(x_0 + h) - \phi(x_0) = \phi'(\xi) h = \left(\pd{f}{x} (\xi, y_0 + h) - \pd{f}{x} (\xi, y_0)\right) h
+	\]
+	Прибавим и отнимем частную производную в точке $(x_0, y_0)$. Отсюда имеем
+	\begin{multline*}
+		\Phi(x) = \left(\pd{f}{x} (\xi, y_0 + h) - \pd{f}{x} (x_0, y_0)\right) h - \left(\pd{f}{x} (\xi, y_0) - \pd{f}{x} (x_0, y_0)\right) h =
+		\\
+		\left(\frac{\vdelta^2}{\vdelta x^2} (x_0, y_0) (\xi - x_0) + \frac{\vdelta^2 f}{\vdelta y \vdelta x} (x_0, y_0) h + o\left(\sqrt{(\xi - x_0)^2 + h^2}\right)\right) h -
+		\\
+		\left(\frac{\vdelta^2 f}{\vdelta x^2} (x_0, y_0) (\xi - x_0) + o(|\xi - x_0|)\right) h
+	\end{multline*}
+	В итоге $\Phi(h)$ принимает вид
+	\[
+		\Phi(h) = \frac{\vdelta^2 f}{\vdelta x \vdelta y} (x_0, y_0) h^2 + o(...)
+	\]
+	% Дописать о-маленькое
+	Точно так же рассматривается разложение через $\Psi(y)$. Приравнивая эти разложения, получим
+	\[
+		\frac{\vdelta^2 f}{\vdelta y \vdelta x} (x_0, y_0) + \frac{\sqrt{(\xi - x_0)^2 + h^2}}{h} - \frac{o(|\xi - x_0|)}{h} = \frac{o(...)}{h^2} + \frac{\vdelta^2 f}{\vdelta x \vdelta y} (x_0, y_0)
+	\]
+\end{proof}
+
+\begin{example}
+	Приведённые теоремы являются достаточными условиями, но не необходимыми. Данная функция иллюстрирует это:
+	\[
+		f_1(x, y) = \System{
+			&{|x|^{3/2} |y|^{3/2} \sin \frac{1}{x} \sin \frac{1}{y},\ xy \neq 0}
+			\\
+			&{0,\ xy = 0}
+		}
+	\]
+	Для определённости, будем рассматривать $x, y > 0$. Тогда, частная производная по $x$ имеет вид:
+	\[
+		\pd{f_1}{x} = \frac{3}{2} |x|^{1/2} |y|^{3/2} \sin \frac{1}{x} \sin \frac{1}{y} - \frac{|y|^{3/2}}{|x|^{1/2}} \cos \frac{1}{x} \sin \frac{1}{y},\ xy \neq 0
+	\]
+	При $x = 0$ эта же производная будет иметь значение:
+	\[
+		\pd{f_1}{x} (0, y) = \liml_{\Delta x \to 0} \frac{f_1(\Delta x, y) - f_1(0, y)}{\Delta x} = 0
+	\]
+	Теперь посчитаем вторые производные:
+	\[
+		\frac{\vdelta^2 f_1}{\vdelta y \vdelta x} = \frac{9}{4} x^{1/2} y^{1/2} \sin \frac{1}{x} \sin \frac{1}{y} - \frac{3}{2} \cdot \frac{x^{1/2}}{y^{1/2}} \sin \frac{1}{x} \cos \frac{1}{y} - \frac{3}{2} \cdot \frac{y^{1/2}}{x^{1/2}} \cos \frac{1}{x} \sin \frac{1}{y} + \frac{1}{x^{1/2} y^{1/2}} \cos \frac{1}{x} \cos \frac{1}{y} 
+	\]
+	% Дописать строчку dy dx = предельчик = 0 = dx dy
+\end{example}
+
+\begin{example}
+	Данная функция удовлетворяет теореме Юнга, но не удовлетворяет теореме Шварца
+	\[
+		f_2(x, y) = \System{
+			&{x^3 y^3 \sin \frac{1}{xy},\ xy \neq 0}
+			\\
+			&{0,\ xy = 0}
+		}
+	\]
+	
+	Посчитаем частную производную по $x$:
+	\[
+		f_2'(x, y) = \System{
+			&{3x^2y^3 \sin \frac{1}{xy} = xy^2 \cos \frac{1}{xy},\ xy \neq 0}
+			\\
+			&{0,\ xy = 0}
+		}
+	\]
+	% Дописать вторую производную по y и показать её разрывность
+\end{example}
+
+\begin{example}
+	Пример функции, которая удовлетворяет теореме Шварца, но не удовлетворяет теореме Юнга
+	\[
+		f_3(x, y) = \System{
+			&{x^2 \sin \frac{1}{x},\ x \neq 0}
+			\\
+			&{0,\ x = 0}
+		}
+	\]
+	Частная производная по $x$ имеет следующий вид:
+	% Дописать
+\end{example}
+
+\begin{definition}
+	Если $f$ дважды дифференцируема в точке $\vv{x}_0$, то её \textit{дифференциал второго порядка} $d^2 f(\vv{x}_0)$ - это дифференциал от дифференциала первого порядка в точке $\vv{x}_0$, причём при повторном взятии приращение независимых переменных - те же, что и при первом взятии.
+\end{definition}
+
+\begin{note}
+	Пусть $x_1, \ldots, x_n$ - независимые переменные. Тогда
+	\begin{align*}
+		&{df(\vv{x}_0) = \suml_{k = 1}^n \pd{f}{x_k} (\vv{x}_0) dx_k}
+		\\
+		&{d(df)(\vv{x}_0) = \suml_{i = 1}^n \suml_{k = 1}^n \frac{\vdelta^2 f}{\vdelta x_i \vdelta x_k} (\vv{x}_0) dx_i dx_k}
+	\end{align*}
+\end{note}
+
+\begin{lemma}
+	\[
+		(a_1 + \ldots + a_n)^k = \suml_{i_1 + \ldots + i_n = k} \frac{k!}{i_1! \ldots i_n!} a_1^{i_1} \cdot \ldots \cdot a_n^{i_n}
+	\]
+\end{lemma}
+
+\begin{proof}
+	Доказательство индукцией по $k$:
+	\begin{itemize}
+		\item База $k = 2$: это просто бином Ньютона
+		
+		\item Переход $k > 2$:
+		\begin{multline*}
+			((a_1 + \ldots + a_n) + a_{n + 1})^k = \suml_{j = 0}^k \frac{k!}{j! (k - j)!} (a_1 + \ldots + a_n)^{k - j} a_{n + 1}^j =
+			\\
+			\suml_{j = 0}^k \frac{k!}{j! (k - j)!} \suml_{i_1 + \ldots + i_n = k - j} \frac{(k - j)!}{i_1! \ldots i_n!} a_1^{i_1} \cdot \ldots \cdot a_n^{i_n} \cdot a_{n + 1}^j = \suml_{i_1 + \ldots + i_{n + 1} = k} \frac{k!}{i_1! \ldots i_{n + 1}!} a_1^{i_1} \cdot \ldots \cdot a_{n + 1}^{i_{n + 1}}
+		\end{multline*}
+	\end{itemize}
+\end{proof}
+
+\begin{definition}
+	Функция называется $k$ раз дифференцируемой в точке $\vv{x}_0$, если её частные производные $(k - 1)$-го порядка дифференцируемы:
+	\[
+		d^k f(\vv{x}_0) := d(d^{k - 1} f)(\vv{x}_0)
+	\]
+	В случае, если функция зависит только от $n$ независимых переменных, то справедлива формула:
+	\[
+		d^k f(\vv{x}_0) = \left(\suml_{j = 1}^n \pd{}{x_j} dx_j\right)^k f(\vv{x}_0)
+	\]
+\end{definition}
+
+\begin{note}
+	Формула для дифференциала $k$-го порядка справедлива не только в случае, когда $x_1, \ldots, x_n$ - независимые переменные, но и в случае, когда $x_j$ зависит от независимых переменных $t_i$ линейным образом
+\end{note}
