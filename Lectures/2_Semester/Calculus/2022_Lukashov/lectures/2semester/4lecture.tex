@@ -61,12 +61,11 @@
 	\[
 		\Phi(h) = \phi(x_0 + h) - \phi(x_0)
 	\]
-	% Проверить текст ниже
-	Коль скоро $f$ дифференцируема в окрестности точки $(x_0, y_0)$, то и $\phi$ - тоже. Более того, мы можем расписать $\Phi(h)$, которое является приращением $\phi$:
+	Коль скоро $f$ дифференцируема в окрестности точки $(x_0, y_0)$, то и $\phi$ - тоже. Более того, мы можем расписать функцию $\Phi(h)$, которая описывает приращение $\phi$:
 	\[
 		\Phi(h) = \phi(x_0 + h) - \phi(x_0) = \phi'(\xi) h = \left(\pd{f}{x} (\xi, y_0 + h) - \pd{f}{x} (\xi, y_0)\right) h = \frac{\vdelta^2 f}{\vdelta y \vdelta x} (\xi, \nu) h^2
 	\]
-	Если считать $h > 0$, то $\xi \in (x_0; x_0 + h)$, а $\nu \in (y_0; y_0 + h)$. Теперь распишем $\Psi(y)$ следующего вида:
+	Если считать $h > 0$, то $\xi \in (x_0; x_0 + h)$, а $\nu \in (y_0; y_0 + h)$. Теперь распишем функцию $\Psi(y)$ следующего вида:
 	\[
 		\Psi(y) := f(x_0 + h, y) - f(x_0, y)
 	\]
@@ -97,18 +96,18 @@
 	\begin{multline*}
 		\Phi(x) = \left(\pd{f}{x} (\xi, y_0 + h) - \pd{f}{x} (x_0, y_0)\right) h - \left(\pd{f}{x} (\xi, y_0) - \pd{f}{x} (x_0, y_0)\right) h =
 		\\
-		\left(\frac{\vdelta^2}{\vdelta x^2} (x_0, y_0) (\xi - x_0) + \frac{\vdelta^2 f}{\vdelta y \vdelta x} (x_0, y_0) h + o\left(\sqrt{(\xi - x_0)^2 + h^2}\right)\right) h -
+		\left(\frac{\vdelta^2 f}{\vdelta x^2} (x_0, y_0) (\xi - x_0) + \frac{\vdelta^2 f}{\vdelta y \vdelta x} (x_0, y_0) h + o\left(\sqrt{(\xi - x_0)^2 + h^2}\right)\right) h -
 		\\
-		\left(\frac{\vdelta^2 f}{\vdelta x^2} (x_0, y_0) (\xi - x_0) + o(|\xi - x_0|)\right) h
+		\left(\frac{\vdelta^2 f}{\vdelta x^2} (x_0, y_0) (\xi - x_0) + o(|\xi - x_0|)\right) h,\ h\to 0
 	\end{multline*}
+	Очевидно, что $|\xi - x_0| \leq |(\xi - x_0, h)| = \sqrt{(\xi - x_0)^2 + h^2} \leq \sqrt{2}|h|$.
 	В итоге $\Phi(h)$ принимает вид
 	\[
-		\Phi(h) = \frac{\vdelta^2 f}{\vdelta x \vdelta y} (x_0, y_0) h^2 + o(...)
+		\Phi(h) = \frac{\vdelta^2 f}{\vdelta x \vdelta y} (x_0, y_0) h^2 + o(h^2),\ h\to 0
 	\]
-	% Дописать о-маленькое
 	Точно так же рассматривается разложение через $\Psi(y)$. Приравнивая эти разложения, получим
 	\[
-		\frac{\vdelta^2 f}{\vdelta y \vdelta x} (x_0, y_0) + \frac{\sqrt{(\xi - x_0)^2 + h^2}}{h} - \frac{o(|\xi - x_0|)}{h} = \frac{o(...)}{h^2} + \frac{\vdelta^2 f}{\vdelta x \vdelta y} (x_0, y_0)
+		\frac{\vdelta^2 f}{\vdelta y \vdelta x} (x_0, y_0) + \frac{o(h^2)}{h^2} = \frac{o(h^2)}{h^2} + \frac{\vdelta^2 f}{\vdelta x \vdelta y} (x_0, y_0)
 	\]
 \end{proof}
 
@@ -133,7 +132,15 @@
 	\[
 		\frac{\vdelta^2 f_1}{\vdelta y \vdelta x} = \frac{9}{4} x^{1/2} y^{1/2} \sin \frac{1}{x} \sin \frac{1}{y} - \frac{3}{2} \cdot \frac{x^{1/2}}{y^{1/2}} \sin \frac{1}{x} \cos \frac{1}{y} - \frac{3}{2} \cdot \frac{y^{1/2}}{x^{1/2}} \cos \frac{1}{x} \sin \frac{1}{y} + \frac{1}{x^{1/2} y^{1/2}} \cos \frac{1}{x} \cos \frac{1}{y} 
 	\]
-	% Дописать строчку dy dx = предельчик = 0 = dx dy
+	При $y = 0$ смешанная производная будет равна:
+	\[
+		\frac{\vdelta^2 f_1}{\vdelta y \vdelta x}(0, 0) = \liml_{\Delta y \to 0}\frac{\pd{f_1}{x}(0, \Delta y) - \pd{f_1}{x}(0, 0)}{\Delta y} = 0
+	\]
+	Аналогично можно показать, что 
+	\[
+		\frac{\vdelta^2 f_1}{\vdelta x \vdelta y}(0, 0) = \liml_{\Delta x \to 0}\frac{\pd{f_1}{y}(\Delta x, 0) - \pd{f_1}{y}(0, 0)}{\Delta x} = 0
+	\]
+	То есть $\frac{\vdelta^2 f_1}{\vdelta x \vdelta y} = \frac{\vdelta^2 f_1}{\vdelta y \vdelta x}$, хотя частные производные по $x$ и по $xy$  не непрерывны и не дифференцируемы. То есть обе теоремы являются лишь достаточными условиями.
 \end{example}
 
 \begin{example}
@@ -148,13 +155,21 @@
 	
 	Посчитаем частную производную по $x$:
 	\[
-		f_2'(x, y) = \System{
-			&{3x^2y^3 \sin \frac{1}{xy} = xy^2 \cos \frac{1}{xy},\ xy \neq 0}
+		\pd{f_2}{x}(x, y) = \System{
+			&{3x^2y^3 \sin \frac{1}{xy} - xy^2 \cos \frac{1}{xy},\ xy \neq 0}
 			\\
 			&{0,\ xy = 0}
 		}
 	\]
-	% Дописать вторую производную по y и показать её разрывность
+	Вторая частная производная по $y$:
+	\[
+		\frac{\vdelta^2 f_2}{\vdelta x \vdelta y}(x, y) = \System{
+			&{9x^2y^2 \sin \frac{1}{xy} - 3xy\cos\frac{1}{xy} - 2xy\cos\frac{1}{xy} - \sin\frac{1}{xy},\ xy \neq 0}
+			\\
+			&{0,\ xy = 0}
+		}
+	\]
+	Причем в нуле она имеет разрыв, так как $\sin\frac{1}{xy}$ не сходится.
 \end{example}
 
 \begin{example}
@@ -167,7 +182,18 @@
 		}
 	\]
 	Частная производная по $x$ имеет следующий вид:
-	% Дописать
+	\[
+		\System{
+			&{\pd{f_3}{x}(x, y) = 2x \sin \frac{1}{x} - \cos\frac{1}{x},\ x \neq 0}
+			\\
+			&{0,\ x = 0}
+		}
+	\]
+	А значит, она не дифференцируема, однако вторая смешанная производная по $y$:
+	\[
+		\frac{\vdelta^2 f_3}{\vdelta xy} = 0
+	\]
+	Так как функция не зависит от $y$, то все дальнейшие производные также будут равны 0. Получаем $\frac{\vdelta^2 f_1}{\vdelta x \vdelta y} = 0 = \frac{\vdelta^2 f_1}{\vdelta y \vdelta x}$.
 \end{example}
 
 \begin{definition}
