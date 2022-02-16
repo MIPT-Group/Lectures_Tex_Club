@@ -4,19 +4,16 @@
 		f(\vv{x}) = f(\vv{x}_0) + \suml_{k = 1}^m \frac{d^k f(\vv{x}_0)}{k!} + \frac{d^{m + 1} f(\vv{\xi})}{(m + 1)!}
 	\]
 	% Здесь выпирает кусок где \vv{x} = (...)
-	где в дифференциалах следует положить $\forall j \in \range{n}\ dx_j = x_j - x_{j, 0}$, где $\vv{x} = (x_1, \ldots, x_n)$; $\vv{x}_0 = (x_{1, 0}, \ldots, x_{n, 0})$.
+	где в дифференциалах следует положить $\forall j \in \range{n}\ dx_j = x_j - x_{j, 0}$, причем $m \geq 0$, $\vv{x} = (x_1, \ldots, x_n)$, $\vv{x}_0 = (x_{1, 0}, \ldots, x_{n, 0})$.
 \end{theorem}
 
-\begin{note}
-	Формула верна и для $m = 0$, хоть это и неинтересный случай.
-\end{note}
-
 \begin{proof}
-	Положим $F(t) := f(\vv{x}_0 + t(\vv{x} - \vv{x}_0))$. Докажем, что
-	% Поправить. Возможно тут для всех до m
+	Положим $F(t) := f(\vv{x}_0 + t(\vv{x} - \vv{x}_0)),\  \forall t \in [0, 1]$. Докажем, что
 	\[
 		\forall k \in \range{m + 1}\ F^{(k)} (t) = d^k f(\vv{x}_0 + t(\vv{x} - \vv{x}_0))
 	\]
+	В дифференциалы нужно положить $\forall j \in \range{n} \ dx_j = x_j - x_{j, 0}$.
+	
 	Сделаем это при помощи индукции:
 	\begin{itemize}
 		\item База $k = 1$:
@@ -28,11 +25,21 @@
 		\begin{multline*}
 			F^{(k + 1)}(t) = \left(d^k f(\vv{x}_0 + t(\vv{x} - \vv{x}_0))\right)' =
 			\\
-			\left(\suml_{i_1, \ldots, i_k  = 1}^n \frac{\vdelta^k f}{\vdelta x_{i_1} \cdot \ldots \cdot \vdelta x_{i_k}} (\vv{x}_0 + t(\vv{x} - \vv{x}_0)) (x_{i_1} - x_{i_1, 0}) \cdot \ldots \cdot (x_{i_k} - x_{i_k, 0})\right) =
+			\left(\suml_{i_1, \ldots, i_k  = 1}^n \frac{\vdelta^k f}{\vdelta x_{i_1} \cdot \ldots \cdot \vdelta x_{i_k}} (\vv{x}_0 + t(\vv{x} - \vv{x}_0)) (x_{i_1} - x_{i_1, 0}) \cdot \ldots \cdot (x_{i_k} - x_{i_k, 0})\right)' =
 			\\
-			\suml_{i_1, \ldots, i_k = 1}^n \left(\suml_{j = 1}^n \pd{}{x_j} \left(\frac{\vdelta^k f}{\vdelta x_{i_1} \cdot \ldots \cdot \vdelta{x_{i_k}}}\right) (\vv{x}_0 + t(\vv{x} - \vv{x}_0))(x_j - x_{j, 0})\right) (x_{i_1} - x_{i_1, 0}) \cdot \ldots \cdot (x_{i_k} - x_{i_k, 0}) =
+			\suml_{i_1, \ldots, i_k = 1}^n \left(\suml_{j = 1}^n \pd{}{x_j} \left(\frac{\vdelta^k f}{\vdelta x_{i_1} \cdot \ldots \cdot \vdelta{x_{i_k}}}\right) (\vv{x}_0 + t(\vv{x} - \vv{x}_0))(x_j - x_{j, 0})\right) (x_{i_1} - x_{i_1, 0}) \cdot \ldots \cdot (x_{i_k} - x_{i_k, 0}) = 
+			\\
+			\suml_{i_1, \ldots, i_n}^n\frac{\vdelta^{k + 1} f}{\vdelta x_{i_1}\cdot\ldots\cdot \vdelta x_{i_n}}(\vv{x}_0 + t(\vv{x} - \vv{x}_0))(x_{i_1} - x_{i_1, 0})\cdot\ldots\cdot(x_{i_n} - x_{i_n, 0}) = d^{k + 1}f(\vv{x}_0 + t(\vv{x} - \vv{x}_0))
 		\end{multline*}
 	\end{itemize}
+	Разложим $F(t)$ в ряд Тейлора с остаточным членом в форме Лагранжа:
+	\[
+		F(1) = F(0) + \suml_{k = 1}^m\frac{F^{(k)}(0)}{k!} + \frac{F^{(m + 1)}(c)}{(m + 1)!}
+	\]
+	Это в свою очередь равняется:
+	\[
+		f(\vv{x}) = f(\vv{x}_0) + \suml_{k = 1}^m\frac{d^{k}f(\vv{x}_0)}{k!} + \frac{d^{m + 1}f(\vv{\xi)}}{(m + 1)!}
+	\]
 \end{proof}
 
 \begin{theorem} (Формула Тейлора с остаточным членом в форме Пеано для функции многих переменных)
@@ -40,7 +47,7 @@
 	\[
 		f(\vv{x}) = f(\vv{x}_0) + \suml_{k = 1}^m \frac{d^k f(\vv{x}_0)}{k!} + o\left(|\vv{x} - \vv{x}_0|^m\right),\ \vv{x} \to \vv{x}_0
 	\]
-	где соглашения про $dx_j$, $\vv{x}$, $\vv{x}_0$ те же, что и в предыдущий раз.
+	где соглашения про $dx_j$, $\vv{x}$, $\vv{x}_0$ те же, что и в предыдущий раз, лишь теперь $m \geq 1$
 \end{theorem}
 
 \begin{proof}
@@ -54,7 +61,7 @@
 	\end{lemma}
 
 	\begin{proof}
-		Индукция по $m$:
+		По индкуции
 		\begin{itemize}
 			\item База $m = 1$:
 			\[
@@ -72,47 +79,56 @@
 			\begin{multline*}
 				\pd{g_{t + 1}}{x_1} (\vv{x}) = \pd{f}{x_1} (\vv{x}) - \suml_{k = 1}^{t + 1} \frac{1}{k!} \suml_{i_1 + \ldots + i_n = k} \frac{\vdelta^k f}{\vdelta x_1^{i_1} \cdot \ldots \cdot \vdelta x_n^{i_n}} (\vv{x}_0) \cdot
 				\\
-				\frac{k!}{i_1! \cdot \ldots \cdot i_n!} (x_1 - x_{1, 0})^{i_1 - 1} \cdot \ldots \cdot (x_n - x_{n, 0})^{i_n} =
+				\frac{k!}{i_1! \cdot \ldots \cdot i_n!} (x_1 - x_{1, 0})^{i_1 - 1} \cdot \ldots \cdot (x_n - x_{n, 0})^{i_n}
+			\end{multline*}
+			Переобозначим $\hat{i}_1 = i_1 - 1,\ \hat{i}_2 = i_2,\ldots, \hat{i}_n = i_n$.
+			\begin{multline*}
+				\pd{f}{x_1} (\vv{x}) - \pd{f}{x_1} (\vv{x}_0) - \suml_{k = 2}^{t + 1} \frac{1}{(k - 1)!} \suml_{\hat{i}_1 + \ldots + \hat{i}_n = k - 1} \frac{(k - 1)!}{\hat{i}_1! \cdot \ldots \cdot \hat{i}_n!} \cdot
 				\\
-				\pd{f}{x_1} (\vv{x}) - \pd{f}{x_1} (\vv{x}_0) - \suml_{k = 2}^{t + 1} \frac{1}{(k - 1)!} \suml_{\tilde{i}_1 + \ldots + \tilde{i}_n = k - 1} \frac{(k - 1)!}{\tilde{i}_1! \cdot \ldots \cdot \tilde{i}_n!} \cdot
+				\frac{\vdelta^{k - 1}}{\vdelta x_1^{\hat{i}_1} \cdot \ldots \cdot \vdelta x_n^{\hat{i}_n}} \left(\pd{f}{x_1}\right) (\vv{x}_0) (x_1 - x_{1, 0})^{\hat{i}_1} \cdot \ldots \cdot (x_n - x_{n, 0})^{\hat{i}_n} =
 				\\
-				\frac{\vdelta^{k - 1}}{\vdelta x_1^{\tilde{i}_1 \cdot \ldots \cdot \vdelta x_n^{\tilde{i}_n}}} \left(\pd{f}{x_1}\right) (\vv{x}_0) (x_1 - x_{1, 0})^{\tilde{i}_1} \cdot \ldots \cdot (x_n - x_{n, 0})^{\tilde{i}_n} =
-				\\
-				\pd{f}{x_1} (\vv{x}) - \pd{f}{x_1} (\vv{x}_0) - \suml_{k = 1}^t \frac{1}{t!} d^k \left(\pd{f}{x_1}\right) (\vv{x}_0)
+				\pd{f}{x_1} (\vv{x}) - \pd{f}{x_1} (\vv{x}_0) - \suml_{k = 1}^t \frac{1}{k!} d^k \left(\pd{f}{x_1}\right) (\vv{x}_0)
 			\end{multline*}
 		\end{itemize}
+	\end{proof}
+	\begin{lemma}
+		Пусть функция $g$ удовлетворяет следующим условиям:
+		\begin{enumerate}
+			\item $g$ $m$ раз дифференцируема в точке $\vv{x}_0 \in \R^n$
+			
+			\item $g$ $m - 1$ раз дифференцируема в окрестности точки $\vv{x}_0$
+			
+			\item $g$ обращается в нуль вместе со всеми своими частными производными до $m - 1$-го порядка включительно в точке $\vv{x}_0$
+		\end{enumerate}
+		Тогда верно, что
+		\[
+			g(\vv{x}) = o\left(|\vv{x} - \vv{x}_0|^m\right),\ \vv{x} \to \vv{x}_0
+		\]
+	\end{lemma}
 	
-		\begin{lemma}
-			Пусть функция $g$ удовлетворяет следующим условиям:
-			\begin{enumerate}
-				\item $g$ $m$ раз дифференцируема в точке $\vv{x}_0 \in \R^n$
-				
-				\item $g$ $m - 1$ раз дифференцируема в окрестности точки $\vv{x}_0$
-				
-				\item $g$ обращается в нуль вместо со всеми частными производными до $m$-го порядка включительно в точке $\vv{x}_0$
-			\end{enumerate}
-			Тогда верно, что
+	\begin{proof}
+		По индукции
+		\begin{itemize}
+			\item База $m = 1$: очевидно, ибо условие теоремы обращается в простую дифференцируемость в точке $\vv{x}_0$.
+			
+			\item Переход $m = t \Ra m = t + 1$: из условия следует, что $g$ хотя бы $t$ раз дифференцируема в окрестности точки $\vv{x}_0$. Запишем $g$ по формуле Тейлора с остаточным членом в форме Лагранжа с одним дифференциалом:
 			\[
-				g(\vv{x}) = o\left(|\vv{x} - \vv{x}_0|^m\right),\ \vv{x} \to \vv{x}_0
+				g(\vv{x}) = g(\vv{x}_0) + \frac{dg(\vv{\xi})}{1!},\ \vv{\xi} = \vv{x}_0 + c(\vv{x} - \vv{x}_0),\ 0 \le c \le 1
 			\]
-		\end{lemma}
-	
-		\begin{proof}
-			По индукции
-			\begin{itemize}
-				\item База $m = 1$: очевидно, ибо условие теоремы обращается в простую дифференцируемость в точке $\vv{x}_0$.
-				
-				\item Переход $m = t \Ra m = t + 1$: из условия следует, что $g$ хотя бы $t$ раз дифференцируема в окрестности точки $\vv{x}_0$. Запишем $g$ по формуле Тейлора с остаточным членом в форме Лагранжа с одним дифференциалом:
-				\[
-					g(\vv{x}) = g(\vv{x}_0) + \frac{dg(\vv{\xi})}{1!},\ \vv{\xi} = \vv{x}_0 + c(\vv{x} - \vv{x}_0),\ 0 \le c \le 1
-				\]
-				Распишем $dg(\vv{\xi})$:
-				\[
-					dg(\vv{\xi}) = \suml_{j = 1}^n \pd{g}{x_j} (\vv{\xi}) (x_j - x_{j, 0})
-				\]
-				% Дальше я уже кокнулся. Допиши пожолусто
-			\end{itemize}
-		\end{proof}
+			Распишем $dg(\vv{\xi})$:
+			\[
+				dg(\vv{\xi}) = \suml_{j = 1}^n \pd{g}{x_j} (\vv{\xi}) (x_j - x_{j, 0})
+			\]
+			$\pd{g}{x_j}$ удовлетворяет лемме для m = t, тогда:
+			\[
+				\pd{g}{x_j}(\vv{\xi}) = o(|\vv{\xi} - \vv{x}_0|^t) = o(|\vv{x} - \vv{x}_0|^t),\ \vv{x} \to \vv{x}_0
+			\]
+			Теперь мы можем переписать $dg(\vv{\xi})$ как:
+			\[
+				dg(\vv{\xi}) = \suml_{j = 1}^n \pd{g}{x_j}(\vv{\xi})(x_j - x_{j, 0}) = \suml_{j = 1}^n o(|\vv{x} - \vv{x}_0|^t)(x_j - x_{j, 0}) = \suml_{j = 1}^n o(|\vv{x} - \vv{x}_0|^{t + 1})\frac{(x_j - x_{j, 0})}{|\vv{x} - \vv{x}_0|}
+			\]
+			Очевидно $\forall j\ \frac{(x_j - x_{j, 0})}{|\vv{x} - \vv{x}_0|} \leq 1$. Поэтому окончательно $dg(\vv{x}) = o(|\vv{x} - \vv{x}_0|^{t + 1}),\ \vv{x} \to \vv{x}_0$
+		\end{itemize}
 	\end{proof}
 \end{proof}
 
@@ -187,11 +203,15 @@
 \end{lemma}
 
 \begin{proof}
-	Докажем, что для любого измельчения $P^*$ разбиения $P$ верно 2 неравенства:
+	Если $P_1 = P_2$, то это очевидно, в противном случае докажем, что для любого измельчения $P^*$ разбиения $P$ верно 2 неравенства:
 	\begin{align*}
 		&{L(P, f) \le L(P^*, f)}
 		\\
 		&{U(P, f) \ge U(P^*, f)}
 	\end{align*}
-	% Дописать доказательство
+	Рассмотрим измельчение $P^* = P \cup \{x^*\},\ x^* \in (x_{k - 1}, x_k)$.
+	Все слагаемые в $L(P^*, f)$ совпадают с $L(P, f)$, кроме $m_k \Delta x_k$, которое стало $\inf\limits_{x\in [x_{k - 1}, x^*]} f(x)(x^* - x_{k - 1}) + \inf\limits_{x\in[x^*, x_k]}f(x)(x_k - x^*)$. Так как инфимум на отрезке не может быть больше, чем на подотрезках, то это слагаемое возрасло, а значит $L(P^*, f) \geq L(P, f)$. Аналогичное рассуждение справедливо и для $U(P^*, f) \leq U(P, f)$. Для доказательства теоремы достаточно рассмотреть общее измельчение:
+	\[
+		P^* = P_1 \cup P_2 \Ra L(P_1, f) \leq L(P^*, f) \leq U(P^*, f) \leq U(P_2, f)
+	\]
 \end{proof}
