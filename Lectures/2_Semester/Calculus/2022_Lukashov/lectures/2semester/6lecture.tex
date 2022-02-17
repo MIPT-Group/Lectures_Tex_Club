@@ -1,0 +1,166 @@
+\begin{corollary}
+	Для любой ограниченной функции на $[a; b]$ будет верно, что $\underline{I} \le \overline{I}$
+\end{corollary}
+
+\begin{theorem} (Критерий интегрируемости по Риману)
+	$f$ интегрируема по Риману на $[a; b]$ ($f \in R[a; b]$) тогда и только тогда, когда верно утверждение:
+	\[
+		\forall \eps > 0\ \exists \text{ разбиение } P \such U(P, f) - L(P, f) < \eps
+	\]
+\end{theorem}
+
+\begin{proof}~
+	\begin{itemize}
+		\item Необходимость. Коль скоро функция $f$ интегрируема, то
+		\[
+			\sup\limits_P L(P, f) = \inf\limits_P U(P, f)
+		\]
+		Из этого вытекает следующее утверждение:
+		\[
+			\forall \eps > 0\ \exists P_1, P_2 \such \int_a^b f(x)dx - \frac{\eps}{2} < L(P_1, f) \le \int_a^b f(x)dx \le U(P_2, f) < \int_a^b f(x)dx + \frac{\eps}{2}
+		\]
+		Но при этом верно неравенство
+		\[
+			L(P_1, f) \le L(P^*, f) \le U(P^*, f) \le U(P_2, f)
+		\]
+		% Дописать и добавить $P^* = P_1 \cup P_2$
+		
+		\item Достаточность
+		% Дописать
+	\end{itemize}
+\end{proof}
+
+\begin{theorem}
+	Каждая непрерывная на $[a; b]$ функция интегрируема по Риману на $[a; b]$.
+\end{theorem}
+
+\begin{proof}
+	Коль скоро $f \in C[a; b]$, то по теореме Кантора она равномерно непрерывна:
+	\[
+		\forall \eps > 0\ \exists \delta > 0 \such \forall x, t \in [a; b],\ |x - t| < \delta\ \ |f(x) - f(t)| < \frac{\eps}{b - a}
+	\]
+	Выберем любое разбиение $P$, для которого $\Delta(P) < \delta$. Значит
+	\[
+		M_k - m_k < \frac{\eps}{b - a} \Ra U(P, f) - L(P, f) = \suml_{k = 1}^n (M_k - m_k) \Delta x_k < \frac{\eps}{b - a} \suml_{k = 1}^n \Delta x_k = \eps
+	\]
+\end{proof}
+
+\begin{note}
+	Все доказанные в этом параграфе на данный момент результаты переносятся на случай интеграла Римана-Стильтьеса
+\end{note}
+
+\begin{definition}
+	Если $\alpha$ - неубывающая на $[a; b]$ функция, то положим
+	\begin{align*}
+		&{\Delta \alpha_k = \alpha(x_k) - \alpha(x_{k - 1})}
+		\\
+		&{L(P, f, \alpha) = \suml_{k = 1}^n m_k \Delta \alpha_k}
+		\\
+		&{U(P, f, \alpha) = \suml_{k = 1}^n M_k \Delta \alpha_k}
+		\\
+		&{\underline{I}(f, \alpha) = \sup\limits_P L(P, f, \alpha)}
+		\\
+		&{\overline{I}(f, \alpha) = \inf\limits_P U(P, f, \alpha)}
+	\end{align*}
+	Соответственно, если $\underline{I} = \overline{I}$, то общее значение называется \textit{интегралом} по Риману-Стильтьесу.
+\end{definition}
+
+\begin{theorem}
+	Каждая монотонная на отрезке $[a; b]$ функция интегрируема по Риману на $[a; b]$.
+\end{theorem}
+
+\begin{proof}
+	Пусть $f$ возрастает. Тогда, посмотрим на разность сумм Дарбу:
+	\[
+		U(P, f) - L(P, f) = \suml_{k = 1}^n (M_k - m_k) \Delta x_k
+	\]
+	В силу неубывания, имеем следующие равенства:
+	\begin{align*}
+		&{m_k = \inf\limits_{x \in [x_{k - 1}; x_k]} f(x) = f(x_{k - 1})}
+		\\
+		&{M_k = \sup\limits_{x \in [x_{k - 1}; x_k]} f(x) = f(x_k)}
+	\end{align*}
+	Отсюда получаем, что разность оценивается как
+	\begin{multline*}
+		U(P, f) - L(P, f) = \suml_{k = 1}^n (f(x_k) - f(x_{k - 1})) \Delta x_k \le
+		\\
+		\Delta(P) \suml_{k = 1}^n (f(x_k) - f(x_{k - 1})) = \Delta(P)(f(b) - f(a)) < \eps
+	\end{multline*}
+\end{proof}
+
+\begin{example}
+	Функция Дирихле не интегрируема по Риману. Действительно, \ldots
+\end{example}
+
+\begin{example}
+	А здесь должна быть функция Римана, но автор очень хочет спать.
+\end{example}
+
+\subsection{Основные свойства интеграла Римана}
+
+\begin{theorem}~
+	\begin{enumerate}
+		\item Линейность. Если $f_1, f_2 \in R[a; b]$, то $(f_1 + f_2) \in R[a; b]$, причём
+		\begin{align*}
+			&{\int_a^b (f_1 + f_2)(x)dx = \int_a^b f_1(x)dx + \int_a^b f_2(x)dx}
+			\\
+			&{\forall c \in \R\ \ \int_a^b cf_1(x)dx = c\int_a^b f_1(x)dx}
+		\end{align*}
+		
+		\item Монотонность. Если $f_1, f_2 \in R[a; b]$ и $\forall x \in [a; b]\ f_1(x) \le f_2(x)$, то
+		\[
+			\int_a^b f_1(x)dx \le \int_a^b f_2(x)dx
+		\]
+		
+		\item Аддитивность.
+		\[
+			f \in R[a; b] \lra \Big(f \in R[a; c] \wedge f \in R[c; b] \text{, где } c \in (a; b)\Big)
+		\]
+		причём
+		\[
+			\int_a^b f(x)dx = \int_a^c f(x)dx + \int_c^b f(x)dx
+		\]
+		
+		\item Оценка. Если $f \in [a; b]$ и $\forall x \in [a; b]\ \ |f(x)| \le M$, то
+		\[
+			\left|\int_a^b f(x)dx\right| \le M(b - a)
+		\]
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	% Дописать
+\end{proof}
+
+\begin{example}
+	Композиция двух интегрируемых по Риману функций сама не обязана быть интегрируемой по Риману. Положим
+	\[
+		f(x) = \System{
+			&{1,\ x \in (0; 1]}
+			\\
+			&{0,\ x = 0}
+		}
+	\]
+	а $g(x)$ - просто функция Римана. Что такое $(f \circ g)(x) = f(g(x))$? Это функция Дирихле, которая не интегрируема по Риману.
+\end{example}
+
+\begin{theorem} (Интегрируемость сложной функции)
+	Если $g \in R[a; b]$, причём $\forall x \in [a; b]\ m \le g(x) \le M$, $f$ непрерывная на $[m; M]$, то $f \circ g$ интегрируема по Риману на $[a; b]$.
+\end{theorem}
+
+\begin{proof}
+	Сначала воспользуемся непрерывностью $f \in C[m; M]$. В силу ограниченности верна теорема Кантора для $f$, а стало быть
+	\[
+		\forall \eps > 0\ \exists \delta > 0,\ \delta < \eps\ \such \left(\forall y_1, y_2 \in [m; M],\ |y_1 - y_2| < \delta\right)\ \ |f(y_1) - f(y_2)| < \eps
+	\]
+	Теперь, коль скоро $g \in R[a; b]$, то по критерию интегрируемости
+	\[
+		\exists P \such U(P, g) - L(P, g) < \delta^2
+	\]
+	Положим $h(x) := f(g(x))$ и рассмотрим разность сумм Дарбу:
+	\[
+		U(P, h) - L(P, h) = \suml_{i \in A} (M_i(h) - m_i(h))\Delta x_i + \suml_{i \in B} (M_i(h) - m_i(h)) \Delta x_i
+	\]
+	где $P = $
+	% Дописать. Там как-то коряво чуток было
+\end{proof}
