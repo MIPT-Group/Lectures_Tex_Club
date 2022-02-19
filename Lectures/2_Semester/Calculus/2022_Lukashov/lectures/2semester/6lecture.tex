@@ -1,5 +1,5 @@
 \begin{corollary}
-	Для любой ограниченной функции на $[a; b]$ будет верно, что $\underline{I} \le \overline{I}$
+	Для любой ограниченной функции на $[a; b]$ будет верно, что $\underline{I} \leq \overline{I}$
 \end{corollary}
 
 \begin{theorem} (Критерий интегрируемости по Риману)
@@ -9,7 +9,7 @@
 	\]
 \end{theorem}
 
-\begin{proof}~
+\begin{proof}
 	\begin{itemize}
 		\item Необходимость. Коль скоро функция $f$ интегрируема, то
 		\[
@@ -19,14 +19,21 @@
 		\[
 			\forall \eps > 0\ \exists P_1, P_2 \such \int_a^b f(x)dx - \frac{\eps}{2} < L(P_1, f) \le \int_a^b f(x)dx \le U(P_2, f) < \int_a^b f(x)dx + \frac{\eps}{2}
 		\]
-		Но при этом верно неравенство
+		Возьмем $P^* = P_1 \cup P_2$. Тогда верно неравенство
 		\[
-			L(P_1, f) \le L(P^*, f) \le U(P^*, f) \le U(P_2, f)
+			L(P_1, f) \le L(P^*, f) \le U(P^*, f) \le U(P_2, f) \Ra U(P^*, f) - L(P^*, f) < \eps
 		\]
-		% Дописать и добавить $P^* = P_1 \cup P_2$
 		
-		\item Достаточность
-		% Дописать
+		\item Достаточность. $\forall \eps > 0\ \exists P$. Запишем известные нам неравенства.
+		\begin{align*}
+			&U(P, f) - L(P, f) < \eps
+			\\
+			&L(P, f) \leq \underline{I}(f) \leq \overline{I}(f) \leq U(P, f)
+		\end{align*}
+		Получаем:
+		\[
+			0 \leq \overline{I}(f) - \underline{I}(f)  < \eps \Ra \underline{I}(f) = \overline{I}(f)
+ 		\]
 	\end{itemize}
 \end{proof}
 
@@ -46,7 +53,7 @@
 \end{proof}
 
 \begin{note}
-	Все доказанные в этом параграфе на данный момент результаты переносятся на случай интеграла Римана-Стильтьеса
+	Все доказанные ранее в этом параграфе на данный момент результаты переносятся на случай интеграла Римана-Стильтьеса
 \end{note}
 
 \begin{definition}
@@ -89,11 +96,35 @@
 \end{proof}
 
 \begin{example}
-	Функция Дирихле не интегрируема по Риману. Действительно, \ldots
+	Функция Дирихле не интегрируема по Риману.
+	\[
+		f(x) = \System{
+			&1,\ x\in \mathbb{Q}
+			\\
+			&0,\ x\in \mathbb{R} \setminus \mathbb{Q}
+		}
+	\]
+	Действиетльно, для любого отрезка $M_k = 1,\ m_k = 0 \Ra U(P, f) - L(P, f) = \suml_{k - 1}^n(1 - 0)\Delta x_k = b - a \neq 0$
 \end{example}
 
 \begin{example}
-	А здесь должна быть функция Римана, но автор очень хочет спать.
+	Функция Римана интегрируема по Риману.
+		\[
+	f(x) = \System{
+		&\frac{1}{p},\ q = \frac{p}{q} \in\mathbb{Q}
+		\\
+		&0,\ x\in \mathbb{R} \setminus \mathbb{Q}
+	}
+	\]
+	Рассмотрим отрезок $[0;1]$. $\forall \eps > 0\ \exists{t_1,\ldots,t_N} \such f(t_k) \geq \eps$. Для всех таких $t_k$ добавим в разибение  отрезки $[t_k - \frac{\eps}{2N};t_k + \frac{\eps}{2N}]$. Если некоторые из них пересекаются, то берем у пересечения самую правую и самую левую границу. Очевидно, что $L(P, f) = 0$. В свою очередь $U(P, f)$ можно разбить на 2 суммы:
+	\[
+		U(P, f) = \suml_{k\in A} + \suml_{k \in B}
+	\]
+	Где $A$ - множество отрезков, которые содержат $t_k$, а $B$ множество отрезков, соеднияющих отрезки из $A$. Тогда:
+	\[
+		U(P, f) = \suml_{k\in A} + \suml_{k \in B} \leq N \frac{\eps}{N} + \eps = 2\eps
+	\]
+	Итого $U(P, f) - L(P, f) < 3\eps$.
 \end{example}
 
 \subsection{Основные свойства интеграла Римана}
@@ -129,7 +160,60 @@
 \end{theorem}
 
 \begin{proof}
-	% Дописать
+	\begin{enumerate}
+		\item Линейность. $\forall \eps > 0\ \exists P_1,\ P_2\ U(P_i, f_i) - L(P_i, f_i) < \frac{\eps}{2},\ i \in \{1, 2\}$.
+		Пусть $P = P_1 \cup P_2$ тогда $U(P, f_i) - L(P, f_i) < \frac{\eps}{2},\ i \in \{1, 2\}$.
+		Справедливо, что супремум суммы не больше суммы супремумов, аналогичное рассуждение верно для инфимумов.
+		\begin{multline*}
+			U(P, f_1 + f_2) - L(P, f_1 + f_2) = \suml_{k = 1}^nM_k(f_1(x) + f_2(x))\Delta x_k - \suml_{k = 1}^nm_k(f_1(x) + f_2())\Delta x_k \leq
+			\\
+			\suml_{k = 1}^n(M_k(f_1) + M_k(f_2))\Delta x_k - \suml_{k = 1}^n(m_k(f_1) + m_k(f_2))\Delta x_k = \frac{\eps}{2} + \frac{\eps}{2} = \eps
+		\end{multline*}
+		Запишем известные нам неравенства:
+		\[
+			L(P, f_1) + L(P, f_2) \leq L(P, f_1 + f_2) \leq \int_{a}^{b}(f_1 + f_2)dx \leq U(P, f_1 + f_2) \leq U(P, f_1) + U(P, f_2)
+		\]
+		Откуда:
+		\[
+			\left|\int_a^b(f_1(x) + f_2(x))dx - \left(\int_a^bf_1(x)dx + \int_a^bf_2(x)dx\right)\right| < \eps
+		\]
+		Расмотрим теперь умножение на число.
+		\begin{itemize}
+			\item $c \geq 0$
+				\begin{align*}
+					& U(P, c, f_1) = cU(P, f_1)
+					\\
+					& L(P, c, f_1) = cL(P, f_1)
+				\end{align*}
+			\item $c < 0$
+				\begin{align*}
+					& U(P, c, f_1) = cL(P, f_1)
+					\\
+					& L(P, c, f_1) = cU(P, f_1)
+				\end{align*}
+		\end{itemize}
+		\item Очевидно, что $f_2 - f_1 \geq 0$, откуда $M_k(f_2 - f_1) \geq 0,\ m_k(f_2 - f_1) \geq 0 \Ra \int_a^bf_2(x)-f_1(x)dx \geq 0$.
+		Воспользовавшись линейностью получаем:
+		\[
+			\int_a^bf_1(x)dx \leq \int_a^bf_2(x)dx
+		\]
+		
+		\item Так как $f$ интегрируема на $[a;b]$, то $\forall\eps > 0\ \exists P\ U(P, f) - L(P, f) < \eps$.
+		Пусть $P = P_1 \cup P_2$, где 
+		\begin{align*}
+			&P_1\such a = x_1 < x_2 < \ldots < x_k = c
+			\\
+			&P_2\such c = x_k < \ldots < x_n = b
+		\end{align*}
+		Таким образом можно написать:
+		\[
+			U(P, f) - L(P, f) = U(P_1, f) - L(P_1, f) + U(P_2, f) - L(P_2, f) < \eps
+		\]
+		\item Пусть $c := sign\left(\int_a^bf(x)dx\right)$
+		\[
+			\left|\int_a^bf(x)dx\right| = c \int_a^bf(x)dx \leq \int_a^bMdx  = M(b - a)
+		\]
+	\end{enumerate}
 \end{proof}
 
 \begin{example}
@@ -145,11 +229,11 @@
 \end{example}
 
 \begin{theorem} (Интегрируемость сложной функции)
-	Если $g \in R[a; b]$, причём $\forall x \in [a; b]\ m \le g(x) \le M$, $f$ непрерывная на $[m; M]$, то $f \circ g$ интегрируема по Риману на $[a; b]$.
+	Если $g$ интегрируема по Риману на $[a; b]$, причём $\forall x \in [a; b]\ m \le g(x) \le M$, $f$ непрерывная на $[m; M]$, то $f \circ g$ интегрируема по Риману на $[a; b]$.
 \end{theorem}
 
 \begin{proof}
-	Сначала воспользуемся непрерывностью $f \in C[m; M]$. В силу ограниченности верна теорема Кантора для $f$, а стало быть
+	Сначала воспользуемся непрерывностью $f \in C[m; M]$. В силу теоремы Кантора для $f$, а стало быть
 	\[
 		\forall \eps > 0\ \exists \delta > 0,\ \delta < \eps\ \such \left(\forall y_1, y_2 \in [m; M],\ |y_1 - y_2| < \delta\right)\ \ |f(y_1) - f(y_2)| < \eps
 	\]
@@ -161,6 +245,18 @@
 	\[
 		U(P, h) - L(P, h) = \suml_{i \in A} (M_i(h) - m_i(h))\Delta x_i + \suml_{i \in B} (M_i(h) - m_i(h)) \Delta x_i
 	\]
-	где $P = $
-	% Дописать. Там как-то коряво чуток было
+	где $i \in A\such M_i(g) - m_i(g) < \delta$ откуда следует:
+	\[
+		x,\ t \in [x_{i - 1};x_i],\ i \in A |h(x) - h(t)| = |f(g(x)) - f(g(t))| < \eps \text{ то есть } M_i(h) - m_i(h) < \eps 
+	\]
+	В свою очередь:
+	\[
+		\delta \suml_{i \in B}\Delta x_i \leq \suml_{i \in B}(M_i(g) - m_i(g))\Delta x_i \leq \suml_{k = 1}^n(M_i(g) - m_i(g))\Delta x_k = U(P, g) - L(P, g) < \delta^2
+	\]
+	Так как $f$ непрерывна, то она ограничена на отрезке. $|m_k(h)| \leq K,\ |M_k(h)| \leq K$
+	Обьединяя результаты для $A$ и $B$.
+	\[
+		U(P, h) - L(P, h) = \suml_{i\in A} + \suml_{i \ in B} < \eps \suml_{i = 1}^n \Delta x_i + 2K\eps  = \eps(b - a + 2K)
+	\]
+	% Осознать и поправить
 \end{proof}
