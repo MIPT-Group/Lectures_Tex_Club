@@ -159,7 +159,7 @@
 	\end{enumerate}
 \end{theorem}
 
-\begin{proof}
+\begin{proof}~
 	\begin{enumerate}
 		\item Линейность. $\forall \eps > 0\ \exists P_1,\ P_2\ U(P_i, f_i) - L(P_i, f_i) < \frac{\eps}{2},\ i \in \{1, 2\}$.
 		Пусть $P = P_1 \cup P_2$ тогда $U(P, f_i) - L(P, f_i) < \frac{\eps}{2},\ i \in \{1, 2\}$.
@@ -256,7 +256,7 @@
 	Так как $f$ непрерывна, то она ограничена на отрезке. $|m_k(h)| \leq K,\ |M_k(h)| \leq K$
 	Обьединяя результаты для $A$ и $B$.
 	\[
-		U(P, h) - L(P, h) = \suml_{i\in A} + \suml_{i \ in B} < \eps \suml_{i = 1}^n \Delta x_i + 2K\eps  = \eps(b - a + 2K)
+		U(P, h) - L(P, h) = \suml_{i\in A} + \suml_{i \in B} < \eps \suml_{i = 1}^n \Delta x_i + 2K\eps  = \eps(b - a + 2K)
 	\]
 	% Осознать и поправить
 \end{proof}
