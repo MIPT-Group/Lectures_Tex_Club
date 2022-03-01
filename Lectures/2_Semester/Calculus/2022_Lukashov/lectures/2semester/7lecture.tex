@@ -61,15 +61,15 @@
 	\[
 		\exists k \such M_k = +\infty \Ra \exists t_k \in [x_{k - 1}; x_k]\ \ f(t_k) > \frac{n + |S'(P, f, \{t_i\})|}{\Delta x_k}
 	\]
-	Интегральную сумму можно расписать в следующем виде:
+	Где  $S'(P, f, \{t_i\})$ это интегральная сумма всех отрезков, кроме k-ого. Иными словами:
 	\[
 		S(P, f, \{t_i\}) = S'(P, f, \{t_i\}) + f(t_k) \Delta x_k
 	\]
-	Оценим её модуль:
+	Оценим модуль интегральной суммы $S$.
 	\[
 		|S(P, f, \{t_i\})| \ge |f(t_k) \Delta x_k| - |S'(P, f, \{t_i\})| > n
 	\]
-	% Дописать, не вижу явного доказательства
+	Таким образом модуль суммы больше любого натурального,  а потому предела не существует.
 \end{proof}
 
 \begin{theorem} (Интеграл как предел интегральных сумм)
@@ -81,25 +81,51 @@
 
 \begin{proof}~
 	\begin{itemize}
-		\item $\La$ (Достаточность). По условию
+		\item $\La$ (Достаточность). По условию  $\exists \liml_{ \Delta(P) \to 0} S(P, f, \{t_i\})$ или же:
 		\[
 			\forall \eps > 0\ \exists \delta > 0 \such \forall P, \Delta(P) < \delta\ \ \forall \{t_i\},\ t_i \in [x_{i - 1}; x_i]\ \ |S(P, f, \{t_i\}) - A| < \frac{\eps}{2}
 		\]
-		Посмотрим на разность интегральных сумм при разном выборе значений на отрезке данного разбиения:
+		Зафиксируем $P$ и рассмотрим модуль разности двух интегральных сумм при разных $\{t_i\}$ на отрезке:
 		\[
-			\forall t'_i, t''_i \in [x_{i - 1}; x_i]\ \left|\suml_{i = 1}^n (f(t'_i) - f(t''_i))\Delta x_i\right| < \eps
+			\forall t'_i, t''_i \in [x_{i - 1}; x_i]\ \left|S(P, f, \{t'_i\}) - S(P, f, \{t''_i\})\right| = \left|\suml_{i = 1}^n (f(t'_i) - f(t''_i))\Delta x_i\right| < \eps
 		\]
 		Следовательно, можем подставить максимумы и минимумы для каждого слагаемого:
 		\[
 			\suml_{i = 1}^n (M_i - m_i) \Delta x_i = U(P, f) - L(P, f) \le \eps
 		\]
-		
+		То есть по критерию интегрируемости по Риману $f$ - интегрируема.
 		\item $\Ra$ (Необходимость) Для начала положим $\forall x \in [a; b]\ \ f(x) \ge 0$ и докажем следующее утверждение:
 		\[
 			\forall \eps > 0\ \exists \delta_1 > 0 \such \forall P, \Delta(P) < \delta_1\ \ U(P, f) < \int_a^b f(x)dx + \frac{\eps}{2}
 		\]
-		
-		% Дописать
+		По определению супремума:
+		\[
+			\forall \eps > 0\ \exists P^*\text{(на n точек)  } U(P^*, f) < \int_a^bf(x)dx + \frac{\eps}{4} 
+		\]
+		Определим $M := \sup_{x \in [a;b]}f(x)$ и $\delta_1 := \frac{\eps}{8\cdot M\cdot n}$. Тогда.
+		\begin{multline*}
+			\forall P \such \Delta P < \delta_1\ U(P, f) = \suml_{i\in A\ x_k^* \in [x_{i - 1};x_i]}M_i\Delta x_i + \suml_{i\in B}M_i\Delta x_i \leq
+			\\
+			 2(n - 1)\delta_1 M + \suml_k^nM_k^*\Delta x_i^* < \int_a^bf(x)dx + \frac{\eps}{4} + \frac{\eps}{4}
+		\end{multline*}
+	В общем же случае $\exists m f_1(x) = m + f(x) \geq 0$. Для этой функции справедливо соотношение $U(P, f_1) < \int_a^bf_1(x)dx + \frac{\eps}{2}$. Откуда можно получить, что $U(P, f) + m(b - a) < \int_a^bf_1(x)dx + m(b - a) + \frac{\eps}{2}$.
+	
+	Теперь покажем, что верно:
+		\[
+			\forall \eps > 0\ \exists \delta_2 > 0 \such \forall P, \Delta(P) < \delta_2\ \ L(P, f) >  \int_a^b f(x)dx - \frac{\eps}{2}
+		\]
+		Для этого положим $f_2 := -f$. Для которой верно по уже доказанному:
+		\[
+			\exists \delta_2 > 0\ \forall P, \Delta P < \delta_2\ U(P, f_2) < \int_a^bf_2(x)dx + \frac{\eps}{2} \Ra \int_a^bf(x)dx - \frac{\eps}{2} < L(P, f)
+		\]
+		Собирем все в кучку:
+		\[
+			\forall P \such \Delta P < \delta = \min(\delta_1, \delta_2)\ U(P, f) - L(P, f) < \eps
+		\]
+		Так как любая интегральная сумма зажата между $L(P, f)$ и $U(P, f)$, то
+		\[
+			L(P, f) \leq  S(P, f, \{t_i\}) \leq U(P, f) \Ra \int_a^bf(x)dx = S(P, f, \{t_i\})
+		\]
 	\end{itemize}
 \end{proof}
 
@@ -146,22 +172,29 @@
 \end{theorem}
 
 \begin{proof}~
-	\begin{itemize}
-		\item По свойству аддитивности
+		По свойству аддитивности:
 		\[
 			\forall x_1, x_2 \in [a; b],\ x_1 < x_2\ \ F(x_2) - F(x_1) = \int_{x_1}^{x_2} f(x)dx
 		\]
-		Оценим модуль этой разности (для $0 < x_2 - x_1 < \frac{\eps}{M} = \delta$, где $|f(x)| \le M$):
+		Оценим модуль этой разности (для $0 < x_2 - x_1 < \frac{\eps}{M} = \delta$, где из $|f(x)| \le M$):
 		\[
 			|F(x_2) - F(x_1)| \le \int_{x_1}^{x_2} |f(x)|dx \le M(x_2 - x_1) < \eps
 		\]
+		Получается функция $F(x)$ равномерно непрерывна, а значит и просто непрерывна.
 		
-		\item Теперь, посмотрим на другой модуль:
+		Теперь, посмотрим на разность:
 		\[
-			\left|\frac{F(x) - F(x_0)}{x - x_0} - f(x_0)\right| = \left|\frac{1}{x - x_0} \int_{x_0}^x f(t)dt - f(x_0)\right| = \frac{1}{|x - x_0|} \cdot \left|\int_{x_0}^x (f(t) - f(x_0))dt\right|
+			\left|\frac{F(x) - F(x_0)}{x - x_0} - f(x_0)\right| = \left|\frac{1}{x - x_0} \int_{x_0}^x f(x)dx - f(x_0)\right| = \frac{1}{|x - x_0|} \cdot \left|\int_{x_0}^x (f(x) - f(x_0))dx\right|
 		\]
-		% Дописать. Очень интересно, но ничего не понятно
-	\end{itemize}
+		По определению непрерывности:
+		\[
+			\forall \eps > 0\ \exists \delta > 0\ \forall t |t - x_0| < \delta ,\ t \in [a;b]\ |f(t) - f(x_0)| < \eps
+		\]
+		Откуда в свою очередь.
+		\[
+			\frac{1}{|x - x_0|} \cdot \left|\int_{x_0}^x (f(x) - f(x_0))dx\right| < \frac{1}{|x - x_0|} \cdot \left|\int_a^b\eps dx\right|  = \eps
+		\]
+		Мы получили, что $F'(x_0) = f(x_0)$.
 \end{proof}
 
 \begin{theorem} (Основная теорема интегрального исчисления)
@@ -177,7 +210,8 @@
 	\[
 		F(b) - F(a) = \suml_{k = 1}^n (F(x_k) - F(x_{k - 1}))
 	\]
-	% Дописать. Я хз, почему тут дальше разрешено использовать теорему Лагранжа
+	Где $P: a = x_0 < x_1<\ldots< x_n = b.\\$
+	По результатам прошлой теоремы, применима теорема Лагранжа $\exists t_k \in [x_{k - 1};x_k]\ F(x_k) - F(x_{k - 1}) = F'(t_k)\Delta x_k$. Тогда сумму можно переписать как $ \suml_{k = 1}^nF'(t_k)\Delta x_k = \suml_{k = 1}^nf(t_k)\Delta x_k = S(P, f, \{t_k\})$.
 \end{proof}
 
 \begin{note}
