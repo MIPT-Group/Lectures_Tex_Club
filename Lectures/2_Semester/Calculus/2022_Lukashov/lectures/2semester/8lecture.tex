@@ -1,0 +1,115 @@
+\begin{corollary} \textit{(Формула интегрирования по частям)}
+	Если $f$ и $g$ интегрируемы по Риману на $[a;b]$ вместе со своими производными.
+	\[
+		\int_a^bf(x)g'(x)dx = f(b)g(b) - f(a)g(a) - \int_a^bf'(x)g(x)dx
+	\]
+\end{corollary}
+
+\begin{proof}
+	$\\ f(x),\ g(x),\ f'(x),\ g'(x)\ \in R[a;b] \Ra (fg)'= f'g + fg' \in R[a;b]$.
+	Очевидно, что $fg$ - первообразная этой функции. Тогда по формуле Ньютона-Лейбница:
+	\[
+		\int_a^bf'(x)g(x)dx + \int_a^bf(x)g'(x)dx = f(x)g(x)\Biggr |^b_a
+	\]
+\end{proof}
+
+\begin{theorem} \textit{(Формула замены переменной)}
+	Пусть $f(x)$ непрерывна на $[a;b],\ g(x)$ интегрируема по Риману на $[\alpha; \beta]$ вместе с $g'(x),\ \forall x \in [\alpha; \beta]\ m \leq g(x) \leq M$, причем $g(\alpha) = a\text{ и } g(\beta) = b)$. Тогда 
+	\[
+		\int_a^bf(x)dx = \int_\alpha^\beta f(g(t))g'(t)dt
+	\]
+\end{theorem}
+
+\begin{proof}
+	Левый интеграл существует так как $f(x)$ непрерывна. Правый интегрируем так как это произведение интегрируемых функций.
+	Пусть $F(x) = \int_a^xf(t)dt$, тогда $\forall x \in [a;b]\ F'(x) = f(x)$.
+	Рассмотрим производную:
+	\[
+		F(g(t))' = F'(g(t))\cdot g'(t) = f(g(t))\cdot g'(t) \in R[\alpha;\beta]
+	\]
+	Окончательно по теореме Ньютона-Лейбница:
+	\[
+		\int_a^bf(g(t))g'(t)dt = F(g(t)) \Biggr |_\alpha^\beta = F(g(\beta)) - F(g(\alpha))= F(b) - F(a) = \int_a^bf(x)dx
+	\]
+\end{proof}
+
+\begin{theorem} \textit{(Первая теорема о среднем)}
+	Пусть $f(x)$ и $g(x)$ интегрируемы по Риману на $[a;b]$, причем $\forall x\in [a;b] g(x) \geq 0,\ \ m \leq f(x) \leq M$. Тогда 
+	\[
+		\exists \mu \in [m;M] \such \int_a^bf(x)g(x)dx = \mu \int_a^bg(x)dx
+	\]
+	Если также известно, что $f$ - непрерывна на $[a;b]$, то 
+	\[
+		\exists \xi \in [a;b]\such \int_a^bf(x)g(x)dx = f(\xi)\int_a^bg(x)dx
+	\]
+\end{theorem}
+
+\begin{proof}
+	Заметим, что $\forall x\in [a;b]\ mg(x) \leq f(x)g(x) \leq Mg(x)$.
+	По свойству монотонности:
+	\[
+		\int_a^bmg(x)dx \leq \int_a^bf(x)g(x)dx \leq \int_a^bMg(x)dx
+	\]
+	Если $\int_a^bg(x)dx = 0 \Ra \forall x \in [a;b]\ g(x) = 0$, то справедливость теоремы очевидна.
+	Иначе можно разделить равенство на этот интеграл.
+	\[
+		m \leq \frac{\int_a^bf(x)g(x)dx}{\int_a^bg(x)dx} \leq M
+	\]
+	Считая, что $m$ и $M$ точные грани функции $f$, то по теореме о промежуточных значениях непрерывной функции $\exists \xi \in [a;b]\ f(\xi) = \mu$.
+\end{proof}
+
+\begin{theorem} \textit{(Вторая теорема о среднем)}
+	Пусть $f$ интегрируема по Риману на $[a;b]$, $g(x)$ невозрастающая и неотрицательная функция на $[a;b]$. Тогда:
+	\[
+		\exists \xi \in [a;b] \such \int_a^bf(x)g(x)dx = g(a)\int_a^\xi f(x)dx
+	\]
+\end{theorem}
+
+
+\begin{proof}
+	%:TODOTODOTODO
+\end{proof}
+
+
+\begin{corollary} \textit{(Формула Бонне)}
+	Пусть $f(x)$  интегрируема по Риману на $[a;b]$, $g(x)$ - монотонна на $[a;b]$, тогда:
+	\[
+		\exists \xi \in [a;b] \such \int_a^bf(x)g(x)dx = g(a)\int_a^\xi f(x)dx + g(b)\int_\xi^bf(x)dx
+	\]
+\end{corollary}
+
+\begin{proof}
+	Пусть $g$  невозрастающая, то $g_1(x) = g(x) - g(b) \geq 0$. По 2 теореме о среднем:
+	\[
+		\exists \xi \in [a;b]\ \int_a^bf(x)g_1(x)dx = g_1(a)\int_a^\xi f(x)dx
+	\]
+	Подставляя $g_1$, получим:
+	\[
+		\int_a^bf(x)g(x)dx - g(b) \int_a^bf(x)dx = g(a)\int_a^\xi f(x)dx - g(b)\int_a^\xi f(x)dx
+	\]
+	В случае неубывающей $g(x)$ возьмем $g_1(x) = - g(x)$.
+\end{proof}
+
+\begin{theorem} \textit{(Формула Тейлора с остаточным членом в интегральной форме)}
+	Пусть $f(x)$ непрерывна в $U_\eps(a)$ вместе со своими производными до порядка $n + 1$ включительно.
+	Тогда:
+	\[
+		\forall x \in U_\eps(a)\ f(x) = f(a) + \suml_{k = 1}^n\frac{f^k(a)}{k!}(x - a)^k + \frac{1}{n!}\int_a^xf^{n + 1}(t)(x - t)^ndt
+	\]
+\end{theorem}
+
+\begin{proof} \textit{По индукции}
+	\begin{itemize}
+		\item $n = 1$.
+		\[
+			\int_a^xf'(t)(x - t)dt = f'(t)(x - t) \Biggr |_{t = a}^{t = x} + \int_a^xf'(t)dt = - f'(a)(x - a) + \int_a^xf'(t)dt
+		\]
+		\item Верно для $n = m$.
+		\item $n = m + 1$.
+		\[
+			\frac{1}{m!}\int_a^xf^{(m + 1)}(t)(x - t)^mdt = \frac{1}{m!}(-f^{(m + 1)}(t)\frac{(x - t)^{m + 1}}{(m + 1)!}\Biggr |_a^x + \int_a^x\frac{1}{m + 1}f^{m + 2}(t)(x - t)^{m + 1}dt)
+		\]
+		
+	\end{itemize}
+	
+\end{proof}
