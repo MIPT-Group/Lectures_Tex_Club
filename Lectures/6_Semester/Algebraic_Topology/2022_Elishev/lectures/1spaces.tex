@@ -43,9 +43,9 @@
 \begin{definition}
 	Пусть $(X, \rho)$ "--- метрическое пространство, $\epsilon > 0$.
 	\begin{itemize}
-		\item $\epsilon$-окрестностью точки $x \in X$ называется $U(x, \epsilon) := \{y \in X: \rho(y, x) < \epsilon\}$
+		\item \textit{$\epsilon$-окрестностью точки} $x \in X$ называется $U(x, \epsilon) := \{y \in X: \rho(y, x) < \epsilon\}$
 		
-		\item $\epsilon$-окрестностью множества $M \subset X$ называется $U(x, \epsilon) := \{y \in X: \rho(y, M) < \epsilon\}$
+		\item \textit{$\epsilon$-окрестностью множества} $M \subset X$ называется $U(x, \epsilon) := \{y \in X: \rho(y, M) < \epsilon\}$
 	\end{itemize}
 \end{definition}
 
@@ -66,7 +66,7 @@
 \end{definition}
 
 \begin{note}
-	Пусть $(X, \rho)$ "--- метрическое пространство. Тогда выполнены следующие свойства:
+	Пусть $(X, \rho)$ "--- метрическое пространство. Тогда для топологий $\tau$ и $\kappa$ на $X$ выполнены следующие свойства:
 	\begin{enumerate}
 		\item $\forall G_1, G_2 \in \tau: G_1 \cap G_2 \in \tau$
 		\item $\forall \{G_\alpha\}_{\alpha \in \mf A} \subset \tau: \bigcup_{\alpha \in \mf A}G_\alpha \in \tau$
@@ -187,9 +187,9 @@
 \begin{definition}
 	Пусть $(X, \tau)$ "--- топологическое пространство. Множество $M \subset X$ называется:
 	\begin{itemize}
-		\item \textit{плотным в $\Gamma \in \tau$}, если $[M] \supset \Gamma$
-		\item \textit{всюду плотным}, если $[M] = X$
-		\item \textit{нигде не плотным}, если оно не плотно ни в одном непустом множестве $\Gamma \in \tau$
+		\item \textit{Плотным в $\Gamma \in \tau$}, если $[M] \supset \Gamma$
+		\item \textit{Всюду плотным}, если $[M] = X$
+		\item \textit{Нигде не плотным}, если оно не плотно ни в одном непустом множестве $\Gamma \in \tau$
 	\end{itemize}
 \end{definition}
 
@@ -294,7 +294,7 @@
 \end{proof}
 
 \begin{proposition}
-	Пусть $X, Y$ "--- топологические пространства, $f: X \to Y$ "--- непрерывное отображение. Если отображение $f$ замкнуто (открыто), то для любого множества $B \subseteq Y$ отображение $f_{f^{-1}}: f^{-1}(B) \rightarrow B$ тоже замкнуто (открыто).
+	Пусть $X, Y$ "--- топологические пространства, $f: X \to Y$ "--- непрерывное отображение. Если отображение $f$ замкнуто (открыто), то для любого множества $B \subset Y$ отображение $f_{f^{-1}}: f^{-1}(B) \rightarrow B$ тоже замкнуто (открыто).
 \end{proposition}
 
 \begin{proof}
