@@ -2,9 +2,31 @@
 
 \begin{note}
 	До конца параграфа зафиксируем возрастающую функцию $\alpha$, а также то, что мы рассматриваем интеграл на отрезке $[a; b]$.
+	Также напомним смежные определения:
+	\[
+		U(P, f, \alpha) = \suml_{k = 1}^nM_k\Delta \alpha_k
+	\]
+	\[
+		L(P, f, \alpha) = \suml_{k = 1}^nm_k\Delta \alpha_k
+	\]
+	\[
+		\overline{I}(f, \alpha) = \inf_P U(P, f, \alpha)
+	\]
+	\[
+		\underline{I}(f, \alpha) = \sup_P L(P, f, \alpha)
+	\]
+	\[
+		S(f, P, \{t_i\}, \alpha) = \suml_{i= 1}^nf(t_i)\Delta\alpha_i
+	\]
+	\[
+		\liml_{\Delta P \to 0}S(f, P, \{t_i\}, \alpha) = \int_a^bf(x)d\alpha(x)
+	\]
+	Если $\alpha$ - функция ограниченной вариации, то ее можно представить в виде разности 2 неубывающих функций. $\alpha = p - q$, отдку получаем:
+	\[
+		\int_a^bf(x)d\alpha(x) = \int_a^bf(x)dp(x) - \int_a^bf(x)dq(x)
+	\]
+	Также отметим, что $f$ интегрируема по Риману-Стилтьесу, когда $f$ - непрерывна, а $\alpha$ - функция ограниченной вариации, либо $f$ - функция ограниченной вариации, а $\alpha$ - непрерывная функция ограниченной вариации. 
 \end{note}
-
-% Он что-то непонятное писал в начале лекции. Посмотреть, дописать
 
 \begin{theorem}
 	Пусть $f, \alpha' \in R[a; b]$. Тогда $f \in R(\alpha, [a; b])$ и при этом
@@ -14,16 +36,36 @@
 \end{theorem}
 
 \begin{proof}
-	Коль скоро $\alpha'$ интегрируема по Риману, то $\alpha'$ - ограниченная, а стало быть $\alpha$ - непрерывная функция ограниченной вариации. \textcolor{red}{Ведь так?} Распишем, что означает интегральная сумма слева от равенства:
+	Коль скоро $\alpha'$ интегрируема по Риману, то $\alpha'$ - ограниченная, а стало быть $\alpha$ - непрерывная функция ограниченной вариации, а потому интеграл существует. Распишем, что означает интегральная сумма слева от равенства:
 	\[
-	`	\forall \eps > 0\ \exists \delta_1 > 0 \such \forall P, \Delta(P) < \delta_1\ \ \forall \{t_i\}\ \left|\suml_{i = 1}^n f(t_i) \alpha'(t_i) \Delta x_i - \int_a^b f(x) \alpha'(x) dx\right| < \frac{\eps}{4}
+		\forall \eps > 0\ \exists \delta_1 > 0 \such \forall P, \Delta(P) < \delta_1\ \ \forall \{t_i\}\ t_i \in [x_{i - 1};x_i]\  \left|\suml_{i = 1}^n f(t_i) \alpha'(t_i) \Delta x_i - \int_a^b f(x) \alpha'(x) dx\right| < \frac{\eps}{4}
 	\]
-	По уже заявленному, $\exists M \such \forall x \in [a; b]\ |f(x)| \le M$. Запишем интеграл Римана от $\alpha'(x)$ по определению:
+	Так как $f$ интегрируема, то она ограничена, $\exists M \such \forall x \in [a; b]\ |f(x)| \le M$. Запишем интеграл Римана от $\alpha'(x)$ по определению:
 	\[
 		\forall \eps > 0\ \exists \delta_2 > 0 \such \forall P, \Delta(P) < \delta_2\ \ \forall \{t_i\}\ \left|\suml_{i = 1}^n \alpha'(t_i)\Delta x_i - \int_a^b \alpha'(x)dx\right| < \frac{\eps}{4M}
 	\]
-	
-	% Дописать, я ничего не понимаю(
+	Выпишем также для иного набора точек $\{s_i\}$, после чего сложим строки и получим:
+	\[
+		\forall \{t_\}, \{s_i\} \in [x_{i - 1};x_i]\ \suml_{i = 1}^n|\alpha'(t_i) - \alpha'(s_i)| < \frac{\eps}{2M}
+	\]
+	Чтобы были верны оба утверждения возьмем такое $\delta$.
+	\[
+		\forall P, \Delta P < \delta = \min(\delta_1, \delta_2) > 0 \forall \{t_i\} \in [x_{i - 1};x_i]\ S(P, f, \{t_i\}, \alpha) = \suml_{i = 1}^nf(t_i)(\alpha(x_i) - \alpha(x_{i - 1}))
+	\]
+	Откуда по теореме Лагранжа найдем:
+	\[
+		\exists \{s_i\} \in [x_{i - 1};x_i] \ \suml_{i = 1}^nf(t_i)(\alpha(x_i) - \alpha(x_{i - 1})) = \suml_{i = 1}^nf(t_i)\alpha'(s_i)\Delta x_i
+	\]
+	Добавим и вычтем $\suml_{i = 1}^nf(t_i)\alpha'(t_i)\Delta x_i$.
+	\[
+		S(P, f, \{t_i\}, \alpha) = \suml_{i = 1}^nf(t_i)\alpha'(t_i)\Delta x_i + \suml_{i = 1}^nf(t_i)(\alpha'(s_i) - \alpha'(t_i))\Delta x_i
+	\]
+	Рассмотрим модуль разности.
+	\begin{multline*}
+		\left|S(P, f, \{t_i\}, \alpha) - \int_a^bf(x)\alpha'(x)dx \right| \leq \left|\suml_{i = 1}^n|f(t_i)\alpha'(t_i)\Delta x_i - \int_a^bf(x)\alpha'(x)dx \right| +
+		\\
+		\suml_{i = 1}^n|f(t_i)(\alpha'(s_i) - \alpha'(t_i))|\Delta x_i < \frac{\eps}{2} + \frac{M \eps}{2M} = \eps
+	\end{multline*}
 \end{proof}
 
 \begin{theorem}
@@ -47,8 +89,8 @@
 	\[
 		U(P_\delta, f, \alpha) - L(P_\delta, f, \alpha) = \suml_{k = 1}^N (M_k(\delta) - m_k(\delta)) (\alpha(x_k + 0) - \alpha(x_k - 0))
 	\]
-	Несложно понять, что при $\delta \to 0+$ каждое слагаемое в сумме будет тоже стремиться к нулю. Отсюда следует, что и разность стремится к нулю.
-	\textcolor{red}{А дальше я не понял}
+	Так как $f$ непрерывна, то $M_k(\delta) \to f(x_k),\ m_k(\delta) \to f(x_k)$, то есть их разность стремиться к нулю, в свою очередь приращение $\alpha(x_k + 0) - \alpha(x_k - 0) \leq \alpha(b) - \alpha(a)$.
+	Получаем, что $U(P_\delta, f, \alpha) - L(P_\delta, f, \alpha) < \eps$. То есть функция функция $f$ и правда интегрируема.
 \end{proof}
 
 \begin{theorem}
@@ -83,7 +125,15 @@
 \end{theorem}
 
 \begin{proof}
-	\textcolor{red}{Скоро будет}
+	Перепишем интегральную сумму, используя перестановку Абеля.
+	\[
+		S(P, f, \{t_i\}, \alpha) = \suml_{i=  1}^nf(t_i)(\alpha(x_i) - \alpha(x_{i - 1})) = \alpha(b)f(t_n) - \alpha(a)f(t_1) - \suml_{i = 1}^{n - 1}\alpha(x_i)(f(t_{i + 1}) - f(t_i))
+	\]
+	Добавим в сумму пропавшие точки $t_0 := a,\  t_{n + 1} := b$.
+	Тогда получим, что:
+	\[
+		S(P, f, \{t_i\}, \alpha)  = \alpha(b)f(b) - \alpha(a)f(a) - \suml_{i = 0}^n\alpha(x_i)\Delta f_i = \alpha(b)f(b) - \alpha(a)f(a) - S(P, \alpha, \{x_i\}, f)
+	\]
 \end{proof}
 
 \begin{theorem} (Первая теорема о среднем для интеграла Римана-Стилтьеса)
