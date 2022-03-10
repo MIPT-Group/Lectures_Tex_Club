@@ -1,0 +1,87 @@
+\subsection{Диофантовы приближения}
+
+Это наука, которая занимается поиском функций $\psi(q)$ таких, которыми можно аппроксимировать иррациональные числа $\alpha \in \R \bs \Q$. То есть
+\[
+	\left|\alpha - \frac{p}{q}\right| < \frac{1}{\psi(q)}
+\]
+
+\begin{theorem} (Дирихле)
+	Для $\forall \alpha \in \R \bs \Q$ существует бесконечно мало отличимая от $\alpha$ рациональная дробь $\frac{p}{q}$ такая, что
+	\[
+		\left|\alpha - \frac{p}{q}\right| < \frac{1}{q^2}
+	\]
+\end{theorem}
+
+\begin{proof}
+	Зафиксируем число $Q \in \N$. Разобьём отрезок $[0; 1]$ на $Q$ отрезков, то есть длина каждого - $1 / Q$. Рассмотрим \textbf{дробные доли} $\{\alpha x\}$ при $x = 0, \ldots, Q$. По принципу Дирихле
+	\[
+		\exists x_1, x_2 \colon x_1 > x_2,\ |\{\alpha x_1\} - \{\alpha x_2\}| \le \frac{1}{Q}
+	\]
+	Распишем дробные части через целые:
+	\[
+		|\alpha x_1 - [\alpha x_1] - \alpha x_2 + [\alpha x_2]| \le \frac{1}{Q}
+	\]
+	Перепишем модуль в несколько ином виде:
+	\[
+		|\alpha(x_1 - x_2) - ([\alpha x_1] - [\alpha x_2])| \le \frac{1}{Q}
+	\]
+	Теперь обозначим $q := x_1 - x_2,\ p := [\alpha x_1] - [\alpha x_2]$
+	\textcolor{red}{Переписать}
+\end{proof}
+
+\begin{definition}
+	Пусть есть числа $\{a_0, a_1, \ldots, a_n\}$, где $a_0 \in \Z, a_i \in \N$. Тогда назовём \textit{конечной цепной дробью} следующее выражение:
+	\[
+		[a_0; a_1, \ldots, a_n] = a_0 + \frac{1}{\displaystyle a_1 + \frac{1}{\displaystyle a_2 + \frac{1}{\displaystyle \ldots + \frac{1}{a_n}}}}
+	\]
+	Числа $a_0, \ldots, a_n$ называются \textit{элементами цепной дроби}, они же \textit{неполные частные}.
+	Более формально, можно определить цепную дробь через индукцию:
+	\begin{itemize}
+		\item \([a_0] = \frac{a_0}{1}\)
+		\item \([a_0; a_1, \ldots, a_n] = a_0 + \displaystyle\frac{1}{[a_1; a_2, \ldots, a_n]} = a_0 + \frac{1}{p/q} = \frac{a_0p + q}{p}\)
+	\end{itemize}
+\end{definition}
+
+\begin{definition}
+	Назовём дробь, соответствующую цепной дроби $[a_0; a_1, \ldots, a_k] = p_k/q_k$ - \textit{подходящей}.
+\end{definition}
+
+\begin{theorem}
+	\textcolor{red}{Рекурсивные соотношения для подходящих дробей}
+\end{theorem}
+
+\begin{proof}
+	Проведём индукцию по $k$:
+	\begin{itemize}
+		\item База $k = 0$:
+		
+		\item Переход $k > 0$:
+	\end{itemize}
+	\textcolor{red}{Расписать смысл индексов. Он разный!}
+\end{proof}
+
+\begin{corollary}
+	Домножим первое выражение на $q_{k + 1}$, а второе на $p_{k + 1}$ и вычтем одно из другого:
+	\[
+		q_{k + 1} p_{k + 2} - p_{k + 1} q_{k + 2} = p_k q_{k + 1} - q_k p_{k + 1}
+	\]
+	Попробуем последовательно вычислить данное соотношение:
+	\begin{align*}
+		&{p_0 q_1 - q_0 p_1 = a_0 a_1 - 1(a_0 a_1 + 1) = -1}
+		\\
+		&{p_1 q_2 - q_1 p_2 = 1}
+		\\
+		&{\vdots}
+		\\
+		&{}
+	\end{align*}
+	Или же сразу
+	\[
+		p_k q_{k + 1} - q_k p_{k + 1} = (-1)^{k + 1}
+	\]
+\end{corollary}
+
+\begin{corollary}
+	Из доказанного выше следует, что $\forall k \in \N \cup \{0\} \frac{p_k}{q_k}$ - несократимая дробь. Действительно
+	\textcolor{red}{Дописать}
+\end{corollary}
