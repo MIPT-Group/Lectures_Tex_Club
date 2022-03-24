@@ -1,0 +1,102 @@
+\begin{theorem}
+	Число Эйлера $e$ - иррациональное.
+\end{theorem}
+
+\begin{proof}
+	\textcolor{red}{Пока поверим, что}
+	\[
+		e = \suml_{n = 0}^\infty \frac{1}{k!}
+	\]
+	Предположим, что $e = a/n$ для некоторых $a \in \Z,\ n \in \N$. С одной стороны, очевидно, $en! \in \Z$. С другой стороны,
+	\begin{multline*}
+		en! = A + \frac{n!}{(n + 1)!} + \frac{n!}{(n + 2)!} + \ldots = A + \frac{1}{n + 1} + \frac{1}{(n + 1)(n + 2)} =
+		\\
+		A + \frac{1}{n + 1} \left(1 + \frac{1}{n + 2} + \frac{1}{(n + 2)(n + 3)} + \ldots\right)
+	\end{multline*}
+	где $A \in \Z$, а сумма в скобках
+	\[
+		1 < 1 + \frac{1}{n + 2} + \frac{1}{(n + 2)(n + 3)} + \ldots < 1 + \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \ldots = 2
+	\]
+	То есть
+	\[
+		0 < \frac{1}{n + 1} \left(1 + \frac{1}{n + 2} + \frac{1}{(n + 2)(n + 3)} + \ldots\right) < \frac{2}{2} = 1
+	\]
+	Получили, что $en!$ не целое число. Противоречие.
+\end{proof}
+
+\begin{theorem}
+	Числа Эйлера $e$ - трансцендентное.
+\end{theorem}
+
+\begin{lemma} (тождество Эрмита)
+	Пусть $f(t) = b_{\nu}t^{\nu} + \ldots + b_1 t b_0$, где $b_i \in \R$. Утверждается, что
+	\[
+		\int_0^x f(t) e^{-t} dt = F(0) - F(x)e^{-x}
+	\]
+	где $F(x) = f(x) + f'(x) + \ldots + f^{(\nu)}(x)$
+\end{lemma}
+
+\begin{proof}
+	Рассмотрим следующий интеграл:
+	\[
+		\int_0^x f(t) e^{-t} dt = -f(t) e^{-t} |_0^x + \int_0^x f'(t) e^{-t} dt = f(0) - f(x)e^{-x} + f'(0) - f'(x)e^{-x}
+	\]
+\end{proof}
+
+\begin{proof} (трансцендентности)
+	Предположим, что $e$ - не трансцендентное. Это значит существование многочлена $g(x)$, для которого $e$ - это корень:
+	\[
+		g(x) = a_m x^m + \ldots + a_1 x + a_0
+	\]
+\end{proof}
+
+\begin{theorem} (без доказательства)
+	Число Пи $\pi$ - трансцендентное.
+\end{theorem}
+
+\begin{theorem} (Гельфонда, 1929г., одна из проблем Гильберта. Без доказательства)
+	Если $\alpha, \beta \in \A$, $\alpha \notin \{0, 1\}$, $\beta \notin \Q$, то $\alpha^\beta \notin \A$.
+\end{theorem}
+
+\begin{corollary}
+	$e^\pi \notin \A$ - тоже трансцендентное число.
+\end{corollary}
+
+\begin{proof}
+	Предположим, что $e^\pi \in \A$. Но заметим, что
+	\[
+		(e^\pi)^i = e^{i\pi} = -1
+	\]
+\end{proof}
+
+\begin{definition}
+	Числа $x, y$ называются \textit{алгебраически независимыми}, если для любого многочлена $P$ выполнено неравенство:
+	\[
+		P(x, y) \neq 0
+	\]
+\end{definition}
+
+\begin{theorem} (Нестеренко)
+	Числа $\pi, e^\pi, \Gamma(1/4)$ алгебраически независимы. $\Gamma(x)$ - обобщение факториала на всю действительную числовую прямую.
+\end{theorem}
+
+\subsection{Решётки в $\R^n$}
+
+\begin{note}
+	Зафиксируем вектора $\vec{a}_1, \ldots, \vec{a}_n \in \R^n$ как базис пространства $\R^n$
+\end{note}
+
+\begin{definition}
+	\textit{Решёткой} $\Lambda$ в пространстве $\R^n$ будем называть следующее множество векторов:
+	\[
+		\Lambda = \{\vec{a}_1 b_1 + \ldots + \vec{a}_n b_n \such \forall i\ b_i \in \Z\}
+	\]
+\end{definition}
+
+\begin{definition}
+	Вектора $\vec{a}_1, \ldots, \vec{a}_n$ также можно назвать \textit{базисом решётки}
+\end{definition}
+
+\begin{definition}
+	
+\end{definition}
