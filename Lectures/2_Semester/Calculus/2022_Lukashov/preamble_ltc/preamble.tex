@@ -17,6 +17,7 @@
 %%% Свои символы и команды для математики, обозначений
 \usepackage{centernot} % центрированное зачеркивание символа
 \usepackage{stmaryrd}  % некоторые спецсимволы
+\usepackage[e]{esvect}    % нормальные векторы
 
 \renewcommand{\phi}{\ensuremath{\varphi}}
 \renewcommand{\kappa}{\ensuremath{\varkappa}}
@@ -50,7 +51,7 @@
 \newcommand{\veps}{\epsilon}
 \newcommand{\vdelta}{\partial}
 \newcommand{\Tau}{\mathcal{T}}
-\newcommand{\dvec}[1]{\Delta\vec{#1}}
+\newcommand{\dvv}[1]{\Delta\vv{#1}}
 \newcommand{\wt}[1]{\widetilde{#1}}
 \newcommand{\liml}{\lim\limits}
 \newcommand{\suml}{\sum\limits}
@@ -72,6 +73,9 @@
 }
 \newcommand{\trbr}[1]{
 	\left\langle#1\right\rangle
+}
+\newcommand{\pd}[2] {
+	\frac{\vdelta #1}{\vdelta #2}
 }
 
 \renewcommand\labelitemi{$\triangleright$}

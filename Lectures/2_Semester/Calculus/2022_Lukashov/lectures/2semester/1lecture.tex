@@ -9,11 +9,11 @@
 \end{definition}
 
 \begin{definition}
-	\textit{(Предел функции по множеству $D$)} Если $\vec{x_0}$ - предельная точка множества $D$, то \textit{предел функции многих переменных} можно записать следующим образом:
+	\textit{(Предел функции по множеству $D$)} Если $\vv{x}_0$ - предельная точка множества $D$, то \textit{предел функции многих переменных} можно записать следующим образом:
 	\[
-		\liml_{\vec{x} \to \vec{x}_0} f(\vec{x}) = l
+		\liml_{\vv{x} \to \vv{x}_0} f(\vv{x}) = l
 	\]
-	Понятно, что $\vec{x} \in D$. В другом виде:
+	Понятно, что $\vv{x} \in D$. В другом виде:
 	\[
 		\liml_{(x_1, \ldots, x_n) \to (x_1^{(0)}, \ldots, x_n^{(0)})} f(x_1, \ldots, x_n) = l
 	\]
@@ -35,34 +35,38 @@
 	\begin{itemize}
 		\item По Коши:
 		\[
-			\liml_{\vec{x} \to \vec{x}_0 \over \vec{x} \in D} f(\vec{x}) = l \lra \forall \eps > 0\ \exists \delta > 0 \such \forall \vec{x} \in D,\ 0 < |\vec{x} - \vec{x}_0| < \delta\ \ |f(x) - l| < \eps
+			\liml_{\vv{x} \to \vv{x}_0 \over \vv{x} \in D} f(\vv{x}) = l \lra \forall \eps > 0\ \exists \delta > 0 \such \forall \vv{x} \in D,\ 0 < |\vv{x} - \vv{x}_0| < \delta\ \ |f(x) - l| < \eps
 		\]
 		
 		\item По Гейне:
 		\[
-			\liml_{\vec{x} \to \vec{x}_0 \over \vec{x} \in D} f(\vec{x}) = l \lra \left(\forall \{\vec{x}_k\}_{k = 1}^\infty \subset D \bs \{\vec{x}_0\},\ \liml_{k \to \infty} \vec{x}_k = \vec{x}_0\right)\ \ \liml_{k \to \infty} f(\vec{x}_k) = l
+			\liml_{\vv{x} \to \vv{x}_0 \over \vv{x} \in D} f(\vv{x}) = l \lra \left(\forall \{\vv{x}_k\}_{k = 1}^\infty \subset D \bs \{\vv{x}_0\},\ \liml_{k \to \infty} \vv{x}_k = \vv{x}_0\right)\ \ \liml_{k \to \infty} f(\vv{x}_k) = l
 		\]
 	\end{itemize}
 \end{definition}
 
+\begin{note}
+	Почему $\vv{x}_0$ - обязательно предельная точка? Проблема в том, что если мы откажемся от такого предположения, то мало того, что $\vv{x}_0$ - изолированная, так она сама может оказаться вне $D$. Это значит, например, для предела по Коши, что часть про $\forall \vv{x} \in D,\ 0 < |\vv{x} - \vv{x}_0| < \delta$ не имеет никакого смысла - она всегда истинна, а стало быть, могут возникнуть проблемы с единственностью предела и чем-либо ещё.
+\end{note}
+
 \begin{definition}
 	\textit{(Предел по совокопности переменных)}
-	Если $\vec{x}_0$ - внутренняя точка множества $D \cup \{\vec{x}_0\}$, то $\liml_{\vec{x} \to \vec{x}_0} f(\vec{x}) = l$ (принадлежность $\vec{x} \in D$ опускается) \\
+	Если $\vv{x}_0$ - внутренняя точка множества $D \cup \{\vv{x}_0\}$, то $\liml_{\vv{x} \to \vv{x}_0} f(\vv{x}) = l$ (принадлежность $\vv{x} \in D$ опускается) \\
 	Также его называют двойным или тройным, если речь идет о плоскости и пространстве соотвественно.
 \end{definition}
 \begin{definition}
-	\textit{Пределом по направлению} $\vec{e} \in \R^n \bs \{\vec{0}\}$ в точке $\vec{x}_0$, которая является внутренней для множества $D \cup \{\vec{x}_0\}$, называется
-	$\liml_{\vec{x} \to \vec{x_0} \over \vec{x} \in D_{\vec{x}, \vec{e}}} f(\vec{x}) = l$, где	\[
-	D_{\vec{x}, \vec{e}} = D \cap \{\vec{x} \in \R^n \such \vec{x} = \vec{x_0} + \vec{e} \cdot t,\ t \in \R \bs \{0\}\}
+	\textit{Пределом по направлению} $\vv{e} \in \R^n \bs \{\vv{0}\}$ в точке $\vv{x}_0$, которая является внутренней для множества $D \cup \{\vv{x}_0\}$, называется
+	$\liml_{\vv{x} \to \vv{x}_0 \over \vv{x} \in D_{\vv{x}_0, \vv{e}}} f(\vv{x}) = l$, где	\[
+	D_{\vv{x}_0, \vv{e}} = D \cap \{\vv{x} \in \R^n \such \vv{x} = \vv{x}_0 + \vv{e} \cdot t,\ t \in \R \bs \{0\}\}
 	\]
 \end{definition}
 
 \begin{theorem}
-	Если существует предел по совокупности переменных $\liml_{\vec{x} \to \vec{x_0}} f(\vec{x}) = l$, то существует предел по любому направлению в точке $\vec{x}_0$, равный $l$. Обратное, вообще говоря, неверно.
+	Если существует предел по совокупности переменных $\liml_{\vv{x} \to \vv{x}_0} f(\vv{x}) = l$, то существует предел по любому направлению в точке $\vv{x}_0$, равный $l$. Обратное, вообще говоря, неверно.
 \end{theorem}
 
 \begin{proof}
-	Само утверждение прямо вытекает из определения  пределов. Контрпримером обратного утверждения же будет $f(x, y)$:
+	Само утверждение прямо вытекает из определений  пределов. Контрпримером обратного утверждения же будет $f(x, y)$:
 	\[
 		f(x, y) = \System{
 			&{\frac{x^2 y}{x^4 + y^2},\ (x, y) \neq (0, 0)}
@@ -70,9 +74,9 @@
 			&{0,\ (x, y) = (0, 0)}
 		}
 	\]
-	Пусть $\vec{e} = (\alpha, \beta)$. Тогда
+	Пусть $\vv{e} = (\alpha, \beta)$. Тогда
 	\[
-		D_{0, \vec{e}} = \{(x, y) \such x = \alpha t,\ y = \beta t,\ t \neq 0\}
+		D_{0, \vv{e}} = \{(x, y) \such x = \alpha t,\ y = \beta t,\ t \neq 0\}
 	\]
 	Посмотрим на предел $\liml_{t \to 0} f(\alpha t, \beta t)$:
 	\[
@@ -87,7 +91,7 @@
 \begin{addition}
 	На практике для проверки существования предела по совокупности используют следующий факт:
 	
-	Пусть есть $f(x, y)$, и нужно проверить $\liml_{(x, y) \to (0, 0)} f(x, y) = l$. Если перейти в полярные координаты, положив $x = \rho \cos \phi$ и $y = \rho \sin \phi$ нам удастся доказать, что
+	Пусть есть $f(x, y)$, и нужно проверить $\liml_{(x, y) \to (0, 0)} f(x, y) = l$. Если перейти в полярные координаты, положив $x = \rho \cos \phi$ и $y = \rho \sin \phi$, нам удастся доказать, что
 	\[
 		|f(\rho \cos\phi, \rho \sin\phi) - l| \le \psi(\rho),\ \liml_{\rho \to 0+} \psi(\rho) = 0
 	\]
@@ -129,35 +133,35 @@
 \end{example}
 
 \begin{definition}
-	Если $\vec{x}_0$ - предельная точка области определения $D$ функции $f: D \to \R$, тогда \textit{непрерывность в точке} $\vec{x}_0$ запишется в виде
+	Если $\vv{x}_0$ - предельная точка области определения $D$ функции $f: D \to \R$, тогда \textit{непрерывность в точке} $\vv{x}_0$ запишется в виде
 	\[
-		\liml_{\vec{x} \to \vec{x}_0} f(\vec{x}) = f(\vec{x}_0)
+		\liml_{\vv{x} \to \vv{x}_0} f(\vv{x}) = f(\vv{x}_0)
 	\]
-	Если же $\vec{x}_0$ - изолированная точка области определения $D$ функции $f$, то тогда сразу $f$ непрерывна в $\vec{x}_0$.
+	Если же $\vv{x}_0$ - изолированная точка области определения $D$ функции $f$, то тогда сразу $f$ непрерывна в $\vv{x}_0$.
 \end{definition}
 
 \begin{theorem} (Непрерывность сложной функции)
-	Пусть $f: D \to \R$ непрерывна в точке $\vec{y}_0 = (y_1^{(0)}, \ldots, y_m^{(0)}) \in D \subset \R^m$, а также функции $\forall j \in \range{m}\ g_j \colon G \to \R$ непрерывны в точке $\vec{x_0} = (x_1^{(0)}, \ldots, x_n^{(0)}) \in G \subset \R^n$, причём
+	Пусть $f: D \to \R$ непрерывна в точке $\vv{y}_0 = (y_1^{(0)}, \ldots, y_m^{(0)}) \in D \subset \R^m$, а также функции $\forall j \in \range{m}\ g_j \colon G \to \R$ непрерывны в точке $\vv{x}_0 = (x_1^{(0)}, \ldots, x_n^{(0)}) \in G \subset \R^n$, причём
 	\begin{align*}
-		&{\forall j \in \range{m}\ g_j(\vec{x}_0) = y_j^{(0)}}
+		&{\forall j \in \range{m}\ g_j(\vv{x}_0) = y_j^{(0)}}
 		\\
-		&{\forall \vec{x} \in G\ (g_1(\vec{x}), \ldots, g_m(\vec{x}))) \in D}
+		&{\forall \vv{x} \in G\ (g_1(\vv{x}), \ldots, g_m(\vv{x}))) \in D}
 	\end{align*}
-	Тогда сложная функция $h(\vec{x}) = f(g_1(\vec{x}), \ldots, g_m(\vec(x)))$ непрерывна в точке $\vec{x_0}$
+	Тогда сложная функция $h(\vv{x}) = f(g_1(\vv{x}), \ldots, g_m(\vv{x}))$ непрерывна в точке $\vv{x}_0$
 \end{theorem}
 
 \begin{proof}
-	Рассмотрим последовательность Гейне $\forall \{\vec{x}_l\}_{k = 1}^\infty \subset G,\ \liml_{k \to \infty} \vec{x}_k = \vec{x}_0$. Тогда
+	Рассмотрим последовательность Гейне $\forall \{\vv{x}_l\}_{k = 1}^\infty \subset G,\ \liml_{k \to \infty} \vv{x}_k = \vv{x}_0$. Тогда
 	\[
-		\forall j \in \range{m}\ \liml_{k \to \infty} g_j(\vec{x}_k) = g_j(\vec{x}_0) = y_j^{(0)}
+		\forall j \in \range{m}\ \liml_{k \to \infty} g_j(\vv{x}_k) = g_j(\vv{x}_0) = y_j^{(0)}
 	\]
-	Если обозначить за $y_j^{(k)} := g_j(\vec{x}_k)$, то имеем:
+	Если обозначить за $y_j^{(k)} := g_j(\vv{x}_k)$, то имеем:
 	\[
-		\vec{y}_k = (y_1^{(k)}, \ldots, y_m^{(k)}) \xrightarrow[k \to \infty]{} (y_1^{(0)}, \ldots, y_m^{(0)}) \lra \forall j \in \range{m}\ \liml_{k \to \infty} y_j^{(k)} = y_j^{(0)}
+		\vv{y}_k = (y_1^{(k)}, \ldots, y_m^{(k)}) \xrightarrow[k \to \infty]{} (y_1^{(0)}, \ldots, y_m^{(0)}) \lra \forall j \in \range{m}\ \liml_{k \to \infty} y_j^{(k)} = y_j^{(0)}
 	\]
 	В итоге получили, что
 	\[
-		\liml_{k \to \infty} f(\vec{y}_k) = f(\vec{y}_0) = \liml_{k \to \infty} h(\vec{x}_k) = h(\vec{x}_0)
+		\liml_{k \to \infty} f(\vv{y}_k) = f(\vv{y}_0) = \liml_{k \to \infty} h(\vv{x}_k) = h(\vv{x}_0)
 	\]
 \end{proof}
 
@@ -168,30 +172,30 @@
 \begin{proof}
 	От противного. Это означает, что
 	\[(0)
-		\exists \eps_0 > 0 \such \forall \delta > 0\ \exists \vec{x}_1, \vec{x}_2 \in K,\ |\vec{x}_1 - \vec{x}_2| < \delta\ \ |f(\vec{x}_1) - f(\vec{x}_2)| \ge \eps_0
+		\exists \eps_0 > 0 \such \forall \delta > 0\ \exists \vv{x}_1, \vv{x}_2 \in K,\ |\vv{x}_1 - \vv{x}_2| < \delta\ \ |f(\vv{x}_1) - f(\vv{x}_2)| \ge \eps_0
 	\]
 	Последовательно для данного $\eps_0$ будем выбирать $\delta = 1, \frac{1}{2}, \ldots, \frac{1}{m}, \ldots$. Тогда имеем:
 	\[(1)
-		\exists \vec{x}_{1, m}, \vec{x}_{2, m} \in K, \|\vec{x}_{1, m} - \vec{x}_{2, m}| < \frac{1}{m}\ \ |f(\vec{x}_{1, m}) - f(\vec{x}_{2, m})| \ge \eps_0
+		\exists \vv{x}_{1, m}, \vv{x}_{2, m} \in K, \|\vv{x}_{1, m} - \vv{x}_{2, m}| < \frac{1}{m}\ \ |f(\vv{x}_{1, m}) - f(\vv{x}_{2, m})| \ge \eps_0
 	\]
-	Получили последовательность $\{\vec{x}_{1, m}\}_{m = 1}^\infty \subset K$, причём по обобщению теоремы Больцано-Вейерштрасса для комапакта $K$ имеем, что
+	Получили последовательность $\{\vv{x}_{1, m}\}_{m = 1}^\infty \subset K$, причём по обобщению теоремы Больцано-Вейерштрасса для комапакта $K$ имеем, что
 	\[(2)
-		\exists \{\vec{x}_{1, m_k}\}_{k = 1}^\infty,\ \liml_{k \to \infty} \vec{x}_{1, m_k} = \vec{x}_0 \in K
+		\exists \{\vv{x}_{1, m_k}\}_{k = 1}^\infty,\ \liml_{k \to \infty} \vv{x}_{1, m_k} = \vv{x}_0 \in K
 	\]
 	По неравенству треугольника
-	 $|\vec{x}_{2, m_k} - \vec{x}_0| \leq |\vec{x}_{2, m_k} - \vec{x}_{1, m_k}| + |\vec{x}_{1, m_k} - \vec{x}_0|$ \\
-	Из (1) $|\vec{x}_{1, m} - \vec{x}_{2, m}| < \frac{1}{m} \to 0$ \\
-	Из (2) $|\vec{x}_{1, m_k} - \vec{x}_0| \to 0$ \\
-	Тогда  $|\vec{x}_{2, m_k} - \vec{x}_0| \to 0$  То есть $\liml_{k \to \infty} \vec{x}_{2, m_k} = \vec{x}_0$ \\
+	 $|\vv{x}_{2, m_k} - \vv{x}_0| \leq |\vv{x}_{2, m_k} - \vv{x}_{1, m_k}| + |\vv{x}_{1, m_k} - \vv{x}_0|$ \\
+	Из (1) $|\vv{x}_{1, m} - \vv{x}_{2, m}| < \frac{1}{m} \to 0$ \\
+	Из (2) $|\vv{x}_{1, m_k} - \vv{x}_0| \to 0$ \\
+	Тогда  $|\vv{x}_{2, m_k} - \vv{x}_0| \to 0$  То есть $\liml_{k \to \infty} \vv{x}_{2, m_k} = \vv{x}_0$ \\
 	Из определения непрерывности:
 	\[
-		\liml_{k \to \infty} f(\vec{x}_{2, m_k}) = \liml_{k \to \infty} f(\vec{x}_{1, m_k}) = f(\vec{x}_0)
+		\liml_{k \to \infty} f(\vv{x}_{2, m_k}) = \liml_{k \to \infty} f(\vv{x}_{1, m_k}) = f(\vv{x}_0)
 	\]
 	Но это противоречит (0)
 \end{proof}
 
 \begin{definition}
-	Множество $A \subset E \subset \R^n$ называется \textit{относительно открытым (замкнутым)} в $E$, если $\exists$ открытое (замкнутое) множество $G (F) \subset \R^n$ такое, что
+	Множество $A \subset E \subset \R^n$ называется \textit{относительно открытым (замкнутым)} в $E$, если $\exists$ открытое (замкнутое) множество $G \subset \R^n\ (F \subset \R^n)$ такое, что
 	\[
 		A = E \cap G\ (A = E \cap F)
 	\]
@@ -202,5 +206,5 @@
 \end{definition}
 
 \begin{definition}
-	Множество $E \subset \R^n$ называется \textit{линейно связным}, если $\forall \vec{x}_1, \vec{x}_2 \in E$ существует кривая $\gamma \subset E$, соединяющая $\vec{x}_1$ и $\vec{x}_2$.
+	Множество $E \subset \R^n$ называется \textit{линейно связным}, если $\forall \vv{x}_1, \vv{x}_2 \in E$ существует кривая $\gamma \subset E$, соединяющая $\vv{x}_1$ и $\vv{x}_2$.
 \end{definition}
