@@ -1,0 +1,54 @@
+\begin{proof}
+	Для доказательства критерия Вейля нам потребуется \textit{теорема Вейерштрасса} из математического анализа:
+	\begin{theorem}
+		Если $f$ - непрерывная комплекснозначная функция с периодом 1, то $\forall \eps > 0$ существует функция $\psi(x)$ такая, что
+		\[
+			\psi(x) = \suml_{m \neq 0} c_m e^{2\pi i m x}
+		\]
+		причём
+		\[
+			\sup\limits_{x \in \R} |f(x) - \psi(x)| < \eps
+		\]
+	\end{theorem}
+
+	\begin{note}
+		Сумма по $m \neq 0$ подразумевает, что мы смотрим на конечный набор целых $m \neq 0$.
+	\end{note}
+
+	Из сказанного выше, нам достаточно доказать теорему лишь в одну сторону: от предела к равномерной распределённости. Зафиксируем какую-то непрерывную периодическую комплекснозначную функцию $f$ с периодом 1 и $\eps > 0$. Теперь, воспользуемся теоремой выше и выберем $\psi(x)$:
+	\[
+		\psi(x) = \suml_{m \in M} c_m e^{2\pi i mx}
+	\]
+	\textcolor{red}{Дописать доказательство}
+\end{proof}
+
+\begin{definition}
+	\textcolor{red}{Сумма Гаусса}
+\end{definition}
+
+\begin{theorem}
+	\[
+		|S(q)| = \System{
+			&{\sqrt{q}, \text{ если } q \text{ нечётно}}
+			\\
+			&{0, \text{ если } q \text{ чётно, но не делится на } 4}
+			\\
+			&{\sqrt{2q}, \text{ иначе}}
+		}
+	\]
+\end{theorem}
+
+\begin{proof}
+	\begin{multline*}
+		|S(q)|^2 = S(q) \cdot \overline{S(q)} = \left(\suml_{x = 1}^q e^{2\pi i \frac{ax^2}{q}}\right) \cdot \left(\suml_{y = 1}^q e^{-2\pi i \frac{ay^2}{q}}\right) = \left(\suml_{x = 1}^q e^{2\pi i \frac{ax^2}{q}} \cdot \suml_{y = 1}^q e^{-2\pi i \frac{a}{q}(y + x)^2}\right) =
+		\\
+		\suml_{y = 1}^q e^{-2\pi \frac{ay^2}{q}} \cdot \left(\suml_{x = 1}^q e^{2\pi i \frac{2axy}{q}}\right)
+	\end{multline*}
+	Разберём случаи:
+	\begin{enumerate}
+		\item $q$ - нечётное. Тогда, так как $(a, q) = 1$:
+		\[
+			\suml_{x = 1}^q e^{2\pi i \frac{2ax}{q}}
+		\]
+	\end{enumerate}
+\end{proof}
