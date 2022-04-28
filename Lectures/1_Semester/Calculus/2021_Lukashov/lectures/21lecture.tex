@@ -294,7 +294,7 @@
 \end{proof}
 
 \begin{theorem} (Основное свойство совокупности открытых множеств) \label{mainProp}
-	Пусть $x$ - метрическое пространство. Тогда совокупность $\Tau$ открытых подмножеств $X$ обладает следующими свойствами:
+	Пусть $X$ - метрическое пространство. Тогда совокупность $\Tau$ открытых подмножеств $X$ обладает следующими свойствами:
 	\begin{enumerate}
 		\item $\emptyset \in \Tau$, $X \in \Tau$
 		
@@ -310,11 +310,11 @@
 		
 		\item Рассмотрим $\forall x \in G_1 \cap G_2$. Из выбора следует
 		\begin{align*}
-			&\exists \eps_1 \such U_{\eps_1} \subset G_1
+			&\exists \eps_1 \such U_{\eps_1}(x) \subset G_1
 			\\
-			&\exists \eps_2 \such U_{\eps 2} \subset G_2 
+			&\exists \eps_2 \such U_{\eps_2}(x) \subset G_2 
 		\end{align*}
-		Следовательно, $U_{\min(\eps_1, \eps_2)} \subset G_1 \cap G_2$.
+		Следовательно, $U_{\min(\eps_1, \eps_2)}(x) \subset G_1 \cap G_2$.
 		
 		\item $x \in \bigcup\limits_{\alpha \in A} G_\alpha \Ra \left(\exists \alpha_0 \in A \such x \in G_{\alpha_0}\right)$. Значит
 		\[
