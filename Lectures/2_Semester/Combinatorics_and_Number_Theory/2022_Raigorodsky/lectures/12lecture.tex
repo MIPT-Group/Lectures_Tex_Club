@@ -73,7 +73,33 @@
 	\[
 		|S(q)|^2 = S(q) \cdot \overline{S(q)} = \left(\suml_{x = 1}^q e^{2\pi i \frac{ax^2}{q}}\right) \cdot \left(\suml_{y = 1}^q e^{-2\pi i \frac{ay^2}{q}}\right)
 	\]
-	\textcolor{red}{здесь надо объяснить, почему сумма с $y^2$ это то же самое, что и сумма с $(y - x)^2$}. Отсюда имеем
+	\begin{proposition}
+		Имеет место следующее равенство:
+		\[
+			\forall t \in \Z\ \ \suml_{y = 1}^q e^{-2\pi i \frac{ay^2}{q}} = \suml_{y = 1}^q e^{-2\pi i \frac{a(y - t)^2}{q}}
+		\]
+	\end{proposition}
+
+	\begin{proof}
+		Сделаем несколько шагов к данному утверждению:
+		\begin{enumerate}
+			\item
+			\(
+				\forall \alpha \in \R \quad e^{-2\pi i \alpha} = e^{-2\pi i (\floor{\alpha} + \{\alpha\})} = e^{-2\pi i \{\alpha\}}
+			\)
+			
+			\item Покажем, что для $\forall y \in \{1, \ldots, q\}$ мы можем однозначно сопоставить $y' \in \{1, \ldots, q\}$ такой, что
+			\[
+				ay^2 \equiv a(y' - t)^2 \pmod q
+			\]
+			Понятно, что выполнение этого условия даст нам биекцию между суммами в утверждении, а значит докажет их равенство. В силу свойств арифметических операций в поле $\Z_q$, нам нужно просто взять $y'$ таким, что
+			\[
+				y' \equiv y + t \pmod q
+			\]
+			Так как $t$ фиксировано, а $y$ пробегает полную систему вычетов, то сопоставление $y'$ будет однозначным (просто какая-то другая полная система вычетов, сдвинутая относительно данной).
+		\end{enumerate}
+	\end{proof}
+	Отсюда имеем
 	\[
 		|S(q)|^2 = \left(\suml_{x = 1}^q e^{2\pi i \frac{ax^2}{q}}\right) \cdot \left(\suml_{y = 1}^q e^{-2\pi i \frac{a}{q}(y - x)^2}\right) = \suml_{y = 1}^q e^{-2\pi i \frac{a}{q}y^2} \cdot \suml_{x = 1}^q e^{2\pi i \frac{2axy}{q}}
 	\]
