@@ -142,6 +142,26 @@
 	\end{align*}
 \end{lemma}
 
+\begin{proof}~
+	\begin{itemize}
+		\item Вначале разберёмся с внутренностями множеств. Пусть $x_0 \in \Int A_1$. Тогда
+		\[
+			\exists \eps > 0 \such U_\eps(x_0) \subset A_1 \subset A_2
+		\]
+		Значит, $x_0 \in \Int A_2$ тоже.
+		
+		\item Теперь посмотрим на замыкание. Пусть $x_0 \in \cl A_1$. Тогда
+		\[
+			\forall \eps > 0\ \ U_\eps(x_0) \cap A_1 \neq \emptyset
+		\]
+		Коль скоро $A_1 \subset A_2$, то отсюда
+		\[
+			\forall \eps > 0\ \ U_\eps(x_0) \cap A_2 \neq \emptyset
+		\]
+		Следовательно, $x_0 \in \cl A_2$.
+	\end{itemize}
+\end{proof}
+
 \begin{lemma}
 	Открытый шар является открытым множеством.
 \end{lemma}
@@ -303,6 +323,10 @@
 		\item $\forall \{G_\alpha\}_{\alpha \in A} \subset \Tau \Ra \bigcup\limits_{\alpha \in A} G_\alpha \in \Tau \text{, где } A \text{ является некоторым множеством индексов}$
 	\end{enumerate}
 \end{theorem}
+
+\begin{note}
+	Под \textit{совокупностью} множеств подразумевается множество всех множеств, обладающих указанным свойством (в данном случае - множество всех открытых множеств).
+\end{note}
 
 \begin{proof}~
 	\begin{enumerate}
