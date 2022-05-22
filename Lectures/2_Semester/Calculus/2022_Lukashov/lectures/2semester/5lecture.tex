@@ -1,18 +1,23 @@
 \begin{theorem} (Формула Тейлора с остаточным членом в форме Лагранжа для функции многих переменных)
-	Пусть $f$ $m + 1$ раз дифференцируема в окрестности точки $\vv{x}_0 \in \R^n$. Тогда, для любого $\vv{x}$ из этой окрестности существует $\vv{\xi} = \vv{x}_0 + c(\vv{x} - \vv{x}_0),\ 0 \le c \le 1$ такая, что
+	Пусть $f$ --- $m + 1$ раз дифференцируемая функция в окрестности точки $\vv{x}_0 \in \R^n$. Тогда, для любого $\vv{x}$ из этой окрестности существует $\vv{\xi} = \vv{x}_0 + c(\vv{x} - \vv{x}_0),\ 0 \le c \le 1$ такое, что
 	\[
 		f(\vv{x}) = f(\vv{x}_0) + \suml_{k = 1}^m \frac{d^k f(\vv{x}_0)}{k!} + \frac{d^{m + 1} f(\vv{\xi})}{(m + 1)!}
 	\]
-	% Здесь выпирает кусок где \vv{x} = (...)
-	где в дифференциалах следует положить $\forall j \in \range{n}\ dx_j = x_j - x_{j, 0}$, причем $m \geq 0$, $\vv{x} = (x_1, \ldots, x_n)$, $\vv{x}_0 = (x_{1, 0}, \ldots, x_{n, 0})$.
+	где соблюдаются следующие равенства:
+	\begin{itemize}
+		\item \(m \ge 0\)
+		\item \(\vv{x} = (x_1, \ldots, x_n)\)
+		\item \(\vv{x}_0 = (x_{1, 0}, \ldots, x_{n, 0})\)
+		\item \(\forall j \in \range{n}\ dx_j = x_j - x_{j, 0}\)
+	\end{itemize}
 \end{theorem}
 
 \begin{proof}
 	Положим $F(t) := f(\vv{x}_0 + t(\vv{x} - \vv{x}_0)),\  \forall t \in [0, 1]$. Докажем, что
 	\[
-		\forall k \in \range{m + 1}\ F^{(k)} (t) = d^k f(\vv{x}_0 + t(\vv{x} - \vv{x}_0))
+		\forall k \in \range{m + 1} \quad F^{(k)} (t) = d^k f(\vv{x}_0 + t(\vv{x} - \vv{x}_0))
 	\]
-	В дифференциалы нужно положить $\forall j \in \range{n} \ dx_j = x_j - x_{j, 0}$.
+	В дифференциале при этом нужно положить $\forall j \in \range{n} \ dx_j = x_j - x_{j, 0}$.
 	
 	Сделаем это при помощи индукции:
 	\begin{itemize}
@@ -32,7 +37,7 @@
 			\suml_{i_1, \ldots, i_n}^n\frac{\vdelta^{k + 1} f}{\vdelta x_{i_1}\cdot\ldots\cdot \vdelta x_{i_n}}(\vv{x}_0 + t(\vv{x} - \vv{x}_0))(x_{i_1} - x_{i_1, 0})\cdot\ldots\cdot(x_{i_n} - x_{i_n, 0}) = d^{k + 1}f(\vv{x}_0 + t(\vv{x} - \vv{x}_0))
 		\end{multline*}
 	\end{itemize}
-	Разложим $F(t)$ в ряд Тейлора с остаточным членом в форме Лагранжа:
+	Разложим $F(t)$ в ряд Тейлора с остаточным членом в форме Лагранжа в точке $t = 1$:
 	\[
 		F(1) = F(0) + \suml_{k = 1}^m\frac{F^{(k)}(0)}{k!} + \frac{F^{(m + 1)}(c)}{(m + 1)!}
 	\]
@@ -61,7 +66,7 @@
 	\end{lemma}
 
 	\begin{proof}
-		По индкуции
+		По индукции
 		\begin{itemize}
 			\item База $m = 1$:
 			\[
@@ -77,11 +82,11 @@
 			\]
 			Сразу видно, что $g_{t + 1} (\vv{x}_0) = 0$. Теперь посмотрим на частную производную, например, по $x_1$:
 			\begin{multline*}
-				\pd{g_{t + 1}}{x_1} (\vv{x}) = \pd{f}{x_1} (\vv{x}) - \suml_{k = 1}^{t + 1} \frac{1}{k!} \suml_{i_1 + \ldots + i_n = k} \frac{\vdelta^k f}{\vdelta x_1^{i_1} \cdot \ldots \cdot \vdelta x_n^{i_n}} (\vv{x}_0) \cdot
+				\pd{g_{t + 1}}{x_1} (\vv{x}) = \pd{f}{x_1} (\vv{x}) - \suml_{k = 1}^{t + 1} \frac{1}{k!} \suml_{i_1 + \ldots + i_n = k \over i_1 \ge 1} \frac{\vdelta^k f}{\vdelta x_1^{i_1} \cdot \ldots \cdot \vdelta x_n^{i_n}} (\vv{x}_0) \cdot
 				\\
-				\frac{k!}{i_1! \cdot \ldots \cdot i_n!} (x_1 - x_{1, 0})^{i_1 - 1} \cdot \ldots \cdot (x_n - x_{n, 0})^{i_n}
+				\frac{k!}{i_1! \cdot \ldots \cdot i_n!} i_1 (x_1 - x_{1, 0})^{i_1 - 1} \cdot \ldots \cdot (x_n - x_{n, 0})^{i_n}
 			\end{multline*}
-			Переобозначим $\hat{i}_1 = i_1 - 1,\ \hat{i}_2 = i_2,\ldots, \hat{i}_n = i_n$.
+			Переобозначим $\hat{i}_1 = i_1 - 1,\ \hat{i}_2 = i_2,\ldots, \hat{i}_n = i_n$ и разложим сумму на случаи, когда $k = 1$ и $k \ge 2$:
 			\begin{multline*}
 				\pd{f}{x_1} (\vv{x}) - \pd{f}{x_1} (\vv{x}_0) - \suml_{k = 2}^{t + 1} \frac{1}{(k - 1)!} \suml_{\hat{i}_1 + \ldots + \hat{i}_n = k - 1} \frac{(k - 1)!}{\hat{i}_1! \cdot \ldots \cdot \hat{i}_n!} \cdot
 				\\
@@ -119,7 +124,7 @@
 			\[
 				dg(\vv{\xi}) = \suml_{j = 1}^n \pd{g}{x_j} (\vv{\xi}) (x_j - x_{j, 0})
 			\]
-			$\pd{g}{x_j}$ удовлетворяет лемме для m = t, тогда:
+			$\pd{g}{x_j}$ удовлетворяет лемме для $m = t$, тогда:
 			\[
 				\pd{g}{x_j}(\vv{\xi}) = o(|\vv{\xi} - \vv{x}_0|^t) = o(|\vv{x} - \vv{x}_0|^t),\ \vv{x} \to \vv{x}_0
 			\]
