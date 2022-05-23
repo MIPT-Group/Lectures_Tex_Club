@@ -1,8 +1,7 @@
 \subsection{Основные свойства интеграла Римана-Стилтьеса}
 
 \begin{note}
-	До конца параграфа зафиксируем возрастающую функцию $\alpha$, а также то, что мы рассматриваем интеграл на отрезке $[a; b]$.
-	Также напомним смежные определения:
+	До конца параграфа зафиксируем возрастающую функцию $\alpha$, а также то, что мы рассматриваем интеграл на отрезке $[a; b]$. Напомним смежные определения:
 	\[
 		U(P, f, \alpha) = \suml_{k = 1}^nM_k\Delta \alpha_k
 	\]
@@ -16,12 +15,12 @@
 		\underline{I}(f, \alpha) = \sup_P L(P, f, \alpha)
 	\]
 	\[
-		S(f, P, \{t_i\}, \alpha) = \suml_{i= 1}^nf(t_i)\Delta\alpha_i
+		S(P, f, \{t_i\}, \alpha) = \suml_{i= 1}^nf(t_i)\Delta\alpha_i
 	\]
 	\[
-		\liml_{\Delta P \to 0}S(f, P, \{t_i\}, \alpha) = \int_a^bf(x)d\alpha(x)
+		\liml_{\Delta P \to 0}S(P, f, \{t_i\}, \alpha) = \int_a^bf(x)d\alpha(x)
 	\]
-	Если $\alpha$ - функция ограниченной вариации, то ее можно представить в виде разности 2 неубывающих функций. $\alpha = p - q$, отдку получаем:
+	Если $\alpha$ - функция ограниченной вариации, то ее можно представить в виде разности 2 неубывающих функций. $\alpha = p - q$, откуда получаем:
 	\[
 		\int_a^bf(x)d\alpha(x) = \int_a^bf(x)dp(x) - \int_a^bf(x)dq(x)
 	\]
@@ -36,40 +35,40 @@
 \end{theorem}
 
 \begin{proof}
-	Коль скоро $\alpha'$ интегрируема по Риману, то $\alpha'$ - ограниченная, а стало быть $\alpha$ - непрерывная функция ограниченной вариации, а потому интеграл существует. Распишем, что означает интегральная сумма слева от равенства:
+	Коль скоро $\alpha'$ интегрируема по Риману, то $\alpha'$ - ограниченная, а стало быть $\alpha$ - непрерывная функция ограниченной вариации, потому интеграл существует. Распишем, что означает интегральная сумма справа от равенства:
 	\[
 		\forall \eps > 0\ \exists \delta_1 > 0 \such \forall P, \Delta(P) < \delta_1\ \ \forall \{t_i\}\ t_i \in [x_{i - 1};x_i]\  \left|\suml_{i = 1}^n f(t_i) \alpha'(t_i) \Delta x_i - \int_a^b f(x) \alpha'(x) dx\right| < \frac{\eps}{4}
 	\]
-	Так как $f$ интегрируема, то она ограничена, $\exists M \such \forall x \in [a; b]\ |f(x)| \le M$. Запишем интеграл Римана от $\alpha'(x)$ по определению:
+	Так как $f$ интегрируема, то она ограничена, $\exists M \such \forall x \in [a; b]\ \ |f(x)| \le M$. Запишем интеграл Римана от $\alpha'(x)$ по определению:
 	\[
 		\forall \eps > 0\ \exists \delta_2 > 0 \such \forall P, \Delta(P) < \delta_2\ \ \forall \{t_i\}\ \left|\suml_{i = 1}^n \alpha'(t_i)\Delta x_i - \int_a^b \alpha'(x)dx\right| < \frac{\eps}{4M}
 	\]
-	Выпишем также для иного набора точек $\{s_i\}$, после чего сложим строки и получим:
+	Выпишем аналогичную формулу для иного набора точек $\{s_i\}$, после чего сложим строки и получим:
 	\[
-		\forall \{t_\}, \{s_i\} \in [x_{i - 1};x_i]\ \suml_{i = 1}^n|\alpha'(t_i) - \alpha'(s_i)| < \frac{\eps}{2M}
+		\forall \{t_i\}, \{s_i\} \in [x_{i - 1};x_i] \quad \suml_{i = 1}^n|\alpha'(t_i) - \alpha'(s_i)| < \frac{\eps}{2M}
 	\]
-	Чтобы были верны оба утверждения возьмем такое $\delta$.
+	Теперь, распишем для <<хороших>> разбиений $P$ (таких, что $\Delta P < \delta = \min \{\delta_1, \delta_2\}$) их интегральную сумму:
 	\[
-		\forall P, \Delta P < \delta = \min(\delta_1, \delta_2) > 0 \forall \{t_i\} \in [x_{i - 1};x_i]\ S(P, f, \{t_i\}, \alpha) = \suml_{i = 1}^nf(t_i)(\alpha(x_i) - \alpha(x_{i - 1}))
+		\forall P, \Delta P < \delta\ \forall \{t_i\} \in [x_{i - 1};x_i] \quad S(P, f, \{t_i\}, \alpha) = \suml_{i = 1}^nf(t_i)(\alpha(x_i) - \alpha(x_{i - 1}))
 	\]
-	Откуда по теореме Лагранжа найдем:
+	По теореме Лагранжа найдем:
 	\[
-		\exists \{s_i\} \in [x_{i - 1};x_i] \ \suml_{i = 1}^nf(t_i)(\alpha(x_i) - \alpha(x_{i - 1})) = \suml_{i = 1}^nf(t_i)\alpha'(s_i)\Delta x_i
+		\exists \{s_i\} \in [x_{i - 1} ;x_i] \quad \suml_{i = 1}^n f(t_i)(\alpha(x_i) - \alpha(x_{i - 1})) = \suml_{i = 1}^n f(t_i)\alpha'(s_i)\Delta x_i
 	\]
-	Добавим и вычтем $\suml_{i = 1}^nf(t_i)\alpha'(t_i)\Delta x_i$.
+	Добавим и вычтем $\suml_{i = 1}^n f(t_i)\alpha'(t_i)\Delta x_i$:
 	\[
 		S(P, f, \{t_i\}, \alpha) = \suml_{i = 1}^nf(t_i)\alpha'(t_i)\Delta x_i + \suml_{i = 1}^nf(t_i)(\alpha'(s_i) - \alpha'(t_i))\Delta x_i
 	\]
-	Рассмотрим модуль разности.
+	Оценим теперь модуль разности между интегралом и нашей предельной суммой:
 	\begin{multline*}
-		\left|S(P, f, \{t_i\}, \alpha) - \int_a^bf(x)\alpha'(x)dx \right| \leq \left|\suml_{i = 1}^n|f(t_i)\alpha'(t_i)\Delta x_i - \int_a^bf(x)\alpha'(x)dx \right| +
+		\left|S(P, f, \{t_i\}, \alpha) - \int_a^b f(x)\alpha'(x)dx \right| \leq \left|\suml_{i = 1}^n f(t_i)\alpha'(t_i)\Delta x_i - \int_a^b f(x)\alpha'(x)dx \right| +
 		\\
-		\suml_{i = 1}^n|f(t_i)(\alpha'(s_i) - \alpha'(t_i))|\Delta x_i < \frac{\eps}{2} + \frac{M \eps}{2M} = \eps
+		\suml_{i = 1}^n |f(t_i)(\alpha'(s_i) - \alpha'(t_i))|\Delta x_i < \frac{\eps}{2} + M\frac{\eps}{2M} = \eps
 	\end{multline*}
 \end{proof}
 
 \begin{theorem}
-	Пусть $f$ ограничена на $[a; b]$ и непрерывна в точках $\{x_1, \ldots, x_N\} \subset (a; b)$. Функция $\alpha$ постоянна между этими точками, а значит непрерывна на $[a; b] \ \{x_1, \ldots, x_N\}$. Тогда $f \in R(\alpha, [a; b])$ и
+	Пусть $f$ ограничена на $[a; b]$ и непрерывна в точках $\{x_1, \ldots, x_N\} \subset (a; b)$. Функция $\alpha$ постоянна между этими точками, а значит непрерывна на множестве $[a; b] \bs \{x_1, \ldots, x_N\}$. Тогда $f \in R(\alpha, [a; b])$ и
 	\[
 		\int_a^b f(x)d(\alpha(x)) = \suml_{k = 1}^N f(x_k) (\alpha(x_k + 0) - \alpha(x_k - 0))
 	\]
@@ -87,23 +86,23 @@
 	\]
 	Посмотрим на разность этих сумм:
 	\[
-		U(P_\delta, f, \alpha) - L(P_\delta, f, \alpha) = \suml_{k = 1}^N (M_k(\delta) - m_k(\delta)) (\alpha(x_k + 0) - \alpha(x_k - 0))
+		U(P_\delta, f, \alpha) - L(P_\delta, f, \alpha) = \suml_{k = 1}^N (M_k(f, \delta) - m_k(f, \delta)) (\alpha(x_k + 0) - \alpha(x_k - 0))
 	\]
-	Так как $f$ непрерывна, то $M_k(\delta) \to f(x_k),\ m_k(\delta) \to f(x_k)$, то есть их разность стремиться к нулю, в свою очередь приращение $\alpha(x_k + 0) - \alpha(x_k - 0) \leq \alpha(b) - \alpha(a)$.
-	Получаем, что $U(P_\delta, f, \alpha) - L(P_\delta, f, \alpha) < \eps$. То есть функция функция $f$ и правда интегрируема.
+	Так как $f$ непрерывна во всех точках $x_k$, то при стремлении $\delta \to 0$ супремумы и инфинумы тоже будут стремится к значению в этих точках $M_k(f, \delta) \to f(x_k),\ m_k(f, \delta) \to f(x_k)$. То есть их разность стремится к нулю, в свою очередь приращение $\alpha(x_k + 0) - \alpha(x_k - 0) \leq \alpha(b) - \alpha(a)$.
+	Получаем, что $U(P_\delta, f, \alpha) - L(P_\delta, f, \alpha) < \eps$. Следовательно, функция $f$ и правда интегрируема по Риману-Стилтьеса.
 \end{proof}
 
 \begin{theorem}
-	Пусть $f$ - непрерывна, $\alpha$ - ограниченной вариации или же $f$ - ограниченной вариации и $\alpha$ - непрерывная функция ограниченной вариации. Тогда, если положить $v(x) := V(\alpha, [a; x])$, то
+	Пусть $f$ - непрерывна, $\alpha$ - ограниченной вариации (или же $f$ - ограниченной вариации и $\alpha$ - непрерывная функция ограниченной вариации). Тогда, если положить $v(x) := V(\alpha, [a; x])$, то
 	\[
 		\left|\int_a^b f(x) d(\alpha(x))\right| \le \int_a^b |f(x)| d(v(x))
 	\]
 \end{theorem}
 
 \begin{proof}
-	Оценим модуль интеграла:
+	Оценим модуль произвольной интегральной суммы:
 	\begin{multline*}
-		|S(P, f, \{t_i\}, \alpha)| = |\suml_{i = 1}^n f(t_i) \Delta \alpha_i| \le \suml_{i = 1}^n |f(t_i)| |\alpha(x_i) - \alpha(x_{i - 1})| \le
+		|S(P, f, \{t_i\}, \alpha)| = \left|\suml_{i = 1}^n f(t_i) \Delta \alpha_i\right| \le \suml_{i = 1}^n |f(t_i)| |\alpha(x_i) - \alpha(x_{i - 1})| \le
 		\\
 		\suml_{i = 1}^n |f(t_i)| V(\alpha, [x_{i - 1}; x_i]) = S(P, |f|, \{t_i\}, v)
 	\end{multline*}
@@ -120,20 +119,23 @@
 \begin{theorem} (Формула интегрирования по частям для интеграла Римана-Стилтьеса)
 	Если $f, \alpha$ - функции ограниченной вариации, $f$ - непрерывна на $[a; b]$, то
 	\[
-		\int_a^b f d\alpha = f(b)\alpha(b) - f(a)\alpha(a) - \int_a^b \alpha df
+		\int_a^b f(x)d(\alpha(x)) = f(b)\alpha(b) - f(a)\alpha(a) - \int_a^b \alpha(x)d(f(x))
 	\]
 \end{theorem}
 
 \begin{proof}
-	Перепишем интегральную сумму, используя перестановку Абеля.
+	Распишем интегральную сумму, используя перестановку Абеля:
 	\[
 		S(P, f, \{t_i\}, \alpha) = \suml_{i=  1}^nf(t_i)(\alpha(x_i) - \alpha(x_{i - 1})) = \alpha(b)f(t_n) - \alpha(a)f(t_1) - \suml_{i = 1}^{n - 1}\alpha(x_i)(f(t_{i + 1}) - f(t_i))
 	\]
-	Добавим в сумму пропавшие точки $t_0 := a,\  t_{n + 1} := b$.
+	Теперь рассмотрим разбиение $P'$, которое отличается от $P$ наличием точек ещё двух дополнительных $x_i$ у краёв и, как следствие, возможность выбрать $t_0 := a,\  t_{n + 1} := b$.
 	Тогда получим, что:
-	\[
-		S(P, f, \{t_i\}, \alpha)  = \alpha(b)f(b) - \alpha(a)f(a) - \suml_{i = 0}^n\alpha(x_i)\Delta f_i = \alpha(b)f(b) - \alpha(a)f(a) - S(P, \alpha, \{x_i\}, f)
-	\]
+	\begin{multline*}
+		S(P', f, \{t_i\}, \alpha)  = \alpha(b)f(b) - \alpha(a)f(a) - \suml_{i = 0}^n \alpha(x_i)(f(t_{i + 1}) - f(t_i)) =
+		\\
+		\alpha(b)f(b) - \alpha(a)f(a) - S(P, \alpha, \{x_i\}, f)
+	\end{multline*}
+	При этом для обоих разбиений сум верно, что $\Delta P \to 0 \lra \Delta P' \to 0$. Следовательно, требуемая формула верна.
 \end{proof}
 
 \begin{theorem} (Первая теорема о среднем для интеграла Римана-Стилтьеса)
@@ -146,7 +148,7 @@
 \begin{proof}
 	Снова распишем сумму по разбиению:
 	\[
-		S(P, f, \{t_i\}, \alpha) = \suml_{i = 1}^n f(t_i) \Delta \alpha_i \le \max\limits_{x \in [a; b]} (\alpha(b) - \alpha(a))
+		S(P, f, \{t_i\}, \alpha) = \suml_{i = 1}^n f(t_i) \Delta \alpha_i \le \left(\max\limits_{x \in [a; b]} f(x)\right) \cdot (\alpha(b) - \alpha(a)) = f(\xi) \cdot (\alpha(b) - \alpha(a))
 	\]
 \end{proof}
 
@@ -166,12 +168,13 @@
 	\[
 		f(b)\alpha(b) - f(a)\alpha(a) - \int_a^b \alpha(x) d(f(x)) = f(b)\alpha(b) - f(a)\alpha(a) - \alpha(\xi)(f(b) - f(a))
 	\]
+	Пересобрав слагаемые, получим требуемую формулу.
 \end{proof}
 
 \begin{theorem} (Формула замены переменной)
-	Пусть $f, \phi$ - непрерывны на $[a; b]$, $\phi$ - строго монотонна, а $\phi := \phi^{-1}$. Тогда
+	Пусть $f, \phi$ - непрерывны на $[a; b]$, $\phi$ - строго монотонна, а $\psi = \phi^{-1}$. Тогда
 	\[
-		\int_a^b f(x)dx = \int_\phi(a)^\phi(b) f((\phi(t))) d\psi(t)
+		\int_a^b f(x)dx = \int_{\phi(a)}^{\phi(b)} f(\psi(t)) d\psi(t)
 	\]
 \end{theorem}
 
@@ -184,12 +187,13 @@
 	\[
 		S(P, f, \{t_i\}) = \suml_{i = 1}^n f(t_i) \Delta x_i = \suml_{i = 1}^n f(\psi(\xi_i))(\psi(t_i) - \psi(t_{i - 1})) = S(\phi(P), f \circ \psi, \psi)
 	\]
+	Раз $f, \phi$ непрерывны, то по теореме об обратной функции $\psi$ также непрерывна. Более того, композиция $f \circ \psi$ тоже непрерывна, поэтому интеграл Римана-Стилтьеса существует и, в силу равенства интегральных сумм выше, интегралы тоже равны.
 \end{proof}
 
 \subsection{Несобственный интеграл Римана}
 
 \begin{definition}
-	Пусть $f$ интегрируема по Риману на $\forall \tilde{b} \in [a; b)\ [a; \tilde{b}]$. Тогда $\int_a^b f(x)dx$ - \textit{несобственным интегралом Римана}
+	Пусть $f$ интегрируема по Риману на $[a; \tilde{b}],\ \forall \tilde{b} \in [a; b)$. Тогда интеграл $\int_a^b f(x)dx$ называется \textit{несобственным интегралом Римана}
 	\begin{itemize}
 		\item \textit{первого рода}, если $b = +\infty$
 		
