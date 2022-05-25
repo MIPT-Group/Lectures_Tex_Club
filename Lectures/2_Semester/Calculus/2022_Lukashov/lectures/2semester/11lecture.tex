@@ -77,7 +77,10 @@
 	\[
 		S_n = \suml_{k = 0}^n q^k = \frac{1 - q^{n + 1}}{1 - q}
 	\]
-	\textcolor{red}{Дописать}
+	\[
+		S = \liml_{n \to +\infty} \frac{1 - q^{n + 1}}{1 - q}
+	\]
+	Очевидно, что сходится к $\frac{1}{1 - q}$ при $|q| < 1$. А при остальных значениях $q$ расходится. 
 \end{example}
 
 \begin{theorem} (Критерий сходимости рядов с неотрицательными слагаемыми)
@@ -98,7 +101,7 @@
 
 \begin{proof}
 	Если $\suml_{n = 1}^\infty b_n$ сходится, то $\{\suml_{k = 1}^n b_k\}_{n = 1}^\infty$ ограничена. Следовательно, $\{\suml_{k = 1}^n a_k\}_{n = 1}^\infty$ тоже ограничена и по критерию сходимости $\suml_{n = 1}^\infty a_n$ тоже сходится.
-	\textcolor{red}{Дописать пару слов про расходимость}
+	Если $\suml_{n = 1}^\infty a_n$ расходится, то $\{\suml_{k = 1}^n a_k\}_{n = 1}^\infty$ неограничена. Получаем, что $\{\suml_{k = 1}^n b_k\}_{n = 1}^\infty$ также неограничена и по критерию сходимости для рядов с неотрицательными слагаемыми $\suml_{n = 1}^\infty b_n$  расходится.
 \end{proof}
 
 \begin{corollary}
@@ -123,7 +126,7 @@
 		\suml_{n = 1}^m f(n + 1) \le \suml_1^{m + 1} f(x) dx \le \suml_{n = 1}^m f(n)
 	\]
 	Если $\suml_{n = 1}^\infty f(n)$ сходится $\Ra$ $\{\suml_{n = 1}^m f(n)\}_{m = 1}^\infty$ ограничена $\Ra$ $F(x) = \int_1^x f(t) dt$ - ограничена $\Ra$ $\int_1^{+\infty} f(x) dx$ - сходится.
-	\textcolor{red}{Дописать цепочку в другую сторону}
+	Если $\int_1^{+\infty} f(x)dx$ сходится, то $F(x) = \int_1^x f(t)dt$ ограничена $\Ra$ $\{\suml_{n = 1}^m f(n)\}_{m = 1}^\infty$  ограничена  $\Ra$ $\suml_{n = 1}^\infty f(n)$ сходится. Аналогичные рассуждения можно провести и для случая расхождения.
 \end{proof}
 
 \begin{example}
@@ -195,7 +198,14 @@
 \end{proof}
 
 \begin{example}
-	\textcolor{red}{Тут должно быть введение в суммирование небольшое}
+	Нетрудно встретить утверждения о том, что расходящийся ряд суммируется к какому-то значению:
+	\[
+		1 - 1 + 1 - 1 + \cdots = \frac{1}{2}
+	\]
+	Или же:
+	\[
+		1 - x + x^2 - x^3 + \cdots = \frac{1}{1 + x}, |x| < 1
+	\]
 \end{example}
 
 \begin{definition}
@@ -216,7 +226,7 @@
 \begin{proof}
 	Пусть $\exists \liml_{n \to \infty} S_n = S$. Это означает, что
 	\[
-		\forall \eps > 0\ \exists N \in \N \such \forall n > N\ \ |S_n - S| < \eps
+		\forall \eps > 0\ \exists N \in \N \such \forall n > N\ \ |S_n - S| < \frac{\eps}{2}
 	\]
 	Распишем разность $\sigma_n - S$:
 	\[
@@ -224,13 +234,16 @@
 	\]
 	Для второго слагаемого верна оценка:
 	\[
-		\left|\frac{(S_{N + 1} - S) + \ldots + (S_n - S)}{n}\right| < \frac{(n - N)\eps}{n} < \eps
+		\left|\frac{(S_{N + 1} - S) + \ldots + (S_n - S)}{n}\right| < \frac{(n - N)\eps}{2n} < \frac{\eps}{2}
 	\]
 	А для первого слагаемого вначале заметим, что оно стремится к нулю, так как в числителе стоит константа. Это означает, что по текущему $\eps$ можно определить $N_1 \in \N$ со следующим свойством:
 	\[
-		\exists N_1 \in \N \such \forall n > N_1\ \ \left|\frac{(S_1 - S) + \ldots + (S_N - S)}{n}\right| < \eps
+		\exists N_1 \in \N \such \forall n > N_1\ \ \left|\frac{(S_1 - S) + \ldots + (S_N - S)}{n}\right| < \frac{\eps}{2}
 	\]
-	\textcolor{red}{Здесь лучше подогнать эпсилоны так, чтобы получить тоже эпсилон и дописать это}
+	Откуда:
+	\[
+		\forall n > max(N_1, N)\ |\sigma_n - S| < \eps
+	\]
 \end{proof}
 
 \begin{note}
