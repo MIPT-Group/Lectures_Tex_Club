@@ -30,7 +30,7 @@
 \subsection{Числовые ряды}
 
 \begin{definition}
-	\textit{Числовым рядом} называется $\suml_{n = 1}^\infty a_n$, где $a_n \in \R$ - \textit{члены ряда}. 
+	\textit{Числовым рядом} называется объект вида $\suml_{n = 1}^\infty a_n$, где $a_n \in \R$ - \textit{члены ряда}. 
 \end{definition}
 
 \begin{definition}
@@ -67,7 +67,7 @@
 \begin{example}
 	Докажем школьную теорему:
 	\[
-		\suml_{n = 0}^\infty q^n = \System{
+		\suml_{k = 0}^\infty q^k = \System{
 			&{\frac{1}{1 - q},\ |q| < 1}
 			\\
 			&{\text{расходится},\ |q| \ge 1}
@@ -77,7 +77,20 @@
 	\[
 		S_n = \suml_{k = 0}^n q^k = \frac{1 - q^{n + 1}}{1 - q}
 	\]
-	\textcolor{red}{Дописать}
+	\begin{enumerate}
+		\item Если $|q| < 1$, то всё очевидно, ибо
+		\[
+			\liml_{n \to \infty} q^n = 0
+		\]
+		
+		\item Если $|q| = 1$, то либо будет колебание $S_n = (-1)^n$, либо $S_n = n + 1$, что очевидным образом не сходится.
+		
+		\item Если $|q| > 1$, тогда
+		\[
+			\liml_{n \to \infty} q^n = \infty
+		\]
+		И уже отсюда тривиальным образом $\liml_{n \to \infty} S_n = \infty$
+	\end{enumerate}
 \end{example}
 
 \begin{theorem} (Критерий сходимости рядов с неотрицательными слагаемыми)
@@ -89,11 +102,11 @@
 	\[
 		\exists \liml_{n \to \infty} S_n = S \in [0; +\infty]
 	\]
-	Причём $S < +\infty \lra \{S_n\}$ - ограничена.
+	Причём $S < +\infty \lra \{S_n\}$ - ограничена (по теореме Вейерштрасса).
 \end{proof}
 
 \begin{theorem} (Признак сравнения числовых рядов)
-	Если $\forall n \in \N\ 0 \le a_n < b_n$, то из сходимости $\suml_{n = 1}^\infty b_n$ следует сходимость ряда $\suml_{n = 1}^{\infty} a_n$, а из расходимости $\suml_{n = 1}^\infty a_n$ следует расходимости ряда $\suml_{n = 1}^\infty b_n$
+	Если $\forall n \in \N\ 0 \le a_n < b_n$, то из сходимости $\suml_{n = 1}^\infty b_n$ следует сходимость ряда $\suml_{n = 1}^{\infty} a_n$, а из расходимости $\suml_{n = 1}^\infty a_n$ следует расходимость ряда $\suml_{n = 1}^\infty b_n$
 \end{theorem}
 
 \begin{proof}
