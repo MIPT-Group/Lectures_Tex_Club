@@ -5,10 +5,20 @@
 	\[
 		p(z) = cz^n + \ldots
 	\]
-	то $\exists a_1, \ldots, a_r \in \R$ ($0 \le r \le n$) и (или) $p_1, \ldots, p_s, q_1, \ldots q_s \in \R$ такие, что $\forall j \in \range{s}\ (0 \le s \le n)\ \ p^2_j - 4q_j < 0$, натуральные числа $\alpha_1, \ldots, \alpha_r, \beta_1, \ldots, \beta_r$ такие, что $\suml_{i = 1}^r \alpha_i + 2\suml_{j = 1}^s \beta j = n$ и при этом
-	\[
-		p(x) = c \prodl_{i = 1}^r (x - a_i)^{\alpha_i} \cdot \prodl_{j = 1}^s (x^2 + p_j x + q_j)^{\beta_j}
-	\]
+	то существуют числа $a_1, \ldots, a_r \in \R\ (0 \le r \le n)$, $p_1, \ldots, p_s, q_1, \ldots, q_s \in \R\ (0 \le s \le n)$ и числа $\alpha_1 \ldots, \alpha_r, \beta_1 \ldots \beta_s \in \N$ такие, что
+	\begin{enumerate}
+		\item \[
+			\forall j \in \range{s}\ p_j^2 - 4q_j < 0
+		\]
+		
+		\item \[
+			\suml_{i = 1}^r \alpha_i + 2\suml_{j = 1}^s \beta_j = n
+		\]
+		
+		\item \[
+			p(x) = c \cdot \prodl_{i = 1}^r (x - a_i)^{\alpha_i} \cdot \prodl_{j = 1}^s (x^2 + p_j x + q_j)^{\beta_j}
+		\]
+	\end{enumerate}
 \end{corollary}
 
 \begin{proof}

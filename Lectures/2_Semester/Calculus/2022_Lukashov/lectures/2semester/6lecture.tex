@@ -52,10 +52,6 @@
 	\]
 \end{proof}
 
-\begin{note}
-	Все доказанные ранее в этом параграфе на данный момент результаты переносятся на случай интеграла Римана-Стилтьеса
-\end{note}
-
 \begin{definition}
 	Если $\alpha$ - неубывающая на $[a; b]$ функция, то положим
 	\begin{align*}
@@ -69,8 +65,15 @@
 		\\
 		&{\overline{I}(f, \alpha) = \inf\limits_P U(P, f, \alpha)}
 	\end{align*}
-	Соответственно, если $\underline{I} = \overline{I}$, то общее значение называется \textit{интегралом} по Риману-Стилтьесу.
+	Соответственно, если $\underline{I} = \overline{I}$, то общее значение называется \textit{интегралом по Римана-Стилтьеса} и обозначается следующим образом:
+	\[
+		\underline{I}(f, \alpha) = \overline{I}(f, \alpha) = \int_a^b f(x) d(\alpha(x))
+	\]
 \end{definition}
+
+\begin{note}
+	Все доказанные ранее в этом параграфе на данный момент результаты переносятся на случай интеграла Римана-Стилтьеса
+\end{note}
 
 \begin{theorem}
 	Каждая монотонная на отрезке $[a; b]$ функция интегрируема по Риману на $[a; b]$.
@@ -116,15 +119,22 @@
 		&0,\ x\in \mathbb{R} \setminus \mathbb{Q}
 	}
 	\]
-	Рассмотрим отрезок $[0;1]$. $\forall \eps > 0\ \exists{t_1,\ldots,t_N} \such f(t_k) \geq \eps$. Для всех таких $t_k$ добавим в разибение  отрезки $[t_k - \frac{\eps}{2N};t_k + \frac{\eps}{2N}]$. Если некоторые из них пересекаются, то берем у пересечения самую правую и самую левую границу. Очевидно, что $L(P, f) = 0$. В свою очередь $U(P, f)$ можно разбить на 2 суммы:
+	Рассмотрим отрезок $[0;1]$. Для любого $\eps > 0$ существует лишь конечное число точек, чья величина превосходит $\eps$:
 	\[
-		U(P, f) = \suml_{k\in A} + \suml_{k \in B}
+		\forall \eps > 0\ \exists! t_1, \ldots, t_N \such f(t_k) \ge \eps
 	\]
-	Где $A$ - множество отрезков, которые содержат $t_k$, а $B$ множество отрезков, соеднияющих отрезки из $A$. Тогда:
+	Чтобы подогнать функцию Римана под критерий интегрируемости, поступим хитрым образом: мы распределим по 1й из вышеупомянутых точек в свой собственный отрезок так, чтобы они давали вклад суммарно не больше $\eps$. Оставшиеся незатронутые отрезки точно дадут вклад не больше $\eps$, ибо $(1 - 0) \cdot \eps \le \eps$.
+	
+	Итак, для каждой $t_k$ возьмём отрезок $\left[t_k - \frac{\eps}{2N}; t_k + \frac{\eps}{2N}\right]$. Если отрезки двух точек налегают друг на друга, то мы не учитываем их ни в одном из отрезков (Они вполне себе нормально пойдут в другую часть разбиения $[0; 1]$). Граничные точки непересекающихся отрезков образуют разбиение $P \subset [0; 1]$. Каждый индекс $l$, отвечающий отрезку $[x_{l - 1}; x_l]$, либо лежит в группе $A$ - отрезков, содержащих какое-то $t_k$, либо в группе $B$ - отрезков, соединяющих собой отрезки из $A$. Значит, верхнюю сумму Дарбу можно коротко записать в таком виде:
 	\[
-		U(P, f) = \suml_{k\in A} + \suml_{k \in B} \leq N \frac{\eps}{N} + \eps = 2\eps
+		U(P, f) = \suml_{l \in A} (\ldots) + \suml_{l \in B} (\ldots)
 	\]
-	Итого $U(P, f) - L(P, f) < 3\eps$.
+	Ну и оценка всего этого очевидна:
+	\[
+		\suml_{l \in A} (\ldots) + \suml_{l \in B} (\ldots) \le N \cdot 1 \cdot \frac{\eps}{2N} + (1 - 0) \cdot \eps
+	\]
+	
+	Итого $U(P, f) - L(P, f) < 2\eps$ (Этого результата достаточно для интегрируемости, ибо мы можем где нужно просто немного отнормировать требования).
 \end{example}
 
 \subsection{Основные свойства интеграла Римана}
@@ -152,7 +162,7 @@
 			\int_a^b f(x)dx = \int_a^c f(x)dx + \int_c^b f(x)dx
 		\]
 		
-		\item Оценка. Если $f \in R[a; b]$ и $\forall x \in [a; b]\ \ |f(x)| \le M$, то
+		\item Оценка сверху. Если $f \in R[a; b]$ и $\forall x \in [a; b]\ \ |f(x)| \le M$, то
 		\[
 			\left|\int_a^b f(x)dx\right| \le M(b - a)
 		\]
@@ -161,58 +171,82 @@
 
 \begin{proof}~
 	\begin{enumerate}
-		\item Линейность. $\forall \eps > 0\ \exists P_1,\ P_2\ U(P_i, f_i) - L(P_i, f_i) < \frac{\eps}{2},\ i \in \{1, 2\}$.
-		Пусть $P = P_1 \cup P_2$ тогда $U(P, f_i) - L(P, f_i) < \frac{\eps}{2},\ i \in \{1, 2\}$.
-		Справедливо, что супремум суммы не больше суммы супремумов, аналогичное рассуждение верно для инфимумов.
-		\begin{multline*}
-			U(P, f_1 + f_2) - L(P, f_1 + f_2) = \suml_{k = 1}^nM_k(f_1(x) + f_2(x))\Delta x_k - \suml_{k = 1}^nm_k(f_1(x) + f_2())\Delta x_k \leq
-			\\
-			\suml_{k = 1}^n(M_k(f_1) + M_k(f_2))\Delta x_k - \suml_{k = 1}^n(m_k(f_1) + m_k(f_2))\Delta x_k = \frac{\eps}{2} + \frac{\eps}{2} = \eps
-		\end{multline*}
-		Запишем известные нам неравенства:
-		\[
-			L(P, f_1) + L(P, f_2) \leq L(P, f_1 + f_2) \leq \int_{a}^{b}(f_1 + f_2)dx \leq U(P, f_1 + f_2) \leq U(P, f_1) + U(P, f_2)
-		\]
-		Откуда:
-		\[
-			\left|\int_a^b(f_1(x) + f_2(x))dx - \left(\int_a^bf_1(x)dx + \int_a^bf_2(x)dx\right)\right| < \eps
-		\]
-		Расмотрим теперь умножение на число.
+		\item Линейность.
 		\begin{itemize}
-			\item $c \geq 0$
+			\item Сумма. Сразу распишем имеющиеся интегралы по критерию:
+			\[
+				\forall \eps > 0\ \exists P_1,\ P_2\ U(P_i, f_i) - L(P_i, f_i) < \frac{\eps}{2},\ i \in \{1, 2\}
+			\]
+			Пусть $P = P_1 \cup P_2$ тогда $U(P, f_i) - L(P, f_i) < \frac{\eps}{2},\ i \in \{1, 2\}$ (так как $P$ будет измельчением каждого).
+			Справедливо, что супремум суммы не больше суммы супремумов, аналогичное утверждение верно для инфимумов. Тогда:
+			\begin{multline*}
+				U(P, f_1 + f_2) - L(P, f_1 + f_2) = \suml_{k = 1}^nM_k(f_1 + f_2)\Delta x_k - \suml_{k = 1}^nm_k(f_1 + f_2)\Delta x_k \leq
+				\\
+				\suml_{k = 1}^n(M_k(f_1) + M_k(f_2))\Delta x_k - \suml_{k = 1}^n(m_k(f_1) + m_k(f_2))\Delta x_k < \frac{\eps}{2} + \frac{\eps}{2} = \eps
+			\end{multline*}
+			Доказали интегрируемость по Риману. Запишем известные нам неравенства:
+			\[
+			\System{
+				&{L(P, f_1) + L(P, f_2) \leq L(P, f_1 + f_2) \leq \int_{a}^{b}(f_1 + f_2)dx \leq U(P, f_1 + f_2) \leq U(P, f_1) + U(P, f_2)}
+				\\
+				&{L(P, f_1) + L(P, f_2) \leq \int_a^b f_1(x)dx + \int_a^b f_2(x)dx \leq U(P, f_1) + U(P, f_2)}
+			}
+			\]
+			Отсюда получаем:
+			\[
+				\forall \eps > 0 \quad \left|\int_a^b(f_1(x) + f_2(x))dx - \left(\int_a^bf_1(x)dx + \int_a^bf_2(x)dx\right)\right| < \eps
+			\]
+			Значит, имеет место равенство.
+			
+			\item Умножение на число. Просто заметим равенства:
+			\begin{itemize}
+				\item $c \geq 0$
 				\begin{align*}
-					& U(P, c, f_1) = cU(P, f_1)
-					\\
-					& L(P, c, f_1) = cL(P, f_1)
+				& U(P, cf_1) = cU(P, f_1)
+				\\
+				& L(P, cf_1) = cL(P, f_1)
 				\end{align*}
-			\item $c < 0$
+				\item $c < 0$
 				\begin{align*}
-					& U(P, c, f_1) = cL(P, f_1)
-					\\
-					& L(P, c, f_1) = cU(P, f_1)
+				& U(P, cf_1) = cL(P, f_1)
+				\\
+				& L(P, cf_1) = cU(P, f_1)
 				\end{align*}
+			\end{itemize}
 		\end{itemize}
+		
 		\item Очевидно, что $f_2 - f_1 \geq 0$, откуда $M_k(f_2 - f_1) \geq 0,\ m_k(f_2 - f_1) \geq 0 \Ra \int_a^bf_2(x)-f_1(x)dx \geq 0$.
-		Воспользовавшись линейностью получаем:
+		Воспользовавшись линейностью интеграла получаем:
 		\[
 			\int_a^bf_1(x)dx \leq \int_a^bf_2(x)dx
 		\]
 		
-		\item Так как $f$ интегрируема на $[a;b]$, то $\forall\eps > 0\ \exists P\ U(P, f) - L(P, f) < \eps$.
-		Пусть $P = P_1 \cup P_2$, где 
-		\begin{align*}
-			&P_1\such a = x_1 < x_2 < \ldots < x_k = c
-			\\
-			&P_2\such c = x_k < \ldots < x_n = b
-		\end{align*}
-		Таким образом можно написать:
+		\item Разберём доказательство по отдельности в каждую сторону:
+		\begin{itemize}
+			\item $\Ra$ Так как $f \in R[a;b]$, то $\forall \eps > 0\ \exists P\ U(P, f) - L(P, f) < \eps$.
+			Пусть $P = P_1 \cup P_2$, где 
+			\begin{align*}
+				&{P_1\such a = x_0 < x_1 < \ldots < x_k = c}
+				\\
+				&{P_2\such c = x_k < \ldots < x_n = b}
+			\end{align*}
+			Таким образом можно написать:
+			\[
+				U(P, f) - L(P, f) = \big(U(P_1, f) - L(P_1, f)\big) + \big(U(P_2, f) - L(P_2, f)\big) < \eps
+			\]
+			То есть интегралы на каждом из отрезков $[a; c]$ и $[c; b]$ тоже будут существовать по критерию.
+			
+			\item $\La$ Последняя строчка из доказательства выше верна и в нашем случае (если потребовать, например, для каждой скобки $\eps/2$ и найти соответствующие $P_1$ и $P_2$). Доказательство равенства повторяет линейность:
+			\[
+				L(P_1, f) + L_(P_2, f) \leq \int_a^c f(x)dx + \int_c^b f(x)dx \leq U(P_1, f) + U_(P_2, f)
+			\]
+			Такое же неравенство верно и для $\int_a^b f(x)dx$. Значит, можно получить аналогичную оценку для модуля разности интегралов и получится равенство.
+		\end{itemize}
+		\item Пусть $c := sign\left(\int_a^bf(x)dx\right)$.
 		\[
-			U(P, f) - L(P, f) = U(P_1, f) - L(P_1, f) + U(P_2, f) - L(P_2, f) < \eps
+			\left|\int_a^b f(x)dx\right| = c \int_a^b f(x)dx = \int_a^b cf(x)dx \leq \int_a^b Mdx = M(b - a)
 		\]
-		\item Пусть $c := sign\left(\int_a^bf(x)dx\right)$
-		\[
-			\left|\int_a^bf(x)dx\right| = c \int_a^bf(x)dx \leq \int_a^bMdx  = M(b - a)
-		\]
+		Последнее неравенство верно в силу свойства монотонности интеграла Римана.
 	\end{enumerate}
 \end{proof}
 
@@ -233,7 +267,7 @@
 \end{theorem}
 
 \begin{proof}
-	Сначала воспользуемся непрерывностью $f \in C[m; M]$. В силу теоремы Кантора для $f$, а стало быть
+	Сначала воспользуемся непрерывностью $f \in C[m; M]$. В силу теоремы Кантора о равномерной непрерывности на отрезке:
 	\[
 		\forall \eps > 0\ \exists \delta > 0,\ \delta < \eps\ \such \left(\forall y_1, y_2 \in [m; M],\ |y_1 - y_2| < \delta\right)\ \ |f(y_1) - f(y_2)| < \eps
 	\]
@@ -245,18 +279,22 @@
 	\[
 		U(P, h) - L(P, h) = \suml_{i \in A} (M_i(h) - m_i(h))\Delta x_i + \suml_{i \in B} (M_i(h) - m_i(h)) \Delta x_i
 	\]
-	где $i \in A\such M_i(g) - m_i(g) < \delta$ откуда следует:
+	где $i \in A \lra M_i(g) - m_i(g) < \delta$, а $i \in B$ во всех остальных случаях. Теперь, посмотрим на оценку, которую мы можем сделать для отрезка с индексом из $A$:
 	\[
-		x,\ t \in [x_{i - 1};x_i],\ i \in A |h(x) - h(t)| = |f(g(x)) - f(g(t))| < \eps \text{ то есть } M_i(h) - m_i(h) < \eps 
+		\forall i \in A, \forall x, t \in [x_{i - 1}; x_i] \quad |h(x) - h(t)| = \underbrace{|f(g(x)) - f(g(t))|}_{|g(x) - g(t)| < \delta} < \eps
 	\]
-	В свою очередь:
+	В свою очередь для $i \in B$ у нас верно, что $M_i(g) - m_i(g) \ge \delta$. Отсюда следующая цепочка неравенств:
 	\[
-		\delta \suml_{i \in B}\Delta x_i \leq \suml_{i \in B}(M_i(g) - m_i(g))\Delta x_i \leq \suml_{k = 1}^n(M_i(g) - m_i(g))\Delta x_k = U(P, g) - L(P, g) < \delta^2
+		\delta \suml_{i \in B} \Delta x_i \leq \suml_{i \in B} (M_i(g) - m_i(g)) \Delta x_i \leq \suml_{k = 1}^n (M_i(g) - m_i(g)) \Delta x_k = U(P, g) - L(P, g) < \delta^2
 	\]
-	Так как $f$ непрерывна, то она ограничена на отрезке. $|m_k(h)| \leq K,\ |M_k(h)| \leq K$
-	Обьединяя результаты для $A$ и $B$.
+	Значит, $\suml_{i \in B} \Delta x_i < \delta < \eps$. Так как $f$ непрерывна, то она ограничена на отрезке:
 	\[
-		U(P, h) - L(P, h) = \suml_{i\in A} + \suml_{i \in B} < \eps \suml_{i = 1}^n \Delta x_i + 2K\eps  = \eps(b - a + 2K)
+		\exists K \ge 0 \such \forall k \in \range{n} \quad |m_k(h)| \leq K,\ |M_k(h)| \leq K
 	\]
-	% Осознать и поправить
+	Объединяя результаты для $A$ и $B$ имеем:
+	\begin{multline*}
+		U(P, h) - L(P, h) = \suml_{i \in A} (M_i(h) - m_i(h)) \Delta x_i + \suml_{i \in B} (M_i(h) - m_i(h)) \Delta x_i <
+		\\
+		\eps \suml_{i = 1}^n \Delta x_i + 2K\eps = \eps (b - a + 2K)
+	\end{multline*}
 \end{proof}

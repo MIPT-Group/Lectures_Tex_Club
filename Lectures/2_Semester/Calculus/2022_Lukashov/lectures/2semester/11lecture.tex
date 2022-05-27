@@ -1,12 +1,27 @@
 \begin{example}
 	Изучим следующий параметрический интеграл:
 	\[
-		\int_0^{+\infty} \frac{\sin x}{x^\alpha + \sin x} dx
+		\int_0^{+\infty} \frac{\sin x}{x^\alpha + \sin x} dx,\ \alpha > 0
 	\]
-	\textcolor{red}{Дописать}
-	По признаку Харди:
+	Распишем подынтегральное выражение:
 	\[
-		\int_1^{+\infty} \frac{\sin^2 x}{x^\alpha (x^\alpha + 1)} dx \text{ - сходится} \lra \int_1^{+\infty} \frac{dx}{x^\alpha (x^\alpha + 1)} \text{ - тоже сходится}
+		\frac{\sin x}{x^\alpha + \sin x} = \frac{\sin x}{x^\alpha} - \frac{\sin^2 x}{x^\alpha (x^\alpha + \sin x)}
+	\]
+	Из предыдущих примеров уже известно, что интеграл от первого слагаемого сходится при $\alpha > 0$. Что было бы, если бы не заметили наличие отрицательных значений у подынтегральной функции, и попробовали бы применить следствие признака сравнения? Отношение первого слагаемого и левой части стремится к единице (полагая, что мы можем в точках обнуления синуса доопределить значение отношения):
+	\[
+		\liml_{x \to \infty} \frac{\sin x}{x^\alpha + \sin x} \cdot \frac{x^\alpha}{\sin x} = 1
+	\]
+	И, казалось бы, наш интеграл сходится для $\alpha > 0$. Однако, это не так. Оценим второе слагаемое (которое уже действительно является неотрицатльным при $x \in [1; +\infty)$):
+	\[
+		\frac{1}{x^\alpha (x^\alpha + 1)} \le \frac{\sin^2 x}{x^\alpha (x^\alpha + \sin x)} \le \frac{1}{x^\alpha (x^\alpha - 1)}
+	\]
+	Про оценку сверху мы аналогично знаем следующий предел:
+	\[
+		\liml_{x \to +\infty} \frac{1}{x^\alpha (x^\alpha - 1)} \cdot \frac{x^{2\alpha}}{1} = 1
+	\]
+	И интеграл $\int_1^{+\infty} \frac{1}{x^{2\alpha}}$ сходится при $\alpha > 1/2$. Значит, это же верно и для исходного интеграла. Теперь разберёмся с $0 < \alpha \le 1/2$: по признаку Харди:
+	\[
+		\int_1^{+\infty} \frac{\sin^2 x}{x^\alpha (x^\alpha + 1)} dx \text{ - сходится} \lra \int_1^{+\infty} \frac{dx}{x^\alpha (x^\alpha + 1)} \text{ - тоже сходится} \lra \alpha > \frac{1}{2}
 	\]
 \end{example}
 
@@ -15,7 +30,7 @@
 \subsection{Числовые ряды}
 
 \begin{definition}
-	\textit{Числовым рядом} называется $\suml_{n = 1}^\infty a_n$, где $a_n \in \R$ - \textit{члены ряда}. 
+	\textit{Числовым рядом} называется объект вида $\suml_{n = 1}^\infty a_n$, где $a_n \in \R$ - \textit{члены ряда}. 
 \end{definition}
 
 \begin{definition}
@@ -27,7 +42,7 @@
 \end{definition}
 
 \begin{note}
-	Стоит держать в голове, что запись $\suml_{n = 1}^\infty a_n$ имеет два смысла: определение ряда в текущей задаче и обозначение суммы ряда.
+	Стоит держать в голове, что запись $\suml_{n = 1}^\infty a_n$ имеет два смысла: определение ряда в текущем определении и обозначение суммы ряда.
 \end{note}
 
 \begin{theorem} (Необходимое условие сходимости ряда)
@@ -52,7 +67,7 @@
 \begin{example}
 	Докажем школьную теорему:
 	\[
-		\suml_{n = 0}^\infty q^n = \System{
+		\suml_{k = 0}^\infty q^k = \System{
 			&{\frac{1}{1 - q},\ |q| < 1}
 			\\
 			&{\text{расходится},\ |q| \ge 1}
@@ -62,7 +77,20 @@
 	\[
 		S_n = \suml_{k = 0}^n q^k = \frac{1 - q^{n + 1}}{1 - q}
 	\]
-	\textcolor{red}{Дописать}
+	\begin{enumerate}
+		\item Если $|q| < 1$, то всё очевидно, ибо
+		\[
+			\liml_{n \to \infty} q^n = 0
+		\]
+		
+		\item Если $|q| = 1$, то либо будет колебание $S_n = (-1)^n$, либо $S_n = n + 1$, что очевидным образом не сходится.
+		
+		\item Если $|q| > 1$, тогда
+		\[
+			\liml_{n \to \infty} q^n = \infty
+		\]
+		И уже отсюда тривиальным образом $\liml_{n \to \infty} S_n = \infty$
+	\end{enumerate}
 \end{example}
 
 \begin{theorem} (Критерий сходимости рядов с неотрицательными слагаемыми)
@@ -74,16 +102,20 @@
 	\[
 		\exists \liml_{n \to \infty} S_n = S \in [0; +\infty]
 	\]
-	Причём $S < +\infty \lra \{S_n\}$ - ограничена.
+	Причём $S < +\infty \lra \{S_n\}$ - ограничена (по теореме Вейерштрасса).
 \end{proof}
 
 \begin{theorem} (Признак сравнения числовых рядов)
-	Если $\forall n \in \N\ 0 \le a_n < b_n$, то из сходимости $\suml_{n = 1}^\infty b_n$ следует сходимость ряда $\suml_{n = 1}^{\infty} a_n$, а из расходимости $\suml_{n = 1}^\infty a_n$ следует расходимости ряда $\suml_{n = 1}^\infty b_n$
+	Если $\forall n \in \N\ 0 \le a_n < b_n$, то из сходимости $\suml_{n = 1}^\infty b_n$ следует сходимость ряда $\suml_{n = 1}^{\infty} a_n$, а из расходимости $\suml_{n = 1}^\infty a_n$ следует расходимость ряда $\suml_{n = 1}^\infty b_n$
 \end{theorem}
 
 \begin{proof}
-	Если $\suml_{n = 1}^\infty b_n$ сходится, то $\{\suml_{k = 1}^n b_k\}_{n = 1}^\infty$ ограничена. Следовательно, $\{\suml_{k = 1}^n a_k\}_{n = 1}^\infty$ тоже ограничена и по критерию сходимости $\suml_{n = 1}^\infty a_n$ тоже сходится.
-	\textcolor{red}{Дописать пару слов про расходимость}
+	Обозначим частичные суммы $\suml_{n = 1}^\infty b_n$ за $B_n$. Аналогично для $\suml_{n = 1}^\infty a_n$ за $A_n$. Тогда
+	\begin{itemize}
+		\item Если $\suml_{n = 1}^\infty b_n$ сходится, то $\{B_n\}_{n = 1}^\infty$ ограничена. Следовательно, $\{A_n\}_{n = 1}^\infty$ тоже ограничена и по критерию сходимости $\suml_{n = 1}^\infty a_n$ тоже сходится.
+		
+		\item Если $\suml_{n = 1}^\infty a_n$ расходится, то $\{A_n\}_{n = 1}^\infty$ неограничена. Получаем, что $\{B_n\}_{n = 1}^\infty$ также неограничена и по критерию сходимости для рядов с неотрицательными слагаемыми $\suml_{n = 1}^\infty b_n$  расходится.
+	\end{itemize}
 \end{proof}
 
 \begin{corollary}
@@ -101,14 +133,14 @@
 	\]
 	Возьмём интеграл во всех частях неравенства на отрезке $[n; n + 1]$:
 	\[
-		f(n + 1) \le \int_n^{n + 1} f(x) dx \le f(n)
+		1 \cdot f(n + 1) \le \int_n^{n + 1} f(x) dx \le 1 \cdot f(n)
 	\]
 	Просуммируем такие неравенства на всех отрезках $[1; m + 1]$:
 	\[
-		\suml_{n = 1}^m f(n + 1) \le \suml_1^{m + 1} f(x) dx \le \suml_{n = 1}^m f(n)
+		\suml_{n = 1}^m f(n + 1) \le \int_1^{m + 1} f(x) dx \le \suml_{n = 1}^m f(n)
 	\]
 	Если $\suml_{n = 1}^\infty f(n)$ сходится $\Ra$ $\{\suml_{n = 1}^m f(n)\}_{m = 1}^\infty$ ограничена $\Ra$ $F(x) = \int_1^x f(t) dt$ - ограничена $\Ra$ $\int_1^{+\infty} f(x) dx$ - сходится.
-	\textcolor{red}{Дописать цепочку в другую сторону}
+	Если $\int_1^{+\infty} f(x)dx$ сходится, то $F(x) = \int_1^x f(t)dt$ ограничена $\Ra$ $\{\suml_{n = 1}^m f(n)\}_{m = 1}^\infty$  ограничена  $\Ra$ $\suml_{n = 1}^\infty f(n)$ сходится. Аналогичные рассуждения можно провести и для случая расхождения.
 \end{proof}
 
 \begin{example}
@@ -126,9 +158,9 @@
 \begin{theorem} (Признак Даламбера)
 	Пусть $\forall n \in \N\ a_n \ge 0$
 	\begin{enumerate}
-		\item Если $\varlimsup\limits_{n \to \infty} \frac{a_{n + 1}}{a_n} = p < 1$, то ряд $\suml_{n = 1}^\infty a_n$ сходится
+		\item Если $\exists \varlimsup\limits_{n \to \infty} \frac{a_{n + 1}}{a_n} = p < 1$, то ряд $\suml_{n = 1}^\infty a_n$ сходится
 		
-		\item Если $\varliminf\limits_{n \to \infty} \frac{a_{n + 1}}{a_n} = q > 1$, то ряд $\suml_{n = 1}^\infty a_n$ расходится
+		\item Если $\exists \varliminf\limits_{n \to \infty} \frac{a_{n + 1}}{a_n} = q > 1$, то ряд $\suml_{n = 1}^\infty a_n$ расходится
 	\end{enumerate}
 	Естественно, если ряд не попадает под оба случая, то сказать ничего нельзя.
 \end{theorem}
@@ -141,7 +173,7 @@
 		\]
 		Выберем такое $\eps$, что $p + \eps < 1$. В таком случае
 		\[
-			a_{n + N} = \frac{a_{n + N}}{a_{n + N - 1}} \cdot \frac{a_{n + N - 1}}{a_{n + N - 2}} \cdot \ldots \cdot \frac{a_{N + 2}}{N + 1} \cdot a_{N + 1} < a_{N + 1} \cdot (p + \eps)^{n - 1}
+			a_{n + N} = \frac{a_{n + N}}{a_{n + N - 1}} \cdot \frac{a_{n + N - 1}}{a_{n + N - 2}} \cdot \ldots \cdot \frac{a_{N + 2}}{a_{N + 1}} \cdot a_{N + 1} < a_{N + 1} \cdot (p + \eps)^{n - 1}
 		\]
 		Поскольку ряд $\suml_{n = 1}^\infty a_{N + 1}(p + \eps)^{n - 1}$ сходится (это геометрическая прогрессия), то отсюда следует, что и ряд $\suml_{n = 1}^\infty a_{n + N}$ - сходится. Так как данный ряд отличается от исходного на фиксированную константу (сумму первых $N$ членов ряда), то и исходный очевидным образом сходится.
 		
@@ -180,7 +212,14 @@
 \end{proof}
 
 \begin{example}
-	\textcolor{red}{Тут должно быть введение в суммирование небольшое}
+	Нетрудно встретить утверждения о том, что расходящийся ряд суммируется к какому-то значению:
+	\[
+		1 - 1 + 1 - 1 + \cdots = \frac{1}{2}
+	\]
+	На деле же:
+	\[
+		1 - x + x^2 - x^3 + \cdots = \frac{1}{1 + x}, |x| < 1
+	\]
 \end{example}
 
 \begin{definition}
@@ -201,7 +240,7 @@
 \begin{proof}
 	Пусть $\exists \liml_{n \to \infty} S_n = S$. Это означает, что
 	\[
-		\forall \eps > 0\ \exists N \in \N \such \forall n > N\ \ |S_n - S| < \eps
+		\forall \eps > 0\ \exists N \in \N \such \forall n > N\ \ |S_n - S| < \frac{\eps}{2}
 	\]
 	Распишем разность $\sigma_n - S$:
 	\[
@@ -209,17 +248,20 @@
 	\]
 	Для второго слагаемого верна оценка:
 	\[
-		\left|\frac{(S_{N + 1} - S) + \ldots + (S_n - S)}{n}\right| < \frac{(n - N)\eps}{n} < \eps
+		\left|\frac{(S_{N + 1} - S) + \ldots + (S_n - S)}{n}\right| < \frac{(n - N)\eps}{2n} < \frac{\eps}{2}
 	\]
 	А для первого слагаемого вначале заметим, что оно стремится к нулю, так как в числителе стоит константа. Это означает, что по текущему $\eps$ можно определить $N_1 \in \N$ со следующим свойством:
 	\[
-		\exists N_1 \in \N \such \forall n > N_1\ \ \left|\frac{(S_1 - S) + \ldots + (S_N - S)}{n}\right| < \eps
+		\exists N_1 \in \N \such \forall n > N_1\ \ \left|\frac{(S_1 - S) + \ldots + (S_N - S)}{n}\right| < \frac{\eps}{2}
 	\]
-	\textcolor{red}{Здесь лучше подогнать эпсилоны так, чтобы получить тоже эпсилон и дописать это}
+	Откуда:
+	\[
+		\forall n > max(N_1, N)\ |\sigma_n - S| < \eps
+	\]
 \end{proof}
 
 \begin{note}
-	Аналогично доказывается, что $\liml_{n \to \infty} \sigma_n = \liml_{n \to \infty} S_n = S$ и для $S = \pm \infty$.
+	Аналогично доказывается, что $\liml_{n \to \infty} \sigma_n = \liml_{n \to \infty} S_n = S$, даже если $S = \pm \infty$.
 \end{note}
 
 \begin{corollary}
@@ -230,10 +272,11 @@
 \end{corollary}
 
 \begin{proof}
-	Положим $a_n := \ln p_n$. В силу непрерывности
+	Положим $a_n := \ln p_n$. В силу непрерывности логарифма
 	\[
-		\liml_{n \to \infty} a_n = \ln L \Ra \liml_{n \to \infty} \frac{a_1 + \ldots + a_n}{n} = \ln L
+		\liml_{n \to \infty} a_n = \ln L \Ra \liml_{n \to \infty} \frac{a_1 + \ldots + a_n}{n} = \liml_{n \to \infty} \ln (\sqrt[n]{p_1, \ldots, p_n}) = \ln L
 	\]
+	Что равносильно исходному утверждению.
 \end{proof}
 
 \begin{corollary}
@@ -241,5 +284,17 @@
 \end{corollary}
 
 \begin{proof}
-	Положим $p_1 := a_1,\ p_n = \frac{a_n}{a_{n - 1}}$. Тогда $p_1 \cdot \ldots p_n = a_n$.
+	Для предыдущего следствия построим последовательность $\{p_n\}_{n = 1}^\infty$:
+	\begin{align*}
+		&{p_1 := a_1}
+		\\
+		&{p_2 := \frac{a_2}{a_1}}
+		\\
+		&{\ldots}
+		\\
+		&{p_n := \frac{a_n}{a_{n - 1}}}
+		\\
+		&{\ldots}
+	\end{align*}
+	Тогда $\liml_{n \to \infty} \sqrt[n]{p_1 \cdot \ldots \cdot p_n} = \liml_{n \to \infty} \sqrt[n]{a_n} = \liml_{n \to \infty} p_n = \liml_{n \to \infty} \frac{a_{n + 1}}{a_n}$
 \end{proof}

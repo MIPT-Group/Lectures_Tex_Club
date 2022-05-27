@@ -8,13 +8,13 @@
 \begin{proof}
 	Рассмотрим метрическое пространство $E$ с метрикой, индуцированной евклидовой метрикой из $\R^n$. Так как $f$ - это функция из одного метрического пространства в другое, то условие непрерывности равносильно утверждению:
 	\[
-		\forall G \subset \R\ \ f^{-1}(G) \ \ G\text{ - открытое в } E, \text{ относительно открытое в }\R^n.
+		\forall G \subset \R \text{ - открытое } f^{-1}(G) \text{ - относительно открытое в } E
 	\]
 	Предположим противное, то есть
 	\[
 		\exists C,\ A < C < B \such \forall \vv{\xi} \in E\ \ f(\vv{\xi}) \neq C
 	\]
-	Теперь рассмотрим множества $(-\infty; C),\ (C; +\infty)$ - открытые в $R$. Обозначим за $G_1 := f^{-1}(-\infty; C),\ G_2 := f^{-1}(C, +\infty)$ - открытые в $E$, а значит относительно открытые в $\R^n$.
+	Теперь рассмотрим множества $(-\infty; C),\ (C; +\infty)$ - открытые в $\R$. Обозначим за $G_1 := f^{-1}(-\infty; C),\ G_2 := f^{-1}(C, +\infty)$ - относительно открытые в $E$.
 	Тогда $E = G_1 \cup G_2$, что противоречит определению связности.
 \end{proof}
 
@@ -47,9 +47,9 @@
 			\]
 			Так как $\gamma$ - непрерывная, то 
 			\[
-			\exists \delta > 0 \such \forall t,\ [T - \delta, T]\ \gamma(t) \in U(\vv{x}_2) \Ra \gamma(t) \in E_2
+			\exists \delta > 0 \such \forall t \in [T - \delta, T]\ \gamma(t) \in U(\vv{x}_2) \cap E \Ra \gamma(t) \in E_2
 			\]
-			Получили противоречие с предположением о $T$.
+			Получили противоречие с определением $T$.
 			
 			\item Пусть $\gamma(T) \in E_1$. Это означает, что 
 			\[
@@ -59,17 +59,26 @@
 			\[
 			\exists \delta > 0 \such \forall t \in (T - \delta, T + \delta)\ \ \gamma(t) \in U(\gamma(T)) \Ra \gamma(t) \in E_1
 			\]
-			И снова противоречие с предположением о $T$.
+			И снова противоречие с определением $T$. (есть точки правее, $T$ не супремум)
+			
 			\item $\gamma(T) \in E_2$. Это означает, что 
 			\[
 			\gamma(T) \in G_2 \Ra \exists U(\gamma(T)) \subset G_2
 			\]
 			В силу непрерывности
 			\[
-			\exists \delta > 0 \such \forall t \in (T - \delta, T + \delta)\ \ \gamma(t) \in U(\gamma(T)) \Ra \gamma(t) \in E_2
+			\exists \delta > 0 \such \forall t \in (T - \delta; T + \delta)\ \ \gamma(t) \in U(\gamma(T)) \Ra \gamma(t) \in E_2
 			\]
-			Опять получаем, что $T$ не супремум.
-			% Дописать + переписать первые 2 пункта без разбора \gamma(a), \gamma(b). Можно где-то скобочки подогнать
+			Снова получили противоречие с принадлежностью $\gamma(T)$ к $E_1$
+			
+			\item Последний возможный случай - это $T = a$. Но и тут у нас возникнут проблемы:
+			\[
+				\gamma(T) = \gamma(a) = \vv{x}_1 \in G_1 \Ra \exists U(\vv{x}_1) \subset G_1 \Ra U(\vv{x}_1) \cap E \subset E_1
+			\]
+			Снова по непрерывности получаем, что
+			\[
+				\exists \delta > 0 \such \forall t \in [T; T + \delta]\ \gamma(t) \in U(\gamma(T)) \cap E \Ra \gamma(t) \in E_1
+			\]
 		\end{enumerate}
 		Получили противоречие, потому $E$ связно.
 		\item Пусть $G$ - открытое связное, но не линейно связное. Тогда $\exists \vv{x}_1, \vv{x}_2 \in G$ такие, что их нельзя соединить кривой в $G$. Положим за 
@@ -79,11 +88,9 @@
 		\[
 			G_2 := G \bs G_1
 		\]
-		 Пусть $\vv{x} \in G_1 \subset G \Ra \exists U(\vv{x}) \subset G$.
+		 Пусть $\vv{x} \in G_1 \subset G \Ra \exists U(\vv{x}) \subset G$. Ясно, что $\vv{x}_1 \in G_1,\ \vv{x}_2 \in G_2$. Заметим, мы можем соединить любую точку окрестности $U(\vv{x})$ с $\vv{x_1}$, просто взяв непрерывную кривую от $\vv{x}_1$ до $\vv{x}$ и добавив отрезок до точки от $\vv{x}$. Стало быть, $U(\vv{x}) \subset G_1$, то есть $G_1$ - открытое множество.
 		 
-		 Ясно, что $\vv{x}_1 \in G_1,\ \vv{x}_2 \in G_2$. Заметим, что мы можем соединить любую точку окрестности $U(\vv{x})$ с $\vv{x_1}$, просто взяв непрерывную кривую от $\vv{x}_1$ до $\vv{x}$ и добавив отрезок до точки от $\vv{x}$. Стало быть, $U(\vv{x}) \subset G_1$, то есть $G_1$ - открытое множество.
-		 
-		 Аналогично рассмотрим $G_2$. Посмотрим на  $\vv{x} \in G_2 \subset G$. Тогда $\exists U(\vv{x}) \subset G$. Если в этой окрестности найдётся хотя бы одна точка из $G_1$, то мы можем соединить её с $\vv{x}_1$ и затем с исходной точкой $\vv{x}$, получив непрерывную кривую. То есть $G_2$ - действительно открытое множество.
+		 Аналогично рассмотрим $G_2$, $\vv{x} \in G_2 \subset G$. Тогда $\exists U(\vv{x}) \subset G$. Если в этой окрестности найдётся хотя бы одна точка из $G_1$, то мы можем соединить её с $\vv{x}_1$ и затем с исходной точкой $\vv{x}$, получив непрерывную кривую. То есть $G_2$ - действительно открытое множество.
 		 
 		 \[
 		  G = G_1 \sqcup G_2 \ \ G \ \text{ - не связное}
@@ -93,7 +100,7 @@
 \end{proof}
 
 \begin{example}
-	Рассмотрим $E = \{(x, y) \such y = \sin \frac{1}{x},\ x \neq 0\} \cup \{(0, y) \such y \in [-1; 1]\}$ - данное множество нельзя разбить на два открытых.
+	Рассмотрим $E = \{(x, y) \such y = \sin \frac{1}{x},\ x \neq 0\} \cup \{(0, y) \such y \in [-1; 1]\}$ - данное множество нельзя разбить на два открытых. \textcolor{red}{Почему?}
 \end{example}
 
 \subsection{Дифференцируемость функций многих переменных}
@@ -120,8 +127,12 @@
 	\]
 \end{definition}
 
+\begin{anote}
+	Стоит напомнить, что $\Delta x = (dx_1, \ldots, dx_n)$, а дифференциал функции $f$ может рассматриваться как функция от $\vv{x}$ или $\vv{\Delta x}$, если $\vv{x}_0$ зафиксирован. (Иначе это даже скорее функция от $\vv{x}_0$ и $\vv{x}$)
+\end{anote}
+
 \begin{definition}
-	\textit{Частным (частитчным) приращением функции $f(\vv{x})$ в точке} $\vv{x}_0 \in \R^n$ называется приращение функции $f(\vv{x})$, отвечающее 	приращению $\vv{\Delta x}_j$, имеющуему вид
+	\textit{Частным (частичным) приращением функции $f(\vv{x})$ в точке} $\vv{x}_0 \in \R^n$ называется приращение функции $f(\vv{x})$, отвечающее 	приращению $\vv{\Delta x}_j$, имеющуему вид
 	\[
 		\vv{\Delta x}_j = (0, \ldots, \Delta x_j, \ldots, 0)
 	\]
@@ -136,7 +147,7 @@
 	\[
 		\Delta_j f(\vv{x}_0) = \Delta \phi_j (x_{j, 0})
 	\]
-	где $\phi_j(x_j) = f(x_{1, 0}, \ldots, x_{j - 1, 0}, x_j, x_{j + 1, 0}, \ldots, x_{n, 0}) - f(x_{1, 0}, \ldots, x_{n, 0})$
+	где $\phi_j(x_j) = f(x_{1, 0}, \ldots, x_{j - 1, 0}, x_j, x_{j + 1, 0}, \ldots, x_{n, 0})$
 \end{note}
 
 \begin{definition}
@@ -145,6 +156,17 @@
 		f'_{x_j}(\vv{x}_0) = \pd{f}{x_j} (\vv{x}_0) := \phi'_j (x_{j, 0})
 	\]
 \end{definition}
+
+\begin{definition}
+	Также мы будем говорить о просто частной производной функции $f(\vv{x})$, которая является ничем иным как функцией многих переменных:
+	\[
+		\pd{f}{x} (\vv{x}) := \phi'_j(\vv{x}) = \phi'_j (x_{1, 0}, \ldots, x_{n, 0})
+	\]
+\end{definition}
+
+\begin{note}
+	То есть взяли производную от $\phi_j$, при этом не подставляли ни один аргумент как числовое значение. Полученная функция как функция от $\vv{x}$ является просто частной производной.
+\end{note}
 
 \begin{theorem}
 	Если $f$ дифференцируема в точке $\vv{x}_0$, то существуют частные производные $\forall j \in \range{n}$, причём
@@ -160,7 +182,7 @@
 	\]
 	При этом $\Delta_j f(\vv{x}_0) = \Delta \phi_j (x_{j, 0})$. То есть $\phi_j$ дифференцируема в точке $x_{j, 0}$. Значит
 	\[
-		\forall j \in \range{n}\ \ \phi'_j (x_{j, 0}) = \frac{\vdelta f}{\vdelta x_j} (x_{j, 0}) = A_j
+		\forall j \in \range{n}\ \ \phi'_j (x_{j, 0}) = \frac{\vdelta f}{\vdelta x_j} (\vv{x}_0) = A_j
 	\]
 \end{proof}
 
@@ -173,16 +195,16 @@
 			&{0,\ (x, y) = (0, 0)}
 		}
 	\]
-	У этой функции существуют частные производные в (0, 0).
+	У этой функции существуют частные производные в (0, 0):
 	\[
 		y = 0,\ \forall x \  \phi_1(x) = 0 
 	\]
 	\[
 		x = 0,\ \forall y \ \phi_2(y) = 0
 	\]
-	Но так как она не дифференцируема в (0, 0) то
+	Но она не дифференцируема в нуле, так как
 	\[
-		f(x,\ y) \neq o(|(x,\ y)|) \ \ \text{при} \  (x,\ y) \to \vv{0}
+		f(x,\ y) \neq o\left(\left|\sqrt{x^2 + y^2}\right|\right) \ \ \text{при} \  (x,\ y) \to \vv{0}
 	\]
 \end{example}
 
@@ -198,7 +220,7 @@
 \end{proof}
 
 \begin{example}
-	Обратное неверно. Примером служит $f(\vv{x}) = |\vv{x}|$
+	Обратное неверно. Примером служит $f(\vv{x}) = |\vv{x}|$ в точке 0.
 \end{example}
 
 \begin{theorem} (Достаточное условие дифференцируемости)
@@ -216,18 +238,21 @@
 		\\
 		\left(f(x_{1, 0}, \ldots, x_{n - 1, 0}, x_{n, 0} + \Delta x_n) - f(x_{1, 0}, \ldots, x_{n, 0})\right)
 	\end{multline*}
-	Положим $\psi_j(x_j) := f(x_{1, 0}, \ldots, x_j, \ldots, x_{n, 0} + \Delta x_n)$. Так как это функция одной переменной, то, например для $\psi_1$ по теореме Лагранжа можно записать следующее:
+	Положим $\psi_j(x_j) := f(x_{1, 0}, \ldots, x_j, \ldots, x_{n, 0} + \Delta x_n)$. Так как это функция одной переменной, то, например, для $\psi_1$ по теореме Лагранжа можно записать следующее:
 	\[
-		\psi_1(x_{1, 0} + \Delta x_1) - \psi_1(x_{1, 0}) = \psi'_1(\xi_1)\Delta x_1 = \frac{\vdelta f}{\vdelta x_1}(\xi_1, x_{2, 0} + \Delta x_2, \ldots, x_{n, 0} + \Delta x_n)
+		\psi_1(x_{1, 0} + \Delta x_1) - \psi_1(x_{1, 0}) = \psi'_1(\xi_1)\Delta x_1 = \frac{\vdelta f}{\vdelta x_1}(\xi_1, x_{2, 0} + \Delta x_2, \ldots, x_{n, 0} + \Delta x_n)\Delta x_1
 	\]
 	Тогда приращение можно переписать как:
 	\begin{multline*}
-		\Delta f(\vv{x}_0) = \frac{\vdelta f}{\vdelta x_1}(\xi_1, x_{2, 0} + \Delta x_2, \ldots, x_{n, 0} + \Delta x_n) + \ldots + \frac{\vdelta f}{\vdelta x_n}(x_{1, 0}, x_{2, 0}, \ldots, \xi_n) = 
-		\grad f(\vv{x}_0)\cdot \Delta\vv{x}\\
-		+ \frac{\vdelta f}{\vdelta x_1}(\xi_1, x_{2, 0} + \Delta x_2, \ldots, x_{n, 0} + \Delta x_n) \Delta x_1 + \ldots + \frac{\vdelta f}{\vdelta x_n}(x_{1, 0}, \ldots, \xi_n)\Delta x_n - \grad f(\vv{x}_0)\cdot \Delta\vv{x}
+		\Delta f(\vv{x}_0) = \pd{f}{x_1}(\xi_1, x_{2, 0} + \Delta x_2, \ldots, x_{n, 0} + \Delta x_n)\Delta x_1 + \ldots + \pd{f}{x_n}(x_{1, 0}, x_{2, 0}, \ldots, \xi_n)\Delta x_n =
+		\\
+		\suml_{j = 1}^n \pd{f}{x_j} (\vv{x}_0) \Delta x_j + \left(\pd{f}{x_1} (\xi_1, x_{2, 0} + \Delta x_2, \ldots, x_{n, 0} + \Delta x_n) - \pd{f}{x_1}(\vv{x}_0)\right)\Delta x_1 + \ldots +
+		\\
+		\left(\pd{f}{x_n} (x_{1, 0}, x_{2, 0}, \ldots, \xi_n) - \pd{f}{x_n} (\vv{x}_0)\right)\Delta x_n
 	\end{multline*}
-	Так как $|\frac{\Delta x_j}{|\Delta \vv{x}|}| \leq 1$, то справедливо
+	Так как $\forall j \in \range{n}\ \left|\frac{\Delta x_j}{|\Delta \vv{x}|}\right| \leq 1$, то справедливо утверждение
 	\[
-		\forall j \ \liml_{\Delta\vv{x} \to \vv{0}}\frac{(\frac{\vdelta f}{\vdelta x_j}(x_1, \ldots, \xi_j, \ldots, x_{n, 0} + \Delta x_n) - \frac{\vdelta f}{\vdelta x_j}(\vv{x}_0)) \Delta x_j}{|\Delta \vv{x}|} = 0
+		\forall j \in \range{n}\ \ \liml_{\Delta\vv{x} \to \vv{0}}\frac{\left(\frac{\vdelta f}{\vdelta x_j}(x_{1, 0}, \ldots, \xi_j, \ldots, x_{n, 0} + \Delta x_n) - \frac{\vdelta f}{\vdelta x_j}(\vv{x}_0)\right) \Delta x_j}{|\Delta \vv{x}|} = 0
 	\]
+	Значит, все скобки после суммы являются $o\left(|\vv{\Delta x}|\right), |\vv{\Delta x}| \to 0$
 \end{proof}
