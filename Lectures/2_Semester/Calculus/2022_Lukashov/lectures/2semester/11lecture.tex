@@ -110,8 +110,12 @@
 \end{theorem}
 
 \begin{proof}
-	Если $\suml_{n = 1}^\infty b_n$ сходится, то $\{\suml_{k = 1}^n b_k\}_{n = 1}^\infty$ ограничена. Следовательно, $\{\suml_{k = 1}^n a_k\}_{n = 1}^\infty$ тоже ограничена и по критерию сходимости $\suml_{n = 1}^\infty a_n$ тоже сходится.
-	Если $\suml_{n = 1}^\infty a_n$ расходится, то $\{\suml_{k = 1}^n a_k\}_{n = 1}^\infty$ неограничена. Получаем, что $\{\suml_{k = 1}^n b_k\}_{n = 1}^\infty$ также неограничена и по критерию сходимости для рядов с неотрицательными слагаемыми $\suml_{n = 1}^\infty b_n$  расходится.
+	Обозначим частичные суммы $\suml_{n = 1}^\infty b_n$ за $B_n$. Аналогично для $\suml_{n = 1}^\infty a_n$ за $A_n$. Тогда
+	\begin{itemize}
+		\item Если $\suml_{n = 1}^\infty b_n$ сходится, то $\{B_n\}_{n = 1}^\infty$ ограничена. Следовательно, $\{A_n\}_{n = 1}^\infty$ тоже ограничена и по критерию сходимости $\suml_{n = 1}^\infty a_n$ тоже сходится.
+		
+		\item Если $\suml_{n = 1}^\infty a_n$ расходится, то $\{A_n\}_{n = 1}^\infty$ неограничена. Получаем, что $\{B_n\}_{n = 1}^\infty$ также неограничена и по критерию сходимости для рядов с неотрицательными слагаемыми $\suml_{n = 1}^\infty b_n$  расходится.
+	\end{itemize}
 \end{proof}
 
 \begin{corollary}
@@ -129,11 +133,11 @@
 	\]
 	Возьмём интеграл во всех частях неравенства на отрезке $[n; n + 1]$:
 	\[
-		f(n + 1) \le \int_n^{n + 1} f(x) dx \le f(n)
+		1 \cdot f(n + 1) \le \int_n^{n + 1} f(x) dx \le 1 \cdot f(n)
 	\]
 	Просуммируем такие неравенства на всех отрезках $[1; m + 1]$:
 	\[
-		\suml_{n = 1}^m f(n + 1) \le \suml_1^{m + 1} f(x) dx \le \suml_{n = 1}^m f(n)
+		\suml_{n = 1}^m f(n + 1) \le \int_1^{m + 1} f(x) dx \le \suml_{n = 1}^m f(n)
 	\]
 	Если $\suml_{n = 1}^\infty f(n)$ сходится $\Ra$ $\{\suml_{n = 1}^m f(n)\}_{m = 1}^\infty$ ограничена $\Ra$ $F(x) = \int_1^x f(t) dt$ - ограничена $\Ra$ $\int_1^{+\infty} f(x) dx$ - сходится.
 	Если $\int_1^{+\infty} f(x)dx$ сходится, то $F(x) = \int_1^x f(t)dt$ ограничена $\Ra$ $\{\suml_{n = 1}^m f(n)\}_{m = 1}^\infty$  ограничена  $\Ra$ $\suml_{n = 1}^\infty f(n)$ сходится. Аналогичные рассуждения можно провести и для случая расхождения.
@@ -154,9 +158,9 @@
 \begin{theorem} (Признак Даламбера)
 	Пусть $\forall n \in \N\ a_n \ge 0$
 	\begin{enumerate}
-		\item Если $\varlimsup\limits_{n \to \infty} \frac{a_{n + 1}}{a_n} = p < 1$, то ряд $\suml_{n = 1}^\infty a_n$ сходится
+		\item Если $\exists \varlimsup\limits_{n \to \infty} \frac{a_{n + 1}}{a_n} = p < 1$, то ряд $\suml_{n = 1}^\infty a_n$ сходится
 		
-		\item Если $\varliminf\limits_{n \to \infty} \frac{a_{n + 1}}{a_n} = q > 1$, то ряд $\suml_{n = 1}^\infty a_n$ расходится
+		\item Если $\exists \varliminf\limits_{n \to \infty} \frac{a_{n + 1}}{a_n} = q > 1$, то ряд $\suml_{n = 1}^\infty a_n$ расходится
 	\end{enumerate}
 	Естественно, если ряд не попадает под оба случая, то сказать ничего нельзя.
 \end{theorem}
@@ -169,7 +173,7 @@
 		\]
 		Выберем такое $\eps$, что $p + \eps < 1$. В таком случае
 		\[
-			a_{n + N} = \frac{a_{n + N}}{a_{n + N - 1}} \cdot \frac{a_{n + N - 1}}{a_{n + N - 2}} \cdot \ldots \cdot \frac{a_{N + 2}}{N + 1} \cdot a_{N + 1} < a_{N + 1} \cdot (p + \eps)^{n - 1}
+			a_{n + N} = \frac{a_{n + N}}{a_{n + N - 1}} \cdot \frac{a_{n + N - 1}}{a_{n + N - 2}} \cdot \ldots \cdot \frac{a_{N + 2}}{a_{N + 1}} \cdot a_{N + 1} < a_{N + 1} \cdot (p + \eps)^{n - 1}
 		\]
 		Поскольку ряд $\suml_{n = 1}^\infty a_{N + 1}(p + \eps)^{n - 1}$ сходится (это геометрическая прогрессия), то отсюда следует, что и ряд $\suml_{n = 1}^\infty a_{n + N}$ - сходится. Так как данный ряд отличается от исходного на фиксированную константу (сумму первых $N$ членов ряда), то и исходный очевидным образом сходится.
 		
@@ -212,7 +216,7 @@
 	\[
 		1 - 1 + 1 - 1 + \cdots = \frac{1}{2}
 	\]
-	Или же:
+	На деле же:
 	\[
 		1 - x + x^2 - x^3 + \cdots = \frac{1}{1 + x}, |x| < 1
 	\]
@@ -257,7 +261,7 @@
 \end{proof}
 
 \begin{note}
-	Аналогично доказывается, что $\liml_{n \to \infty} \sigma_n = \liml_{n \to \infty} S_n = S$ и для $S = \pm \infty$.
+	Аналогично доказывается, что $\liml_{n \to \infty} \sigma_n = \liml_{n \to \infty} S_n = S$, даже если $S = \pm \infty$.
 \end{note}
 
 \begin{corollary}
@@ -268,10 +272,11 @@
 \end{corollary}
 
 \begin{proof}
-	Положим $a_n := \ln p_n$. В силу непрерывности
+	Положим $a_n := \ln p_n$. В силу непрерывности логарифма
 	\[
-		\liml_{n \to \infty} a_n = \ln L \Ra \liml_{n \to \infty} \frac{a_1 + \ldots + a_n}{n} = \ln L
+		\liml_{n \to \infty} a_n = \ln L \Ra \liml_{n \to \infty} \frac{a_1 + \ldots + a_n}{n} = \liml_{n \to \infty} \ln (\sqrt[n]{p_1, \ldots, p_n}) = \ln L
 	\]
+	Что равносильно исходному утверждению.
 \end{proof}
 
 \begin{corollary}
@@ -279,5 +284,17 @@
 \end{corollary}
 
 \begin{proof}
-	Положим $p_1 := a_1,\ p_n = \frac{a_n}{a_{n - 1}}$. Тогда $p_1 \cdot \ldots p_n = a_n$.
+	Для предыдущего следствия построим последовательность $\{p_n\}_{n = 1}^\infty$:
+	\begin{align*}
+		&{p_1 := a_1}
+		\\
+		&{p_2 := \frac{a_2}{a_1}}
+		\\
+		&{\ldots}
+		\\
+		&{p_n := \frac{a_n}{a_{n - 1}}}
+		\\
+		&{\ldots}
+	\end{align*}
+	Тогда $\liml_{n \to \infty} \sqrt[n]{p_1 \cdot \ldots \cdot p_n} = \liml_{n \to \infty} \sqrt[n]{a_n} = \liml_{n \to \infty} p_n = \liml_{n \to \infty} \frac{a_{n + 1}}{a_n}$
 \end{proof}
