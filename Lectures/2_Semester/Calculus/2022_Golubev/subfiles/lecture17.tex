@@ -24,7 +24,7 @@
  \end{proof}
 
  
- \begin{definition}
+ \begin{definition} \label{def:funcseq:limited}
    Будем говорить, что $ \{ f_{k}(x) \}_{k = 1}^{\infty} $ \emph{равномерно ограничена} на $ X$, если 
    \begin{gather} 
      \exists C > 0: \forall k \in N \forall x \in X \hence \left| f_k(x)  \right| \leq C .
@@ -32,7 +32,7 @@
  \end{definition}
  
  
- \begin{proposition}
+ \begin{proposition} \label{prop:funcseq:limdotconvtozero}
    Пусть $ \{ f_{k}(x) \}_{k = 1}^{\infty} $ равномерно ограничена на $ X$, $ g_k(x) \convergesuniformly{k \to \infty}{X} 0$ тогда $ f_k(x) g_k(x)  \convergesuniformly{k \to \infty}{X} 0$.
  \end{proposition}
  
@@ -81,7 +81,7 @@
  \subsection{Свойства предельной функции}
 
  
- \begin{proposition}
+ \begin{proposition} \label{prop:funcseq:cont}
    Пусть $ f_k: X \to \R$, $ \forall k \in N$ $ f_k $ непрерывна на $ X$ и $ f_k(x) \convergesuniformly{k \to \infty}{X} f(x) $. Тогда $ f(x)$ непрерывна на $ X$. 
  \end{proposition}
 
@@ -107,7 +107,7 @@
  \end{proof}
  
  
- \begin{proposition}
+ \begin{proposition} \label{prop:funcseq:changeint}
    Пусть $ f_k : [a, b ] \to \R, \forall k\in \N$, $ f_k $~--- непрерывна на $ [a,b]$ и $ f_k(x) \convergesuniformly{k \to \infty}{[a,b]} f(x)$, тогда 
    \begin{gather} 
      \lim_{k \to \infty} \int_{a}^{b} f_k(x) dx = \int_{a}^{b} \left(  \lim_{k \to \infty} f_k(x)  \right) dx.
@@ -134,7 +134,7 @@
  %здесь бы рисунок TODO
  
  
- \begin{proposition}
+ \begin{proposition} \label{prop:funcseq:changeder}
    Пусть $ f_k : [a,b] \to \R$, $ \forall k \in \N$ $ f_k $ непрерывно дифференцируема на $ [a, b]$, $ \exists x_0 \in [a,b] : f_k (x_0 )  \xrightarrow[k \to  \infty ]{} A \in \R$ и $ f'_k (x) \convergesuniformly{k \to \infty}{[a,b]} \phi(x)$. Тогда 
    \begin{gather} 
      \left(\lim_{k \to \infty} f_k(x)  \right)' = \lim_{k \to \infty} f_k'(x) .
