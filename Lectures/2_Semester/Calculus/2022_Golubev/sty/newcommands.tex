@@ -129,6 +129,9 @@
 \newcommand{\sumkfromto}[2]{\ensuremath{\sum_{k=#1}^{#2}}}
 \DeclareMathOperator*{\limto}{\to}
 \newcommand{\eqincon}{\stackrel{\mathclap{\normalfont\mbox{\tiny cx.}}}{\sim}}
+% \newcommand{\convergesuniformly}[2]{\ensuremath{\overset{\xrightarrow[]{\lefteqn{\small#2}\hphantom{#1}}}{\xrightarrow[\lefteqn{#1}\hphantom{\small #2}]{}}}}
+\newcommand{\convergesuniformly}[2]{\overset{#2}{\underset{#1}{\rightrightarrows}}}
+
 
 \newcommand{\at}[2]{\bigg|_{#1}^{#2}}
 \newcommand{\tat}[2]{\big|_{#1}^{#2}}
