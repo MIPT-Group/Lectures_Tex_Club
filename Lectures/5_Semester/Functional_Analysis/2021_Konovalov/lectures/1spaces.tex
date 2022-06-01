@@ -102,7 +102,7 @@
 \begin{theorem}\label{thm1.2}
 	Пусть $X$ "--- метрическое пространство. Тогда:
 	\begin{enumerate}
-		\item Для любой системы открытых множеств $\{G_\alpha\}_{\alpha \in \mf A} \subset 2^X$ множество $\bigcup_{\alpha \in \mf A} G_{\alpha \in \mf A}$ тоже является открытым
+		\item Для любой системы открытых множеств $\{G_\alpha\}_{\alpha \in \mf A} \subset 2^X$ множество $\bigcup_{\alpha \in \mf A} G_{\alpha}$ тоже является открытым
 
 		\item Для любых открытых множеств $G_1, G_2 \subset X$ множество $G_1 \cap G_2$ тоже является открытым
 	\end{enumerate}
@@ -110,7 +110,7 @@
 
 \begin{proof}~
 	\begin{enumerate}
-		\item Пусть $x \in \bigcup G_{\alpha \in \mf A}$, тогда существует $\alpha_0 \in \mf A$ такое, что $x \in G_{\alpha_0}$. Но множество $G_{\alpha_0}$ является открытым, поэтому существует $r > 0$ такое, что $B(x, r) \subset G_{\alpha_0} \subset \bigcup_{\alpha \in \mf A} G_{\alpha \in \mf A}$. Значит, множество $\bigcup_{\alpha \in \mf A} G_{\alpha \in \mf A}$ является открытым.
+		\item Пусть $x \in \bigcup_{\alpha \in \mf A} G_\alpha$, тогда существует $\alpha_0 \in \mf A$ такое, что $x \in G_{\alpha_0}$. Но множество $G_{\alpha_0}$ является открытым, поэтому существует $r > 0$ такое, что $B(x, r) \subset G_{\alpha_0} \subset \bigcup_{\alpha \in \mf A} G_{\alpha}$. Значит, множество $\bigcup_{\alpha \in \mf A} G_{\alpha}$ является открытым.
 
 		\item Пусть $x \in G_1 \cap G_2$, тогда существуют $r_1, r_2 > 0$ такие, что выполнено $B(x, r_1) \subset G_1$ и $B(x, r_2) \subset G_2$, откуда $B(x, \min(r_1, r_2)) \subset G_1 \cap G_2$. Значит, множество $G_1 \cap G_2$ является открытым.\qedhere
 	\end{enumerate}
@@ -119,7 +119,7 @@
 \begin{note}
 	В силу теоремы \ref{thm1.1}, теорему выше можно сфорулировать и для замкнутых множеств:
 	\begin{enumerate}
-		\item Для любой системы замкнутых множеств $\{F_\alpha\}_{\alpha \in \mf A} \subset 2^X$ множество $\bigcap_{\alpha \in \mf A} F_{\alpha \in \mf A}$ тоже является замкнутым
+		\item Для любой системы замкнутых множеств $\{F_\alpha\}_{\alpha \in \mf A} \subset 2^X$ множество $\bigcap_{\alpha \in \mf A} F_{\alpha}$ тоже является замкнутым
 
 		\item Для любых замкнутых множеств $F_1, F_2 \subset X$ множество $G_1 \cup G_2$ тоже является открытым
 	\end{enumerate}
