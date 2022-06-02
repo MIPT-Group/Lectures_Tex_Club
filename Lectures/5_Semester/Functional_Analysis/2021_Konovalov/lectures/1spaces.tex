@@ -13,7 +13,7 @@
 
 \begin{note}
 	Для получения многих типичных примеров метрических пространств оказывается необходимо \textit{неравенство Минковского}. Сформулируем его в наиболее общем виде, но доказывать не будем, поскольку это обычно делается в рамках курса математического анализа. Пусть $E$ "--- измеримое множество, на котором задана мера $\mu$, и пусть $f, g: E \to \R$ "--- измеримые функции. Тогда выполнено следующее:
-	\[\left(\int_a^b|f(x) + g(x)|^pd\mu\right) \le \left(\int_a^b|f(x)|^pd\mu\right) + \left(\int_a^b|g(x)|^pd\mu\right)\]
+	\[\left(\int_a^b|f(x) + g(x)|^pd\mu\right)^{\frac 1p} \le \left(\int_a^b|f(x)|^pd\mu\right)^{\frac 1p} + \left(\int_a^b|g(x)|^pd\mu\right)^{\frac 1p}\]
 \end{note}
 
 \begin{example}
@@ -26,7 +26,7 @@
 		\[\rho(x, y) := \max_{1 \le k \le n}|x_k - y_k|\]
   
 		\item $l_p$ при $p \ge 1$ "--- множество последовательностей $\{x_n\} \subset \R$ таких, что $\sum_{n = 1}^\infty |x_n|^p < +\infty$, с метрикой, заданной для произвольных $x, y \in l_p$ следующим образом:
-		\[\rho(x, y) := \left(\sum_{k = 1}^\infty|x_k - y_k|^p\right)^{\frac 1p}\]
+		\[\rho(x, y) := \left(\sum_{n = 1}^\infty|x_n - y_n|^p\right)^{\frac 1p}\]
   
 		\item $l_\infty$ "--- множество последовательностей $\{x_n\} \subset \R$ таких, что $\sup_{n \in \N} |x_n| < +\infty$, с метрикой, заданной для произвольных $x, y \in l_\infty$ следующим образом:
 		\[\rho(x, y) := \sup_{n \in \N}|x_n - y_n|\]
@@ -63,7 +63,7 @@
 \end{definition}
 
 \begin{definition}
-	Пусть $X$ "--- метрическое пространство. Множество $Y \subset X$ называется \textit{ограниченным}, если выполнено условие $\sup\{\rho(x, y): x, y \in Y\} < +\infty$.
+	Пусть $X$ "--- метрическое пространство. Множество $Y \subset X$ называется \textit{ограниченным}, если выполнено условие $\sup_{x, y \in Y} \rho(x, y) < +\infty$.
 \end{definition}
 
 \begin{note}
