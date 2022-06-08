@@ -139,8 +139,9 @@
 \begin{proof}
 	Предположим, что $e^\pi \in \A$. Но заметим, что $i \in \A \bs \Q$:
 	\[
-		(e^\pi)^i = e^{i\pi} = -1
+		(e^\pi)^i = e^{i\pi} = -1 \in \A
 	\]
+	Получили противоречие с теоремой Гельфонда.
 \end{proof}
 
 \begin{definition}
@@ -150,25 +151,25 @@
 	\]
 \end{definition}
 
-\begin{theorem} (Нестеренко)
+\begin{theorem} (Нестеренко. Без доказателсьтва)
 	Числа $\pi, e^\pi, \Gamma(1/4)$ алгебраически независимы. $\Gamma(x)$ - обобщение факториала на всю действительную числовую прямую.
 \end{theorem}
 
 \subsection{Решётки в $\R^n$}
 
 \begin{note}
-	Зафиксируем вектора $\vec{a}_1, \ldots, \vec{a}_n \in \R^n$ как базис пространства $\R^n$
+	Зафиксируем линейно независимые вектора $\vec{a}_1, \ldots, \vec{a}_k \in \R^n$.
 \end{note}
 
 \begin{definition}
 	\textit{Решёткой} $\Lambda$ в пространстве $\R^n$ будем называть следующее множество векторов:
 	\[
-		\Lambda = \{b_1\vec{a}_1 + \ldots + b_n\vec{a}_n \such \forall i\ b_i \in \Z\}
+		\Lambda = \{b_1\vec{a}_1 + \ldots + b_n\vec{a}_k \such \forall i\ b_i \in \Z\}
 	\]
 \end{definition}
 
 \begin{definition}
-	Вектора $\vec{a}_1, \ldots, \vec{a}_n$ также можно назвать \textit{базисом решётки}
+	Вектора $\vec{a}_1, \ldots, \vec{a}_k$ также можно назвать \textit{базисом решётки} $\Lambda$.
 \end{definition}
 
 \begin{note}
@@ -178,9 +179,9 @@
 \begin{definition}
 	\textit{Определителем решётки} называется модуль детерминанта матрицы
 	\[
-		\det \Lambda = \left|\det \Matrix {\alpha_1 & &\cdots & &\alpha_n}\right|,\ \ \vec{a}_i \leftrightarrow_e \alpha_i
+		\det \Lambda = \left|\det \Matrix {\alpha_1 & &\cdots & &\alpha_k}\right|,\ \ \vec{a}_i \leftrightarrow_e \alpha_i
 	\]
-	где $e$ - правый ортонормированный базис
+	где $e$ - ортонормированный базис
 \end{definition}
 
 \begin{note}

@@ -18,13 +18,13 @@
 	\]
 	Как задаётся любая точка в решётке $(1/p)\Z^2$? Её координаты будут иметь вид
 	\[
-		\vec{v} \leftrightarrow_e \left(\left(\frac{v_1}{p}\right), \left(\frac{v_2}{p}\right)\right)^T,\ v_1, v_2 \in \Z
+		\vec{v} \leftrightarrow_e \left(v_1 / p,\ v_2 / p\right)^T,\ v_1, v_2 \in \Z
 	\]
 	Из неравенства на $N_p$ по принципу Дирихле следует, что
 	\[
 		\exists \vec{a}, \vec{b} \in \Omega \such a_1 \equiv b_1\!\!\!\! \pmod {2p},\quad a_2 \equiv b_2\!\!\!\! \pmod {2p}
 	\]
-	Теперь мы можем рассмотреть точку $\vec{c} = (\vec{a} - \vec{b}) / 2 \neq \vec{0}$. В силу центральной симметрии, $-\vec{b} \in \Omega$, а из-за выпуклости $\vec{c} \in \Omega$. Более того, эта точка - целая, так как
+	Теперь мы можем рассмотреть точку $\vec{c} = (\vec{a} + \vec{b}) / 2 \neq \vec{0}$. В силу центральной симметрии, $-\vec{b} \in \Omega$, а из-за выпуклости $\vec{c} \in \Omega$. Более того, эта точка - целая, так как
 	\[
 		a_i - b_i \equiv 0 \pmod {2p}
 	\]
@@ -172,7 +172,7 @@
 \end{proof}
 
 \begin{theorem}
-	В случае $n$-мерного октаэдра есть более сильный аналог теоремы Минковского-Главки:
+	В случае $n$-мерного октаэдра существуте более сильный аналог теоремы Минковского-Главки:
 	\[
 		\forall \eps > 0\ \exists n_0 \in \N \such \forall n \ge n_0\ \exists \vec{a} \leftrightarrow_e \left((a_1/q), \ldots, (a_n/q)\right)^T
 	\]
