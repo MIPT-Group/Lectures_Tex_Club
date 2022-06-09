@@ -53,7 +53,7 @@
 \end{example}
 
 \begin{proposition}
-	Если $n \ge 2$, то матрица Адамара \underline{может} существовать только для чётного $n$.
+	Если $n \ge 2$, то матрица Адамара \underline{может существовать} только для чётного $n$.
 \end{proposition}
 
 \begin{proof}
@@ -61,7 +61,7 @@
 \end{proof}
 
 \begin{proposition}
-	Если $n \ge 4$, то матрица Адамара \underline{может} существовать только для $n$, кратного 4.
+	Если $n \ge 4$, то матрица Адамара \underline{может существовать} только для $n$, кратного 4.
 \end{proposition}
 
 \begin{proof}
@@ -177,6 +177,14 @@
 	\end{itemize}
 \end{proof}
 
+\begin{note}
+	Нам нужно $p = 4k + 3$ потому, что иначе не выполнится равенство
+	\[
+		\legSym{i_2 - i_1}{p} = (-1)^{\frac{p - 1}{2}} \cdot \legSym{i_1 - i_2}{p}
+	\]
+	и полученная матрица не будет иметь порядок, делящийся на 4.
+\end{note}
+
 \begin{corollary}
 	Зная распределение простых чисел и конструкцию Пэли, теперь можно заявить следующее:
 	\[
@@ -238,7 +246,7 @@
 		\end{multline*}
 		Отсюда следует, что $\exists i \colon |L_i| \ge \sqrt{n}$. Теперь распишем всё произведение, за исключением домножения на скаляр:
 		\[
-			(H + J)\vec{v} = \left(L_1 + \suml_{i = 1}^n v_i \cdots L_n + \suml_{i = 1}^n v_i\right)^T
+			(H + J)\vec{v} = \left(L_1 + \suml_{i = 1}^n v_i, \ldots, L_n + \suml_{i = 1}^n v_i\right)^T
 		\]
 		где $\suml_{i = 1}^n v_i = \lambda$, причём $\lambda$ должна быть чётным числом. Снова возьмём скалярный квадрат от всего выражения, получим следующее:
 		\[
@@ -272,7 +280,7 @@
 	\end{proof}
 	
 	\begin{corollary}
-		Если $s = n$, то $\disc(\mathcal{M}) \ge (1 - \eps_n) \frac{\sqrt{n}}{2}$, где $\eps_n \to 0$ при $n \to \infty$
+		Если $s = n$ (уже не обязательно порядок матрицы Адамара), то $\disc(\mathcal{M}) \ge (1 - \eps_n) \frac{\sqrt{n}}{2}$, где $\eps_n \to 0$ при $n \to \infty$
 	\end{corollary}
 
 	\begin{theorem} (без доказательства)

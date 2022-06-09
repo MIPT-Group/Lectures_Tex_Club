@@ -38,14 +38,7 @@
 	\]
 \end{theorem}
 
-\begin{theorem} (без доказательства, Адамара и Валле-Пуссена, 1896г.)
-	На бесконечности для $\pi(x)$ справедливо следующее утверждение:
-	\[
-		\pi(x) \sim \frac{x}{\ln x},\ x \to \infty
-	\]
-\end{theorem}
-
-\begin{proof} (теоремы Чебышёва)
+\begin{proof}
 	Обозначим следующие пределы через $\lambda$ и $\mu$:
 	\begin{align*}
 		&{\lambda_1 := \varlimsup\limits_{x \to \infty} \frac{\Theta(x)}{x};} & &{\mu_1 := \varliminf\limits_{x \to \infty} \frac{\Theta(x)}{x}} \\
@@ -65,7 +58,7 @@
 		\[
 			\Theta(x) \le \psi(x) \Ra \frac{\Theta(x)}{x} \le \frac{\psi(x)}{x} \Ra \lambda_1 \le \lambda_2
 		\]
-		Теперь, распишем $\psi(x)$. Сколько существует пар для $p$ при фиксированном $\alpha$? Ровно $\floor{\log_p x} = \floor{\frac{\ln x}{\ln p}}$. Отсюда получаем
+		Теперь, распишем $\psi(x)$. Сколько существует пар для фиксированного $p$? Ровно $\floor{\log_p x} = \floor{\frac{\ln x}{\ln p}}$. Отсюда получаем
 		\[
 			\psi(x) = \suml_{(p, \alpha) \colon p^\alpha \le x} \ln p = \suml_{p \le x} \floor{\frac{\ln x}{\ln p}} \ln p \le \ln x \cdot \suml_{p \le x} 1 = \pi(x) \ln x
 		\]
@@ -87,7 +80,7 @@
 		\]
 		Перейдём к пределу в неравенстве:
 		\[
-			\lambda_1 \ge \alpha (\lambda_3 - 0) \Ra \forall \alpha \in (0; 1)\ \lambda_1 \ge \alpha \lambda_3 \Ra \lambda_1 \ge \lambda_3
+			\lambda_1 \ge \alpha (\lambda_3 - 0) \Longrightarrow \forall \alpha \in (0; 1)\ \lambda_1 \ge \alpha \lambda_3 \Longrightarrow \lambda_1 \ge \lambda_3
 		\]
 	\end{proof}
 
@@ -163,11 +156,11 @@
 		\]
 		Снова выберем произвольный натуральный $x$. Найдём для него такое $n$, что он окажется зажат между двумя соседними чётными числами: $2n \le x < 2n + 2$. Отсюда
 		\[
-			\psi(x) \ge \psi(2n) \ge 2n\ln 2 - \ln (2n + 1) \ge 2n\ln 2 - \ln(x + 1) \ge (x - 2)\ln 2 - \ln (x + 1)
+			\psi(x) \ge \psi(2n) \ge 2n\ln 2 - \ln (2n + 1) \ge 2n\ln 2 - \ln(x) \ge (x - 2)\ln 2 - \ln (x)
 		\]
 		В итоге имеем, что
 		\[
-			\frac{\psi(x)}{x} > \ln 2 - \frac{2\ln 2}{x} - \frac{\ln(x + 1)}{x}
+			\frac{\psi(x)}{x} > \ln 2 - \frac{2\ln 2}{x} - \frac{\ln(x)}{x}
 		\]
 		Переходя к нижнему пределу, получаем необходимую оценку:
 		\[
@@ -175,6 +168,13 @@
 		\]
 	\end{itemize}
 \end{proof}
+
+\begin{theorem} (без доказательства, Адамара и Валле-Пуссена, 1896г.)
+	На бесконечности для $\pi(x)$ справедливо следующее утверждение:
+	\[
+	\pi(x) \sim \frac{x}{\ln x},\ x \to \infty
+	\]
+\end{theorem}
 
 \begin{theorem} (без доказательства, Постулат Бертрана)
 	Для любого натурального числа $x \ge 1$ всегда найдётся простое число $p$ такое, что $p \in [x; 2x]$.
