@@ -52,7 +52,7 @@ $$d = \min_{a, b} d(\Vec{a}, \Vec{b})$$ - самое маленькое расс
 \end{note}
 
 
-\section{Распределение простых чисел в натуральном ряде. Функции $\pi(x), \textbf{Теорема}eta(x), \psi(x)$. Теорема о равенстве нижних и верхних пределов (формулировка). Неравенство $\lambda_1 \leq \lambda_2$. Постулат Бертрана (б/д). Теорема Адамара, Валле-Пуссена (б/д). «Дырки» между соседними простыми числами (б/д).}
+\section{Распределение простых чисел в натуральном ряде. Функции $\pi(x), \theta(x), \psi(x)$. Теорема о равенстве нижних и верхних пределов (формулировка). Неравенство $\lambda_1 \leq \lambda_2$. Постулат Бертрана (б/д). Теорема Адамара, Валле-Пуссена (б/д). «Дырки» между соседними простыми числами (б/д).}
 
 Распределение простых чисел в натуральном ряде
 
@@ -62,14 +62,14 @@ $$
 \begin{array}{l} 
 
 \pi(x) = \underset{p \leq x}{\sum} 1 \text{— количество простых чисел, не превосходящих x.}\\
-\textbf{Теорема}eta(x) = \underset{p \leq x}{\sum} ln(p)\\
+\theta(x) = \underset{p \leq x}{\sum} ln(p)\\
 \psi(x) = \underset{(\alpha,p) :p^{\alpha} \leq x}{\sum} ln(p)
 \end{array}
 $$
 
 \textbf{Теорема} (о равенстве верхних и нижних пределов (формулировка))
 
-$$\lambda_1 = \overline{\lim_{x \leftarrow \infty}} \frac{\textbf{Теорема}eta(x)}{x},\\
+$$\lambda_1 = \overline{\lim_{x \leftarrow \infty}} \frac{\theta(x)}{x},\\
 \lambda_2 = \overline{\lim_{x \leftarrow \infty}} \frac{\psi(x)}{x},\\
 \lambda_3 = \overline{\lim_{x \leftarrow \infty}} \frac{\pi(x)}{x / ln(x)}$$
 
@@ -79,7 +79,7 @@ $$\lambda_1 = \overline{\lim_{x \leftarrow \infty}} \frac{\textbf{Теорема
 
 \textbf{Утверждение.} $\lambda_1 \leq \lambda_2$
 
-$$\blacktriangle \ \lambda_1 = \overline{\lim_{x \leftarrow \infty}} \frac{\textbf{Теорема}eta(x)}{x} =
+$$\blacktriangle \ \lambda_1 = \overline{\lim_{x \leftarrow \infty}} \frac{\theta(x)}{x} =
 \overline{\lim_{x \leftarrow \infty}} \frac{\underset{p \leq x}{\sum} ln(p)}{x} \leq \overline{\lim_{x \leftarrow \infty}} \frac{\underset{(\alpha,p) :p^{\alpha} \leq x}{\sum} ln(p)}{x} = \overline{\lim_{x \leftarrow \infty}} \frac{\psi(x)}{x} = \lambda_2\ \blacksquare$$
 
 \textbf{Теорема} (Постулат Бертрана (формулировка)) 
