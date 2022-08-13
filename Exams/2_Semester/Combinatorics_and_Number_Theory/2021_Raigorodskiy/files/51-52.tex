@@ -1,5 +1,5 @@
 \setcounter{section}{50}
-\section{Сравнения второй степени. Квадратичные вычеты и невычеты. Тождество $\binom{a}{p} = (-1)^{ \sum \limits_{x=1}^{ \frac{p-1}{2} } \left[ \frac{2ax}{p} \right] }$}
+\section{Сравнения второй степени. Квадратичные вычеты и невычеты. Тождество для $\left(\frac{a}{p}\right)$}
 
 \begin{definition}
     $x^2 \equiv a \md{m}$ называется \textit{сравнением второй степени}.
@@ -43,7 +43,7 @@
 \begin{definition}
     \textit{Символ Лежандра}  
     $$
-    \binom{a}{p} = 
+    \left(\frac{a}{p}\right) = 
     \begin{cases}
         1, \text{если } a \text{ -- квадратичный вычет}\\
         -1, \text{если } a \text{ -- квадратичный невычет}\\
@@ -54,7 +54,7 @@
 
 \begin{note}
     $$
-        \binom{a}{p} \equiv a^{ \frac{p - 1}{2} }
+        \left(\frac{a}{p}\right) \equiv a^{ \frac{p - 1}{2} }
     $$
 \end{note}
 
@@ -63,7 +63,7 @@
 \end{corollary}
 
 \begin{theorem}
-    $\binom{a}{p} = (-1)^{ \sum \limits_{x=1}^{ \frac{p-1}{2} } \left[ \frac{2ax}{p} \right] }$
+    $\left(\frac{a}{p}\right) = (-1)^{ \sum \limits_{x=1}^{ \frac{p-1}{2} } \left[ \frac{2ax}{p} \right] }$
     \begin{proof}[$\blacktriangle$]
         Пусть $x \in \{1, 2, ..., \frac{p - 1}{2}\}$\\
         $a \cdot x$ загоним в систему вычетов от $-\frac{p-1}{2}$ до $\frac{p-1}{2}$.\\
@@ -81,9 +81,7 @@
             \varepsilon_x = (-1)^{\left[ \frac{2ax}{p} \right]}
         $$
         
-        Доказательство настолько скучное, что Райгородский не стал его рассказывать :)\\
-        
-        Доказать можно примерно так:\\
+        Доказательство настолько скучное, что Райгородский не стал его рассказывать :) Доказать можно примерно так:\\
         
         Пусть $a \cdot x \in [kp + 1; (k + 1)p - 1]$ для некоторого $k$. Тогда $\frac{ax}{p} \in (k, k + 1)$. Соответственно, $\frac{2ax}{p} \in (2k, 2k + 2)$.\\
         
@@ -91,7 +89,7 @@
         
         Покажем, что когда $x$ пробегает значения от $1$ до $\frac{p-1}{2}$, то $r_x$ пробегает всю систему вычитов $1, 2, ..., \frac{p-1}{2}$:
         
-        Когда $x$ пробегает значения от $1$ до $\frac{p-1}{2}$, то значения $ax$ по модулю $m$ не могут повториться, поскольку иначе $(a, p) \neq 1$. Также значения $r_x$ не могут повториться, так как иначе $\exists x_1, x_2 \leq \frac{p-1}{2}$ т.ч. $x_1 \neq x_2, ax_1 \equiv_m r_x, ax_2 \equiv_m -r_x \Rightarrow ax_1 + ax_2 \equiv_m 0 \Rightarrow x_1 + x_2 \equiv_m 0$, чего быть не может, поскольку $x$ пробегает значения от $1$ до $\frac{p-1}{2}$. Следовательно, когда $x$ пробегает значения от $1$ до $\frac{p-1}{2}$, то $r_x$ пробегает всю систему вычитов $1, 2, ..., \frac{p-1}{2}$
+        Когда $x$ пробегает значения от $1$ до $\frac{p-1}{2}$, то значения $ax$ по модулю $m$ не могут повториться, поскольку иначе $(a, p) \neq 1$. Также значения $r_x$ не могут повториться, так как иначе $\exists x_1, x_2 \leq \frac{p-1}{2}$ т.ч. $x_1 \neq x_2, ax_1 \equiv_m r_x, ax_2 \equiv_m -r_x \Rightarrow ax_1 + ax_2 \equiv_m 0 \Rightarrow x_1 + x_2 \equiv_m 0$, чего быть не может, поскольку $x$ пробегает значения от $1$ до $\frac{p-1}{2}$. Следовательно, когда $x$ пробегает значения от $1$ до $\frac{p-1}{2}$, то $r_x$ пробегает всю систему вычетов $1, 2, ..., \frac{p-1}{2}$
         
         С учетом этого,
         $$
@@ -99,43 +97,43 @@
         $$
         Разделив обе части на $\prod \limits_{x = 1}^{\frac{p - 1}{2}} x$ и используя выражение для $\varepsilon_x$, получаем:
         $$
-            \binom{a}{p} \equiv a^{\frac{p-1}{2}} \equiv \varepsilon_1 \cdot \varepsilon_2 \cdot ... \cdot \varepsilon_{\frac{p-1}{2}} \equiv (-1)^{\sum \limits_{x = 1}^{\frac{p-1}{2}} \left[ \frac{2ax}{p} \right] }
+            \left(\frac{a}{p}\right) \equiv a^{\frac{p-1}{2}} \equiv \varepsilon_1 \cdot \varepsilon_2 \cdot ... \cdot \varepsilon_{\frac{p-1}{2}} \equiv (-1)^{\sum \limits_{x = 1}^{\frac{p-1}{2}} \left[ \frac{2ax}{p} \right] }
         $$
     \end{proof}
 \end{theorem}
 
 
-\section{Сравнения второй степени. Квадратичные вычеты и невычеты. Формула для \texorpdfstring{$\binom{2}{p}$}{$C_p^2$} (тождеством с суммой \texorpdfstring{по $\left[ \frac{2ax}{p} \right]$}{} можно пользоваться без доказательства).}
+\section{Сравнения второй степени. Квадратичные вычеты и невычеты. Формула для \texorpdfstring{$\left(\frac{2}{p}\right)$}{(p/2)} (тождеством с суммой \texorpdfstring{по $\left[ \frac{2ax}{p} \right]$}{} можно пользоваться без доказательства).}
 
 Вся теория расписана в прошлом билете.\\
 
 \begin{theorem}
     $$
-        \binom{2}{p} = (-1)^{\frac{p^2 - 1}{8}}
+        \left(\frac{2}{p}\right) = (-1)^{\frac{p^2 - 1}{8}}
     $$
     \begin{proof}
         Для удобства введём обозначение $p_1 = \frac{p - 1}{2}$.\\
         
         Без доказательства можно пользоваться утверждением:\\
         $$
-            \binom{a}{p} = (-1)^{ \sum \limits_{x=1}^{ p_1 } \left[ \frac{2ax}{p} \right] }
+            \left(\frac{a}{p}\right) = (-1)^{ \sum \limits_{x=1}^{ p_1 } \left[ \frac{2ax}{p} \right] }
         $$
         
         Рассмотрим нечётное $a$.\\
         $$
-            \binom{2a}{p} = \binom{4 \cdot \frac{a + p}{2}}{p} = \binom{2^2}{p} \cdot \binom{ \frac{a + p}{2} }{p} = 1 \cdot (-1) ^ {\sum \limits_{x=1}^{ p_1 } \left[ \frac{2 \cdot \frac{a + p}{2} \cdot x}{p} \right] }
+            \left(\frac{2a}{p}\right) = \left(\frac{4 \cdot \frac{a + p}{2}}{p}\right) = \left(\frac{2^2}{p}\right) \cdot \left(\frac{ \frac{a + p}{2} }{p}\right) = 1 \cdot (-1) ^ {\sum \limits_{x=1}^{ p_1 } \left[ \frac{2 \cdot \frac{a + p}{2} \cdot x}{p} \right] }
         $$
         Для удобства распишу отдельно показатель $-1$:\\
         $$
             \sum \limits_{x=1}^{ p_1 } \left[ \frac{2 \cdot \frac{a + p}{2} \cdot x}{p} \right] = \sum \limits_{x=1}^{p_1} \left[ \frac{ax}{p} + x \right] = \sum \limits_{x=1}^{p_1} \left[ \frac{ax}{p} \right] + \sum \limits_{x=1}^{p_1} x = \sum \limits_{x=1}^{p_1} \left[ \frac{ax}{p} \right] + \frac{p_1(p_1 + 1)}{2} = \sum \limits_{x=1}^{p_1} \left[ \frac{ax}{p} \right] + \frac{p^2 - 1}{8}
         $$
-        Вернёмся к $\binom{2a}{p}$:
+        Вернёмся к $\left(\frac{2a}{p}\right)$:
         $$
-            \binom{2a}{p} = (-1)^{ \sum \limits_{x=1}^{p_1} \left[ \frac{ax}{p} \right] } \cdot (-1)^{ \frac{p^2 - 1}{8} }
+            \frac{2a}{p} = (-1)^{ \sum \limits_{x=1}^{p_1} \left[ \frac{ax}{p} \right] } \cdot (-1)^{ \frac{p^2 - 1}{8} }
         $$
         Тождество верно для любого нечётного $a$, поэтому можно подставить $a = 1$.
         $$
-            \binom{2}{p} = (-1)^{ \frac{p^2 - 1}{8} } \cdot (-1)^{ \sum \limits_{x=1}^{p_1} \left[ \frac{x}{p} \right] } = (-1)^{ \frac{p^2 - 1}{8} },
+            \left(\frac{2}{p}\right) = (-1)^{ \frac{p^2 - 1}{8} } \cdot (-1)^{ \sum \limits_{x=1}^{p_1} \left[ \frac{x}{p} \right] } = (-1)^{ \frac{p^2 - 1}{8} },
         $$
         так как $\left[ \frac{x}{p} \right] = 0$ ($x \leq p_1 < p$).
     \end{proof}
