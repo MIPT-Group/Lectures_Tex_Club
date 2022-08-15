@@ -192,6 +192,142 @@
 	\]
 \end{corollary}
 
+\subsubsection*{Доказательство второй конструкции Пэли по А. Мирошникову}
+
+\begin{proposition} (Свойства кронекеровского произведения)
+	Кронекерово произведение обладает двумя замечательными свойствами:
+	\begin{enumerate}
+		\item \[
+			\forall A \in M_{n \times m}, B \in M_{k \times d} \quad (A \oplus B)^T = A^T \oplus B^T
+		\]
+		
+		\item \[
+			\forall A, B, C, D \in M_n \quad (A \oplus B) (C \oplus D) = (AC) \oplus (BD)
+		\]
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}~
+	\begin{enumerate}
+		\item Обозначим $C = A \oplus B$, $D = C^T$. Посмотрим на произвольную ячейку $d_{ij}$. Распишем координаты в следующем виде:
+		\begin{align*}
+			&{i = t \cdot d + l,\ l < d}
+			\\
+			&{j = q \cdot k + p,\ p < k}
+		\end{align*}
+		Теперь можно приступить к рассмотрению ячейки более подробно:
+		\[
+			d_{ij} = d_{td + l,\ qk + p} = c_{qk + p,\ td + l} = a_{qt} \cdot b_{pl} = (A^T)_{tq} \cdot (B^T)_{lp} = (A^T \oplus B^T)_{td + l,\ qk + p}
+		\]
+		
+		\item Распишем левую часть равенства:
+		\[
+			(A \oplus B)(C \oplus D) = \Matrix{
+				&a_{11} B & &\cdots & &a_{1n} B \\
+				&\ \ \vdots & & \ddots & &\ \ \vdots \\
+				&a_{n1} B & & \ldots & & a_{nn} B
+			}^\square
+			\Matrix{
+				&c_{11} D & &\cdots & &c_{1n} D \\
+				&\ \ \vdots & & \ddots & &\ \ \vdots \\
+				&c_{n1} D & & \ldots & & c_{nn} D
+			}^\square
+			= \Matrix{
+				&R_{11} & &\cdots & &R_{1n} \\
+				&\ \ \vdots & & \ddots & &\ \ \vdots \\
+				&R_{n1} & & \ldots & & R_{nn}
+			}^\square
+		\]
+		В силу блочного умножения матриц, несложно увидеть следующую формулу:
+		\[
+			R_{ij} = \sum_{k = 1}^n (a_{ik} B)(c_{kj} D)
+		\]
+		Расписывая её, получим требуемое равенство:
+		\[
+			R_{ij} = \sum_{k = 1}^n (a_{ik} B)(c_{kj} D) = \left(\sum_{k = 1}^n a_{ik} c_{kj}\right) \cdot BD = (AC)_{ij} \cdot BD
+		\]
+	\end{enumerate}
+\end{proof}
+
+\begin{lemma} (Свойства матрицы Якобсталя)
+	Если $p \equiv 1 \pmod 4$, то верны следующие факты:
+	\begin{enumerate}
+		\item $Q_p$ симметрична
+		
+		\item \(Q_p \cdot Q^T_p = pE_p - I_p\), где $I_p$ - матрица, состоящая полностью из единиц
+	\end{enumerate}
+\end{lemma}
+
+\begin{proof}~
+	\begin{enumerate}
+		\item Просто посмотрим на элемент матрицы Якобсталя:
+		\[
+			\legSym{i - j}{p} = \legSym{-1}{p} \cdot \legSym{j - i}{p} = (-1)^{\frac{p - 1}{2}} \cdot \legSym{j - i}{p} = \legSym{j - i}{p}
+		\]
+		
+		\item Из первой конструкции мы знаем, что произведение любых различных строк матрицы Якобсталя даёт $-1$, а одной и той же даст  $p - 1$. В силу симметрии и того факта, что $Q_p \cdot Q^T_p$ выдаёт в ячейке как раз произведение двух строк, заключаем искомое выражение:
+		\[
+			Q_p \cdot Q^T_p = pE_p - I_p
+		\]
+	\end{enumerate}
+\end{proof}
+
+\begin{proposition} (Вторая конструкция Пэли)
+	Если $p = 4m + 1$, $n = 2p + 2$ для некоторого $m \in \N_0$, то существует матрица Адамара порядка $n$, получаемая следующим путём:
+	\begin{enumerate}
+		\item Запишем следующую матрицу
+		\[
+			A = \Matrix{&0 &e^T \\ &e &Q_p}^\square \in M_{p + 1}
+		\]
+		где $e$ - единичный столбец высоты $p$.
+		
+		\item Получим искомую матрицу, заменив элементы $A$ следующим образом:
+		\begin{align*}
+			&{0 \longrightarrow M_0 = \Matrix{&1 &{-1} \\ &-1 &{-1}}}
+			\\
+			&{\pm 1 \longrightarrow \pm M_1 = \pm \Matrix{&1 &1 \\ &1 &{-1}}}
+		\end{align*}
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	Произведём доказательство в несколько стадий:
+	\begin{enumerate}
+		\item Вычислим $AA^T$. Понятно, что в левом верхнем углу будет стоять $p - 1$. В остальных ячейках первой строки/столбца будут стоять нули, так как их выражения представляют собой сумму символов Лежандра. Методом пристального взгляда заметим, что в оставшемся пространстве получится $Q_p \cdot Q^T_p + I_p = pE_p$. Итого имеем
+		\[
+			A \cdot A^T = A^2 = pE_{p + 1}
+		\]
+		
+		\item Отметим отдельно, что матрицы $M_0$, $M_1$ - это матрицы Адамара. Более того, верны все следующие утверждения:
+		\begin{align*}
+			&{M_i^T = M_i}
+			\\
+			&{M_i^2 = M_i^T \cdot M_i = 2E_2}
+			\\
+			&{M_1 M_0 = - M_0 M_1}
+		\end{align*}
+		
+		\item Обозначим за $H$ искомую матрицу, получаемую подстановкой $M_0$ и $M_1$. Тогда, её можно записать в следующем виде:
+		\[
+			H = A \oplus M_1 + E_{p + 1} \oplus M_0
+		\]
+		Докажем теперь, что она действительно является матрицей Адамара. Для этого вычислим $HH^T$:
+		\begin{multline*}
+			HH^T = (A \oplus M_1 + E_{p + 1} \oplus M_0)(A \oplus M_1 + E_{p + 1} \oplus M_0)^T =
+			\\
+			(A \oplus M_1 + E_{p + 1} \oplus M_0)(A^T \oplus M_1^T + E_{p + 1} \oplus M_0^T) =
+			\\
+			(A \oplus M_1)(A^T \oplus M_1) + (A \oplus M_1)(E_{p + 1} \oplus M_0) +
+			\\
+			(E_{p + 1} \oplus M_0)(A^T \oplus M_1) + (E_{p + 1} \oplus M_0)(E_{p + 1} \oplus M_0) =
+			\\
+			(AA^T) \oplus M_1^2 + A \oplus (M_1 M_0) + A^T \oplus (M_0 M_1) + E_{p + 1} \oplus M_0^2 =
+			\\
+			pE_{p + 1} \oplus 2E_2 + E_{p + 1} \oplus 2E_2 = (2p + 2)E_{2p + 2}
+		\end{multline*}
+	\end{enumerate}
+\end{proof}
+
 \subsubsection*{Применение матриц Адамара}
 
 \begin{enumerate}
