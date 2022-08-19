@@ -119,16 +119,25 @@
 		\begin{itemize}
 			\item $\Ra$ Зафиксируем $\eps > 0$. Тогда, мы можем написать следующую цепочку неравенств:
 			\begin{multline*}
-				\int_0^1 f(x)dx - \eps \le \int_0^1 f_2(x)dx - \eps \le \left(\eps + \int_0^1 f_1(x)dx\right) - \eps = \varlimsup\limits_{N \to \infty} \frac{1}{N} \suml_{n = 0}^{N - 1} f_1(\{x_n\}) \le
+				\int_0^1 f(x)dx - \eps \le \int_0^1 f_2(x)dx - \eps \le \left(\eps + \int_0^1 f_1(x)dx\right) - \eps = \liml_{N \to \infty} \frac{1}{N} \suml_{n = 0}^{N - 1} f_1(\{x_n\}) \le
 				\\
 				\varliminf\limits_{N \to \infty} \suml_{n = 0}^{N - 1} f(\{x_n\}) \le \varlimsup\limits_{N \to \infty} \suml_{n = 0}^{N - 1} f(\{x_n\}) \le
 				\\
 				\liml_{N \to \infty} \frac{1}{N} \suml_{n = 0}^{N - 1} f_2(\{x_n\}) = \int_0^1 f_2(x)dx \le \int_0^1 f_1(x)dx + \eps \le \int_0^1 f(x)dx + \eps
 			\end{multline*}
 			
-			\item $\La$ Зафиксируем $\eps > 0$. Тогда, напишем вторую цепочку аналогично первой, но лишь на функцию-индикатор.
-			
-			\textcolor{red}{Я очень устал, поэтому цепочка будет ближе к сессии. Посмотреть можно на 59:30 в 27й лекции ОКТЧ за весну 2022}
+			\item $\La$ Нам нужно показать, что
+			\[
+				\frac{1}{N} \suml_{n = 0}^{N - 1} \I_{[a; b)}(\{x_n\}) \xrightarrow[N \to \infty]{} b - a
+			\]
+			Положим $f = \I_{[a; b)}$. Для неё существуют непрерывные $g_1, g_2$ из утверждения выше. Зафиксируем $a, b \in [0; 1],\ a < b,\ \eps > 0$. Тогда
+			\begin{multline*}
+				b - a - \eps = \int_0^1 \I_{[a; b)}(x)dx - \eps \le \int_0^1 g_2(x)dx - \eps \le \int_0^1 g_1(x)dx =
+				\\
+				\liml_{N \to \infty} \suml_{n = 0}^{N - 1} \frac{1}{N} g_1(\{x_n\}) \le \varliminf\limits_{N \to \infty} \suml_{n = 0}^{N - 1} \I_{[a; b)}(\{x_n\}) \le \frac{1}{N} \suml_{n = 0}^{N - 1} \I_{[a; b)}(\{x_n\}) \le
+				\\
+				\varlimsup\limits_{N \to \infty} \suml_{n = 0}^{N - 1} \I_{[a; b)}(\{x_n\}) \le \liml_{N \to \infty} \suml_{n = 0}^{N - 1} g_2(\{x_n\}) = \int_0^1 g_2(x)dx \le \int_0^1 g_1(x)dx + \eps \le b - a + \eps
+			\end{multline*}
 		\end{itemize}
 	\end{enumerate}
 \end{proof}
@@ -151,7 +160,7 @@
 \begin{corollary} (из последнего следствия)
 	Если $(x_n)_{n = 0}^\infty$ равномерно распределена, то
 	\[
-		\forall m \in \Z \bs \{0\} \quad \frac{1}{N} \suml_{n = 0}^n e^{2\pi im x_n} \xrightarrow[N \to \infty]{} 0
+		\forall m \in \Z \bs \{0\} \quad \frac{1}{N} \suml_{n = 0}^{N - 1} e^{2\pi im x_n} \xrightarrow[N \to \infty]{} 0
 	\]
 \end{corollary}
 

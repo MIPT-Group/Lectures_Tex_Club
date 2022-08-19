@@ -1,21 +1,23 @@
 \subsection{Симметрические билинейные и квадратичные формы}
 
+\textbf{До конца раздела} зафиксируем линейное пространство $V$ над полем $F$ и положим $n := \dim{V}$.
+
 \begin{theorem}
 	Пусть $\cha{F} \ne 2$. Тогда $\mathcal{B}(V) = \mathcal{B}^+(V) \oplus \mathcal{B}^-(V)$.
 \end{theorem}
 
 \begin{proof}
-	Рассмотрим произвольную форму $b$ и определим $b^+ \in \mathcal{B}^+$ и $b^- \in \mathcal{B}^-$ следующим образом:
+	Рассмотрим произвольную форму $b \in \mc B(V)$ и зададим $b^+ \in \mathcal{B}^+$, $b^- \in \mathcal{B}^-$ на произвольных $\overline u, \overline v \in V$ следующим образом:
 	\[b^+(\overline{u}, \overline{v}) := \frac{b(\overline{u}, \overline{v}) + b(\overline{v}, \overline{u})}{2},~b^-(\overline{u}, \overline{v}) := \frac{b(\overline{u}, \overline{v}) - b(\overline{v}, \overline{u})}{2}\]
 	
-	Тогда $b = b^+ + b^-$, и, в силу произвольности $b \in \mathcal{B}(V)$, $\mathcal{B}(V) \hm{=} \mathcal{B}^+(V) + \mathcal{B}^-(V)$. Более того, $\mathcal{B}^+(V) \cap \mathcal{B}^-(V) = \{0\}$: если $b \in \mathcal{B}(V)$ и симметрична, и кососимметрична, то:
-	\[\forall \overline{u}, \overline{v} \in V: b(\overline{u}, \overline{v}) = b(\overline{v}, \overline{u}) = -b(\overline{u}, \overline{v}) \Rightarrow b(\overline{u}, \overline{v}) = 0\]
+	Тогда $b = b^+ + b^-$, и, в силу произвольности выбора формы $b \in \mathcal{B}(V)$, получено равенство $\mathcal{B}(V) \hm{=} \mathcal{B}^+(V) + \mathcal{B}^-(V)$. Проверим теперь, что $\mathcal{B}^+(V) \cap \mathcal{B}^-(V) = \{0\}$. Действительно, если $b \in \mathcal{B}^+(V) \cap \mathcal{B}^-(V)$, то для любых $\overline u, \overline v \in V$ выполнено следующее:
+	\[b(\overline{u}, \overline{v}) = b(\overline{v}, \overline{u}) = -b(\overline{u}, \overline{v}) \Rightarrow b(\overline{u}, \overline{v}) = 0\]
 	
-	Значит, $\mathcal{B}(V) = \mathcal{B}^+(V) \oplus \mathcal{B}^-(V)$.
+	Значит, $b = 0$, поэтому сумма $\mathcal{B}^+(V) + \mathcal{B}^-(V)$ "--- прямая.
 \end{proof}
 
 \begin{note}
-	Если $\cha{F} = 2$, то данная теорема неверна: все кососимметрические формы будут также являться и симметрическими.
+	Если $\cha{F} = 2$, то теорема выше уже неверна, поскольку выполнено включение $\mc B^-(V) \le \mc B^+(V)$.
 \end{note}
 
 \begin{definition}
@@ -23,25 +25,34 @@
 \end{definition}
 
 \begin{note}
-	Для произвольной (не симметрической или кососимметрической) билинейной формы два множества выше необязательно совпадают и называются \textit{правым} и \textit{левым ядром} соответственно.
+	Для произвольной билинейной формы $b \in \mc B(V)$ два множества выше необязательно совпадают и называются \textit{правым} и \textit{левым ядром} соответственно.
 \end{note}
 
 \begin{theorem}
-	$\dim{\ke{b}} = \dim{V} - \rk{b}$.
+	Для любой формы $b \in \mc B^\pm(V)$ выполнено равенство $\dim{\ke{b}} = \dim{V} - \rk{b}$.
 \end{theorem}
 
 \begin{proof}
-	Рассмотрим произвольный базис $e$ в $V$, $b \leftrightarrow_e B$, и произвольный вектор $\overline{v} \in V$, $\overline{v} \leftrightarrow_e x$. Тогда $\overline{v} \in \ke{b} \Leftrightarrow \forall \overline{u} \in V: b(\overline{u}, \overline{v}) \hm{=} 0 \Leftrightarrow \forall i: b(\overline{e_i}, \overline{v}) = 0$. Это равносильно тому, что $\forall i: (0, \dots, 0, 1_i, 0, \dots, 0)Bx = 0 \Leftrightarrow EBx = Bx = 0$. Размерность пространства решений полученной однородной системы равна $\dim{V} - \rk{B} = \dim{V} - \rk{b}$.
+	Пусть $e$ "--- произвольный базис в $V$, $b \leftrightarrow_e B$. Тогда для произвольного вектора $\overline{v} \in V$, $\overline{v} \leftrightarrow_e x$, выполнены следующие равносильности:
+	\[\overline{v} \in \ke{b} \Leftrightarrow \forall \overline{u} \in V: b(\overline{u}, \overline{v}) \hm{=} 0 \Leftrightarrow \forall i \in \{1, \dotsc, n\}: b(\overline{e_i}, \overline{v}) = 0\]
+	
+	Последнее из условий выше равносильно тому, что $Bx = 0$. Размерность пространства решений полученной однородной системы равна $\dim{V} - \rk{B} = \dim{V} - \rk{b}$.
 \end{proof}
 
 \begin{definition}
-	Пусть $b \in \mathcal{B}^\pm(V)$, $\overline{u}, \overline{v} \in {V}$. Векторы $\overline{u}, \overline{v}$ называются \textit{ортогональными относительно $b$}, если $b(\overline{u}, \overline{v}) = 0$. Если $U \le V$, то \textit{ортогональным дополнением к $U$ относительно $b$} называется $U^\perp := \{\overline{v} \in V: \forall \overline{u} \in U: b(\overline{u}, \overline{v}) = 0\} \le V$.
+	Пусть $b \in \mathcal{B}^\pm(V)$.
+	\begin{itemize}
+		\item Векторы $\overline{u}, \overline{v} \in V$ называются \textit{ортогональными относительно $b$}, если $b(\overline{u}, \overline{v}) = 0$.
+  
+		\item \textit{Ортогональным дополнением подпространства $U \le V$ относительно $b$} называется подпространство $U^\perp := \{\overline{v} \in V: \forall \overline{u} \in U: b(\overline{u}, \overline{v}) = 0\} \le V$.
+	\end{itemize}
 \end{definition}
 
-\begin{example} Справедливы следующие утверждения:
+\begin{example}
+	Справедливы следующие утверждения:
 	\begin{enumerate}
-		\item Если $b$ "--- скалярное произведение в $V_i$, то ортогональность относительно $b$ соответствует ортогональности геометрических векторов. Ортогональное дополнение к плоскости в $V_3$ относительно $b$ "--- это прямая, перпендикулярная ей.
-		\item Если $b = 0$, то $\forall U \le V: U^\perp = V$.
+		\item Если $b$ "--- скалярное произведение в пространстве $V_n$, $n \in \{1, 2, 3\}$, то ортогональность относительно $b$ соответствует ортогональности геометрических векторов. Тогда, например, ортогональное дополнение к плоскости в $V_3$ относительно $b$ "--- это прямая, перпендикулярная ей.
+		\item Если $b = 0$, то для любого подпространства $U \le V$ выполнено равенство $U^\perp = V$.
 	\end{enumerate}
 \end{example}
 
@@ -52,7 +63,7 @@
 \begin{theorem}Пусть $b \in \mathcal{B}^\pm(V)$, $U \le V$. Тогда:
 	\begin{enumerate}
 		\item $\dim{U^\perp} \ge \dim{V} - \dim{U}$
-		\item Если $b$ невырожденна, то $\dim{U^\perp} = \dim{V} - \dim{U}$
+		\item Если форма $b$ "--- невырожденная, то $\dim{U^\perp} = \dim{V} - \dim{U}$
 	\end{enumerate}
 \end{theorem}
 

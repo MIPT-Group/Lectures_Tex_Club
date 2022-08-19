@@ -4,7 +4,7 @@
 		T = \{0, \pm \vec{e}_1, \ldots, \pm \vec{e}_n\}
 	\]
 	
-	Для $\eps > 0$ будем искать $\vec{a}$ такой, что $q = p$, где p - простое число. Для начала, найдём способ подсчёта числа точек $\Lambda_{\vec{a}}$ в октаэдре $O^n$:
+	Для $\eps > 0$ будем искать $\vec{a}$ такой, что $q = p$, где p - простое число. Для начала, найдём способ подсчёта числа нетривиальных точек $\Lambda_{\vec{a}}$ в октаэдре $O^n$:
 	
 	Определим характеристическую функцию для $\forall \vec{x} \in \Q^n$:
 	\[
@@ -16,7 +16,7 @@
 	\]
 	Теперь распишем величину $|(\Lambda_{\vec{a}} \cap O^n) \bs T|$:
 	\[
-		\big|(\Lambda_{\vec{a}} \cap O^n) \bs \{0, \pm \vec{e}_1, \ldots, \pm \vec{e}_n\}\big| = \suml_{l = 1}^{p - 1} \left(\suml_{\vec{x} \in (O^n \cap (1/p)\Z^n) \bs T} \delta(\vec{a} l - \vec{x})\right)
+		\big|(\Lambda_{\vec{a}} \cap O^n) \bs T\big| = \suml_{l = 1}^{p - 1} \left(\suml_{\vec{x} \in (O^n \cap (1/p)\Z^n) \bs T} \delta(\vec{a} l - \vec{x})\right)
 	\]
 	Здесь возникает несколько вопросов, на которые необходимо дать ответ:
 	\begin{enumerate}
@@ -38,7 +38,7 @@
 	\]
 	то отсюда будет следовать (так как величина слева - ничто иное чем среднее арифметическое мощностей по всем $\vec{a}$), что
 	\[
-		\exists \vec{a} \such \frac{1}{p^n} \cdot \suml_{a_1 = 1}^p \cdots \suml_{a_n = 1}^p \suml_{l = 1}^{p - 1} \left(\suml_{\vec{x} \in (O^n \cap (1/p)\Z^n) \bs T} \delta(\vec{a} l - \vec{x})\right) < 1 (\Ra\ = 0)
+		\exists \vec{a} \such \suml_{l = 1}^{p - 1} \left(\suml_{\vec{x} \in (O^n \cap (1/p)\Z^n) \bs T} \delta(\vec{a} l - \vec{x})\right) < 1 (\Ra\ = 0)
 	\]
 	Такой $\vec{a}$ будет соответствовать лишь одному условию, но у нас есть ещё и второе:
 	\[
@@ -46,9 +46,11 @@
 	\]
 	
 	Итак, зафиксируем $\eps > 0$. Из того факта, что, начиная с некоторого $n_0$, всегда есть простое число $p \in [n; n + O(n^{0.525})]$, мы можем заявить следующее:
-	\[
-		\forall \eps > 0\ \exists n_0 \in \N \such \forall n \ge n_0\ \exists p \colon\ \ \frac{(1 - \eps)n!}{2^n} \le p \le \frac{(1 - \eps)n!}{2^n} + C \cdot \left(\frac{(1 - \eps) n!}{2^n}\right)^{0.525} \le \frac{\eps}{2} \cdot \frac{n!}{2^n}
-	\]
+	\begin{multline*}
+		\forall \eps > 0\ \exists n_0 \in \N \such \forall n \ge n_0\ \exists p \colon\ \ \frac{(1 - \eps)n!}{2^n} \le p \le \frac{(1 - \eps)n!}{2^n} + C \cdot \left(\frac{(1 - \eps) n!}{2^n}\right)^{0.525} \le
+		\\
+		\frac{(1 - \eps)n!}{2^n} + \frac{\eps}{2} \cdot \frac{n!}{2^n}
+	\end{multline*}
 	То есть
 	\[
 		1 - \eps \le \frac{2^n}{n!} \cdot p \le 1 - \frac{\eps}{2}
@@ -79,7 +81,7 @@
 	\[
 		\suml_{\vec{x} \in (O^n \cap (1 / p)\Z^n) \bs T} 1 \le |O^n \cap (1 / p)\Z^n| = N_p \le \frac{\frac{2^n}{n!} \cdot (1 + \frac{2}{p})^n}{1/p^n}
 	\]
-	Числитель последней дроби - это мера октаэдра, который увеличили в $(1 + 2/p)$ раз, а числитель - это мера, соответствующая одной точке. Соберём всё полученное вместе:
+	Числитель последней дроби - это мера октаэдра, который увеличили в $(1 + 2/p)$ раз, а знаменатель - это мера, соответствующая одной точке. Соберём всё полученное вместе:
 	\begin{multline*}
 		\frac{1}{p^n} \suml_{l = 1}^{p - 1}\ \ \suml_{\vec{x} \in (O^n \cap (1 / p)\Z^n) \bs T} 1 \le \frac{p - 1}{p^n} \cdot \frac{2^n}{n!} \cdot p^n \cdot \left(1 + \frac{2}{p}\right)^n \le
 		\\
