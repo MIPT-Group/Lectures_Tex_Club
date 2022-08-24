@@ -167,6 +167,8 @@
 	где $M_\eps$ - элементарное множество.
 \end{theorem}
 
+\textcolor{red}{Сюда бы надо картинку с 19й лекции 2022 4:55}
+
 \begin{proof}~
 	\begin{itemize}
 		\item Достаточность $(\La)$. Снова воспользуемся фактом, что $K_I \subset A \cup A'$, где $A' = K_I \bs A$. Тогда
@@ -229,16 +231,12 @@
 	Семейство измеримых по Лебегу (Жордану) подмножеств $K_i$ образует алгебру множеств (иначе говоря, есть замкнутость относительно стандартных операций над множествами).
 \end{theorem}
 
-\begin{note}
-	Для упрощения нотаций, будем обозначать любую из верхних/нижних мер как просто $\mu^*$/$\mu_*$. Аналогично и в случае просто меры.
-\end{note}
-
 \begin{proof}
 	Пусть $A, B$ - измеримые множества
 	\begin{itemize}
 		\item Объединение $A \cup B$. По критерию измеримости
 		\[
-			\forall \eps > 0\ \exists M_\eps, N_\eps \such \mu^*(A \tr M_\eps) < \eps, \mu^*(B \tr N_\eps) < \eps
+			\forall \eps > 0\ \exists M_\eps, N_\eps \such \upjlm(A \tr M_\eps) < \eps, \upjlm(B \tr N_\eps) < \eps
 		\]
 		Тогда покажем, что мера множества $(A \cup B) \tr (M_\eps \cup N_\eps)$ подходит под критерий измеримости:
 		\begin{multline*}
@@ -248,7 +246,7 @@
 		\end{multline*}
 		Следовательно
 		\[
-			\mu^*((A \cup B) \tr (M_\eps \cup N_\eps)) \le \mu^*(A \tr M_\eps) + \mu^*(B \tr N_\eps) < 2\eps
+			\upjlm((A \cup B) \tr (M_\eps \cup N_\eps)) \le \upjlm(A \tr M_\eps) + \upjlm(B \tr N_\eps) < 2\eps
 		\]
 		
 		\item Все остальные свойства доказываются из соображения, что $A$ - измеримо $\lra$ $A' = K_I \bs A$ тоже измеримо:
@@ -261,5 +259,3 @@
 		\end{itemize}
 	\end{itemize}
 \end{proof}
-
-\textcolor{red}{На этом мои полномочия всё. Я устал, я - мухожук... (Продолжение будет после конца сессии.)}

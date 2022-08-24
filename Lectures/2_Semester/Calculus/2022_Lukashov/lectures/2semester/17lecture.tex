@@ -104,7 +104,7 @@
 	\begin{enumerate}
 		\item Если $P \subset Q$ - брусья, то $|P| \le |Q|$
 		
-		\item Если брус $P = \bigsqcup\limits_{i = 1}^m P_i$, то $|P| = \suml_{n = 1}^m |P_i|$ \textit{(Конечная аддитивность объёма на множестве брусьев)}
+		\item Если брус $P = \bscupl_{i = 1}^m P_i$, то $|P| = \suml_{n = 1}^m |P_i|$ \textit{(Конечная аддитивность объёма на множестве брусьев)}
 	\end{enumerate}
 \end{proposition}
 
@@ -199,9 +199,9 @@
 
 \begin{proof}~
 	\begin{enumerate}
-		\item Пусть \(M = \bsqcupl_{i = 1}^m P_i = \bsqcupl_{j = 1}^k Q_j\). Тогда, существует третье разбиение $M$, записываемое в следующем виде:
+		\item Пусть \(M = \bscupl_{i = 1}^m P_i = \bscupl_{j = 1}^k Q_j\). Тогда, существует третье разбиение $M$, записываемое в следующем виде:
 		\[
-			M = \bsqcupl_{i = 1}^m \bsqcupl_{j = 1}^k P_i \cap Q_j
+			M = \bscupl_{i = 1}^m \bscupl_{j = 1}^k P_i \cap Q_j
 		\]
 		В силу конечной аддитивности объёма на брусьях (здесь, например, мы представили $P_i$ как дизъюнктное объединение кусочков-пересечений с $Q_j$-ми), имеет место следующее равенство:
 		\[
@@ -210,9 +210,9 @@
 		
 		\item[4.] Так как $\forall i \neq j \Ra M_i \cap M_j = \emptyset$ и при этом любое $M_i$ является элементарным множеством, то для $M$ можно записать следующее разбиение на брусья:
 		\begin{align*}
-			&{\forall i\ \ M_i = \bsqcupl_{j = 1}^{d_i} P_j^i}
+			&{\forall i\ \ M_i = \bscupl_{j = 1}^{d_i} P_j^i}
 			\\
-			&{M = \bsqcupl_{i = 1}^m M_i = \bsqcupl_{i = 1}^m \bsqcupl_{j = 1}^{d_i} P_j^i}
+			&{M = \bscupl_{i = 1}^m M_i = \bscupl_{i = 1}^m \bscupl_{j = 1}^{d_i} P_j^i}
 		\end{align*}
 		Отсюда получаем следующее:
 		\[
@@ -272,17 +272,17 @@
 \begin{proof}
 	Докажем равенство через неравенства в 2 стороны:
 	\begin{enumerate}
-		\item $\le$. Пусть $M \subset \bsqcupl_{i = 1}^\infty M_i$. Если сумма объёмов бесконечна, то включение очевидно. Иначе
+		\item $\le$. Пусть $M \subset \bscupl_{i = 1}^\infty M_i$. Если сумма объёмов бесконечна, то включение очевидно. Иначе
 		\[
-			M_i = \bsqcupl_j P_{ij} \Ra \bsqcupl_{i = 1}^\infty M_i = \bsqcupl_{k = 1}^\infty P_k
+			M_i = \bscupl_j P_{ij} \Ra \bscupl_{i = 1}^\infty M_i = \bscupl_{k = 1}^\infty P_k
 		\]
-		При этом $M = \bsqcupl_{i = 1}^m Q_i$. Рассмотрим $\eps$-сжатие для $Q_i$ и $\alpha_k$-растяжения для $P_k$. Тогда
+		При этом $M = \bscupl_{i = 1}^m Q_i$. Рассмотрим $\eps$-сжатие для $Q_i$ и $\alpha_k$-растяжения для $P_k$. Тогда
 		\[
-			\bsqcupl_{i = 1}^m Q_i^{-\eps} \subset M \subset \bcupl_{k = 1}^\infty P_k^{\alpha_k}
+			\bscupl_{i = 1}^m Q_i^{-\eps} \subset M \subset \bcupl_{k = 1}^\infty P_k^{\alpha_k}
 		\]
 		Идея состоит в том, что слева стоит замкнутое ограниченное множество, то есть компактное. Значит, из его компактности (так как $P_k^{\alpha_k}$ является открытым):
 		\[
-			\exists \{k_1, \ldots, k_N\} \such \bsqcupl_{i = 1}^m Q_i^{-\eps} \subset \bcupl_{l = 1}^N P_{k_l}^{\alpha_{k_l}}
+			\exists \{k_1, \ldots, k_N\} \such \bscupl_{i = 1}^m Q_i^{-\eps} \subset \bcupl_{l = 1}^N P_{k_l}^{\alpha_{k_l}}
 		\]
 		Дополнительно $|\bigsqcup_{i = 1}^m Q_i^{-\eps}| = |M|(1 - \eps)$, а в правой части
 		\[
@@ -294,7 +294,7 @@
 		\]
 		Полученное неравенство верно для всех достаточно малых $\eps$. Ну и в итоге это даст следующее заключение:
 		\[
-			\exists \eps_0 > 0 \such \forall \eps < \eps_0 \quad \left|\bsqcupl_{i = 1}^m Q_i^{-\eps}\right| = |M|(1 - \eps) \le \left|\bigcup_{l = 1}^N P_{k_l}^{\alpha_{k_l}}\right| \le \sum_{n = 1}^\infty |M_i| + \eps
+			\exists \eps_0 > 0 \such \forall \eps < \eps_0 \quad \left|\bscupl_{i = 1}^m Q_i^{-\eps}\right| = |M|(1 - \eps) \le \left|\bigcup_{l = 1}^N P_{k_l}^{\alpha_{k_l}}\right| \le \sum_{n = 1}^\infty |M_i| + \eps
 		\]
 		Устремив $\eps$ к нулю, получим нужное неравенство.
 		
